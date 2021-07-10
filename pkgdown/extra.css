@@ -1,0 +1,29 @@
+@import 'https://fonts.googleapis.com/css?family=Fira+Mono:400,700|family=IBM+Plex+Sans:400,700';
+
+
+body{
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Fira Mono', sans-serif;
+  font-weight: 700;
+}
+
+h2,h3 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700;
+}
+
+pre, code {
+  font-family: 'Fira Mono', monospace;
+}
+
+.navbar-link {
+  font-weight: 700;
+  font-family: 'Fira Mono', sans-serif;
+}
+
+h4.author,h4.date {
+  padding-top:0px;
+  margin-top:0px;}
