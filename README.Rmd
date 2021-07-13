@@ -41,4 +41,23 @@ remotes::install_github("nflverse/nflloadr", ref = "dev")
 
 ## Roadmap
 
-This package will include...
+This package `must` include:
+
+- Functions for loading: 
+    - pbp
+    - player_stats (aggregated by week or season) 
+    - team_stats (aggregated by week or season)
+    - schedules (aka Lee's game data)
+    - rosters
+    - ... ?
+- CRAN (because we want to introduce it as a dependency for other packages)
+
+It would be nice if this package included:
+
+- Memoised/cached data by default
+- Optional parallel processing (?)
+
+Design decisions:
+
+- Optimize for minimum dependencies (?)
+- Optimize for speed (?)

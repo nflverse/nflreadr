@@ -1,5 +1,5 @@
 Package: nflloadr
-Title: New DynastyProcess Package
+Title: Download nflverse Data
 Version: 0.0.0.01
 Authors@R: 
     person(given = "Tan",
@@ -7,8 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "tan@tanho.ca",
            comment = c(ORCID = "0000-0001-8388-5155"))
-Description: New DynastyProcess Package
+Description: A low-level package for downloading data from nflverse GitHub
+    repositories.
 License: MIT + file LICENSE
+URL: https://github.com/nflverse/nflloadr
+BugReports: https://github.com/nflverse/nflloadr/issues
 Depends:
     R (>= 3.0.0)
 Imports:

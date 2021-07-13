@@ -1,16 +1,15 @@
 destination: docs
 
-url: ffsimulator.dynastyprocess.com
+url: nflverse.github.io/nflloadr
 
 authors:
   Tan Ho:
     href: https://twitter.com/_TanHo
 
 home:
-  title: ffsimulator • Simulate Fantasy Football Seasons
+  title: nflloadr • Download nflverse Data
   description: >
-    An R package that helps simulate fantasy football seasons,
-    using nflfastR data and FantasyPros rankings.
+    A low-level R package that downloads data from nflverse GitHub data repositories.
 
 navbar:
   structure:
@@ -23,20 +22,11 @@ navbar:
     more:
       text: "More"
       menu:
-        - text: ffverse
-        - text: ffscrapr package
-          href: https://ffscrapr.dynastyprocess.com
-        - text: ffverse GitHub
-          href: https://www.github.com/ffverse
-        - text: -------
         - text: "nflverse"
         - text: nflfastR package
           href: https://www.nflfastr.com
         - text: nflverse GitHub
           href: https://github.com/nflverse
-        - text: ------
-        - text: "DynastyProcess.com"
-          href: https://dynastyprocess.com
 
 template:
   params:
@@ -45,12 +35,9 @@ template:
 #      api_key: 7abddd2aa591d955b365235f35d75a38
 #      index_name: dynastyprocess
   opengraph:
-    image:
-      src: man/figures/ffscrapr.svg
-      alt: "ffsimulator - An R Package For Simulating Fantasy Football Seasons"
     twitter:
       creator: "@_TanHo"
-      site: "@DynastyProcess"
+      site: "@nflfastR"
       card: summary
 
 #development:
