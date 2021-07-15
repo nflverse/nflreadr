@@ -44,6 +44,9 @@ This package `must` include:
     -   team\_stats (aggregated by week or season)
     -   schedules (aka Lee’s game data)
     -   rosters
+    -   Next Gen Stats data
+    -   export general `rds_from_url()` function (without littering
+        connections) for future files
     -   … ?
 -   CRAN (because we want to introduce it as a dependency for other
     packages)
@@ -51,7 +54,9 @@ This package `must` include:
 It would be nice if this package included:
 
 -   Memoised/cached data by default
--   Optional parallel processing (?)
+-   Optional parallel processing (?) -&gt; we can do this with
+    `parallel::mclapply()` in combination with `do.call("rbind", ...)`
+    to avoid the `future` and `furrr` dependencies
 
 Design decisions:
 
