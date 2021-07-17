@@ -28,3 +28,6 @@ most_recent_season <- function() {
     return(current_year - 1)
   }
 }
+
+# check if a package is installed
+is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
