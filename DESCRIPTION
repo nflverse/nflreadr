@@ -1,12 +1,16 @@
 Package: nflloadr
 Title: Download nflverse Data
-Version: 0.0.0.01
+Version: 0.0.0.02
 Authors@R: 
-    person(given = "Tan",
-           family = "Ho",
-           role = c("aut", "cre"),
-           email = "tan@tanho.ca",
-           comment = c(ORCID = "0000-0001-8388-5155"))
+    c(person(given = "Tan",
+             family = "Ho",
+             role = c("aut", "cre"),
+             email = "tan@tanho.ca",
+             comment = c(ORCID = "0000-0001-8388-5155")),
+      person(given = "Sebastian",
+             family = "Carl",
+             role = "aut",
+             email = "mrcaseb@gmail.com"))
 Description: A low-level package for downloading data from nflverse GitHub
     repositories.
 License: MIT + file LICENSE

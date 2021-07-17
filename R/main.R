@@ -1,12 +1,18 @@
 #' Load Play By Play
 #'
-#' @param seasons
+#' @description Loads multiple seasons from the nflfastR datarepo
 #'
-#' @return
+#' @param seasons A vector of 4-digit years associated with given NFL seasons.
+#' @param type One of `"rds"`, `"parquet"` or `"qs"`. The latter two require
+#' the package `curl` as well as `arrow` and `qs` respectively.
+#'
+#' @return The complete nflfastR dataset as returned by [nflfastR::build_nflfastR_pbp()] for
+#' all given `seasons`
 #' @export
 #'
 #' @examples
-#' load_pbp(2019:2020)
+#' pbp <- load_pbp(2019:2020)
+#' dplyr::glimpse(pbp)
 load_pbp <- function(seasons, type = c("rds", "parquet", "qs")) {
   type <- match.arg(type)
 
@@ -77,7 +83,10 @@ load_team_stats <- function(){}
 #' @export
 #'
 #' @examples
-load_schedules <- function(){}
+load_schedules <- function(){
+  "https://github.com/nflverse/nfldata/blob/master/data/games.rds?raw=true" %>%
+    rds_from_url()
+}
 
 #' Load Rosters
 #'
