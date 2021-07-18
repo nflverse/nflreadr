@@ -2,17 +2,15 @@
 % Please edit documentation in R/main.R
 \name{load_player_stats}
 \alias{load_player_stats}
-\title{Load Player Level Stats}
+\title{Load Player Level Weekly Stats}
 \usage{
-load_player_stats(seasons, type, summarise_by)
+load_player_stats(seasons, file_type = c("rds", "qs", "parquet"))
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return}
 
-\item{type}{one of \code{offense}, \code{defense}, or \code{special_teams}}
-
-\item{summarise_by}{one of \code{week} or \code{season}}
+\item{file_type}{one of "rds", "qs" or "parquet"}
 }
 \description{
-Load Player Level Stats
+Load Player Level Weekly Stats
 }

@@ -2,17 +2,15 @@
 % Please edit documentation in R/main.R
 \name{load_team_stats}
 \alias{load_team_stats}
-\title{Load Team Level Stats}
+\title{Load Team Level Weekly Stats}
 \usage{
 load_team_stats()
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return}
 
-\item{summarise_by}{one of \code{week} or \code{season}}
-
 \item{type}{one of \code{offense}, \code{defense}, or \code{special_teams}}
 }
 \description{
-Load Team Level Stats
+Load Team Level Weekly Stats
 }
