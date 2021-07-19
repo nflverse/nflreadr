@@ -1,4 +1,4 @@
-Package: nflloadr
+Package: nflreadr
 Title: Download nflverse Data
 Version: 0.0.0.03
 Authors@R: 
@@ -14,8 +14,8 @@ Authors@R:
 Description: A low-level package for downloading data from nflverse GitHub
     repositories.
 License: MIT + file LICENSE
-URL: https://github.com/nflverse/nflloadr
-BugReports: https://github.com/nflverse/nflloadr/issues
+URL: https://github.com/nflverse/nflreadr
+BugReports: https://github.com/nflverse/nflreadr/issues
 Depends:
     R (>= 3.0.0)
 Imports:

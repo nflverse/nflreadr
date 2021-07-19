@@ -1,12 +1,12 @@
 
 .onLoad <- function(libname,pkgname){
 
-  memoise_option <- getOption("nflloadr.cache", default = "memory")
+  memoise_option <- getOption("nflreadr.cache", default = "memory")
 
   if(!memoise_option %in% c("memory", "filesystem", "off")) memoise_option <- "memory"
 
   if(memoise_option == "filesystem"){
-    cache_dir <- rappdirs::user_cache_dir(appname = "nflloadr")
+    cache_dir <- rappdirs::user_cache_dir(appname = "nflreadr")
     dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
     cache <- cachem::cache_disk(dir = cache_dir)
   }
@@ -40,11 +40,11 @@
 
 .onAttach <- function(libname, pkgname){
 
-  memoise_option <- getOption("nflloadr.cache",default = "memory")
+  memoise_option <- getOption("nflreadr.cache",default = "memory")
 
   if (!memoise_option %in% c("memory", "filesystem", "off")) {
     memoise_option <- "memory"
   }
 
-  if(memoise_option == "off") packageStartupMessage('Note: nflloadr.cache is set to "off"')
+  if(memoise_option == "off") packageStartupMessage('Note: nflreadr.cache is set to "off"')
 }
