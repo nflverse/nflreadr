@@ -4,13 +4,26 @@
 \alias{load_player_stats}
 \title{Load Player Level Weekly Stats}
 \usage{
-load_player_stats(seasons, file_type = c("rds", "qs", "parquet"))
+load_player_stats(file_type = c("rds", "qs", "parquet"))
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return}
-
-\item{file_type}{one of "rds", "qs" or "parquet"}
+\item{file_type}{One of \code{"rds"}, \code{"parquet"} or \code{"qs"}. The latter two require
+the package \code{curl} as well as \code{arrow} and \code{qs} respectively.}
+}
+\value{
+A tibble of week-level player statistics that aims to match NFL official box scores.
 }
 \description{
 Load Player Level Weekly Stats
+}
+\examples{
+\donttest{
+  load_player_stats()
+}
+
+}
+\seealso{
+\url{https://www.nflfastr.com/reference/load_player_stats.html}
+
+\url{https://github.com/nflverse/nflfastr-data}
 }

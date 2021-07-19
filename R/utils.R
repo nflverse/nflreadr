@@ -31,7 +31,7 @@ most_recent_season <- function() {
 # check if a package is installed
 is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
-check_download_deps <- function(type){
+choose_loader <- function(type){
 
   if (type == "parquet" && !all(is_installed("arrow"), is_installed("curl"))){
     cli::cli_abort("Packages {.code arrow} and {.code curl} required for argument {.val {type}}. Please install them.")
@@ -41,5 +41,13 @@ check_download_deps <- function(type){
     cli::cli_abort("Packages {.code qs} and {.code curl} required for argument {.val {type}}. Please install them.")
   }
 
-  return(NULL)
+  loader <- switch(type,
+                   "rds" = rds_from_url,
+                   "qs" = qs_from_url,
+                   "parquet" = parquet_from_url
+  )
+
+  return(loader)
 }
+
+

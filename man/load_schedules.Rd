@@ -6,6 +6,20 @@
 \usage{
 load_schedules()
 }
+\value{
+A tibble of season-level roster data.
+}
 \description{
 This returns game/schedule information as maintained by Lee Sharpe.
+}
+\examples{
+\donttest {
+ load_schedules()
+}
+
+}
+\seealso{
+\url{https://github.com/nflverse/nfldata}
+
+\url{https://www.nflfastr.com/reference/fast_scraper_roster.html}
 }

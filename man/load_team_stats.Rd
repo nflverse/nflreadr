@@ -6,11 +6,12 @@
 \usage{
 load_team_stats()
 }
-\arguments{
-\item{seasons}{a numeric vector of seasons to return}
-
-\item{type}{one of \code{offense}, \code{defense}, or \code{special_teams}}
-}
 \description{
 Load Team Level Weekly Stats
+}
+\examples{
+\donttest{
+  load_team_stats()
+}
+
 }

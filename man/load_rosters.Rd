@@ -9,6 +9,20 @@ load_rosters(season)
 \arguments{
 \item{seasons}{a numeric vector of seasons to return}
 }
+\value{
+A tibble of season-level roster data.
+}
 \description{
 Load Rosters
+}
+\examples{
+\donttest{
+  load_rosters(2020)
+}
+
+}
+\seealso{
+\url{https://github.com/nflverse/nflfastR-roster}
+
+\url{https://www.nflfastr.com/reference/fast_scraper_roster.html}
 }
