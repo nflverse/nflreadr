@@ -2,12 +2,9 @@
 
 Many hands make light work! Here are some ways you can contribute to this project:
 
-### Sponsor
-- You can [sponsor this project with donations](https://github.com/sponsors/tanho63)!
-
 ### Open an issue
 
-- You can [open an issue](https://github.com/DynastyProcess/PkgName/issues/new/choose) if you'd like to request a specific function or report a bug/error.
+- You can [open an issue](https://github.com/nflverse/nflreadr/issues/new/choose) if you'd like to request a specific function or report a bug/error.
 
 ### Fixing typos
 
@@ -19,19 +16,7 @@ You can find the `.R` file that generates the `.Rd` by reading the comment in th
 *   If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
 [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
 
-### Pull request process
-
-*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("dynastyprocess/PkgName", fork = TRUE)`.
-
-*   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
-    If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
-*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
-
-*   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
-    The title of your PR should briefly describe the change.
-    The body of your PR should contain `Fixes #issue-number`.
-
-*  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
+*   You can also bring up changes in the [nflverse discord](https://discord.com/invite/5Er2FBnnQa) and our team will be happy to discuss!
 
 ### Code style
 
