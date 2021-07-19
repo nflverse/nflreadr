@@ -22,13 +22,12 @@ jobs:
 
       - name: Query dependencies
         run: |
-          install.packages('pak')
-          saveRDS(pak::local_dev_deps(), ".github/depends.Rds", version = 2)
+          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
+          saveRDS(pak::pkg_deps("local::.", dependencies = TRUE), ".github/r-depends.rds")
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
       - name: Cache R packages
-        if: runner.os != 'Windows'
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
@@ -36,12 +35,8 @@ jobs:
           restore-keys: nflverse-nflreadr-${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
       - name: Install system dependencies
-        if: runner.os == 'Linux'
-        run: pak::local_system_requirements(sudo = TRUE, execute =  TRUE)
-        shell: Rscript {0}
-
-      - name: Install dependencies
         run: |
+          pak::local_system_requirements(sudo = TRUE, execute =  TRUE)
           pak::local_install_dev_deps()
           pak::pak("pkgdown")
         shell: Rscript {0}
