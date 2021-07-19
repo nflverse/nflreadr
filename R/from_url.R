@@ -11,11 +11,14 @@
 rds_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
+
   con <- url(url)
   on.exit(close(con))
   load <- try(readRDS(con), silent = TRUE)
+
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
   if (inherits(load, "try-error")) return(data.frame())
+
   load
 }
 
@@ -32,12 +35,16 @@ rds_from_url <- function(url, ...){
 parquet_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
+
   if (!all(is_installed("arrow"), is_installed("curl"))){
     cli::cli_abort("Packages {.code arrow} and {.code curl} required to run this function. Please install them.")
   }
+
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
+
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
   if (inherits(load, "try-error")) return(data.frame())
+
   arrow::read_parquet(load$content)
 }
 

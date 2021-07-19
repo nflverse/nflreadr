@@ -14,9 +14,6 @@ A clear and concise description of what the bug is.
 Please provide a short, reproducible example of the code you are trying to run. 
 For more on reprexes, check out https://reprex.tidyverse.org
 
-```r
- # Please include the code used for the connection object from `ff_connect()`
-```
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 

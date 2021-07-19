@@ -1,13 +1,13 @@
 destination: docs
 
-url: nflverse.github.io/nflloadr
+url: nflverse.github.io/nflreadr
 
 authors:
   Tan Ho:
     href: https://twitter.com/_TanHo
 
 home:
-  title: nflloadr • Download nflverse Data
+  title: nflreadr • Download nflverse Data
   description: >
     A low-level R package that downloads data from nflverse GitHub data repositories.
 

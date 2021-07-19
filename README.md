@@ -1,17 +1,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# nflloadr
+# nflreadr
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://img.shields.io/cran/v/nflloadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflloadr)  -->
+<!-- [![CRAN status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)  -->
 
 [![Dev
-status](https://img.shields.io/github/r-package/v/nflverse/nflloadr/main?label=dev&style=flat-square&logo=github)](https://nflloadr.nflverse.com/)
+status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R build
-status](https://img.shields.io/github/workflow/status/nflverse/nflloadr/R-CMD-check?label=R%20check&style=flat-square&logo=github)](https://github.com/nflverse/nflloadr/actions)
+status](https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&style=flat-square&logo=github)](https://github.com/nflverse/nflreadr/actions)
 [![Codecov test
 coverage](https://img.shields.io/codecov/c/github/nflverse/nflloadr?label=codecov&style=flat-square&logo=codecov)](https://codecov.io/gh/nflverse/nflloadr?branch=main)
 [![nflverse
