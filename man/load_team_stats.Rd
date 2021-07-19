@@ -6,6 +6,9 @@
 \usage{
 load_team_stats()
 }
+\value{
+
+}
 \description{
 Load Team Level Weekly Stats
 }

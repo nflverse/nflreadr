@@ -19,7 +19,10 @@ BugReports: https://github.com/nflverse/nflloadr/issues
 Depends:
     R (>= 3.0.0)
 Imports:
-    purrr (>= 0.3.0)
+    cachem (>= 1.0.0),
+    memoise (>= 2.0.0),
+    purrr (>= 0.3.0),
+    rappdirs (>= 0.3.3)
 Suggests:
     curl (>= 4.3.2),
     arrow (>= 3.0.0),

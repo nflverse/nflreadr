@@ -20,7 +20,6 @@
 load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
 
   file_type <- match.arg(file_type)
-
   loader <- choose_loader(file_type)
 
   # Catch invalid season input
@@ -38,9 +37,7 @@ load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
   out <- purrr::map_dfr(urls, loader, p = p)
-
   class(out) <- c("tbl_df","tbl","data.frame")
-
   out
 }
 
@@ -67,7 +64,6 @@ load_player_stats <- function(#seasons,
                               file_type = c("rds","qs","parquet")){
 
   file_type <- match.arg(file_type)
-
   loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.",file_type)
@@ -87,6 +83,8 @@ load_player_stats <- function(#seasons,
 #'   load_team_stats()
 #' }
 #'
+#' @return
+#'
 #' @export
 load_team_stats <- function(){}
 
@@ -100,7 +98,7 @@ load_team_stats <- function(){}
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @examples
-#' \donttest {
+#' \donttest{
 #'  load_schedules()
 #' }
 #'

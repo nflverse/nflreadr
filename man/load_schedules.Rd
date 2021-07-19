@@ -13,7 +13,7 @@ A tibble of season-level roster data.
 This returns game/schedule information as maintained by Lee Sharpe.
 }
 \examples{
-\donttest {
+\donttest{
  load_schedules()
 }
 
