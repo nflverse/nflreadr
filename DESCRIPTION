@@ -25,7 +25,6 @@ Imports:
     rappdirs (>= 0.3.3)
 Suggests:
     curl (>= 4.3.2),
-    arrow (>= 3.0.0),
     qs (>= 0.20.0),
     rmarkdown (>= 2.6),
     knitr (>= 1.0),

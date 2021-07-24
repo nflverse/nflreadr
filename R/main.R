@@ -11,15 +11,15 @@
 #'
 #' @examples
 #' \donttest{
-#'   load_pbp(2019:2020)
+#' load_pbp(2019:2020)
 #' }
 #'
 #' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for the data dictionary
 #'
 #' @export
-load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
+load_pbp <- function(seasons, file_type = getOption("nflreadr.prefer", default = "qs")) {
 
-  file_type <- match.arg(file_type)
+  file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   # Catch invalid season input
@@ -61,9 +61,9 @@ load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
 #' @export
 load_player_stats <- function(#seasons,
                               # stat_type = c("offense","defense","special_teams"),
-                              file_type = c("rds","qs","parquet")){
+                              file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  file_type <- match.arg(file_type)
+  file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.",file_type)

@@ -22,7 +22,7 @@ rds_from_url <- function(url, ...){
   load
 }
 
-#' Load .parquet file from a remote connection
+#' Load raw filedata from a remote connection
 #'
 #' @param url a character url
 #' @param ... for internal usage only
@@ -32,7 +32,7 @@ rds_from_url <- function(url, ...){
 #'
 #' @examples
 #' parquet_from_url("https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.parquet?raw=true")
-parquet_from_url <- function(url, ...){
+raw_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
 
@@ -45,7 +45,7 @@ parquet_from_url <- function(url, ...){
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
   if (inherits(load, "try-error")) return(data.frame())
 
-  arrow::read_parquet(load$content)
+  load$content
 }
 
 #' Load .qs file from a remote connection

@@ -33,18 +33,13 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
 choose_loader <- function(type){
 
-  if (type == "parquet" && !all(is_installed("arrow"), is_installed("curl"))){
-    cli::cli_abort("Packages {.code arrow} and {.code curl} required for argument {.val {type}}. Please install them.")
-  }
-
   if (type == "qs" && !all(is_installed("qs"), is_installed("curl"))){
     cli::cli_abort("Packages {.code qs} and {.code curl} required for argument {.val {type}}. Please install them.")
   }
 
   loader <- switch(type,
                    "rds" = rds_from_url,
-                   "qs" = qs_from_url,
-                   "parquet" = parquet_from_url
+                   "qs" = qs_from_url
   )
 
   return(loader)
