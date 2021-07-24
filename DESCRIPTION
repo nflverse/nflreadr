@@ -17,15 +17,15 @@ License: MIT + file LICENSE
 URL: https://github.com/nflverse/nflreadr
 BugReports: https://github.com/nflverse/nflreadr/issues
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.2)
 Imports:
     cachem (>= 1.0.0),
+    curl (>= 4.3.2),
     memoise (>= 2.0.0),
     purrr (>= 0.3.0),
+    qs (>= 0.24.1),
     rappdirs (>= 0.3.3)
 Suggests:
-    curl (>= 4.3.2),
-    qs (>= 0.20.0),
     rmarkdown (>= 2.6),
     knitr (>= 1.0),
     testthat (>= 3.0.0),
