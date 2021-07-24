@@ -125,7 +125,7 @@ load_schedules <- function(){
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
-load_rosters <- function(season){
+load_rosters <- function(seasons){
   # different "most-current-season" logic than for pbp, right?
   current_year <- as.integer(format(Sys.Date(), format = "%Y"))
 
