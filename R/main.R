@@ -6,8 +6,8 @@
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
 #' option nflreadr.prefer
 #'
-#' @return The complete nflfastR dataset as returned by [nflfastR::build_nflfastR_pbp()] for
-#' all given `seasons`
+#' @return The complete nflfastR dataset as returned by `nflfastR::build_nflfastR_pbp()`
+#' (see below) for all given `seasons`
 #'
 #' @examples
 #' \donttest{
@@ -15,6 +15,7 @@
 #' }
 #'
 #' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for the data dictionary
+#' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `build_nflfastR_pbp()`
 #'
 #' @export
 load_pbp <- function(seasons, file_type = getOption("nflreadr.prefer", default = "qs")) {

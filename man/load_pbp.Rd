@@ -13,8 +13,8 @@ load_pbp(seasons, file_type = getOption("nflreadr.prefer", default = "qs"))
 option nflreadr.prefer}
 }
 \value{
-The complete nflfastR dataset as returned by \code{\link[nflfastR:build_nflfastR_pbp]{nflfastR::build_nflfastR_pbp()}} for
-all given \code{seasons}
+The complete nflfastR dataset as returned by \code{nflfastR::build_nflfastR_pbp()}
+(see below) for all given \code{seasons}
 }
 \description{
 Loads multiple seasons from the nflfastR data repository
@@ -27,4 +27,6 @@ load_pbp(2019:2020)
 }
 \seealso{
 \url{https://www.nflfastr.com/articles/field_descriptions.html} for the data dictionary
+
+\url{https://www.nflfastr.com/reference/build_nflfastR_pbp.html} for the nflfastR function \code{build_nflfastR_pbp()}
 }
