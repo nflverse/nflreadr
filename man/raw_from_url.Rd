@@ -11,12 +11,11 @@ raw_from_url(url, ...)
 
 \item{...}{for internal usage only}
 }
-\value{
-
-}
 \description{
 Load raw filedata from a remote connection
 }
 \examples{
-parquet_from_url("https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.parquet?raw=true")
+raw_from_url(
+"https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.parquet?raw=true"
+)
 }

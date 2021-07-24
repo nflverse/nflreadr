@@ -11,12 +11,11 @@ qs_from_url(url, ...)
 
 \item{...}{for internal usage only}
 }
-\value{
-
-}
 \description{
 Load .qs file from a remote connection
 }
 \examples{
-qs_from_url("https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.qs?raw=true")
+qs_from_url(
+"https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.qs?raw=true"
+)
 }
