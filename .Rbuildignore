@@ -1,7 +1,11 @@
-^ffsimulator\.Rproj$
+^nflreadr\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
 ^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^codecov\.yml$
