@@ -145,3 +145,42 @@ load_rosters <- function(season){
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
+
+#' Load Player Level Weekly NFL Next Gen Stats
+#'
+#' @description Loads player level weekly stats provided by NFL Next Gen Stats
+#' starting with the 2016 season. Three different stat types are available and
+#' the current seasons data updates every night.
+#'
+#' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
+#'
+#' @examples
+#' \donttest{
+#'   load_nextgen_stats("passing")
+#' }
+#'
+#' @return A tibble of week-level player statistics provided by NFL Next Gen Stats.
+#' Regular season summary is given for `week == 0`.
+#'
+#' @seealso <https://nextgenstats.nfl.com/stats/passing> for `stat_type = "passing"`
+#' @seealso <https://nextgenstats.nfl.com/stats/receiving> for `stat_type = "receiving"`
+#' @seealso <https://nextgenstats.nfl.com/stats/rushing> for `stat_type = "rushing"`
+#'
+#' @export
+load_nextgen_stats <- function(stat_type = c("passing", "receiving", "rushing"),
+                               file_type = getOption("nflreadr.prefer", default = "qs")){
+
+  file_type <- match.arg(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+
+  url <- paste0("https://github.com/nflverse/ngs-data/raw/main/data/ngs_",
+                stat_type,
+                ".",
+                file_type)
+
+  out <- loader(url)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
