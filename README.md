@@ -45,7 +45,10 @@ This package `must` include:
     -   schedules (aka Lee’s game data) ✅
     -   rosters ✅
     -   team\_stats (aggregated by week ~~or season~~)
-    -   Next Gen Stats data
+    -   Next Gen Stats data ✅
+-   Document the available package options (currently nflreadr.cache and
+    nflreadr.prefer) somewhere. Maybe in `nflreadr-package.R` created
+    with `use_package_doc()`?
 -   CRAN (because we want to introduce it as a dependency for other
     packages)
 
@@ -60,6 +63,6 @@ It would be nice if this package included:
 Design decisions:
 
 -   depend directly on qs as primary? adds weight but is markedly faster
-    than rds
--   drop parquet support? heavyweight and slower than qs
--   use option to configure rather than file\_type arg?
+    than rds ✅
+-   drop parquet support? heavyweight and slower than qs ✅
+-   use option to configure rather than file\_type arg? ✅
