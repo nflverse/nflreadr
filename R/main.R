@@ -3,8 +3,8 @@
 #' @description Loads multiple seasons from the nflfastR data repository
 #'
 #' @param seasons A vector of 4-digit years associated with given NFL seasons.
-#' @param file_type One of `"rds"`, `"parquet"` or `"qs"`. The latter two require
-#' the package `curl` as well as `arrow` and `qs` respectively.
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
 #'
 #' @return The complete nflfastR dataset as returned by [nflfastR::build_nflfastR_pbp()] for
 #' all given `seasons`
@@ -45,8 +45,8 @@ load_pbp <- function(seasons, file_type = getOption("nflreadr.prefer", default =
 #'
 # @param seasons a numeric vector of seasons to return
 # @param stat_type one of `offense`, `defense`, or `special_teams`
-#' @param file_type One of `"rds"`, `"parquet"` or `"qs"`. The latter two require
-#' the package `curl` as well as `arrow` and `qs` respectively.
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
 #'
 #' @examples
 #' \donttest{

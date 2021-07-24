@@ -4,13 +4,13 @@
 \alias{load_pbp}
 \title{Load Play By Play}
 \usage{
-load_pbp(seasons, file_type = c("rds", "parquet", "qs"))
+load_pbp(seasons, file_type = getOption("nflreadr.prefer", default = "qs"))
 }
 \arguments{
 \item{seasons}{A vector of 4-digit years associated with given NFL seasons.}
 
-\item{file_type}{One of \code{"rds"}, \code{"parquet"} or \code{"qs"}. The latter two require
-the package \code{curl} as well as \code{arrow} and \code{qs} respectively.}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
+option nflreadr.prefer}
 }
 \value{
 The complete nflfastR dataset as returned by \code{\link[nflfastR:build_nflfastR_pbp]{nflfastR::build_nflfastR_pbp()}} for
@@ -21,7 +21,7 @@ Loads multiple seasons from the nflfastR data repository
 }
 \examples{
 \donttest{
-  load_pbp(2019:2020)
+load_pbp(2019:2020)
 }
 
 }

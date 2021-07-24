@@ -4,11 +4,11 @@
 \alias{load_player_stats}
 \title{Load Player Level Weekly Stats}
 \usage{
-load_player_stats(file_type = c("rds", "qs", "parquet"))
+load_player_stats(file_type = getOption("nflreadr.prefer", default = "qs"))
 }
 \arguments{
-\item{file_type}{One of \code{"rds"}, \code{"parquet"} or \code{"qs"}. The latter two require
-the package \code{curl} as well as \code{arrow} and \code{qs} respectively.}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
+option nflreadr.prefer}
 }
 \value{
 A tibble of week-level player statistics that aims to match NFL official box scores.
