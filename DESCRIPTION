@@ -1,5 +1,5 @@
 Package: nflreadr
-Title: Download nflverse Data
+Title: Download 'nflverse' Data
 Version: 0.0.0.04
 Authors@R: 
     c(person(given = "Tan",
@@ -11,7 +11,7 @@ Authors@R:
              family = "Carl",
              role = "aut",
              email = "mrcaseb@gmail.com"))
-Description: A low-level package for downloading data from nflverse GitHub
+Description: A low-level package for downloading data from 'nflverse' GitHub
     repositories.
 License: MIT + file LICENSE
 URL: https://github.com/nflverse/nflreadr
