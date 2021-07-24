@@ -27,7 +27,7 @@ load_pbp <- function(seasons, file_type = getOption("nflreadr.prefer", default =
   most_recent <- most_recent_season()
 
   if (!all(seasons %in% 1999:most_recent)) {
-    cli::cli_abort("Please pass valid seasons between 1999 and {most_recent}")
+    stop(paste("Please pass valid seasons between 1999 and", most_recent))
   }
 
   urls <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_",
@@ -130,7 +130,7 @@ load_rosters <- function(season){
   current_year <- as.integer(format(Sys.Date(), format = "%Y"))
 
   if (!all(seasons %in% 1999:current_year)) {
-    cli::cli_abort("Please pass valid seasons between 1999 and {current_year}")
+    stop(paste("Please pass valid seasons between 1999 and", current_year))
   }
 
   p <- NULL
