@@ -2,9 +2,9 @@
 #'
 #' @description Loads multiple seasons from the nflfastR data repository
 #'
-#' @param seasons A vector of 4-digit years associated with given NFL seasons.
+#' @param seasons A numeric vector of 4-digit years associated with given NFL seasons.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
-#' option nflreadr.prefer
+#' `options(nflreadr.prefer)`
 #'
 #' @return The complete nflfastR dataset as returned by `nflfastR::build_nflfastR_pbp()`
 #' (see below) for all given `seasons`

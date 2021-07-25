@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 0.0.0.04
+Version: 0.0.0.05
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
@@ -27,7 +27,6 @@ Imports:
     qs (>= 0.24.1),
     rappdirs (>= 0.3.3)
 Suggests:
-    checkmate (>= 2.0.0),
     covr (>= 3.0.0),
     knitr (>= 1.0),
     rmarkdown (>= 2.6),
