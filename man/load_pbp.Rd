@@ -7,10 +7,10 @@
 load_pbp(seasons, file_type = getOption("nflreadr.prefer", default = "qs"))
 }
 \arguments{
-\item{seasons}{A vector of 4-digit years associated with given NFL seasons.}
+\item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons.}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
-option nflreadr.prefer}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 The complete nflfastR dataset as returned by \code{nflfastR::build_nflfastR_pbp()}

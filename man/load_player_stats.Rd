@@ -7,8 +7,8 @@
 load_player_stats(file_type = getOption("nflreadr.prefer", default = "qs"))
 }
 \arguments{
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
-option nflreadr.prefer}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of week-level player statistics that aims to match NFL official box scores.
