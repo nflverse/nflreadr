@@ -3,30 +3,31 @@
 #' @description Loads multiple seasons from the nflfastR data repository
 #'
 #' @param seasons A vector of 4-digit years associated with given NFL seasons.
-#' @param file_type One of `"rds"`, `"parquet"` or `"qs"`. The latter two require
-#' the package `curl` as well as `arrow` and `qs` respectively.
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
 #'
-#' @return The complete nflfastR dataset as returned by [nflfastR::build_nflfastR_pbp()] for
-#' all given `seasons`
+#' @return The complete nflfastR dataset as returned by `nflfastR::build_nflfastR_pbp()`
+#' (see below) for all given `seasons`
 #'
 #' @examples
 #' \donttest{
-#'   load_pbp(2019:2020)
+#' load_pbp(2019:2020)
 #' }
 #'
 #' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for the data dictionary
+#' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `build_nflfastR_pbp()`
 #'
 #' @export
-load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
+load_pbp <- function(seasons, file_type = getOption("nflreadr.prefer", default = "qs")) {
 
-  file_type <- match.arg(file_type)
+  file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   # Catch invalid season input
   most_recent <- most_recent_season()
 
   if (!all(seasons %in% 1999:most_recent)) {
-    cli::cli_abort("Please pass valid seasons between 1999 and {most_recent}")
+    stop(paste("Please pass valid seasons between 1999 and", most_recent))
   }
 
   urls <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_",
@@ -45,8 +46,8 @@ load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
 #'
 # @param seasons a numeric vector of seasons to return
 # @param stat_type one of `offense`, `defense`, or `special_teams`
-#' @param file_type One of `"rds"`, `"parquet"` or `"qs"`. The latter two require
-#' the package `curl` as well as `arrow` and `qs` respectively.
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
 #'
 #' @examples
 #' \donttest{
@@ -61,9 +62,9 @@ load_pbp <- function(seasons, file_type = c("rds", "parquet", "qs")) {
 #' @export
 load_player_stats <- function(#seasons,
                               # stat_type = c("offense","defense","special_teams"),
-                              file_type = c("rds","qs","parquet")){
+                              file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  file_type <- match.arg(file_type)
+  file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.",file_type)
@@ -124,12 +125,12 @@ load_schedules <- function(){
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
-load_rosters <- function(season){
+load_rosters <- function(seasons){
   # different "most-current-season" logic than for pbp, right?
   current_year <- as.integer(format(Sys.Date(), format = "%Y"))
 
   if (!all(seasons %in% 1999:current_year)) {
-    cli::cli_abort("Please pass valid seasons between 1999 and {current_year}")
+    stop(paste("Please pass valid seasons between 1999 and", current_year))
   }
 
   p <- NULL
@@ -141,6 +142,45 @@ load_rosters <- function(season){
                  ".rds")
 
   out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
+
+#' Load Player Level Weekly NFL Next Gen Stats
+#'
+#' @description Loads player level weekly stats provided by NFL Next Gen Stats
+#' starting with the 2016 season. Three different stat types are available and
+#' the current seasons data updates every night.
+#'
+#' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
+#' option nflreadr.prefer
+#'
+#' @examples
+#' \donttest{
+#'   load_nextgen_stats("passing")
+#' }
+#'
+#' @return A tibble of week-level player statistics provided by NFL Next Gen Stats.
+#' Regular season summary is given for `week == 0`.
+#'
+#' @seealso <https://nextgenstats.nfl.com/stats/passing> for `stat_type = "passing"`
+#' @seealso <https://nextgenstats.nfl.com/stats/receiving> for `stat_type = "receiving"`
+#' @seealso <https://nextgenstats.nfl.com/stats/rushing> for `stat_type = "rushing"`
+#'
+#' @export
+load_nextgen_stats <- function(stat_type = c("passing", "receiving", "rushing"),
+                               file_type = getOption("nflreadr.prefer", default = "qs")){
+
+  file_type <- match.arg(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+
+  url <- paste0("https://github.com/nflverse/ngs-data/raw/main/data/ngs_",
+                stat_type,
+                ".",
+                file_type)
+
+  out <- loader(url)
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
