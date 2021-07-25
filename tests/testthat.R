@@ -1,4 +1,4 @@
 library(testthat)
-library(ffsimulator)
+library(nflreadr)
 
-test_check("ffsimulator")
+test_check("nflreadr")

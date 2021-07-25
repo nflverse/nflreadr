@@ -11,9 +11,6 @@ rds_from_url(url, ...)
 
 \item{...}{for internal usage only}
 }
-\value{
-
-}
 \description{
 Load .rds file from a remote connection
 }

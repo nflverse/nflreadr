@@ -4,7 +4,7 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(season)
+load_rosters(seasons)
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return}
