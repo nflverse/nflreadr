@@ -39,6 +39,27 @@ install.packages("nflreadr", repos = "https://nflverse.r-universe.dev")
 remotes::install_github("nflverse/nflreadr", ref = "dev")
 ```
 
+## Usage
+
+The main functions of nflreadr are prefixed with load (?).  
+
+```{r}
+tictoc::tic()
+x <- load_pbp(1999:2020)
+tictoc::toc()
+tictoc::tic()
+x <- load_pbp(1999:2020,file_type = "rds")
+tictoc::toc()
+```
+
+The following options help configure default `nflreadr` behaviours. 
+
+```{r eval = FALSE}
+options(nflreadr.cache) # one of "memory", "filesystem", or "off"
+options(nflreadr.prefer) # one of "qs" or "rds"
+```
+
+
 ## Roadmap
 
 This package `must` include:
