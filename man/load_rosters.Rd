@@ -4,10 +4,10 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(seasons)
+load_rosters(seasons = NULL)
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return}
+\item{seasons}{a numeric vector of seasons to return, defaults to returning this year's data if NULL}
 }
 \value{
 A tibble of season-level roster data.

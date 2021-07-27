@@ -4,7 +4,10 @@
 \alias{load_pbp}
 \title{Load Play By Play}
 \usage{
-load_pbp(seasons, file_type = getOption("nflreadr.prefer", default = "qs"))
+load_pbp(
+  seasons = NULL,
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
 \item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons.}

@@ -5,6 +5,7 @@
 \title{Load Player Level Weekly NFL Next Gen Stats}
 \usage{
 load_nextgen_stats(
+  season = most_recent_season(),
   stat_type = c("passing", "receiving", "rushing"),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
@@ -14,6 +15,8 @@ load_nextgen_stats(
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
 option nflreadr.prefer}
+
+\item{seasons}{a numeric vector specifying what seasons to return, defaults to most recent season}
 }
 \value{
 A tibble of week-level player statistics provided by NFL Next Gen Stats.

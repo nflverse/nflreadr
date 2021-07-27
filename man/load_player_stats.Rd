@@ -4,7 +4,10 @@
 \alias{load_player_stats}
 \title{Load Player Level Weekly Stats}
 \usage{
-load_player_stats(file_type = getOption("nflreadr.prefer", default = "qs"))
+load_player_stats(
+  seasons = NULL,
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
