@@ -75,7 +75,7 @@ test_that("Cache clearing works",{
 
   expect(memoise::has_cache(load_player_stats)(), "Function was not memoised")
 
-  .clear_cache()
+  expect_message(.clear_cache(), "nflreadr function cache cleared")
 
   expect(!memoise::has_cache(load_player_stats)(), "Cache was not cleared!")
 })
