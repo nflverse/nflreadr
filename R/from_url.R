@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' \donttest{
-#' rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds?raw=true")
+#' rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
 #' }
 rds_from_url <- function(url, ...){
   dots <- list(...)
@@ -18,12 +18,18 @@ rds_from_url <- function(url, ...){
   load <- try(readRDS(con), silent = TRUE)
 
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
-  if (inherits(load, "try-error")) return(data.frame())
+  if (inherits(load, "try-error")) {
+    warning(paste0("Failed to readRDS from <",url,">"), call. = FALSE)
+    return(data.frame())
+  }
 
   load
 }
 
 #' Load raw filedata from a remote connection
+#'
+#' This function allows you to retrieve data from a URL into raw format, which
+#' can then be passed into the appropriate file-reading function, such as `arrow::read_parquet()`
 #'
 #' @param url a character url
 #' @param ... for internal usage only
@@ -43,7 +49,11 @@ raw_from_url <- function(url, ...){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
-  if (inherits(load, "try-error")) return(data.frame())
+
+  if (load$status_code!=200) {
+    warning(paste0("HTTP error",load$status_code," while retrieving data from <",url,"> \n Returning request payload."), call. = FALSE)
+    return(load)
+  }
 
   load$content
 }
@@ -55,6 +65,8 @@ raw_from_url <- function(url, ...){
 #'
 #' @export
 #'
+#' @return a dataframe as parsed by `qs::qdeserialize()`
+#'
 #' @examples
 #' \donttest{
 #' qs_from_url(
@@ -63,9 +75,23 @@ raw_from_url <- function(url, ...){
 #' }
 qs_from_url <- function(url, ...){
   dots <- list(...)
+
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
+
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
+
   if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
-  if (inherits(load, "try-error")) return(data.frame())
-  qs::qdeserialize(load$content)
+
+  if (inherits(load, "try-error")) {
+    warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
+    return(data.frame())
+  }
+  content <- try(qs::qdeserialize(load$content), silent = TRUE)
+
+  if (inherits(content, "try-error")) {
+    warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
+    return(data.frame())
+  }
+
+  return(content)
 }
