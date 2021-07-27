@@ -15,7 +15,9 @@ raw_from_url(url, ...)
 Load raw filedata from a remote connection
 }
 \examples{
+\donttest{
 raw_from_url(
-"https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.parquet?raw=true"
+"https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
 )
+}
 }

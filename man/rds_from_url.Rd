@@ -15,5 +15,7 @@ rds_from_url(url, ...)
 Load .rds file from a remote connection
 }
 \examples{
+\donttest{
 rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds?raw=true")
+}
 }

@@ -6,7 +6,9 @@
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds?raw=true")
+#' }
 rds_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
@@ -29,9 +31,11 @@ rds_from_url <- function(url, ...){
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' raw_from_url(
-#' "https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.parquet?raw=true"
+#' "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
 #' )
+#' }
 raw_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL
@@ -52,9 +56,11 @@ raw_from_url <- function(url, ...){
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' qs_from_url(
-#' "https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.qs?raw=true"
+#' "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"
 #' )
+#' }
 qs_from_url <- function(url, ...){
   dots <- list(...)
   if ("p" %in% names(dots)) p <- dots$p else p <- NULL

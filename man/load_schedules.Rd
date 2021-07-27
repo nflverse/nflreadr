@@ -4,10 +4,10 @@
 \alias{load_schedules}
 \title{Load Game/Schedule Data}
 \usage{
-load_schedules(seasons = NULL)
+load_schedules(seasons = TRUE)
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, if \code{NULL} returns all available data.}
+\item{seasons}{a numeric vector of seasons to return, default \code{TRUE} returns all available data.}
 }
 \value{
 A tibble of game information for past and/or future games.

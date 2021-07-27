@@ -1,0 +1,19 @@
+---
+title: "Re-Exporting nflreadr functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Re-Exporting nflreadr functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+You can re-export `nflreadr` functions by using the following roxygen template:
+
+```{r eval = FALSE}
+#' @inherit nflreadr::load_nextgen_stats
+#' @export
+# Need to add own examples if the function name is different
+#' @examples
+#' load_ng_stats(2020)
+load_ng_stats <- nflreadr::load_nextgen_stats
+```

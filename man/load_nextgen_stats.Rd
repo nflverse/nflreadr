@@ -5,13 +5,13 @@
 \title{Load Player Level Weekly NFL Next Gen Stats}
 \usage{
 load_nextgen_stats(
-  seasons = NULL,
+  seasons = TRUE,
   stat_type = c("passing", "receiving", "rushing"),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
 }
 \arguments{
-\item{seasons}{a numeric vector specifying what seasons to return, if \code{NULL} returns all available data}
+\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
 
 \item{stat_type}{one of \code{"passing"}, \code{"receiving"}, or \code{"rushing"}}
 

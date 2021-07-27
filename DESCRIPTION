@@ -28,6 +28,7 @@ Imports:
     rappdirs (>= 0.3.3)
 Suggests:
     covr (>= 3.0.0),
+    DT (>= 0.15),
     knitr (>= 1.0),
     rmarkdown (>= 2.6),
     testthat (>= 3.0.0)
@@ -36,3 +37,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+VignetteBuilder: knitr
