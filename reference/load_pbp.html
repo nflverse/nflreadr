@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.05</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.00</span>
       </span>
     </div>
 
@@ -94,6 +94,24 @@
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
+    </li>
+    <li>
+      <a href="../articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
+    </li>
+    <li>
+      <a href="../articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -147,14 +165,17 @@
     <p>Loads multiple seasons from the nflfastR data repository</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_pbp</span><span class='op'>(</span><span class='va'>seasons</span>, file_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"nflreadr.prefer"</span>, default <span class='op'>=</span> <span class='st'>"qs"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_pbp</span><span class='op'>(</span>
+  seasons <span class='op'>=</span> <span class='fu'>most_recent_season</span><span class='op'>(</span><span class='op'>)</span>,
+  file_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"nflreadr.prefer"</span>, default <span class='op'>=</span> <span class='st'>"qs"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>seasons</th>
-      <td><p>A numeric vector of 4-digit years associated with given NFL seasons.</p></td>
+      <td><p>A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to <code>TRUE</code>, returns all available data since 1999.</p></td>
     </tr>
     <tr>
       <th>file_type</th>
@@ -169,7 +190,8 @@
 (see below) for all given <code>seasons</code></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://www.nflfastr.com/articles/field_descriptions.html'>https://www.nflfastr.com/articles/field_descriptions.html</a> for the data dictionary</p>
+    <div class='dont-index'><p><code>vignette("Data Dictionary - PBP")</code> for the data dictionary</p>
+<p><a href='https://www.nflfastr.com/articles/field_descriptions.html'>https://www.nflfastr.com/articles/field_descriptions.html</a> for a web version of the data dictionary</p>
 <p><a href='https://www.nflfastr.com/reference/build_nflfastR_pbp.html'>https://www.nflfastr.com/reference/build_nflfastR_pbp.html</a> for the nflfastR function <code>build_nflfastR_pbp()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

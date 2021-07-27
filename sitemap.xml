@@ -4,6 +4,12 @@
     <loc>nflverse.github.io/nflreadr/index.html</loc>
   </url>
   <url>
+    <loc>nflverse.github.io/nflreadr/reference/dictionary_pbp.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/dictionary_player_stats.html</loc>
+  </url>
+  <url>
     <loc>nflverse.github.io/nflreadr/reference/load_nextgen_stats.html</loc>
   </url>
   <url>
@@ -19,7 +25,7 @@
     <loc>nflverse.github.io/nflreadr/reference/load_schedules.html</loc>
   </url>
   <url>
-    <loc>nflverse.github.io/nflreadr/reference/load_team_stats.html</loc>
+    <loc>nflverse.github.io/nflreadr/reference/nflreadr-package.html</loc>
   </url>
   <url>
     <loc>nflverse.github.io/nflreadr/reference/qs_from_url.html</loc>
@@ -29,5 +35,14 @@
   </url>
   <url>
     <loc>nflverse.github.io/nflreadr/reference/rds_from_url.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/articles/dictionary_pbp.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/articles/dictionary_player_stats.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/articles/exporting_nflreadr.html</loc>
   </url>
 </urlset>

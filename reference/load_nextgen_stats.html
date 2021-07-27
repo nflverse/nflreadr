@@ -44,7 +44,7 @@
 <meta property="og:title" content="Load Player Level Weekly NFL Next Gen Stats — load_nextgen_stats" />
 <meta property="og:description" content="Loads player level weekly stats provided by NFL Next Gen Stats
 starting with the 2016 season. Three different stat types are available and
-the current seasons data updates every night." />
+the current season's data updates every night." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@_TanHo" />
 <meta name="twitter:site" content="@nflfastR" />
@@ -79,7 +79,7 @@ the current seasons data updates every night." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.05</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.00</span>
       </span>
     </div>
 
@@ -96,6 +96,24 @@ the current seasons data updates every night." />
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
+    </li>
+    <li>
+      <a href="../articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
+    </li>
+    <li>
+      <a href="../articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -148,10 +166,11 @@ the current seasons data updates every night." />
     <div class="ref-description">
     <p>Loads player level weekly stats provided by NFL Next Gen Stats
 starting with the 2016 season. Three different stat types are available and
-the current seasons data updates every night.</p>
+the current season's data updates every night.</p>
     </div>
 
     <pre class="usage"><span class='fu'>load_nextgen_stats</span><span class='op'>(</span>
+  seasons <span class='op'>=</span> <span class='cn'>TRUE</span>,
   stat_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"passing"</span>, <span class='st'>"receiving"</span>, <span class='st'>"rushing"</span><span class='op'>)</span>,
   file_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"nflreadr.prefer"</span>, default <span class='op'>=</span> <span class='st'>"qs"</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
@@ -160,13 +179,16 @@ the current seasons data updates every night.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector specifying what seasons to return, if <code>TRUE</code> returns all available data</p></td>
+    </tr>
+    <tr>
       <th>stat_type</th>
       <td><p>one of <code>"passing"</code>, <code>"receiving"</code>, or <code>"rushing"</code></p></td>
     </tr>
     <tr>
       <th>file_type</th>
-      <td><p>One of <code>"rds"</code> or <code>"qs"</code>. Can also be set globally with the
-option nflreadr.prefer</p></td>
+      <td><p>One of <code>"rds"</code> or <code>"qs"</code>. Can also be set globally with options(nflreadr.prefer)</p></td>
     </tr>
     </table>
 
@@ -182,7 +204,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-  <span class='fu'>load_nextgen_stats</span><span class='op'>(</span><span class='st'>"passing"</span><span class='op'>)</span>
+  <span class='fu'>load_nextgen_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"passing"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2,883 × 29</span>
 #&gt;    season season_type  week player_display_name player_position team_abbr
 #&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
@@ -205,6 +227,46 @@ Regular season summary is given for <code>week == 0</code>.</p>
 #&gt; <span style='color: #949494;'>#   completion_percentage &lt;dbl&gt;, expected_completion_percentage &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   completion_percentage_above_expectation &lt;dbl&gt;, avg_air_distance &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   max_air_distance &lt;dbl&gt;, player_gsis_id &lt;chr&gt;, player_first_name &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_last_name &lt;chr&gt;, player_jersey_number &lt;int&gt;, player_short_name &lt;chr&gt;</span></div><div class='input'>  <span class='fu'>load_nextgen_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"receiving"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 7,377 × 23</span>
+#&gt;    season season_type  week player_display_name   player_position team_abbr
+#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                 <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
+#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Tyreek Hill           WR              KC       
+#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Richard Rodgers       TE              GB       
+#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Travis Benjamin       WR              LAC      
+#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Cordarrelle Patterson WR              MIN      
+#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 DeSean Jackson        WR              WAS      
+#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Albert Wilson         WR              KC       
+#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Brandin Cooks         WR              NO       
+#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Rishard Matthews      WR              TEN      
+#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Taylor Gabriel        WR              ATL      
+#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Phillip Dorsett       WR              IND      
+#&gt; <span style='color: #949494;'># … with 7,367 more rows, and 17 more variables: avg_cushion &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   avg_separation &lt;dbl&gt;, avg_intended_air_yards &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   percent_share_of_intended_air_yards &lt;dbl&gt;, receptions &lt;int&gt;, targets &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   catch_percentage &lt;dbl&gt;, yards &lt;int&gt;, rec_touchdowns &lt;int&gt;, avg_yac &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   avg_expected_yac &lt;dbl&gt;, avg_yac_above_expectation &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_gsis_id &lt;chr&gt;, player_first_name &lt;chr&gt;, player_last_name &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_jersey_number &lt;int&gt;, player_short_name &lt;chr&gt;</span></div><div class='input'>  <span class='fu'>load_nextgen_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"rushing"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2,951 × 22</span>
+#&gt;    season season_type  week player_display_name player_position team_abbr
+#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    
+#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 David Johnson       RB              ARI      
+#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Latavius Murray     RB              LV       
+#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Paul Perkins        RB              NYG      
+#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Jonathan Stewart    RB              CAR      
+#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 LeSean McCoy        RB              BUF      
+#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Tim Hightower       RB              NO       
+#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 C.J. Anderson       RB              DEN      
+#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Matt Asiata         RB              MIN      
+#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Doug Martin         RB              TB       
+#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>016 REG             0 Jay Ajayi           RB              MIA      
+#&gt; <span style='color: #949494;'># … with 2,941 more rows, and 16 more variables: efficiency &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   percent_attempts_gte_eight_defenders &lt;dbl&gt;, avg_time_to_los &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   rush_attempts &lt;int&gt;, rush_yards &lt;int&gt;, expected_rush_yards &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   rush_yards_over_expected &lt;dbl&gt;, avg_rush_yards &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   rush_yards_over_expected_per_att &lt;dbl&gt;, rush_pct_over_expected &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   rush_touchdowns &lt;int&gt;, player_gsis_id &lt;chr&gt;, player_first_name &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   player_last_name &lt;chr&gt;, player_jersey_number &lt;int&gt;, player_short_name &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>

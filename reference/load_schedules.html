@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.05</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.00</span>
       </span>
     </div>
 
@@ -94,6 +94,24 @@
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
+    </li>
+    <li>
+      <a href="../articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
+    </li>
+    <li>
+      <a href="../articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -147,34 +165,41 @@
     <p>This returns game/schedule information as maintained by Lee Sharpe.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_schedules</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_schedules</span><span class='op'>(</span>seasons <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector of seasons to return, default <code>TRUE</code> returns all available data.</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble of season-level roster data.</p>
+    <p>A tibble of game information for past and/or future games.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><a href='https://github.com/nflverse/nfldata'>https://github.com/nflverse/nfldata</a></p>
-<p><a href='https://www.nflfastr.com/reference/fast_scraper_roster.html'>https://www.nflfastr.com/reference/fast_scraper_roster.html</a></p></div>
+    <div class='dont-index'><p><a href='https://github.com/nflverse/nfldata'>https://github.com/nflverse/nfldata</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
- <span class='fu'>load_schedules</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6,124 × 41</span>
+ <span class='fu'>load_schedules</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 269 × 41</span>
 #&gt;    game_id  season game_type  week gameday weekday gametime away_team away_score
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       MIN               17
-#&gt; <span style='color: #BCBCBC;'> 2</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       KC                17
-#&gt; <span style='color: #BCBCBC;'> 3</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       PIT               43
-#&gt; <span style='color: #BCBCBC;'> 4</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       OAK               24
-#&gt; <span style='color: #BCBCBC;'> 5</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       BUF               14
-#&gt; <span style='color: #BCBCBC;'> 6</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       SF                 3
-#&gt; <span style='color: #BCBCBC;'> 7</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       CAR               10
-#&gt; <span style='color: #BCBCBC;'> 8</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       NE                30
-#&gt; <span style='color: #BCBCBC;'> 9</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       ARI               25
-#&gt; <span style='color: #BCBCBC;'>10</span> 1999_01…   <span style='text-decoration: underline;'>1</span>999 REG           1 1999-0… Sunday  <span style='color: #BB0000;'>NA</span>       DET               28
-#&gt; <span style='color: #949494;'># … with 6,114 more rows, and 32 more variables: home_team &lt;chr&gt;,</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Thursd… 20:20    HOU               20
+#&gt; <span style='color: #BCBCBC;'> 2</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    SEA               38
+#&gt; <span style='color: #BCBCBC;'> 3</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    CLE                6
+#&gt; <span style='color: #BCBCBC;'> 4</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    NYJ               17
+#&gt; <span style='color: #BCBCBC;'> 5</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    LV                34
+#&gt; <span style='color: #BCBCBC;'> 6</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    CHI               27
+#&gt; <span style='color: #BCBCBC;'> 7</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    IND               20
+#&gt; <span style='color: #BCBCBC;'> 8</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    GB                43
+#&gt; <span style='color: #BCBCBC;'> 9</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    MIA               11
+#&gt; <span style='color: #BCBCBC;'>10</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    PHI               17
+#&gt; <span style='color: #949494;'># … with 259 more rows, and 32 more variables: home_team &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   home_score &lt;int&gt;, location &lt;chr&gt;, result &lt;int&gt;, total &lt;int&gt;,</span>
 #&gt; <span style='color: #949494;'>#   overtime &lt;int&gt;, old_game_id &lt;chr&gt;, espn &lt;chr&gt;, away_rest &lt;int&gt;,</span>
 #&gt; <span style='color: #949494;'>#   home_rest &lt;int&gt;, away_moneyline &lt;int&gt;, home_moneyline &lt;int&gt;,</span>
