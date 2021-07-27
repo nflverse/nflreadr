@@ -68,3 +68,15 @@ test_that("load_ngs", {
   expect_gt(nrow(ngs_receiving), 1500)
   expect_gt(nrow(ngs_rushing), 500)
 })
+
+test_that("Cache clearing works",{
+
+  skip_if_offline("github.com")
+
+  expect(memoise::has_cache(load_player_stats)(), "Function was not memoised")
+
+  .clear_cache()
+
+  expect(!memoise::has_cache(load_player_stats)(), "Cache was not cleared!")
+})
+
