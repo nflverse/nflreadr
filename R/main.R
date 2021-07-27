@@ -81,18 +81,18 @@ load_player_stats <- function(seasons = NULL,
   out
 }
 
-#' Load Team Level Weekly Stats
-#'
+# Load Team Level Weekly Stats
+#
 # @param seasons a numeric vector of seasons to return
 # @param type one of `offense`, `defense`, or `special_teams`
-#'
-#' @examples
-#' \donttest{
-#'   load_team_stats()
-#' }
-#'
-#' @return
-#'
+#
+# @examples
+# \donttest{
+#   load_team_stats()
+# }
+#
+# @return
+#
 # @export
 load_team_stats <- function(){}
 
