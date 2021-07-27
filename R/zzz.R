@@ -44,16 +44,26 @@
 
 .onAttach <- function(libname, pkgname){
 
+  # validate nflreadr.prefer
+
+  prefer_type <- getOption("nflreadr.prefer", default = "qs")
+
+  if(!prefer_type %in% c("qs", "rds")) {
+    packageStartupMessage("Note: nflreadr.prefer is set to ",
+                          prefer_type,
+                          'and should be one of c("qs", "rds")')
+  }
+
+  # validate nflreadr.cache
+
   memoise_option <- getOption("nflreadr.cache",default = "memory")
 
   if (!memoise_option %in% c("memory", "filesystem", "off")) {
-    packageStartupMessage(
-      'Note: nflreadr.cache is set to "',
-      memoise_option,
-      '" and should be one of c("memory","filesystem", "off"). \n',
-      'Defaulting to "memory".')
+    packageStartupMessage('Note: nflreadr.cache is set to "',
+                          memoise_option,
+                          '" and should be one of c("memory","filesystem", "off"). \n',
+                          'Defaulting to "memory".')
     memoise_option <- "memory"
   }
-
   if(memoise_option == "off") packageStartupMessage('Note: nflreadr.cache is set to "off"')
 }
