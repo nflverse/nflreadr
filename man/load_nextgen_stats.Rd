@@ -11,7 +11,7 @@ load_nextgen_stats(
 )
 }
 \arguments{
-\item{seasons}{a numeric vector specifying what seasons to return, defaults to returning all data available}
+\item{seasons}{a numeric vector specifying what seasons to return, if \code{NULL} returns all available data}
 
 \item{stat_type}{one of \code{"passing"}, \code{"receiving"}, or \code{"rushing"}}
 

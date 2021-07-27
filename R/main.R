@@ -46,7 +46,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 
 #' Load Player Level Weekly Stats
 #'
-#' @param seasons a numeric vector of seasons to return, if NULL returns all available data
+#' @param seasons a numeric vector of seasons to return, if `NULL` returns all available data
 # @param stat_type one of `offense`, `defense`, or `special_teams`
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
@@ -100,7 +100,7 @@ load_team_stats <- function(){}
 #'
 #' This returns game/schedule information as maintained by Lee Sharpe.
 #'
-#' @param seasons a numeric vector of seasons to return, if NULL returns all available data.
+#' @param seasons a numeric vector of seasons to return, if `NULL` returns all available data.
 #'
 #' @return A tibble of game information for past and/or future games.
 #'
@@ -169,7 +169,7 @@ load_rosters <- function(seasons = NULL, file_type = getOption("nflreadr.prefer"
 #' starting with the 2016 season. Three different stat types are available and
 #' the current season's data updates every night.
 #'
-#' @param seasons a numeric vector specifying what seasons to return, defaults to returning all data available
+#' @param seasons a numeric vector specifying what seasons to return, if `NULL` returns all available data
 #' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'

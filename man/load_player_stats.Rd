@@ -10,7 +10,7 @@ load_player_stats(
 )
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, if NULL returns all available data}
+\item{seasons}{a numeric vector of seasons to return, if \code{NULL} returns all available data}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
