@@ -28,7 +28,9 @@ the current season's data updates every night.
 }
 \examples{
 \donttest{
-  load_nextgen_stats("passing")
+  load_nextgen_stats(stat_type = "passing")
+  load_nextgen_stats(stat_type = "receiving")
+  load_nextgen_stats(stat_type = "rushing")
 }
 
 }

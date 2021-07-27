@@ -175,7 +175,9 @@ load_rosters <- function(seasons = NULL, file_type = getOption("nflreadr.prefer"
 #'
 #' @examples
 #' \donttest{
-#'   load_nextgen_stats("passing")
+#'   load_nextgen_stats(stat_type = "passing")
+#'   load_nextgen_stats(stat_type = "receiving")
+#'   load_nextgen_stats(stat_type = "rushing")
 #' }
 #'
 #' @return A tibble of week-level player statistics provided by NFL Next Gen Stats.
