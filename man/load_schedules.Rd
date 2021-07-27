@@ -7,7 +7,7 @@
 load_schedules(seasons = NULL)
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return}
+\item{seasons}{a numeric vector of seasons to return, if NULL returns all available data.}
 }
 \value{
 A tibble of game information for past and/or future games.

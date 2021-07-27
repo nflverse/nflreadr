@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 0.0.0.05
+Version: 0.0.1.00
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
@@ -17,7 +17,7 @@ License: MIT + file LICENSE
 URL: https://github.com/nflverse/nflreadr
 BugReports: https://github.com/nflverse/nflreadr/issues
 Depends:
-    R (>= 3.0.2)
+    R (>= 3.5.0)
 Imports:
     cachem (>= 1.0.0),
     dplyr (>= 1.0.0),

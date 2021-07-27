@@ -126,6 +126,7 @@ load_schedules <- function(seasons = NULL){
 #' Load Rosters
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to returning this year's data if NULL.
+#' @param file_type One of `"rds"` or `"qs"`, can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
 #' \donttest{
@@ -138,16 +139,16 @@ load_schedules <- function(seasons = NULL){
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
-load_rosters <- function(seasons = NULL){
+load_rosters <- function(seasons = NULL, file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  if(is.null(seasons)) seasons <- as.integer(format(Sys.Date(), format = "%Y"))
+  file_type <- match.arg(file_type)
 
-  # different "most-current-season" logic than for pbp, right?
+  # different "most-current-season" logic than for pbp
   current_year <- as.integer(format(Sys.Date(), format = "%Y"))
-
-  if (!all(seasons %in% 1999:current_year)) {
-    stop(paste("Please pass valid seasons between 1999 and", current_year))
-  }
+  if(is.null(seasons)) seasons <- current_year
+  stopifnot(is.numeric(seasons),
+            seasons >= 1999,
+            seasons <= current_year)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
@@ -166,12 +167,11 @@ load_rosters <- function(seasons = NULL){
 #'
 #' @description Loads player level weekly stats provided by NFL Next Gen Stats
 #' starting with the 2016 season. Three different stat types are available and
-#' the current seasons data updates every night.
+#' the current season's data updates every night.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, defaults to returning all data available
 #' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
-#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with the
-#' option nflreadr.prefer
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
 #' \donttest{
@@ -193,7 +193,6 @@ load_nextgen_stats <- function(seasons = NULL,
   if(!is.null(seasons)) stopifnot(is.numeric(seasons),
                                   seasons >= 2016,
                                   seasons <= most_recent_season())
-
 
   file_type <- match.arg(file_type, c("rds", "qs"))
   stat_type <- match.arg(stat_type)

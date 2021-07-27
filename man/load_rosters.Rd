@@ -4,10 +4,15 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(seasons = NULL)
+load_rosters(
+  seasons = NULL,
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, defaults to returning this year's data if NULL}
+\item{seasons}{a numeric vector of seasons to return, defaults to returning this year's data if NULL.}
+
+\item{file_type}{One of \code{"rds"} or \code{"qs"}, can also be set globally with options(nflreadr.prefer)}
 }
 \value{
 A tibble of season-level roster data.

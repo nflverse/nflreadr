@@ -5,12 +5,12 @@
 \title{Load Play By Play}
 \usage{
 load_pbp(
-  seasons = NULL,
+  seasons = most_recent_season(),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
 }
 \arguments{
-\item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons.}
+\item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
