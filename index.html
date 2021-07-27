@@ -134,6 +134,21 @@
 <span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nflverse/nflreadr"</span>, ref <span class="op">=</span> <span class="st">"dev"</span><span class="op">)</span></code></pre></div>
 </div>
+<div id="usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h2>
+<p>The main functions of <code>nflreadr</code> are prefixed with load.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nflverse/nflreadr">nflreadr</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span></code></pre></div>
+<p>The following options help configure default <code>nflreadr</code> behaviours.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> <span class="co"># one of "memory", "filesystem", or "off"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
+<p>You can also configure <code>nflreadr</code> to display progress messages with the <code>progressr</code> package, e.g.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>progressr<span class="op">::</span><span class="kw">with_progress</span>(<span class="kw">load_rosters</span>(<span class="dt">seasons =</span> <span class="dv">2010</span><span class="op">:</span><span class="dv">2020</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a> <span class="op">|</span><span class="er">====================</span><span class="st">                               </span><span class="er">|</span><span class="st">  </span><span class="dv">40</span>%</span></code></pre></div>
+</div>
 <div id="roadmap" class="section level2">
 <h2 class="hasAnchor">
 <a href="#roadmap" class="anchor"></a>Roadmap</h2>
@@ -143,28 +158,21 @@
 <ul>
 <li>general <code><a href="reference/rds_from_url.html">rds_from_url()</a></code>, <code><a href="reference/qs_from_url.html">qs_from_url()</a></code>, <code>parquet_from_url()</code> ✅</li>
 <li>pbp ✅</li>
-<li>player_stats (aggregated by week <del>or season</del>) ✅</li>
+<li>player_stats (aggregated by week) ✅</li>
 <li>schedules (aka Lee’s game data) ✅</li>
 <li>rosters ✅</li>
-<li>team_stats (aggregated by week <del>or season</del>)</li>
 <li>Next Gen Stats data ✅</li>
+<li>team_stats (aggregated by week) `waiting for</li>
 </ul>
 </li>
-<li>Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere. Maybe in <code>nflreadr-package.R</code> created with <code>use_package_doc()</code>?</li>
-<li>CRAN (because we want to introduce it as a dependency for other packages)</li>
+<li>Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere. ✅</li>
+<li>Maybe in <code>nflreadr-package.R</code> created with <code>use_package_doc()</code>? Or just in the readme? ✅</li>
 </ul>
-<p>It would be nice if this package included:</p>
+<hr>
 <ul>
-<li>Memoised/cached data by default ✅</li>
-<li>
-<del>Optional parallel processing (?) -&gt; we can do this with <code><a href="https://rdrr.io/r/parallel/mclapply.html">parallel::mclapply()</a></code> in combination with <code><a href="https://rdrr.io/r/base/do.call.html">do.call("rbind", ...)</a></code> to avoid the <code>future</code> and <code>furrr</code> dependencies</del> ❌ <em>slower than not-parallel</em>
-</li>
-</ul>
-<p>Design decisions:</p>
-<ul>
-<li>depend directly on qs as primary? adds weight but is markedly faster than rds ✅</li>
-<li>drop parquet support? heavyweight and slower than qs ✅</li>
-<li>use option to configure rather than file_type arg? ✅</li>
+<li>A hex sticker!</li>
+<li>Data dictionaries and vignettes for all functions (still to-go: schedules, rosters, nextgen stats)</li>
+<li>CRAN-standards/readiness (because we want to introduce it as a dependency for other packages)</li>
 </ul>
 </div>
 </div>
@@ -207,7 +215,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/master?label=dev&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
+<li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/nflverse/nflreadr/actions"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
 <li><a href="https://discord.com/invite/5Er2FBnnQa"><img src="https://img.shields.io/discord/591914197219016707.svg?color=5865F2&amp;label=nflverse%20discord&amp;logo=discord&amp;logoColor=5865F2&amp;style=flat-square" alt="nflverse discord"></a></li>
