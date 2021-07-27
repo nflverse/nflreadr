@@ -18,12 +18,15 @@ NULL
 NULL
 
 # compute most recent season
-most_recent_season <- function() {
+most_recent_season <- function(roster = FALSE) {
   today <- Sys.Date()
   current_year <- as.integer(format(today, format = "%Y"))
   current_month <- as.integer(format(today, format = "%m"))
 
-  if (current_month >= 9) return(current_year)
+  if ((isFALSE(roster) && current_month >= 9) ||
+      (isTRUE(roster) && current_month >= 3)) {
+    return(current_year)
+  }
 
   return(current_year - 1)
 }
@@ -37,5 +40,3 @@ choose_loader <- function(type) {
     "qs" = qs_from_url
   )
 }
-
-

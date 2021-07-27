@@ -125,7 +125,8 @@ load_schedules <- function(seasons = NULL){
 
 #' Load Rosters
 #'
-#' @param seasons a numeric vector of seasons to return, defaults to returning this year's data if NULL.
+#' @param seasons a numeric vector of seasons to return, defaults to returning
+#' this year's data if `NULL` and if it is March or later
 #' @param file_type One of `"rds"` or `"qs"`, can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -141,10 +142,10 @@ load_schedules <- function(seasons = NULL){
 #' @export
 load_rosters <- function(seasons = NULL, file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  file_type <- match.arg(file_type)
+  file_type <- match.arg(file_type, c("rds", "qs"))
 
   # different "most-current-season" logic than for pbp
-  current_year <- as.integer(format(Sys.Date(), format = "%Y"))
+  current_year <- most_recent_season(roster = TRUE)
   if(is.null(seasons)) seasons <- current_year
   stopifnot(is.numeric(seasons),
             seasons >= 1999,
