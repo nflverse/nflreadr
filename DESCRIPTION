@@ -12,7 +12,7 @@ Authors@R:
              role = "aut",
              email = "mrcaseb@gmail.com"))
 Description: A low-level package for downloading data from 'GitHub'
-    repositories of the 'nflverse' organization.
+    repositories of the 'nflverse' project.
 License: MIT + file LICENSE
 URL: https://github.com/nflverse/nflreadr
 BugReports: https://github.com/nflverse/nflreadr/issues

@@ -2,7 +2,7 @@
 #'
 #' @description Loads multiple seasons from the nflfastR data repository
 #'
-#' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season
+#' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `NULL`, returns all available data since 1999.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
@@ -22,6 +22,8 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 
   file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
+
+  if(is.null(seasons)) seasons <- 1999:most_recent_season()
 
   # Alternative "error" message/handling?
   stopifnot(is.numeric(seasons),
@@ -46,7 +48,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 
 #' Load Player Level Weekly Stats
 #'
-#' @param seasons a numeric vector of seasons to return, if `NULL` returns all available data
+#' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `NULL`, returns all available data.
 # @param stat_type one of `offense`, `defense`, or `special_teams`
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
@@ -62,7 +64,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #' @seealso <https://github.com/nflverse/nflfastr-data>
 #'
 #' @export
-load_player_stats <- function(seasons = NULL,
+load_player_stats <- function(seasons = most_recent_season(),
                               # stat_type = c("offense","defense","special_teams"),
                               file_type = getOption("nflreadr.prefer", default = "qs")){
 
@@ -94,7 +96,7 @@ load_player_stats <- function(seasons = NULL,
 # @return
 #
 # @export
-load_team_stats <- function(){}
+# load_team_stats <- function(){}
 
 #' Load Game/Schedule Data
 #'
@@ -126,8 +128,7 @@ load_schedules <- function(seasons = NULL){
 #' Load Rosters
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to returning
-#' this year's data if `NULL` and if it is March or later
-#' @param file_type One of `"rds"` or `"qs"`, can also be set globally with options(nflreadr.prefer)
+#' this year's data if it is March or later. If set to `NULL`, will return all available data.
 #'
 #' @examples
 #' \donttest{
@@ -140,13 +141,13 @@ load_schedules <- function(seasons = NULL){
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
-load_rosters <- function(seasons = NULL, file_type = getOption("nflreadr.prefer", default = "qs")){
+load_rosters <- function(seasons = most_recent_season()){
 
   file_type <- match.arg(file_type, c("rds", "qs"))
 
   # different "most-current-season" logic than for pbp
   current_year <- most_recent_season(roster = TRUE)
-  if(is.null(seasons)) seasons <- current_year
+  if(is.null(seasons)) seasons <- 1999:current_year
   stopifnot(is.numeric(seasons),
             seasons >= 1999,
             seasons <= current_year)

@@ -5,12 +5,12 @@
 \title{Load Player Level Weekly Stats}
 \usage{
 load_player_stats(
-  seasons = NULL,
+  seasons = most_recent_season(),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, if \code{NULL} returns all available data}
+\item{seasons}{a numeric vector of seasons to return, defaults to most recent season. If set to \code{NULL}, returns all available data.}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}

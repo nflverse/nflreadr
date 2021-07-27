@@ -23,9 +23,9 @@
            value = memoise::memoise(load_player_stats, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
-    assign(x = "load_team_stats",
-           value = memoise::memoise(load_team_stats, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+    # assign(x = "load_team_stats",
+    #        value = memoise::memoise(load_team_stats, ~ memoise::timeout(86400), cache = cache),
+    #        envir = parent.env(environment()))
 
     assign(x = "load_rosters",
            value = memoise::memoise(load_rosters, ~ memoise::timeout(86400), cache = cache),
