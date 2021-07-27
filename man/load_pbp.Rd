@@ -4,10 +4,13 @@
 \alias{load_pbp}
 \title{Load Play By Play}
 \usage{
-load_pbp(seasons, file_type = getOption("nflreadr.prefer", default = "qs"))
+load_pbp(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
-\item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons.}
+\item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to \code{TRUE}, returns all available data since 1999.}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
@@ -26,7 +29,9 @@ load_pbp(2019:2020)
 
 }
 \seealso{
-\url{https://www.nflfastr.com/articles/field_descriptions.html} for the data dictionary
+\code{vignette("Data Dictionary - PBP")} for the data dictionary
+
+\url{https://www.nflfastr.com/articles/field_descriptions.html} for a web version of the data dictionary
 
 \url{https://www.nflfastr.com/reference/build_nflfastR_pbp.html} for the nflfastR function \code{build_nflfastR_pbp()}
 }

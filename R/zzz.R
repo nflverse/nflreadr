@@ -23,9 +23,9 @@
            value = memoise::memoise(load_player_stats, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
-    assign(x = "load_team_stats",
-           value = memoise::memoise(load_team_stats, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+    # assign(x = "load_team_stats",
+    #        value = memoise::memoise(load_team_stats, ~ memoise::timeout(86400), cache = cache),
+    #        envir = parent.env(environment()))
 
     assign(x = "load_rosters",
            value = memoise::memoise(load_rosters, ~ memoise::timeout(86400), cache = cache),
@@ -33,6 +33,10 @@
 
     assign(x = "load_schedules",
            value = memoise::memoise(load_schedules, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
+    assign(x = "load_nextgen_stats",
+           value = memoise::memoise(load_nextgen_stats, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
   }
@@ -43,6 +47,11 @@
   memoise_option <- getOption("nflreadr.cache",default = "memory")
 
   if (!memoise_option %in% c("memory", "filesystem", "off")) {
+    packageStartupMessage(
+      'Note: nflreadr.cache is set to "',
+      memoise_option,
+      '" and should be one of c("memory","filesystem", "off"). \n',
+      'Defaulting to "memory".')
     memoise_option <- "memory"
   }
 

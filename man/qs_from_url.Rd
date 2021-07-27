@@ -15,7 +15,9 @@ qs_from_url(url, ...)
 Load .qs file from a remote connection
 }
 \examples{
+\donttest{
 qs_from_url(
-"https://github.com/nflverse/nflfastR-data/blob/master/data/play_by_play_2020.qs?raw=true"
+"https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"
 )
+}
 }

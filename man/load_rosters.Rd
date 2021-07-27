@@ -4,10 +4,11 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(seasons)
+load_rosters(seasons = most_recent_season())
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return}
+\item{seasons}{a numeric vector of seasons to return, defaults to returning
+this year's data if it is March or later. If set to \code{TRUE}, will return all available data.}
 }
 \value{
 A tibble of season-level roster data.

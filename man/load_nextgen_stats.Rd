@@ -5,15 +5,17 @@
 \title{Load Player Level Weekly NFL Next Gen Stats}
 \usage{
 load_nextgen_stats(
+  seasons = TRUE,
   stat_type = c("passing", "receiving", "rushing"),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
 }
 \arguments{
+\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
+
 \item{stat_type}{one of \code{"passing"}, \code{"receiving"}, or \code{"rushing"}}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with the
-option nflreadr.prefer}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)}
 }
 \value{
 A tibble of week-level player statistics provided by NFL Next Gen Stats.
@@ -22,11 +24,13 @@ Regular season summary is given for \code{week == 0}.
 \description{
 Loads player level weekly stats provided by NFL Next Gen Stats
 starting with the 2016 season. Three different stat types are available and
-the current seasons data updates every night.
+the current season's data updates every night.
 }
 \examples{
 \donttest{
-  load_nextgen_stats("passing")
+  load_nextgen_stats(stat_type = "passing")
+  load_nextgen_stats(stat_type = "receiving")
+  load_nextgen_stats(stat_type = "rushing")
 }
 
 }

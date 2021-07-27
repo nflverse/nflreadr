@@ -4,9 +4,14 @@
 \alias{load_player_stats}
 \title{Load Player Level Weekly Stats}
 \usage{
-load_player_stats(file_type = getOption("nflreadr.prefer", default = "qs"))
+load_player_stats(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
+\item{seasons}{a numeric vector of seasons to return, defaults to most recent season. If set to \code{NULL}, returns all available data.}
+
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
@@ -26,4 +31,6 @@ Load Player Level Weekly Stats
 \url{https://www.nflfastr.com/reference/load_player_stats.html}
 
 \url{https://github.com/nflverse/nflfastr-data}
+
+\code{vignette("Data Dictionary - Player Stats")} for the data dictionary
 }

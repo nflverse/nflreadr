@@ -4,22 +4,23 @@
 \alias{load_schedules}
 \title{Load Game/Schedule Data}
 \usage{
-load_schedules()
+load_schedules(seasons = TRUE)
+}
+\arguments{
+\item{seasons}{a numeric vector of seasons to return, default \code{TRUE} returns all available data.}
 }
 \value{
-A tibble of season-level roster data.
+A tibble of game information for past and/or future games.
 }
 \description{
 This returns game/schedule information as maintained by Lee Sharpe.
 }
 \examples{
 \donttest{
- load_schedules()
+ load_schedules(2020)
 }
 
 }
 \seealso{
 \url{https://github.com/nflverse/nfldata}
-
-\url{https://www.nflfastr.com/reference/fast_scraper_roster.html}
 }

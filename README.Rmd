@@ -44,12 +44,7 @@ remotes::install_github("nflverse/nflreadr", ref = "dev")
 The main functions of nflreadr are prefixed with load (?).  
 
 ```{r}
-tictoc::tic()
-x <- load_pbp(1999:2020)
-tictoc::toc()
-tictoc::tic()
-x <- load_pbp(1999:2020,file_type = "rds")
-tictoc::toc()
+load_pbp(2019:2020)
 ```
 
 The following options help configure default `nflreadr` behaviours. 
@@ -72,17 +67,9 @@ This package `must` include:
     - rosters `r emo::ji("white_check_mark")`
     - team_stats (aggregated by week ~~or season~~)
     - Next Gen Stats data `r emo::ji("white_check_mark")`
-- Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere. Maybe in `nflreadr-package.R` created with `use_package_doc()`?
-- CRAN (because we want to introduce it as a dependency for other packages)
+- Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere.
+- Maybe in `nflreadr-package.R` created with `use_package_doc()`? Or just in the readme?
+- CRAN-standards/readiness (because we want to introduce it as a dependency for other packages)
 
-It would be nice if this package included:
 
-- Memoised/cached data by default `r emo::ji("white_check_mark")`
-- ~~Optional parallel processing (?) -> we can do this with `parallel::mclapply()` in combination with `do.call("rbind", ...)` to avoid the `future` and `furrr` dependencies~~ `r emo::ji("cross_mark")` *slower than not-parallel*
-
-Design decisions:
-
--   depend directly on qs as primary? adds weight but is markedly faster than rds `r emo::ji("white_check_mark")`
--   drop parquet support? heavyweight and slower than qs `r emo::ji("white_check_mark")`
--   use option to configure rather than file_type arg? `r emo::ji("white_check_mark")`
 
