@@ -2,6 +2,21 @@ destination: docs
 
 url: nflverse.github.io/nflreadr
 
+reference:
+- title: Main
+  desc: These are the primary functions of `nflreadr`.
+  contents:
+  - starts_with("load_")
+- title: Data Dictionaries
+  contents:
+  - starts_with("dictionary_")
+- title: Loading raw data
+  desc: Additional helper functions for loading raw data
+  contents:
+  - "qs_from_url"
+  - "rds_from_url"
+  - "parquet_from_url"
+
 authors:
   Tan Ho:
     href: https://twitter.com/_TanHo

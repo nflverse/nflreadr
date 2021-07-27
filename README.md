@@ -8,7 +8,7 @@
 <!-- [![Codecov test coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&style=flat-square&logo=codecov)](https://codecov.io/gh/nflverse/nflreadr?branch=main) -->
 
 [![Dev
-status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/master?label=dev&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
+status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R build
@@ -33,6 +33,30 @@ install.packages("nflreadr", repos = "https://nflverse.r-universe.dev")
 remotes::install_github("nflverse/nflreadr", ref = "dev")
 ```
 
+## Usage
+
+The main functions of `nflreadr` are prefixed with load.
+
+``` r
+library(nflreadr)
+load_pbp(2020)
+```
+
+The following options help configure default `nflreadr` behaviours.
+
+``` r
+options(nflreadr.cache) # one of "memory", "filesystem", or "off"
+options(nflreadr.prefer) # one of "qs" or "rds"
+```
+
+You can also configure `nflreadr` to display progress messages with the
+`progressr` package, e.g.
+
+``` r
+progressr::with_progress(load_rosters(seasons = 2010:2020))
+ |====================                               |  40%
+```
+
 ## Roadmap
 
 This package `must` include:
@@ -41,28 +65,20 @@ This package `must` include:
     -   general `rds_from_url()`, `qs_from_url()`, `parquet_from_url()`
         ✅
     -   pbp ✅
-    -   player\_stats (aggregated by week ~~or season~~) ✅
+    -   player\_stats (aggregated by week) ✅
     -   schedules (aka Lee’s game data) ✅
     -   rosters ✅
-    -   team\_stats (aggregated by week ~~or season~~)
     -   Next Gen Stats data ✅
+    -   team\_stats (aggregated by week) \`waiting for
 -   Document the available package options (currently nflreadr.cache and
-    nflreadr.prefer) somewhere. Maybe in `nflreadr-package.R` created
-    with `use_package_doc()`?
--   CRAN (because we want to introduce it as a dependency for other
-    packages)
+    nflreadr.prefer) somewhere. ✅
+-   Maybe in `nflreadr-package.R` created with `use_package_doc()`? Or
+    just in the readme? ✅
 
-It would be nice if this package included:
+------------------------------------------------------------------------
 
--   Memoised/cached data by default ✅
--   ~~Optional parallel processing (?) -&gt; we can do this with
-    `parallel::mclapply()` in combination with `do.call("rbind", ...)`
-    to avoid the `future` and `furrr` dependencies~~ ❌ *slower than
-    not-parallel*
-
-Design decisions:
-
--   depend directly on qs as primary? adds weight but is markedly faster
-    than rds ✅
--   drop parquet support? heavyweight and slower than qs ✅
--   use option to configure rather than file\_type arg? ✅
+-   A hex sticker!
+-   Data dictionaries and vignettes for all functions (still to-go:
+    schedules, rosters, nextgen stats)
+-   CRAN-standards/readiness (because we want to introduce it as a
+    dependency for other packages)
