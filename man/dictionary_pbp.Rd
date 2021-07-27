@@ -14,6 +14,6 @@ dictionary_pbp
 A dataframe containing the data dictionary for \code{load_pbp()}
 }
 \seealso{
-\code{vignette("dictionary_pbp")}
+\code{vignette("Data Dictionary - PBP")}
 }
 \keyword{datasets}

@@ -14,7 +14,8 @@
 #' load_pbp(2019:2020)
 #' }
 #'
-#' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for the data dictionary
+#' @seealso `vignette("Data Dictionary - PBP")` for the data dictionary
+#' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for a web version of the data dictionary
 #' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `build_nflfastR_pbp()`
 #'
 #' @export
@@ -62,6 +63,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #'
 #' @seealso <https://www.nflfastr.com/reference/load_player_stats.html>
 #' @seealso <https://github.com/nflverse/nflfastr-data>
+#' @seealso `vignette("Data Dictionary - Player Stats")` for the data dictionary
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),

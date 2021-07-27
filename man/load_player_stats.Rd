@@ -31,4 +31,6 @@ Load Player Level Weekly Stats
 \url{https://www.nflfastr.com/reference/load_player_stats.html}
 
 \url{https://github.com/nflverse/nflfastr-data}
+
+\code{vignette("Data Dictionary - Player Stats")} for the data dictionary
 }

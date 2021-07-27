@@ -29,7 +29,9 @@ load_pbp(2019:2020)
 
 }
 \seealso{
-\url{https://www.nflfastr.com/articles/field_descriptions.html} for the data dictionary
+\code{vignette("Data Dictionary - PBP")} for the data dictionary
+
+\url{https://www.nflfastr.com/articles/field_descriptions.html} for a web version of the data dictionary
 
 \url{https://www.nflfastr.com/reference/build_nflfastR_pbp.html} for the nflfastR function \code{build_nflfastR_pbp()}
 }

@@ -1,13 +1,13 @@
 ---
-title: "Re-Exporting nflreadr functions"
+title: "Re-exporting nflreadr functions"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Re-Exporting nflreadr functions}
+  %\VignetteIndexEntry{Re-exporting nflreadr functions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-You can re-export `nflreadr` functions by using the following roxygen template:
+You can re-export `nflreadr` functions in your package by using the following roxygen template:
 
 ```{r eval = FALSE}
 #' @inherit nflreadr::load_nextgen_stats

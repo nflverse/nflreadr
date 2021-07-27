@@ -14,6 +14,6 @@ dictionary_player_stats
 A dataframe containing the data dictionary for \code{load_player_stats()}
 }
 \seealso{
-\code{vignette("dictionary_player_stats")}
+\code{vignette("Data Dictionary - Player Stats")}
 }
 \keyword{datasets}
