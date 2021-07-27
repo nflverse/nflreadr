@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>nflverse.github.io/nflreadr/index.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_nextgen_stats.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_pbp.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_player_stats.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_rosters.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_schedules.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/load_team_stats.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/qs_from_url.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/raw_from_url.html</loc>
+  </url>
+  <url>
+    <loc>nflverse.github.io/nflreadr/reference/rds_from_url.html</loc>
+  </url>
+</urlset>
