@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 0.0.1.00
+Version: 0.0.2
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",

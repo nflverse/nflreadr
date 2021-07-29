@@ -87,7 +87,7 @@ governed by their terms of use.
 
 ## Roadmap
 
-This package `must` include:
+This package currently includes:
 
 -   Functions for loading:
     -   general `rds_from_url()`, `qs_from_url()`, `parquet_from_url()`
@@ -98,12 +98,10 @@ This package `must` include:
     -   rosters ✅
     -   Next Gen Stats data ✅
     -   team\_stats (aggregated by week) `not yet in nflfastR`
--   Document the available package options (currently nflreadr.cache and
-    nflreadr.prefer) somewhere. ✅
--   Maybe in `nflreadr-package.R` created with `use_package_doc()`? Or
-    just in the readme? ✅
+    -   fantasy player IDs
+    -   fantasy latest rankings
 
-------------------------------------------------------------------------
+and may soon include:
 
 -   A hex sticker!
 -   Data dictionaries and vignettes for all functions (still to-go:

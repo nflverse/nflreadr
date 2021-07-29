@@ -7,3 +7,5 @@ dictionary_player_stats <- read.csv2("data-raw/player_stats.txt") %>%
 
 usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
+dictionary_ff_playerids <- read.csv("data-raw/dictionary_ff_playerids.csv")
+usethis::use_data(dictionary_ff_playerids, overwrite = TRUE)
