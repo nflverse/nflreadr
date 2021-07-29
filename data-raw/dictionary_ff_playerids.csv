@@ -8,7 +8,7 @@ sleeper_id,character,Sleeper ID - usually an integer with ~4 digits.
 nfl_id,character,NFL.com ID - usual format fullname/integers
 espn_id,character,ESPN ID - usual format is an integer with ~5 digits
 yahoo_id,character,Yahoo ID - usual format is an integer with ~5 digits
-fleaflicker_id,character,Fleaflicker ID - usual format is an integer with ~4 digits. Fleaflicker API also has sportradar and that’s generally preferred.
+fleaflicker_id,character,Fleaflicker ID - usual format is an integer with ~4 digits. Fleaflicker API also has sportradar and that's generally preferred.
 cbs_id,character,CBS ID - usual format is an integer with ~ 7 digits.
 rotowire_id,character,Rotowire ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.
 rotoworld_id,character,Rotoworld ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.
