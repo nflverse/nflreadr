@@ -11,3 +11,10 @@
 #'
 #' @seealso `vignette("Data Dictionary - Player Stats")`
 "dictionary_player_stats"
+
+#' Data Dictionary: Fantasy Player IDs
+#'
+#' A dataframe containing the data dictionary for `load_ff_playerids()`
+#'
+#' @seealso `vignette("Data Dictionary - FF Player IDs")`
+"dictionary_ff_playerids"
