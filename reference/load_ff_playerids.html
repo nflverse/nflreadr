@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.00</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -102,6 +102,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/dictionary_ff_playerids.html">Data Dictionary - FF Player IDs</a>
+    </li>
     <li>
       <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
     </li>
@@ -179,7 +182,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'>load_ff_playerids</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10,520 × 34</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10,521 × 34</span>
 #&gt;    mfl_id sportradar_id  fantasypros_id gsis_id pff_id sleeper_id nfl_id espn_id
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
 #&gt; <span style='color: #BCBCBC;'> 1</span> 15237  aaa8b42c-4d87… 19780          <span style='color: #BB0000;'>NA</span>      <span style='color: #BB0000;'>NA</span>     7523       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
@@ -192,13 +195,13 @@
 #&gt; <span style='color: #BCBCBC;'> 8</span> 15244  79a849be-0552… 20081          <span style='color: #BB0000;'>NA</span>      <span style='color: #BB0000;'>NA</span>     7531       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
 #&gt; <span style='color: #BCBCBC;'> 9</span> 15245  22fd9495-1745… 19785          <span style='color: #BB0000;'>NA</span>      <span style='color: #BB0000;'>NA</span>     7555       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
 #&gt; <span style='color: #BCBCBC;'>10</span> 15246  0d3113f7-2a82… 20159          <span style='color: #BB0000;'>NA</span>      <span style='color: #BB0000;'>NA</span>     7589       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #949494;'># … with 10,510 more rows, and 26 more variables: yahoo_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'># … with 10,511 more rows, and 26 more variables: yahoo_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   fleaflicker_id &lt;chr&gt;, cbs_id &lt;chr&gt;, rotowire_id &lt;chr&gt;, rotoworld_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   ktc_id &lt;chr&gt;, pfr_id &lt;chr&gt;, cfbref_id &lt;chr&gt;, stats_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   stats_global_id &lt;chr&gt;, fantasy_data_id &lt;chr&gt;, name &lt;chr&gt;, merge_name &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   position &lt;chr&gt;, team &lt;chr&gt;, birthdate &lt;date&gt;, age &lt;dbl&gt;, draft_year &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   draft_round &lt;chr&gt;, draft_pick &lt;chr&gt;, draft_ovr &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   twitter_username &lt;chr&gt;, height &lt;chr&gt;, weight &lt;chr&gt;, college &lt;chr&gt;, …</span></div><div class='input'><span class='co'># }</span>
+#&gt; <span style='color: #949494;'>#   position &lt;chr&gt;, team &lt;chr&gt;, birthdate &lt;date&gt;, age &lt;dbl&gt;, draft_year &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   draft_round &lt;int&gt;, draft_pick &lt;int&gt;, draft_ovr &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   twitter_username &lt;chr&gt;, height &lt;int&gt;, weight &lt;int&gt;, college &lt;chr&gt;, …</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>
