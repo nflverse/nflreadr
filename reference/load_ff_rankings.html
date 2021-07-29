@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Load .qs file from a remote connection — qs_from_url • nflreadr</title>
+<title>Load Latest FantasyPros Rankings — load_ff_rankings • nflreadr</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Load .qs file from a remote connection — qs_from_url" />
-<meta property="og:description" content="Load .qs file from a remote connection" />
+<meta property="og:title" content="Load Latest FantasyPros Rankings — load_ff_rankings" />
+<meta property="og:description" content="Accesses DynastyProcess.com's repository of the latest FP expert consensus rankings - updated on a weekly basis." />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@_TanHo" />
 <meta name="twitter:site" content="@nflfastR" />
@@ -156,59 +156,48 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Load .qs file from a remote connection</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/from_url.R'><code>R/from_url.R</code></a></small>
-    <div class="hidden name"><code>qs_from_url.Rd</code></div>
+    <h1>Load Latest FantasyPros Rankings</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_ffverse.R'><code>R/load_ffverse.R</code></a></small>
+    <div class="hidden name"><code>load_ff_rankings.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Load .qs file from a remote connection</p>
+    <p>Accesses DynastyProcess.com's repository of the latest FP expert consensus rankings - updated on a weekly basis.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>qs_from_url</span><span class='op'>(</span><span class='va'>url</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_ff_rankings</span><span class='op'>(</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>url</th>
-      <td><p>a character url</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>for internal usage only</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a dataframe as parsed by <code><a href='https://rdrr.io/pkg/qs/man/qdeserialize.html'>qs::qdeserialize()</a></code></p>
+    <p>a dataframe of expert consensus rankings</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='https://www.github.com/dynastyprocess/data'>https://www.github.com/dynastyprocess/data</a></p>
+<p><a href='https://www.fantasypros.com'>https://www.fantasypros.com</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>qs_from_url</span><span class='op'>(</span>
-<span class='st'>"https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"</span>
-<span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 48,514 × 372</span>
-#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam
-#&gt;      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'> 1</span>       1 2020_01_AR… 2020091311  SF        ARI       REG             1 <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'> 2</span>      39 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 3</span>      54 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 4</span>      93 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 5</span>     118 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 6</span>     143 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 7</span>     165 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 8</span>     197 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#&gt; <span style='color: #BCBCBC;'> 9</span>     226 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
-#&gt; <span style='color: #BCBCBC;'>10</span>     245 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
-#&gt; <span style='color: #949494;'># … with 48,504 more rows, and 364 more variables: posteam_type &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   defteam &lt;chr&gt;, side_of_field &lt;chr&gt;, yardline_100 &lt;dbl&gt;, game_date &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   quarter_seconds_remaining &lt;dbl&gt;, half_seconds_remaining &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   game_seconds_remaining &lt;dbl&gt;, game_half &lt;chr&gt;, quarter_end &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   drive &lt;dbl&gt;, sp &lt;dbl&gt;, qtr &lt;dbl&gt;, down &lt;dbl&gt;, goal_to_go &lt;dbl&gt;, time &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   yrdln &lt;chr&gt;, ydstogo &lt;dbl&gt;, ydsnet &lt;dbl&gt;, desc &lt;chr&gt;, play_type &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   yards_gained &lt;dbl&gt;, shotgun &lt;dbl&gt;, no_huddle &lt;dbl&gt;, qb_dropback &lt;dbl&gt;, …</span></div><div class='input'><span class='co'># }</span>
+<span class='fu'>load_ff_rankings</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5,805 × 25</span>
+#&gt;    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> /nfl/ran… best-dst  bp       New Y… 8200  DST   NYG     1    0        1     1
+#&gt; <span style='color: #BCBCBC;'> 2</span> /nfl/ran… best-ove… bo       Chris… 16393 RB    CAR     1.4  0.49     1     2
+#&gt; <span style='color: #BCBCBC;'> 3</span> /nfl/ran… best-ove… bo       Dalvi… 16374 RB    MIN     1.6  0.49     1     2
+#&gt; <span style='color: #BCBCBC;'> 4</span> /nfl/ran… best-ove… bo       Derri… 15514 RB    TEN     3.6  0.8      3     5
+#&gt; <span style='color: #BCBCBC;'> 5</span> /nfl/ran… best-ove… bo       Alvin… 16421 RB    NO      4.2  0.4      4     5
+#&gt; <span style='color: #BCBCBC;'> 6</span> /nfl/ran… best-ove… bo       Saquo… 17240 RB    NYG     5.2  2.56     3    10
+#&gt; <span style='color: #BCBCBC;'> 7</span> /nfl/ran… best-ove… bo       Ezeki… 15498 RB    DAL     6.6  1.02     5     8
+#&gt; <span style='color: #BCBCBC;'> 8</span> /nfl/ran… best-ove… bo       Travi… 11594 TE    KC      7.6  0.8      7     9
+#&gt; <span style='color: #BCBCBC;'> 9</span> /nfl/ran… best-ove… bo       Jonat… 19217 RB    IND     7.8  1.47     6     9
+#&gt; <span style='color: #BCBCBC;'>10</span> /nfl/ran… best-ove… bo       Tyree… 15802 WR    KC      9    2        6    12
+#&gt; <span style='color: #949494;'># … with 5,795 more rows, and 14 more variables: sportsdata_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_filename &lt;chr&gt;, yahoo_id &lt;chr&gt;, cbs_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_owned_avg &lt;dbl&gt;, player_owned_espn &lt;dbl&gt;, player_owned_yahoo &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   player_image_url &lt;chr&gt;, player_square_image_url &lt;chr&gt;, rank_delta &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   bye &lt;dbl&gt;, mergename &lt;chr&gt;, scrape_date &lt;date&gt;, tm &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

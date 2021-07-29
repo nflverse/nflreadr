@@ -147,7 +147,31 @@
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <code>progressr</code> package, e.g.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>progressr<span class="op">::</span><span class="kw">with_progress</span>(<span class="kw">load_rosters</span>(<span class="dt">seasons =</span> <span class="dv">2010</span><span class="op">:</span><span class="dv">2020</span>))</span>
-<span id="cb4-2"><a href="#cb4-2"></a> <span class="op">|</span><span class="er">====================</span><span class="st">                               </span><span class="er">|</span><span class="st">  </span><span class="dv">40</span>%</span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2"></a> <span class="op">|</span><span class="er">========</span><span class="st">             </span><span class="er">|</span><span class="st">  </span><span class="dv">40</span>%</span></code></pre></div>
+</div>
+<div id="getting-help" class="section level2">
+<h2 class="hasAnchor">
+<a href="#getting-help" class="anchor"></a>Getting help</h2>
+<p>The best places to get help on this package are:</p>
+<ul>
+<li>the <a href="https://discord.com/invite/5Er2FBnnQa">nflverse discord</a> (for both this package as well as anything R/NFL related)</li>
+<li>opening <a href="https://github.com/nflverse/nflreadr/issues/new/choose">an issue</a>
+</li>
+</ul>
+</div>
+<div id="contributing" class="section level2">
+<h2 class="hasAnchor">
+<a href="#contributing" class="anchor"></a>Contributing</h2>
+<p>Many hands make light work! Here are some ways you can contribute to this project:</p>
+<ul>
+<li><p>You can <a href="https://github.com/nflverse/nflreadr/issues/new/choose">open an issue</a> if you’d like to request specific data or report a bug/error.</p></li>
+<li><p>If you’d like to contribute code, please check out <a href="https://nflverse.github.io/nflreadr/CONTRIBUTING.html">the contribution guidelines</a>.</p></li>
+</ul>
+</div>
+<div id="terms-of-use" class="section level2">
+<h2 class="hasAnchor">
+<a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
+<p>The R code for this package is released as open source under the <a href="https://nflverse.github.io/nflreadr/LICENSE.html">MIT License</a>. NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.</p>
 </div>
 <div id="roadmap" class="section level2">
 <h2 class="hasAnchor">
@@ -162,7 +186,8 @@
 <li>schedules (aka Lee’s game data) ✅</li>
 <li>rosters ✅</li>
 <li>Next Gen Stats data ✅</li>
-<li>team_stats (aggregated by week) `waiting for</li>
+<li>team_stats (aggregated by week) <code>not yet in nflfastR</code>
+</li>
 </ul>
 </li>
 <li>Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere. ✅</li>

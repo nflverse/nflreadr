@@ -157,7 +157,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Load Play By Play</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/main.R'><code>R/main.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_nflverse.R'><code>R/load_nflverse.R</code></a></small>
     <div class="hidden name"><code>load_pbp.Rd</code></div>
     </div>
 
@@ -216,34 +216,7 @@
 #&gt; <span style='color: #949494;'>#   game_seconds_remaining &lt;dbl&gt;, game_half &lt;chr&gt;, quarter_end &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   drive &lt;dbl&gt;, sp &lt;dbl&gt;, qtr &lt;dbl&gt;, down &lt;dbl&gt;, goal_to_go &lt;dbl&gt;, time &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   yrdln &lt;chr&gt;, ydstogo &lt;dbl&gt;, ydsnet &lt;dbl&gt;, desc &lt;chr&gt;, play_type &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   yards_gained &lt;dbl&gt;, shotgun &lt;dbl&gt;, no_huddle &lt;dbl&gt;, qb_dropback &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   qb_kneel &lt;dbl&gt;, qb_spike &lt;dbl&gt;, qb_scramble &lt;dbl&gt;, pass_length &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   pass_location &lt;chr&gt;, air_yards &lt;dbl&gt;, yards_after_catch &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   run_location &lt;chr&gt;, run_gap &lt;chr&gt;, field_goal_result &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   kick_distance &lt;dbl&gt;, extra_point_result &lt;chr&gt;, two_point_conv_result &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   home_timeouts_remaining &lt;dbl&gt;, away_timeouts_remaining &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   timeout &lt;dbl&gt;, timeout_team &lt;chr&gt;, td_team &lt;chr&gt;, td_player_name &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   td_player_id &lt;chr&gt;, posteam_timeouts_remaining &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   defteam_timeouts_remaining &lt;dbl&gt;, total_home_score &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_away_score &lt;dbl&gt;, posteam_score &lt;dbl&gt;, defteam_score &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   score_differential &lt;dbl&gt;, posteam_score_post &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   defteam_score_post &lt;dbl&gt;, score_differential_post &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   no_score_prob &lt;dbl&gt;, opp_fg_prob &lt;dbl&gt;, opp_safety_prob &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   opp_td_prob &lt;dbl&gt;, fg_prob &lt;dbl&gt;, safety_prob &lt;dbl&gt;, td_prob &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   extra_point_prob &lt;dbl&gt;, two_point_conversion_prob &lt;dbl&gt;, ep &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   epa &lt;dbl&gt;, total_home_epa &lt;dbl&gt;, total_away_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_rush_epa &lt;dbl&gt;, total_away_rush_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_pass_epa &lt;dbl&gt;, total_away_pass_epa &lt;dbl&gt;, air_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   yac_epa &lt;dbl&gt;, comp_air_epa &lt;dbl&gt;, comp_yac_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_comp_air_epa &lt;dbl&gt;, total_away_comp_air_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_comp_yac_epa &lt;dbl&gt;, total_away_comp_yac_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_raw_air_epa &lt;dbl&gt;, total_away_raw_air_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_home_raw_yac_epa &lt;dbl&gt;, total_away_raw_yac_epa &lt;dbl&gt;, wp &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   def_wp &lt;dbl&gt;, home_wp &lt;dbl&gt;, away_wp &lt;dbl&gt;, wpa &lt;dbl&gt;, vegas_wpa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   vegas_home_wpa &lt;dbl&gt;, home_wp_post &lt;dbl&gt;, away_wp_post &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   vegas_wp &lt;dbl&gt;, vegas_home_wp &lt;dbl&gt;, total_home_rush_wpa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_away_rush_wpa &lt;dbl&gt;, total_home_pass_wpa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_away_pass_wpa &lt;dbl&gt;, air_wpa &lt;dbl&gt;, …</span></div><div class='input'><span class='co'># }</span>
+#&gt; <span style='color: #949494;'>#   yards_gained &lt;dbl&gt;, shotgun &lt;dbl&gt;, no_huddle &lt;dbl&gt;, qb_dropback &lt;dbl&gt;, …</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>
