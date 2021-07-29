@@ -59,8 +59,28 @@ You can also configure `nflreadr` to display progress messages with the `progres
 
 ```{r eval = FALSE}
 progressr::with_progress(load_rosters(seasons = 2010:2020))
- |====================                               |  40%
+ |========             |  40%
 ```
+
+## Getting help
+
+The best places to get help on this package are:
+
+-   the [nflverse discord](https://discord.com/invite/5Er2FBnnQa) (for both this package as well as anything R/NFL related)
+-   opening [an issue](https://github.com/nflverse/nflreadr/issues/new/choose)
+
+## Contributing
+
+Many hands make light work! Here are some ways you can contribute to
+this project:
+
+-   You can [open an issue](https://github.com/nflverse/nflreadr/issues/new/choose) if you’d like to request specific data or report a bug/error.
+
+-   If you’d like to contribute code, please check out [the contribution guidelines](https://nflverse.github.io/nflreadr/CONTRIBUTING.html).
+
+## Terms of Use
+
+The R code for this package is released as open source under the [MIT License](https://nflverse.github.io/nflreadr/LICENSE.html). NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.
 
 ## Roadmap
 
@@ -73,7 +93,7 @@ This package `must` include:
     - schedules (aka Lee's game data) `r emo::ji("white_check_mark")`
     - rosters `r emo::ji("white_check_mark")`
     - Next Gen Stats data `r emo::ji("white_check_mark")`
-    - team_stats (aggregated by week) `waiting for 
+    - team_stats (aggregated by week) `not yet in nflfastR`
 - Document the available package options (currently nflreadr.cache and nflreadr.prefer) somewhere. `r emo::ji("white_check_mark")`
 - Maybe in `nflreadr-package.R` created with `use_package_doc()`? Or just in the readme? `r emo::ji("white_check_mark")`
 
