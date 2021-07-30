@@ -52,7 +52,7 @@ options(nflreadr.prefer) # one of "qs" or "rds"
 ```
 
 You can also configure `nflreadr` to display progress messages with the
-`progressr` package, e.g.
+[`progressr` package](https://progressr.futureverse.org), e.g.
 
 ``` r
 progressr::with_progress(load_rosters(seasons = 2010:2020))

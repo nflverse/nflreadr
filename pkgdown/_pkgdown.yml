@@ -22,6 +22,9 @@ reference:
   - "qs_from_url"
   - "rds_from_url"
   - "raw_from_url"
+- title: Miscellaneous
+  contents:
+  - ".clear_cache"
 
 authors:
   Tan Ho:
