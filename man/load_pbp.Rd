@@ -26,10 +26,9 @@ Loads multiple seasons from the nflfastR data repository
 \donttest{
 load_pbp(2019:2020)
 }
-
 }
 \seealso{
-\code{vignette("Data Dictionary - PBP")} for the data dictionary
+\code{dictionary_pbp} for the data dictionary as a dataframe
 
 \url{https://www.nflfastr.com/articles/field_descriptions.html} for a web version of the data dictionary
 

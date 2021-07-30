@@ -13,8 +13,7 @@
 #' \donttest{
 #' load_pbp(2019:2020)
 #' }
-#'
-#' @seealso `vignette("Data Dictionary - PBP")` for the data dictionary
+#' @seealso `dictionary_pbp` for the data dictionary as a dataframe
 #' @seealso <https://www.nflfastr.com/articles/field_descriptions.html> for a web version of the data dictionary
 #' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `build_nflfastR_pbp()`
 #'
@@ -110,7 +109,9 @@ load_player_stats <- function(seasons = most_recent_season(),
 #'
 #' @return A tibble of game information for past and/or future games.
 #'
-#' @seealso <https://github.com/nflverse/nfldata>
+#' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#games>
+#' @seealso `dictionary_schedules` for the data dictionary as a dataframe
+#' @seealso `vignette("Data Dictionary - Schedules")` for the data dictionary as a vignette
 #'
 #' @examples
 #' \donttest{
@@ -141,6 +142,8 @@ load_schedules <- function(seasons = TRUE){
 #'
 #' @return A tibble of season-level roster data.
 #'
+#' @seealso `dictionary_rosters` for the data dictionary as a dataframe
+#' @seealso `vignette("Data Dictionary - Rosters")` for the data dictionary as a vignette
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
