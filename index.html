@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>nflreadr • Download nflverse Data • nflreadr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -15,6 +21,7 @@
 <meta property="og:title" content="nflreadr • Download nflverse Data">
 <meta property="og:description" content="A low-level R package that downloads data from nflverse GitHub data repositories.
 ">
+<meta property="og:image" content="nflverse.github.io/nflreadr/logo.svg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@_TanHo">
 <meta name="twitter:site" content="@nflfastR">
@@ -36,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
       </span>
     </div>
 
@@ -69,6 +76,12 @@
     </li>
     <li>
       <a href="articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
+    </li>
+    <li>
+      <a href="articles/dictionary_rosters.html">Data Dictionary - Rosters</a>
+    </li>
+    <li>
+      <a href="articles/dictionary_schedules.html">Data Dictionary - Schedules</a>
     </li>
     <li>
       <a href="articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
@@ -117,12 +130,11 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="nflreadr" class="section level1">
+<div id="nflreadr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#nflreadr" class="anchor"></a>nflreadr</h1></div>
+<a href="#nflreadr-" class="anchor"></a>nflreadr <a href="nflverse.github.io/nflreadr"><img src="reference/figures/logo.svg" align="right" width="25%" min-width="120px"></a>
+</h1></div>
 <!-- badges: start -->
-<!-- [![CRAN status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)  -->
-<!-- [![Codecov test coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&style=flat-square&logo=codecov)](https://codecov.io/gh/nflverse/nflreadr?branch=main) -->
 
 <!-- badges: end -->
 <p>nflreadr is a low-level package for downloading data from nflverse repositories.</p>
@@ -135,7 +147,7 @@
 
 <span class="co"># or use remotes/devtools</span>
 <span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nflverse/nflreadr"</span>, ref <span class="op">=</span> <span class="st">"dev"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nflverse/nflreadr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -175,33 +187,6 @@
 <h2 class="hasAnchor">
 <a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
 <p>The R code for this package is released as open source under the <a href="https://nflverse.github.io/nflreadr/LICENSE.html">MIT License</a>. NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.</p>
-</div>
-<div id="roadmap" class="section level2">
-<h2 class="hasAnchor">
-<a href="#roadmap" class="anchor"></a>Roadmap</h2>
-<p>This package currently includes:</p>
-<ul>
-<li>Functions for loading:
-<ul>
-<li>general <code><a href="reference/rds_from_url.html">rds_from_url()</a></code>, <code><a href="reference/qs_from_url.html">qs_from_url()</a></code>, <code>parquet_from_url()</code> ✅</li>
-<li>pbp ✅</li>
-<li>player_stats (aggregated by week) ✅</li>
-<li>schedules (aka Lee’s game data) ✅</li>
-<li>rosters ✅</li>
-<li>Next Gen Stats data ✅</li>
-<li>team_stats (aggregated by week) <code>not yet in nflfastR</code>
-</li>
-<li>fantasy player IDs</li>
-<li>fantasy latest rankings</li>
-</ul>
-</li>
-</ul>
-<p>and may soon include:</p>
-<ul>
-<li>A hex sticker!</li>
-<li>Data dictionaries and vignettes for all functions (still to-go: schedules, rosters, nextgen stats)</li>
-<li>CRAN-standards/readiness (because we want to introduce it as a dependency for other packages)</li>
-</ul>
 </div>
 </div>
   </div>
@@ -243,6 +228,8 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=nflreadr"><img src="https://img.shields.io/cran/v/nflreadr?style=flat-square&amp;logo=R&amp;label=CRAN" alt="CRAN status"></a></li>
+<li><a href="https://codecov.io/gh/nflverse/nflreadr?branch=main"><img src="https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&amp;style=flat-square&amp;logo=codecov" alt="Codecov test coverage"></a></li>
 <li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/nflverse/nflreadr/actions"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
