@@ -9,3 +9,6 @@ usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
 dictionary_ff_playerids <- read.csv("data-raw/dictionary_ff_playerids.csv")
 usethis::use_data(dictionary_ff_playerids, overwrite = TRUE)
+
+dictionary_rosters <- read.csv("data-raw/dictionary_rosters.csv")
+usethis::use_data(dictionary_rosters, overwrite = TRUE)

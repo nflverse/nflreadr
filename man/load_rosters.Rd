@@ -4,7 +4,7 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(seasons = most_recent_season())
+load_rosters(seasons = most_recent_season(roster = TRUE))
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, defaults to returning

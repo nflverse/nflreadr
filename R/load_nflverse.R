@@ -145,9 +145,8 @@ load_schedules <- function(seasons = TRUE){
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
-load_rosters <- function(seasons = most_recent_season()){
+load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 
-  # different "most-current-season" logic than for pbp
   current_year <- most_recent_season(roster = TRUE)
   if(isTRUE(seasons)) seasons <- 1999:current_year
   stopifnot(is.numeric(seasons),

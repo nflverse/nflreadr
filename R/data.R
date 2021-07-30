@@ -18,3 +18,10 @@
 #'
 #' @seealso `vignette("Data Dictionary - FF Player IDs")`
 "dictionary_ff_playerids"
+
+#' Data Dictionary: Rosters
+#'
+#' A dataframe containing the data dictionary for `load_rosters()`
+#'
+#' @seealso `vignette("Data Dictionary - Rosters")`
+"dictionary_rosters"
