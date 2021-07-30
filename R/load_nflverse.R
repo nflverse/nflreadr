@@ -217,3 +217,23 @@ load_nextgen_stats <- function(seasons = TRUE,
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }
+#' Load Team Graphics
+#'
+#' @description Loads team graphics, colours, and logos - useful for plots!
+#'
+#' @examples
+#' \donttest{
+#'   load_team_graphics()
+#' }
+#'
+#' @return A tibble of team-level image URLs and hex colour codes.
+#'
+#' @seealso <https://github.com/nflverse/nflfastr-data>
+#'
+#' @export
+load_team_graphics <- function(){
+
+  out <- rds_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds")
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}

@@ -69,6 +69,17 @@ test_that("load_ngs", {
   expect_gt(nrow(ngs_rushing), 500)
 })
 
+test_that("load_team_graphics", {
+
+  skip_if_offline("github.com")
+
+  team_graphics <- load_team_graphics()
+
+  expect_s3_class(team_graphics, "tbl_df")
+
+  expect_gte(nrow(team_graphics), 32)
+})
+
 test_that("Cache clearing works",{
 
   skip_if_offline("github.com")
