@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# nflreadr <a href='nflverse.github.io/nflreadr'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
+# nflreadr <a href='nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
 
 <!-- badges: start -->
 
@@ -78,11 +78,11 @@ this project:
     you’d like to request specific data or report a bug/error.
 
 -   If you’d like to contribute code, please check out [the contribution
-    guidelines](https://nflverse.github.io/nflreadr/CONTRIBUTING.html).
+    guidelines](https://nflreadr.nflverse.com/CONTRIBUTING.html).
 
 ## Terms of Use
 
 The R code for this package is released as open source under the [MIT
-License](https://nflverse.github.io/nflreadr/LICENSE.html). NFL data
+License](https://nflreadr.nflverse.com/LICENSE.html). NFL data
 accessed by this package belong to their respective owners, and are
 governed by their terms of use.
