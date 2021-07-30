@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Fira+Mono:400,700|family=IBM+Plex+Sans:400,700';
+@import 'https://fonts.googleapis.com/css?family=Bai+Jamjuree:400,700|family=IBM+Plex+Mono:400,700|family=IBM+Plex+Sans:400,700';
 
 
 body{
@@ -6,7 +6,7 @@ body{
 }
 
 h1 {
-  font-family: 'Fira Mono', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
   font-weight: 700;
 }
 
@@ -16,12 +16,12 @@ h2,h3 {
 }
 
 pre, code {
-  font-family: 'Fira Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .navbar-link {
   font-weight: 700;
-  font-family: 'Fira Mono', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
 }
 
 h4.author,h4.date {

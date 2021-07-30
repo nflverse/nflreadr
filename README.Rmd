@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# nflreadr <a href='nflverse.github.io/nflreadr'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
+# nflreadr <a href='nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)
@@ -76,8 +76,8 @@ this project:
 
 -   You can [open an issue](https://github.com/nflverse/nflreadr/issues/new/choose) if you’d like to request specific data or report a bug/error.
 
--   If you’d like to contribute code, please check out [the contribution guidelines](https://nflverse.github.io/nflreadr/CONTRIBUTING.html).
+-   If you’d like to contribute code, please check out [the contribution guidelines](https://nflreadr.nflverse.com/CONTRIBUTING.html).
 
 ## Terms of Use
 
-The R code for this package is released as open source under the [MIT License](https://nflverse.github.io/nflreadr/LICENSE.html). NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.
+The R code for this package is released as open source under the [MIT License](https://nflreadr.nflverse.com/LICENSE.html). NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.

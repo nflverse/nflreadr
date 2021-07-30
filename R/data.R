@@ -5,7 +5,7 @@
 #' @seealso `vignette("Data Dictionary - PBP")`
 "dictionary_pbp"
 
-#' Data Dictionary: Play by Play
+#' Data Dictionary: Player Stats
 #'
 #' A dataframe containing the data dictionary for `load_player_stats()`
 #'

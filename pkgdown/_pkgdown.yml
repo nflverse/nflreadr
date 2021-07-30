@@ -1,21 +1,27 @@
 destination: docs
 
-url: nflverse.github.io/nflreadr
+url: nflreadr.nflverse.com
 
 reference:
-- title: Main
-  desc: These are the primary functions of `nflreadr`.
+- title: Load nflverse data
   contents:
-  - starts_with("load_")
+  - "load_pbp"
+  - "load_player_stats"
+  - "load_rosters"
+  - "load_schedules"
+  - "load_nextgen_stats"
+- title: Load ffverse data
+  contents:
+  - "load_ff_playerids"
+  - "load_ff_rankings"
 - title: Data Dictionaries
   contents:
   - starts_with("dictionary_")
 - title: Loading raw data
-  desc: Additional helper functions for loading raw data
   contents:
   - "qs_from_url"
   - "rds_from_url"
-  - "parquet_from_url"
+  - "raw_from_url"
 
 authors:
   Tan Ho:
@@ -44,6 +50,8 @@ navbar:
           href: https://www.nflfastr.com
         - text: nflverse GitHub
           href: https://github.com/nflverse
+        - text: "ffverse"
+          href: https://www.ffverse.com
 
 template:
   params:
