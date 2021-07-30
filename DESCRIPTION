@@ -30,6 +30,7 @@ Suggests:
     covr (>= 3.0.0),
     DT (>= 0.15),
     knitr (>= 1.0),
+    progressr (>= 0.8.0),
     rmarkdown (>= 2.6),
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

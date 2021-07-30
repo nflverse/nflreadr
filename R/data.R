@@ -25,3 +25,10 @@
 #'
 #' @seealso `vignette("Data Dictionary - Rosters")`
 "dictionary_rosters"
+
+#' Data Dictionary: Schedules
+#'
+#' A dataframe containing the data dictionary for `load_schedules()`
+#'
+#' @seealso `vignette("Data Dictionary - Schedules")`
+"dictionary_schedules"
