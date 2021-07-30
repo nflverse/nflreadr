@@ -4,7 +4,7 @@
 \alias{load_rosters}
 \title{Load Rosters}
 \usage{
-load_rosters(seasons = most_recent_season())
+load_rosters(seasons = most_recent_season(roster = TRUE))
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, defaults to returning
@@ -23,6 +23,10 @@ Load Rosters
 
 }
 \seealso{
+\code{dictionary_rosters} for the data dictionary as a dataframe
+
+\code{vignette("Data Dictionary - Rosters")} for the data dictionary as a vignette
+
 \url{https://github.com/nflverse/nflfastR-roster}
 
 \url{https://www.nflfastr.com/reference/fast_scraper_roster.html}

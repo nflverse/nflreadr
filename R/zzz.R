@@ -1,4 +1,4 @@
-
+# nocov start
 .onLoad <- function(libname,pkgname){
 
   memoise_option <- getOption("nflreadr.cache", default = "memory")
@@ -77,3 +77,5 @@
   }
   if(memoise_option == "off") packageStartupMessage('Note: nflreadr.cache is set to "off"')
 }
+
+# nocov end

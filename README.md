@@ -1,12 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# nflreadr
+# nflreadr <a href='nflverse.github.io/nflreadr'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
 
 <!-- badges: start -->
-<!-- [![CRAN status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)  -->
-<!-- [![Codecov test coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&style=flat-square&logo=codecov)](https://codecov.io/gh/nflverse/nflreadr?branch=main) -->
 
+[![CRAN
+status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)
+[![Codecov test
+coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&style=flat-square&logo=codecov)](https://codecov.io/gh/nflverse/nflreadr?branch=main)
 [![Dev
 status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
 [![Lifecycle:
@@ -30,7 +32,7 @@ install.packages("nflreadr", repos = "https://nflverse.r-universe.dev")
 
 # or use remotes/devtools
 # install.packages("remotes")
-remotes::install_github("nflverse/nflreadr", ref = "dev")
+remotes::install_github("nflverse/nflreadr")
 ```
 
 ## Usage
@@ -84,27 +86,3 @@ The R code for this package is released as open source under the [MIT
 License](https://nflverse.github.io/nflreadr/LICENSE.html). NFL data
 accessed by this package belong to their respective owners, and are
 governed by their terms of use.
-
-## Roadmap
-
-This package currently includes:
-
--   Functions for loading:
-    -   general `rds_from_url()`, `qs_from_url()`, `parquet_from_url()`
-        ✅
-    -   pbp ✅
-    -   player\_stats (aggregated by week) ✅
-    -   schedules (aka Lee’s game data) ✅
-    -   rosters ✅
-    -   Next Gen Stats data ✅
-    -   team\_stats (aggregated by week) `not yet in nflfastR`
-    -   fantasy player IDs
-    -   fantasy latest rankings
-
-and may soon include:
-
--   A hex sticker!
--   Data dictionaries and vignettes for all functions (still to-go:
-    schedules, rosters, nextgen stats)
--   CRAN-standards/readiness (because we want to introduce it as a
-    dependency for other packages)
