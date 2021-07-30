@@ -1,0 +1,15 @@
+field; description
+team_abbr;Team abbreviation
+team_name;Complete Team name
+team_id;Team id used in the roster function
+team_nick;Nickname
+team_conf;Conference abbreveation the team belongs to.
+team_division;Division the team belongs to.
+team_color;Primary color
+team_color2;Secondary color
+team_color3;Tertiary color
+team_color4;Quaternary color
+team_logo_wikipedia;Url to Team logo on wikipedia
+team_logo_espn;Url to higher quality logo on espn
+team_wordmark;Url to team wordmarks
+team_conference_logo;Url to conference logo of the team
