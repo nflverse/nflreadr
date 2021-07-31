@@ -69,11 +69,11 @@ test_that("load_ngs", {
   expect_gt(nrow(ngs_rushing), 500)
 })
 
-test_that("load_team_graphics", {
+test_that("load_teams", {
 
   skip_if_offline("github.com")
 
-  team_graphics <- load_team_graphics()
+  team_graphics <- load_teams()
 
   expect_s3_class(team_graphics, "tbl_df")
 
