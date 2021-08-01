@@ -22,6 +22,9 @@ reference:
   - "qs_from_url"
   - "rds_from_url"
   - "raw_from_url"
+- title: Miscellaneous
+  contents:
+  - ".clear_cache"
 
 authors:
   Tan Ho:
@@ -60,6 +63,9 @@ template:
 #      api_key: 7abddd2aa591d955b365235f35d75a38
 #      index_name: dynastyprocess
   opengraph:
+    image:
+      src: man/figures/logo.svg
+      alt: "nflreadr hex logo"
     twitter:
       creator: "@_TanHo"
       site: "@nflfastR"

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# nflreadr <a href='nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
+# nflreadr <a href='https://nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
 
 <!-- badges: start -->
 
@@ -52,7 +52,7 @@ options(nflreadr.prefer) # one of "qs" or "rds"
 ```
 
 You can also configure `nflreadr` to display progress messages with the
-`progressr` package, e.g.
+[`progressr` package](https://progressr.futureverse.org), e.g.
 
 ``` r
 progressr::with_progress(load_rosters(seasons = 2010:2020))
@@ -83,6 +83,6 @@ this project:
 ## Terms of Use
 
 The R code for this package is released as open source under the [MIT
-License](https://nflreadr.nflverse.com/LICENSE.html). NFL data
-accessed by this package belong to their respective owners, and are
-governed by their terms of use.
+License](https://nflreadr.nflverse.com/LICENSE.html). NFL data accessed
+by this package belong to their respective owners, and are governed by
+their terms of use.
