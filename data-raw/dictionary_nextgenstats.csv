@@ -12,7 +12,7 @@ week,numeric,The week of the NFL season the game occurs in. Please note that the
 avg_time_to_throw,numeric,Average time elapsed from the time of snap to throw on every pass attempt for a passer (sacks excluded).
 avg_completed_air_yards,numeric,Average air yards on completed passes
 avg_intended_air_yards,numeric,Average air yards on all attempted passes
-avg_air_yards_differential,numeric,Air Yards Differential is calculated by subtracting the passer’s average Intended Air Yards from his average Completed Air Yards. This stat indicates if he is on average attempting deep passes than he on average completes.
+avg_air_yards_differential,numeric,Air Yards Differential is calculated by subtracting the passer's average Intended Air Yards from his average Completed Air Yards. This stat indicates if he is on average attempting deep passes than he on average completes.
 aggressiveness,numeric,Aggressiveness tracks the amount of passing attempts a quarterback makes that are into tight coverage, where there is a defender within 1 yard or less of the receiver at the time of completion or incompletion. AGG is shown as a % of attempts into tight windows over all passing attempts.
 max_completed_air_distance,numeric,Air Distance is the amount of yards the ball has traveled on a pass, from the point of release to the point of reception (as the crow flies). Unlike Air Yards, Air Distance measures the actual distance the passer throws the ball.
 avg_air_yards_to_sticks,numeric,Air Yards to the Sticks shows the amount of Air Yards ahead or behind the first down marker on all attempts for a passer. The metric indicates if the passer is attempting his passes past the 1st down marker, or if he is relying on his skill position players to make yards after catch.
@@ -23,22 +23,22 @@ interceptions,numeric,Number of interceptions thrown
 passer_rating,numeric,Overall NFL passer rating
 completions,numeric,Number of completed passes
 completion_percentage,numeric,Percentage of completed passes
-expected_completion_percentage,numeric,Using a passer’s Completion Probability on every play, determine what a passer’s completion percentage is expected to be.
-completion_percentage_above_expectation,numeric,A passer’s actual completion percentage compared to their Expected Completion Percentage.
+expected_completion_percentage,numeric,Using a passer's Completion Probability on every play, determine what a passer's completion percentage is expected to be.
+completion_percentage_above_expectation,numeric,A passer's actual completion percentage compared to their Expected Completion Percentage.
 avg_air_distance,numeric,A receiver's average depth of target
 max_air_distance,numeric,A receiver's maximum depth of target
 player_jersey_number,numeric,Player's jersey number
-avg_cushion,numeric,The distance (in yards) measured between a WR/TE and the defender they’re lined up against at the time of snap on all targets.
+avg_cushion,numeric,The distance (in yards) measured between a WR/TE and the defender they're lined up against at the time of snap on all targets.
 avg_separation,numeric,The distance (in yards) measured between a WR/TE and the nearest defender at the time of catch or incompletion.
-percent_share_of_intended_air_yards,numeric,The sum of the receivers total intended air yards (all attempts) over the sum of his team’s total intended air yards. Represented as a percentage, this statistic represents how much of a team’s deep yards does the player account for.
+percent_share_of_intended_air_yards,numeric,The sum of the receivers total intended air yards (all attempts) over the sum of his team's total intended air yards. Represented as a percentage, this statistic represents how much of a team's deep yards does the player account for.
 receptions,numeric,The number of receptions for the receiver
 targets,numeric,The numnber of targets for the receiver
 catch_percentage,numeric,Percentage of caught passes relative to targets
 yards,numeric,The number of receiving yards
 rec_touchdowns,numeric,The number of touchdown receptions
 avg_yac,numeric,Average yards gained after catch by a receiver.
-avg_expected_yac,numeric,Average expected yards after catch, based on numerous factors using tracking data such as how open the receiver is, how fast they’re traveling, how many defenders/blockers are in space, etc
-avg_yac_above_expectation,numeric,A receiver’s YAC compared to their Expected YAC.
+avg_expected_yac,numeric,Average expected yards after catch, based on numerous factors using tracking data such as how open the receiver is, how fast they're traveling, how many defenders/blockers are in space, etc
+avg_yac_above_expectation,numeric,A receiver's YAC compared to their Expected YAC.
 efficiency,numeric,Rushing efficiency is calculated by taking the total distance a player traveled on rushing plays as a ball carrier according to Next Gen Stats (measured in yards) per rushing yards gained. The lower the number, the more of a North/South runner.
 percent_attempts_gte_eight_defenders,numeric,On every play, Next Gen Stats calculates how many defenders are stacked in the box at snap. Using that logic, DIB% calculates how often does a rusher see 8 or more defenders in the box against them.
 avg_time_to_los,numeric,Next Gen Stats measures the amount of time a ball carrier spends (measured to the 10th of a second) before crossing the Line of Scrimmage. TLOS is the average time behind the LOS on all rushing plays where the player is the rusher.
