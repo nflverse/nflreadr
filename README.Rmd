@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# nflreadr <a href='nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
+# nflreadr <a href='https://nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://img.shields.io/cran/v/nflreadr?style=flat-square&logo=R&label=CRAN)](https://CRAN.R-project.org/package=nflreadr)
@@ -41,7 +41,7 @@ remotes::install_github("nflverse/nflreadr")
 
 ## Usage
 
-The main functions of `nflreadr` are prefixed with load.  
+The main functions of `nflreadr` are prefixed with `load_`.  
 
 ```{r eval = FALSE}
 library(nflreadr)
@@ -55,7 +55,7 @@ options(nflreadr.cache) # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) # one of "qs" or "rds"
 ```
 
-You can also configure `nflreadr` to display progress messages with the `progressr` package, e.g.
+You can also configure `nflreadr` to display progress messages with the [`progressr` package](https://progressr.futureverse.org), e.g.
 
 ```{r eval = FALSE}
 progressr::with_progress(load_rosters(seasons = 2010:2020))
