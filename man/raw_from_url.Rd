@@ -17,6 +17,9 @@ can then be passed into the appropriate file-reading function, such as \code{arr
 }
 \examples{
 \donttest{
-head(raw_from_url("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"),50)
+head(raw_from_url(
+  "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
+  ),
+50)
 }
 }

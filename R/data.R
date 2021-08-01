@@ -32,3 +32,10 @@
 #'
 #' @seealso `vignette("Data Dictionary - Schedules")`
 "dictionary_schedules"
+
+#' Data Dictionary: Next Gen Stats
+#'
+#' A dataframe containing the data dictionary for `load_nextgen_stats()`
+#'
+#' @seealso `vignette("Data Dictionary - Next Gen Stats")`
+"dictionary_nextgen_stats"

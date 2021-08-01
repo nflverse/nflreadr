@@ -38,7 +38,10 @@ rds_from_url <- function(url, ...){
 #'
 #' @examples
 #' \donttest{
-#' head(raw_from_url("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"),50)
+#' head(raw_from_url(
+#'   "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
+#'   ),
+#' 50)
 #' }
 raw_from_url <- function(url, ...){
   dots <- list(...)

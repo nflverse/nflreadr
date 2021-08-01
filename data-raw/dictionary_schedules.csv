@@ -3,7 +3,7 @@ game_id; The ID of the game as assigned by the NFL. Note that this value matches
 alt_game_id; This is a more human-readable ID. It consists of: the season, an underscore, the two-digit week number, an underscore, the away team, an underscore, the home team.
 season; The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number.
 game_type; What type of game? One of REG, WC, DIV, CON, SB
-week; The week of the NFL season the game occurs in. This will be 1-17 for the regular season, 18 for wildcard playoff games, 19 for divisional playoff games, 20 for conference championships and 21 for Super Bowls.
+week; The week of the NFL season the game occurs in. Please note that the `game_type` will differ for weeks >= 18 because of the season expansion in 2021. Please use `game_type` to filter for regular season or postseason.
 gameday; The date on which the game occurred.
 weekday; The day of the week on which the game occcured.
 gametime; The kickoff time of the game. This is represented in 24-hour time and the Eastern time zone, regardless of what time zone the game was being played in.
