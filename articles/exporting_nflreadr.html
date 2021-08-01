@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Re-exporting nflreadr functions • nflreadr</title>
+<title>Using nflreadr in packages • nflreadr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,9 +18,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Re-exporting nflreadr functions">
+<meta property="og:title" content="Using nflreadr in packages">
 <meta property="og:description" content="nflreadr">
-<meta property="og:image" content="nflreadr.nflverse.com/logo.svg">
+<meta property="og:image" content="nflreadr.nflverse.com/reference/figures/logo.svg">
+<meta property="og:image:alt" content="nflreadr hex logo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@_TanHo">
 <meta name="twitter:site" content="@nflfastR">
@@ -83,7 +84,7 @@
       <a href="../articles/dictionary_schedules.html">Data Dictionary - Schedules</a>
     </li>
     <li>
-      <a href="../articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
+      <a href="../articles/exporting_nflreadr.html">Using nflreadr in packages</a>
     </li>
   </ul>
 </li>
@@ -133,7 +134,7 @@
       </header><script src="exporting_nflreadr_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Re-exporting nflreadr functions</h1>
+      <h1 data-toc-skip>Using nflreadr in packages</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/master/vignettes/exporting_nflreadr.Rmd"><code>vignettes/exporting_nflreadr.Rmd</code></a></small>
@@ -143,6 +144,9 @@
 
     
     
+<div id="re-exporting-nflreadr-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#re-exporting-nflreadr-functions" class="anchor"></a>Re-exporting nflreadr functions</h2>
 <p>You can re-export <code>nflreadr</code> functions in your package by using the following roxygen template:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @inherit nflreadr::load_nextgen_stats</span>
@@ -151,11 +155,40 @@
 <span class="co">#' @examples</span>
 <span class="co">#' load_ng_stats(2020)</span>
 <span class="va">load_ng_stats</span> <span class="op">&lt;-</span> <span class="fu">nflreadr</span><span class="fu">::</span><span class="va"><a href="../reference/load_nextgen_stats.html">load_nextgen_stats</a></span></code></pre></div>
+</div>
+<div id="using-progressr-with-from_url-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#using-progressr-with-from_url-functions" class="anchor"></a>Using progressr with from_url functions</h2>
+<p>The <code>from_url</code> family of functions are designed to be compatible with using progressr updates. Here’s an example, adapted from the <code><a href="../reference/load_rosters.html">load_rosters()</a></code> source code:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">load_rosters</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">seasons</span> <span class="op">=</span> <span class="fl">1999</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span><span class="op">{</span>
+
+  <span class="co"># Create a progressor function inside your function that knows how many "steps" there will be</span>
+  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/progressor.html">progressor</a></span><span class="op">(</span>steps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">seasons</span><span class="op">)</span><span class="op">)</span> 
+
+  <span class="co"># Form the URLs to pass into rds_from_url</span>
+  <span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+    <span class="st">"https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_"</span>,
+    <span class="va">seasons</span>, <span class="st">".rds"</span><span class="op">)</span>
+
+  <span class="co"># Pass the progressor to the "p" argument of rds_from_url in a loop or map</span>
+  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">urls</span>, <span class="va">rds_from_url</span>, p <span class="op">=</span> <span class="va">p</span><span class="op">)</span>
+  
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>This will cause p() to execute once for each rds_from_url call, effectively “signalling” progress.</p>
+<p>In order to receive progress updates, the user must wrap the function (load_rosters, in this case) with <code><a href="https://progressr.futureverse.org/reference/with_progress.html">progressr::with_progress()</a></code> as shown here:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="fu"><a href="../reference/load_rosters.html">load_rosters</a></span><span class="op">(</span><span class="fl">2010</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>For more information, please see the <a href="https://progressr.futureverse.org">progressr</a> documentation.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

@@ -21,7 +21,8 @@
 <meta property="og:title" content="nflreadr • Download nflverse Data">
 <meta property="og:description" content="A low-level R package that downloads data from nflverse GitHub data repositories.
 ">
-<meta property="og:image" content="nflreadr.nflverse.com/logo.svg">
+<meta property="og:image" content="nflreadr.nflverse.com/reference/figures/logo.svg">
+<meta property="og:image:alt" content="nflreadr hex logo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@_TanHo">
 <meta name="twitter:site" content="@nflfastR">
@@ -84,7 +85,7 @@
       <a href="articles/dictionary_schedules.html">Data Dictionary - Schedules</a>
     </li>
     <li>
-      <a href="articles/exporting_nflreadr.html">Re-exporting nflreadr functions</a>
+      <a href="articles/exporting_nflreadr.html">Using nflreadr in packages</a>
     </li>
   </ul>
 </li>
@@ -135,7 +136,7 @@
   <div class="contents col-md-9">
 <div id="nflreadr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#nflreadr-" class="anchor"></a>nflreadr <a href="nflreadr.nflverse.com"><img src="reference/figures/logo.svg" align="right" width="25%" min-width="120px"></a>
+<a href="#nflreadr-" class="anchor"></a>nflreadr <a href="https://nflreadr.nflverse.com"><img src="reference/figures/logo.svg" align="right" width="25%" min-width="120px"></a>
 </h1></div>
 <!-- badges: start -->
 
@@ -163,7 +164,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> <span class="co"># one of "memory", "filesystem", or "off"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
-<p>You can also configure <code>nflreadr</code> to display progress messages with the <code>progressr</code> package, e.g.</p>
+<p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org"><code>progressr</code> package</a>, e.g.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>progressr<span class="op">::</span><span class="kw">with_progress</span>(<span class="kw">load_rosters</span>(<span class="dt">seasons =</span> <span class="dv">2010</span><span class="op">:</span><span class="dv">2020</span>))</span>
 <span id="cb4-2"><a href="#cb4-2"></a> <span class="op">|</span><span class="er">========</span><span class="st">             </span><span class="er">|</span><span class="st">  </span><span class="dv">40</span>%</span></code></pre></div>
 </div>
