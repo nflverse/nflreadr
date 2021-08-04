@@ -91,3 +91,14 @@ test_that("Cache clearing works",{
   expect(!memoise::has_cache(load_player_stats)(), "Cache was not cleared!")
 })
 
+test_that("load_injuries", {
+
+  skip_if_offline("github.com")
+
+  injuries <- load_injuries()
+  injuries_years <- load_injuries(seasons = 2019:2020)
+
+  expect_s3_class(injuries, "tbl_df")
+  expect_s3_class(injuries_years, "tbl_df")
+  expect_gt(nrow(injuries_years), 8000)
+})

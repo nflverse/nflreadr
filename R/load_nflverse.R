@@ -237,3 +237,34 @@ load_teams <- function(){
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
+
+#' Load Injury Reports
+#'
+#' @param seasons a numeric vector of seasons to return, defaults to returning
+#' this year's data if it is March or later. If set to `TRUE`, will return all available data.
+#'
+#' @examples
+#' \donttest{
+#'     load_injuries(2020)
+#' }
+#'
+#' @return a tibble of season-level injury report data.
+#'
+#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#'
+#' @export
+load_injuries <- function(seasons = most_recent_season()){
+  if(isTRUE(seasons)) seasons <- 2009:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2009,
+            seasons <= most_recent_season())
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+  urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
+                 "raw/master/data/seasons/injuries_",
+                 seasons,
+                 ".rds")
+  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
