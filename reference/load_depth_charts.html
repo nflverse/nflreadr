@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • nflreadr</title>
+<title>Load Weekly Depth Charts — load_depth_charts • nflreadr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Load Weekly Depth Charts — load_depth_charts" />
+<meta property="og:description" content="Loads depth charts for each NFL team for each week back to 2001." />
 <meta property="og:image" content="nflreadr.nflverse.com/reference/figures/logo.svg" />
 <meta property="og:image:alt" content="nflreadr hex logo" />
 <meta name="twitter:card" content="summary" />
@@ -72,7 +73,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -177,202 +178,56 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Load Weekly Depth Charts</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_nflverse.R'><code>R/load_nflverse.R</code></a></small>
+    <div class="hidden name"><code>load_depth_charts.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Loads depth charts for each NFL team for each week back to 2001.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>load_depth_charts</span><span class='op'>(</span>seasons <span class='op'>=</span> <span class='fu'>most_recent_season</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-load-nflverse-data" class="hasAnchor"><a href="#section-load-nflverse-data" class="anchor"></a>Load nflverse data</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="load_pbp.html">load_pbp()</a></code> </p>
-        </td>
-        <td><p>Load Play By Play</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_player_stats.html">load_player_stats()</a></code> </p>
-        </td>
-        <td><p>Load Player Level Weekly Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_rosters.html">load_rosters()</a></code> </p>
-        </td>
-        <td><p>Load Rosters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_schedules.html">load_schedules()</a></code> </p>
-        </td>
-        <td><p>Load Game/Schedule Data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_nextgen_stats.html">load_nextgen_stats()</a></code> </p>
-        </td>
-        <td><p>Load Player Level Weekly NFL Next Gen Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_depth_charts.html">load_depth_charts()</a></code> </p>
-        </td>
-        <td><p>Load Weekly Depth Charts</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_injuries.html">load_injuries()</a></code> </p>
-        </td>
-        <td><p>Load Injury Reports</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-load-ffverse-data" class="hasAnchor"><a href="#section-load-ffverse-data" class="anchor"></a>Load ffverse data</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="load_ff_playerids.html">load_ff_playerids()</a></code> </p>
-        </td>
-        <td><p>Load Fantasy Player IDs</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_ff_rankings.html">load_ff_rankings()</a></code> </p>
-        </td>
-        <td><p>Load Latest FantasyPros Rankings</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-data-dictionaries" class="hasAnchor"><a href="#section-data-dictionaries" class="anchor"></a>Data Dictionaries</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="dictionary_ff_playerids.html">dictionary_ff_playerids</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Fantasy Player IDs</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dictionary_nextgen_stats.html">dictionary_nextgen_stats</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Next Gen Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dictionary_pbp.html">dictionary_pbp</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Play by Play</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dictionary_player_stats.html">dictionary_player_stats</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Player Stats</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dictionary_rosters.html">dictionary_rosters</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Rosters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dictionary_schedules.html">dictionary_schedules</a></code> </p>
-        </td>
-        <td><p>Data Dictionary: Schedules</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-loading-raw-data" class="hasAnchor"><a href="#section-loading-raw-data" class="anchor"></a>Loading raw data</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="qs_from_url.html">qs_from_url()</a></code> </p>
-        </td>
-        <td><p>Load .qs file from a remote connection</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rds_from_url.html">rds_from_url()</a></code> </p>
-        </td>
-        <td><p>Load .rds file from a remote connection</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="raw_from_url.html">raw_from_url()</a></code> </p>
-        </td>
-        <td><p>Load raw filedata from a remote connection</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-miscellaneous" class="hasAnchor"><a href="#section-miscellaneous" class="anchor"></a>Miscellaneous</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="dot-clear_cache.html">.clear_cache()</a></code> </p>
-        </td>
-        <td><p>Clear function cache</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector specifying what seasons to return, if <code>TRUE</code> returns all available data</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of week-level depth charts for each team.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='https://github.com/nflverse/nflfastR-roster'>https://github.com/nflverse/nflfastR-roster</a></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+  <span class='fu'>load_depth_charts</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 36,168 × 13</span>
+#&gt;    season  week team  season_type position depth_chart_pos… formation depth_team
+#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         WR       WR               Offense            1
+#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         RB       HB               Offense            2
+#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            1
+#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            2
+#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DE       DE               Defense            1
+#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DE       DE               Defense            3
+#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            2
+#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            3
+#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            2
+#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         CB       CB               Defense            2
+#&gt; <span style='color: #949494;'># … with 36,158 more rows, and 5 more variables: jersey_number &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   full_name &lt;chr&gt;, first_name &lt;chr&gt;, last_name &lt;chr&gt;, gsis_id &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
+
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
