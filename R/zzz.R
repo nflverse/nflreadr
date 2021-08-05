@@ -55,6 +55,10 @@
            value = memoise::memoise(load_injuries, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
+    assign(x = "load_pfr_passing",
+           value = memoise::memoise(load_pfr_passing, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
     # DON'T FORGET TO ADD MEMOISED FUNCTIONS TO THE CACHE CLEARING FUNCTION
 
   }

@@ -258,14 +258,14 @@ load_depth_charts <- function(seasons = most_recent_season()){
   stopifnot(is.numeric(seasons),
             seasons >= 2001,
             seasons <= most_recent_season())
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
                  "raw/master/data/seasons/depth_charts_",
                  seasons,
                  ".rds")
-  
+
   out <- purrr::map_dfr(urls, rds_from_url, p = p)
   class(out) <- c("tbl_df","tbl","data.frame")
   return(out)
@@ -273,7 +273,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
 #' Load Injury Reports
 #'
-#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available. 
+#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -299,6 +299,38 @@ load_injuries <- function(seasons = most_recent_season(),
                 ".",
                 file_type)
   out <- loader(url)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+  out
+}
+
+#' Load Advanced Passing Stats from PFR
+#'
+#' @description Loads player level season stats provided by Pro Football Reference
+#' starting with the 2019 season.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#'
+#' @examples
+#' \donttest{
+#'   load_pfr_passing()
+#' }
+#'
+#' @return A tibble of season-level player statistics provided by Pro Football Reference.
+#'
+#' @seealso <https://www.pro-football-reference.com/years/2020/passing_advanced.htm>
+#'
+#' @export
+load_pfr_passing <- function(seasons = TRUE){
+
+  if(isTRUE(seasons)) seasons <- 2019:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2019,
+            seasons <= most_recent_season())
+
+  url <- "https://raw.githubusercontent.com/guga31bb/pfr_scrapR/master/data/pfr_advanced_passing.rds"
+
+  out <- rds_from_url(url)
   class(out) <- c("tbl_df","tbl","data.frame")
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
