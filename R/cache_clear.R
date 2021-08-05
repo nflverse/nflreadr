@@ -15,7 +15,8 @@
     load_nextgen_stats,
     load_schedules,
     load_ff_playerids,
-    load_ff_rankings
+    load_ff_rankings,
+    load_depth_charts
   )
 
   purrr::walk(functions, memoise::forget)
