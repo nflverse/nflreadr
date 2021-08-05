@@ -241,6 +241,7 @@ load_teams <- function(){
 #' Load Injury Reports
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to returning
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #' this year's data if it is March or later. If set to `TRUE`, will return all available data.
 #'
 #' @examples
@@ -253,18 +254,21 @@ load_teams <- function(){
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
 #'
 #' @export
-load_injuries <- function(seasons = most_recent_season()){
+load_injuries <- function(seasons = most_recent_season(),
+                          file_type = getOption("nflreadr.prefer", default = "qs")){
   if(isTRUE(seasons)) seasons <- 2009:most_recent_season()
   stopifnot(is.numeric(seasons),
             seasons >= 2009,
             seasons <= most_recent_season())
-  p <- NULL
-  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
-                 "raw/master/data/seasons/injuries_",
-                 seasons,
-                 ".rds")
-  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  file_type <- match.arg(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+
+  url <- paste0("https://github.com/nflverse/nflfastR-roster/raw/master/data/nflfastR-injuries",
+                ".",
+                file_type)
+
+  out <- loader(url)
   class(out) <- c("tbl_df","tbl","data.frame")
+  if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }

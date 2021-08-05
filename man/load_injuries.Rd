@@ -4,10 +4,15 @@
 \alias{load_injuries}
 \title{Load Injury Reports}
 \usage{
-load_injuries(seasons = most_recent_season())
+load_injuries(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, defaults to returning
+\item{seasons}{a numeric vector of seasons to return, defaults to returning}
+
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)
 this year's data if it is March or later. If set to \code{TRUE}, will return all available data.}
 }
 \value{

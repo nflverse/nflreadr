@@ -25,5 +25,10 @@ Authors:
   \item Sebastian Carl \email{mrcaseb@gmail.com}
 }
 
+Other contributors:
+\itemize{
+  \item John Edwards \email{edwards1860@gmail.com} [contributor]
+}
+
 }
 \keyword{internal}
