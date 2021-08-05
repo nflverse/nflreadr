@@ -242,30 +242,64 @@ load_teams <- function(){
 #'
 #' @description Loads depth charts for each NFL team for each week back to 2001.
 #'
-#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data. Defaults to latest season.
 #'
 #' @examples
 #' \donttest{
 #'   load_depth_charts(2020)
 #' }
 #'
-#' @return A tibble of week-level depth charts for each team.
-#'
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
 #'
+#' @return A tibble of week-level depth charts for each team.
 #' @export
 load_depth_charts <- function(seasons = most_recent_season()){
   if(isTRUE(seasons)) seasons <- 2001:most_recent_season()
   stopifnot(is.numeric(seasons),
             seasons >= 2001,
             seasons <= most_recent_season())
+  
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
                  "raw/master/data/seasons/depth_charts_",
                  seasons,
                  ".rds")
+  
   out <- purrr::map_dfr(urls, rds_from_url, p = p)
   class(out) <- c("tbl_df","tbl","data.frame")
+  return(out)
+ }
+
+#' Load Injury Reports
+#'
+#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available. 
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#'
+#' @examples
+#' \donttest{
+#'     load_injuries(2020)
+#' }
+#'
+#' @return a tibble of season-level injury report data.
+#'
+#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#'
+#' @export
+load_injuries <- function(seasons = most_recent_season(),
+                          file_type = getOption("nflreadr.prefer", default = "qs")){
+  if(isTRUE(seasons)) seasons <- 2009:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2009,
+            seasons <= most_recent_season())
+  file_type <- match.arg(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+
+  url <- paste0("https://github.com/nflverse/nflfastR-roster/raw/master/data/nflfastR-injuries",
+                ".",
+                file_type)
+  out <- loader(url)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }
