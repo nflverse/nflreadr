@@ -10,6 +10,7 @@ reference:
   - "load_rosters"
   - "load_schedules"
   - "load_nextgen_stats"
+  - "load_injuries"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
