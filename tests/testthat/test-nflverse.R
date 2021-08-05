@@ -91,3 +91,14 @@ test_that("Cache clearing works",{
   expect(!memoise::has_cache(load_player_stats)(), "Cache was not cleared!")
 })
 
+test_that("load_depth_charts", {
+
+  skip_if_offline("github.com")
+
+  depth_charts <- load_depth_charts()
+  depth_charts_years <- load_depth_charts(seasons = 2019:2020)
+
+  expect_s3_class(depth_charts, "tbl_df")
+  expect_s3_class(depth_charts_years, "tbl_df")
+  expect_gt(nrow(depth_charts_years), 60000)
+})

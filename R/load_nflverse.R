@@ -237,3 +237,36 @@ load_teams <- function(){
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
+
+#' Load Weekly Depth Charts
+#'
+#' @description Loads depth charts for each NFL team for each week back to 2001.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#'
+#' @examples
+#' \donttest{
+#'   load_depth_charts(2020)
+#' }
+#'
+#' @return A tibble of week-level depth charts for each team.
+#'
+#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#'
+#' @export
+load_depth_charts <- function(seasons = most_recent_season()){
+  if(isTRUE(seasons)) seasons <- 2001:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2001,
+            seasons <= most_recent_season())
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+  urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
+                 "raw/master/data/seasons/dc_",
+                 seasons,
+                 ".rds")
+  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
