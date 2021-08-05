@@ -8,8 +8,6 @@ load_depth_charts(seasons = most_recent_season())
 }
 \arguments{
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
-
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)}
 }
 \value{
 A tibble of week-level depth charts for each team.
