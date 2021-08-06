@@ -4,7 +4,7 @@
 \alias{load_snap_counts}
 \title{Load Snap Counts from PFR}
 \usage{
-load_snap_counts(seasons = TRUE)
+load_snap_counts(seasons = most_recent_season())
 }
 \arguments{
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}

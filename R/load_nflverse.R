@@ -350,9 +350,8 @@ load_pfr_passing <- function(seasons = TRUE){
 #' @return A tibble of season-level player statistics provided by Pro Football Reference.
 #'
 #' @export
-load_snap_counts <- function(seasons = TRUE){
+load_snap_counts <- function(seasons = most_recent_season()){
 
-  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
   stopifnot(is.numeric(seasons),
             seasons >= 2013,
             seasons <= most_recent_season())
