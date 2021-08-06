@@ -21,13 +21,16 @@ test_that("load_player_stats", {
   ps <- load_player_stats()
   ps_2020 <- load_player_stats(2020)
   ps_rds <- load_player_stats(2020, file_type = "rds")
+  ps_all <- load_player_stats(seasons = TRUE)
 
   expect_s3_class(ps, "tbl_df")
   expect_s3_class(ps_2020, "tbl_df")
   expect_s3_class(ps_rds, "tbl_df")
+  expect_s3_class(ps_all, "tbl_df")
 
   expect_gt(nrow(ps_2020), 5000)
   expect_gt(nrow(ps_rds), 5000)
+  expect_gt(nrow(ps_all), 110000)
 })
 
 test_that("load_schedules", {
@@ -39,6 +42,14 @@ test_that("load_schedules", {
   expect_s3_class(schedules, "tbl_df")
 
   expect_gt(nrow(schedules), 6000)
+
+  expect_error(load_schedules("2020"))
+
+  sched_2020 <- load_schedules(2020)
+
+  expect_s3_class(schedules, "tbl_df")
+
+  expect_lte(nrow(sched_2020), 269)
 })
 
 test_that("load_rosters", {
@@ -47,10 +58,13 @@ test_that("load_rosters", {
 
   rosters <- load_rosters()
   rosters_years <- load_rosters(seasons = 2019:2020)
+  rosters_all <- load_rosters(seasons = TRUE)
 
   expect_s3_class(rosters, "tbl_df")
   expect_s3_class(rosters_years, "tbl_df")
+  expect_s3_class(rosters_all, "tbl_df")
   expect_gt(nrow(rosters_years), 7000)
+  expect_gt(nrow(rosters_all), 60000)
 })
 
 test_that("load_ngs", {
@@ -109,10 +123,13 @@ test_that("load_injuries", {
 
   injuries <- load_injuries()
   injuries_years <- load_injuries(seasons = 2019:2020)
+  injuries_all <- load_injuries(seasons = TRUE)
 
   expect_s3_class(injuries, "tbl_df")
   expect_s3_class(injuries_years, "tbl_df")
+  expect_s3_class(injuries_all, "tbl_df")
   expect_gt(nrow(injuries_years), 8000)
+  expect_gt(nrow(injuries_all), 60000)
 })
 
 test_that("load_espn_qbr", {
@@ -136,8 +153,13 @@ test_that("load_trades", {
   skip_if_offline("github.com")
 
   trades <- load_trades()
+  trades_2020 <- load_trades(seasons = 2020)
 
   expect_s3_class(trades, "tbl_df")
+  expect_s3_class(trades_2020, "tbl_df")
 
   expect_gt(nrow(trades), 3000)
+  expect_lte(nrow(trades_2020), 215)
+
+  expect_error(load_trades("2020"))
 })
