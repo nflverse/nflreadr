@@ -17,7 +17,8 @@
     load_ff_playerids,
     load_ff_rankings,
     load_depth_charts,
-    load_injuries
+    load_injuries,
+    load_trades
   )
 
   purrr::walk(functions, memoise::forget)

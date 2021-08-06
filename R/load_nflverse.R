@@ -232,7 +232,6 @@ load_nextgen_stats <- function(seasons = TRUE,
 #'
 #' @export
 load_teams <- function(){
-
   out <- rds_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds")
   class(out) <- c("tbl_df","tbl","data.frame")
   out
@@ -258,14 +257,14 @@ load_depth_charts <- function(seasons = most_recent_season()){
   stopifnot(is.numeric(seasons),
             seasons >= 2001,
             seasons <= most_recent_season())
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
                  "raw/master/data/seasons/depth_charts_",
                  seasons,
                  ".rds")
-  
+
   out <- purrr::map_dfr(urls, rds_from_url, p = p)
   class(out) <- c("tbl_df","tbl","data.frame")
   return(out)
@@ -273,7 +272,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
 #' Load Injury Reports
 #'
-#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available. 
+#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -303,3 +302,33 @@ load_injuries <- function(seasons = most_recent_season(),
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }
+
+#' Load Trades
+#'
+#' This returns a table of historical trades as maintained by Lee Sharpe.
+#'
+#' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data.
+#'
+#' @return A tibble of game information for past and/or future games.
+#'
+#' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
+#'
+#' @examples
+#' \donttest{
+#'  load_trades(2020)
+#' }
+#'
+#' @export
+load_trades <- function(seasons = TRUE){
+
+  out <- read.csv("https://github.com/nflverse/nfldata/raw/master/data/trades.csv",
+                  stringsAsFactors = FALSE)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out <- replace(out,out=="",NA_character_)
+
+  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+  if(!isTRUE(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+
+  out
+}
+
