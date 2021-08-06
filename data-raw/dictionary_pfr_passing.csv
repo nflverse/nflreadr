@@ -1,0 +1,29 @@
+field,data_type,description
+player,character,Player name
+team,character,Player team
+pfr_id,character,PFR player ID
+pass_attempts,numeric,Pass attempts
+batted_balls,numeric,Batted balls
+throwaways,numeric,Throwaways
+spikes,numeric,Spikes
+drops,numeric,Throws dropped
+drop_pct,numeric,Percent of throws dropped
+bad_throws,numeric,Bad throws
+bad_throw_pct,numeric,Percent of throws that were bad
+on_tgt_throws,numeric,On target throws
+on_tgt_pct,numeric,Percent of throws on target
+season,numeric,Season
+pocket_time,numeric,Average time in pocket
+times_blitzed,numeric,Number of times blitzed
+times_hurried,numeric,Number of times hurried
+times_hit,numeric,Number of times hit
+times_pressured,numeric,Number of times pressured
+pressure_pct,numeric,Percent of the time pressured
+rpo_plays,numeric,Number of RPO plays
+rpo_yards,numeric,Yards on RPOs
+rpo_pass_att,numeric,Number of pass attempts on RPOs
+rpo_pass_yards,numeric,Passing yards on RPOs
+rpo_rush_att,numeric,Rush attempts on RPOs
+rpo_rush_yards,numeric,Rushing yards on RPOs
+pa_pass_att,numeric,Play action pass attempts
+pa_pass_yards,numeric,Play action passing yards

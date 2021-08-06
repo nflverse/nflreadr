@@ -10,10 +10,9 @@ load_injuries(
 )
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, defaults to returning}
+\item{seasons}{a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)
-this year's data if it is March or later. If set to \code{TRUE}, will return all available data.}
+\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)}
 }
 \value{
 a tibble of season-level injury report data.

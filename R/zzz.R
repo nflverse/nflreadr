@@ -59,6 +59,18 @@
            value = memoise::memoise(load_injuries, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
+    assign(x = "load_pfr_passing",
+           value = memoise::memoise(load_pfr_passing, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
+    assign(x = "load_snap_counts",
+           value = memoise::memoise(load_snap_counts, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
+    assign(x = "load_draft_picks",
+           value = memoise::memoise(load_draft_picks, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
     assign(x = "load_trades",
            value = memoise::memoise(load_trades, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))

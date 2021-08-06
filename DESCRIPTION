@@ -14,7 +14,11 @@ Authors@R:
       person(given = "John",
              family = "Edwards",
              role = "ctb",
-             email = "edwards1860@gmail.com"))
+             email = "edwards1860@gmail.com"),
+      person(given = "Ben",
+             family = "Baldwin",
+             role = "ctb",
+             email = "bbaldwin206@gmail.com"))
 Description: A low-level package for downloading data from 'GitHub'
     repositories of the 'nflverse' project.
 License: MIT + file LICENSE

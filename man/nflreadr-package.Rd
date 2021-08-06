@@ -28,6 +28,7 @@ Authors:
 Other contributors:
 \itemize{
   \item John Edwards \email{edwards1860@gmail.com} [contributor]
+  \item Ben Baldwin \email{bbaldwin206@gmail.com} [contributor]
 }
 
 }

@@ -18,3 +18,12 @@ usethis::use_data(dictionary_schedules, overwrite = TRUE)
 
 dictionary_nextgen_stats <- read.csv("data-raw/dictionary_nextgenstats.csv")
 usethis::use_data(dictionary_nextgen_stats, overwrite = TRUE)
+
+dictionary_snap_counts <- read.csv("data-raw/dictionary_snap_counts.csv")
+usethis::use_data(dictionary_snap_counts, overwrite = TRUE)
+
+dictionary_pfr_passing <- read.csv("data-raw/dictionary_pfr_passing.csv")
+usethis::use_data(dictionary_pfr_passing, overwrite = TRUE)
+
+dictionary_draft_picks <- read.csv("data-raw/dictionary_draft_picks.csv")
+usethis::use_data(dictionary_draft_picks, overwrite = TRUE)

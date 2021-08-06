@@ -163,3 +163,41 @@ test_that("load_trades", {
 
   expect_error(load_trades("2020"))
 })
+
+test_that("load_draft_picks", {
+
+  skip_if_offline("github.com")
+
+  picks <- load_draft_picks()
+
+  expect_s3_class(picks, "tbl_df")
+
+  expect_gt(nrow(picks), 10000)
+})
+
+test_that("load_pfr_passing", {
+
+  skip_if_offline("github.com")
+
+  expect_error(load_pfr_passing("2020"))
+
+  passing <- load_pfr_passing()
+
+  expect_s3_class(passing, "tbl_df")
+
+  expect_gt(nrow(passing), 200)
+})
+
+test_that("load_snap_counts", {
+
+  skip_if_offline("github.com")
+
+  expect_error(load_snap_counts("2020"))
+
+  counts <- load_snap_counts(2020)
+
+  expect_s3_class(counts, "tbl_df")
+
+  expect_gt(nrow(counts), 20000)
+})
+

@@ -19,6 +19,9 @@
     load_depth_charts,
     load_espn_qbr,
     load_injuries,
+    load_pfr_passing,
+    load_snap_counts,
+    load_draft_picks,
     load_trades
   )
 
