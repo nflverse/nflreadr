@@ -335,3 +335,36 @@ load_pfr_passing <- function(seasons = TRUE){
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }
+
+#' Load Snap Counts from PFR
+#'
+#' @description Loads game level snap counts stats provided by Pro Football Reference
+#' starting with the 2013 season.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#'
+#' @examples
+#' \donttest{
+#'   load_snap_counts()
+#' }
+#'
+#' @return A tibble of season-level player statistics provided by Pro Football Reference.
+#'
+#' @export
+load_snap_counts <- function(seasons = TRUE){
+
+  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2013,
+            seasons <= most_recent_season())
+
+  urls <- paste0("https://github.com/guga31bb/pfr_scrapR/",
+                 "blob/master/data/snap_counts_",
+                 seasons,
+                 ".rds?raw=true")
+
+  out <- purrr::map_dfr(urls, rds_from_url)
+
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}

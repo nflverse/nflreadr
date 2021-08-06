@@ -13,6 +13,7 @@ reference:
   - "load_depth_charts"
   - "load_injuries"
   - "load_pfr_passing"
+  - "load_snap_counts"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
