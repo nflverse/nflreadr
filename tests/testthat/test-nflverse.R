@@ -114,3 +114,19 @@ test_that("load_injuries", {
   expect_s3_class(injuries_years, "tbl_df")
   expect_gt(nrow(injuries_years), 8000)
 })
+
+test_that("load_espn_qbr", {
+
+  skip_if_offline("github.com")
+
+  qbr_default <- load_espn_qbr()
+  qbr_nfl_weekly <- load_espn_qbr(league = "nfl", seasons = TRUE, summary_type = "weekly")
+  qbr_cfb_season <- load_espn_qbr(league = "college", seasons = 2019:2020)
+
+  expect_s3_class(qbr_default, "tbl_df")
+  expect_s3_class(qbr_nfl_weekly, "tbl_df")
+  expect_s3_class(qbr_cfb_season, "tbl_df")
+  expect_gt(nrow(qbr_default), 30)
+  expect_gt(nrow(qbr_nfl_weekly), 7500)
+  expect_gt(nrow(qbr_cfb_season), 200)
+})

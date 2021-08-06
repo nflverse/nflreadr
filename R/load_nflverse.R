@@ -258,14 +258,14 @@ load_depth_charts <- function(seasons = most_recent_season()){
   stopifnot(is.numeric(seasons),
             seasons >= 2001,
             seasons <= most_recent_season())
-  
+
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
                  "raw/master/data/seasons/depth_charts_",
                  seasons,
                  ".rds")
-  
+
   out <- purrr::map_dfr(urls, rds_from_url, p = p)
   class(out) <- c("tbl_df","tbl","data.frame")
   return(out)
@@ -273,7 +273,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
 #' Load Injury Reports
 #'
-#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available. 
+#' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -299,6 +299,52 @@ load_injuries <- function(seasons = most_recent_season(),
                 ".",
                 file_type)
   out <- loader(url)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+  out
+}
+
+#' Load ESPN's QBR
+#'
+#' @param league One of "nfl" or "college"
+#' @param seasons a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.
+#' @param summary_type One of "season" or "weekly", defaults to season
+# @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#' @param file_type currently csv, soon rds/qs options will be available!
+#'
+#' @examples
+#' \donttest{
+#'     load_espn_qbr("nfl",2020)
+#' }
+#'
+#' @return a tibble of season-level injury report data.
+#'
+#' @seealso <https://github.com/nflverse/espnscrapeR-data>
+#'
+#' @export
+load_espn_qbr <- function(league = c("nfl", "college"),
+                          seasons = most_recent_season(),
+                          summary_type = c("season","weekly"),
+                          file_type = "csv"
+                          # file_type = getOption("nflreadr.prefer", default = "qs")
+                          ){
+  league <- match.arg(league)
+  summary_type <- match.arg(summary_type)
+  if(isTRUE(seasons)) seasons <- 2006:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2006,
+            seasons <= most_recent_season())
+  # file_type <- match.arg(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+
+  url <- paste0("https://github.com/nflverse/espnscrapeR-data/raw/master/data/qbr-",
+                league,
+                "-",
+                summary_type,
+                ".",
+                file_type)
+  out <- read.csv(url, stringsAsFactors = FALSE, na.strings = "")
+  # out <- loader(url)
   class(out) <- c("tbl_df","tbl","data.frame")
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out

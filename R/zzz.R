@@ -47,6 +47,10 @@
            value = memoise::memoise(load_ff_playerids, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
+    assign(x = "load_espn_qbr",
+           value = memoise::memoise(load_espn_qbr, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+
     assign(x = "load_depth_charts",
            value = memoise::memoise(load_depth_charts, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
