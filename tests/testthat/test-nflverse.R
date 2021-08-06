@@ -126,3 +126,35 @@ test_that("load_trades", {
   expect_gt(nrow(trades), 3000)
 })
 
+test_that("load_draft_picks", {
+
+  skip_if_offline("github.com")
+
+  picks <- load_draft_picks()
+
+  expect_s3_class(picks, "tbl_df")
+
+  expect_gt(nrow(picks), 10000)
+})
+
+test_that("load_pfr_passing", {
+
+  skip_if_offline("github.com")
+
+  passing <- load_pfr_passing()
+
+  expect_s3_class(passing, "tbl_df")
+
+  expect_gt(nrow(passing), 200)
+})
+
+test_that("load_snap_counts", {
+
+  skip_if_offline("github.com")
+
+  counts <- load_snap_counts()
+
+  expect_s3_class(counts, "tbl_df")
+
+  expect_gt(nrow(counts), 100000)
+})
