@@ -18,6 +18,9 @@
     load_ff_rankings,
     load_depth_charts,
     load_injuries,
+    load_pfr_passing,
+    load_snap_counts,
+    load_draft_picks,
     load_trades
   )
 

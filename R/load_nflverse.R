@@ -303,6 +303,92 @@ load_injuries <- function(seasons = most_recent_season(),
   out
 }
 
+#' Load Advanced Passing Stats from PFR
+#'
+#' @description Loads player level season stats provided by Pro Football Reference
+#' starting with the 2019 season.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#'
+#' @examples
+#' \donttest{
+#'   load_pfr_passing()
+#' }
+#'
+#' @return A tibble of season-level player statistics provided by Pro Football Reference.
+#'
+#' @seealso <https://www.pro-football-reference.com/years/2020/passing_advanced.htm>
+#'
+#' @export
+load_pfr_passing <- function(seasons = TRUE){
+
+  if(isTRUE(seasons)) seasons <- 2019:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2019,
+            seasons <= most_recent_season())
+
+  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/pfr_advanced_passing.rds"
+
+  out <- rds_from_url(url)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+  out
+}
+
+#' Load Snap Counts from PFR
+#'
+#' @description Loads game level snap counts stats provided by Pro Football Reference
+#' starting with the 2013 season.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#'
+#' @examples
+#' \donttest{
+#'   load_snap_counts()
+#' }
+#'
+#' @return A tibble of season-level player statistics provided by Pro Football Reference.
+#'
+#' @export
+load_snap_counts <- function(seasons = most_recent_season()){
+
+  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
+  stopifnot(is.numeric(seasons),
+            seasons >= 2013,
+            seasons <= most_recent_season())
+
+  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
+                 "blob/master/data/snap_counts_",
+                 seasons,
+                 ".rds?raw=true")
+
+  out <- purrr::map_dfr(urls, rds_from_url)
+
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
+
+#' Load Draft Picks from PFR
+#'
+#' @description Loads every draft pick since 1980 courtesy of PFR.
+#'
+#' @examples
+#' \donttest{
+#'   load_draft_picks()
+#' }
+#'
+#' @return A tibble of NFL draft picks provided by Pro Football Reference.
+#'
+#' @export
+load_draft_picks <- function(){
+
+  url <- "https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"
+
+  out <- rds_from_url(url)
+
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
 #' Load Trades
 #'
 #' This returns a table of historical trades as maintained by Lee Sharpe.
@@ -331,4 +417,3 @@ load_trades <- function(seasons = TRUE){
 
   out
 }
-

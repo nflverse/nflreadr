@@ -13,6 +13,9 @@ reference:
   - "load_nextgen_stats"
   - "load_depth_charts"
   - "load_injuries"
+  - "load_pfr_passing"
+  - "load_snap_counts"
+  - "load_draft_picks"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
@@ -34,6 +37,10 @@ authors:
     href: https://twitter.com/_TanHo
   Sebastian Carl:
     href: https://twitter.com/mrcaseb
+  John Edwards:
+    href: https://twitter.com/John_B_Edwards
+  Ben Baldwin:
+    href: https://twitter.com/benbbaldwin
 
 home:
   title: nflreadr • Download nflverse Data

@@ -7,7 +7,7 @@
 load_depth_charts(seasons = most_recent_season())
 }
 \arguments{
-\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
+\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data. Defaults to latest season.}
 }
 \value{
 A tibble of week-level depth charts for each team.
