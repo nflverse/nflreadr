@@ -163,6 +163,8 @@ test_that("load_pfr_passing", {
 
   skip_if_offline("github.com")
 
+  expect_error(load_pfr_passing("2020"))
+
   passing <- load_pfr_passing()
 
   expect_s3_class(passing, "tbl_df")
@@ -173,6 +175,8 @@ test_that("load_pfr_passing", {
 test_that("load_snap_counts", {
 
   skip_if_offline("github.com")
+
+  expect_error(load_snap_counts("2020"))
 
   counts <- load_snap_counts(2020)
 
