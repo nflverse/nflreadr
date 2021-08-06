@@ -327,7 +327,7 @@ load_pfr_passing <- function(seasons = TRUE){
             seasons >= 2019,
             seasons <= most_recent_season())
 
-  url <- "https://raw.githubusercontent.com/guga31bb/pfr_scrapR/master/data/pfr_advanced_passing.rds"
+  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/pfr_advanced_passing.rds"
 
   out <- rds_from_url(url)
   class(out) <- c("tbl_df","tbl","data.frame")
@@ -357,7 +357,7 @@ load_snap_counts <- function(seasons = TRUE){
             seasons >= 2013,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/guga31bb/pfr_scrapR/",
+  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
                  "blob/master/data/snap_counts_",
                  seasons,
                  ".rds?raw=true")
