@@ -5,7 +5,7 @@
 \alias{dictionary_draft_picks}
 \title{Data Dictionary: Draft Picks}
 \format{
-An object of class \code{data.frame} with 10 rows and 3 columns.
+An object of class \code{data.frame} with 11 rows and 3 columns.
 }
 \usage{
 dictionary_draft_picks
