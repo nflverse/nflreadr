@@ -308,8 +308,6 @@ load_injuries <- function(seasons = most_recent_season(),
 #' @param league One of "nfl" or "college"
 #' @param seasons a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.
 #' @param summary_type One of "season" or "weekly", defaults to season
-# @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
-#' @param file_type currently csv, soon rds/qs options will be available!
 #'
 #' @examples
 #' \donttest{
@@ -323,29 +321,28 @@ load_injuries <- function(seasons = most_recent_season(),
 #' @export
 load_espn_qbr <- function(league = c("nfl", "college"),
                           seasons = most_recent_season(),
-                          summary_type = c("season","weekly"),
-                          file_type = "csv"
-                          # file_type = getOption("nflreadr.prefer", default = "qs")
+                          summary_type = c("season","weekly")
                           ){
+
   league <- match.arg(league)
   summary_type <- match.arg(summary_type)
   if(isTRUE(seasons)) seasons <- 2006:most_recent_season()
+
   stopifnot(is.numeric(seasons),
             seasons >= 2006,
             seasons <= most_recent_season())
-  # file_type <- match.arg(file_type, c("rds", "qs"))
-  loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/espnscrapeR-data/raw/master/data/qbr-",
                 league,
                 "-",
                 summary_type,
-                ".",
-                file_type)
-  out <- read.csv(url, stringsAsFactors = FALSE, na.strings = "")
-  # out <- loader(url)
+                ".rds")
+
+  out <- rds_from_url(url, stringsAsFactors = FALSE, na.strings = "")
   class(out) <- c("tbl_df","tbl","data.frame")
+
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+
   out
 }
 
@@ -418,6 +415,8 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #'
 #' @description Loads every draft pick since 1980 courtesy of PFR.
 #'
+#' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data
+#'
 #' @examples
 #' \donttest{
 #'   load_draft_picks()
@@ -426,13 +425,14 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #' @return A tibble of NFL draft picks provided by Pro Football Reference.
 #'
 #' @export
-load_draft_picks <- function(){
+load_draft_picks <- function(seasons = TRUE){
 
   url <- "https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"
-
   out <- rds_from_url(url)
-
   class(out) <- c("tbl_df","tbl","data.frame")
+
+  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+  if(!isTRUE(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
   out
 }
 
@@ -454,10 +454,8 @@ load_draft_picks <- function(){
 #' @export
 load_trades <- function(seasons = TRUE){
 
-  out <- read.csv("https://github.com/nflverse/nfldata/raw/master/data/trades.csv",
-                  stringsAsFactors = FALSE)
+  out <- rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/trades.rds")
   class(out) <- c("tbl_df","tbl","data.frame")
-  out <- replace(out,out=="",NA_character_)
 
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- dplyr::filter(out, out$season %in% seasons)

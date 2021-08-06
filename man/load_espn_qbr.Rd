@@ -7,8 +7,7 @@
 load_espn_qbr(
   league = c("nfl", "college"),
   seasons = most_recent_season(),
-  summary_type = c("season", "weekly"),
-  file_type = "csv"
+  summary_type = c("season", "weekly")
 )
 }
 \arguments{
@@ -17,8 +16,6 @@ load_espn_qbr(
 \item{seasons}{a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.}
 
 \item{summary_type}{One of "season" or "weekly", defaults to season}
-
-\item{file_type}{currently csv, soon rds/qs options will be available!}
 }
 \value{
 a tibble of season-level injury report data.
@@ -33,5 +30,5 @@ Load ESPN's QBR
 
 }
 \seealso{
-\url{https://github.com/nflverse/nflfastR-roster}
+\url{https://github.com/nflverse/espnscrapeR-data}
 }
