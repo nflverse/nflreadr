@@ -3,7 +3,7 @@ team,character,Team
 pfr_id,character,PFR player ID
 pfr_name,character,PFR player name
 player_id,character,GSIS player ID (missing for most players)
-side,character,"O" for offense, "D" defense, "S" special teams
+side,character,"O" for offense; "D" defense; "S" special teams
 category,character,Player's position
 position,character,Player's postition
 season,numeric,Season
