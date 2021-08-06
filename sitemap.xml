@@ -4,6 +4,9 @@
     <loc>nflreadr.nflverse.com/index.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/reference/dictionary_draft_picks.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/reference/dictionary_ff_playerids.html</loc>
   </url>
   <url>
@@ -11,6 +14,9 @@
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/dictionary_pbp.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/dictionary_pfr_passing.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/dictionary_player_stats.html</loc>
@@ -22,10 +28,16 @@
     <loc>nflreadr.nflverse.com/reference/dictionary_schedules.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/reference/dictionary_snap_counts.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/load_depth_charts.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/load_draft_picks.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/load_ff_playerids.html</loc>
@@ -43,6 +55,9 @@
     <loc>nflreadr.nflverse.com/reference/load_pbp.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/reference/load_pfr_passing.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/reference/load_player_stats.html</loc>
   </url>
   <url>
@@ -50,6 +65,9 @@
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/load_schedules.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/load_snap_counts.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/load_teams.html</loc>
@@ -70,6 +88,9 @@
     <loc>nflreadr.nflverse.com/reference/rds_from_url.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
   </url>
   <url>
@@ -79,6 +100,9 @@
     <loc>nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/articles/dictionary_player_stats.html</loc>
   </url>
   <url>
@@ -86,6 +110,9 @@
   </url>
   <url>
     <loc>nflreadr.nflverse.com/articles/dictionary_schedules.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>

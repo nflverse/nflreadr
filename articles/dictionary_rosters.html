@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8</span>
       </span>
     </div>
 
@@ -69,6 +69,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/dictionary_draft_picks.html">Data Dictionary - Draft Picks</a>
+    </li>
+    <li>
       <a href="../articles/dictionary_ff_playerids.html">Data Dictionary - FF Player IDs</a>
     </li>
     <li>
@@ -78,6 +81,9 @@
       <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
     </li>
     <li>
+      <a href="../articles/dictionary_pfr_passing.html">Data Dictionary - PFR Passing</a>
+    </li>
+    <li>
       <a href="../articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
     </li>
     <li>
@@ -85,6 +91,9 @@
     </li>
     <li>
       <a href="../articles/dictionary_schedules.html">Data Dictionary - Schedules</a>
+    </li>
+    <li>
+      <a href="../articles/dictionary_snap_counts.html">Data Dictionary - Snap Counts</a>
     </li>
     <li>
       <a href="../articles/exporting_nflreadr.html">Using nflreadr in packages</a>
@@ -153,8 +162,8 @@
 
     
     
-<div id="htmlwidget-aaf4e8be964316cbbb56" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-aaf4e8be964316cbbb56">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["season","team","position","depth_chart_position","jersey_number","status","full_name","first_name","last_name","birth_date","height","weight","college","high_school","gsis_id","headshot_url","sleeper_id","espn_id","yahoo_id","rotowire_id","pff_id","fantasy_data_id","years_exp","sportradar_id"],["numeric","character","character","character","numeric","character","character","character","character","date","character","character","character","character","character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","character"],["NFL season. Defaults to current year after March, otherwise is previous year.","NFL team. Uses official abbreviations as per NFL.com","Primary position as reported by NFL.com","Position assigned on depth chart. Not always accurate!","Jersey number. Often useful for joins by name/team/jersey.","Roster status: describes things like Active, Inactive, Injured Reserve, Practice Squad etc","Full name as per NFL.com","First name as per NFL.com","Last name as per NFL.com","Birthdate, as recorded by Sleeper API","Official height, in inches","Official weight, in pounds","Official college (usually the last one attended)","High school","Game Stats and Info Service ID: the primary ID for play-by-play data.","A URL string that points to player photos used by NFL.com (or sometimes ESPN)","Player ID for Sleeper API","Player ID for ESPN API","Player ID for Yahoo API","Player ID for Rotowire","Player ID for Pro Football Focus","Player ID for FantasyData","Years played in league","Player ID for Sportradar API"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b4c5d5f581cbd57d0285" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4c5d5f581cbd57d0285">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["season","team","position","depth_chart_position","jersey_number","status","full_name","first_name","last_name","birth_date","height","weight","college","high_school","gsis_id","headshot_url","sleeper_id","espn_id","yahoo_id","rotowire_id","pff_id","fantasy_data_id","years_exp","sportradar_id"],["numeric","character","character","character","numeric","character","character","character","character","date","character","character","character","character","character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","character"],["NFL season. Defaults to current year after March, otherwise is previous year.","NFL team. Uses official abbreviations as per NFL.com","Primary position as reported by NFL.com","Position assigned on depth chart. Not always accurate!","Jersey number. Often useful for joins by name/team/jersey.","Roster status: describes things like Active, Inactive, Injured Reserve, Practice Squad etc","Full name as per NFL.com","First name as per NFL.com","Last name as per NFL.com","Birthdate, as recorded by Sleeper API","Official height, in inches","Official weight, in pounds","Official college (usually the last one attended)","High school","Game Stats and Info Service ID: the primary ID for play-by-play data.","A URL string that points to player photos used by NFL.com (or sometimes ESPN)","Player ID for Sleeper API","Player ID for ESPN API","Player ID for Yahoo API","Player ID for Rotowire","Player ID for Pro Football Focus","Player ID for FantasyData","Years played in league","Player ID for Sportradar API"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
