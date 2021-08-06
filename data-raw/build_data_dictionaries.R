@@ -16,5 +16,5 @@ usethis::use_data(dictionary_rosters, overwrite = TRUE)
 dictionary_schedules <- read.csv2("data-raw/dictionary_schedules.csv")
 usethis::use_data(dictionary_schedules, overwrite = TRUE)
 
-dictionary_nextgen_stats <- read.csv2("data-raw/dictionary_nextgenstats.csv")
+dictionary_nextgen_stats <- read.csv("data-raw/dictionary_nextgenstats.csv")
 usethis::use_data(dictionary_nextgen_stats, overwrite = TRUE)
