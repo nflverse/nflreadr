@@ -39,3 +39,24 @@
 #'
 #' @seealso `vignette("Data Dictionary - Next Gen Stats")`
 "dictionary_nextgen_stats"
+
+#' Data Dictionary: PFR Passing
+#'
+#' A dataframe containing the data dictionary for `load_pfr_passing()`
+#'
+#' @seealso `vignette("Data Dictionary - PFR Passing")`
+"dictionary_pfr_passing"
+
+#' Data Dictionary: Draft Picks
+#'
+#' A dataframe containing the data dictionary for `load_draft_picks()`
+#'
+#' @seealso `vignette("Data Dictionary - Draft Picks")`
+"dictionary_draft_picks"
+
+#' Data Dictionary: Snap Counts
+#'
+#' A dataframe containing the data dictionary for `load_snap_counts()`
+#'
+#' @seealso `vignette("Data Dictionary - Snap Counts")`
+"dictionary_snap_counts"

@@ -1,0 +1,11 @@
+field,data_type,description
+team,character,
+pfr_id,character,
+pfr_name,character,
+player_id,character,
+side,character,
+category,character,
+position,character,
+season,numeric,
+round,numeric,
+pick,numeric,

@@ -1,0 +1,13 @@
+field,data_type,description
+player,character,
+pfr_id,character,
+game_id,character,
+pfr_game_id,character,
+team,character,
+season,numeric,
+offense_snaps,numeric,
+offense_pct,numeric,
+defense_snaps,numeric,
+defense_pct,numeric,
+st_snaps,numeric,
+st_pct,numeric,
