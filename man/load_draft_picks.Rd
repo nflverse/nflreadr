@@ -4,7 +4,10 @@
 \alias{load_draft_picks}
 \title{Load Draft Picks from PFR}
 \usage{
-load_draft_picks()
+load_draft_picks(seasons = TRUE)
+}
+\arguments{
+\item{seasons}{a numeric vector of seasons to return, default \code{TRUE} returns all available data}
 }
 \value{
 A tibble of NFL draft picks provided by Pro Football Reference.

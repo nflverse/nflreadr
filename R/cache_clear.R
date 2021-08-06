@@ -17,6 +17,7 @@
     load_ff_playerids,
     load_ff_rankings,
     load_depth_charts,
+    load_espn_qbr,
     load_injuries,
     load_pfr_passing,
     load_snap_counts,
