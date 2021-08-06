@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Data Dictionary: Snap Counts — dictionary_snap_counts • nflreadr</title>
+<title>Load ESPN's QBR — load_espn_qbr • nflreadr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Data Dictionary: Snap Counts — dictionary_snap_counts" />
-<meta property="og:description" content="A dataframe containing the data dictionary for load_snap_counts()" />
+<meta property="og:title" content="Load ESPN's QBR — load_espn_qbr" />
+<meta property="og:description" content="Load ESPN's QBR" />
 <meta property="og:image" content="nflreadr.nflverse.com/reference/figures/logo.svg" />
 <meta property="og:image:alt" content="nflreadr hex logo" />
 <meta name="twitter:card" content="summary" />
@@ -189,25 +189,67 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Data Dictionary: Snap Counts</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>dictionary_snap_counts.Rd</code></div>
+    <h1>Load ESPN's QBR</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_nflverse.R'><code>R/load_nflverse.R</code></a></small>
+    <div class="hidden name"><code>load_espn_qbr.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataframe containing the data dictionary for <code><a href='load_snap_counts.html'>load_snap_counts()</a></code></p>
+    <p>Load ESPN's QBR</p>
     </div>
 
-    <pre class="usage"><span class='va'>dictionary_snap_counts</span></pre>
+    <pre class="usage"><span class='fu'>load_espn_qbr</span><span class='op'>(</span>
+  league <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nfl"</span>, <span class='st'>"college"</span><span class='op'>)</span>,
+  seasons <span class='op'>=</span> <span class='fu'>most_recent_season</span><span class='op'>(</span><span class='op'>)</span>,
+  summary_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"season"</span>, <span class='st'>"weekly"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>league</th>
+      <td><p>One of "nfl" or "college"</p></td>
+    </tr>
+    <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.</p></td>
+    </tr>
+    <tr>
+      <th>summary_type</th>
+      <td><p>One of "season" or "weekly", defaults to season</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>data.frame</code> with 12 rows and 3 columns.</p>
+    <p>a tibble of season-level injury report data.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>vignette("Data Dictionary - Snap Counts")</code></p></div>
+    <div class='dont-index'><p><a href='https://github.com/nflverse/espnscrapeR-data'>https://github.com/nflverse/espnscrapeR-data</a></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <span class='fu'>load_espn_qbr</span><span class='op'>(</span><span class='st'>"nfl"</span>,<span class='fl'>2020</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 84 × 23</span>
+#&gt;    season season_type game_week    team_abb player_id name_short      rank qbr_total
+#&gt;     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total GB       8439      A. Rodgers         1      84.3
+#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total KC       3139477   P. Mahomes         2      82.9
+#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total BUF      3918298   J. Allen           3      81.7
+#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total TEN      14876     R. Tannehill       4      78.3
+#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total MIA      8664      R. Fitzpatrick     5      76.8
+#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total NO       2580      D. Brees           6      74.6
+#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total BAL      3916387   L. Jackson         7      73.7
+#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total SEA      14881     R. Wilson          8      73.5
+#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total TB       2330      T. Brady           9      72.5
+#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>020 Regular     Season Total CLE      3052587   B. Mayfield       10      72.2
+#&gt; <span style='color: #949494;'># … with 74 more rows, and 15 more variables: pts_added &lt;dbl&gt;, qb_plays &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   epa_total &lt;dbl&gt;, pass &lt;dbl&gt;, run &lt;dbl&gt;, exp_sack &lt;dbl&gt;, penalty &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   qbr_raw &lt;dbl&gt;, sack &lt;dbl&gt;, name_first &lt;chr&gt;, name_last &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   name_display &lt;chr&gt;, headshot_href &lt;chr&gt;, team &lt;chr&gt;, qualified &lt;lgl&gt;</span></div><div class='input'><span class='co'># }</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
