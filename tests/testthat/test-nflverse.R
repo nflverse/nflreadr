@@ -130,3 +130,14 @@ test_that("load_espn_qbr", {
   expect_gt(nrow(qbr_nfl_weekly), 7500)
   expect_gt(nrow(qbr_cfb_season), 200)
 })
+
+test_that("load_trades", {
+
+  skip_if_offline("github.com")
+
+  trades <- load_trades()
+
+  expect_s3_class(trades, "tbl_df")
+
+  expect_gt(nrow(trades), 3000)
+})
