@@ -305,7 +305,7 @@ load_injuries <- function(seasons = most_recent_season(),
 
 #' Load ESPN's QBR
 #'
-#' @param league One of "nfl" or "college"
+#' @param league One of "nfl" or "college", defaults to "nfl"
 #' @param seasons a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.
 #' @param summary_type One of "season" or "weekly", defaults to season
 #'
@@ -338,7 +338,7 @@ load_espn_qbr <- function(league = c("nfl", "college"),
                 summary_type,
                 ".rds")
 
-  out <- rds_from_url(url, stringsAsFactors = FALSE, na.strings = "")
+  out <- rds_from_url(url)
   class(out) <- c("tbl_df","tbl","data.frame")
 
   if(!is.null(seasons)) out <- dplyr::filter(out, out$season %in% seasons)

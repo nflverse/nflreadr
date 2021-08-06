@@ -22,7 +22,7 @@ Authors@R:
 Description: A low-level package for downloading data from 'GitHub'
     repositories of the 'nflverse' project.
 License: MIT + file LICENSE
-URL: https://github.com/nflverse/nflreadr
+URL: https://nflreadr.nflverse.com, https://github.com/nflverse/nflreadr
 BugReports: https://github.com/nflverse/nflreadr/issues
 Depends:
     R (>= 3.5.0)

@@ -11,7 +11,7 @@ load_espn_qbr(
 )
 }
 \arguments{
-\item{league}{One of "nfl" or "college"}
+\item{league}{One of "nfl" or "college", defaults to "nfl"}
 
 \item{seasons}{a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.}
 
