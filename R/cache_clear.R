@@ -19,7 +19,8 @@
     load_depth_charts,
     load_injuries,
     load_pfr_passing,
-    load_snap_counts
+    load_snap_counts,
+    load_draft_picks
   )
 
   purrr::walk(functions, memoise::forget)

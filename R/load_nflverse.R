@@ -368,3 +368,25 @@ load_snap_counts <- function(seasons = TRUE){
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
+
+#' Load Draft Picks from PFR
+#'
+#' @description Loads every draft pick since 1980 courtesy of PFR.
+#'
+#' @examples
+#' \donttest{
+#'   load_draft_picks()
+#' }
+#'
+#' @return A tibble of NFL draft picks provided by Pro Football Reference.
+#'
+#' @export
+load_draft_picks <- function(){
+
+  url <- "https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"
+
+  out <- rds_from_url(url)
+
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
