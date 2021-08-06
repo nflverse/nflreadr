@@ -352,6 +352,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #' @export
 load_snap_counts <- function(seasons = most_recent_season()){
 
+  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
   stopifnot(is.numeric(seasons),
             seasons >= 2013,
             seasons <= most_recent_season())
