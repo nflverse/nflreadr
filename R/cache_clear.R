@@ -20,7 +20,8 @@
     load_injuries,
     load_pfr_passing,
     load_snap_counts,
-    load_draft_picks
+    load_draft_picks,
+    load_trades
   )
 
   purrr::walk(functions, memoise::forget)

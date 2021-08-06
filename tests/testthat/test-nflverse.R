@@ -114,3 +114,15 @@ test_that("load_injuries", {
   expect_s3_class(injuries_years, "tbl_df")
   expect_gt(nrow(injuries_years), 8000)
 })
+
+test_that("load_trades", {
+
+  skip_if_offline("github.com")
+
+  trades <- load_trades()
+
+  expect_s3_class(trades, "tbl_df")
+
+  expect_gt(nrow(trades), 3000)
+})
+

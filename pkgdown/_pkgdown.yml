@@ -9,6 +9,7 @@ reference:
   - "load_player_stats"
   - "load_rosters"
   - "load_schedules"
+  - "load_trades"
   - "load_nextgen_stats"
   - "load_depth_charts"
   - "load_injuries"

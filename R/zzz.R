@@ -65,6 +65,8 @@
 
     assign(x = "load_draft_picks",
            value = memoise::memoise(load_draft_picks, ~ memoise::timeout(86400), cache = cache),
+    assign(x = "load_trades",
+           value = memoise::memoise(load_trades, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
     # DON'T FORGET TO ADD MEMOISED FUNCTIONS TO THE CACHE CLEARING FUNCTION

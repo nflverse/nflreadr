@@ -232,7 +232,6 @@ load_nextgen_stats <- function(seasons = TRUE,
 #'
 #' @export
 load_teams <- function(){
-
   out <- rds_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds")
   class(out) <- c("tbl_df","tbl","data.frame")
   out
@@ -388,5 +387,33 @@ load_draft_picks <- function(){
   out <- rds_from_url(url)
 
   class(out) <- c("tbl_df","tbl","data.frame")
+  out
+}
+#' Load Trades
+#'
+#' This returns a table of historical trades as maintained by Lee Sharpe.
+#'
+#' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data.
+#'
+#' @return A tibble of game information for past and/or future games.
+#'
+#' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
+#'
+#' @examples
+#' \donttest{
+#'  load_trades(2020)
+#' }
+#'
+#' @export
+load_trades <- function(seasons = TRUE){
+
+  out <- read.csv("https://github.com/nflverse/nfldata/raw/master/data/trades.csv",
+                  stringsAsFactors = FALSE)
+  class(out) <- c("tbl_df","tbl","data.frame")
+  out <- replace(out,out=="",NA_character_)
+
+  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+  if(!isTRUE(seasons)) out <- dplyr::filter(out, out$season %in% seasons)
+
   out
 }
