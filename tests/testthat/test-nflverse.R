@@ -174,9 +174,9 @@ test_that("load_snap_counts", {
 
   skip_if_offline("github.com")
 
-  counts <- load_snap_counts()
+  counts <- load_snap_counts(2020)
 
   expect_s3_class(counts, "tbl_df")
 
-  expect_gt(nrow(counts), 100000)
+  expect_gt(nrow(counts), 20000)
 })
