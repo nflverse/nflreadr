@@ -51,21 +51,33 @@ home:
 navbar:
   structure:
     left:  [home, reference, news, articles]
-    right: [discord,  github, more]
+    right: [discord, github, more]
   components:
     discord:
       icon: "fab fa-discord fa-lg"
       href: https://discord.com/invite/5Er2FBnnQa
+    reference:
+      text: "Functions"
+      href: reference/index.html
     more:
-      text: "More"
+      text: "Packages & More"
       menu:
-        - text: "nflverse"
-        - text: nflfastR package
+        - text: "nflverse Packages"
+        - text: nflfastR
           href: https://www.nflfastr.com
+        - text: nflseedR
+          href: https://nflseedr.com
+        - text: nfl4th
+          href: https://www.nfl4th.com
+        - text: "nflverse Data"
         - text: nflverse GitHub
           href: https://github.com/nflverse
+        - text: espnscrapeR Package
+          href: https://jthomasmock.github.io/espnscrapeR/
         - text: "ffverse"
           href: https://www.ffverse.com
+        - text: "Open Source Football"
+          href: https://www.opensourcefootball.com
 
 template:
   params:
