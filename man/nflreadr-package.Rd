@@ -12,6 +12,7 @@ A low-level package for downloading data from 'GitHub'
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://nflreadr.nflverse.com}
   \item \url{https://github.com/nflverse/nflreadr}
   \item Report bugs at \url{https://github.com/nflverse/nflreadr/issues}
 }
