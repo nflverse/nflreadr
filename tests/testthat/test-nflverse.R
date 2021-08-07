@@ -169,10 +169,15 @@ test_that("load_draft_picks", {
   skip_if_offline("github.com")
 
   picks <- load_draft_picks()
+  picks_2020 <- load_draft_picks(2020)
 
   expect_s3_class(picks, "tbl_df")
+  expect_s3_class(picks_2020, "tbl_df")
 
   expect_gt(nrow(picks), 10000)
+  expect_lt(nrow(picks_2020), 260)
+
+  expect_error(load_draft_picks("2020"))
 })
 
 test_that("load_pfr_passing", {
