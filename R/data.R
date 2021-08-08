@@ -19,6 +19,13 @@
 #' @seealso [`vignette("Data Dictionary - FF Player IDs")`]
 "dictionary_ff_playerids"
 
+#' Data Dictionary: Fantasy Football Rankings
+#'
+#' A dataframe containing the data dictionary for [`load_ff_rankings()`]
+#'
+#' @seealso [`vignette("Data Dictionary - FF Rankings")`]
+"dictionary_ff_rankings"
+
 #' Data Dictionary: Rosters
 #'
 #' A dataframe containing the data dictionary for [`load_rosters()`]
