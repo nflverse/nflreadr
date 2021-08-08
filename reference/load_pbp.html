@@ -118,6 +118,9 @@
       <a href="../articles/dictionary_ff_playerids.html">Data Dictionary - FF Player IDs</a>
     </li>
     <li>
+      <a href="../articles/dictionary_ff_rankings.html">Data Dictionary - FF Rankings</a>
+    </li>
+    <li>
       <a href="../articles/dictionary_nextgen_stats.html">Data Dictionary - Next Gen Stats</a>
     </li>
     <li>
@@ -174,6 +177,9 @@
     <li>
       <a href="https://www.nfl4th.com">nfl4th</a>
     </li>
+    <li>
+      <a href="https://www.opensourcefootball.com">Open Source Football</a>
+    </li>
     <li class="dropdown-header">nflverse Data</li>
     <li>
       <a href="https://github.com/nflverse">nflverse GitHub</a>
@@ -181,11 +187,9 @@
     <li>
       <a href="https://jthomasmock.github.io/espnscrapeR/">espnscrapeR Package</a>
     </li>
+    <li class="dropdown-header">ffverse</li>
     <li>
-      <a href="https://www.ffverse.com">ffverse</a>
-    </li>
-    <li>
-      <a href="https://www.opensourcefootball.com">Open Source Football</a>
+      <a href="https://www.ffverse.com">ffverse.com</a>
     </li>
   </ul>
 </li>
@@ -208,7 +212,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Loads multiple seasons from the nflfastR data repository</p>
+    <p>Loads multiple seasons from the <a href='https://github.com/nflverse/nflfastR-data'>nflfastR data repository</a></p>
     </div>
 
     <pre class="usage"><span class='fu'>load_pbp</span><span class='op'>(</span>
@@ -236,13 +240,13 @@
 (see below) for all given <code>seasons</code></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code>dictionary_pbp</code> for the data dictionary as a dataframe</p>
-<p><a href='https://www.nflfastr.com/articles/field_descriptions.html'>https://www.nflfastr.com/articles/field_descriptions.html</a> for a web version of the data dictionary</p>
-<p><a href='https://www.nflfastr.com/reference/build_nflfastR_pbp.html'>https://www.nflfastr.com/reference/build_nflfastR_pbp.html</a> for the nflfastR function <code>build_nflfastR_pbp()</code></p></div>
+    <div class='dont-index'><p><code><a href='dictionary_pbp.html'>dictionary_pbp</a></code> for the data dictionary as a dataframe</p>
+<p><a href='https://nflreadr.nflverse.com/articles/dictionary_pbp.html'>https://nflreadr.nflverse.com/articles/dictionary_pbp.html</a> for a web version of the data dictionary</p>
+<p><a href='https://www.nflfastr.com/reference/build_nflfastR_pbp.html'>https://www.nflfastr.com/reference/build_nflfastR_pbp.html</a> for the nflfastR function <code>nflfastR::build_nflfastR_pbp()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>load_pbp</span><span class='op'>(</span><span class='fl'>2019</span><span class='op'>:</span><span class='fl'>2020</span><span class='op'>)</span>
+  <span class='fu'>load_pbp</span><span class='op'>(</span><span class='fl'>2019</span><span class='op'>:</span><span class='fl'>2020</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 96,548 × 372</span>
 #&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #&gt;      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
