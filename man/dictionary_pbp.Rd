@@ -14,6 +14,8 @@ dictionary_pbp
 A dataframe containing the data dictionary for \code{\link[=load_pbp]{load_pbp()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - PBP")}}
+\code{vignette("Data Dictionary - PBP")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_pbp.html}
 }
 \keyword{datasets}

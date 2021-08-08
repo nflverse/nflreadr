@@ -14,6 +14,8 @@ dictionary_nextgen_stats
 A dataframe containing the data dictionary for \code{\link[=load_nextgen_stats]{load_nextgen_stats()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Next Gen Stats")}}
+\code{vignette("Data Dictionary - Next Gen Stats")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html}
 }
 \keyword{datasets}

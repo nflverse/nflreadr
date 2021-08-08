@@ -14,6 +14,8 @@ dictionary_ff_rankings
 A dataframe containing the data dictionary for \code{\link[=load_ff_rankings]{load_ff_rankings()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - FF Rankings")}}
+\code{vignette("Data Dictionary - FF Rankings")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html}
 }
 \keyword{datasets}

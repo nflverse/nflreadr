@@ -14,6 +14,8 @@ dictionary_rosters
 A dataframe containing the data dictionary for \code{\link[=load_rosters]{load_rosters()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Rosters")}}
+\code{vignette("Data Dictionary - Rosters")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_rosters.html}
 }
 \keyword{datasets}

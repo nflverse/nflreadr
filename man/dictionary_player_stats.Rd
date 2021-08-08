@@ -14,6 +14,8 @@ dictionary_player_stats
 A dataframe containing the data dictionary for \code{\link[=load_player_stats]{load_player_stats()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Player Stats")}}
+\code{vignette("Data Dictionary - Player Stats")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_player_stats.html}
 }
 \keyword{datasets}

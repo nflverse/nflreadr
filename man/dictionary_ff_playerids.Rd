@@ -14,6 +14,8 @@ dictionary_ff_playerids
 A dataframe containing the data dictionary for \code{\link[=load_ff_playerids]{load_ff_playerids()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - FF Player IDs")}}
+\code{vignette("Data Dictionary - FF Player IDs")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html}
 }
 \keyword{datasets}

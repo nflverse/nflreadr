@@ -26,5 +26,5 @@ This returns game/schedule information as maintained by Lee Sharpe.
 
 \code{\link{dictionary_schedules}} for the data dictionary as a dataframe
 
-\code{\link{vignette("Data Dictionary - Schedules")}} for the data dictionary as a vignette
+\code{vignette("Data Dictionary - Schedules")} for the data dictionary as a vignette
 }

@@ -14,6 +14,8 @@ dictionary_pfr_passing
 A dataframe containing the data dictionary for \code{\link[=load_pfr_passing]{load_pfr_passing()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - PFR Passing")}}
+\url{https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html}
+
+\code{vignette("Data Dictionary - PFR Passing")}
 }
 \keyword{datasets}

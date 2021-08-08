@@ -14,6 +14,8 @@ dictionary_schedules
 A dataframe containing the data dictionary for \code{\link[=load_schedules]{load_schedules()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Schedules")}}
+\code{vignette("Data Dictionary - Schedules")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_schedules.html}
 }
 \keyword{datasets}

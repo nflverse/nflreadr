@@ -14,6 +14,8 @@ dictionary_draft_picks
 A dataframe containing the data dictionary for \code{\link[=load_draft_picks]{load_draft_picks()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Draft Picks")}}
+\code{vignette("Data Dictionary - Draft Picks")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html}
 }
 \keyword{datasets}

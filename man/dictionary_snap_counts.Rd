@@ -14,6 +14,8 @@ dictionary_snap_counts
 A dataframe containing the data dictionary for \code{\link[=load_snap_counts]{load_snap_counts()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - Snap Counts")}}
+\code{vignette("Data Dictionary - Snap Counts")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html}
 }
 \keyword{datasets}

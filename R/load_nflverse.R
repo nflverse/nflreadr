@@ -6,7 +6,7 @@
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
-#' @return The complete nflfastR dataset as returned by [`nflfastR::build_nflfastR_pbp()`]
+#' @return The complete nflfastR dataset as returned by `nflfastR::build_nflfastR_pbp()`
 #' (see below) for all given `seasons`
 #'
 #' @examples
@@ -15,7 +15,7 @@
 #' }
 #' @seealso [`dictionary_pbp`] for the data dictionary as a dataframe
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pbp.html> for a web version of the data dictionary
-#' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function [`nflfastR::build_nflfastR_pbp()`]
+#' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `nflfastR::build_nflfastR_pbp()`
 #'
 #' @export
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "qs")) {
@@ -56,7 +56,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #'
 #' @seealso <https://www.nflfastr.com/reference/load_player_stats.html>
 #' @seealso <https://github.com/nflverse/nflfastr-data>
-#' @seealso [`vignette("Data Dictionary - Player Stats")`] for the data dictionary
+#' @seealso `vignette("Data Dictionary - Player Stats")` for the data dictionary
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
@@ -105,7 +105,7 @@ load_player_stats <- function(seasons = most_recent_season(),
 #'
 #' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#games>
 #' @seealso [`dictionary_schedules`] for the data dictionary as a dataframe
-#' @seealso [`vignette("Data Dictionary - Schedules")`] for the data dictionary as a vignette
+#' @seealso `vignette("Data Dictionary - Schedules")` for the data dictionary as a vignette
 #'
 #' @examples
 #' \donttest{
@@ -137,7 +137,6 @@ load_schedules <- function(seasons = TRUE){
 #' @return A tibble of season-level roster data.
 #'
 #' @seealso [`dictionary_rosters`] for the data dictionary as a dataframe
-#' @seealso [`vignette("Data Dictionary - Rosters")`] for the data dictionary as a vignette
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
