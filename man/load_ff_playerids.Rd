@@ -21,5 +21,5 @@ load_ff_playerids()
 \seealso{
 \url{https://github.com/dynastyprocess/data}
 
-\code{ffscrapr::dp_playerids()}
+\code{\link[ffscrapr:dp_playerids]{ffscrapr::dp_playerids()}}
 }

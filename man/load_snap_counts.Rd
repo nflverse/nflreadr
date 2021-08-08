@@ -22,3 +22,8 @@ starting with the 2013 season.
 }
 
 }
+\seealso{
+\code{\link{dictionary_snap_counts}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html}
+}

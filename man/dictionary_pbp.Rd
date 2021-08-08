@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 372 rows and 2 columns.
 dictionary_pbp
 }
 \description{
-A dataframe containing the data dictionary for \code{load_pbp()}
+A dataframe containing the data dictionary for \code{\link[=load_pbp]{load_pbp()}}
 }
 \seealso{
-\code{vignette("Data Dictionary - PBP")}
+\code{\link{vignette("Data Dictionary - PBP")}}
 }
 \keyword{datasets}

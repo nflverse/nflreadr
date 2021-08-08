@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 61 rows and 3 columns.
 dictionary_nextgen_stats
 }
 \description{
-A dataframe containing the data dictionary for \code{load_nextgen_stats()}
+A dataframe containing the data dictionary for \code{\link[=load_nextgen_stats]{load_nextgen_stats()}}
 }
 \seealso{
-\code{vignette("Data Dictionary - Next Gen Stats")}
+\code{\link{vignette("Data Dictionary - Next Gen Stats")}}
 }
 \keyword{datasets}

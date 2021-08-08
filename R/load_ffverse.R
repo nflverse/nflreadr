@@ -10,7 +10,7 @@
 #' }
 #'
 #' @seealso <https://github.com/dynastyprocess/data>
-#' @seealso `ffscrapr::dp_playerids()`
+#' @seealso [`ffscrapr::dp_playerids()`]
 #'
 #' @export
 load_ff_playerids <- function() {

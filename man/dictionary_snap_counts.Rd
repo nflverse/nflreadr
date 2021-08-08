@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 12 rows and 3 columns.
 dictionary_snap_counts
 }
 \description{
-A dataframe containing the data dictionary for \code{load_snap_counts()}
+A dataframe containing the data dictionary for \code{\link[=load_snap_counts]{load_snap_counts()}}
 }
 \seealso{
-\code{vignette("Data Dictionary - Snap Counts")}
+\code{\link{vignette("Data Dictionary - Snap Counts")}}
 }
 \keyword{datasets}

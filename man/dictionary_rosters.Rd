@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 24 rows and 3 columns.
 dictionary_rosters
 }
 \description{
-A dataframe containing the data dictionary for \code{load_rosters()}
+A dataframe containing the data dictionary for \code{\link[=load_rosters]{load_rosters()}}
 }
 \seealso{
-\code{vignette("Data Dictionary - Rosters")}
+\code{\link{vignette("Data Dictionary - Rosters")}}
 }
 \keyword{datasets}

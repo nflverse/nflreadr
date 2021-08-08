@@ -11,9 +11,9 @@ An object of class \code{data.frame} with 34 rows and 3 columns.
 dictionary_ff_playerids
 }
 \description{
-A dataframe containing the data dictionary for \code{load_ff_playerids()}
+A dataframe containing the data dictionary for \code{\link[=load_ff_playerids]{load_ff_playerids()}}
 }
 \seealso{
-\code{vignette("Data Dictionary - FF Player IDs")}
+\code{\link{vignette("Data Dictionary - FF Player IDs")}}
 }
 \keyword{datasets}

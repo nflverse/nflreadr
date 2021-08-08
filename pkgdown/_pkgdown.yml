@@ -8,6 +8,7 @@ reference:
   - "load_pbp"
   - "load_player_stats"
   - "load_rosters"
+  - "load_teams"
   - "load_schedules"
   - "load_trades"
   - "load_draft_picks"
@@ -42,6 +43,10 @@ authors:
     href: https://twitter.com/John_B_Edwards
   Ben Baldwin:
     href: https://twitter.com/benbbaldwin
+  Lee Sharpe:
+    href: https://twitter.com/leesharpenfl
+  Thomas Mock:
+    href: https://twitter.com/thomas_mock
 
 home:
   title: nflreadr • Download nflverse Data
@@ -69,15 +74,16 @@ navbar:
           href: https://nflseedr.com
         - text: nfl4th
           href: https://www.nfl4th.com
+        - text: "Open Source Football"
+          href: https://www.opensourcefootball.com
         - text: "nflverse Data"
         - text: nflverse GitHub
           href: https://github.com/nflverse
         - text: espnscrapeR Package
           href: https://jthomasmock.github.io/espnscrapeR/
-        - text: "ffverse"
+        - text: ffverse
+        - text: "ffverse.com"
           href: https://www.ffverse.com
-        - text: "Open Source Football"
-          href: https://www.opensourcefootball.com
 
 template:
   params:
