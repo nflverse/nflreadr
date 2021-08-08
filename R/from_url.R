@@ -5,6 +5,8 @@
 #'
 #' @export
 #'
+#' @return a dataframe as created by [`readRDS()`]
+#'
 #' @examples
 #' \donttest{
 #' rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
@@ -36,6 +38,8 @@ rds_from_url <- function(url, ...){
 #'
 #' @export
 #'
+#' @return a raw vector
+#'
 #' @examples
 #' \donttest{
 #' head(raw_from_url(
@@ -66,7 +70,7 @@ raw_from_url <- function(url, ...){
 #'
 #' @export
 #'
-#' @return a dataframe as parsed by `qs::qdeserialize()`
+#' @return a dataframe as parsed by [`qs::qdeserialize()`]
 #'
 #' @examples
 #' \donttest{
