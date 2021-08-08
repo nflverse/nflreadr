@@ -1,10 +1,10 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 0.0.9
+Version: 1.0.0
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
-             role = c("aut", "cre"),
+             role = c("aut", "cre", "cph"),
              email = "tan@tanho.ca",
              comment = c(ORCID = "0000-0001-8388-5155")),
       person(given = "Sebastian",
