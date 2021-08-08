@@ -25,9 +25,14 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-nflreadr is a low-level package for downloading data from nflverse repositories. 
+nflreadr is a low-level package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.
 
 ## Installation
+
+Install the stable version from CRAN with:
+```{r eval = FALSE}
+install.packages("nflreadr")
+```
 
 Install the development version from GitHub with:
 
@@ -43,10 +48,24 @@ remotes::install_github("nflverse/nflreadr")
 
 The main functions of `nflreadr` are prefixed with `load_`.  
 
-```{r eval = FALSE}
+```{r}
 library(nflreadr)
 load_pbp(2020)
 ```
+
+## Data Sources
+
+Data accessed by this package is stored on GitHub and can typically be found in one of the following repositories:
+
+- [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+- [nflverse/nfldata](https://github.com/nflverse/nfldata)
+- [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
+- [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
+- [dynastyprocess/data](https://github.com/dynastyprocess/data)
+
+For a full list of functions, please see the [reference page](https://nflreadr.nflverse.com/reference/index.html).
+
+## Configuration
 
 The following options help configure default `nflreadr` behaviours. 
 

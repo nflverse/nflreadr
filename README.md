@@ -21,9 +21,16 @@ discord](https://img.shields.io/discord/591914197219016707.svg?color=5865F2&labe
 <!-- badges: end -->
 
 nflreadr is a low-level package for downloading data from nflverse
-repositories.
+repositories. It includes caching, optional progress updates, and data
+dictionaries.
 
 ## Installation
+
+Install the stable version from CRAN with:
+
+``` r
+install.packages("nflreadr")
+```
 
 Install the development version from GitHub with:
 
@@ -37,12 +44,75 @@ remotes::install_github("nflverse/nflreadr")
 
 ## Usage
 
-The main functions of `nflreadr` are prefixed with load.
+The main functions of `nflreadr` are prefixed with `load_`.
 
 ``` r
 library(nflreadr)
 load_pbp(2020)
+#> # A tibble: 48,514 x 372
+#>    play_id game_id     old_game_id home_team away_team season_type  week posteam
+#>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
+#>  1       1 2020_01_AR~ 2020091311  SF        ARI       REG             1 <NA>   
+#>  2      39 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  3      54 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  4      93 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  5     118 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  6     143 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  7     165 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  8     197 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
+#>  9     226 2020_01_AR~ 2020091311  SF        ARI       REG             1 ARI    
+#> 10     245 2020_01_AR~ 2020091311  SF        ARI       REG             1 ARI    
+#> # ... with 48,504 more rows, and 364 more variables: posteam_type <chr>,
+#> #   defteam <chr>, side_of_field <chr>, yardline_100 <dbl>, game_date <chr>,
+#> #   quarter_seconds_remaining <dbl>, half_seconds_remaining <dbl>,
+#> #   game_seconds_remaining <dbl>, game_half <chr>, quarter_end <dbl>,
+#> #   drive <dbl>, sp <dbl>, qtr <dbl>, down <dbl>, goal_to_go <dbl>, time <chr>,
+#> #   yrdln <chr>, ydstogo <dbl>, ydsnet <dbl>, desc <chr>, play_type <chr>,
+#> #   yards_gained <dbl>, shotgun <dbl>, no_huddle <dbl>, qb_dropback <dbl>,
+#> #   qb_kneel <dbl>, qb_spike <dbl>, qb_scramble <dbl>, pass_length <chr>,
+#> #   pass_location <chr>, air_yards <dbl>, yards_after_catch <dbl>,
+#> #   run_location <chr>, run_gap <chr>, field_goal_result <chr>,
+#> #   kick_distance <dbl>, extra_point_result <chr>, two_point_conv_result <chr>,
+#> #   home_timeouts_remaining <dbl>, away_timeouts_remaining <dbl>,
+#> #   timeout <dbl>, timeout_team <chr>, td_team <chr>, td_player_name <chr>,
+#> #   td_player_id <chr>, posteam_timeouts_remaining <dbl>,
+#> #   defteam_timeouts_remaining <dbl>, total_home_score <dbl>,
+#> #   total_away_score <dbl>, posteam_score <dbl>, defteam_score <dbl>,
+#> #   score_differential <dbl>, posteam_score_post <dbl>,
+#> #   defteam_score_post <dbl>, score_differential_post <dbl>,
+#> #   no_score_prob <dbl>, opp_fg_prob <dbl>, opp_safety_prob <dbl>,
+#> #   opp_td_prob <dbl>, fg_prob <dbl>, safety_prob <dbl>, td_prob <dbl>,
+#> #   extra_point_prob <dbl>, two_point_conversion_prob <dbl>, ep <dbl>,
+#> #   epa <dbl>, total_home_epa <dbl>, total_away_epa <dbl>,
+#> #   total_home_rush_epa <dbl>, total_away_rush_epa <dbl>,
+#> #   total_home_pass_epa <dbl>, total_away_pass_epa <dbl>, air_epa <dbl>,
+#> #   yac_epa <dbl>, comp_air_epa <dbl>, comp_yac_epa <dbl>,
+#> #   total_home_comp_air_epa <dbl>, total_away_comp_air_epa <dbl>,
+#> #   total_home_comp_yac_epa <dbl>, total_away_comp_yac_epa <dbl>,
+#> #   total_home_raw_air_epa <dbl>, total_away_raw_air_epa <dbl>,
+#> #   total_home_raw_yac_epa <dbl>, total_away_raw_yac_epa <dbl>, wp <dbl>,
+#> #   def_wp <dbl>, home_wp <dbl>, away_wp <dbl>, wpa <dbl>, vegas_wpa <dbl>,
+#> #   vegas_home_wpa <dbl>, home_wp_post <dbl>, away_wp_post <dbl>,
+#> #   vegas_wp <dbl>, vegas_home_wp <dbl>, total_home_rush_wpa <dbl>,
+#> #   total_away_rush_wpa <dbl>, total_home_pass_wpa <dbl>,
+#> #   total_away_pass_wpa <dbl>, air_wpa <dbl>, ...
 ```
+
+## Data Sources
+
+Data accessed by this package is stored on GitHub and can typically be
+found in one of the following repositories:
+
+-   [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+-   [nflverse/nfldata](https://github.com/nflverse/nfldata)
+-   [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
+-   [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
+-   [dynastyprocess/data](https://github.com/dynastyprocess/data)
+
+For a full list of functions, please see the [reference
+page](https://nflreadr.nflverse.com/reference/index.html).
+
+## Configuration
 
 The following options help configure default `nflreadr` behaviours.
 
