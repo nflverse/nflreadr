@@ -11,9 +11,11 @@ An object of class \code{data.frame} with 28 rows and 3 columns.
 dictionary_pfr_passing
 }
 \description{
-A dataframe containing the data dictionary for \code{load_pfr_passing()}
+A dataframe containing the data dictionary for \code{\link[=load_pfr_passing]{load_pfr_passing()}}
 }
 \seealso{
+\url{https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html}
+
 \code{vignette("Data Dictionary - PFR Passing")}
 }
 \keyword{datasets}

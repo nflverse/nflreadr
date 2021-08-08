@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_nflverse.R
 \name{load_teams}
 \alias{load_teams}
-\title{Load NFL Team Data}
+\title{Load NFL Team Graphics, Colors, and Logos}
 \usage{
 load_teams()
 }

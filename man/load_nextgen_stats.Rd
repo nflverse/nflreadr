@@ -40,4 +40,8 @@ the current season's data updates every night.
 \url{https://nextgenstats.nfl.com/stats/receiving} for \code{stat_type = "receiving"}
 
 \url{https://nextgenstats.nfl.com/stats/rushing} for \code{stat_type = "rushing"}
+
+\code{\link{dictionary_nextgen_stats}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html} for a web version of the dictionary
 }

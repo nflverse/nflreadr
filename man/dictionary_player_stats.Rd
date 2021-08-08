@@ -11,9 +11,11 @@ An object of class \code{data.frame} with 41 rows and 2 columns.
 dictionary_player_stats
 }
 \description{
-A dataframe containing the data dictionary for \code{load_player_stats()}
+A dataframe containing the data dictionary for \code{\link[=load_player_stats]{load_player_stats()}}
 }
 \seealso{
 \code{vignette("Data Dictionary - Player Stats")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_player_stats.html}
 }
 \keyword{datasets}

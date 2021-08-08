@@ -11,9 +11,11 @@ An object of class \code{data.frame} with 29 rows and 2 columns.
 dictionary_schedules
 }
 \description{
-A dataframe containing the data dictionary for \code{load_schedules()}
+A dataframe containing the data dictionary for \code{\link[=load_schedules]{load_schedules()}}
 }
 \seealso{
 \code{vignette("Data Dictionary - Schedules")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_schedules.html}
 }
 \keyword{datasets}

@@ -11,9 +11,11 @@ An object of class \code{data.frame} with 10 rows and 3 columns.
 dictionary_draft_picks
 }
 \description{
-A dataframe containing the data dictionary for \code{load_draft_picks()}
+A dataframe containing the data dictionary for \code{\link[=load_draft_picks]{load_draft_picks()}}
 }
 \seealso{
 \code{vignette("Data Dictionary - Draft Picks")}
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html}
 }
 \keyword{datasets}

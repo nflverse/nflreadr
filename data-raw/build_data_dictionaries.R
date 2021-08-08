@@ -27,3 +27,6 @@ usethis::use_data(dictionary_pfr_passing, overwrite = TRUE)
 
 dictionary_draft_picks <- read.csv("data-raw/dictionary_draft_picks.csv")
 usethis::use_data(dictionary_draft_picks, overwrite = TRUE)
+
+dictionary_ff_rankings <- read.csv("data-raw/dictionary_ff_rankings.csv")
+usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)

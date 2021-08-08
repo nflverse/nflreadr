@@ -23,9 +23,7 @@ Load Rosters
 
 }
 \seealso{
-\code{dictionary_rosters} for the data dictionary as a dataframe
-
-\code{vignette("Data Dictionary - Rosters")} for the data dictionary as a vignette
+\code{\link{dictionary_rosters}} for the data dictionary as a dataframe
 
 \url{https://github.com/nflverse/nflfastR-roster}
 
