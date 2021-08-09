@@ -11,6 +11,9 @@ rds_from_url(url, ...)
 
 \item{...}{for internal usage only}
 }
+\value{
+a dataframe as created by \code{\link[=readRDS]{readRDS()}}
+}
 \description{
 Load .rds file from a remote connection
 }

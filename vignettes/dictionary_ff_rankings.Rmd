@@ -13,18 +13,8 @@ knitr::opts_chunk$set(
   echo = FALSE,
   comment = "#>"
 )
-use_dt <- FALSE
-if(requireNamespace("DT", quietly = TRUE)) use_dt <- TRUE
 ```
 
-```{r eval = use_dt}
-DT::datatable(nflreadr::dictionary_ff_rankings, 
-              options = list(scrollX = TRUE, pageLength = 25),
-              filter = "top",
-              rownames = FALSE
-              )
-```
-
-```{r eval = !use_dt}
+```{r}
 knitr::kable(nflreadr::dictionary_ff_rankings)
 ```

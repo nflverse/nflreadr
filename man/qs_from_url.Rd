@@ -12,7 +12,7 @@ qs_from_url(url, ...)
 \item{...}{for internal usage only}
 }
 \value{
-a dataframe as parsed by \code{qs::qdeserialize()}
+a dataframe as parsed by \code{\link[qs:qdeserialize]{qs::qdeserialize()}}
 }
 \description{
 Load .qs file from a remote connection

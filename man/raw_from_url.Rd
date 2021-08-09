@@ -11,6 +11,9 @@ raw_from_url(url, ...)
 
 \item{...}{for internal usage only}
 }
+\value{
+a raw vector
+}
 \description{
 This function allows you to retrieve data from a URL into raw format, which
 can then be passed into the appropriate file-reading function, such as \code{arrow::read_parquet()}

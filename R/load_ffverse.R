@@ -29,7 +29,7 @@ load_ff_playerids <- function() {
 #' load_ff_rankings()
 #' }
 #'
-#' @seealso <https://www.github.com/dynastyprocess/data>
+#' @seealso <https://github.com/dynastyprocess/data>
 #' @seealso <https://www.fantasypros.com>
 #'
 #' @export
