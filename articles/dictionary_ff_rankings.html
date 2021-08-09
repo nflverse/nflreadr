@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -160,13 +160,7 @@
 
       
 
-      </header><script src="dictionary_ff_rankings_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_ff_rankings_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="dictionary_ff_rankings_files/jquery-3.5.1/jquery.min.js"></script><link href="dictionary_ff_rankings_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dictionary_ff_rankings_files/datatables-binding-0.18/datatables.js"></script><link href="dictionary_ff_rankings_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dictionary_ff_rankings_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dictionary_ff_rankings_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="dictionary_ff_rankings_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="dictionary_ff_rankings_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_ff_rankings_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="dictionary_ff_rankings_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_ff_rankings_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="dictionary_ff_rankings_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><div class="row">
+      </header><script src="dictionary_ff_rankings_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Data Dictionary - FF Rankings</h1>
@@ -179,8 +173,145 @@
 
     
     
-<div id="htmlwidget-4bb27f8ee93db6329599" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4bb27f8ee93db6329599">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["fp_page","page_type","ecr_type","player","id","pos","team","sportsdata_id","player_filename","yahoo_id","cbs_id","player_image_url","player_square_image_url","mergename","tm","scrape_date","ecr","sd","best","worst","player_owned_avg","player_owned_espn","player_owned_yahoo","rank_delta","bye"],["character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","Date","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric"],["The relative url that the data was scraped from (add the prefix https://www.fantasypros.com/ to visit the page)","Two word identifier separated by a dash identifying the type of fantasy ranking (best = bestball; dynasty; redraft) and what position it applies to","A two letter identifier combining the ranking type (b = bestball; d = dynasty; r = redraft) and position type (o = overall; p = positional; sf = superflex; rk = rookie)","Player name","FantasyPros ID","Position as tracked by FP","NFL team the player plays for","ID - also known as sportradar_id (they are equivalent!)","base URL for this player on fantasypros.com","Yahoo ID","CBS ID","An image of the player","An square image of the player","Player name after being cleaned by dp_cleannames - generally strips punctuation and suffixes as well as performing common name substitutions.","Team ID as used on MyFantasyLeague.com","Date this dataframe was last updated","Average (mean) expert ranking for this player","Standard deviation of expert rankings for this player","The highest ranking given for this player by any one expert","The lowest ranking given for this player by any one expert","The average percentage this player is rostered across ESPN and Yahoo","The percentage that this player is rostered in ESPN leagues","The percentage that this player is rostered in Yahoo leagues","Change in ranks over a recent period","NFL bye week"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<table class="table">
+<colgroup>
+<col width="11%">
+<col width="4%">
+<col width="83%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">field</th>
+<th align="left">data_type</th>
+<th align="left">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">fp_page</td>
+<td align="left">character</td>
+<td align="left">The relative url that the data was scraped from (add the prefix <a href="https://www.fantasypros.com/" class="uri">https://www.fantasypros.com/</a> to visit the page)</td>
+</tr>
+<tr class="even">
+<td align="left">page_type</td>
+<td align="left">character</td>
+<td align="left">Two word identifier separated by a dash identifying the type of fantasy ranking (best = bestball; dynasty; redraft) and what position it applies to</td>
+</tr>
+<tr class="odd">
+<td align="left">ecr_type</td>
+<td align="left">character</td>
+<td align="left">A two letter identifier combining the ranking type (b = bestball; d = dynasty; r = redraft) and position type (o = overall; p = positional; sf = superflex; rk = rookie)</td>
+</tr>
+<tr class="even">
+<td align="left">player</td>
+<td align="left">character</td>
+<td align="left">Player name</td>
+</tr>
+<tr class="odd">
+<td align="left">id</td>
+<td align="left">character</td>
+<td align="left">FantasyPros ID</td>
+</tr>
+<tr class="even">
+<td align="left">pos</td>
+<td align="left">character</td>
+<td align="left">Position as tracked by FP</td>
+</tr>
+<tr class="odd">
+<td align="left">team</td>
+<td align="left">character</td>
+<td align="left">NFL team the player plays for</td>
+</tr>
+<tr class="even">
+<td align="left">sportsdata_id</td>
+<td align="left">character</td>
+<td align="left">ID - also known as sportradar_id (they are equivalent!)</td>
+</tr>
+<tr class="odd">
+<td align="left">player_filename</td>
+<td align="left">character</td>
+<td align="left">base URL for this player on fantasypros.com</td>
+</tr>
+<tr class="even">
+<td align="left">yahoo_id</td>
+<td align="left">character</td>
+<td align="left">Yahoo ID</td>
+</tr>
+<tr class="odd">
+<td align="left">cbs_id</td>
+<td align="left">character</td>
+<td align="left">CBS ID</td>
+</tr>
+<tr class="even">
+<td align="left">player_image_url</td>
+<td align="left">character</td>
+<td align="left">An image of the player</td>
+</tr>
+<tr class="odd">
+<td align="left">player_square_image_url</td>
+<td align="left">character</td>
+<td align="left">An square image of the player</td>
+</tr>
+<tr class="even">
+<td align="left">mergename</td>
+<td align="left">character</td>
+<td align="left">Player name after being cleaned by dp_cleannames - generally strips punctuation and suffixes as well as performing common name substitutions.</td>
+</tr>
+<tr class="odd">
+<td align="left">tm</td>
+<td align="left">character</td>
+<td align="left">Team ID as used on MyFantasyLeague.com</td>
+</tr>
+<tr class="even">
+<td align="left">scrape_date</td>
+<td align="left">Date</td>
+<td align="left">Date this dataframe was last updated</td>
+</tr>
+<tr class="odd">
+<td align="left">ecr</td>
+<td align="left">numeric</td>
+<td align="left">Average (mean) expert ranking for this player</td>
+</tr>
+<tr class="even">
+<td align="left">sd</td>
+<td align="left">numeric</td>
+<td align="left">Standard deviation of expert rankings for this player</td>
+</tr>
+<tr class="odd">
+<td align="left">best</td>
+<td align="left">numeric</td>
+<td align="left">The highest ranking given for this player by any one expert</td>
+</tr>
+<tr class="even">
+<td align="left">worst</td>
+<td align="left">numeric</td>
+<td align="left">The lowest ranking given for this player by any one expert</td>
+</tr>
+<tr class="odd">
+<td align="left">player_owned_avg</td>
+<td align="left">numeric</td>
+<td align="left">The average percentage this player is rostered across ESPN and Yahoo</td>
+</tr>
+<tr class="even">
+<td align="left">player_owned_espn</td>
+<td align="left">numeric</td>
+<td align="left">The percentage that this player is rostered in ESPN leagues</td>
+</tr>
+<tr class="odd">
+<td align="left">player_owned_yahoo</td>
+<td align="left">numeric</td>
+<td align="left">The percentage that this player is rostered in Yahoo leagues</td>
+</tr>
+<tr class="even">
+<td align="left">rank_delta</td>
+<td align="left">numeric</td>
+<td align="left">Change in ranks over a recent period</td>
+</tr>
+<tr class="odd">
+<td align="left">bye</td>
+<td align="left">numeric</td>
+<td align="left">NFL bye week</td>
+</tr>
+</tbody>
+</table>
 </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

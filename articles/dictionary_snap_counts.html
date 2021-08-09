@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -160,13 +160,7 @@
 
       
 
-      </header><script src="dictionary_snap_counts_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_snap_counts_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="dictionary_snap_counts_files/jquery-3.5.1/jquery.min.js"></script><link href="dictionary_snap_counts_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dictionary_snap_counts_files/datatables-binding-0.18/datatables.js"></script><link href="dictionary_snap_counts_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dictionary_snap_counts_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dictionary_snap_counts_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="dictionary_snap_counts_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="dictionary_snap_counts_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_snap_counts_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="dictionary_snap_counts_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_snap_counts_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="dictionary_snap_counts_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><div class="row">
+      </header><script src="dictionary_snap_counts_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Data Dictionary - Snap Counts</h1>
@@ -179,8 +173,75 @@
 
     
     
-<div id="htmlwidget-7b056d2bd4ec9c911f70" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7b056d2bd4ec9c911f70">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["player","pfr_id","game_id","pfr_game_id","team","season","offense_snaps","offense_pct","defense_snaps","defense_pct","st_snaps","st_pct"],["character","character","character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric"],["Player name","Player PFR ID","nflfastR game ID","PFR game ID","Team","Season","Number of snaps on offense","Percent of offensive snaps taken","Number of snaps on defense","Percent of defensive snaps taken","Number of snaps on special teams","Percent of special teams snaps taken"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<table class="table">
+<thead><tr class="header">
+<th align="left">field</th>
+<th align="left">data_type</th>
+<th align="left">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">player</td>
+<td align="left">character</td>
+<td align="left">Player name</td>
+</tr>
+<tr class="even">
+<td align="left">pfr_id</td>
+<td align="left">character</td>
+<td align="left">Player PFR ID</td>
+</tr>
+<tr class="odd">
+<td align="left">game_id</td>
+<td align="left">character</td>
+<td align="left">nflfastR game ID</td>
+</tr>
+<tr class="even">
+<td align="left">pfr_game_id</td>
+<td align="left">character</td>
+<td align="left">PFR game ID</td>
+</tr>
+<tr class="odd">
+<td align="left">team</td>
+<td align="left">character</td>
+<td align="left">Team</td>
+</tr>
+<tr class="even">
+<td align="left">season</td>
+<td align="left">numeric</td>
+<td align="left">Season</td>
+</tr>
+<tr class="odd">
+<td align="left">offense_snaps</td>
+<td align="left">numeric</td>
+<td align="left">Number of snaps on offense</td>
+</tr>
+<tr class="even">
+<td align="left">offense_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of offensive snaps taken</td>
+</tr>
+<tr class="odd">
+<td align="left">defense_snaps</td>
+<td align="left">numeric</td>
+<td align="left">Number of snaps on defense</td>
+</tr>
+<tr class="even">
+<td align="left">defense_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of defensive snaps taken</td>
+</tr>
+<tr class="odd">
+<td align="left">st_snaps</td>
+<td align="left">numeric</td>
+<td align="left">Number of snaps on special teams</td>
+</tr>
+<tr class="even">
+<td align="left">st_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of special teams snaps taken</td>
+</tr>
+</tbody>
+</table>
 </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

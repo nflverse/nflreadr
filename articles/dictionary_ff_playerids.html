@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -160,13 +160,7 @@
 
       
 
-      </header><script src="dictionary_ff_playerids_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_ff_playerids_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="dictionary_ff_playerids_files/jquery-3.5.1/jquery.min.js"></script><link href="dictionary_ff_playerids_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dictionary_ff_playerids_files/datatables-binding-0.18/datatables.js"></script><link href="dictionary_ff_playerids_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dictionary_ff_playerids_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dictionary_ff_playerids_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="dictionary_ff_playerids_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="dictionary_ff_playerids_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_ff_playerids_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="dictionary_ff_playerids_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_ff_playerids_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="dictionary_ff_playerids_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><div class="row">
+      </header><script src="dictionary_ff_playerids_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Data Dictionary - FF Player IDs</h1>
@@ -179,8 +173,190 @@
 
     
     
-<div id="htmlwidget-3896404738368cc33223" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3896404738368cc33223">{"x":{"filter":"top","filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["mfl_id","sportradar_id","fantasypros_id","gsis_id","pff_id","sleeper_id","nfl_id","espn_id","yahoo_id","fleaflicker_id","cbs_id","rotowire_id","rotoworld_id","ktc_id","pfr_id","cfbref_id","stats_id","stats_global_id","fantasy_data_id","name","merge_name","position","team","birthdate","age","draft_year","draft_round","draft_pick","draft_ovr","twitter_username","height","weight","college","db_season"],["character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","character","date","numeric","numeric","numeric","numeric","character","character","numeric","numeric","character","numeric"],["MyFantasyLeague.com ID - this is the primary key for this table and is unique and complete. Usually an integer of 5 digits.","SportRadar ID - often also called sportsdata_id by other services. A UUID.","FantasyPros.com ID - usually an integer of 5 digits.","NFL Game Stats and Information Services - usually starts with 00- and is followed by a series of integers.","Pro Football Focus ID - usually an integer with between 3 and 6 digits.","Sleeper ID - usually an integer with ~4 digits.","NFL.com ID - usual format fullname/integers","ESPN ID - usual format is an integer with ~5 digits","Yahoo ID - usual format is an integer with ~5 digits","Fleaflicker ID - usual format is an integer with ~4 digits. Fleaflicker API also has sportradar and that's generally preferred.","CBS ID - usual format is an integer with ~ 7 digits.","Rotowire ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.","Rotoworld ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.","KeepTradeCut ID - usual format is an integer with ~four digits.","Pro Football Reference ID - usual format is first four characters of last name, first two characters of first name, and an integer","College Football Reference ID - usual format is firstname-lastname-integer","Stats ID - usual format is five digit integer","Stats Global ID - usual format is a six digit integer","FantasyData ID - usual format five digit integer","Name, as reported by MFL but reordered into FirstName LastName instead of Last, First","Name but formatted for name joins via ffscrapr::dp_cleannames() - coerced to lowercase, stripped of punctuation and suffixes, and common substitutions performed.","Position as reported by MFL","Team as reported by MFL","Birthdate","Age as of last pipeline build, rounded to one decimal. Pipeline is built on a weekly basis.","Year of draft. Zero if unknown/undrafted.","Round of draft. ","Draft pick within round, i.e. 32nd pick of second round.","Overall draft pick selection. This can be a little bit patchy, since MFL does not report this number.","Official twitter handle, if known","height in inches","weight in pounds","College attended","Year of database build. Previous years may also be available via dynastyprocess."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<table class="table">
+<colgroup>
+<col width="8%">
+<col width="5%">
+<col width="85%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">field</th>
+<th align="left">data_type</th>
+<th align="left">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">mfl_id</td>
+<td align="left">character</td>
+<td align="left">MyFantasyLeague.com ID - this is the primary key for this table and is unique and complete. Usually an integer of 5 digits.</td>
+</tr>
+<tr class="even">
+<td align="left">sportradar_id</td>
+<td align="left">character</td>
+<td align="left">SportRadar ID - often also called sportsdata_id by other services. A UUID.</td>
+</tr>
+<tr class="odd">
+<td align="left">fantasypros_id</td>
+<td align="left">character</td>
+<td align="left">FantasyPros.com ID - usually an integer of 5 digits.</td>
+</tr>
+<tr class="even">
+<td align="left">gsis_id</td>
+<td align="left">character</td>
+<td align="left">NFL Game Stats and Information Services - usually starts with 00- and is followed by a series of integers.</td>
+</tr>
+<tr class="odd">
+<td align="left">pff_id</td>
+<td align="left">character</td>
+<td align="left">Pro Football Focus ID - usually an integer with between 3 and 6 digits.</td>
+</tr>
+<tr class="even">
+<td align="left">sleeper_id</td>
+<td align="left">character</td>
+<td align="left">Sleeper ID - usually an integer with ~4 digits.</td>
+</tr>
+<tr class="odd">
+<td align="left">nfl_id</td>
+<td align="left">character</td>
+<td align="left">NFL.com ID - usual format fullname/integers</td>
+</tr>
+<tr class="even">
+<td align="left">espn_id</td>
+<td align="left">character</td>
+<td align="left">ESPN ID - usual format is an integer with ~5 digits</td>
+</tr>
+<tr class="odd">
+<td align="left">yahoo_id</td>
+<td align="left">character</td>
+<td align="left">Yahoo ID - usual format is an integer with ~5 digits</td>
+</tr>
+<tr class="even">
+<td align="left">fleaflicker_id</td>
+<td align="left">character</td>
+<td align="left">Fleaflicker ID - usual format is an integer with ~4 digits. Fleaflicker API also has sportradar and that’s generally preferred.</td>
+</tr>
+<tr class="odd">
+<td align="left">cbs_id</td>
+<td align="left">character</td>
+<td align="left">CBS ID - usual format is an integer with ~ 7 digits.</td>
+</tr>
+<tr class="even">
+<td align="left">rotowire_id</td>
+<td align="left">character</td>
+<td align="left">Rotowire ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.</td>
+</tr>
+<tr class="odd">
+<td align="left">rotoworld_id</td>
+<td align="left">character</td>
+<td align="left">Rotoworld ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.</td>
+</tr>
+<tr class="even">
+<td align="left">ktc_id</td>
+<td align="left">character</td>
+<td align="left">KeepTradeCut ID - usual format is an integer with ~four digits.</td>
+</tr>
+<tr class="odd">
+<td align="left">pfr_id</td>
+<td align="left">character</td>
+<td align="left">Pro Football Reference ID - usual format is first four characters of last name, first two characters of first name, and an integer</td>
+</tr>
+<tr class="even">
+<td align="left">cfbref_id</td>
+<td align="left">character</td>
+<td align="left">College Football Reference ID - usual format is firstname-lastname-integer</td>
+</tr>
+<tr class="odd">
+<td align="left">stats_id</td>
+<td align="left">character</td>
+<td align="left">Stats ID - usual format is five digit integer</td>
+</tr>
+<tr class="even">
+<td align="left">stats_global_id</td>
+<td align="left">character</td>
+<td align="left">Stats Global ID - usual format is a six digit integer</td>
+</tr>
+<tr class="odd">
+<td align="left">fantasy_data_id</td>
+<td align="left">character</td>
+<td align="left">FantasyData ID - usual format five digit integer</td>
+</tr>
+<tr class="even">
+<td align="left">name</td>
+<td align="left">character</td>
+<td align="left">Name, as reported by MFL but reordered into FirstName LastName instead of Last, First</td>
+</tr>
+<tr class="odd">
+<td align="left">merge_name</td>
+<td align="left">character</td>
+<td align="left">Name but formatted for name joins via ffscrapr::dp_cleannames() - coerced to lowercase, stripped of punctuation and suffixes, and common substitutions performed.</td>
+</tr>
+<tr class="even">
+<td align="left">position</td>
+<td align="left">character</td>
+<td align="left">Position as reported by MFL</td>
+</tr>
+<tr class="odd">
+<td align="left">team</td>
+<td align="left">character</td>
+<td align="left">Team as reported by MFL</td>
+</tr>
+<tr class="even">
+<td align="left">birthdate</td>
+<td align="left">date</td>
+<td align="left">Birthdate</td>
+</tr>
+<tr class="odd">
+<td align="left">age</td>
+<td align="left">numeric</td>
+<td align="left">Age as of last pipeline build, rounded to one decimal. Pipeline is built on a weekly basis.</td>
+</tr>
+<tr class="even">
+<td align="left">draft_year</td>
+<td align="left">numeric</td>
+<td align="left">Year of draft. Zero if unknown/undrafted.</td>
+</tr>
+<tr class="odd">
+<td align="left">draft_round</td>
+<td align="left">numeric</td>
+<td align="left">Round of draft.</td>
+</tr>
+<tr class="even">
+<td align="left">draft_pick</td>
+<td align="left">numeric</td>
+<td align="left">Draft pick within round, i.e. 32nd pick of second round.</td>
+</tr>
+<tr class="odd">
+<td align="left">draft_ovr</td>
+<td align="left">character</td>
+<td align="left">Overall draft pick selection. This can be a little bit patchy, since MFL does not report this number.</td>
+</tr>
+<tr class="even">
+<td align="left">twitter_username</td>
+<td align="left">character</td>
+<td align="left">Official twitter handle, if known</td>
+</tr>
+<tr class="odd">
+<td align="left">height</td>
+<td align="left">numeric</td>
+<td align="left">height in inches</td>
+</tr>
+<tr class="even">
+<td align="left">weight</td>
+<td align="left">numeric</td>
+<td align="left">weight in pounds</td>
+</tr>
+<tr class="odd">
+<td align="left">college</td>
+<td align="left">character</td>
+<td align="left">College attended</td>
+</tr>
+<tr class="even">
+<td align="left">db_season</td>
+<td align="left">numeric</td>
+<td align="left">Year of database build. Previous years may also be available via dynastyprocess.</td>
+</tr>
+</tbody>
+</table>
 </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
