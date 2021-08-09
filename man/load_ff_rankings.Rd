@@ -19,7 +19,7 @@ load_ff_rankings()
 
 }
 \seealso{
-\url{https://www.github.com/dynastyprocess/data}
+\url{https://github.com/dynastyprocess/data}
 
 \url{https://www.fantasypros.com}
 }

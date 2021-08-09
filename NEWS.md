@@ -1,3 +1,7 @@
+# nflreadr (development version)
+
+---
+
 # nflreadr 1.0.0
 
 The goal of {`nflreadr`} is to efficiently load data from [nflverse GitHub repositories](https://github.com/nflverse), and features caching, optional progress updates, and data dictionaries.
