@@ -4,7 +4,7 @@ on:
        - main
        - master
   schedule:
-    cron: 15 15 * * 1
+    - cron: 15 15 1,15 * *
   pull_request:
     branches:
       - main

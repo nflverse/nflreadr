@@ -1,3 +1,6 @@
+## RESUBMISSION
+Fixed URL redirect as per CRAN initial review.
+
 ## Test environments
 * local windows R installation, R 4.1.0
 * windows (on Github Actions), R 4.1.0
