@@ -1,5 +1,8 @@
 test_that("from_url fails nicely", {
 
+  skip_on_cran()
+  skip_if_offline("github.com")
+
   expect_warning(
     rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds"),
     regexp = "Failed to readRDS"
@@ -23,8 +26,8 @@ test_that("from_url fails nicely", {
 
 test_that("progress updates in raw_from_url work", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
-
 
   # enable progress updates in batch mode for testing the progress updates
   options(progressr.enable = TRUE)

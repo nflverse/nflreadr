@@ -1,5 +1,6 @@
 test_that("load_pbp", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   pbp <- load_pbp()
@@ -16,6 +17,7 @@ test_that("load_pbp", {
 
 test_that("load_player_stats", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   ps <- load_player_stats()
@@ -35,6 +37,7 @@ test_that("load_player_stats", {
 
 test_that("load_schedules", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   schedules <- load_schedules()
@@ -54,6 +57,7 @@ test_that("load_schedules", {
 
 test_that("load_rosters", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   rosters <- load_rosters()
@@ -69,6 +73,7 @@ test_that("load_rosters", {
 
 test_that("load_ngs", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   ngs_passing <- load_nextgen_stats()
@@ -85,6 +90,7 @@ test_that("load_ngs", {
 
 test_that("load_teams", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   team_graphics <- load_teams()
@@ -96,6 +102,7 @@ test_that("load_teams", {
 
 test_that("Cache clearing works",{
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   expect(memoise::has_cache(load_player_stats)(), "Function was not memoised")
@@ -107,6 +114,7 @@ test_that("Cache clearing works",{
 
 test_that("load_depth_charts", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   depth_charts <- load_depth_charts()
@@ -119,6 +127,7 @@ test_that("load_depth_charts", {
 
 test_that("load_injuries", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   injuries <- load_injuries()
@@ -134,6 +143,7 @@ test_that("load_injuries", {
 
 test_that("load_espn_qbr", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   qbr_default <- load_espn_qbr()
@@ -150,6 +160,7 @@ test_that("load_espn_qbr", {
 
 test_that("load_trades", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   trades <- load_trades()
@@ -166,6 +177,7 @@ test_that("load_trades", {
 
 test_that("load_draft_picks", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   picks <- load_draft_picks()
@@ -182,6 +194,7 @@ test_that("load_draft_picks", {
 
 test_that("load_pfr_passing", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   expect_error(load_pfr_passing("2020"))
@@ -195,6 +208,7 @@ test_that("load_pfr_passing", {
 
 test_that("load_snap_counts", {
 
+  skip_on_cran()
   skip_if_offline("github.com")
 
   expect_error(load_snap_counts("2020"))
