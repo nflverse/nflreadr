@@ -9,20 +9,6 @@
 .clear_cache <- function(){
 
   functions <- list(
-    # load_pbp,
-    # load_rosters,
-    # load_player_stats,
-    # load_nextgen_stats,
-    # load_schedules,
-    # load_ff_playerids,
-    # load_ff_rankings,
-    # load_depth_charts,
-    # load_espn_qbr,
-    # load_injuries,
-    # load_pfr_passing,
-    # load_snap_counts,
-    # load_draft_picks,
-    # load_trades
     raw_from_url,
     rds_from_url,
     qs_from_url

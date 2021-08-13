@@ -26,65 +26,6 @@
            value = memoise::memoise(raw_from_url, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
 
-    # assign(x = "load_pbp",
-    #        value = memoise::memoise(load_pbp, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_player_stats",
-    #        value = memoise::memoise(load_player_stats, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    # assign(x = "load_team_stats",
-    #        value = memoise::memoise(load_team_stats, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    # assign(x = "load_rosters",
-    #        value = memoise::memoise(load_rosters, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_schedules",
-    #        value = memoise::memoise(load_schedules, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_nextgen_stats",
-    #        value = memoise::memoise(load_nextgen_stats, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_ff_rankings",
-    #        value = memoise::memoise(load_ff_rankings, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_ff_playerids",
-    #        value = memoise::memoise(load_ff_playerids, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_espn_qbr",
-    #        value = memoise::memoise(load_espn_qbr, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_depth_charts",
-    #        value = memoise::memoise(load_depth_charts, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_injuries",
-    #        value = memoise::memoise(load_injuries, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_pfr_passing",
-    #        value = memoise::memoise(load_pfr_passing, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_snap_counts",
-    #        value = memoise::memoise(load_snap_counts, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_draft_picks",
-    #        value = memoise::memoise(load_draft_picks, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    #
-    # assign(x = "load_trades",
-    #        value = memoise::memoise(load_trades, ~ memoise::timeout(86400), cache = cache),
-    #        envir = parent.env(environment()))
-    # DON'T FORGET TO ADD MEMOISED FUNCTIONS TO THE CACHE CLEARING FUNCTION
-
   }
 }
 
