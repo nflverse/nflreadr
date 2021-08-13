@@ -94,6 +94,7 @@ qs_from_url <- function(url){
 #' @return the same function as `f` but it calls `p()` on exit, which is suitable for progressr calls
 #' @export
 progressively <- function(f, p = NULL){
+  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
   if(is.null(p)) p <- .no_progress
   force(f)
 
