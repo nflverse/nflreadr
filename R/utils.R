@@ -19,7 +19,7 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
 choose_loader <- function(type) {
   switch(type,
-    "rds" = rds_from_url,
-    "qs" = qs_from_url
+    "rds" = progressively(rds_from_url),
+    "qs" = progressively(qs_from_url)
   )
 }

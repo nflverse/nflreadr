@@ -35,7 +35,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  out <- purrr::map_dfr(urls, loader, p = p)
+  out <- purrr::map_dfr(urls, progressively(loader, p))
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
@@ -157,7 +157,7 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
                  seasons,
                  ".rds")
 
-  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  out <- purrr::map_dfr(urls, progressively(rds_from_url, p))
   class(out) <- c("tbl_df","tbl","data.frame")
   out
 }
@@ -261,7 +261,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
                  seasons,
                  ".rds")
 
-  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  out <- purrr::map_dfr(urls, progressively(rds_from_url,p))
   class(out) <- c("tbl_df","tbl","data.frame")
   return(out)
  }

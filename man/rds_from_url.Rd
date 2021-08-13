@@ -4,12 +4,10 @@
 \alias{rds_from_url}
 \title{Load .rds file from a remote connection}
 \usage{
-rds_from_url(url, ...)
+rds_from_url(url)
 }
 \arguments{
 \item{url}{a character url}
-
-\item{...}{for internal usage only}
 }
 \value{
 a dataframe as created by \code{\link[=readRDS]{readRDS()}}

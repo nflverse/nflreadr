@@ -105,11 +105,13 @@ test_that("Cache clearing works",{
   skip_on_cran()
   skip_if_offline("github.com")
 
-  expect(memoise::has_cache(load_player_stats)(), "Function was not memoised")
+  rds_from_url("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds")
 
-  expect_message(.clear_cache(), "nflreadr function cache cleared")
+  expect(memoise::has_cache(rds_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"), "Function was not memoised!")
 
-  expect(!memoise::has_cache(load_player_stats)(), "Cache was not cleared!")
+  expect_message(.clear_cache(), "nflreadr function cache cleared!")
+
+  expect(!memoise::has_cache(rds_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"), "Cache was not cleared!")
 })
 
 test_that("load_depth_charts", {

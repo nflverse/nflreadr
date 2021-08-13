@@ -4,12 +4,10 @@
 \alias{qs_from_url}
 \title{Load .qs file from a remote connection}
 \usage{
-qs_from_url(url, ...)
+qs_from_url(url)
 }
 \arguments{
 \item{url}{a character url}
-
-\item{...}{for internal usage only}
 }
 \value{
 a dataframe as parsed by \code{\link[qs:qdeserialize]{qs::qdeserialize()}}
