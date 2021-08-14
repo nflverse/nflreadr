@@ -1,5 +1,10 @@
 # nflreadr (development version)
 
+## Minor changes
+
+- Remove progress handling from `*_from_url()` family of functions and move responsibility to `progressively()` function decorator instead. (v1.0.0.1)
+
+
 ---
 
 # nflreadr 1.0.0

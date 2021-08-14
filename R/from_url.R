@@ -1,7 +1,6 @@
 #' Load .rds file from a remote connection
 #'
 #' @param url a character url
-#' @param ... for internal usage only
 #'
 #' @export
 #'
@@ -11,15 +10,11 @@
 #' \donttest{
 #' rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
 #' }
-rds_from_url <- function(url, ...){
-  dots <- list(...)
-  if ("p" %in% names(dots)) p <- dots$p else p <- NULL
-
+rds_from_url <- function(url){
   con <- url(url)
   on.exit(close(con))
   load <- try(readRDS(con), silent = TRUE)
 
-  if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to readRDS from <",url,">"), call. = FALSE)
     return(data.frame())
@@ -34,7 +29,6 @@ rds_from_url <- function(url, ...){
 #' can then be passed into the appropriate file-reading function, such as `arrow::read_parquet()`
 #'
 #' @param url a character url
-#' @param ... for internal usage only
 #'
 #' @export
 #'
@@ -47,13 +41,8 @@ rds_from_url <- function(url, ...){
 #'   ),
 #' 50)
 #' }
-raw_from_url <- function(url, ...){
-  dots <- list(...)
-  if ("p" %in% names(dots)) p <- dots$p else p <- NULL
-
+raw_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
-
-  if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
 
   if (load$status_code!=200) {
     warning(paste0("HTTP error",load$status_code," while retrieving data from <",url,"> \n Returning request payload."), call. = FALSE)
@@ -66,7 +55,6 @@ raw_from_url <- function(url, ...){
 #' Load .qs file from a remote connection
 #'
 #' @param url a character url
-#' @param ... for internal usage only
 #'
 #' @export
 #'
@@ -78,19 +66,14 @@ raw_from_url <- function(url, ...){
 #' "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"
 #' )
 #' }
-qs_from_url <- function(url, ...){
-  dots <- list(...)
-
-  if ("p" %in% names(dots)) p <- dots$p else p <- NULL
-
+qs_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
-
-  if (!is.null(p) && inherits(p, "progressor") && is_installed("progressr")) p("loading ...")
 
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
     return(data.frame())
   }
+
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
@@ -99,4 +82,42 @@ qs_from_url <- function(url, ...){
   }
 
   return(content)
+}
+
+#' Progressively
+#'
+#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
+#'
+#' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
+#'
+#' @param f a function to add progressr functionality to.
+#' @param p a progressor function as created by `progressr::progressor()`
+#'
+#' @examples
+#'
+#' \donttest{
+#' read_rosters <- function(){
+#'   urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
+#'             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
+#'
+#'   p <- progressr::progressor(along = urls)
+#'   purrr::map_dfr(urls, progressively(read.csv, p))
+#' }
+#'
+#' progressr::with_progress(read_rosters())
+#' }
+#'
+#' @return a function that does the same as `f` but it calls `p()` after iteration.
+#'
+#' @export
+progressively <- function(f, p = NULL){
+  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if(is.null(p)) p <- function(...) NULL
+  force(f)
+
+  function(...){
+    on.exit(p("loading..."))
+    f(...)
+  }
+
 }

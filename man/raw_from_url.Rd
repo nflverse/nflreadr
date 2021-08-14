@@ -4,12 +4,10 @@
 \alias{raw_from_url}
 \title{Load raw filedata from a remote connection}
 \usage{
-raw_from_url(url, ...)
+raw_from_url(url)
 }
 \arguments{
 \item{url}{a character url}
-
-\item{...}{for internal usage only}
 }
 \value{
 a raw vector

@@ -18,6 +18,7 @@ most_recent_season <- function(roster = FALSE) {
 is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
 choose_loader <- function(type) {
+
   switch(type,
     "rds" = rds_from_url,
     "qs" = qs_from_url
