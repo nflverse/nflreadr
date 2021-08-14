@@ -86,16 +86,33 @@ qs_from_url <- function(url){
 
 #' Progressively
 #'
-#' @param f a function
-#' @param p a progressor
+#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
 #'
-#' @examples {progressively(rds_from_url)}
+#' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
 #'
-#' @return the same function as `f` but it calls `p()` on exit, which is suitable for progressr calls
+#' @param f a function to add progressr functionality to.
+#' @param p a progressor function as created by `progressr::progressor()`
+#'
+#' @examples
+#'
+#' \donttest{
+#' read_rosters <- function(){
+#'   urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
+#'             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
+#'
+#'   p <- progressr::progressor(along = urls)
+#'   purrr::map_dfr(urls, progressively(read.csv, p))
+#' }
+#'
+#' progressr::with_progress(read_rosters())
+#' }
+#'
+#' @return a function that does the same as `f` but it calls `p()` after iteration.
+#'
 #' @export
 progressively <- function(f, p = NULL){
   if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
-  if(is.null(p)) p <- .no_progress
+  if(is.null(p)) p <- function(...) NULL
   force(f)
 
   function(...){
@@ -104,5 +121,3 @@ progressively <- function(f, p = NULL){
   }
 
 }
-
-.no_progress <- function(...) NULL

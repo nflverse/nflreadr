@@ -7,17 +7,31 @@
 progressively(f, p = NULL)
 }
 \arguments{
-\item{f}{a function}
+\item{f}{a function to add progressr functionality to.}
 
-\item{p}{a progressor}
+\item{p}{a progressor function as created by \code{progressr::progressor()}}
 }
 \value{
-the same function as \code{f} but it calls \code{p()} on exit, which is suitable for progressr calls
+a function that does the same as \code{f} but it calls \code{p()} after iteration.
 }
 \description{
-Progressively
+This function helps add progress-reporting to any function - given function \code{f()} and progressor \code{p()}, it will return a new function that calls \code{f()} and then (on-exiting) will call \code{p()} after every iteration.
+}
+\details{
+This is inspired by purrr's \code{safely}, \code{quietly}, and \code{possibly} function decorators.
 }
 \examples{
-{progressively(rds_from_url)}
+
+\donttest{
+read_rosters <- function(){
+  urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
+            "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
+
+  p <- progressr::progressor(along = urls)
+  purrr::map_dfr(urls, progressively(read.csv, p))
+}
+
+progressr::with_progress(read_rosters())
+}
 
 }
