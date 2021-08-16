@@ -35,3 +35,8 @@ progressr::with_progress(read_rosters())
 }
 
 }
+\seealso{
+\code{vignette("Using nflreadr in packages")}
+
+\url{https://nflreadr.nflverse.com/articles/exporting_nflreadr.html} for web version of vignette
+}

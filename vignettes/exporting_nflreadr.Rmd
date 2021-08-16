@@ -22,7 +22,7 @@ load_ng_stats <- nflreadr::load_nextgen_stats
 
 ## Using progressr with from_url functions
 
-The `from_url` family of functions are designed to be compatible with using progressr updates. Here's an example, adapted from the `load_rosters()` source code:
+The `from_url` family of functions can be adapted with the `progressively()` function decorator to signal progress. Here's an example, adapted from the `load_rosters()` source code:
 
 ```{r eval = FALSE}
 load_rosters <- function(seasons = 1999:2020){
@@ -35,8 +35,10 @@ load_rosters <- function(seasons = 1999:2020){
     "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_",
     seasons, ".rds")
 
-  # Pass the progressor to the "p" argument of rds_from_url in a loop or map
-  out <- purrr::map_dfr(urls, rds_from_url, p = p)
+  # Use `progressively()` to wrap the existing function rds_from_url and 
+  # call the `p()` progressor function as a signal immediately after each iteration
+  
+  out <- purrr::map_dfr(urls, progressively(rds_from_url,p))
   
   return(out)
 }
@@ -44,11 +46,10 @@ load_rosters <- function(seasons = 1999:2020){
 
 This will cause p() to execute once for each rds_from_url call, effectively "signalling" progress.
 
-In order to receive progress updates, the user must wrap the function  (load_rosters, in this case) with `progressr::with_progress()` as shown here:
+In order to receive progress updates, the user must wrap the function (load_rosters, in this case) with `progressr::with_progress()` as shown here:
 
 ```{r eval = FALSE}
 progressr::with_progress(load_rosters(2010:2020))
 ```
-
 
 For more information, please see the [progressr](https://progressr.futureverse.org) documentation.
