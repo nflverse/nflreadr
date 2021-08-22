@@ -3,7 +3,7 @@
 ## Minor changes
 
 - Remove progress handling from `*_from_url()` family of functions and move responsibility to `progressively()` function decorator instead. (v1.0.0.1)
-
+- Add `stat_type` argument to `load_player_stats()` - currently available options are `"offense"` and `"kicking"`, future iterations may include `"defense"`, `"punting"`, `"return"`. (v1.0.0.2)
 
 ---
 

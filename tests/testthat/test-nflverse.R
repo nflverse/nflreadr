@@ -21,18 +21,22 @@ test_that("load_player_stats", {
   skip_if_offline("github.com")
 
   ps <- load_player_stats()
-  ps_2020 <- load_player_stats(2020)
+  ps_2020 <- load_player_stats(2020,stat_type = "offense")
   ps_rds <- load_player_stats(2020, file_type = "rds")
   ps_all <- load_player_stats(seasons = TRUE)
+
+  kick <- load_player_stats(2020, stat_type = "kicking")
 
   expect_s3_class(ps, "tbl_df")
   expect_s3_class(ps_2020, "tbl_df")
   expect_s3_class(ps_rds, "tbl_df")
   expect_s3_class(ps_all, "tbl_df")
+  expect_s3_class(kick, "tbl_df")
 
   expect_gt(nrow(ps_2020), 5000)
   expect_gt(nrow(ps_rds), 5000)
   expect_gt(nrow(ps_all), 110000)
+  expect_gt(nrow(kick), 500)
 })
 
 test_that("load_schedules", {

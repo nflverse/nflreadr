@@ -6,11 +6,14 @@
 \usage{
 load_player_stats(
   seasons = most_recent_season(),
+  stat_type = c("offense", "kicking"),
   file_type = getOption("nflreadr.prefer", default = "qs")
 )
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, defaults to most recent season. If set to \code{NULL}, returns all available data.}
+
+\item{stat_type}{one of \code{offense}, \code{defense}, or \code{special_teams}}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
