@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.2</span>
       </span>
     </div>
 
@@ -217,6 +217,7 @@
 
     <pre class="usage"><span class='fu'>load_player_stats</span><span class='op'>(</span>
   seasons <span class='op'>=</span> <span class='fu'>most_recent_season</span><span class='op'>(</span><span class='op'>)</span>,
+  stat_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"offense"</span>, <span class='st'>"kicking"</span><span class='op'>)</span>,
   file_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>getOption</a></span><span class='op'>(</span><span class='st'>"nflreadr.prefer"</span>, default <span class='op'>=</span> <span class='st'>"qs"</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
@@ -226,6 +227,10 @@
     <tr>
       <th>seasons</th>
       <td><p>a numeric vector of seasons to return, defaults to most recent season. If set to <code>NULL</code>, returns all available data.</p></td>
+    </tr>
+    <tr>
+      <th>stat_type</th>
+      <td><p>one of <code>offense</code>, <code>defense</code>, or <code>special_teams</code></p></td>
     </tr>
     <tr>
       <th>file_type</th>
