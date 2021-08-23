@@ -64,11 +64,9 @@ load_player_stats <- function(seasons = most_recent_season(),
                               stat_type = c("offense","kicking"), # defense, punting, other as added
                               file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >=1999,
-            seasons <= most_recent_season())
+  if(!isTRUE(seasons)) {stopifnot(is.numeric(seasons),
+                                  seasons >=1999,
+                                  seasons <= most_recent_season())}
 
   file_type <- match.arg(file_type, c("rds", "qs"))
   stat_type <- match.arg(stat_type)
@@ -82,7 +80,7 @@ load_player_stats <- function(seasons = most_recent_season(),
   url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/",base_name,file_type)
 
   out <- loader(url)
-  if(!is.null(seasons)) out <- out[out$season %in% seasons,]
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons,]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
@@ -202,10 +200,11 @@ load_nextgen_stats <- function(seasons = TRUE,
                                stat_type = c("passing", "receiving", "rushing"),
                                file_type = getOption("nflreadr.prefer", default = "qs")){
 
-  if(isTRUE(seasons)) seasons <- 2016:most_recent_season()
-  stopifnot(is.numeric(seasons),
-            seasons >= 2016,
-            seasons <= most_recent_season())
+  if(!isTRUE(seasons)) {
+    stopifnot(is.numeric(seasons),
+              seasons >= 2016,
+              seasons <= most_recent_season())
+  }
 
   file_type <- match.arg(file_type, c("rds", "qs"))
   stat_type <- match.arg(stat_type)
@@ -217,7 +216,7 @@ load_nextgen_stats <- function(seasons = TRUE,
                 file_type)
 
   out <- loader(url)
-  if(!is.null(seasons)) out <- out[out$season %in% seasons,]
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons,]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
@@ -273,7 +272,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
   out <- data.table::rbindlist(out, use.names = TRUE)
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   return(out)
- }
+}
 
 #' Load Injury Reports
 #'
@@ -292,10 +291,12 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
                           file_type = getOption("nflreadr.prefer", default = "qs")){
-  if(isTRUE(seasons)) seasons <- 2009:most_recent_season()
-  stopifnot(is.numeric(seasons),
-            seasons >= 2009,
-            seasons <= most_recent_season())
+  if(!isTRUE(seasons)) {
+    stopifnot(is.numeric(seasons),
+              seasons >= 2009,
+              seasons <= most_recent_season())
+  }
+
   file_type <- match.arg(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
@@ -303,7 +304,7 @@ load_injuries <- function(seasons = most_recent_season(),
                 ".",
                 file_type)
   out <- loader(url)
-  if(!is.null(seasons)) out <- out[out$season %in% seasons,]
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons,]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
@@ -327,15 +328,16 @@ load_injuries <- function(seasons = most_recent_season(),
 load_espn_qbr <- function(league = c("nfl", "college"),
                           seasons = most_recent_season(),
                           summary_type = c("season","weekly")
-                          ){
+){
 
   league <- match.arg(league)
   summary_type <- match.arg(summary_type)
-  if(isTRUE(seasons)) seasons <- 2006:most_recent_season()
+  if(!isTRUE(seasons)) {
+    stopifnot(is.numeric(seasons),
+              seasons >= 2006,
+              seasons <= most_recent_season())
+  }
 
-  stopifnot(is.numeric(seasons),
-            seasons >= 2006,
-            seasons <= most_recent_season())
 
   url <- paste0("https://github.com/nflverse/espnscrapeR-data/raw/master/data/qbr-",
                 league,
@@ -344,7 +346,7 @@ load_espn_qbr <- function(league = c("nfl", "college"),
                 ".rds")
 
   out <- rds_from_url(url)
-  if(!is.null(seasons)) out <- out[out$season %in% seasons,]
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons,]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
 
   out
@@ -371,15 +373,15 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
 
-  if(isTRUE(seasons)) seasons <- 2019:most_recent_season()
-  stopifnot(is.numeric(seasons),
+  if(isTRUE(seasons)) {
+    stopifnot(is.numeric(seasons),
             seasons >= 2019,
-            seasons <= most_recent_season())
+            seasons <= most_recent_season())}
 
   url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/pfr_advanced_passing.rds"
 
   out <- rds_from_url(url)
-  if(!is.null(seasons)) out <- out[out$season %in% seasons,]
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons,]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
