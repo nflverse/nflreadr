@@ -17,7 +17,7 @@ rds_from_url <- function(url){
 
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to readRDS from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
   data.table::setDT(load)
