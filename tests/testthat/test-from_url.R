@@ -37,7 +37,7 @@ test_that("progress updates in raw_from_url work", {
   expect_condition({
     load <- progressr::with_progress({
       p <- progressr::progressor(along = urls)
-      purrr::map(urls, progressively(raw_from_url, p = p))
+      lapply(urls, progressively(raw_from_url, p = p))
     })
   }, class = "progression")
 
@@ -45,7 +45,7 @@ test_that("progress updates in raw_from_url work", {
     capture_condition({
       load <- progressr::without_progress({
         p <- progressr::progressor(along = urls)
-        purrr::map(urls, progressively(raw_from_url, p = p))
+        lapply(urls, progressively(raw_from_url, p = p))
       })
     })
   })
