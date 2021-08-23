@@ -28,7 +28,7 @@ read_rosters <- function(){
             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
 
   p <- progressr::progressor(along = urls)
-  purrr::map_dfr(urls, progressively(read.csv, p))
+  lapply(urls, progressively(read.csv, p))
 }
 
 progressr::with_progress(read_rosters())
