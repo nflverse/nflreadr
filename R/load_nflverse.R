@@ -20,7 +20,7 @@
 #' @export
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "qs")) {
 
-  file_type <- match.arg(file_type, c("rds", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
@@ -68,8 +68,8 @@ load_player_stats <- function(seasons = most_recent_season(),
                                   seasons >=1999,
                                   seasons <= most_recent_season())}
 
-  file_type <- match.arg(file_type, c("rds", "qs"))
-  stat_type <- match.arg(stat_type)
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  stat_type <- rlang::arg_match0(stat_type, c("offense","kicking"))
 
   base_name <- switch(stat_type,
                       "offense" = "player_stats.",
@@ -206,8 +206,8 @@ load_nextgen_stats <- function(seasons = TRUE,
               seasons <= most_recent_season())
   }
 
-  file_type <- match.arg(file_type, c("rds", "qs"))
-  stat_type <- match.arg(stat_type)
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
   loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/ngs-data/raw/main/data/ngs_",
@@ -297,7 +297,7 @@ load_injuries <- function(seasons = most_recent_season(),
               seasons <= most_recent_season())
   }
 
-  file_type <- match.arg(file_type, c("rds", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)
 
   url <- paste0("https://github.com/nflverse/nflfastR-roster/raw/master/data/nflfastR-injuries",
@@ -330,8 +330,8 @@ load_espn_qbr <- function(league = c("nfl", "college"),
                           summary_type = c("season","weekly")
 ){
 
-  league <- match.arg(league)
-  summary_type <- match.arg(summary_type)
+  league <- rlang::arg_match0(league, c("nfl","college"))
+  summary_type <- rlang::arg_match0(summary_type, c("season","weekly"))
   if(!isTRUE(seasons)) {
     stopifnot(is.numeric(seasons),
               seasons >= 2006,
