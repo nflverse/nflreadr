@@ -1,5 +1,7 @@
 #### UTILS ###
 
+.datatable.aware <- TRUE
+
 # compute most recent season
 most_recent_season <- function(roster = FALSE) {
   today <- Sys.Date()

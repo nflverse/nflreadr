@@ -17,9 +17,10 @@ rds_from_url <- function(url){
 
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to readRDS from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
+  data.table::setDT(load)
   load
 }
 
@@ -69,18 +70,20 @@ raw_from_url <- function(url){
 qs_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
+
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
     warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
+  data.table::setDT(content)
   return(content)
 }
 
@@ -101,7 +104,7 @@ qs_from_url <- function(url){
 #'             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
 #'
 #'   p <- progressr::progressor(along = urls)
-#'   purrr::map_dfr(urls, progressively(read.csv, p))
+#'   lapply(urls, progressively(read.csv, p))
 #' }
 #'
 #' progressr::with_progress(read_rosters())
