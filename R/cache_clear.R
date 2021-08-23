@@ -14,7 +14,7 @@
     qs_from_url
   )
 
-  purrr::walk(functions, memoise::forget)
+  lapply(functions, memoise::forget)
 
   message("nflreadr function cache cleared!")
 }

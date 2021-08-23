@@ -14,7 +14,7 @@
 #' @export
 load_ff_playerids <- function() {
   out <- rds_from_url("https://github.com/dynastyprocess/data/raw/master/files/db_playerids.rds")
-  class(out) <- c("tbl_df","tbl","data.frame")
+  class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -35,6 +35,6 @@ load_ff_playerids <- function() {
 #' @export
 load_ff_rankings <- function(){
   out <- rds_from_url("https://github.com/dynastyprocess/data/raw/master/files/db_fpecr_latest.rds")
-  class(out) <- c("tbl_df","tbl","data.frame")
+  class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }

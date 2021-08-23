@@ -20,6 +20,7 @@ rds_from_url <- function(url){
     return(data.frame())
   }
 
+  data.table::setDT(load)
   load
 }
 
@@ -69,18 +70,20 @@ raw_from_url <- function(url){
 qs_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
+
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
     warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
-    return(data.frame())
+    return(data.table::data.table())
   }
 
+  data.table::setDT(content)
   return(content)
 }
 
