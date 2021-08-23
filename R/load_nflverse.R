@@ -43,7 +43,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #' Load Player Level Weekly Stats
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `NULL`, returns all available data.
-# @param stat_type one of `offense`, `defense`, or `special_teams`
+#' @param stat_type one of `offense`, `defense`, or `special_teams`
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
@@ -60,7 +60,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
-                              # stat_type = c("offense","defense","special_teams"),
+                              stat_type = c("offense","kicking"), # defense, punting, other as added
                               file_type = getOption("nflreadr.prefer", default = "qs")){
 
   if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
@@ -70,9 +70,15 @@ load_player_stats <- function(seasons = most_recent_season(),
             seasons <= most_recent_season())
 
   file_type <- match.arg(file_type, c("rds", "qs"))
+  stat_type <- match.arg(stat_type)
+
+  base_name <- switch(stat_type,
+                      "offense" = "player_stats.",
+                      "kicking" = "player_stats_kicking.")
+
   loader <- choose_loader(file_type)
 
-  url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.",file_type)
+  url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/",base_name,file_type)
 
   out <- loader(url)
   class(out) <- c("tbl_df","tbl","data.frame")
