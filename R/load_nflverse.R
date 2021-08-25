@@ -51,6 +51,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #' @examples
 #' \donttest{
 #'   load_player_stats()
+#'   load_player_stats(stat_type = "kicking")
 #' }
 #'
 #' @return A tibble of week-level player statistics that aims to match NFL official box scores.
@@ -424,6 +425,28 @@ load_snap_counts <- function(seasons = most_recent_season()){
   out
 }
 
+#' Load Combine Data from PFR
+#'
+#' @description Loads combine data since 2000 courtesy of PFR.
+#'
+#' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data
+#'
+#' @examples
+#' \donttest{
+#'   load_combine()
+#' }
+#'
+#' @return A tibble of NFL combine data provided by Pro Football Reference.
+#'
+#' @export
+load_combine <- function(seasons = TRUE){
+  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/combine.rds"
+  out <- rds_from_url(url)
+  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
+  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  out
+}
 #' Load Draft Picks from PFR
 #'
 #' @description Loads every draft pick since 1980 courtesy of PFR.

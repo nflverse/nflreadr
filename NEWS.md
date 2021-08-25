@@ -8,6 +8,7 @@
 - Add `stat_type` argument to `load_player_stats()` - currently available options are `"offense"` and `"kicking"`, future iterations may include `"defense"`, `"punting"`, `"return"`. (v1.0.0.2)
 - Refactored to use `data.table` instead of `dplyr`/`purrr` - this hopefully improves speed and reduces the dependency footprint. (v1.0.0.3)
 - Use `rlang::arg_match0` instead of `match.arg` - uses rlang explicitly (instead of implicitly) (v1.0.0.4)
+- Add nfl combine data (v1.0.0.5)
 
 ---
 

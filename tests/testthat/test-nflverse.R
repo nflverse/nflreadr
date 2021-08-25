@@ -198,6 +198,23 @@ test_that("load_draft_picks", {
   expect_error(load_draft_picks("2020"))
 })
 
+test_that("load_combine", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  combine <- load_combine()
+  combine_2020 <- load_combine(2020)
+
+  expect_s3_class(combine, "tbl_df")
+  expect_s3_class(combine_2020, "tbl_df")
+
+  expect_gt(nrow(combine), 7000)
+  expect_gte(nrow(combine_2020), 337)
+
+  expect_error(load_combine("2020"))
+})
+
 test_that("load_pfr_passing", {
 
   skip_on_cran()
