@@ -51,6 +51,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #' @examples
 #' \donttest{
 #'   load_player_stats()
+#'   load_player_stats(stat_type = "kicking")
 #' }
 #'
 #' @return A tibble of week-level player statistics that aims to match NFL official box scores.

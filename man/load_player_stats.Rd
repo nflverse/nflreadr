@@ -27,6 +27,7 @@ Load Player Level Weekly Stats
 \examples{
 \donttest{
   load_player_stats()
+  load_player_stats(stat_type = "kicking")
 }
 
 }
