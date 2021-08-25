@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Data Dictionary: Rosters — dictionary_rosters • nflreadr</title>
+<title>Load Combine Data from PFR — load_combine • nflreadr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Data Dictionary: Rosters — dictionary_rosters" />
-<meta property="og:description" content="A dataframe containing the data dictionary for load_rosters()" />
+<meta property="og:title" content="Load Combine Data from PFR — load_combine" />
+<meta property="og:description" content="Loads combine data since 2000 courtesy of PFR." />
 <meta property="og:image" content="nflreadr.nflverse.com/reference/figures/logo.svg" />
 <meta property="og:image:alt" content="nflreadr hex logo" />
 <meta name="twitter:card" content="summary" />
@@ -206,26 +206,51 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Data Dictionary: Rosters</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>dictionary_rosters.Rd</code></div>
+    <h1>Load Combine Data from PFR</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_nflverse.R'><code>R/load_nflverse.R</code></a></small>
+    <div class="hidden name"><code>load_combine.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataframe containing the data dictionary for <code><a href='load_rosters.html'>load_rosters()</a></code></p>
+    <p>Loads combine data since 2000 courtesy of PFR.</p>
     </div>
 
-    <pre class="usage"><span class='va'>dictionary_rosters</span></pre>
+    <pre class="usage"><span class='fu'>load_combine</span><span class='op'>(</span>seasons <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector of seasons to return, default <code>TRUE</code> returns all available data</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>data.frame</code> with 24 rows and 3 columns.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <p>A tibble of NFL combine data provided by Pro Football Reference.</p>
 
-    <div class='dont-index'><p><code>vignette("Data Dictionary - Rosters")</code></p>
-<p><a href='https://nflreadr.nflverse.com/articles/dictionary_rosters.html'>https://nflreadr.nflverse.com/articles/dictionary_rosters.html</a></p></div>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+  <span class='fu'>load_combine</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 7,356 × 18</span>
+#&gt;    season draft_year draft_team  draft_round draft_ovr pfr_id cfb_id player_name
+#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      
+#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 New York J…           1        13 AbraJ… <span style='color: #BB0000;'>NA</span>     John Abrah…
+#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 Seattle Se…           1        19 AlexS… shaun… Shaun Alex…
+#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 Kansas Cit…           6       188 AlfoD… <span style='color: #BB0000;'>NA</span>     Darnell Al…
+#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>000         <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>                   <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     Kyle Allam…
+#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 Carolina P…           1        23 AndeR… <span style='color: #BB0000;'>NA</span>     Rashard An…
+#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>000         <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>                   <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span> arian… <span style='color: #BB0000;'>NA</span>     Jake Arians
+#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 Washington…           1         2 ArriL… lavar… LaVar Arri…
+#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>000         <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>                   <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span> AtkiC… <span style='color: #BB0000;'>NA</span>     Corey Atki…
+#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>000         <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>                   <span style='color: #BB0000;'>NA</span>        <span style='color: #BB0000;'>NA</span> <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     Kyle Atteb…
+#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>000       <span style='text-decoration: underline;'>2</span>000 Chicago Be…           4       125 AustR… <span style='color: #BB0000;'>NA</span>     Reggie Aus…
+#&gt; <span style='color: #949494;'># … with 7,346 more rows, and 10 more variables: pos &lt;chr&gt;, school &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   ht &lt;chr&gt;, wt &lt;dbl&gt;, forty &lt;dbl&gt;, bench &lt;dbl&gt;, vertical &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   broad_jump &lt;dbl&gt;, cone &lt;dbl&gt;, shuttle &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
 
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
