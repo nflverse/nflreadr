@@ -37,7 +37,7 @@ rds_from_url <- function(url){
 #'
 #' @examples
 #' \donttest{
-#' csv_from_url("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.csv.gz")
+#' csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
 #' }
 csv_from_url <- function(...){
   data.table::fread(...)

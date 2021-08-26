@@ -57,6 +57,6 @@ This is a thin wrapper on data.table::fread, but memoised & cached for twenty fo
 }
 \examples{
 \donttest{
-csv_from_url("https://github.com/nflverse/nflfastR-data/raw/master/data/player_stats.csv.gz")
+csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
 }
 }
