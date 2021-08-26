@@ -10,6 +10,7 @@
 
   functions <- list(
     raw_from_url,
+    csv_from_url,
     rds_from_url,
     qs_from_url
   )
