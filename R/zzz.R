@@ -15,9 +15,11 @@
 
   if(memoise_option != "off"){
 
-
     assign(x = "rds_from_url",
            value = memoise::memoise(rds_from_url, ~ memoise::timeout(86400), cache = cache),
+           envir = parent.env(environment()))
+    assign(x = "csv_from_url",
+           value = memoise::memoise(csv_from_url, ~ memoise::timeout(86400), cache = cache),
            envir = parent.env(environment()))
     assign(x = "qs_from_url",
            value = memoise::memoise(qs_from_url, ~ memoise::timeout(86400), cache = cache),

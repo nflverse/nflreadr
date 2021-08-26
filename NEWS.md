@@ -9,6 +9,7 @@
 - Refactored to use `data.table` instead of `dplyr`/`purrr` - this hopefully improves speed and reduces the dependency footprint. (v1.0.0.3)
 - Use `rlang::arg_match0` instead of `match.arg` - uses rlang explicitly (instead of implicitly) (v1.0.0.4)
 - Add nfl combine data (v1.0.0.5)
+- Add csv_from_url (v1.0.0.6)
 
 ---
 
