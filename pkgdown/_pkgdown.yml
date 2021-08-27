@@ -12,6 +12,7 @@ reference:
   - "load_schedules"
   - "load_trades"
   - "load_draft_picks"
+  - "load_combine"
   - "load_nextgen_stats"
   - "load_depth_charts"
   - "load_injuries"
@@ -28,6 +29,7 @@ reference:
 - title: Loading raw data
   contents:
   - "qs_from_url"
+  - "csv_from_url"
   - "rds_from_url"
   - "raw_from_url"
   - "progressively"

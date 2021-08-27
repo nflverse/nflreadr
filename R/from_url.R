@@ -24,6 +24,25 @@ rds_from_url <- function(url){
   load
 }
 
+#' Load .csv / .csv.gz file from a remote connection
+#'
+#' This is a thin wrapper on data.table::fread, but memoised & cached for twenty four hours.
+#'
+#' @param ... passed to data.table::fread
+#' @inheritDotParams data.table::fread
+#'
+#' @export
+#'
+#' @return a dataframe as created by [`data.table::fread()`]
+#'
+#' @examples
+#' \donttest{
+#' csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
+#' }
+csv_from_url <- function(...){
+  data.table::fread(...)
+}
+
 #' Load raw filedata from a remote connection
 #'
 #' This function allows you to retrieve data from a URL into raw format, which
