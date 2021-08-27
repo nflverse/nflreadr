@@ -12,6 +12,7 @@ reference:
   - "load_schedules"
   - "load_trades"
   - "load_draft_picks"
+  - "load_combine"
   - "load_nextgen_stats"
   - "load_depth_charts"
   - "load_injuries"
