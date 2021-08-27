@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Vector type as a string</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_ptype_full {vctrs}"><tr><td>vec_ptype_full {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Vector type as a string</h2>
+
+<h3>Description</h3>
+
+<p><code>vec_ptype_full()</code> displays the full type of the vector. <code>vec_ptype_abbr()</code>
+provides an abbreviated summary suitable for use in a column heading.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_ptype_full(x, ...)
+
+vec_ptype_abbr(x, ..., prefix_named = FALSE, suffix_shape = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>prefix_named</code></td>
+<td>
+<p>If <code>TRUE</code>, add a prefix for named vectors.</p>
+</td></tr>
+<tr valign="top"><td><code>suffix_shape</code></td>
+<td>
+<p>If <code>TRUE</code> (the default), append the shape of
+the vector.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A string.
+</p>
+
+
+<h3>S3 dispatch</h3>
+
+<p>The default method for <code>vec_ptype_full()</code> uses the first element of the
+class vector. Override this method if your class has parameters that should
+be prominently displayed.
+</p>
+<p>The default method for <code>vec_ptype_abbr()</code> <code><a href="../../base/html/abbreviate.html">abbreviate()</a></code>s <code>vec_ptype_full()</code>
+to 8 characters. You should almost always override, aiming for 4-6
+characters where possible.
+</p>
+<p>These arguments are handled by the generic and not passed to methods:
+</p>
+
+<ul>
+<li> <p><code>prefix_named</code>
+</p>
+</li>
+<li> <p><code>suffix_shape</code>
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+cat(vec_ptype_full(1:10))
+cat(vec_ptype_full(iris))
+
+cat(vec_ptype_abbr(1:10))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

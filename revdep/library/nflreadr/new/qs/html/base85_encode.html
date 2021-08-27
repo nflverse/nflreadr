@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Z85 Encoding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for base85_encode {qs}"><tr><td>base85_encode {qs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Z85 Encoding</h2>
+
+<h3>Description</h3>
+
+<p>Encodes binary data (a raw vector) as ascii text using Z85 encoding format
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+base85_encode(rawdata)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rawdata</code></td>
+<td>
+<p>A raw vector</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Z85 is a binary to ascii encoding format created by Pieter Hintjens in 2010 and is part of the ZeroMQ RFC.
+The encoding has a dictionary using 85 out of 94 printable ASCII characters.
+There are other base 85 encoding schemes, including Ascii85, which is popularized and used by Adobe.
+Z85 is distinguished by its choice of dictionary, which is suitable for easier inclusion into source code for many programming languages.
+The dictionary excludes all quote marks and other control characters, and requires no special treatment in R and most other languages.
+Note: although the official specification restricts input length to multiples of four bytes, the implementation here works with any input length.
+The overhead (extra bytes used relative to binary) is 25%. In comparison, base 64 encoding has an overhead of 33.33%.
+</p>
+
+
+<h3>References</h3>
+
+<p>https://rfc.zeromq.org/spec/32/
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>qs</em> version 0.25.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Find head/tail that all satisfies a predicate.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for head_while {purrr}"><tr><td>head_while {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Find head/tail that all satisfies a predicate.</h2>
+
+<h3>Description</h3>
+
+<p>Find head/tail that all satisfies a predicate.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+head_while(.x, .p, ...)
+
+tail_while(.x, .p, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.p</code></td>
+<td>
+<p>A single predicate function, a formula describing such a
+predicate function, or a logical vector of the same length as <code>.x</code>.
+Alternatively, if the elements of <code>.x</code> are themselves lists of
+objects, a string indicating the name of a logical element in the
+inner lists. Only those elements where <code>.p</code> evaluates to
+<code>TRUE</code> will be modified.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector the same type as <code>.x</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+pos &lt;- function(x) x &gt;= 0
+head_while(5:-5, pos)
+tail_while(5:-5, negate(pos))
+
+big &lt;- function(x) x &gt; 100
+head_while(0:10, big)
+tail_while(0:10, big)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

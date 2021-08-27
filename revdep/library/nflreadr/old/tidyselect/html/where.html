@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Select variables with a function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for where {tidyselect}"><tr><td>where {tidyselect}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Select variables with a function</h2>
+
+<h3>Description</h3>
+
+<p>This <a href="../../tidyselect/help/language.html">selection helper</a> selects the variables for which a
+function returns <code>TRUE</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+where(fn)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fn</code></td>
+<td>
+<p>A function that returns <code>TRUE</code> or <code>FALSE</code> (technically, a
+<em>predicate</em> function). Can also be a purrr-like formula.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<p>Selection helpers can be used in functions like <code>dplyr::select()</code>
+or <code>tidyr::pivot_longer()</code>. Let's first attach the tidyverse:<div class="r"></p>
+<pre>library(tidyverse)
+
+# For better printing
+iris &lt;- as_tibble(iris)
+</pre></div>
+<p><code>where()</code> takes a function and returns all variables for which the
+function returns <code>TRUE</code>:<div class="r"></p>
+<pre>is.factor(iris[[4]])
+#&gt; [1] FALSE
+
+is.factor(iris[[5]])
+#&gt; [1] TRUE
+
+iris %&gt;% select(where(is.factor))
+#&gt; # A tibble: 150 x 1
+#&gt;   Species
+#&gt;   &lt;fct&gt;  
+#&gt; 1 setosa 
+#&gt; 2 setosa 
+#&gt; 3 setosa 
+#&gt; 4 setosa 
+#&gt; # ... with 146 more rows
+
+is.numeric(iris[[4]])
+#&gt; [1] TRUE
+
+is.numeric(iris[[5]])
+#&gt; [1] FALSE
+
+iris %&gt;% select(where(is.numeric))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+</pre></div>
+
+
+<h4>The formula shorthand</h4>
+
+<p>You can use purrr-like formulas as a shortcut for creating a
+function on the spot. These expressions are equivalent:<div class="r"></p>
+<pre>iris %&gt;% select(where(is.numeric))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+
+iris %&gt;% select(where(function(x) is.numeric(x)))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+
+iris %&gt;% select(where(~ is.numeric(.x)))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+</pre></div>
+<p>The shorthand is useful for adding logic inline. Here we select all
+numeric variables whose mean is greater than 3.5:<div class="r"></p>
+<pre>iris %&gt;% select(where(~ is.numeric(.x) &amp;&amp; mean(.x) &gt; 3.5))
+#&gt; # A tibble: 150 x 2
+#&gt;   Sepal.Length Petal.Length
+#&gt;          &lt;dbl&gt;        &lt;dbl&gt;
+#&gt; 1          5.1          1.4
+#&gt; 2          4.9          1.4
+#&gt; 3          4.7          1.3
+#&gt; 4          4.6          1.5
+#&gt; # ... with 146 more rows
+</pre></div>
+
+
+<hr /><div style="text-align: center;">[Package <em>tidyselect</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

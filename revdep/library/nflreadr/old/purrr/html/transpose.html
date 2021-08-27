@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Transpose a list.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for transpose {purrr}"><tr><td>transpose {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Transpose a list.</h2>
+
+<h3>Description</h3>
+
+<p>Transpose turns a list-of-lists &quot;inside-out&quot;; it turns a pair of lists into a
+list of pairs, or a list of pairs into pair of lists. For example,
+if you had a list of length n where each component had values <code>a</code> and
+<code>b</code>, <code>transpose()</code> would make a list with elements <code>a</code> and
+<code>b</code> that contained lists of length n. It's called transpose because
+<code>x[[1]][[2]]</code> is equivalent to <code>transpose(x)[[2]][[1]]</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+transpose(.l, .names = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.l</code></td>
+<td>
+<p>A list of vectors to transpose. The first element is used as the
+template; you'll get a warning if a subsequent element has a different
+length.</p>
+</td></tr>
+<tr valign="top"><td><code>.names</code></td>
+<td>
+<p>For efficiency, <code>transpose()</code> bases the return structure on
+the first component of <code>.l</code> by default. Specify <code>.names</code> to override this.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note that <code>transpose()</code> is its own inverse, much like the
+transpose operation on a matrix. You can get back the original
+input by transposing it twice.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A list with indexing transposed compared to <code>.l</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- rerun(5, x = runif(1), y = runif(5))
+x %&gt;% str()
+x %&gt;% transpose() %&gt;% str()
+# Back to where we started
+x %&gt;% transpose() %&gt;% transpose() %&gt;% str()
+
+# transpose() is useful in conjunction with safely() &amp; quietly()
+x &lt;- list("a", 1, 2)
+y &lt;- x %&gt;% map(safely(log))
+y %&gt;% str()
+y %&gt;% transpose() %&gt;% str()
+
+# Use simplify_all() to reduce to atomic vectors where possible
+x &lt;- list(list(a = 1, b = 2), list(a = 3, b = 4), list(a = 5, b = 6))
+x %&gt;% transpose()
+x %&gt;% transpose() %&gt;% simplify_all()
+
+# Provide explicit component names to prevent loss of those that don't
+# appear in first component
+ll &lt;- list(
+  list(x = 1, y = "one"),
+  list(z = "deux", x = 2)
+)
+ll %&gt;% transpose()
+nms &lt;- ll %&gt;% map(names) %&gt;% reduce(union)
+ll %&gt;% transpose(.names = nms)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

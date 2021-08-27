@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Record app information in a convenient object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for app_dir {rappdirs}"><tr><td>app_dir {rappdirs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Record app information in a convenient object</h2>
+
+<h3>Description</h3>
+
+<p>Has methods:
+</p>
+
+<ul>
+<li> <p><code style="white-space: pre;">$cache()</code>
+</p>
+</li>
+<li> <p><code style="white-space: pre;">$log()</code>
+</p>
+</li>
+<li> <p><code style="white-space: pre;">$data()</code>
+</p>
+</li>
+<li> <p><code style="white-space: pre;">$config()</code>
+</p>
+</li>
+<li> <p><code style="white-space: pre;">$site_data()</code>
+</p>
+</li>
+<li> <p><code style="white-space: pre;">$site_config()</code>
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+app_dir(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  expand = TRUE,
+  os = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>appname</code></td>
+<td>
+<p>is the name of application. If NULL, just the system
+directory is returned.</p>
+</td></tr>
+<tr valign="top"><td><code>appauthor</code></td>
+<td>
+<p>(only required and used on Windows) is the name of the
+appauthor or distributing body for this application. Typically
+it is the owning company name. This falls back to appname.</p>
+</td></tr>
+<tr valign="top"><td><code>version</code></td>
+<td>
+<p>is an optional version path element to append to the
+path. You might want to use this if you want multiple versions
+of your app to be able to run independently. If used, this
+would typically be <code>"&lt;major&gt;.&lt;minor&gt;"</code>. Only applied when appname
+is not NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>expand</code></td>
+<td>
+<p>If TRUE (the default) will expand the <code>R_LIBS</code> specifiers with their equivalents.
+See <code><a href="../../base/html/libPaths.html">R_LIBS()</a></code> for list of all possibly specifiers.</p>
+</td></tr>
+<tr valign="top"><td><code>os</code></td>
+<td>
+<p>Operating system whose conventions are used to construct the
+requested directory. Possible values are &quot;win&quot;, &quot;mac&quot;, &quot;unix&quot;. If <code>NULL</code>
+(the default) then the current OS will be used.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+ggplot2_app &lt;- app_dir("ggplot2", "hadley")
+ggplot2_app$cache()
+ggplot2_app$log()
+ggplot2_app$data()
+ggplot2_app$config()
+ggplot2_app$site_config()
+ggplot2_app$site_data()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rappdirs</em> version 0.3.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

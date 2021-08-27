@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Progressively</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for progressively {nflreadr}"><tr><td>progressively {nflreadr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Progressively</h2>
+
+<h3>Description</h3>
+
+<p>This function helps add progress-reporting to any function - given function <code>f()</code> and progressor <code>p()</code>, it will return a new function that calls <code>f()</code> and then (on-exiting) will call <code>p()</code> after every iteration.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+progressively(f, p = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>f</code></td>
+<td>
+<p>a function to add progressr functionality to.</p>
+</td></tr>
+<tr valign="top"><td><code>p</code></td>
+<td>
+<p>a progressor function as created by <code>progressr::progressor()</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This is inspired by purrr's <code>safely</code>, <code>quietly</code>, and <code>possibly</code> function decorators.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a function that does the same as <code>f</code> but it calls <code>p()</code> after iteration.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>vignette("Using nflreadr in packages")</code>
+</p>
+<p><a href="https://nflreadr.nflverse.com/articles/exporting_nflreadr.html">https://nflreadr.nflverse.com/articles/exporting_nflreadr.html</a> for web version of vignette
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+
+read_rosters &lt;- function(){
+  urls &lt;- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
+            "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
+
+  p &lt;- progressr::progressor(along = urls)
+  lapply(urls, progressively(read.csv, p))
+}
+
+progressr::with_progress(read_rosters())
+
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>nflreadr</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

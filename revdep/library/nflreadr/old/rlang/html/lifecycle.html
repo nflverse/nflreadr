@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Life cycle of the rlang package</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for lifecycle {rlang}"><tr><td>lifecycle {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Life cycle of the rlang package</h2>
+
+<h3>Description</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#maturing'><img src='figures/lifecycle-maturing.svg' alt='Maturing lifecycle'></a>
+<p>The rlang package is currently maturing. Unless otherwise stated,
+this applies to all its exported functions. Maturing functions are
+susceptible to API changes. Only use these in packages if you're
+prepared to make changes as the package evolves. See sections below
+for a list of functions marked as stable.
+</p>
+<p>The documentation pages of retired functions contain life cycle
+sections that explain the reasons for their retirements.
+</p>
+
+
+<h3>Stable functions</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/eval_tidy.html">eval_tidy()</a></code>
+</p>
+</li>
+<li> <p><a href="../../rlang/help/!!.html">!!</a>, <a href="../../rlang/help/!!!.html">!!!</a>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/enquo.html">enquo()</a></code>, <code><a href="../../rlang/help/quo.html">quo()</a></code>, <code><a href="../../rlang/help/quos.html">quos()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/enexpr.html">enexpr()</a></code>, <code><a href="../../rlang/help/expr.html">expr()</a></code>, <code><a href="../../rlang/help/exprs.html">exprs()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/sym.html">sym()</a></code>, <code><a href="../../rlang/help/syms.html">syms()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/new_quosure.html">new_quosure()</a></code>, <code><a href="../../rlang/help/is_quosure.html">is_quosure()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/missing_arg.html">missing_arg()</a></code>, <code><a href="../../rlang/help/is_missing.html">is_missing()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/quo_get_expr.html">quo_get_expr()</a></code>, <code><a href="../../rlang/help/quo_set_expr.html">quo_set_expr()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/quo_get_env.html">quo_get_env()</a></code>, <code><a href="../../rlang/help/quo_set_env.html">quo_set_env()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/eval_bare.html">eval_bare()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/set_names.html">set_names()</a></code>, <code><a href="../../rlang/help/names2.html">names2()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/as_function.html">as_function()</a></code>, <code><a href="../../rlang/help/new_function.html">new_function()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Experimental functions</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>
+<p>These functions are not yet part of the rlang API. Expect breaking
+changes.
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/with_env.html">with_env()</a></code>, <code><a href="../../rlang/help/locally.html">locally()</a></code>, <code><a href="../../rlang/help/env_poke.html">env_poke()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/pkg_env.html">pkg_env()</a></code>, <code><a href="../../rlang/help/pkg_env_name.html">pkg_env_name()</a></code>, <code><a href="../../rlang/help/ns_env.html">ns_env()</a></code>, <code><a href="../../rlang/help/ns_imports_env.html">ns_imports_env()</a></code>, <code><a href="../../rlang/help/ns_env_name.html">ns_env_name()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_pairlist.html">is_pairlist()</a></code>, <code><a href="../../rlang/help/as_pairlist.html">as_pairlist()</a></code>, <code><a href="../../rlang/help/is_node.html">is_node()</a></code>, <code><a href="../../rlang/help/is_node_list.html">is_node_list()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_definition.html">is_definition()</a></code>, <code><a href="../../rlang/help/new_definition.html">new_definition()</a></code>, <code><a href="../../rlang/help/is_formulaish.html">is_formulaish()</a></code>,
+<code><a href="../../rlang/help/dots_definitions.html">dots_definitions()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/local_options.html">local_options()</a></code>, <code><a href="../../rlang/help/with_options.html">with_options()</a></code>, <code><a href="../../rlang/help/push_options.html">push_options()</a></code>,
+<code><a href="../../rlang/help/peek_options.html">peek_options()</a></code>, <code><a href="../../rlang/help/peek_option.html">peek_option()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/as_bytes.html">as_bytes()</a></code>, <code><a href="../../rlang/help/chr_unserialise_unicode.html">chr_unserialise_unicode()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/caller_fn.html">caller_fn()</a></code>, <code><a href="../../rlang/help/current_fn.html">current_fn()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Questioning stage</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#questioning'><img src='figures/lifecycle-questioning.svg' alt='Questioning lifecycle'></a>
+<p><strong>In the questioning stage as of rlang 0.4.0</strong>
+</p>
+<p>These functions are likely to be moved to the vctrs package:
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/lgl.html">lgl()</a></code>, <code><a href="../../rlang/help/int.html">int()</a></code>, etc.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/new_logical.html">new_logical()</a></code>, <code><a href="../../rlang/help/new_integer.html">new_integer()</a></code>, etc.
+</p>
+</li>
+<li> <p><a href="../../rlang/help/na_lgl.html">na_lgl</a>, <a href="../../rlang/help/na_int.html">na_int</a>, <code><a href="../../rlang/help/is_lgl_na.html">is_lgl_na()</a></code>, <code><a href="../../rlang/help/is_int_na.html">is_int_na()</a></code>, etc.
+</p>
+</li></ul>
+
+<p><strong>In the questioning stage as of rlang 0.3.0</strong>
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/child_env.html">child_env()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/flatten.html">flatten()</a></code>, <code><a href="../../rlang/help/squash.html">squash()</a></code>, and their atomic vector variants
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/modify.html">modify()</a></code> and <code><a href="../../rlang/help/prepend.html">prepend()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/with_restarts.html">with_restarts()</a></code>, <code><a href="../../rlang/help/rst_list.html">rst_list()</a></code>, <code><a href="../../rlang/help/rst_exists.html">rst_exists()</a></code>, <code><a href="../../rlang/help/rst_jump.html">rst_jump()</a></code>,
+<code><a href="../../rlang/help/rst_maybe_jump.html">rst_maybe_jump()</a></code>, <code><a href="../../rlang/help/rst_abort.html">rst_abort()</a></code>. It is not clear yet whether we
+want to recommend restarts as a style of programming in R.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/return_from.html">return_from()</a></code> and <code><a href="../../rlang/help/return_to.html">return_to()</a></code>.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/expr_label.html">expr_label()</a></code>, <code><a href="../../rlang/help/expr_name.html">expr_name()</a></code>, and <code><a href="../../rlang/help/expr_text.html">expr_text()</a></code>.
+</p>
+</li></ul>
+
+<p><strong>In the questioning stage as of rlang 0.2.0</strong>
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/UQ.html">UQ()</a></code>, <code><a href="../../rlang/help/UQS.html">UQS()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/dots_splice.html">dots_splice()</a></code>, <code><a href="../../rlang/help/splice.html">splice()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Soft-deprecated functions and arguments</h3>
+
+<p><img src="../help/figures/lifecycle-soft-deprecated.svg" alt='Soft-deprecated lifecycle' />
+</p>
+<p><strong>Soft-deprecated in rlang 0.4.0</strong>
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/exiting.html">exiting()</a></code>: Handlers are now treated as exiting by default.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/invoke.html">invoke()</a></code>: Use the simpler <code><a href="../../rlang/help/exec.html">exec()</a></code> instead.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/as_logical.html">as_logical()</a></code>, <code><a href="../../rlang/help/as_integer.html">as_integer()</a></code>, etc. =&gt; <code>vctrs::vec_cast()</code>.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/type_of.html">type_of()</a></code>, <code><a href="../../rlang/help/switch_type.html">switch_type()</a></code>, <code><a href="../../rlang/help/coerce_type.html">coerce_type()</a></code>, <code><a href="../../rlang/help/switch_class.html">switch_class()</a></code>,
+<code><a href="../../rlang/help/coerce_class.html">coerce_class()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Deprecated functions and arguments</h3>
+
+<p><img src="../help/figures/lifecycle-deprecated.svg" alt='Deprecated lifecycle' />
+</p>
+<p><strong>Bumped to deprecated in rlang 0.4.0</strong>
+</p>
+
+<ul>
+<li> <p><code><a href="../../rlang/help/modify.html">modify()</a></code> and <code><a href="../../rlang/help/prepend.html">prepend()</a></code>.
+</p>
+</li>
+<li> <p><code>new_logical_along()</code>, <code>new_integer_along()</code>,
+<code>new_double_along()</code>, <code>new_complex_along()</code>,
+<code>new_character_along()</code>, <code>new_raw_along()</code>, <code>new_list_along()</code>.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_modify.html">lang_modify()</a></code> =&gt; <code><a href="../../rlang/help/call_modify.html">call_modify()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_standardise.html">lang_standardise()</a></code> =&gt; <code><a href="../../rlang/help/call_standardise.html">call_standardise()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_fn.html">lang_fn()</a></code> =&gt; <code><a href="../../rlang/help/call_fn.html">call_fn()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_name.html">lang_name()</a></code> =&gt; <code><a href="../../rlang/help/call_name.html">call_name()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_args.html">lang_args()</a></code> =&gt; <code><a href="../../rlang/help/call_args.html">call_args()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_args_names.html">lang_args_names()</a></code> =&gt; <code><a href="../../rlang/help/call_args_names.html">call_args_names()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang_head.html">lang_head()</a></code>, <code><a href="../../rlang/help/lang_tail.html">lang_tail()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/lang.html">lang()</a></code> =&gt; <code><a href="../../rlang/help/call2.html">call2()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/new_language.html">new_language()</a></code> =&gt; <code><a href="../../rlang/help/new_call.html">new_call()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_lang.html">is_lang()</a></code> =&gt; <code><a href="../../rlang/help/is_call.html">is_call()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_unary_lang.html">is_unary_lang()</a></code> =&gt; Use the <code>n</code> argument of <code><a href="../../rlang/help/is_call.html">is_call()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_binary_lang.html">is_binary_lang()</a></code> =&gt; Use the <code>n</code> argument of <code><a href="../../rlang/help/is_call.html">is_call()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/quo_is_lang.html">quo_is_lang()</a></code> =&gt; <code><a href="../../rlang/help/quo_is_call.html">quo_is_call()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/call_modify.html">call_modify()</a></code>: <code>.standardise</code> and <code>.env</code> arguments.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_expr.html">is_expr()</a></code> =&gt; <code><a href="../../rlang/help/is_expression.html">is_expression()</a></code>
+</p>
+</li>
+<li> <p><code>quo_expr()</code> =&gt; <code><a href="../../rlang/help/quo_squash.html">quo_squash()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/parse_quosure.html">parse_quosure()</a></code> =&gt; <code><a href="../../rlang/help/parse_quo.html">parse_quo()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/parse_quosures.html">parse_quosures()</a></code> =&gt; <code><a href="../../rlang/help/parse_quos.html">parse_quos()</a></code>
+</p>
+</li>
+<li><p> Assigning non-quosure objects to quosure lists.
+</p>
+</li>
+<li> <p><code>as.character()</code> on quosures.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/cnd_signal.html">cnd_signal()</a></code>: <code>.cnd</code> =&gt; <code>cnd</code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/cnd_signal.html">cnd_signal()</a></code>: The <code>.mufflable</code> argument no longer has any effect
+</p>
+</li>
+<li> <p><code>scoped_names()</code> =&gt; <code><a href="../../base/help/search.html">base::search()</a></code>
+</p>
+</li>
+<li> <p><code>is_scoped()</code> =&gt; <code><a href="../../rlang/help/is_attached.html">is_attached()</a></code>
+</p>
+</li>
+<li> <p><code>scoped_env()</code> =&gt; <code><a href="../../rlang/help/search_env.html">search_env()</a></code>
+</p>
+</li>
+<li> <p><code>scoped_envs()</code> =&gt; <code><a href="../../rlang/help/search_envs.html">search_envs()</a></code>
+</p>
+</li>
+<li> <p><code>env_bind_exprs()</code> =&gt; <code><a href="../../rlang/help/env_bind_lazy.html">env_bind_lazy()</a></code>
+</p>
+</li>
+<li> <p><code>env_bind_fns()</code> =&gt; <code><a href="../../rlang/help/env_bind_active.html">env_bind_active()</a></code>
+</p>
+</li>
+<li><p> Passing a function or formula to <code>env_depth()</code>,
+<code>env_poke_parent()</code>, <code style="white-space: pre;">env_parent&lt;-</code>, <code>env_tail()</code>, <code>set_env()</code>,
+<code>env_clone()</code>, <code>env_inherits()</code>, <code>env_bind()</code>,
+<code>local_bindings()</code>, <code>with_bindings()</code>, <code>env_poke()</code>,
+<code>env_has()</code>, <code>env_get()</code>, <code>env_names()</code>, <code>env_bind_exprs()</code> and
+<code>env_bind_fns()</code>. This internal genericity was causing confusion
+(see issue #427). You should now extract the environment
+separately before calling these functions.
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/get_env.html">get_env()</a></code>: The <code>env</code> argument no longer has a default and must be supplied
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/is_frame.html">is_frame()</a></code>, <code><a href="../../rlang/help/global_frame.html">global_frame()</a></code>, <code><a href="../../rlang/help/current_frame.html">current_frame()</a></code>,
+<code><a href="../../rlang/help/ctxt_frame.html">ctxt_frame()</a></code>, <code><a href="../../rlang/help/call_frame.html">call_frame()</a></code>, <code><a href="../../rlang/help/frame_position.html">frame_position()</a></code>,
+<code><a href="../../rlang/help/caller_frame.html">caller_frame()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/ctxt_depth.html">ctxt_depth()</a></code>, <code><a href="../../rlang/help/call_depth.html">call_depth()</a></code>, <code><a href="../../rlang/help/ctxt_stack.html">ctxt_stack()</a></code>, <code><a href="../../rlang/help/call_stack.html">call_stack()</a></code>,
+<code><a href="../../rlang/help/stack_trim.html">stack_trim()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../rlang/help/set_attrs.html">set_attrs()</a></code>, <code><a href="../../rlang/help/mut_attrs.html">mut_attrs()</a></code>
+</p>
+</li>
+<li><p> The <code>width</code> and <code>printer</code> arguments of <code><a href="../../rlang/help/exprs_auto_name.html">exprs_auto_name()</a></code> and
+<code><a href="../../rlang/help/quos_auto_name.html">quos_auto_name()</a></code> no longer have any effect. For the same
+reason, passing a width as <code>.named</code> argument of dots collectors
+like <code>quos()</code> is deprecated.
+</p>
+</li>
+<li> <p><code>as_overscope()</code> =&gt; <code><a href="../../rlang/help/as_data_mask.html">as_data_mask()</a></code>
+</p>
+</li>
+<li> <p><code>new_overscope()</code> =&gt; <code><a href="../../rlang/help/new_data_mask.html">new_data_mask()</a></code>
+</p>
+</li>
+<li> <p><code>overscope_eval_next()</code> =&gt; <code><a href="../../rlang/help/eval_tidy.html">eval_tidy()</a></code>
+</p>
+</li>
+<li> <p><code>overscope_clean()</code>
+</p>
+</li></ul>
+
+
+
+<h3>Defunct functions and arguments</h3>
+
+<p><img src="../help/figures/lifecycle-defunct.svg" alt='Defunct lifecycle' />
+</p>
+<p><strong>Defunct as of rlang 0.4.0</strong>
+</p>
+
+<ul>
+<li> <p><code>length()</code> and <code>names()</code> on tidy eval <code>.data</code> pronouns.
+</p>
+</li>
+<li><p> Supplying a named <code style="white-space: pre;">!!!</code> call.
+</p>
+</li></ul>
+
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

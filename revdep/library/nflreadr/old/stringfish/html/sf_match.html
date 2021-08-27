@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: sf_match</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sf_match {stringfish}"><tr><td>sf_match {stringfish}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>sf_match</h2>
+
+<h3>Description</h3>
+
+<p>Returns a vector of the positions of x in table
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sf_match(x, table, nthreads = 1)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A character vector to search for in table</p>
+</td></tr>
+<tr valign="top"><td><code>table</code></td>
+<td>
+<p>A character vector to be matched against x</p>
+</td></tr>
+<tr valign="top"><td><code>nthreads</code></td>
+<td>
+<p>Number of threads to use</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note: similarly to the base R function, long &quot;table&quot; vectors are not supported. This is due to the maximum integer value that can be returned ('.Machine$integer.max')
+</p>
+
+
+<h3>Value</h3>
+
+<p>An integer vector of the indicies of each x element's position in table
+</p>
+
+
+<h3>See Also</h3>
+
+<p>match
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+if(getRversion() &gt;= "3.5.0") {
+sf_match("c", letters)
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>stringfish</em> version 0.15.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

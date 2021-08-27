@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Arithmetic operations</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_arith {vctrs}"><tr><td>vec_arith {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Arithmetic operations</h2>
+
+<h3>Description</h3>
+
+<p>This generic provides a common double dispatch mechanism for all infix
+operators (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, <code>!</code>, <code>&amp;</code>, <code>|</code>). It is used
+to power the default arithmetic and boolean operators for <a href="../../vctrs/help/vctr.html">vctr</a>s objects,
+overcoming the limitations of the base <a href="../../methods/html/S4groupGeneric.html">Ops</a> generic.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_arith(op, x, y, ...)
+
+## Default S3 method:
+vec_arith(op, x, y, ...)
+
+## S3 method for class 'logical'
+vec_arith(op, x, y, ...)
+
+## S3 method for class 'numeric'
+vec_arith(op, x, y, ...)
+
+vec_arith_base(op, x, y)
+
+MISSING()
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>op</code></td>
+<td>
+<p>An arithmetic operator as a string</p>
+</td></tr>
+<tr valign="top"><td><code>x, y</code></td>
+<td>
+<p>A pair of vectors. For <code>!</code>, unary <code>+</code> and unary <code>-</code>, <code>y</code> will be
+a sentinel object of class <code>MISSING</code>, as created by <code>MISSING()</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>vec_arith_base()</code> is provided as a convenience for writing methods. It
+recycles <code>x</code> and <code>y</code> to common length then calls the base operator with the
+underlying <code><a href="../../vctrs/help/vec_data.html">vec_data()</a></code>.
+</p>
+<p><code>vec_arith()</code> is also used in <code>diff.vctrs_vctr()</code> method via <code>-</code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../vctrs/help/stop_incompatible_op.html">stop_incompatible_op()</a></code> for signalling that an arithmetic
+operation is not permitted/supported.
+</p>
+<p>See <code><a href="../../vctrs/help/vec_math.html">vec_math()</a></code> for the equivalent for the unary mathematical
+functions.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+d &lt;- as.Date("2018-01-01")
+dt &lt;- as.POSIXct("2018-01-02 12:00")
+t &lt;- as.difftime(12, unit = "hours")
+
+vec_arith("-", dt, 1)
+vec_arith("-", dt, t)
+vec_arith("-", dt, d)
+
+vec_arith("+", dt, 86400)
+vec_arith("+", dt, t)
+vec_arith("+", t, t)
+
+vec_arith("/", t, t)
+vec_arith("/", t, 2)
+
+vec_arith("*", t, 2)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Are packages installed in any of the libraries?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for is_installed {rlang}"><tr><td>is_installed {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Are packages installed in any of the libraries?</h2>
+
+<h3>Description</h3>
+
+<p>These functions check that packages are installed with minimal side
+effects. If installed, the packages will be loaded but not
+attached.
+</p>
+
+<ul>
+<li> <p><code>is_installed()</code> doesn't interact with the user. It simply
+returns <code>TRUE</code> or <code>FALSE</code> depending on whether the packages are
+installed.
+</p>
+</li>
+<li><p> In interactive sessions, <code>check_installed()</code> asks the user
+whether to install missing packages. If the user accepts, the
+packages are installed with <code>pak::pkg_install()</code> if available, or
+<code><a href="../../utils/help/install.packages.html">utils::install.packages()</a></code> otherwise. If the session is non
+interactive or if the user chooses not to install the packages,
+the current evaluation is aborted.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+is_installed(pkg)
+
+check_installed(pkg, reason = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pkg</code></td>
+<td>
+<p>The package names.</p>
+</td></tr>
+<tr valign="top"><td><code>reason</code></td>
+<td>
+<p>Optional string indicating why is <code>pkg</code> needed.
+Appears in error messages (if non-interactive) and user prompts
+(if interactive).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>is_installed()</code> returns <code>TRUE</code> if <em>all</em> package names
+provided in <code>pkg</code> are installed, <code>FALSE</code>
+otherwise. <code>check_installed()</code> either doesn't return or returns
+<code>NULL</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+is_installed("utils")
+is_installed(c("base", "ggplot5"))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

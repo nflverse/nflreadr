@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Evaluate an expression with quosures and pronoun support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for eval_tidy {rlang}"><tr><td>eval_tidy {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Evaluate an expression with quosures and pronoun support</h2>
+
+<h3>Description</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#stable'><img src='figures/lifecycle-stable.svg' alt='Stable lifecycle'></a>
+<p><code>eval_tidy()</code> is a variant of <code><a href="../../base/help/eval.html">base::eval()</a></code> that powers the tidy
+evaluation framework. Like <code>eval()</code> it accepts user data as
+argument. Whereas <code>eval()</code> simply transforms the data to an
+environment, <code>eval_tidy()</code> transforms it to a <strong>data mask</strong> with
+<code><a href="../../rlang/help/as_data_mask.html">as_data_mask()</a></code>. Evaluating in a data mask enables the following
+features:
+</p>
+
+<ul>
+<li> <p><a href="../../rlang/help/nse-defuse.html">Quosures</a>. Quosures are expressions bundled with an
+environment. If <code>data</code> is supplied, objects in the data mask
+always have precedence over the quosure environment, i.e. the
+data masks the environment.
+</p>
+</li>
+<li> <p><a href="../../rlang/help/.data.html">Pronouns</a>. If <code>data</code> is supplied, the <code>.env</code> and <code>.data</code>
+pronouns are installed in the data mask. <code>.env</code> is a reference to
+the calling environment and <code>.data</code> refers to the <code>data</code> argument.
+These pronouns lets you be explicit about where to find
+values and throw errors if you try to access non-existent values.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+eval_tidy(expr, data = NULL, env = caller_env())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>expr</code></td>
+<td>
+<p>An expression or quosure to evaluate.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A data frame, or named list or vector. Alternatively, a
+data mask created with <code><a href="../../rlang/help/as_data_mask.html">as_data_mask()</a></code> or
+<code><a href="../../rlang/help/new_data_mask.html">new_data_mask()</a></code>. Objects in <code>data</code> have priority over those in
+<code>env</code>. See the section about data masking.</p>
+</td></tr>
+<tr valign="top"><td><code>env</code></td>
+<td>
+<p>The environment in which to evaluate <code>expr</code>. This
+environment is not applicable for quosures because they have
+their own environments.</p>
+</td></tr>
+</table>
+
+
+<h3>Data masking</h3>
+
+<p>Data masking refers to how columns or objects inside <code>data</code> have
+priority over objects defined in <code>env</code> (or in the quosure
+environment, if applicable). If there is a column <code>var</code> in <code>data</code>
+and an object <code>var</code> in <code>env</code>, and <code>expr</code> refers to <code>var</code>, the
+column has priority:</p>
+<pre>var &lt;- "this one?"
+data &lt;- data.frame(var = rep("Or that one?", 3))
+
+within &lt;- function(data, expr) {
+  eval_tidy(enquo(expr), data)
+}
+
+within(data, toupper(var))
+#&gt; [1] "OR THAT ONE?" "OR THAT ONE?" "OR THAT ONE?"
+</pre>
+<p>Because the columns or objects in <code>data</code> are always found first,
+before objects from <code>env</code>, we say that the data &quot;masks&quot; the
+environment.
+</p>
+
+
+<h3>When should eval_tidy() be used instead of eval()?</h3>
+
+<p><code>base::eval()</code> is sufficient for simple evaluation. Use
+<code>eval_tidy()</code> when you'd like to support expressions referring to
+the <code>.data</code> pronoun, or when you need to support quosures.
+</p>
+<p>If you're evaluating an expression captured with quasiquotation
+support, it is recommended to use <code>eval_tidy()</code> because users will
+likely unquote quosures.
+</p>
+<p>Note that unwrapping a quosure with <code><a href="../../rlang/help/quo_get_expr.html">quo_get_expr()</a></code> does not
+guarantee that there is no quosures inside the expression. Quosures
+might be unquoted anywhere. For instance, the following does not
+work reliably in the presence of nested quosures:</p>
+<pre>my_quoting_fn &lt;- function(x) {
+  x &lt;- enquo(x)
+  expr &lt;- quo_get_expr(x)
+  env &lt;- quo_get_env(x)
+  eval(expr, env)
+}
+
+# Works:
+my_quoting_fn(toupper(letters))
+
+# Fails because of a nested quosure:
+my_quoting_fn(toupper(!!quo(letters)))
+</pre>
+
+
+<h3>Stack semantics of <code>eval_tidy()</code></h3>
+
+<p><code>eval_tidy()</code> always evaluates in a data mask, even when <code>data</code> is
+<code>NULL</code>. Because of this, it has different stack semantics than
+<code><a href="../../base/help/eval.html">base::eval()</a></code>:
+</p>
+
+<ul>
+<li><p> Lexical side effects, such as assignment with <code style="white-space: pre;">&lt;-</code>, occur in the
+mask rather than <code>env</code>.
+</p>
+</li>
+<li><p> Functions that require the evaluation environment to correspond
+to a frame on the call stack do not work. This is why <code>return()</code>
+called from a quosure does not work.
+</p>
+</li>
+<li><p> The mask environment creates a new branch in the tree
+representation of backtraces (which you can visualise in a
+<code><a href="../../base/html/browser.html">browser()</a></code> session with <code>lobstr::cst()</code>).
+</p>
+</li></ul>
+
+<p>See also <code><a href="../../rlang/help/eval_bare.html">eval_bare()</a></code> for more information about these differences.
+</p>
+
+
+<h3>Life cycle</h3>
+
+<p><strong>rlang 0.3.0</strong>
+</p>
+<p>Passing an environment to <code>data</code> is deprecated. Please construct an
+rlang data mask with <code><a href="../../rlang/help/new_data_mask.html">new_data_mask()</a></code>.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="../../rlang/help/nse-force.html">nse-force</a> for the second leg of the tidy evaluation
+framework.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+# With simple quoted expressions eval_tidy() works the same way as
+# eval():
+apple &lt;- "apple"
+kiwi &lt;- "kiwi"
+expr &lt;- quote(paste(apple, kiwi))
+expr
+
+eval(expr)
+eval_tidy(expr)
+
+# Both accept a data mask as argument:
+data &lt;- list(apple = "CARROT", kiwi = "TOMATO")
+eval(expr, data)
+eval_tidy(expr, data)
+
+
+# In addition eval_tidy() has support for quosures:
+with_data &lt;- function(data, expr) {
+  quo &lt;- enquo(expr)
+  eval_tidy(quo, data)
+}
+with_data(NULL, apple)
+with_data(data, apple)
+with_data(data, list(apple, kiwi))
+
+# Secondly eval_tidy() installs handy pronouns that allow users to
+# be explicit about where to find symbols:
+with_data(data, .data$apple)
+with_data(data, .env$apple)
+
+
+# Note that instead of using `.env` it is often equivalent and may
+# be preferred to unquote a value. There are two differences. First
+# unquoting happens earlier, when the quosure is created. Secondly,
+# subsetting `.env` with the `$` operator may be brittle because
+# `$` does not look through the parents of the environment.
+#
+# For instance using `.env$name` in a magrittr pipeline is an
+# instance where this poses problem, because the magrittr pipe
+# currently (as of v1.5.0) evaluates its operands in a *child* of
+# the current environment (this child environment is where it
+# defines the pronoun `.`).
+## Not run: 
+  data %&gt;% with_data(!!kiwi)     # "kiwi"
+  data %&gt;% with_data(.env$kiwi)  # NULL
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Reduce from the right (retired)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for reduce_right {purrr}"><tr><td>reduce_right {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Reduce from the right (retired)</h2>
+
+<h3>Description</h3>
+
+<p><img src="../help/figures/lifecycle-soft-deprecated.svg" alt='Soft-deprecated lifecycle' />
+</p>
+<p>These functions are retired as of purrr 0.3.0. Please use the
+<code>.dir</code> argument of <code><a href="../../purrr/help/reduce.html">reduce()</a></code> instead, or reverse your vectors
+and use a left reduction.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reduce_right(.x, .f, ..., .init)
+
+reduce2_right(.x, .y, .f, ..., .init)
+
+accumulate_right(.x, .f, ..., .init)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>For <code>reduce()</code>, and <code>accumulate()</code>, a 2-argument
+function. The function will be passed the accumulated value as
+the first argument and the &quot;next&quot; value as the second argument.
+</p>
+<p>For <code>reduce2()</code> and <code>accumulate2()</code>, a 3-argument function. The
+function will be passed the accumulated value as the first
+argument, the next value of <code>.x</code> as the second argument, and the
+next value of <code>.y</code> as the third argument.
+</p>
+<p>The reduction terminates early if <code>.f</code> returns a value wrapped in
+a <code><a href="../../purrr/help/done.html">done()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+<tr valign="top"><td><code>.init</code></td>
+<td>
+<p>If supplied, will be used as the first value to start
+the accumulation, rather than using <code>.x[[1]]</code>. This is useful if
+you want to ensure that <code>reduce</code> returns a correct value when <code>.x</code>
+is empty. If missing, and <code>.x</code> is empty, will throw an error.</p>
+</td></tr>
+<tr valign="top"><td><code>.y</code></td>
+<td>
+<p>For <code>reduce2()</code> and <code>accumulate2()</code>, an additional
+argument that is passed to <code>.f</code>. If <code>init</code> is not set, <code>.y</code>
+should be 1 element shorter than <code>.x</code>.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

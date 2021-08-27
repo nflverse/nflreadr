@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: qdump</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for qdump {qs}"><tr><td>qdump {qs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>qdump</h2>
+
+<h3>Description</h3>
+
+<p>Exports the uncompressed binary serialization to a list of Raw Vectors. For testing purposes and exploratory purposes mainly.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+qdump(file)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file</code></td>
+<td>
+<p>the file name/path.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The uncompressed serialization
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- data.frame(int = sample(1e3, replace=TRUE), 
+        num = rnorm(1e3), 
+        char = randomStrings(1e3), stringsAsFactors = FALSE)
+myfile &lt;- tempfile()
+qsave(x, myfile)
+x2 &lt;- qdump(myfile)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>qs</em> version 0.25.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

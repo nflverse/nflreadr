@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Coerce array to list</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for array-coercion {purrr}"><tr><td>array-coercion {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Coerce array to list</h2>
+
+<h3>Description</h3>
+
+<p><code>array_branch()</code> and <code>array_tree()</code> enable arrays to be
+used with purrr's functionals by turning them into lists. The
+details of the coercion are controlled by the <code>margin</code>
+argument. <code>array_tree()</code> creates an hierarchical list (a tree)
+that has as many levels as dimensions specified in <code>margin</code>,
+while <code>array_branch()</code> creates a flat list (by analogy, a
+branch) along all mentioned dimensions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+array_branch(array, margin = NULL)
+
+array_tree(array, margin = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>array</code></td>
+<td>
+<p>An array to coerce into a list.</p>
+</td></tr>
+<tr valign="top"><td><code>margin</code></td>
+<td>
+<p>A numeric vector indicating the positions of the
+indices to be to be enlisted. If <code>NULL</code>, a full margin is
+used. If <code>numeric(0)</code>, the array as a whole is wrapped in a
+list.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>When no margin is specified, all dimensions are used by
+default. When <code>margin</code> is a numeric vector of length zero, the
+whole array is wrapped in a list.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# We create an array with 3 dimensions
+x &lt;- array(1:12, c(2, 2, 3))
+
+# A full margin for such an array would be the vector 1:3. This is
+# the default if you don't specify a margin
+
+# Creating a branch along the full margin is equivalent to
+# as.list(array) and produces a list of size length(x):
+array_branch(x) %&gt;% str()
+
+# A branch along the first dimension yields a list of length 2
+# with each element containing a 2x3 array:
+array_branch(x, 1) %&gt;% str()
+
+# A branch along the first and third dimensions yields a list of
+# length 2x3 whose elements contain a vector of length 2:
+array_branch(x, c(1, 3)) %&gt;% str()
+
+# Creating a tree from the full margin creates a list of lists of
+# lists:
+array_tree(x) %&gt;% str()
+
+# The ordering and the depth of the tree are controlled by the
+# margin argument:
+array_tree(x, c(3, 1)) %&gt;% str()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create an attribute getter function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for attr_getter {purrr}"><tr><td>attr_getter {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create an attribute getter function</h2>
+
+<h3>Description</h3>
+
+<p><code>attr_getter()</code> generates an attribute accessor function; i.e., it
+generates a function for extracting an attribute with a given
+name. Unlike the base R <code>attr()</code> function with default options, it
+doesn't use partial matching.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+attr_getter(attr)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>attr</code></td>
+<td>
+<p>An attribute name as string.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/pluck.html">pluck()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# attr_getter() takes an attribute name and returns a function to
+# access the attribute:
+get_rownames &lt;- attr_getter("row.names")
+get_rownames(mtcars)
+
+# These getter functions are handy in conjunction with pluck() for
+# extracting deeply into a data structure. Here we'll first
+# extract by position, then by attribute:
+obj1 &lt;- structure("obj", obj_attr = "foo")
+obj2 &lt;- structure("obj", obj_attr = "bar")
+x &lt;- list(obj1, obj2)
+
+pluck(x, 1, attr_getter("obj_attr"))  # From first object
+pluck(x, 2, attr_getter("obj_attr"))  # From second object
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

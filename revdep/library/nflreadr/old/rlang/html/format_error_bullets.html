@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Format bullets for error messages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for format_error_bullets {rlang}"><tr><td>format_error_bullets {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Format bullets for error messages</h2>
+
+<h3>Description</h3>
+
+<p><code>format_error_bullets()</code> takes a character vector and returns a single
+string (or an empty vector if the input is empty). The elements of
+the input vector are assembled as a list of bullets, depending on
+their names:
+</p>
+
+<ul>
+<li><p> Elements named <code>"i"</code> are bulleted with a blue &quot;info&quot; symbol.
+</p>
+</li>
+<li><p> Elements named <code>"x"</code> are bulleted with a red &quot;cross&quot; symbol.
+</p>
+</li>
+<li><p> Unnamed elements are bulleted with a &quot;*&quot; symbol.
+</p>
+</li></ul>
+
+<p>This experimental infrastructure is based on the idea that
+sentences in error messages are best kept short and simple. From
+this point of view, the best way to present the information is in
+the <code><a href="../../rlang/help/cnd_body.html">cnd_body()</a></code> method of an error conditon, as a bullet list of
+simple sentences containing a single clause. The info and cross
+symbols of the bullets provide hints on how to interpret the bullet
+relative to the general error issue, which should be supplied as
+<code><a href="../../rlang/help/cnd_header.html">cnd_header()</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+format_error_bullets(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A named character vector of messages. Elements named as
+<code>x</code> or <code>i</code> are prefixed with the corresponding bullet.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

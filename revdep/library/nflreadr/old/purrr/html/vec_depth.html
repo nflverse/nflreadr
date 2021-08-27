@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compute the depth of a vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_depth {purrr}"><tr><td>vec_depth {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compute the depth of a vector</h2>
+
+<h3>Description</h3>
+
+<p>The depth of a vector is basically how many levels that you can index
+into it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_depth(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An integer.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- list(
+  list(),
+  list(list()),
+  list(list(list(1)))
+)
+vec_depth(x)
+x %&gt;% map_int(vec_depth)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

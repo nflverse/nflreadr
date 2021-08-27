@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Keep or discard elements using a predicate function.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for keep {purrr}"><tr><td>keep {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Keep or discard elements using a predicate function.</h2>
+
+<h3>Description</h3>
+
+<p><code>keep()</code> and <code>discard()</code> are opposites. <code>compact()</code> is a handy
+wrapper that removes all empty elements.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+keep(.x, .p, ...)
+
+discard(.x, .p, ...)
+
+compact(.x, .p = identity)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.p</code></td>
+<td>
+<p>For <code>keep()</code> and <code>discard()</code>, a predicate function. Only
+those elements where <code>.p</code> evaluates to <code>TRUE</code> will be kept or
+discarded.
+</p>
+<p>For <code>compact()</code>, a function that is applied to each element of
+<code>.x</code>. Only those elements where <code>.p</code> evaluates to an empty vector
+will be discarded.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to <code>.p</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>These are usually called <code>select</code> or <code>filter</code> and <code>reject</code> or
+<code>drop</code>, but those names are already taken. <code>keep()</code> is similar to
+<code><a href="../../base/html/funprog.html">Filter()</a></code>, but the argument order is more convenient, and the
+evaluation of the predicate function <code>.p</code> is stricter.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+rep(10, 10) %&gt;%
+  map(sample, 5) %&gt;%
+  keep(function(x) mean(x) &gt; 6)
+
+# Or use a formula
+rep(10, 10) %&gt;%
+  map(sample, 5) %&gt;%
+  keep(~ mean(.x) &gt; 6)
+
+# Using a string instead of a function will select all list elements
+# where that subelement is TRUE
+x &lt;- rerun(5, a = rbernoulli(1), b = sample(10))
+x
+x %&gt;% keep("a")
+x %&gt;% discard("a")
+
+# compact() discards elements that are NULL or that have length zero
+list(a = "a", b = NULL, c = integer(0), d = NA, e = list()) %&gt;%
+  compact()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Evaluate an expression with tidyselect semantics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for eval_rename {tidyselect}"><tr><td>eval_rename {tidyselect}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Evaluate an expression with tidyselect semantics</h2>
+
+<h3>Description</h3>
+
+<p><code>eval_select()</code> and <code>eval_rename()</code> evaluate defused R code
+(i.e. quoted expressions) according to the special rules of the
+<a href="https://tidyselect.r-lib.org/articles/syntax.html">tidyselect syntax</a>. They
+power functions like <code>dplyr::select()</code>, <code>dplyr::rename()</code>, or
+<code>tidyr::pivot_longer()</code>.
+</p>
+<p>See the <a href="https://tidyselect.r-lib.org/articles/tidyselect.html">Get started</a>
+vignette to learn how to use <code>eval_select()</code> and <code>eval_rename()</code> in
+your packages.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+eval_rename(
+  expr,
+  data,
+  env = caller_env(),
+  ...,
+  strict = TRUE,
+  name_spec = NULL
+)
+
+eval_select(
+  expr,
+  data,
+  env = caller_env(),
+  ...,
+  include = NULL,
+  exclude = NULL,
+  strict = TRUE,
+  name_spec = NULL,
+  allow_rename = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>expr</code></td>
+<td>
+<p>Defused R code describing a selection according to the
+tidyselect syntax.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A named list, data frame, or atomic vector.
+Technically, <code>data</code> can be any vector with <code>names()</code> and <code>"[["</code>
+implementations.</p>
+</td></tr>
+<tr valign="top"><td><code>env</code></td>
+<td>
+<p>The environment in which to evaluate <code>expr</code>. Discarded
+if <code>expr</code> is a <a href="../../rlang/help/enquo.html">quosure</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>strict</code></td>
+<td>
+<p>If <code>TRUE</code>, out-of-bounds errors are thrown if <code>expr</code>
+attempts to select or rename a variable that doesn't exist. If
+<code>FALSE</code>, failed selections or renamings are ignored.</p>
+</td></tr>
+<tr valign="top"><td><code>name_spec</code></td>
+<td>
+<p>A name specification describing how to combine or
+propagate names. This is used only in case nested <code>c()</code>
+expressions like <code>c(foo = c(bar = starts_with("foo")))</code>. See the
+<code>name_spec</code> argument of <code><a href="../../vctrs/help/vec_c.html">vctrs::vec_c()</a></code> for a description of
+valid name specs.</p>
+</td></tr>
+<tr valign="top"><td><code>include, exclude</code></td>
+<td>
+<p>Character vector of column names to always
+include or exclude from the selection.</p>
+</td></tr>
+<tr valign="top"><td><code>allow_rename</code></td>
+<td>
+<p>If <code>TRUE</code> (the default), the renaming syntax
+<code>c(foo = bar)</code> is allowed. If <code>FALSE</code>, it causes an error. This
+is useful to implement purely selective behaviour.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The select and rename variants take the same types of inputs and
+have the same type of return value. However <code>eval_rename()</code> has a
+few extra constraints. It requires named inputs, and will fail if a
+data frame column is renamed to another existing column name. See
+the <a href="https://tidyselect.r-lib.org/articles/syntax.html">selecting versus renaming</a>
+section in the syntax vignette for a description of the
+differences.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A named vector of numeric locations, one for each of the
+selected elements.
+</p>
+<p>The names are normally the same as in the input data, except when
+the user supplied named selections with <code>c()</code>. In the latter
+case, the names reflect the new names chosen by the user.
+</p>
+<p>A given element may be selected multiple times under different
+names, in which case the vector might contain duplicate
+locations.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="https://tidyselect.r-lib.org/articles/syntax.html">https://tidyselect.r-lib.org/articles/syntax.html</a> or
+<code>vignette("syntax", package = "tidyselect")</code> for a technical
+description of the rules of evaluation.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(rlang)
+
+# Interpret defused code as selection:
+x &lt;- expr(mpg:cyl)
+eval_select(x, mtcars)
+
+# Interpret defused code as a renaming selection. All inputs must
+# be named within `c()`:
+try(eval_rename(expr(mpg), mtcars))
+eval_rename(expr(c(foo = mpg)), mtcars)
+
+
+# Within a function, use `enquo()` to defuse one argument:
+my_function &lt;- function(x, expr) {
+  eval_select(enquo(expr), x)
+}
+
+# If your function takes dots, evaluate a defused call to `c(...)`
+# with `expr(c(...))`:
+my_function &lt;- function(.x, ...) {
+  eval_select(expr(c(...)), .x)
+}
+
+# If your function takes dots and a named argument, use `{{ }}`
+# inside the defused expression to tunnel it inside the tidyselect DSL:
+my_function &lt;- function(.x, .expr, ...) {
+  eval_select(expr(c({{ .expr }}, ...)), .x)
+}
+
+# Note that the trick above works because `expr({{ arg }})` is the
+# same as `enquo(arg)`.
+
+
+# The evaluators return a named vector of locations. Here are
+# examples of using these location vectors to implement `select()`
+# and `rename()`:
+select &lt;- function(.x, ...) {
+  pos &lt;- eval_select(expr(c(...)), .x)
+  set_names(.x[pos], names(pos))
+}
+rename &lt;- function(.x, ...) {
+  pos &lt;- eval_rename(expr(c(...)), .x)
+  names(.x)[pos] &lt;- names(pos)
+  .x
+}
+
+select(mtcars, mpg:cyl)
+rename(mtcars, foo = mpg)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>tidyselect</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

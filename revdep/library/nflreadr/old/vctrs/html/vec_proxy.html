@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Proxy and restore</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_proxy {vctrs}"><tr><td>vec_proxy {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Proxy and restore</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+</p>
+<p><code>vec_proxy()</code> returns the data structure containing the values of a
+vector. This data structure is usually the vector itself. In this
+case the proxy is the <a href="../../base/help/identity.html">identity function</a>, which is
+the default <code>vec_proxy()</code> method.
+</p>
+<p>Only experts should implement special <code>vec_proxy()</code> methods, for
+these cases:
+</p>
+
+<ul>
+<li><p> A vector has vectorised attributes, i.e. metadata for
+each element of the vector. These <em>record types</em> are implemented
+in vctrs by returning a data frame in the proxy method. If you're
+starting your class from scratch, consider deriving from the
+<code><a href="../../vctrs/help/new_rcrd.html">rcrd</a></code> class. It implements the appropriate data
+frame proxy and is generally the preferred way to create a record
+class.
+</p>
+</li>
+<li><p> When you're implementing a vector on top of a non-vector type,
+like an environment or an S4 object. This is currently only
+partially supported.
+</p>
+</li>
+<li><p> S3 lists are considered scalars by default. This is the safe
+choice for list objects such as returned by <code>stats::lm()</code>. To
+declare that your S3 list class is a vector, you normally add
+<code>"list"</code> to the right of your class vector. Explicit inheritance
+from list is generally the preferred way to declare an S3 list in
+R, for instance it makes it possible to dispatch on
+<code>generic.list</code> S3 methods.
+</p>
+<p>If you can't modify your class vector, you can implement an
+identity proxy (i.e. a proxy method that just returns its input)
+to let vctrs know this is a vector list and not a scalar.
+</p>
+</li></ul>
+
+<p><code>vec_restore()</code> is the inverse operation of <code>vec_proxy()</code>. It
+should only be called on vector proxies.
+</p>
+
+<ul>
+<li><p> It undoes the transformations of <code>vec_proxy()</code>.
+</p>
+</li>
+<li><p> It restores attributes and classes. These may be lost when the
+memory values are manipulated. For example slicing a subset of a
+vector's proxy causes a new proxy to be allocated.
+</p>
+</li></ul>
+
+<p>By default vctrs restores all attributes and classes
+automatically. You only need to implement a <code>vec_restore()</code> method
+if your class has attributes that depend on the data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_proxy(x, ...)
+
+vec_restore(x, to, ..., n = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>to</code></td>
+<td>
+<p>The original vector to restore to.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+The total size to restore to. This is currently passed by
+<code>vec_slice()</code> to solve edge cases arising in data frame
+restoration. In most cases you don't need this information and
+can safely ignore that argument. This parameter should be
+considered internal and experimental, it might change in the
+future.</p>
+</td></tr>
+</table>
+
+
+<h3>Proxying</h3>
+
+<p>You should only implement <code>vec_proxy()</code> when your type is designed
+around a non-vector class. I.e. anything that is not either:
+</p>
+
+<ul>
+<li><p> An atomic vector
+</p>
+</li>
+<li><p> A bare list
+</p>
+</li>
+<li><p> A data frame
+</p>
+</li></ul>
+
+<p>In this case, implement <code>vec_proxy()</code> to return such a vector
+class. The vctrs operations such as <code><a href="../../vctrs/help/vec_slice.html">vec_slice()</a></code> are applied on
+the proxy and <code>vec_restore()</code> is called to restore the original
+representation of your type.
+</p>
+<p>The most common case where you need to implement <code>vec_proxy()</code> is
+for S3 lists. In vctrs, S3 lists are treated as scalars by
+default. This way we don't treat objects like model fits as
+vectors. To prevent vctrs from treating your S3 list as a scalar,
+unclass it in the <code>vec_proxy()</code> method. For instance, here is the
+definition for <code>list_of</code>:</p>
+<pre>vec_proxy.vctrs_list_of &lt;- function(x) {
+  unclass(x)
+}
+</pre>
+<p>Another case where you need to implement a proxy is <a href="../../vctrs/help/new_rcrd.html">record types</a>. Record types should return a data frame, as in
+the <code>POSIXlt</code> method:</p>
+<pre>vec_proxy.POSIXlt &lt;- function(x) {
+  new_data_frame(unclass(x))
+}
+</pre>
+<p>Note that you don't need to implement <code>vec_proxy()</code> when your class
+inherits from <code>vctrs_vctr</code> or <code>vctrs_rcrd</code>.
+</p>
+
+
+<h3>Restoring</h3>
+
+<p>A restore is a specialised type of cast, primarily used in
+conjunction with <code>NextMethod()</code> or a C-level function that works on
+the underlying data structure. A <code>vec_restore()</code> method can make
+the following assumptions about <code>x</code>:
+</p>
+
+<ul>
+<li><p> It has the correct type.
+</p>
+</li>
+<li><p> It has the correct names.
+</p>
+</li>
+<li><p> It has the correct <code>dim</code> and <code>dimnames</code> attributes.
+</p>
+</li>
+<li><p> It is unclassed. This way you can call vctrs generics with <code>x</code>
+without triggering an infinite loop of restoration.
+</p>
+</li></ul>
+
+<p>The length may be different (for example after <code><a href="../../vctrs/help/vec_slice.html">vec_slice()</a></code> has
+been called), and all other attributes may have been lost. The
+method should restore all attributes so that after restoration,
+<code>vec_restore(vec_data(x), x)</code> yields <code>x</code>.
+</p>
+<p>To understand the difference between <code>vec_cast()</code> and <code>vec_restore()</code>
+think about factors: it doesn't make sense to cast an integer to a factor,
+but if <code>NextMethod()</code> or another low-level function has stripped attributes,
+you still need to be able to restore them.
+</p>
+<p>The default method copies across all attributes so you only need to
+provide your own method if your attributes require special care
+(i.e. they are dependent on the data in some way). When implementing
+your own method, bear in mind that many R users add attributes to track
+additional metadata that is important to them, so you should preserve any
+attributes that don't require special handling for your class.
+</p>
+
+
+<h3>Dependencies</h3>
+
+
+<ul>
+<li> <p><code>x</code> must be a vector in the vctrs sense (see <code><a href="../../vctrs/help/vec_is.html">vec_is()</a></code>)
+</p>
+</li>
+<li><p> By default the underlying data is returned as is (identity proxy)
+</p>
+</li></ul>
+
+<p>All vector classes have a proxy, even those who don't implement any
+vctrs methods. The exception is S3 lists that don't inherit from
+<code>"list"</code> explicitly. These might have to implement an identity
+proxy for compatibility with vctrs (see discussion above).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

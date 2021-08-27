@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Compilation flags for RcppParallel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for flags {RcppParallel}"><tr><td>flags {RcppParallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Compilation flags for RcppParallel</h2>
+
+<h3>Description</h3>
+
+<p>Output the compiler or linker flags required to build against RcppParallel.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+CxxFlags()
+
+LdFlags()
+
+RcppParallelLibs()
+</pre>
+
+
+<h3>Details</h3>
+
+<p>These functions are typically called from <code>Makevars</code> as follows:</p>
+<pre>PKG_LIBS += $(shell "${R_HOME}/bin/Rscript" -e "RcppParallel::LdFlags()")
+</pre>
+<p>On Windows, the flags ensure that the package links with the built-in TBB
+library. On Linux and macOS, the output is empty, because TBB is loaded
+dynamically on load by <code>RcppParallel</code>.
+</p>
+<p><span style="font-family: Courier New, Courier; color: #666666;"><b>R</b></span> packages using RcppParallel should also add the following to their
+<code>NAMESPACE</code> file:</p>
+<pre>importFrom(RcppParallel, RcppParallelLibs)
+</pre>
+<p>This is necessary to ensure that <span class="pkg">RcppParallel</span> (and so, TBB) is loaded
+and available.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns <code>NULL</code>, invisibly. These functions are called for
+their side effects (writing the associated flags to stdout).
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RcppParallel</em> version 5.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

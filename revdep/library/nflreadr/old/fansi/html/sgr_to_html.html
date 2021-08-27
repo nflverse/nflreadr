@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Convert ANSI CSI SGR Escape Sequence to HTML Equivalents</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sgr_to_html {fansi}"><tr><td>sgr_to_html {fansi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Convert ANSI CSI SGR Escape Sequence to HTML Equivalents</h2>
+
+<h3>Description</h3>
+
+<p>Interprets CSI SGR sequences and produces a string with equivalent
+formats applied with SPAN elements and inline CSS styles.  Optionally for
+colors, the SPAN elements may be assigned classes instead of inline styles,
+in which case it is the user's responsibility to provide a style sheet.
+Input that contains special HTML characters (&quot;&lt;&quot;, &quot;&gt;&quot;, &quot;&amp;&quot;, &quot;'&quot;, and &quot;\&quot;&quot;),
+particularly the first two, should be escaped with <code><a href="../../fansi/help/html_esc.html">html_esc</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sgr_to_html(
+  x,
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap"),
+  classes = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character vector or object that can be coerced to character.</p>
+</td></tr>
+<tr valign="top"><td><code>warn</code></td>
+<td>
+<p>TRUE (default) or FALSE, whether to warn when potentially
+problematic <em>Control Sequences</em> are encountered.  These could cause the
+assumptions <code>fansi</code> makes about how strings are rendered on your display
+to be incorrect, for example by moving the cursor (see <a href="../../fansi/help/fansi.html">fansi</a>).</p>
+</td></tr>
+<tr valign="top"><td><code>term.cap</code></td>
+<td>
+<p>character a vector of the capabilities of the terminal, can
+be any combination of &quot;bright&quot; (SGR codes 90-97, 100-107), &quot;256&quot; (SGR codes
+starting with &quot;38;5&quot; or &quot;48;5&quot;), and &quot;truecolor&quot; (SGR codes starting with
+&quot;38;2&quot; or &quot;48;2&quot;). Changing this parameter changes how <code>fansi</code>
+interprets escape sequences, so you should ensure that it matches your
+terminal capabilities. See <a href="../../fansi/help/term_cap_test.html">term_cap_test</a> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>classes</code></td>
+<td>
+<p>FALSE (default), TRUE, or character vector of either 16,
+32, or 512 class names.  Character strings may only contain ASCII
+characters corresponding to letters, numbers, the hyphen, or the
+underscore.  It is the user's responsibility to provide values that are
+legal class names.
+</p>
+
+<ul>
+<li><p> FALSE: All colors rendered as inline CSS styles.
+</p>
+</li>
+<li><p> TRUE: Each of the 256 basic colors is mapped to a class in form
+&quot;fansi-color-###&quot; (or &quot;fansi-bgcol-###&quot; for background colors)
+where &quot;###&quot; is a zero padded three digit number in 0:255.  Basic colors
+specified with SGR codes 30-37 (or 40-47) map to 000:007, and bright ones
+specified with 90-97 (or 100-107) map to 008:015.  8 bit colors specified
+with SGR codes 38;5;### or 48;5;### map directly based on the value of
+&quot;###&quot;.  Implicitly, this maps the 8 bit colors in 0:7 to the basic
+colors, and those in 8:15 to the bright ones even though these are not
+exactly the same when using inline styles.  &quot;truecolor&quot;s specified with
+38;2;#;#;# or 48;2;#;#;# do not map to classes and are rendered as inline
+styles.
+</p>
+</li>
+<li><p> character(16): The eight basic colors are mapped to the string values in
+the vector, all others are rendered as inline CSS styles.  Basic colors
+are mapped irrespective of whether they are encoded as the basic colors
+or as 8-bit colors.  Sixteen elements are needed because there must be
+eight classes for foreground colors, and eight classes for background
+colors.  Classes should be ordered in ascending order of color number,
+with foreground and background classes alternating starting with
+foreground (see examples).
+</p>
+</li>
+<li><p> character(32): Like character(16), except the basic and bright colors are
+mapped.
+</p>
+</li>
+<li><p> character(512): Like character(16), except the basic, bright, and all
+other 8-bit colors are mapped.
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Only &quot;observable&quot; styles are translated.  These include colors,
+background-colors, and basic styles (CSI SGR codes 1-6, 8, 9).  Style 7, the
+&quot;inverse&quot; style, is implemented by explicitly switching foreground and
+background colors, if there are any.  Styles 5-6 (blink) are rendered as
+&quot;text-decoration&quot; but likely will do nothing in the browser.  Style 8
+(conceal) sets the color to transparent.
+</p>
+<p>Each element of the input vector is translated into a stand-alone valid HTML
+string.  In particular, any open SPAN tags are closed at the end of an
+element and re-opened on the subsequent element with the same style.  This
+allows safe combination of HTML translated strings, for example by
+<code><a href="../../base/html/paste.html">paste</a></code>ing them together.  The trade-off is that there may be redundant
+HTML produced.  To reduce redundancy you can first collapse the input vector
+into one string, being mindful that very large strings may exceed maximum
+string size when converted to HTML.
+</p>
+<p>Active SPAN tags are closed and new ones open anytime the &quot;observable&quot;
+state changes.  <code>sgr_to_html</code> never produces nested SPAN tags, even if at
+times that might produce more compact output.  This is because ANSI CSI SGR
+is a state based formatting system and is not constrained by the semantics of
+a nested one like HTML, so dealing with the complexity of nesting when it
+cannot reproduce all inputs anyway does not seem worthwhile.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A character vector of the same length as <code>x</code> with all escape
+sequences removed and any basic ANSI CSI SGR escape sequences applied via
+SPAN HTML tags.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Non-ASCII strings are converted to and returned in UTF-8 encoding.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../fansi/help/fansi.html">fansi</a></code> for details on how <em>Control Sequences</em> are
+interpreted, particularly if you are getting unexpected results,
+<code><a href="../../fansi/help/set_knit_hooks.html">set_knit_hooks</a></code> for how to use ANSI CSI styled text with knitr and HTML
+output, <code><a href="../../fansi/help/sgr_256.html">sgr_256</a></code> to generate a demo string with all 256 8 bit colors.
+</p>
+<p>Other HTML functions: 
+<code><a href="../../fansi/help/html_esc.html">html_esc</a>()</code>,
+<code><a href="../../fansi/help/in_html.html">in_html</a>()</code>,
+<code><a href="../../fansi/help/make_styles.html">make_styles</a>()</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+sgr_to_html("hello\033[31;42;1mworld\033[m")
+sgr_to_html("hello\033[31;42;1mworld\033[m", classes=TRUE)
+
+## Input contains HTML special chars
+x &lt;- "&lt;hello \033[42m'there' \033[34m &amp;amp;\033[m \"moon\"!"
+writeLines(x)
+## Not run: 
+in_html(
+  c(
+    sgr_to_html(html_esc(x)),  # Good
+    sgr_to_html(x)             # Bad!
+) )
+
+## End(Not run)
+## Generate some class names for basic colors
+classes &lt;- expand.grid(
+  "myclass",
+  c("fg", "bg"),
+  c("black", "red", "green", "yellow", "blue", "magenta", "cyan", "white")
+)
+classes  # order is important!
+classes &lt;- do.call(paste, c(classes, sep="-"))
+## We only provide 16 classes, so Only basic colors are
+## mapped to classes; others styled inline.
+sgr_to_html(
+  "\033[94mhello\033[m \033[31;42;1mworld\033[m",
+  classes=classes
+)
+## Create a whole web page with a style sheet for 256 colors and
+## the colors shown in a table.
+class.256 &lt;- do.call(paste, c(expand.grid(c("fg", "bg"), 0:255), sep="-"))
+sgr.256 &lt;- sgr_256()     # A demo of all 256 colors
+writeLines(sgr.256[1:8]) # SGR formatting
+
+## Convert to HTML using classes instead of inline styles:
+html.256 &lt;- sgr_to_html(sgr.256, classes=class.256)
+writeLines(html.256[1])  # No inline colors
+
+## Generate different style sheets.  See `?make_styles` for details.
+default &lt;- make_styles(class.256)
+mix &lt;- matrix(c(.6,.2,.2, .2,.6,.2, .2,.2,.6), 3)
+desaturated &lt;- make_styles(class.256, mix)
+writeLines(default[1:4])
+writeLines(desaturated[1:4])
+
+## Embed in HTML page and diplay; only CSS changing
+## Not run: 
+in_html(html.256)                  # no CSS
+in_html(html.256, css=default)     # default CSS
+in_html(html.256, css=desaturated) # desaturated CSS
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>fansi</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

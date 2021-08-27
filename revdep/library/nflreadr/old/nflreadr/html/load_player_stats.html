@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Load Player Level Weekly Stats</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for load_player_stats {nflreadr}"><tr><td>load_player_stats {nflreadr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load Player Level Weekly Stats</h2>
+
+<h3>Description</h3>
+
+<p>Load Player Level Weekly Stats
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+load_player_stats(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "qs")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>seasons</code></td>
+<td>
+<p>a numeric vector of seasons to return, defaults to most recent season. If set to <code>NULL</code>, returns all available data.</p>
+</td></tr>
+<tr valign="top"><td><code>file_type</code></td>
+<td>
+<p>One of <code>"rds"</code> or <code>"qs"</code>. Can also be set globally with
+<code>options(nflreadr.prefer)</code></p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A tibble of week-level player statistics that aims to match NFL official box scores.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="https://www.nflfastr.com/reference/load_player_stats.html">https://www.nflfastr.com/reference/load_player_stats.html</a>
+</p>
+<p><a href="https://github.com/nflverse/nflfastr-data">https://github.com/nflverse/nflfastr-data</a>
+</p>
+<p><code>vignette("Data Dictionary - Player Stats")</code> for the data dictionary
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+  load_player_stats()
+
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>nflreadr</em> version 1.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

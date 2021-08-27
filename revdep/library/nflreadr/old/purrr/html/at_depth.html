@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Map at depth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for at_depth {purrr}"><tr><td>at_depth {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Map at depth</h2>
+
+<h3>Description</h3>
+
+<p>This function is defunct and has been replaced by <code><a href="../../purrr/help/map_depth.html">map_depth()</a></code>.
+See also <code><a href="../../purrr/help/modify_depth.html">modify_depth()</a></code> for a version that preserves the types of
+the elements of the tree.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+at_depth(.x, .depth, .f, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.depth</code></td>
+<td>
+<p>Level of <code>.x</code> to map on. Use a negative value to
+count up from the lowest level of the list.
+</p>
+
+<ul>
+<li> <p><code>map_depth(x, 0, fun)</code> is equivalent to <code>fun(x)</code>.
+</p>
+</li>
+<li> <p><code>map_depth(x, 1, fun)</code> is equivalent to <code>x &lt;- map(x, fun)</code>
+</p>
+</li>
+<li> <p><code>map_depth(x, 2, fun)</code> is equivalent to <code>x &lt;- map(x, ~ map(., fun))</code>
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>A function, formula, or vector (not necessarily atomic).
+</p>
+<p>If a <strong>function</strong>, it is used as is.
+</p>
+<p>If a <strong>formula</strong>, e.g. <code>~ .x + 2</code>, it is converted to a function. There
+are three ways to refer to the arguments:
+</p>
+
+<ul>
+<li><p> For a single argument function, use <code>.</code>
+</p>
+</li>
+<li><p> For a two argument function, use <code>.x</code> and <code>.y</code>
+</p>
+</li>
+<li><p> For more arguments, use <code>..1</code>, <code>..2</code>, <code>..3</code> etc
+</p>
+</li></ul>
+
+<p>This syntax allows you to create very compact anonymous functions.
+</p>
+<p>If <strong>character vector</strong>, <strong>numeric vector</strong>, or <strong>list</strong>, it is
+converted to an extractor function. Character vectors index by
+name and numeric vectors index by position; use a list to index
+by position and name at different levels. If a component is not
+present, the value of <code>.default</code> will be returned.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

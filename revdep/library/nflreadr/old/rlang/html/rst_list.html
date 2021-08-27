@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Restarts utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rst_list {rlang}"><tr><td>rst_list {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Restarts utilities</h2>
+
+<h3>Description</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#questioning'><img src='figures/lifecycle-questioning.svg' alt='Questioning lifecycle'></a>
+<p>Restarts are named jumping points established by <code><a href="../../rlang/help/with_restarts.html">with_restarts()</a></code>.
+<code>rst_list()</code> returns the names of all restarts currently
+established. <code>rst_exists()</code> checks if a given restart is
+established. <code>rst_jump()</code> stops execution of the current function
+and jumps to a restart point. If the restart does not exist, an
+error is thrown.  <code>rst_maybe_jump()</code> first checks that a restart
+exists before jumping.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rst_list()
+
+rst_exists(.restart)
+
+rst_jump(.restart, ...)
+
+rst_maybe_jump(.restart, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.restart</code></td>
+<td>
+<p>The name of a restart.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>&lt;<a href="../../rlang/help/dyn-dots.html">dynamic</a>&gt; Arguments passed on to the
+restart function.</p>
+</td></tr>
+</table>
+
+
+<h3>Life cycle</h3>
+
+<p>All the restart functions are in the questioning stage. It is not
+clear yet whether we want to recommend restarts as a style of
+programming in R.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../rlang/help/with_restarts.html">with_restarts()</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

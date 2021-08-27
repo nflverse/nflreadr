@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ANSI Control Sequence Aware Version of nchar</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for nchar_ctl {fansi}"><tr><td>nchar_ctl {fansi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ANSI Control Sequence Aware Version of nchar</h2>
+
+<h3>Description</h3>
+
+<p><code>nchar_ctl</code> counts all non <em>Control Sequence</em> characters.
+<code>nzchar_ctl</code> returns TRUE for each input vector element that has non <em>Control
+Sequence</em> sequence characters.  By default newlines and other C0 control
+characters are not counted.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+nchar_ctl(
+  x,
+  type = "chars",
+  allowNA = FALSE,
+  keepNA = NA,
+  ctl = "all",
+  warn = getOption("fansi.warn"),
+  strip
+)
+
+nchar_sgr(
+  x,
+  type = "chars",
+  allowNA = FALSE,
+  keepNA = NA,
+  warn = getOption("fansi.warn")
+)
+
+nzchar_ctl(x, keepNA = NA, ctl = "all", warn = getOption("fansi.warn"))
+
+nzchar_sgr(x, keepNA = NA, warn = getOption("fansi.warn"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character vector or object that can be coerced to character.</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>character(1L) partial matching <code>c("chars", "width")</code>, although
+<code>type="width"</code> only works correctly with R &gt;= 3.2.2.  With &quot;width&quot;, whether
+C0 and C1 are treated as zero width may depend on R version and locale in
+addition what the <code>ctl</code> parameter is set to.  For example, for R4.1 in
+UTF-8 locales C0 and C1 will be zero width even if the value of <code>ctl</code> is
+such that they wouldn't be so in other circumstances.</p>
+</td></tr>
+<tr valign="top"><td><code>allowNA</code></td>
+<td>
+<p>logical: should <code>NA</code> be returned for invalid
+multibyte strings or <code>"bytes"</code>-encoded strings (rather than
+throwing an error)?</p>
+</td></tr>
+<tr valign="top"><td><code>keepNA</code></td>
+<td>
+<p>logical: should <code>NA</code> be returned when
+<code>x</code> is <code><a href="../../base/help/NA.html">NA</a></code>?  If false, <code>nchar()</code> returns
+<code>2</code>, as that is the number of printing characters used when
+strings are written to output, and <code>nzchar()</code> is <code>TRUE</code>.  The
+default for <code>nchar()</code>, <code>NA</code>, means to use <code>keepNA = TRUE</code>
+unless <code>type</code> is <code>"width"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>ctl</code></td>
+<td>
+<p>character, which <em>Control Sequences</em> should be treated
+specially. See the &quot;_ctl vs. _sgr&quot; section for details.
+</p>
+
+<ul>
+<li><p> &quot;nl&quot;: newlines.
+</p>
+</li>
+<li><p> &quot;c0&quot;: all other &quot;C0&quot; control characters (i.e. 0x01-0x1f, 0x7F), except
+for newlines and the actual ESC (0x1B) character.
+</p>
+</li>
+<li><p> &quot;sgr&quot;: ANSI CSI SGR sequences.
+</p>
+</li>
+<li><p> &quot;csi&quot;: all non-SGR ANSI CSI sequences.
+</p>
+</li>
+<li><p> &quot;esc&quot;: all other escape sequences.
+</p>
+</li>
+<li><p> &quot;all&quot;: all of the above, except when used in combination with any of the
+above, in which case it means &quot;all but&quot;.
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>warn</code></td>
+<td>
+<p>TRUE (default) or FALSE, whether to warn when potentially
+problematic <em>Control Sequences</em> are encountered.  These could cause the
+assumptions <code>fansi</code> makes about how strings are rendered on your display
+to be incorrect, for example by moving the cursor (see <a href="../../fansi/help/fansi.html">fansi</a>).</p>
+</td></tr>
+<tr valign="top"><td><code>strip</code></td>
+<td>
+<p>character, deprecated in favor of <code>ctl</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>nchar_ctl</code> is just a wrapper around <code>nchar(strip_ctl(...))</code>.  <code>nzchar_ctl</code>
+is implemented in native code and is much faster than the otherwise
+equivalent <code>nzchar(strip_ctl(...))</code>.
+</p>
+<p>These functions will warn if either malformed or non-CSI escape sequences are
+encountered, as these may be incorrectly interpreted.
+</p>
+
+
+<h3>_ctl vs. _sgr</h3>
+
+<p>The <code style="white-space: pre;">*_ctl</code> versions of the functions treat all <em>Control Sequences</em> specially
+by default.  Special treatment is context dependent, and may include
+detecting them and/or computing their display/character width as zero.  For
+the SGR subset of the ANSI CSI sequences, <code>fansi</code> will also parse, interpret,
+and reapply the text styles they encode if needed.  You can modify whether a
+<em>Control Sequence</em> is treated specially with the <code>ctl</code> parameter.  You can
+exclude a type of <em>Control Sequence</em> from special treatment by combining
+&quot;all&quot; with that type of sequence (e.g. <code>ctl=c("all", "nl")</code> for special
+treatment of all <em>Control Sequences</em> <strong>but</strong> newlines).  The <code style="white-space: pre;">*_sgr</code> versions
+only treat ANSI CSI SGR sequences specially, and are equivalent to the
+<code style="white-space: pre;">*_ctl</code> versions with the <code>ctl</code> parameter set to &quot;sgr&quot;.
+</p>
+
+
+<h3>Note</h3>
+
+<p>the <code>keepNA</code> parameter is ignored for R &lt; 3.2.2.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="../../fansi/help/fansi.html">fansi</a> for details on how <em>Control Sequences</em> are
+interpreted, particularly if you are getting unexpected results,
+<code><a href="../../fansi/help/strip_ctl.html">strip_ctl</a></code> for removing <em>Control Sequences</em>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+nchar_ctl("\033[31m123\a\r")
+## with some wide characters
+cn.string &lt;-  sprintf("\033[31m%s\a\r", "\u4E00\u4E01\u4E03")
+nchar_ctl(cn.string)
+nchar_ctl(cn.string, type='width')
+
+## Remember newlines are not counted by default
+nchar_ctl("\t\n\r")
+
+## The 'c0' value for the `ctl` argument does not include 
+## newlines.
+nchar_ctl("\t\n\r", ctl="c0")
+nchar_ctl("\t\n\r", ctl=c("c0", "nl"))
+
+## The _sgr flavor only treats SGR sequences as zero width
+nchar_sgr("\033[31m123")
+nchar_sgr("\t\n\n123")
+
+## All of the following are Control Sequences or C0 controls
+nzchar_ctl("\n\033[42;31m\033[123P\a")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>fansi</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

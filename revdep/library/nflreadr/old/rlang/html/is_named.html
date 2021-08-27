@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Is object named?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for is_named {rlang}"><tr><td>is_named {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Is object named?</h2>
+
+<h3>Description</h3>
+
+<p><code>is_named()</code> checks that <code>x</code> has names attributes, and that none of
+the names are missing or empty (<code>NA</code> or <code>""</code>). <code>is_dictionaryish()</code>
+checks that an object is a dictionary: that it has actual names and
+in addition that there are no duplicated names. <code>have_name()</code>
+is a vectorised version of <code>is_named()</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+is_named(x)
+
+is_dictionaryish(x)
+
+have_name(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>An object to test.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>is_named()</code> and <code>is_dictionaryish()</code> are scalar predicates
+and return <code>TRUE</code> or <code>FALSE</code>. <code>have_name()</code> is vectorised and
+returns a logical vector as long as the input.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# A data frame usually has valid, unique names
+is_named(mtcars)
+have_name(mtcars)
+is_dictionaryish(mtcars)
+
+# But data frames can also have duplicated columns:
+dups &lt;- cbind(mtcars, cyl = seq_len(nrow(mtcars)))
+is_dictionaryish(dups)
+
+# The names are still valid:
+is_named(dups)
+have_name(dups)
+
+
+# For empty objects the semantics are slightly different.
+# is_dictionaryish() returns TRUE for empty objects:
+is_dictionaryish(list())
+
+# But is_named() will only return TRUE if there is a names
+# attribute (a zero-length character vector in this case):
+x &lt;- set_names(list(), character(0))
+is_named(x)
+
+
+# Empty and missing names are invalid:
+invalid &lt;- dups
+names(invalid)[2] &lt;- ""
+names(invalid)[5] &lt;- NA
+
+# is_named() performs a global check while have_name() can show you
+# where the problem is:
+is_named(invalid)
+have_name(invalid)
+
+# have_name() will work even with vectors that don't have a names
+# attribute:
+have_name(letters)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Fill in missing values with the previous or following value</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_fill_missing {vctrs}"><tr><td>vec_fill_missing {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Fill in missing values with the previous or following value</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+</p>
+<p><code>vec_fill_missing()</code> fills gaps of missing values with the previous or
+following non-missing value.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_fill_missing(
+  x,
+  direction = c("down", "up", "downup", "updown"),
+  max_fill = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector</p>
+</td></tr>
+<tr valign="top"><td><code>direction</code></td>
+<td>
+<p>Direction in which to fill missing values. Must be either
+<code>"down"</code>, <code>"up"</code>, <code>"downup"</code>, or <code>"updown"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>max_fill</code></td>
+<td>
+<p>A single positive integer specifying the maximum number of
+sequential missing values that will be filled. If <code>NULL</code>, there is
+no limit.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+x &lt;- c(NA, NA, 1, NA, NA, NA, 3, NA, NA)
+
+# Filling down replaces missing values with the previous non-missing value
+vec_fill_missing(x, direction = "down")
+
+# To also fill leading missing values, use `"downup"`
+vec_fill_missing(x, direction = "downup")
+
+# Limit the number of sequential missing values to fill with `max_fill`
+vec_fill_missing(x, max_fill = 1)
+
+# Data frames are filled rowwise. Rows are only considered missing
+# if all elements of that row are missing.
+y &lt;- c(1, NA, 2, NA, NA, 3, 4, NA, 5)
+df &lt;- data_frame(x = x, y = y)
+df
+
+vec_fill_missing(df)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

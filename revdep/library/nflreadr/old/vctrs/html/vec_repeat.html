@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Expand the length of a vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_repeat {vctrs}"><tr><td>vec_repeat {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Expand the length of a vector</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a>
+</p>
+<p><code>vec_repeat()</code> has been replaced with <code><a href="../../vctrs/help/vec_rep.html">vec_rep()</a></code> and <code><a href="../../vctrs/help/vec_rep_each.html">vec_rep_each()</a></code> and is
+deprecated as of vctrs 0.3.0.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_repeat(x, each = 1L, times = 1L)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector.</p>
+</td></tr>
+<tr valign="top"><td><code>each</code></td>
+<td>
+<p>Number of times to repeat each element of <code>x</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>Number of times to repeat the whole vector of <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector the same type as <code>x</code> with size <code>vec_size(x) * times * each</code>.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: sf_grepl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sf_grepl {stringfish}"><tr><td>sf_grepl {stringfish}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>sf_grepl</h2>
+
+<h3>Description</h3>
+
+<p>A function that matches patterns and returns a logical vector
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sf_grepl(subject, pattern, encode_mode = "auto", fixed = FALSE, nthreads = 1)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>subject</code></td>
+<td>
+<p>The subject character vector to search</p>
+</td></tr>
+<tr valign="top"><td><code>pattern</code></td>
+<td>
+<p>The pattern to search for</p>
+</td></tr>
+<tr valign="top"><td><code>encode_mode</code></td>
+<td>
+<p>&quot;auto&quot;, &quot;UTF-8&quot; or &quot;byte&quot;. Determines multi-byte (UTF-8) characters or single-byte characters are used.</p>
+</td></tr>
+<tr valign="top"><td><code>fixed</code></td>
+<td>
+<p>determines whether the pattern parameter should be interpreted literally or as a regular expression</p>
+</td></tr>
+<tr valign="top"><td><code>nthreads</code></td>
+<td>
+<p>Number of threads to use</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function uses the PCRE2 library, which is also used internally by R. 
+The encoding is based on the pattern string (or forced via the encode_mode parameter). 
+Note: the order of paramters is switched compared to the 'grepl' base R function, with subject being first. 
+See also: https://www.pcre.org/current/doc/html/pcre2api.html for more documentation on match syntax.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A logical vector with the same length as subject
+</p>
+
+
+<h3>See Also</h3>
+
+<p>grepl
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+if(getRversion() &gt;= "3.5.0") {
+x &lt;- sf_vector(10)
+sf_assign(x, 1, "hello world")
+pattern &lt;- "^hello"
+sf_grepl(x, pattern)
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>stringfish</em> version 0.15.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

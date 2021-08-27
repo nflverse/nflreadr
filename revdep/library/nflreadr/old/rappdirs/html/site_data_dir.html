@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Path to shared data/config directories</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for site_data_dir {rappdirs}"><tr><td>site_data_dir {rappdirs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Path to shared data/config directories</h2>
+
+<h3>Description</h3>
+
+<p><code>site_data_dir</code> returns full path to the user-shared data dir for this application.
+<code>site_config_dir</code> returns full path to the user-specific configuration directory for this application
+which returns the same path as site data directory in Windows and Mac but a different one for Unix.
+Typical user-shared data directories are:
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+site_data_dir(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  multipath = FALSE,
+  expand = TRUE,
+  os = NULL
+)
+
+site_config_dir(
+  appname = NULL,
+  appauthor = appname,
+  version = NULL,
+  multipath = FALSE,
+  expand = TRUE,
+  os = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>appname</code></td>
+<td>
+<p>is the name of application. If NULL, just the system
+directory is returned.</p>
+</td></tr>
+<tr valign="top"><td><code>appauthor</code></td>
+<td>
+<p>(only required and used on Windows) is the name of the
+appauthor or distributing body for this application. Typically
+it is the owning company name. This falls back to appname.</p>
+</td></tr>
+<tr valign="top"><td><code>version</code></td>
+<td>
+<p>is an optional version path element to append to the
+path. You might want to use this if you want multiple versions
+of your app to be able to run independently. If used, this
+would typically be <code>"&lt;major&gt;.&lt;minor&gt;"</code>. Only applied when appname
+is not NULL.</p>
+</td></tr>
+<tr valign="top"><td><code>multipath</code></td>
+<td>
+<p>is an optional parameter only applicable to *nix
+which indicates that the entire list of data dirs should be returned
+By default, the first directory is returned</p>
+</td></tr>
+<tr valign="top"><td><code>expand</code></td>
+<td>
+<p>If TRUE (the default) will expand the <code>R_LIBS</code> specifiers with their equivalents.
+See <code><a href="../../base/html/libPaths.html">R_LIBS()</a></code> for list of all possibly specifiers.</p>
+</td></tr>
+<tr valign="top"><td><code>os</code></td>
+<td>
+<p>Operating system whose conventions are used to construct the
+requested directory. Possible values are &quot;win&quot;, &quot;mac&quot;, &quot;unix&quot;. If <code>NULL</code>
+(the default) then the current OS will be used.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+
+<ul>
+<li><p> Mac OS X:  <code style="white-space: pre;">/Library/Application Support/&lt;AppName&gt;</code>
+</p>
+</li>
+<li><p> Unix:      <code style="white-space: pre;">/usr/local/share:/usr/share/</code>
+</p>
+</li>
+<li><p> Win XP:    <code style="white-space: pre;">C:\\Documents and Settings\\All Users\\Application Data\\&lt;AppAuthor&gt;\\&lt;AppName&gt;</code>
+</p>
+</li>
+<li><p> Vista:     (Fail! <code style="white-space: pre;">C:\\ProgramData</code> is a hidden <em>system</em> directory on Vista.)
+</p>
+</li>
+<li><p> Win 7:     <code style="white-space: pre;">C:\\ProgramData\\&lt;AppAuthor&gt;\\&lt;AppName&gt;</code>. Hidden, but writeable on Win 7.
+</p>
+</li></ul>
+
+<p>Unix also specifies a separate location for user-shared configuration data in <span class="env">$XDG_CONFIG_DIRS</span>.
+</p>
+
+<ul>
+<li><p> Unix: <code style="white-space: pre;">/etc/xdg/&lt;AppName&gt;</code>, in <span class="env">$XDG_CONFIG_HOME</span> if defined
+</p>
+</li></ul>
+
+<p>For Unix, this returns the first default.  Set the <code>multipath=TRUE</code> to guarantee returning all directories.
+</p>
+
+
+<h3>Warning</h3>
+
+<p>Do not use this on Windows. See the note above for why.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>rappdirs</em> version 0.3.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

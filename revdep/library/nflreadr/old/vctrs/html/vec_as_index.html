@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Convert to an index vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_as_index {vctrs}"><tr><td>vec_as_index {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Convert to an index vector</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated"><img src="../help/figures/lifecycle-deprecated.svg" alt='[Deprecated]' /></a>
+</p>
+<p><code>vec_as_index()</code> has been renamed to <code><a href="../../vctrs/help/vec_as_location.html">vec_as_location()</a></code> and is
+deprecated as of vctrs 0.2.2.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_as_index(i, n, names = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>i</code></td>
+<td>
+<p>An integer, character or logical vector specifying the
+locations or names of the observations to get/set. Specify
+<code>TRUE</code> to index all elements (as in <code>x[]</code>), or <code>NULL</code>, <code>FALSE</code> or
+<code>integer()</code> to index none (as in <code>x[NULL]</code>).</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>A single integer representing the total size of the
+object that <code>i</code> is meant to index into.</p>
+</td></tr>
+<tr valign="top"><td><code>names</code></td>
+<td>
+<p>If <code>i</code> is a character vector, <code>names</code> should be a character
+vector that <code>i</code> will be matched against to construct the index. Otherwise,
+not used. The default value of <code>NULL</code> will result in an error
+if <code>i</code> is a character vector.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

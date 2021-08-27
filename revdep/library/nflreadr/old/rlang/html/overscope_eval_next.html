@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Evaluate next quosure in a data mask</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for overscope_eval_next {rlang}"><tr><td>overscope_eval_next {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Evaluate next quosure in a data mask</h2>
+
+<h3>Description</h3>
+
+<p><img src="../help/figures/lifecycle-deprecated.svg" alt='Deprecated lifecycle' />
+</p>
+<p><code>overscope_eval_next()</code> is deprecated as of rlang 0.2.0. Please use
+<code>eval_tidy()</code> to which you can now supply an overscope.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+overscope_eval_next(overscope, quo, env = base_env())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>overscope</code></td>
+<td>
+<p>A valid overscope containing bindings for <code>~</code>,
+<code>.top_env</code> and <code style="white-space: pre;">_F</code> and whose parents contain overscoped bindings
+for tidy evaluation.</p>
+</td></tr>
+<tr valign="top"><td><code>quo</code></td>
+<td>
+<p>A quosure.</p>
+</td></tr>
+<tr valign="top"><td><code>env</code></td>
+<td>
+<p>The lexical enclosure in case <code>quo</code> is not a validly
+scoped quosure. This is the <a href="../../rlang/help/base_env.html">base environment</a> by
+default.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

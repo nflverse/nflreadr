@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: vctr (vector) S3 class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for new_vctr {vctrs}"><tr><td>new_vctr {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>vctr (vector) S3 class</h2>
+
+<h3>Description</h3>
+
+<p>This abstract class provides a set of useful default methods that makes it
+considerably easier to get started with a new S3 vector class. See
+<code>vignette("s3-vector")</code> to learn how to use it to create your own S3
+vector classes.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+new_vctr(.data, ..., class = character(), inherit_base_type = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.data</code></td>
+<td>
+<p>Foundation of class. Must be a vector</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Name-value pairs defining attributes</p>
+</td></tr>
+<tr valign="top"><td><code>class</code></td>
+<td>
+<p>Name of subclass.</p>
+</td></tr>
+<tr valign="top"><td><code>inherit_base_type</code></td>
+<td>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+A single logical, or <code>NULL</code>. Does this class extend the base type of
+<code>.data</code>? i.e. does the resulting object extend the behaviour of the
+underlying type? Defaults to <code>FALSE</code> for all types except lists, which
+are required to inherit from the base type.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>List vctrs are special cases. When created through <code>new_vctr()</code>, the
+resulting list vctr should always be recognized as a list by
+<code>vec_is_list()</code>. Because of this, if <code>inherit_base_type</code> is <code>FALSE</code>
+an error is thrown.
+</p>
+
+
+<h3>Base methods</h3>
+
+<p>The vctr class provides methods for many base generics using a smaller
+set of generics defined by this package. Generally, you should think
+carefully before overriding any of the methods that vctrs implements for
+you as they've been carefully planned to be internally consistent.
+</p>
+
+<ul>
+<li> <p><code>[[</code> and <code>[</code> use <code>NextMethod()</code> dispatch to the underlying base function,
+then restore attributes with <code>vec_restore()</code>.
+<code>rep()</code> and <code style="white-space: pre;">length&lt;-</code> work similarly.
+</p>
+</li>
+<li> <p><code style="white-space: pre;">[[&lt;-</code> and <code style="white-space: pre;">[&lt;-</code> cast <code>value</code> to same type as <code>x</code>, then call
+<code>NextMethod()</code>.
+</p>
+</li>
+<li> <p><code>as.logical()</code>, <code>as.integer()</code>, <code>as.numeric()</code>, <code>as.character()</code>,
+<code>as.Date()</code> and <code>as.POSIXct()</code> methods call <code>vec_cast()</code>.
+The <code>as.list()</code> method calls <code>[[</code> repeatedly, and the <code>as.data.frame()</code>
+method uses a standard technique to wrap a vector in a data frame.
+</p>
+</li>
+<li> <p><code>as.factor()</code>, <code>as.ordered()</code> and <code>as.difftime()</code> are not generic functions
+in base R, but have been reimplemented as generics in the <code>generics</code>
+package. <code>vctrs</code> extends these and calls <code>vec_cast()</code>. To inherit this
+behaviour in a package, import and re-export the generic of interest
+from <code>generics</code>.
+</p>
+</li>
+<li> <p><code>==</code>, <code>!=</code>, <code>unique()</code>, <code>anyDuplicated()</code>, and <code>is.na()</code> use
+<code><a href="../../vctrs/help/vec_proxy.html">vec_proxy()</a></code>.
+</p>
+</li>
+<li> <p><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&gt;</code>, <code>min()</code>, <code>max()</code>, <code>range()</code>, <code>median()</code>,
+<code>quantile()</code>, and <code>xtfrm()</code> methods use <code><a href="../../vctrs/help/vec_proxy_compare.html">vec_proxy_compare()</a></code>.
+</p>
+</li>
+<li> <p><code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>^</code>, <code>%%</code>, <code>%/%</code>, <code>!</code>, <code>&amp;</code>, and <code>|</code> operators
+use <code><a href="../../vctrs/help/vec_arith.html">vec_arith()</a></code>.
+</p>
+</li>
+<li><p> Mathematical operations including the Summary group generics (<code>prod()</code>,
+<code>sum()</code>, <code>any()</code>, <code>all()</code>), the Math group generics (<code>abs()</code>, <code>sign()</code>,
+etc), <code>mean()</code>, <code>is.nan()</code>, <code>is.finite()</code>, and <code>is.infinite()</code>
+use <code><a href="../../vctrs/help/vec_math.html">vec_math()</a></code>.
+</p>
+</li>
+<li> <p><code>dims()</code>, <code style="white-space: pre;">dims&lt;-</code>, <code>dimnames()</code>, <code style="white-space: pre;">dimnames&lt;-</code>, <code>levels()</code>, and
+<code style="white-space: pre;">levels&lt;-</code> methods throw errors.
+</p>
+</li></ul>
+
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

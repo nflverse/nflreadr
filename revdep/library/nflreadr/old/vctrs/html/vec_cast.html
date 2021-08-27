@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Cast a vector to a specified type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_cast {vctrs}"><tr><td>vec_cast {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Cast a vector to a specified type</h2>
+
+<h3>Description</h3>
+
+<p><code>vec_cast()</code> provides directional conversions from one type of
+vector to another. Along with <code><a href="../../vctrs/help/vec_ptype2.html">vec_ptype2()</a></code>, this generic forms
+the foundation of type coercions in vctrs.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_cast(x, to, ..., x_arg = "", to_arg = "")
+
+vec_cast_common(..., .to = NULL)
+
+## S3 method for class 'logical'
+vec_cast(x, to, ...)
+
+## S3 method for class 'integer'
+vec_cast(x, to, ...)
+
+## S3 method for class 'double'
+vec_cast(x, to, ...)
+
+## S3 method for class 'complex'
+vec_cast(x, to, ...)
+
+## S3 method for class 'raw'
+vec_cast(x, to, ...)
+
+## S3 method for class 'character'
+vec_cast(x, to, ...)
+
+## S3 method for class 'list'
+vec_cast(x, to, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Vectors to cast.</p>
+</td></tr>
+<tr valign="top"><td><code>to, .to</code></td>
+<td>
+<p>Type to cast to. If <code>NULL</code>, <code>x</code> will be returned as is.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>For <code>vec_cast_common()</code>, vectors to cast. For
+<code>vec_cast()</code>, <code>vec_cast_default()</code>, and <code>vec_restore()</code>, these
+dots are only for future extensions and should be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>x_arg, to_arg</code></td>
+<td>
+<p>Argument names for <code>x</code> and <code>to</code>. These are used
+in error messages to inform the user about the locations of
+incompatible types (see <code><a href="../../vctrs/help/stop_incompatible_type.html">stop_incompatible_type()</a></code>).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector the same length as <code>x</code> with the same type as <code>to</code>,
+or an error if the cast is not possible. An error is generated if
+information is lost when casting between compatible types (i.e. when
+there is no 1-to-1 mapping for a specific value).
+</p>
+
+
+<h3>Implementing coercion methods</h3>
+
+
+<ul>
+<li><p> For an overview of how these generics work and their roles in vctrs,
+see <code><a href="../../vctrs/help/theory-faq-coercion.html">?theory-faq-coercion</a></code>.
+</p>
+</li>
+<li><p> For an example of implementing coercion methods for simple vectors,
+see <code><a href="../../vctrs/help/howto-faq-coercion.html">?howto-faq-coercion</a></code>.
+</p>
+</li>
+<li><p> For an example of implementing coercion methods for data frame
+subclasses, see
+<code><a href="../../vctrs/help/howto-faq-coercion-data-frame.html">?howto-faq-coercion-data-frame</a></code>.
+</p>
+</li>
+<li><p> For a tutorial about implementing vctrs classes from scratch, see
+<code>vignette("s3-vector")</code>.
+</p>
+</li></ul>
+
+
+
+<h3>Dependencies of <code>vec_cast_common()</code></h3>
+
+
+
+<h4>vctrs dependencies</h4>
+
+
+<ul>
+<li> <p><code><a href="../../vctrs/help/vec_ptype2.html">vec_ptype2()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../vctrs/help/vec_cast.html">vec_cast()</a></code>
+</p>
+</li></ul>
+
+
+
+
+<h4>base dependencies</h4>
+
+<p>Some functions enable a base-class fallback for
+<code>vec_cast_common()</code>. In that case the inputs are deemed compatible
+when they have the same <a href="../../base/help/typeof.html">base type</a> and inherit from
+the same base class.
+</p>
+
+
+
+<h3>See Also</h3>
+
+<p>Call <code><a href="../../vctrs/help/stop_incompatible_cast.html">stop_incompatible_cast()</a></code> when you determine from the
+attributes that an input can't be cast to the target type.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# x is a double, but no information is lost
+vec_cast(1, integer())
+
+# When information is lost the cast fails
+try(vec_cast(c(1, 1.5), integer()))
+try(vec_cast(c(1, 2), logical()))
+
+# You can suppress this error and get the partial results
+allow_lossy_cast(vec_cast(c(1, 1.5), integer()))
+allow_lossy_cast(vec_cast(c(1, 2), logical()))
+
+# By default this suppress all lossy cast errors without
+# distinction, but you can be specific about what cast is allowed
+# by supplying prototypes
+allow_lossy_cast(vec_cast(c(1, 1.5), integer()), to_ptype = integer())
+try(allow_lossy_cast(vec_cast(c(1, 2), logical()), to_ptype = integer()))
+
+# No sensible coercion is possible so an error is generated
+try(vec_cast(1.5, factor("a")))
+
+# Cast to common type
+vec_cast_common(factor("a"), factor(c("a", "b")))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Convert to a base subscript type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_as_subscript {vctrs}"><tr><td>vec_as_subscript {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Convert to a base subscript type</h2>
+
+<h3>Description</h3>
+
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="../help/figures/lifecycle-experimental.svg" alt='[Experimental]' /></a>
+</p>
+<p>Convert <code>i</code> to the base type expected by <code><a href="../../vctrs/help/vec_as_location.html">vec_as_location()</a></code> or
+<code><a href="../../vctrs/help/vec_as_location2.html">vec_as_location2()</a></code>. The values of the subscript type are
+not checked in any way (length, missingness, negative elements).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_as_subscript(
+  i,
+  ...,
+  logical = c("cast", "error"),
+  numeric = c("cast", "error"),
+  character = c("cast", "error"),
+  arg = NULL
+)
+
+vec_as_subscript2(
+  i,
+  ...,
+  logical = c("cast", "error"),
+  numeric = c("cast", "error"),
+  character = c("cast", "error"),
+  arg = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>i</code></td>
+<td>
+<p>An integer, character or logical vector specifying the
+locations or names of the observations to get/set. Specify
+<code>TRUE</code> to index all elements (as in <code>x[]</code>), or <code>NULL</code>, <code>FALSE</code> or
+<code>integer()</code> to index none (as in <code>x[NULL]</code>).</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>logical, location, character</code></td>
+<td>
+<p>How to handle logical, numeric,
+and character subscripts.
+</p>
+<p>If <code>"cast"</code> and the subscript is not one of the three base types
+(logical, integer or character), the subscript is
+<a href="../../vctrs/help/vec_cast.html">cast</a> to the relevant base type, e.g. factors are
+coerced to character. <code>NULL</code> is treated as an empty integer
+vector, and is thus coercible depending on the setting of
+<code>numeric</code>. Symbols are treated as character vectors and thus
+coercible depending on the setting of <code>character</code>.
+</p>
+<p>If <code>"error"</code>, the subscript type is disallowed and triggers an
+informative error.</p>
+</td></tr>
+<tr valign="top"><td><code>arg</code></td>
+<td>
+<p>The argument name to be displayed in error messages when
+<code>vec_as_location()</code> and <code>vec_as_location2()</code> are used to check the
+type of a function input.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

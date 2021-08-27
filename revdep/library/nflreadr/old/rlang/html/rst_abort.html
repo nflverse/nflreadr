@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Jump to the abort restart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rst_abort {rlang}"><tr><td>rst_abort {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Jump to the abort restart</h2>
+
+<h3>Description</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#questioning'><img src='figures/lifecycle-questioning.svg' alt='Questioning lifecycle'></a>
+<p>The abort restart is the only restart that is established at top
+level. It is used by R as a top-level target, most notably when an
+error is issued (see <code><a href="../../rlang/help/abort.html">abort()</a></code>) that no handler is able
+to deal with (see <code><a href="../../rlang/help/with_handlers.html">with_handlers()</a></code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rst_abort()
+</pre>
+
+
+<h3>Life cycle</h3>
+
+<p>All the restart functions are in the questioning stage. It is not
+clear yet whether we want to recommend restarts as a style of
+programming in R.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../rlang/help/rst_jump.html">rst_jump()</a></code>, <code><a href="../../rlang/help/abort.html">abort()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# The `abort` restart is a bit special in that it is always
+# registered in a R session. You will always find it on the restart
+# stack because it is established at top level:
+rst_list()
+
+# You can use the `above` restart to jump to top level without
+# signalling an error:
+## Not run: 
+fn &lt;- function() {
+  cat("aborting...\n")
+  rst_abort()
+  cat("This is never called\n")
+}
+{
+  fn()
+  cat("This is never called\n")
+}
+
+## End(Not run)
+
+# The `above` restart is the target that R uses to jump to top
+# level when critical errors are signalled:
+## Not run: 
+{
+  abort("error")
+  cat("This is never called\n")
+}
+
+## End(Not run)
+
+# If another `abort` restart is specified, errors are signalled as
+# usual but then control flow resumes with from the new restart:
+## Not run: 
+out &lt;- NULL
+{
+  out &lt;- with_restarts(abort("error"), abort = function() "restart!")
+  cat("This is called\n")
+}
+cat("`out` has now become:", out, "\n")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>
