@@ -11,9 +11,9 @@ load_player_stats(
 )
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, defaults to most recent season. If set to \code{NULL}, returns all available data.}
+\item{seasons}{a numeric vector of seasons to return, defaults to most recent season. If set to \code{TRUE}, returns all available data.}
 
-\item{stat_type}{one of \code{offense}, \code{defense}, or \code{special_teams}}
+\item{stat_type}{one of \code{offense} or \code{kicking}}
 
 \item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
 \code{options(nflreadr.prefer)}}

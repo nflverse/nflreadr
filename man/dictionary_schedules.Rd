@@ -5,7 +5,7 @@
 \alias{dictionary_schedules}
 \title{Data Dictionary: Schedules}
 \format{
-An object of class \code{data.frame} with 29 rows and 2 columns.
+An object of class \code{data.frame} with 27 rows and 2 columns.
 }
 \usage{
 dictionary_schedules

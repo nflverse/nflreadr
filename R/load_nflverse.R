@@ -43,8 +43,8 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 
 #' Load Player Level Weekly Stats
 #'
-#' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `NULL`, returns all available data.
-#' @param stat_type one of `offense`, `defense`, or `special_teams`
+#' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `TRUE`, returns all available data.
+#' @param stat_type one of `offense` or `kicking`
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'

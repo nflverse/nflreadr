@@ -4,7 +4,7 @@ This release makes some backend changes for speed, reduced dependency footprint,
 
 ## New Data
 
-- `load_player_stats()` can now retrieve weekly summaries of kicking data by specifying the `stat_type()`.
+- `load_player_stats()` can now retrieve weekly summaries of kicking data by specifying the `stat_type` argument to be `"kicking"`.
 - `load_combine()` retrieves NFL combine data (from PFR).
 
 ## Backend Changes
