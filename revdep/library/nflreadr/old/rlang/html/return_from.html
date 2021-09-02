@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Jump to or from a frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for return_from {rlang}"><tr><td>return_from {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Jump to or from a frame</h2>
+
+<h3>Description</h3>
+
+<a href='https://www.tidyverse.org/lifecycle/#questioning'><img src='figures/lifecycle-questioning.svg' alt='Questioning lifecycle'></a>
+<p>While <code><a href="../../base/help/function.html">base::return()</a></code> can only return from the current local
+frame, these two functions will return from any frame on the
+current evaluation stack, between the global and the currently
+active context. They provide a way of performing arbitrary
+non-local jumps out of the function currently under evaluation.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+return_from(frame, value = NULL)
+
+return_to(frame, value = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>frame</code></td>
+<td>
+<p>An environment, a frame object, or any object with an
+<code><a href="../../rlang/help/get_env.html">get_env()</a></code> method. The environment should be an evaluation
+environment currently on the stack.</p>
+</td></tr>
+<tr valign="top"><td><code>value</code></td>
+<td>
+<p>The return value.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>return_from()</code> will jump out of <code>frame</code>. <code>return_to()</code> is a bit
+trickier. It will jump out of the frame located just before <code>frame</code>
+in the evaluation stack, so that control flow ends up in <code>frame</code>,
+at the location where the previous frame was called from.
+</p>
+<p>These functions should only be used rarely. These sort of non-local
+gotos can be hard to reason about in casual code, though they can
+sometimes be useful. Also, consider to use the condition system to
+perform non-local jumps.
+</p>
+
+
+<h3>Life cycle</h3>
+
+<p>The support for <code>frame</code> object is soft-deprecated.  Please pass
+simple environments to <code>return_from()</code> and <code>return_to()</code>.
+</p>
+<p>These functions are in the questioning lifecycle because we are
+considering simpler alternatives.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Passing fn() evaluation frame to g():
+fn &lt;- function() {
+  val &lt;- g(current_env())
+  cat("g returned:", val, "\n")
+  "normal return"
+}
+g &lt;- function(env) h(env)
+
+# Here we return from fn() with a new return value:
+h &lt;- function(env) return_from(env, "early return")
+fn()
+
+# Here we return to fn(). The call stack unwinds until the last frame
+# called by fn(), which is g() in that case.
+h &lt;- function(env) return_to(env, "early return")
+fn()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

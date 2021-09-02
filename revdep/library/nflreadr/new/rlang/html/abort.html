@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Signal an error, warning, or message</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for abort {rlang}"><tr><td>abort {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Signal an error, warning, or message</h2>
+
+<h3>Description</h3>
+
+<p>These functions are equivalent to base functions <code><a href="../../base/help/stop.html">base::stop()</a></code>,
+<code><a href="../../base/help/warning.html">base::warning()</a></code>, and <code><a href="../../base/help/message.html">base::message()</a></code>, but make it easy to supply
+condition metadata:
+</p>
+
+<ul>
+<li><p> Supply <code>class</code> to create a classed condition. Typed
+conditions can be captured or handled selectively, allowing for
+finer-grained error handling.
+</p>
+</li>
+<li><p> Supply metadata with named <code>...</code> arguments. This data will be
+stored in the condition object and can be examined by handlers.
+</p>
+</li></ul>
+
+<p><code>interrupt()</code> allows R code to simulate a user interrupt of the
+kind that is signalled with <code>Ctrl-C</code>. It is currently not possible
+to create custom interrupt condition objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+abort(
+  message = NULL,
+  class = NULL,
+  ...,
+  trace = NULL,
+  parent = NULL,
+  .subclass = deprecated()
+)
+
+warn(
+  message = NULL,
+  class = NULL,
+  ...,
+  .frequency = c("always", "regularly", "once"),
+  .frequency_id = NULL,
+  .subclass = deprecated()
+)
+
+inform(
+  message = NULL,
+  class = NULL,
+  ...,
+  .file = NULL,
+  .frequency = c("always", "regularly", "once"),
+  .frequency_id = NULL,
+  .subclass = deprecated()
+)
+
+signal(message, class, ..., .subclass = deprecated())
+
+interrupt()
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>message</code></td>
+<td>
+<p>The message to display. Character vectors are
+formatted with <code><a href="../../rlang/help/format_error_bullets.html">format_error_bullets()</a></code>. The first element
+defines a message header and the rest of the vector defines
+bullets. Bullets named <code>i</code> and <code>x</code> define info and error bullets
+respectively, with special Unicode and colour formatting applied
+if possible.
+</p>
+<p>If a message is not supplied, it is expected that the message is
+generated lazily through <a href="../../rlang/help/cnd_message.html">conditionMessage()</a>. In
+that case, <code>class</code> must be supplied. Only <code>inform()</code> allows empty
+messages as it is occasionally useful to build user output
+incrementally.</p>
+</td></tr>
+<tr valign="top"><td><code>class</code></td>
+<td>
+<p>Subclass of the condition. This allows your users
+to selectively handle the conditions signalled by your functions.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional data to be stored in the condition object.</p>
+</td></tr>
+<tr valign="top"><td><code>trace</code></td>
+<td>
+<p>A <code>trace</code> object created by <code><a href="../../rlang/help/trace_back.html">trace_back()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>parent</code></td>
+<td>
+<p>A parent condition object created by <code><a href="../../rlang/help/abort.html">abort()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>.subclass</code></td>
+<td>
+<p>This argument was renamed to <code>class</code> in rlang
+0.4.2.  It will be deprecated in the next major version. This is
+for consistency with our conventions for class constructors
+documented in <a href="https://adv-r.hadley.nz/s3.html#s3-subclassing">https://adv-r.hadley.nz/s3.html#s3-subclassing</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>.frequency</code></td>
+<td>
+<p>How frequently should the warning or message be
+displayed? By default (<code>"always"</code>) it is displayed at each
+time. If <code>"regularly"</code>, it is displayed once every 8 hours. If
+<code>"once"</code>, it is displayed once per session.</p>
+</td></tr>
+<tr valign="top"><td><code>.frequency_id</code></td>
+<td>
+<p>A unique identifier for the warning or
+message. This is used when <code>.frequency</code> is supplied to recognise
+recurring conditions. This argument must be supplied if
+<code>.frequency</code> is not set to <code>"always"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>.file</code></td>
+<td>
+<p>Where the message is printed. This should be a
+connection or character string which will be passed to <code><a href="../../base/html/cat.html">cat()</a></code>.
+</p>
+<p>By default, <code>inform()</code> prints to standard output in interactive
+sessions and standard error otherwise. This way IDEs can treat
+messages distinctly from warnings and errors, and R scripts can
+still filter out the messages easily by redirecting <code>stderr</code>. If
+a sink is active, either on output or on messages, messages are
+printed to <code>stderr</code>. This ensures consistency of behaviour in
+interactive and non-interactive sessions.</p>
+</td></tr>
+</table>
+
+
+<h3>Backtrace</h3>
+
+<p>Unlike <code>stop()</code> and <code>warning()</code>, these functions don't include call
+information by default. This saves you from typing <code>call. = FALSE</code>
+and produces cleaner error messages.
+</p>
+<p>A backtrace is always saved into error objects. You can print a
+simplified backtrace of the last error by calling <code><a href="../../rlang/help/last_error.html">last_error()</a></code>
+and a full backtrace with <code>summary(last_error())</code>.
+</p>
+<p>You can also display a backtrace with the error message by setting
+the option <code><a href="../../rlang/help/rlang_backtrace_on_error.html">rlang_backtrace_on_error</a></code>. It supports the following
+values:
+</p>
+
+<ul>
+<li> <p><code>"reminder"</code>: Invite users to call <code>rlang::last_error()</code> to see a
+backtrace.
+</p>
+</li>
+<li> <p><code>"branch"</code>: Display a simplified backtrace.
+</p>
+</li>
+<li> <p><code>"collapse"</code>: Display a collapsed backtrace tree.
+</p>
+</li>
+<li> <p><code>"full"</code>: Display a full backtrace tree.
+</p>
+</li>
+<li> <p><code>"none"</code>: Display nothing.
+</p>
+</li></ul>
+
+
+
+<h3>Mufflable conditions</h3>
+
+<p>Signalling a condition with <code>inform()</code> or <code>warn()</code> causes a message
+to be displayed in the console. These messages can be muffled with
+<code><a href="../../base/help/message.html">base::suppressMessages()</a></code> or <code><a href="../../base/help/warning.html">base::suppressWarnings()</a></code>.
+</p>
+<p>On recent R versions (&gt;= R 3.5.0), interrupts are typically
+signalled with a <code>"resume"</code> restart. This is however not
+guaranteed.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../rlang/help/with_abort.html">with_abort()</a></code> to convert all errors to rlang errors.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# These examples are guarded to avoid throwing errors
+if (FALSE) {
+
+# Signal an error with a message just like stop():
+abort("Something bad happened")
+
+# Give a class to the error:
+abort("Something bad happened", "somepkg_bad_error")
+
+# This will allow your users to handle the error selectively
+tryCatch(
+  somepkg_function(),
+  somepkg_bad_error = function(err) {
+    warn(conditionMessage(err)) # Demote the error to a warning
+    NA                          # Return an alternative value
+  }
+)
+
+# You can also specify metadata that will be stored in the condition:
+abort("Something bad happened", "somepkg_bad_error", data = 1:10)
+
+# This data can then be consulted by user handlers:
+tryCatch(
+  somepkg_function(),
+  somepkg_bad_error = function(err) {
+    # Compute an alternative return value with the data:
+    recover_error(err$data)
+  }
+)
+
+# If you call low-level APIs it is good practice to handle
+# technical errors and rethrow them with a more meaningful
+# message. Always prefer doing this from `withCallinghandlers()`
+# rather than `tryCatch()` because the former preserves the stack
+# on error and makes it possible for users to use `recover()`.
+file &lt;- "http://foo.bar/baz"
+try(withCallinghandlers(
+  download(file),
+  error = function(err) {
+    msg &lt;- sprintf("Can't download `%s`", file)
+    abort(msg, parent = err)
+}))
+# Note how we supplied the parent error to `abort()` as `parent` to
+# get a decomposition of error messages across error contexts.
+
+# Unhandled errors are saved automatically by `abort()` and can be
+# retrieved with `last_error()`. The error prints with a simplified
+# backtrace:
+abort("Saved error?")
+last_error()
+
+# Use `summary()` to print the full backtrace and the condition fields:
+summary(last_error())
+
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

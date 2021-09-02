@@ -1,0 +1,30 @@
+---
+title: "Data Dictionary - Rosters"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Dictionary - Rosters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  comment = "#>"
+)
+use_dt <- FALSE
+if(requireNamespace("DT", quietly = TRUE)) use_dt <- TRUE
+```
+
+```{r eval = use_dt}
+DT::datatable(nflreadr::dictionary_rosters, 
+              options = list(scrollX = TRUE, pageLength = 25),
+              filter = "top",
+              rownames = FALSE
+              )
+```
+
+```{r eval = !use_dt}
+knitr::kable(nflreadr::dictionary_rosters)
+```

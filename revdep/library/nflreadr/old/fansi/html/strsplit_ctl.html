@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ANSI Control Sequence Aware Version of strsplit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for strsplit_ctl {fansi}"><tr><td>strsplit_ctl {fansi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ANSI Control Sequence Aware Version of strsplit</h2>
+
+<h3>Description</h3>
+
+<p>A drop-in replacement for <a href="../../base/help/strsplit.html">base::strsplit</a>.  It will be noticeably slower,
+but should otherwise behave the same way except for <em>Control Sequence</em>
+awareness.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+strsplit_ctl(
+  x,
+  split,
+  fixed = FALSE,
+  perl = FALSE,
+  useBytes = FALSE,
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap"),
+  ctl = "all"
+)
+
+strsplit_sgr(
+  x,
+  split,
+  fixed = FALSE,
+  perl = FALSE,
+  useBytes = FALSE,
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character vector, or, unlike <a href="../../base/help/strsplit.html">base::strsplit</a> an object that can
+be coerced to character.</p>
+</td></tr>
+<tr valign="top"><td><code>split</code></td>
+<td>
+
+<p>character vector (or object which can be coerced to such)
+containing <a href="../../base/help/regular expression.html">regular expression</a>(s) (unless <code>fixed = TRUE</code>)
+to use for splitting.  If empty matches occur, in particular if
+<code>split</code> has length 0, <code>x</code> is split into single characters.
+If <code>split</code> has length greater than 1, it is re-cycled along
+<code>x</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>fixed</code></td>
+<td>
+
+<p>logical.  If <code>TRUE</code> match <code>split</code> exactly, otherwise
+use regular expressions.  Has priority over <code>perl</code>.
+</p>
+</td></tr>
+<tr valign="top"><td><code>perl</code></td>
+<td>
+<p>logical.  Should Perl-compatible regexps be used?</p>
+</td></tr>
+<tr valign="top"><td><code>useBytes</code></td>
+<td>
+<p>logical.  If <code>TRUE</code> the matching is done
+byte-by-byte rather than character-by-character, and inputs with
+marked encodings are not converted.  This is forced (with a warning)
+if any input is found which is marked as <code>"bytes"</code>
+(see <code><a href="../../base/help/Encoding.html">Encoding</a></code>).</p>
+</td></tr>
+<tr valign="top"><td><code>warn</code></td>
+<td>
+<p>TRUE (default) or FALSE, whether to warn when potentially
+problematic <em>Control Sequences</em> are encountered.  These could cause the
+assumptions <code>fansi</code> makes about how strings are rendered on your display
+to be incorrect, for example by moving the cursor (see <a href="../../fansi/help/fansi.html">fansi</a>).</p>
+</td></tr>
+<tr valign="top"><td><code>term.cap</code></td>
+<td>
+<p>character a vector of the capabilities of the terminal, can
+be any combination of &quot;bright&quot; (SGR codes 90-97, 100-107), &quot;256&quot; (SGR codes
+starting with &quot;38;5&quot; or &quot;48;5&quot;), and &quot;truecolor&quot; (SGR codes starting with
+&quot;38;2&quot; or &quot;48;2&quot;). Changing this parameter changes how <code>fansi</code>
+interprets escape sequences, so you should ensure that it matches your
+terminal capabilities. See <a href="../../fansi/help/term_cap_test.html">term_cap_test</a> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>ctl</code></td>
+<td>
+<p>character, which <em>Control Sequences</em> should be treated
+specially. See the &quot;_ctl vs. _sgr&quot; section for details.
+</p>
+
+<ul>
+<li><p> &quot;nl&quot;: newlines.
+</p>
+</li>
+<li><p> &quot;c0&quot;: all other &quot;C0&quot; control characters (i.e. 0x01-0x1f, 0x7F), except
+for newlines and the actual ESC (0x1B) character.
+</p>
+</li>
+<li><p> &quot;sgr&quot;: ANSI CSI SGR sequences.
+</p>
+</li>
+<li><p> &quot;csi&quot;: all non-SGR ANSI CSI sequences.
+</p>
+</li>
+<li><p> &quot;esc&quot;: all other escape sequences.
+</p>
+</li>
+<li><p> &quot;all&quot;: all of the above, except when used in combination with any of the
+above, in which case it means &quot;all but&quot;.
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function works by computing the position of the split points after
+removing <em>Control Sequences</em>, and uses those positions in conjunction with
+<code><a href="../../fansi/help/substr_ctl.html">substr_ctl</a></code> to extract the pieces.  This concept is borrowed from
+<code>crayon::col_strsplit</code>.  An important implication of this is that you cannot
+split by <em>Control Sequences</em> that are being treated as <em>Control Sequences</em>.
+You can however limit which control sequences are treated specially via the
+<code>ctl</code> parameters (see examples).
+</p>
+
+
+<h3>Value</h3>
+
+<p>list, see <a href="../../base/help/strsplit.html">base::strsplit</a>.
+</p>
+
+
+<h3>_ctl vs. _sgr</h3>
+
+<p>The <code style="white-space: pre;">*_ctl</code> versions of the functions treat all <em>Control Sequences</em> specially
+by default.  Special treatment is context dependent, and may include
+detecting them and/or computing their display/character width as zero.  For
+the SGR subset of the ANSI CSI sequences, <code>fansi</code> will also parse, interpret,
+and reapply the text styles they encode if needed.  You can modify whether a
+<em>Control Sequence</em> is treated specially with the <code>ctl</code> parameter.  You can
+exclude a type of <em>Control Sequence</em> from special treatment by combining
+&quot;all&quot; with that type of sequence (e.g. <code>ctl=c("all", "nl")</code> for special
+treatment of all <em>Control Sequences</em> <strong>but</strong> newlines).  The <code style="white-space: pre;">*_sgr</code> versions
+only treat ANSI CSI SGR sequences specially, and are equivalent to the
+<code style="white-space: pre;">*_ctl</code> versions with the <code>ctl</code> parameter set to &quot;sgr&quot;.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Non-ASCII strings are converted to and returned in UTF-8 encoding.  The
+split positions are computed after both <code>x</code> and <code>split</code> are converted to
+UTF-8.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="../../fansi/help/fansi.html">fansi</a> for details on how <em>Control Sequences</em> are
+interpreted, particularly if you are getting unexpected results,
+<a href="../../base/help/strsplit.html">base::strsplit</a> for details on the splitting.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+strsplit_sgr("\033[31mhello\033[42m world!", " ")
+
+## Next two examples allow splitting by newlines, which
+## normally doesn't work as newlines are _Control Sequences_
+strsplit_sgr("\033[31mhello\033[42m\nworld!", "\n")
+strsplit_ctl("\033[31mhello\033[42m\nworld!", "\n", ctl=c("all", "nl"))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>fansi</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

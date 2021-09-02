@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Extract function from a call</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for call_fn {rlang}"><tr><td>call_fn {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Extract function from a call</h2>
+
+<h3>Description</h3>
+
+<p>If a frame or formula, the function will be retrieved from the
+associated environment. Otherwise, it is looked up in the calling
+frame.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+call_fn(call, env = caller_env())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>call</code></td>
+<td>
+<p>Can be a call or a quosure that wraps a call.</p>
+</td></tr>
+<tr valign="top"><td><code>env</code></td>
+<td>
+<p>The environment where to find the definition of the
+function quoted in <code>call</code> in case <code>call</code> is not wrapped in a
+quosure.</p>
+</td></tr>
+</table>
+
+
+<h3>Life cycle</h3>
+
+<p>In rlang 0.2.0, <code>lang_fn()</code> was deprecated and renamed to
+<code>call_fn()</code>. See lifecycle section in <code><a href="../../rlang/help/call2.html">call2()</a></code> for more about this
+change.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../rlang/help/call_name.html">call_name()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Extract from a quoted call:
+call_fn(quote(matrix()))
+call_fn(quo(matrix()))
+
+# Extract the calling function
+test &lt;- function() call_fn(call_frame())
+test()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

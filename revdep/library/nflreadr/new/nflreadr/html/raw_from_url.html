@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Load raw filedata from a remote connection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for raw_from_url {nflreadr}"><tr><td>raw_from_url {nflreadr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Load raw filedata from a remote connection</h2>
+
+<h3>Description</h3>
+
+<p>This function allows you to retrieve data from a URL into raw format, which
+can then be passed into the appropriate file-reading function, such as <code>arrow::read_parquet()</code>
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+raw_from_url(url)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>url</code></td>
+<td>
+<p>a character url</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>a raw vector
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+head(raw_from_url(
+  "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
+  ),
+50)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>nflreadr</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

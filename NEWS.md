@@ -1,15 +1,17 @@
-# nflreadr (development version)
+# nflreadr 1.1.0
 
+This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance. 
 
-## Minor changes
+## New Data
 
-- Remove progress handling from `*_from_url()` family of functions and move responsibility to `progressively()` function decorator instead. (v1.0.0.1)
-- Add weekly kicking data.
-- Add `stat_type` argument to `load_player_stats()` - currently available options are `"offense"` and `"kicking"`, future iterations may include `"defense"`, `"punting"`, `"return"`. (v1.0.0.2)
-- Refactored to use `data.table` instead of `dplyr`/`purrr` - this hopefully improves speed and reduces the dependency footprint. (v1.0.0.3)
-- Use `rlang::arg_match0` instead of `match.arg` - uses rlang explicitly (instead of implicitly) (v1.0.0.4)
-- Add nfl combine data (v1.0.0.5)
-- Add csv_from_url (v1.0.0.6)
+- `load_player_stats()` can now retrieve weekly summaries of kicking data by specifying the `stat_type` argument to be `"kicking"`.
+- `load_combine()` retrieves NFL combine data (from PFR).
+
+## Backend Changes
+
+- Remove progress handling from `*_from_url()` family of functions and move responsibility to `progressively()` function decorator instead. See vignette for details.
+- Removed dependency on `dplyr` and `purrr` in favour of `data.table` - this hopefully improves speed and reduces the dependency footprint.
+- Uses `rlang::arg_match0` instead of match.arg (uses rlang explicitly instead of implicitly as a dependency of memoise).
 
 ---
 
@@ -23,6 +25,7 @@ At this time, it includes data from the following repositories:
 - [nflverse/nfldata](https://github.com/nflverse/nfldata)
 - [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
 - [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
+- [nflverse/pfr_scrapR](https://github.com/nflverse/pfr_scrapR)
 - [dynastyprocess/data](https://github.com/dynastyprocess/data)
 
 This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.

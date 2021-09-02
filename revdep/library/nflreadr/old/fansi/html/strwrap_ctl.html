@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ANSI Control Sequence Aware Version of strwrap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for strwrap_ctl {fansi}"><tr><td>strwrap_ctl {fansi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ANSI Control Sequence Aware Version of strwrap</h2>
+
+<h3>Description</h3>
+
+<p>Wraps strings to a specified width accounting for zero display width <em>Control
+Sequences</em>.  <code>strwrap_ctl</code> is intended to emulate <code>strwrap</code> exactly except
+with respect to the <em>Control Sequences</em>, while <code>strwrap2_ctl</code> adds features
+and changes the processing of whitespace.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+strwrap_ctl(
+  x,
+  width = 0.9 * getOption("width"),
+  indent = 0,
+  exdent = 0,
+  prefix = "",
+  simplify = TRUE,
+  initial = prefix,
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap"),
+  ctl = "all"
+)
+
+strwrap2_ctl(
+  x,
+  width = 0.9 * getOption("width"),
+  indent = 0,
+  exdent = 0,
+  prefix = "",
+  simplify = TRUE,
+  initial = prefix,
+  wrap.always = FALSE,
+  pad.end = "",
+  strip.spaces = !tabs.as.spaces,
+  tabs.as.spaces = getOption("fansi.tabs.as.spaces"),
+  tab.stops = getOption("fansi.tab.stops"),
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap"),
+  ctl = "all"
+)
+
+strwrap_sgr(
+  x,
+  width = 0.9 * getOption("width"),
+  indent = 0,
+  exdent = 0,
+  prefix = "",
+  simplify = TRUE,
+  initial = prefix,
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap")
+)
+
+strwrap2_sgr(
+  x,
+  width = 0.9 * getOption("width"),
+  indent = 0,
+  exdent = 0,
+  prefix = "",
+  simplify = TRUE,
+  initial = prefix,
+  wrap.always = FALSE,
+  pad.end = "",
+  strip.spaces = !tabs.as.spaces,
+  tabs.as.spaces = getOption("fansi.tabs.as.spaces"),
+  tab.stops = getOption("fansi.tab.stops"),
+  warn = getOption("fansi.warn"),
+  term.cap = getOption("fansi.term.cap")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>a character vector, or an object which can be converted to a
+character vector by <code><a href="../../base/help/as.character.html">as.character</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>width</code></td>
+<td>
+<p>a positive integer giving the target column for wrapping
+lines in the output.</p>
+</td></tr>
+<tr valign="top"><td><code>indent</code></td>
+<td>
+<p>a non-negative integer giving the indentation of the
+first line in a paragraph.</p>
+</td></tr>
+<tr valign="top"><td><code>exdent</code></td>
+<td>
+<p>a non-negative integer specifying the indentation of
+subsequent lines in paragraphs.</p>
+</td></tr>
+<tr valign="top"><td><code>prefix</code></td>
+<td>
+<p>a character string to be used as prefix for
+each line except the first, for which <code>initial</code> is used.</p>
+</td></tr>
+<tr valign="top"><td><code>simplify</code></td>
+<td>
+<p>a logical.  If <code>TRUE</code>, the result is a single
+character vector of line text; otherwise, it is a list of the same
+length as <code>x</code> the elements of which are character vectors of
+line text obtained from the corresponding element of <code>x</code>.
+(Hence, the result in the former case is obtained by unlisting that
+of the latter.)</p>
+</td></tr>
+<tr valign="top"><td><code>initial</code></td>
+<td>
+<p>a character string to be used as prefix for
+each line except the first, for which <code>initial</code> is used.</p>
+</td></tr>
+<tr valign="top"><td><code>warn</code></td>
+<td>
+<p>TRUE (default) or FALSE, whether to warn when potentially
+problematic <em>Control Sequences</em> are encountered.  These could cause the
+assumptions <code>fansi</code> makes about how strings are rendered on your display
+to be incorrect, for example by moving the cursor (see <a href="../../fansi/help/fansi.html">fansi</a>).</p>
+</td></tr>
+<tr valign="top"><td><code>term.cap</code></td>
+<td>
+<p>character a vector of the capabilities of the terminal, can
+be any combination of &quot;bright&quot; (SGR codes 90-97, 100-107), &quot;256&quot; (SGR codes
+starting with &quot;38;5&quot; or &quot;48;5&quot;), and &quot;truecolor&quot; (SGR codes starting with
+&quot;38;2&quot; or &quot;48;2&quot;). Changing this parameter changes how <code>fansi</code>
+interprets escape sequences, so you should ensure that it matches your
+terminal capabilities. See <a href="../../fansi/help/term_cap_test.html">term_cap_test</a> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>ctl</code></td>
+<td>
+<p>character, which <em>Control Sequences</em> should be treated
+specially. See the &quot;_ctl vs. _sgr&quot; section for details.
+</p>
+
+<ul>
+<li><p> &quot;nl&quot;: newlines.
+</p>
+</li>
+<li><p> &quot;c0&quot;: all other &quot;C0&quot; control characters (i.e. 0x01-0x1f, 0x7F), except
+for newlines and the actual ESC (0x1B) character.
+</p>
+</li>
+<li><p> &quot;sgr&quot;: ANSI CSI SGR sequences.
+</p>
+</li>
+<li><p> &quot;csi&quot;: all non-SGR ANSI CSI sequences.
+</p>
+</li>
+<li><p> &quot;esc&quot;: all other escape sequences.
+</p>
+</li>
+<li><p> &quot;all&quot;: all of the above, except when used in combination with any of the
+above, in which case it means &quot;all but&quot;.
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>wrap.always</code></td>
+<td>
+<p>TRUE or FALSE (default), whether to hard wrap at requested
+width if no word breaks are detected within a line.  If set to TRUE then
+<code>width</code> must be at least 2.</p>
+</td></tr>
+<tr valign="top"><td><code>pad.end</code></td>
+<td>
+<p>character(1L), a single character to use as padding at the
+end of each line until the line is <code>width</code> wide.  This must be a printable
+ASCII character or an empty string (default).  If you set it to an empty
+string the line remains unpadded.</p>
+</td></tr>
+<tr valign="top"><td><code>strip.spaces</code></td>
+<td>
+<p>TRUE (default) or FALSE, if TRUE, extraneous white spaces
+(spaces, newlines, tabs) are removed in the same way as <a href="../../base/help/strwrap.html">base::strwrap</a>
+does.  When FALSE, whitespaces are preserved, except for newlines as those
+are implicit in boundaries between vector elements.</p>
+</td></tr>
+<tr valign="top"><td><code>tabs.as.spaces</code></td>
+<td>
+<p>FALSE (default) or TRUE, whether to convert tabs to
+spaces.  This can only be set to TRUE if <code>strip.spaces</code> is FALSE.</p>
+</td></tr>
+<tr valign="top"><td><code>tab.stops</code></td>
+<td>
+<p>integer(1:n) indicating position of tab stops to use
+when converting tabs to spaces.  If there are more tabs in a line than
+defined tab stops the last tab stop is re-used.  For the purposes of
+applying tab stops, each input line is considered a line and the character
+count begins from the beginning of the input line.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>strwrap2_ctl</code> can convert tabs to spaces, pad strings up to <code>width</code>, and
+hard-break words if single words are wider than <code>width</code>.
+</p>
+<p>Unlike <a href="../../base/help/strwrap.html">base::strwrap</a>, both these functions will translate any non-ASCII
+strings to UTF-8 and return them in UTF-8.  Additionally, malformed UTF-8
+sequences are not converted to a text representation of bytes.
+</p>
+<p>When replacing tabs with spaces the tabs are computed relative to the
+beginning of the input line, not the most recent wrap point.
+Additionally,<code>indent</code>, <code>exdent</code>, <code>initial</code>, and <code>prefix</code> will be ignored when
+computing tab positions.
+</p>
+
+
+<h3>_ctl vs. _sgr</h3>
+
+<p>The <code style="white-space: pre;">*_ctl</code> versions of the functions treat all <em>Control Sequences</em> specially
+by default.  Special treatment is context dependent, and may include
+detecting them and/or computing their display/character width as zero.  For
+the SGR subset of the ANSI CSI sequences, <code>fansi</code> will also parse, interpret,
+and reapply the text styles they encode if needed.  You can modify whether a
+<em>Control Sequence</em> is treated specially with the <code>ctl</code> parameter.  You can
+exclude a type of <em>Control Sequence</em> from special treatment by combining
+&quot;all&quot; with that type of sequence (e.g. <code>ctl=c("all", "nl")</code> for special
+treatment of all <em>Control Sequences</em> <strong>but</strong> newlines).  The <code style="white-space: pre;">*_sgr</code> versions
+only treat ANSI CSI SGR sequences specially, and are equivalent to the
+<code style="white-space: pre;">*_ctl</code> versions with the <code>ctl</code> parameter set to &quot;sgr&quot;.
+</p>
+
+
+<h3>Note</h3>
+
+<p>Non-ASCII strings are converted to and returned in UTF-8 encoding.
+Width calculations will not work correctly with R &lt; 3.2.2.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><a href="../../fansi/help/fansi.html">fansi</a> for details on how <em>Control Sequences</em> are
+interpreted, particularly if you are getting unexpected results.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+hello.1 &lt;- "hello \033[41mred\033[49m world"
+hello.2 &lt;- "hello\t\033[41mred\033[49m\tworld"
+
+strwrap_ctl(hello.1, 12)
+strwrap_ctl(hello.2, 12)
+
+## In default mode strwrap2_ctl is the same as strwrap_ctl
+strwrap2_ctl(hello.2, 12)
+
+## But you can leave whitespace unchanged, `warn`
+## set to false as otherwise tabs causes warning
+strwrap2_ctl(hello.2, 12, strip.spaces=FALSE, warn=FALSE)
+
+## And convert tabs to spaces
+strwrap2_ctl(hello.2, 12, tabs.as.spaces=TRUE)
+
+## If your display has 8 wide tab stops the following two
+## outputs should look the same
+writeLines(strwrap2_ctl(hello.2, 80, tabs.as.spaces=TRUE))
+writeLines(hello.2)
+
+## tab stops are NOT auto-detected, but you may provide
+## your own
+strwrap2_ctl(hello.2, 12, tabs.as.spaces=TRUE, tab.stops=c(6, 12))
+
+## You can also force padding at the end to equal width
+writeLines(strwrap2_ctl("hello how are you today", 10, pad.end="."))
+
+## And a more involved example where we read the
+## NEWS file, color it line by line, wrap it to
+## 25 width and display some of it in 3 columns
+## (works best on displays that support 256 color
+## SGR sequences)
+
+NEWS &lt;- readLines(file.path(R.home('doc'), 'NEWS'))
+NEWS.C &lt;- fansi_lines(NEWS, step=2)  # color each line
+W &lt;- strwrap2_ctl(NEWS.C, 25, pad.end=" ", wrap.always=TRUE)
+writeLines(c("", paste(W[1:20], W[100:120], W[200:220]), ""))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>fansi</em> version 0.5.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

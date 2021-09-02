@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Partial apply a function, filling in some arguments.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for partial {purrr}"><tr><td>partial {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Partial apply a function, filling in some arguments.</h2>
+
+<h3>Description</h3>
+
+<p>Partial function application allows you to modify a function by pre-filling
+some of the arguments.  It is particularly useful in conjunction with
+functionals and other function operators.
+</p>
+<p>Note that an argument can only be partialised once.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+partial(.f, ..., .env = NULL, .lazy = NULL, .first = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>a function. For the output source to read well, this should be a
+named function.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>named arguments to <code>.f</code> that should be partially applied.
+</p>
+<p>Pass an empty <code style="white-space: pre;">... = </code> argument to specify the position of future
+arguments relative to partialised ones. See
+<code><a href="../../rlang/help/call_modify.html">rlang::call_modify()</a></code> to learn more about this syntax.
+</p>
+<p>These dots support quasiquotation and quosures. If you unquote a
+value, it is evaluated only once at function creation time.
+Otherwise, it is evaluated each time the function is called.</p>
+</td></tr>
+<tr valign="top"><td><code>.env</code></td>
+<td>
+<p>Soft-deprecated as of purrr 0.3.0. The environments are
+now captured via quosures.</p>
+</td></tr>
+<tr valign="top"><td><code>.lazy</code></td>
+<td>
+<p>Soft-deprecated as of purrr 0.3.0. Please unquote the
+arguments that should be evaluated once at function creation time.</p>
+</td></tr>
+<tr valign="top"><td><code>.first</code></td>
+<td>
+<p>Soft-deprecated as of purrr 0.3.0. Please pass an
+empty argument <code style="white-space: pre;">... = </code> to specify the position of future
+arguments.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Partial is designed to replace the use of anonymous functions for
+# filling in function arguments. Instead of:
+compact1 &lt;- function(x) discard(x, is.null)
+
+# we can write:
+compact2 &lt;- partial(discard, .p = is.null)
+
+# partial() works fine with functions that do non-standard
+# evaluation
+my_long_variable &lt;- 1:10
+plot2 &lt;- partial(plot, my_long_variable)
+plot2()
+plot2(runif(10), type = "l")
+
+# Note that you currently can't partialise arguments multiple times:
+my_mean &lt;- partial(mean, na.rm = TRUE)
+my_mean &lt;- partial(my_mean, na.rm = FALSE)
+try(my_mean(1:10))
+
+
+# The evaluation of arguments normally occurs "lazily". Concretely,
+# this means that arguments are repeatedly evaluated across invocations:
+f &lt;- partial(runif, n = rpois(1, 5))
+f
+f()
+f()
+
+# You can unquote an argument to fix it to a particular value.
+# Unquoted arguments are evaluated only once when the function is created:
+f &lt;- partial(runif, n = !!rpois(1, 5))
+f
+f()
+f()
+
+
+# By default, partialised arguments are passed before new ones:
+my_list &lt;- partial(list, 1, 2)
+my_list("foo")
+
+# Control the position of these arguments by passing an empty
+# `... = ` argument:
+my_list &lt;- partial(list, 1, ... = , 2)
+my_list("foo")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

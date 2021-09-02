@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Accumulate intermediate results of a vector reduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for accumulate {purrr}"><tr><td>accumulate {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Accumulate intermediate results of a vector reduction</h2>
+
+<h3>Description</h3>
+
+<p><code>accumulate()</code> sequentially applies a 2-argument function to elements of a
+vector. Each application of the function uses the initial value or result
+of the previous application as the first argument. The second argument is
+the next value of the vector. The results of each application are
+returned in a list. The accumulation can optionally terminate before
+processing the whole vector in response to a <code>done()</code> signal returned by
+the accumulation function.
+</p>
+<p>By contrast to <code>accumulate()</code>, <code>reduce()</code> applies a 2-argument function in
+the same way, but discards all results except that of the final function
+application.
+</p>
+<p><code>accumulate2()</code> sequentially applies a function to elements of two lists, <code>.x</code> and <code>.y</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+accumulate(.x, .f, ..., .init, .dir = c("forward", "backward"))
+
+accumulate2(.x, .y, .f, ..., .init)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>For <code>accumulate()</code> <code>.f</code> is 2-argument function. The function will
+be passed the accumulated result or initial value as the first argument.
+The next value in sequence is passed as the second argument.
+</p>
+<p>For <code>accumulate2()</code>, a 3-argument function. The
+function will be passed the accumulated result as the first
+argument. The next value in sequence from <code>.x</code> is passed as the second argument. The
+next value in sequence from <code>.y</code> is passed as the third argument.
+</p>
+<p>The accumulation terminates early if <code>.f</code> returns a value wrapped in
+a <code><a href="../../purrr/help/done.html">done()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+<tr valign="top"><td><code>.init</code></td>
+<td>
+<p>If supplied, will be used as the first value to start
+the accumulation, rather than using <code>.x[[1]]</code>. This is useful if
+you want to ensure that <code>reduce</code> returns a correct value when <code>.x</code>
+is empty. If missing, and <code>.x</code> is empty, will throw an error.</p>
+</td></tr>
+<tr valign="top"><td><code>.dir</code></td>
+<td>
+<p>The direction of accumulation as a string, one of
+<code>"forward"</code> (the default) or <code>"backward"</code>. See the section about
+direction below.</p>
+</td></tr>
+<tr valign="top"><td><code>.y</code></td>
+<td>
+<p>For <code>accumulate2()</code> <code>.y</code> is the second argument of the pair. It
+needs to be 1 element shorter than the vector to be accumulated (<code>.x</code>).
+If <code>.init</code> is set, <code>.y</code> needs to be one element shorted than the
+concatenation of the initial value and <code>.x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A vector the same length of <code>.x</code> with the same names as <code>.x</code>.
+</p>
+<p>If <code>.init</code> is supplied, the length is extended by 1. If <code>.x</code> has
+names, the initial value is given the name <code>".init"</code>, otherwise
+the returned vector is kept unnamed.
+</p>
+<p>If <code>.dir</code> is <code>"forward"</code> (the default), the first element is the
+initial value (<code>.init</code> if supplied, or the first element of <code>.x</code>)
+and the last element is the final reduced value. In case of a
+right accumulation, this order is reversed.
+</p>
+<p>The accumulation terminates early if <code>.f</code> returns a value wrapped
+in a <code><a href="../../purrr/help/done.html">done()</a></code>. If the done box is empty, the last value is
+used instead and the result is one element shorter (but always
+includes the initial value, even when terminating at the first
+iteration).
+</p>
+
+
+<h3>Life cycle</h3>
+
+<p><code>accumulate_right()</code> is soft-deprecated in favour of the <code>.dir</code>
+argument as of rlang 0.3.0. Note that the algorithm has
+slightly changed: the accumulated value is passed to the right
+rather than the left, which is consistent with a right reduction.
+</p>
+
+
+<h3>Direction</h3>
+
+<p>When <code>.f</code> is an associative operation like <code>+</code> or <code>c()</code>, the
+direction of reduction does not matter. For instance, reducing the
+vector <code>1:3</code> with the binary function <code>+</code> computes the sum <code>((1 + 2) + 3)</code> from the left, and the same sum <code>(1 + (2 + 3))</code> from the
+right.
+</p>
+<p>In other cases, the direction has important consequences on the
+reduced value. For instance, reducing a vector with <code>list()</code> from
+the left produces a left-leaning nested list (or tree), while
+reducing <code>list()</code> from the right produces a right-leaning list.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/reduce.html">reduce()</a></code> when you only need the final reduced value.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# With an associative operation, the final value is always the
+# same, no matter the direction. You'll find it in the last element for a
+# backward (left) accumulation, and in the first element for forward
+# (right) one:
+1:5 %&gt;% accumulate(`+`)
+1:5 %&gt;% accumulate(`+`, .dir = "backward")
+
+# The final value is always equal to the equivalent reduction:
+1:5 %&gt;% reduce(`+`)
+
+# It is easier to understand the details of the reduction with
+# `paste()`.
+accumulate(letters[1:5], paste, sep = ".")
+
+# Note how the intermediary reduced values are passed to the left
+# with a left reduction, and to the right otherwise:
+accumulate(letters[1:5], paste, sep = ".", .dir = "backward")
+
+# `accumulate2()` is a version of `accumulate()` that works with
+# 3-argument functions and one additional vector:
+paste2 &lt;- function(x, y, sep = ".") paste(x, y, sep = sep)
+letters[1:4] %&gt;% accumulate(paste2)
+letters[1:4] %&gt;% accumulate2(c("-", ".", "-"), paste2)
+
+
+# You can shortcircuit an accumulation and terminate it early by
+# returning a value wrapped in a done(). In the following example
+# we return early if the result-so-far, which is passed on the LHS,
+# meets a condition:
+paste3 &lt;- function(out, input, sep = ".") {
+  if (nchar(out) &gt; 4) {
+    return(done(out))
+  }
+  paste(out, input, sep = sep)
+}
+letters %&gt;% accumulate(paste3)
+
+# Note how we get twice the same value in the accumulation. That's
+# because we have returned it twice. To prevent this, return an empty
+# done box to signal to accumulate() that it should terminate with the
+# value of the last iteration:
+paste3 &lt;- function(out, input, sep = ".") {
+  if (nchar(out) &gt; 4) {
+    return(done())
+  }
+  paste(out, input, sep = sep)
+}
+letters %&gt;% accumulate(paste3)
+
+# Here the early return branch checks the incoming inputs passed on
+# the RHS:
+paste4 &lt;- function(out, input, sep = ".") {
+  if (input == "f") {
+    return(done())
+  }
+  paste(out, input, sep = sep)
+}
+letters %&gt;% accumulate(paste4)
+
+
+# Simulating stochastic processes with drift
+## Not run: 
+library(dplyr)
+library(ggplot2)
+
+rerun(5, rnorm(100)) %&gt;%
+  set_names(paste0("sim", 1:5)) %&gt;%
+  map(~ accumulate(., ~ .05 + .x + .y)) %&gt;%
+  map_dfr(~ tibble(value = .x, step = 1:100), .id = "simulation") %&gt;%
+  ggplot(aes(x = step, y = value)) +
+    geom_line(aes(color = simulation)) +
+    ggtitle("Simulations of a random walk with drift")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

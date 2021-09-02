@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Promote all errors to rlang errors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for with_abort {rlang}"><tr><td>with_abort {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Promote all errors to rlang errors</h2>
+
+<h3>Description</h3>
+
+<p><code>with_abort()</code> promotes conditions as if they were thrown with
+<code><a href="../../rlang/help/abort.html">abort()</a></code>. These errors embed a <a href="../../rlang/help/trace_back.html">backtrace</a>. They are
+particularly suitable to be set as <em>parent errors</em> (see <code>parent</code>
+argument of <code><a href="../../rlang/help/abort.html">abort()</a></code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+with_abort(expr, classes = "error")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>expr</code></td>
+<td>
+<p>An expression run in a context where errors are
+promoted to rlang errors.</p>
+</td></tr>
+<tr valign="top"><td><code>classes</code></td>
+<td>
+<p>Character vector of condition classes that should be
+promoted to rlang errors.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>with_abort()</code> installs a <a href="../../rlang/help/calling.html">calling handler</a> for errors and
+rethrows non-rlang errors with <code><a href="../../rlang/help/abort.html">abort()</a></code>. However, error handlers
+installed <em>within</em> <code>with_abort()</code> have priority. For this reason,
+you should use <code><a href="../../base/html/conditions.html">tryCatch()</a></code> and <a href="../../rlang/help/exiting.html">exiting</a> handlers outside
+<code>with_abort()</code> rather than inside.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# with_abort() automatically casts simple errors thrown by stop()
+# to rlang errors. It is is handy for rethrowing low level
+# errors. The backtraces are then segmented between the low level
+# and high level contexts.
+f &lt;- function() g()
+g &lt;- function() stop("Low level error")
+
+high_level &lt;- function() {
+  with_handlers(
+    with_abort(f()),
+    error = ~ abort("High level error", parent = .)
+  )
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

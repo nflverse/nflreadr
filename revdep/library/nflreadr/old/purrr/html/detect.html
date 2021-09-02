@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Find the value or position of the first match</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for detect {purrr}"><tr><td>detect {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Find the value or position of the first match</h2>
+
+<h3>Description</h3>
+
+<p>Find the value or position of the first match
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+detect(
+  .x,
+  .f,
+  ...,
+  .dir = c("forward", "backward"),
+  .right = NULL,
+  .default = NULL
+)
+
+detect_index(.x, .f, ..., .dir = c("forward", "backward"), .right = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>A function, formula, or vector (not necessarily atomic).
+</p>
+<p>If a <strong>function</strong>, it is used as is.
+</p>
+<p>If a <strong>formula</strong>, e.g. <code>~ .x + 2</code>, it is converted to a function. There
+are three ways to refer to the arguments:
+</p>
+
+<ul>
+<li><p> For a single argument function, use <code>.</code>
+</p>
+</li>
+<li><p> For a two argument function, use <code>.x</code> and <code>.y</code>
+</p>
+</li>
+<li><p> For more arguments, use <code>..1</code>, <code>..2</code>, <code>..3</code> etc
+</p>
+</li></ul>
+
+<p>This syntax allows you to create very compact anonymous functions.
+</p>
+<p>If <strong>character vector</strong>, <strong>numeric vector</strong>, or <strong>list</strong>, it is
+converted to an extractor function. Character vectors index by
+name and numeric vectors index by position; use a list to index
+by position and name at different levels. If a component is not
+present, the value of <code>.default</code> will be returned.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+<tr valign="top"><td><code>.dir</code></td>
+<td>
+<p>If <code>"forward"</code>, the default, starts at the beginning of
+the vector and move towards the end; if <code>"backward"</code>, starts at
+the end of the vector and moves towards the beginning.</p>
+</td></tr>
+<tr valign="top"><td><code>.right</code></td>
+<td>
+<p>Soft-deprecated. Please use <code>.dir</code> instead.</p>
+</td></tr>
+<tr valign="top"><td><code>.default</code></td>
+<td>
+<p>The value returned when nothing is detected.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p><code>detect</code> the value of the first item that matches the
+predicate; <code>detect_index</code> the position of the matching item.
+If not found, <code>detect</code> returns <code>NULL</code> and <code>detect_index</code>
+returns 0.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/keep.html">keep()</a></code> for keeping all matching values.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+is_even &lt;- function(x) x %% 2 == 0
+
+3:10 %&gt;% detect(is_even)
+3:10 %&gt;% detect_index(is_even)
+
+3:10 %&gt;% detect(is_even, .dir = "backward")
+3:10 %&gt;% detect_index(is_even, .dir = "backward")
+
+
+# Since `.f` is passed to as_mapper(), you can supply a
+# lambda-formula or a pluck object:
+x &lt;- list(
+  list(1, foo = FALSE),
+  list(2, foo = TRUE),
+  list(3, foo = TRUE)
+)
+
+detect(x, "foo")
+detect_index(x, "foo")
+
+
+# If you need to find all values, use keep():
+keep(x, "foo")
+
+# If you need to find all positions, use map_lgl():
+which(map_lgl(x, "foo"))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

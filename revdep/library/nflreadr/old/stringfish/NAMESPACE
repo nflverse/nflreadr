@@ -1,0 +1,30 @@
+importFrom(Rcpp,sourceCpp)
+importFrom(RcppParallel, RcppParallelLibs)
+useDynLib(stringfish, .registration=TRUE)
+export(
+"materialize",
+"get_string_type",
+"convert_to_sf", "sf_convert", 
+"sf_vector",
+"sf_assign",
+"random_strings",
+"string_identical",
+
+"sf_iconv",
+"sf_nchar",
+"sf_substr",
+"sf_paste",
+"sf_collapse",
+"sf_readLines",
+"sf_writeLines",
+"sf_grepl",
+"sf_gsub",
+"sf_toupper",
+"sf_tolower",
+"sf_starts",
+"sf_ends",
+"sf_trim",
+"sf_split",
+"sf_match",
+"sf_equals", "sf_compare",
+"sf_concat", "sfc")

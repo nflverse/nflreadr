@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: FAQ - Note: Using an external vector in selections is...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for faq-external-vector {tidyselect}"><tr><td>faq-external-vector {tidyselect}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>FAQ - Note: Using an external vector in selections is ambiguous</h2>
+
+<h3>Description</h3>
+
+
+
+<h4>Ambiguity between columns and external variables</h4>
+
+<p>With selecting functions like <code>dplyr::select()</code> or
+<code>tidyr::pivot_longer()</code>, you can refer to variables by name:<div class="r"></p>
+<pre>mtcars %&gt;% select(cyl, am, vs)
+#&gt; # A tibble: 32 x 3
+#&gt;     cyl    am    vs
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     6     1     0
+#&gt; 2     6     1     0
+#&gt; 3     4     1     1
+#&gt; 4     6     0     1
+#&gt; # ... with 28 more rows
+
+mtcars %&gt;% select(mpg:disp)
+#&gt; # A tibble: 32 x 3
+#&gt;     mpg   cyl  disp
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1  21       6   160
+#&gt; 2  21       6   160
+#&gt; 3  22.8     4   108
+#&gt; 4  21.4     6   258
+#&gt; # ... with 28 more rows
+</pre></div>
+<p>For historical reasons, it is also possible to refer an external vector
+of variable names. You get the correct result, but with a note informing
+you that selecting with an external variable is ambiguous because it is
+not clear whether you want a data frame column or an external object.<div class="r"></p>
+<pre>vars &lt;- c("cyl", "am", "vs")
+result &lt;- mtcars %&gt;% select(vars)
+#&gt; Note: Using an external vector in selections is ambiguous.
+#&gt; i Use `all_of(vars)` instead of `vars` to silence this message.
+#&gt; i See &lt;https://tidyselect.r-lib.org/reference/faq-external-vector.html&gt;.
+#&gt; This message is displayed once per session.
+</pre></div>
+<p>This note will become a warning in the future, and then an error. We
+have decided to deprecate this particular approach to using external
+vectors because they introduce ambiguity. Imagine that the data frame
+contains a column with the same name as your external variable.<div class="r"></p>
+<pre>some_df &lt;- mtcars[1:4, ]
+some_df$vars &lt;- 1:nrow(some_df)
+</pre></div>
+<p>These are very different objects but it isn’t a problem if the context
+forces you to be specific about where to find <code>vars</code>:<div class="r"></p>
+<pre>vars
+#&gt; [1] "cyl" "am"  "vs"
+
+some_df$vars
+#&gt; [1] 1 2 3 4
+</pre></div>
+<p>In a selection context however, the column wins:<div class="r"></p>
+<pre>some_df %&gt;% select(vars)
+#&gt; # A tibble: 4 x 1
+#&gt;    vars
+#&gt;   &lt;int&gt;
+#&gt; 1     1
+#&gt; 2     2
+#&gt; 3     3
+#&gt; 4     4
+</pre></div>
+
+
+
+<h4>Fixing the ambiguity</h4>
+
+<p>To make your selection code more robust and silence the message, use
+<code>all_of()</code> to force the external vector:<div class="r"></p>
+<pre>some_df %&gt;% select(all_of(vars))
+#&gt; # A tibble: 4 x 3
+#&gt;     cyl    am    vs
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     6     1     0
+#&gt; 2     6     1     0
+#&gt; 3     4     1     1
+#&gt; 4     6     0     1
+</pre></div>
+<p>For more information or if you have comments about this, please see the
+<a href="https://github.com/r-lib/tidyselect/issues/76">Github issue</a> tracking
+the deprecation process.
+</p>
+
+
+<hr /><div style="text-align: center;">[Package <em>tidyselect</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

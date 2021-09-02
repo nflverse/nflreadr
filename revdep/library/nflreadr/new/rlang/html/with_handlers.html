@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Establish handlers on the stack</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for with_handlers {rlang}"><tr><td>with_handlers {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Establish handlers on the stack</h2>
+
+<h3>Description</h3>
+
+<p>Condition handlers are functions established on the evaluation
+stack (see <code><a href="../../rlang/help/ctxt_stack.html">ctxt_stack()</a></code>) that are called by R when a condition is
+signalled (see <code><a href="../../rlang/help/cnd_signal.html">cnd_signal()</a></code> and <code><a href="../../rlang/help/abort.html">abort()</a></code> for two common signal
+functions). They come in two types:
+</p>
+
+<ul>
+<li><p> Exiting handlers aborts all code currently run between
+<code>with_handlers()</code> and the point where the condition has been
+raised. <code>with_handlers()</code> passes the return value of the handler
+to its caller.
+</p>
+</li>
+<li><p> Calling handlers, which are executed from inside the signalling
+functions. Their return values are ignored, only their side
+effects matters. Valid side effects are writing a log message, or
+jumping out of the signalling context by <a href="../../rlang/help/with_restarts.html">invoking a restart</a> or using <code><a href="../../rlang/help/return_from.html">return_from()</a></code>. If the raised
+condition was an error, this interrupts the aborting process.
+</p>
+<p>If a calling handler returns normally, it effectively declines to
+handle the condition and other handlers on the stack (calling or
+exiting) are given a chance to handle the condition.
+</p>
+</li></ul>
+
+<p>Handlers are exiting by default, use <code><a href="../../rlang/help/calling.html">calling()</a></code> to create a
+calling handler.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+with_handlers(.expr, ...)
+
+calling(handler)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.expr</code></td>
+<td>
+<p>An expression to execute in a context where new
+handlers are established. The underscored version takes a quoted
+expression or a quoted formula.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>&lt;<a href="../../rlang/help/dyn-dots.html">dynamic</a>&gt; Named handlers. These should be
+functions of one argument, or <a href="../../rlang/help/as_function.html">formula functions</a>.
+The handlers are considered exiting by default, use <code><a href="../../rlang/help/calling.html">calling()</a></code>
+to specify a calling handler.</p>
+</td></tr>
+<tr valign="top"><td><code>handler</code></td>
+<td>
+<p>A handler function that takes a condition as
+argument. This is passed to <code><a href="../../rlang/help/as_function.html">as_function()</a></code> and can thus be a
+formula describing a lambda function.</p>
+</td></tr>
+</table>
+
+
+<h3>Life cycle</h3>
+
+<p><code>exiting()</code> is soft-deprecated as of rlang
+0.4.0 because <code><a href="../../rlang/help/with_handlers.html">with_handlers()</a></code> now treats handlers as exiting by
+default.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Signal a condition with signal():
+fn &lt;- function() {
+  g()
+  cat("called?\n")
+  "fn() return value"
+}
+g &lt;- function() {
+  h()
+  cat("called?\n")
+}
+h &lt;- function() {
+  signal("A foobar condition occurred", "foo")
+  cat("called?\n")
+}
+
+# Exiting handlers jump to with_handlers() before being
+# executed. Their return value is handed over:
+handler &lt;- function(c) "handler return value"
+with_handlers(fn(), foo = handler)
+
+# Calling handlers are called in turn and their return value is
+# ignored. Returning just means they are declining to take charge of
+# the condition. However, they can produce side-effects such as
+# displaying a message:
+some_handler &lt;- function(c) cat("some handler!\n")
+other_handler &lt;- function(c) cat("other handler!\n")
+with_handlers(fn(), foo = calling(some_handler), foo = calling(other_handler))
+
+# If a calling handler jumps to an earlier context, it takes
+# charge of the condition and no other handler gets a chance to
+# deal with it. The canonical way of transferring control is by
+# jumping to a restart. See with_restarts() and restarting()
+# documentation for more on this:
+exiting_handler &lt;- function(c) rst_jump("rst_foo")
+fn2 &lt;- function() {
+  with_restarts(g(), rst_foo = function() "restart value")
+}
+with_handlers(fn2(), foo = calling(exiting_handler), foo = calling(other_handler))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

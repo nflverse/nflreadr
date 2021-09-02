@@ -1,0 +1,20 @@
+---
+title: "Data Dictionary - Draft Picks"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Dictionary - Draft Picks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  comment = "#>"
+)
+```
+
+```{r }
+knitr::kable(nflreadr::dictionary_draft_picks)
+```

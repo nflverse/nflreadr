@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a fastmap object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for fastmap {fastmap}"><tr><td>fastmap {fastmap}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a fastmap object</h2>
+
+<h3>Description</h3>
+
+<p>A fastmap object provides a key-value store where the keys are strings and
+the values are any R objects.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+fastmap(missing_default = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>missing_default</code></td>
+<td>
+<p>The value to return when <code>get()</code> is called with a
+key that is not in the map. The default is <code>NULL</code>, but in some cases
+it can be useful to return a sentinel value, such as a
+<code><a href="../../fastmap/help/key_missing.html">key_missing</a></code> object.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>In R, it is common to use environments as key-value stores, but they can leak
+memory: every time a new key is used, R registers it in its global symbol
+table, which only grows and is never garbage collected. If many different
+keys are used, this can cause a non-trivial amount of memory leakage.
+</p>
+<p>Fastmap objects do not use the symbol table and do not leak memory.
+</p>
+<p>Unlike with environments, the keys in a fastmap are always encoded as UTF-8,
+so if you call <code>$set()</code> with two different strings that have the same
+Unicode values but have different encodings, the second call will overwrite
+the first value. If you call <code>$keys()</code>, it will return UTF-8 encoded
+strings, and similarly, <code>$as_list()</code> will return a list with names that
+have UTF-8 encoding.
+</p>
+<p>Note that if you call <code>$mset()</code> with a named argument, where the name is
+non-ASCII, R will convert the name to the native encoding before fastmap has
+the chance to convert them to UTF-8, and the keys may get mangled in the
+process. However, if you use <code>$mset(.list = x)</code>, then R will not convert
+the keys to the native encoding, and the keys will be correctly converted to
+UTF-8. With <code>$mget()</code>, the keys will be converted to UTF-8 before they
+are fetched.
+</p>
+<p><code>fastmap</code> objects have the following methods:
+</p>
+
+<dl>
+<dt><code>set(key, value)</code></dt><dd>
+<p>Set a key-value pair. <code>key</code> must be a string. Returns <code>value</code>.
+</p>
+</dd>
+<dt><code>mset(..., .list = NULL)</code></dt><dd>
+<p>Set multiple key-value pairs. The key-value pairs are named arguments,
+and/or a list passed in as <code>.list</code>. Returns a named list where the
+names are the keys, and the values are the values.
+</p>
+</dd>
+<dt><code>get(key, missing = missing_default)</code></dt><dd>
+<p>Get a value corresponding to <code>key</code>. If the key is not in the map,
+return <code>missing</code>.
+</p>
+</dd>
+<dt><code>mget(keys, missing = missing_default)</code></dt><dd>
+<p>Get values corresponding to <code>keys</code>, which is a character vector. The
+values will be returned in a named list where the names are the same as
+the <code>keys</code> passed in, in the same order. For keys not in the map,
+they will have <code>missing</code> for their value.
+</p>
+</dd>
+<dt><code>has(keys)</code></dt><dd>
+<p>Given a vector of keys, returns a logical vector reporting whether each
+key is contained in the map.
+</p>
+</dd>
+<dt><code>remove(keys)</code></dt><dd>
+<p>Given a vector of keys, remove the key-value pairs from the map. Returns
+a logical vector reporting whether each item existed in (and was removed
+from) the map.
+</p>
+</dd>
+<dt><code>keys(sort = FALSE)</code></dt><dd>
+<p>Returns a character vector of all the keys. By default, the keys will be
+in arbitrary order. Note that the order can vary across platforms and is
+not guaranteed to be consistent. With <code>sort=TRUE</code>, the keys will be
+sorted according to their Unicode code point values.
+</p>
+</dd>
+<dt><code>size()</code></dt><dd>
+<p>Returns the number of items in the map.
+</p>
+</dd>
+<dt><code>as_list(sort = FALSE)</code></dt><dd>
+<p>Return a named list where the names are the keys from the map, and the
+values are the values. By default, the keys will be in arbitrary order.
+Note that the order can vary across platforms and is not guaranteed to
+be consistent. With <code>sort=TRUE</code>, the keys will be sorted according
+to their Unicode code point values.
+</p>
+</dd>
+<dt><code>reset()</code></dt><dd>
+<p>Reset the fastmap object, clearing all items.
+</p>
+</dd>
+</dl>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+# Create the fastmap object
+m &lt;- fastmap()
+
+# Set some key-value pairs
+m$set("x", 100)
+m$set("letters", c("a", "b", "c"))
+m$mset(numbers = c(10, 20, 30), nothing = NULL)
+
+# Get values using keys
+m$get("x")
+m$get("numbers")
+m$mget(c("letters", "numbers"))
+
+# Missing keys return NULL by default, but this can be customized
+m$get("xyz")
+
+# Check for existence of keys
+m$has("x")
+m$has("nothing")
+m$has("xyz")
+
+# Remove one or more items
+m$remove(c("letters", "x"))
+
+# Return number of items
+m$size()
+
+# Get all keys
+m$keys()
+
+# Return named list that represents all key-value pairs
+str(m$as_list())
+
+# Clear the map
+m$reset()
+
+
+# Specify missing value when get() is called
+m &lt;- fastmap()
+m$get("x", missing = key_missing())
+#&gt; &lt;Key Missing&gt;
+
+# Specify the default missing value
+m &lt;- fastmap(missing_default = key_missing())
+m$get("x")
+#&gt; &lt;Key Missing&gt;
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>fastmap</em> version 1.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

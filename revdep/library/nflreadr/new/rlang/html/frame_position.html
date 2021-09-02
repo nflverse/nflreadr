@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Find the position or distance of a frame on the evaluation...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for frame_position {rlang}"><tr><td>frame_position {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Find the position or distance of a frame on the evaluation stack</h2>
+
+<h3>Description</h3>
+
+<p><img src="../help/figures/lifecycle-deprecated.svg" alt='Deprecated lifecycle' />
+</p>
+<p>The frame position on the stack can be computed by counting frames
+from the global frame (the bottom of the stack, the default) or
+from the current frame (the top of the stack).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+frame_position(frame, from = c("global", "current"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>frame</code></td>
+<td>
+<p>The environment of a frame. Can be any object with a
+<code><a href="../../rlang/help/get_env.html">get_env()</a></code> method. Note that for frame objects, the position from
+the global frame is simply <code>frame$pos</code>. Alternatively, <code>frame</code>
+can be an integer that represents the position on the stack (and
+is thus returned as is if <code>from</code> is &quot;global&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>from</code></td>
+<td>
+<p>Whether to compute distance from the global frame (the
+bottom of the evaluation stack), or from the current frame (the
+top of the evaluation stack).</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>While this function returns the position of the frame on the
+evaluation stack, it can safely be called with intervening frames
+as those will be discarded.
+</p>
+
+
+<h3>Life cycle</h3>
+
+<p>These functions are deprecated and replaced by <code><a href="../../rlang/help/trace_back.html">trace_back()</a></code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+fn &lt;- function() g(environment())
+g &lt;- function(env) frame_position(env)
+
+# frame_position() returns the position of the frame on the evaluation stack:
+fn()
+identity(identity(fn()))
+
+# Note that it trims off intervening calls before counting so you
+# can safely nest it within other calls:
+g &lt;- function(env) identity(identity(frame_position(env)))
+fn()
+
+# You can also ask for the position from the current frame rather
+# than the global frame:
+fn &lt;- function() g(environment())
+g &lt;- function(env) h(env)
+h &lt;- function(env) frame_position(env, from = "current")
+fn()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

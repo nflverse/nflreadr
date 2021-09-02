@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: sf_collapse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for sf_collapse {stringfish}"><tr><td>sf_collapse {stringfish}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>sf_collapse</h2>
+
+<h3>Description</h3>
+
+<p>Pastes a series of strings together separated by the 'collapse' parameter
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+sf_collapse(x, collapse)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A character vector</p>
+</td></tr>
+<tr valign="top"><td><code>collapse</code></td>
+<td>
+<p>A single string</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This works the same way as 'paste0(x, collapse=collapse)'
+</p>
+
+
+<h3>Value</h3>
+
+<p>A single string with all values in 'x' pasted together, separated by 'collapse'.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>paste0, paste
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+if(getRversion() &gt;= "3.5.0") {
+x &lt;- c("hello", "\\xe4\\xb8\\x96\\xe7\\x95\\x8c")
+Encoding(x) &lt;- "UTF-8"
+sf_collapse(x, " ") # "hello world" in Japanese
+sf_collapse(letters, "") # returns the alphabet
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>stringfish</em> version 0.15.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

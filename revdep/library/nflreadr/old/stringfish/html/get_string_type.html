@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: get_string_type</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for get_string_type {stringfish}"><tr><td>get_string_type {stringfish}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>get_string_type</h2>
+
+<h3>Description</h3>
+
+<p>Returns the type of the character vector
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get_string_type(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>the vector</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A function that returns the type of character vector. Possible values are &quot;normal vector&quot;, &quot;stringfish vector&quot;, &quot;stringfish vector (materialized)&quot; or &quot;other alt-rep vector&quot;
+</p>
+
+
+<h3>Value</h3>
+
+<p>The type of vector
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+if(getRversion() &gt;= "3.5.0") {
+x &lt;- sf_vector(10)
+get_string_type(x) # returns "stringfish vector"
+x &lt;- character(10)
+get_string_type(x) # returns "normal vector"
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>stringfish</em> version 0.15.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

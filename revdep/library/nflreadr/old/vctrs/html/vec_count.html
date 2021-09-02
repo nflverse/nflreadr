@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Count unique values in a vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec_count {vctrs}"><tr><td>vec_count {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Count unique values in a vector</h2>
+
+<h3>Description</h3>
+
+<p>Count the number of unique values in a vector. <code>vec_count()</code> has two
+important differences to <code>table()</code>: it returns a data frame, and when
+given multiple inputs (as a data frame), it only counts combinations that
+appear in the input.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_count(x, sort = c("count", "key", "location", "none"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector (including a data frame).</p>
+</td></tr>
+<tr valign="top"><td><code>sort</code></td>
+<td>
+<p>One of &quot;count&quot;, &quot;key&quot;, &quot;location&quot;, or &quot;none&quot;.
+</p>
+
+<ul>
+<li><p> &quot;count&quot;, the default, puts most frequent values at top
+</p>
+</li>
+<li><p> &quot;key&quot;, orders by the output key column (i.e. unique values of <code>x</code>)
+</p>
+</li>
+<li><p> &quot;location&quot;, orders by location where key first seen. This is useful
+if you want to match the counts up to other unique/duplicated functions.
+</p>
+</li>
+<li><p> &quot;none&quot;, leaves unordered.
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A data frame with columns <code>key</code> (same type as <code>x</code>) and
+<code>count</code> (an integer vector).
+</p>
+
+
+<h3>Dependencies</h3>
+
+
+<ul>
+<li> <p><code><a href="../../vctrs/help/vec_proxy_equal.html">vec_proxy_equal()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../vctrs/help/vec_slice.html">vec_slice()</a></code>
+</p>
+</li>
+<li> <p><code><a href="../../vctrs/help/vec_order.html">vec_order()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+vec_count(mtcars$vs)
+vec_count(iris$Species)
+
+# If you count a data frame you'll get a data frame
+# column in the output
+str(vec_count(mtcars[c("vs", "am")]))
+
+# Sorting ---------------------------------------
+
+x &lt;- letters[rpois(100, 6)]
+# default is to sort by frequency
+vec_count(x)
+
+# by can sort by key
+vec_count(x, sort = "key")
+
+# or location of first value
+vec_count(x, sort = "location")
+head(x)
+
+# or not at all
+vec_count(x, sort = "none")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

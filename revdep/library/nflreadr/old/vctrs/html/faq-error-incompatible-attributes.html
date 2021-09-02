@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: FAQ - Error/Warning: Some attributes are incompatible</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for faq-error-incompatible-attributes {vctrs}"><tr><td>faq-error-incompatible-attributes {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>FAQ - Error/Warning: Some attributes are incompatible</h2>
+
+<h3>Description</h3>
+
+<p>This error occurs when <code><a href="../../vctrs/help/vec_ptype2.html">vec_ptype2()</a></code> or <code><a href="../../vctrs/help/vec_cast.html">vec_cast()</a></code> are supplied
+vectors of the same classes with different attributes. In this
+case, vctrs doesn't know how to combine the inputs.
+</p>
+<p>To fix this error, the maintainer of the class should implement
+self-to-self coercion methods for <code><a href="../../vctrs/help/vec_ptype2.html">vec_ptype2()</a></code> and <code><a href="../../vctrs/help/vec_cast.html">vec_cast()</a></code>.
+</p>
+
+
+<h3>Implementing coercion methods</h3>
+
+
+<ul>
+<li><p> For an overview of how these generics work and their roles in vctrs,
+see <code><a href="../../vctrs/help/theory-faq-coercion.html">?theory-faq-coercion</a></code>.
+</p>
+</li>
+<li><p> For an example of implementing coercion methods for simple vectors,
+see <code><a href="../../vctrs/help/howto-faq-coercion.html">?howto-faq-coercion</a></code>.
+</p>
+</li>
+<li><p> For an example of implementing coercion methods for data frame
+subclasses, see
+<code><a href="../../vctrs/help/howto-faq-coercion-data-frame.html">?howto-faq-coercion-data-frame</a></code>.
+</p>
+</li>
+<li><p> For a tutorial about implementing vctrs classes from scratch, see
+<code>vignette("s3-vector")</code>.
+</p>
+</li></ul>
+
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create delaying rate settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rate-helpers {purrr}"><tr><td>rate-helpers {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create delaying rate settings</h2>
+
+<h3>Description</h3>
+
+<p>These helpers create rate settings that you can pass to
+<code><a href="../../purrr/help/insistently.html">insistently()</a></code>. You can also use them in your own functions with
+<code><a href="../../purrr/help/rate_sleep.html">rate_sleep()</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rate_delay(pause = 1, max_times = Inf)
+
+rate_backoff(
+  pause_base = 1,
+  pause_cap = 60,
+  pause_min = 1,
+  max_times = 3,
+  jitter = TRUE
+)
+
+is_rate(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pause</code></td>
+<td>
+<p>Delay between attempts in seconds.</p>
+</td></tr>
+<tr valign="top"><td><code>max_times</code></td>
+<td>
+<p>Maximum number of requests to attempt.</p>
+</td></tr>
+<tr valign="top"><td><code>pause_base, pause_cap</code></td>
+<td>
+<p><code>rate_backoff()</code> uses an exponential
+back-off so that each request waits <code>pause_base * 2^i</code> seconds,
+up to a maximum of <code>pause_cap</code> seconds.</p>
+</td></tr>
+<tr valign="top"><td><code>pause_min</code></td>
+<td>
+<p>Minimum time to wait in the backoff; generally
+only necessary if you need pauses less than one second (which may
+not be kind to the server, use with caution!).</p>
+</td></tr>
+<tr valign="top"><td><code>jitter</code></td>
+<td>
+<p>Whether to introduce a random jitter in the waiting time.</p>
+</td></tr>
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>An object to test.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/rate_sleep.html">rate_sleep()</a></code>, <code><a href="../../purrr/help/insistently.html">insistently()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# A delay rate waits the same amount of time:
+rate &lt;- rate_delay(0.02)
+for (i in 1:3) rate_sleep(rate, quiet = FALSE)
+
+# A backoff rate waits exponentially longer each time, with random
+# jitter by default:
+rate &lt;- rate_backoff(pause_base = 0.2, pause_min = 0.005)
+for (i in 1:3) rate_sleep(rate, quiet = FALSE)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

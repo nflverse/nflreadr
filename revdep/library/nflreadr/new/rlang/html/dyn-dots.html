@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Dynamic dots</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dyn-dots {rlang}"><tr><td>dyn-dots {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Dynamic dots</h2>
+
+<h3>Description</h3>
+
+<p>The <code>...</code> syntax of base R allows you to:
+</p>
+
+<ul>
+<li> <p><strong>Forward</strong> arguments from function to function, matching them
+along the way to function parameters.
+</p>
+</li>
+<li> <p><strong>Collect</strong> arguments inside data structures, e.g. with <code><a href="../../base/html/c.html">c()</a></code> or
+<code><a href="../../base/html/list.html">list()</a></code>.
+</p>
+</li></ul>
+
+<p>Dynamic dots offer a few additional features:
+</p>
+
+<ol>
+<li><p> You can <strong>splice</strong> arguments saved in a list with the <a href="../../rlang/help/quasiquotation.html">big bang</a> operator <code style="white-space: pre;">!!!</code>.
+</p>
+</li>
+<li><p> You can <strong>unquote</strong> names by using the <a href="../../glue/help/glue.html">glue</a> syntax
+or the <a href="../../rlang/help/quasiquotation.html">bang bang</a> operator <code style="white-space: pre;">!!</code> on the
+left-hand side of <code style="white-space: pre;">:=</code>.
+</p>
+</li>
+<li><p> Trailing commas are ignored, making it easier to copy and paste
+lines of arguments.
+</p>
+</li></ol>
+
+
+
+<h3>Add dynamic dots support in your functions</h3>
+
+<p>If your function takes dots, adding support for dynamic features is
+as easy as collecting the dots with <code><a href="../../rlang/help/list2.html">list2()</a></code> instead of <code><a href="../../base/html/list.html">list()</a></code>.
+</p>
+<p>Other dynamic dots collectors are <code><a href="../../rlang/help/dots_list.html">dots_list()</a></code>, which is more
+configurable than <code><a href="../../rlang/help/list2.html">list2()</a></code>, <code>vars()</code> which doesn't force its
+arguments, and <code><a href="../../rlang/help/call2.html">call2()</a></code> for creating calls.
+</p>
+<p>Document dynamic docs using this standard tag:</p>
+<pre> @param ... &lt;[`dynamic-dots`][rlang::dyn-dots]&gt; What these dots do.
+</pre>
+
+
+<h3>Examples</h3>
+
+<pre>
+f &lt;- function(...) {
+  out &lt;- list2(...)
+  rev(out)
+}
+
+# Splice
+x &lt;- list(alpha = "first", omega = "last")
+f(!!!x)
+
+# Unquote a name, showing both the `!!` bang bang and `{}` glue style
+nm &lt;- "key"
+f(!!nm := "value")
+f("{nm}" := "value")
+f("prefix_{nm}" := "value")
+
+# Tolerate a trailing comma
+f(this = "that", )
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

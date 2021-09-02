@@ -1,0 +1,7 @@
+RcppParallel-package    Parallel programming tools for Rcpp
+RcppParallel.package.skeleton
+                        Create a skeleton for a new package depending
+                        on RcppParallel
+flags                   Compilation flags for RcppParallel
+setThreadOptions        Thread options for RcppParallel
+tbbLibraryPath          Get the Path to a TBB Library

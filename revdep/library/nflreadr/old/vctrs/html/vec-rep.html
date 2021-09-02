@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Repeat a vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for vec-rep {vctrs}"><tr><td>vec-rep {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Repeat a vector</h2>
+
+<h3>Description</h3>
+
+
+<ul>
+<li> <p><code>vec_rep()</code> repeats an entire vector a set number of <code>times</code>.
+</p>
+</li>
+<li> <p><code>vec_rep_each()</code> repeats each element of a vector a set number of <code>times</code>.
+</p>
+</li>
+<li> <p><code>vec_unrep()</code> compresses a vector with repeated values. The repeated values
+are returned as a <code>key</code> alongside the number of <code>times</code> each key is
+repeated.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+vec_rep(x, times)
+
+vec_rep_each(x, times)
+
+vec_unrep(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A vector.</p>
+</td></tr>
+<tr valign="top"><td><code>times</code></td>
+<td>
+<p>For <code>vec_rep()</code>, a single integer for the number of times to repeat
+the entire vector.
+</p>
+<p>For <code>vec_rep_each()</code>, an integer vector of the number of times to repeat
+each element of <code>x</code>. <code>times</code> will be recycled to the size of <code>x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Using <code>vec_unrep()</code> and <code>vec_rep_each()</code> together is similar to using
+<code><a href="../../base/help/rle.html">base::rle()</a></code> and <code><a href="../../base/help/rle.html">base::inverse.rle()</a></code>. The following invariant shows
+the relationship between the two functions:</p>
+<pre>compressed &lt;- vec_unrep(x)
+identical(x, vec_rep_each(compressed$key, compressed$times))
+</pre>
+<p>There are two main differences between <code>vec_unrep()</code> and <code><a href="../../base/help/rle.html">base::rle()</a></code>:
+</p>
+
+<ul>
+<li> <p><code>vec_unrep()</code> treats adjacent missing values as equivalent, while <code>rle()</code>
+treats them as different values.
+</p>
+</li>
+<li> <p><code>vec_unrep()</code> works along the size of <code>x</code>, while <code>rle()</code> works along its
+length. This means that <code>vec_unrep()</code> works on data frames by compressing
+repeated rows.
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>For <code>vec_rep()</code>, a vector the same type as <code>x</code> with size
+<code>vec_size(x) * times</code>.
+</p>
+<p>For <code>vec_rep_each()</code>, a vector the same type as <code>x</code> with size
+<code>sum(vec_recycle(times, vec_size(x)))</code>.
+</p>
+<p>For <code>vec_unrep()</code>, a data frame with two columns, <code>key</code> and <code>times</code>. <code>key</code>
+is a vector with the same type as <code>x</code>, and <code>times</code> is an integer vector.
+</p>
+
+
+<h3>Dependencies</h3>
+
+
+<ul>
+<li> <p><code><a href="../../vctrs/help/vec_slice.html">vec_slice()</a></code>
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+# Repeat the entire vector
+vec_rep(1:2, 3)
+
+# Repeat within each vector
+vec_rep_each(1:2, 3)
+x &lt;- vec_rep_each(1:2, c(3, 4))
+x
+
+# After using `vec_rep_each()`, you can recover the original vector
+# with `vec_unrep()`
+vec_unrep(x)
+
+df &lt;- data.frame(x = 1:2, y = 3:4)
+
+# `rep()` repeats columns of data frames, and returns lists
+rep(df, each = 2)
+
+# `vec_rep()` and `vec_rep_each()` repeat rows, and return data frames
+vec_rep(df, 2)
+vec_rep_each(df, 2)
+
+# `rle()` treats adjacent missing values as different
+y &lt;- c(1, NA, NA, 2)
+rle(y)
+
+# `vec_unrep()` treats them as equivalent
+vec_unrep(y)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Assemble attributes for data frame construction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for new_data_frame {vctrs}"><tr><td>new_data_frame {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Assemble attributes for data frame construction</h2>
+
+<h3>Description</h3>
+
+<p><code>new_data_frame()</code> constructs a new data frame from an existing list. It is
+meant to be performant, and does not check the inputs for correctness in any
+way. It is only safe to use after a call to <code><a href="../../vctrs/help/df_list.html">df_list()</a></code>, which collects and
+validates the columns used to construct the data frame.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+new_data_frame(x = list(), n = NULL, ..., class = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>A named list of equal-length vectors. The lengths are not
+checked; it is responsibility of the caller to make sure they are
+equal.</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>Number of rows. If <code>NULL</code>, will be computed from the length of
+the first element of <code>x</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>..., class</code></td>
+<td>
+<p>Additional arguments for creating subclasses.
+The <code>"names"</code> and <code>"row.names"</code> attributes override input in <code>x</code> and <code>n</code>,
+respectively:
+</p>
+
+<ul>
+<li> <p><code>"names"</code> is used if provided, overriding existing names in <code>x</code>
+</p>
+</li>
+<li> <p><code>"row.names"</code> is used if provided, if <code>n</code> is provided it must be
+consistent.
+</p>
+</li></ul>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../vctrs/help/df_list.html">df_list()</a></code> for a way to safely construct a data frame's underlying
+data structure from individual columns. This can be used to create a
+named list for further use by <code>new_data_frame()</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+new_data_frame(list(x = 1:10, y = 10:1))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

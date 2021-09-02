@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Parallel programming tools for Rcpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for RcppParallel-package {RcppParallel}"><tr><td>RcppParallel-package {RcppParallel}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Parallel programming tools for Rcpp</h2>
+
+<h3>Description</h3>
+
+<p>High level functions for doing parallel programming with Rcpp.  For example,
+the <code>parallelFor()</code> function can be used to convert the work of a
+standard serial &quot;for&quot; loop into a parallel one, and the <code>parallelReduce()</code>
+function can be used for accumulating aggregate or other values.
+</p>
+
+
+<h3>Details</h3>
+
+<p>The high level interface enables safe and robust parallel programming
+without direct manipulation of operating system threads. On Windows, macOS,
+and Linux systems the underlying implementation is based on Intel TBB
+(Threading Building Blocks). On other platforms, a less-performant fallback
+implementation based on the TinyThread library is used.
+</p>
+<p>For additional documentation, see the package website at:
+</p>
+<p><a href="https://rcppcore.github.io/RcppParallel/">https://rcppcore.github.io/RcppParallel/</a>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RcppParallel</em> version 5.1.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

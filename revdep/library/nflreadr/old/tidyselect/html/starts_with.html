@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Select variables that match a pattern</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for starts_with {tidyselect}"><tr><td>starts_with {tidyselect}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Select variables that match a pattern</h2>
+
+<h3>Description</h3>
+
+<p>These <a href="../../tidyselect/help/language.html">selection helpers</a> match variables according
+to a given pattern.
+</p>
+
+<ul>
+<li> <p><code><a href="../../tidyselect/help/starts_with.html">starts_with()</a></code>: Starts with a prefix.
+</p>
+</li>
+<li> <p><code><a href="../../tidyselect/help/ends_with.html">ends_with()</a></code>: Ends with a suffix.
+</p>
+</li>
+<li> <p><code><a href="../../tidyselect/help/contains.html">contains()</a></code>: Contains a literal string.
+</p>
+</li>
+<li> <p><code><a href="../../tidyselect/help/matches.html">matches()</a></code>: Matches a regular expression.
+</p>
+</li>
+<li> <p><code><a href="../../tidyselect/help/num_range.html">num_range()</a></code>: Matches a numerical range like x01, x02, x03.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+starts_with(match, ignore.case = TRUE, vars = NULL)
+
+ends_with(match, ignore.case = TRUE, vars = NULL)
+
+contains(match, ignore.case = TRUE, vars = NULL)
+
+matches(match, ignore.case = TRUE, perl = FALSE, vars = NULL)
+
+num_range(prefix, range, width = NULL, vars = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>match</code></td>
+<td>
+<p>A character vector. If length &gt; 1, the union of the
+matches is taken.</p>
+</td></tr>
+<tr valign="top"><td><code>ignore.case</code></td>
+<td>
+<p>If <code>TRUE</code>, the default, ignores case when matching
+names.</p>
+</td></tr>
+<tr valign="top"><td><code>vars</code></td>
+<td>
+<p>A character vector of variable names. If not supplied,
+the variables are taken from the current selection context (as
+established by functions like <code>select()</code> or <code>pivot_longer()</code>).</p>
+</td></tr>
+<tr valign="top"><td><code>perl</code></td>
+<td>
+<p>Should Perl-compatible regexps be used?</p>
+</td></tr>
+<tr valign="top"><td><code>prefix</code></td>
+<td>
+<p>A prefix that starts the numeric range.</p>
+</td></tr>
+<tr valign="top"><td><code>range</code></td>
+<td>
+<p>A sequence of integers, like <code>1:5</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>width</code></td>
+<td>
+<p>Optionally, the &quot;width&quot; of the numeric range. For example,
+a range of 2 gives &quot;01&quot;, a range of three &quot;001&quot;, etc.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<p>Selection helpers can be used in functions like <code>dplyr::select()</code>
+or <code>tidyr::pivot_longer()</code>. Let's first attach the tidyverse:<div class="r"></p>
+<pre>library(tidyverse)
+
+# For better printing
+iris &lt;- as_tibble(iris)
+</pre></div>
+<p><code>starts_with()</code> selects all variables matching a prefix and
+<code>ends_with()</code> matches a suffix:<div class="r"></p>
+<pre>iris %&gt;% select(starts_with("Sepal"))
+#&gt; # A tibble: 150 x 2
+#&gt;   Sepal.Length Sepal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5
+#&gt; 2          4.9         3  
+#&gt; 3          4.7         3.2
+#&gt; 4          4.6         3.1
+#&gt; # ... with 146 more rows
+
+iris %&gt;% select(ends_with("Width"))
+#&gt; # A tibble: 150 x 2
+#&gt;   Sepal.Width Petal.Width
+#&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1         3.5         0.2
+#&gt; 2         3           0.2
+#&gt; 3         3.2         0.2
+#&gt; 4         3.1         0.2
+#&gt; # ... with 146 more rows
+</pre></div>
+<p>You can supply multiple prefixes or suffixes. Note how the order of
+variables depends on the order of the suffixes and prefixes:<div class="r"></p>
+<pre>iris %&gt;% select(starts_with(c("Petal", "Sepal")))
+#&gt; # A tibble: 150 x 4
+#&gt;   Petal.Length Petal.Width Sepal.Length Sepal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          1.4         0.2          5.1         3.5
+#&gt; 2          1.4         0.2          4.9         3  
+#&gt; 3          1.3         0.2          4.7         3.2
+#&gt; 4          1.5         0.2          4.6         3.1
+#&gt; # ... with 146 more rows
+
+iris %&gt;% select(ends_with(c("Width", "Length")))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Width Petal.Width Sepal.Length Petal.Length
+#&gt;         &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+#&gt; 1         3.5         0.2          5.1          1.4
+#&gt; 2         3           0.2          4.9          1.4
+#&gt; 3         3.2         0.2          4.7          1.3
+#&gt; 4         3.1         0.2          4.6          1.5
+#&gt; # ... with 146 more rows
+</pre></div>
+<p><code>contains()</code> selects columns whose names contain a word:<div class="r"></p>
+<pre>iris %&gt;% select(contains("al"))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+</pre></div>
+<p>These helpers do not use regular expressions. To select with a
+regexp use <code>matches()</code><div class="r"></p>
+<pre># [pt] is matched literally:
+iris %&gt;% select(contains("[pt]al"))
+#&gt; # A tibble: 150 x 0
+
+# [pt] is interpreted as a regular expression
+iris %&gt;% select(matches("[pt]al"))
+#&gt; # A tibble: 150 x 4
+#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1          5.1         3.5          1.4         0.2
+#&gt; 2          4.9         3            1.4         0.2
+#&gt; 3          4.7         3.2          1.3         0.2
+#&gt; 4          4.6         3.1          1.5         0.2
+#&gt; # ... with 146 more rows
+</pre></div>
+<p><code>starts_with()</code> selects all variables starting with a prefix. To
+select a range, use <code>num_range()</code>. Compare:<div class="r"></p>
+<pre>billboard %&gt;% select(starts_with("wk"))
+#&gt; # A tibble: 317 x 76
+#&gt;     wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9  wk10  wk11  wk12  wk13
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    87    82    72    77    87    94    99    NA    NA    NA    NA    NA    NA
+#&gt; 2    91    87    92    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+#&gt; 3    81    70    68    67    66    57    54    53    51    51    51    51    47
+#&gt; 4    76    76    72    69    67    65    55    59    62    61    61    59    61
+#&gt; # ... with 313 more rows, and 63 more variables: wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;,
+#&gt; #   wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, ...
+
+billboard %&gt;% select(num_range("wk", 10:15))
+#&gt; # A tibble: 317 x 6
+#&gt;    wk10  wk11  wk12  wk13  wk14  wk15
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1    NA    NA    NA    NA    NA    NA
+#&gt; 2    NA    NA    NA    NA    NA    NA
+#&gt; 3    51    51    51    47    44    38
+#&gt; 4    61    61    59    61    66    72
+#&gt; # ... with 313 more rows
+</pre></div>
+
+
+<h3>See Also</h3>
+
+<p>The <a href="../../tidyselect/help/language.html">selection language</a> page, which includes links to other selection helpers.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>tidyselect</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

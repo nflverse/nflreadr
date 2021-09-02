@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Reduce a list to a single value by iteratively applying a...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for reduce {purrr}"><tr><td>reduce {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Reduce a list to a single value by iteratively applying a binary function</h2>
+
+<h3>Description</h3>
+
+<p><code>reduce()</code> is an operation that combines the elements of a vector
+into a single value. The combination is driven by <code>.f</code>, a binary
+function that takes two values and returns a single value: reducing
+<code>f</code> over <code>1:3</code> computes the value <code>f(f(1, 2), 3)</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reduce(.x, .f, ..., .init, .dir = c("forward", "backward"))
+
+reduce2(.x, .y, .f, ..., .init)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>For <code>reduce()</code>, and <code>accumulate()</code>, a 2-argument
+function. The function will be passed the accumulated value as
+the first argument and the &quot;next&quot; value as the second argument.
+</p>
+<p>For <code>reduce2()</code> and <code>accumulate2()</code>, a 3-argument function. The
+function will be passed the accumulated value as the first
+argument, the next value of <code>.x</code> as the second argument, and the
+next value of <code>.y</code> as the third argument.
+</p>
+<p>The reduction terminates early if <code>.f</code> returns a value wrapped in
+a <code><a href="../../purrr/help/done.html">done()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+<tr valign="top"><td><code>.init</code></td>
+<td>
+<p>If supplied, will be used as the first value to start
+the accumulation, rather than using <code>.x[[1]]</code>. This is useful if
+you want to ensure that <code>reduce</code> returns a correct value when <code>.x</code>
+is empty. If missing, and <code>.x</code> is empty, will throw an error.</p>
+</td></tr>
+<tr valign="top"><td><code>.dir</code></td>
+<td>
+<p>The direction of reduction as a string, one of
+<code>"forward"</code> (the default) or <code>"backward"</code>. See the section about
+direction below.</p>
+</td></tr>
+<tr valign="top"><td><code>.y</code></td>
+<td>
+<p>For <code>reduce2()</code> and <code>accumulate2()</code>, an additional
+argument that is passed to <code>.f</code>. If <code>init</code> is not set, <code>.y</code>
+should be 1 element shorter than <code>.x</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Direction</h3>
+
+<p>When <code>.f</code> is an associative operation like <code>+</code> or <code>c()</code>, the
+direction of reduction does not matter. For instance, reducing the
+vector <code>1:3</code> with the binary function <code>+</code> computes the sum <code>((1 + 2) + 3)</code> from the left, and the same sum <code>(1 + (2 + 3))</code> from the
+right.
+</p>
+<p>In other cases, the direction has important consequences on the
+reduced value. For instance, reducing a vector with <code>list()</code> from
+the left produces a left-leaning nested list (or tree), while
+reducing <code>list()</code> from the right produces a right-leaning list.
+</p>
+
+
+<h3>Life cycle</h3>
+
+<p><code>reduce_right()</code> is soft-deprecated as of purrr 0.3.0. Please use
+the <code>.dir</code> argument of <code>reduce()</code> instead. Note that the algorithm
+has changed. Whereas <code>reduce_right()</code> computed <code>f(f(3, 2), 1)</code>,
+<code style="white-space: pre;">reduce(.dir = \"backward\")</code> computes <code>f(1, f(2, 3))</code>. This is the
+standard way of reducing from the right.
+</p>
+<p>To update your code with the same reduction as <code>reduce_right()</code>,
+simply reverse your vector and use a left reduction:<div class="r"></p>
+<pre># Before:
+reduce_right(1:3, f)
+
+# After:
+reduce(rev(1:3), f)
+</pre></div>
+<p><code>reduce2_right()</code> is soft-deprecated as of purrr 0.3.0 without
+replacement. It is not clear what algorithmic properties should a
+right reduction have in this case. Please reach out if you know
+about a use case for a right reduction with a ternary function.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/accumulate.html">accumulate()</a></code> for a version that returns all intermediate
+values of the reduction.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Reducing `+` computes the sum of a vector while reducing `*`
+# computes the product:
+1:3 %&gt;% reduce(`+`)
+1:10 %&gt;% reduce(`*`)
+
+# When the operation is associative, the direction of reduction
+# does not matter:
+reduce(1:4, `+`)
+reduce(1:4, `+`, .dir = "backward")
+
+# However with non-associative operations, the reduced value will
+# be different as a function of the direction. For instance,
+# `list()` will create left-leaning lists when reducing from the
+# right, and right-leaning lists otherwise:
+str(reduce(1:4, list))
+str(reduce(1:4, list, .dir = "backward"))
+
+# reduce2() takes a ternary function and a second vector that is
+# one element smaller than the first vector:
+paste2 &lt;- function(x, y, sep = ".") paste(x, y, sep = sep)
+letters[1:4] %&gt;% reduce(paste2)
+letters[1:4] %&gt;% reduce2(c("-", ".", "-"), paste2)
+
+x &lt;- list(c(0, 1), c(2, 3), c(4, 5))
+y &lt;- list(c(6, 7), c(8, 9))
+reduce2(x, y, paste)
+
+
+# You can shortcircuit a reduction and terminate it early by
+# returning a value wrapped in a done(). In the following example
+# we return early if the result-so-far, which is passed on the LHS,
+# meets a condition:
+paste3 &lt;- function(out, input, sep = ".") {
+  if (nchar(out) &gt; 4) {
+    return(done(out))
+  }
+  paste(out, input, sep = sep)
+}
+letters %&gt;% reduce(paste3)
+
+# Here the early return branch checks the incoming inputs passed on
+# the RHS:
+paste4 &lt;- function(out, input, sep = ".") {
+  if (input == "j") {
+    return(done(out))
+  }
+  paste(out, input, sep = sep)
+}
+letters %&gt;% reduce(paste4)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

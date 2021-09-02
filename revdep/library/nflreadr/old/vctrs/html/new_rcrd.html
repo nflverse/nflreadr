@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: rcrd (record) S3 class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for new_rcrd {vctrs}"><tr><td>new_rcrd {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>rcrd (record) S3 class</h2>
+
+<h3>Description</h3>
+
+<p>The rcrd class extends <a href="../../vctrs/help/vctr.html">vctr</a>. A rcrd is composed of 1 or more <a href="../../vctrs/help/field.html">field</a>s,
+which must be vectors of the same length. Is designed specifically for
+classes that can naturally be decomposed into multiple vectors of the same
+length, like <a href="../../base/html/DateTimeClasses.html">POSIXlt</a>, but where the organisation should be considered
+an implementation detail invisible to the user (unlike a <a href="../../base/html/data.frame.html">data.frame</a>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+new_rcrd(fields, ..., class = character())
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>fields</code></td>
+<td>
+<p>A list or a data frame. Lists must be rectangular
+(same sizes), and contain uniquely named vectors (at least
+one). <code>fields</code> is validated with <code><a href="../../vctrs/help/df_list.html">df_list()</a></code> to ensure uniquely
+named vectors.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional attributes</p>
+</td></tr>
+<tr valign="top"><td><code>class</code></td>
+<td>
+<p>Name of subclass.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

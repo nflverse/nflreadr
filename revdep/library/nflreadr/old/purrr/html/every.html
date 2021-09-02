@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Do every, some, or none of the elements of a list satisfy a...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for every {purrr}"><tr><td>every {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Do every, some, or none of the elements of a list satisfy a predicate?</h2>
+
+<h3>Description</h3>
+
+<p>Do every, some, or none of the elements of a list satisfy a predicate?
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+every(.x, .p, ...)
+
+some(.x, .p, ...)
+
+none(.x, .p, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.p</code></td>
+<td>
+<p>A predicate function to apply on each element of <code>.x</code>.
+<code>some()</code> returns <code>TRUE</code> when <code>.p</code> is <code>TRUE</code> for at least one
+element. <code>every()</code> returns <code>TRUE</code> when <code>.p</code> is <code>TRUE</code> for all
+elements. <code>none()</code> returns <code>TRUE</code> when <code>.p</code> is <code>FALSE</code> for all
+elements.'</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to <code>.p</code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A logical vector of length 1.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+y &lt;- list(0:10, 5.5)
+y %&gt;% every(is.numeric)
+y %&gt;% every(is.integer)
+y %&gt;% some(is.integer)
+y %&gt;% none(is.character)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

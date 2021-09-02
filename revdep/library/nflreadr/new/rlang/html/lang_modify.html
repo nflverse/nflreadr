@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Manipulate or access a call</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for lang_modify {rlang}"><tr><td>lang_modify {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Manipulate or access a call</h2>
+
+<h3>Description</h3>
+
+<p><img src="../help/figures/lifecycle-deprecated.svg" alt='Deprecated lifecycle' />
+</p>
+<p>These functions are deprecated, please use <code><a href="../../rlang/help/call_modify.html">call_modify()</a></code>,
+<code><a href="../../rlang/help/call_standardise.html">call_standardise()</a></code>, or <code><a href="../../rlang/help/call_fn.html">call_fn()</a></code> instead.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+lang_modify(.lang, ..., .standardise = FALSE)
+
+lang_standardise(lang)
+
+lang_fn(lang)
+
+lang_name(lang)
+
+lang_args(lang)
+
+lang_args_names(lang)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>&lt;<a href="../../rlang/help/dyn-dots.html">dynamic</a>&gt; Named or unnamed expressions
+(constants, names or calls) used to modify the call. Use <code><a href="../../rlang/help/zap.html">zap()</a></code>
+to remove arguments. Empty arguments are preserved.</p>
+</td></tr>
+<tr valign="top"><td><code>.standardise</code></td>
+<td>
+<p>Soft-deprecated as of rlang 0.3.0. Please
+call <code><a href="../../rlang/help/call_standardise.html">call_standardise()</a></code> manually.</p>
+</td></tr>
+<tr valign="top"><td><code>lang, .lang</code></td>
+<td>
+<p>The <code>call</code> or <code>.call</code> argument of the renamed
+functions.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

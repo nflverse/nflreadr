@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Apply a function to each element of a list or atomic vector</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for map {purrr}"><tr><td>map {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Apply a function to each element of a list or atomic vector</h2>
+
+<h3>Description</h3>
+
+<p>The map functions transform their input by applying a function to
+each element of a list or atomic vector and returning an object of the same length as the input.
+</p>
+
+<ul>
+<li> <p><code>map()</code> always returns a list. See the <code><a href="../../purrr/help/modify.html">modify()</a></code> family for
+versions that return an object of the same type as the input.
+</p>
+</li>
+<li> <p><code>map_lgl()</code>, <code>map_int()</code>, <code>map_dbl()</code> and <code>map_chr()</code> return an
+atomic vector of the indicated type (or die trying).
+</p>
+</li>
+<li> <p><code>map_dfr()</code> and <code>map_dfc()</code> return a data frame created by
+row-binding and column-binding respectively. They require dplyr
+to be installed.
+</p>
+</li>
+<li><p> The returned values of <code>.f</code> must be of length one for each element
+of <code>.x</code>. If <code>.f</code> uses an extractor function shortcut, <code>.default</code>
+can be specified to handle values that are absent or empty. See
+<code><a href="../../purrr/help/as_mapper.html">as_mapper()</a></code> for more on <code>.default</code>.
+</p>
+</li></ul>
+
+
+<ul>
+<li> <p><code>walk()</code> calls <code>.f</code> for its side-effect and returns
+the input <code>.x</code>.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+map(.x, .f, ...)
+
+map_lgl(.x, .f, ...)
+
+map_chr(.x, .f, ...)
+
+map_int(.x, .f, ...)
+
+map_dbl(.x, .f, ...)
+
+map_raw(.x, .f, ...)
+
+map_dfr(.x, .f, ..., .id = NULL)
+
+map_dfc(.x, .f, ...)
+
+walk(.x, .f, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>.x</code></td>
+<td>
+<p>A list or atomic vector.</p>
+</td></tr>
+<tr valign="top"><td><code>.f</code></td>
+<td>
+<p>A function, formula, or vector (not necessarily atomic).
+</p>
+<p>If a <strong>function</strong>, it is used as is.
+</p>
+<p>If a <strong>formula</strong>, e.g. <code>~ .x + 2</code>, it is converted to a function. There
+are three ways to refer to the arguments:
+</p>
+
+<ul>
+<li><p> For a single argument function, use <code>.</code>
+</p>
+</li>
+<li><p> For a two argument function, use <code>.x</code> and <code>.y</code>
+</p>
+</li>
+<li><p> For more arguments, use <code>..1</code>, <code>..2</code>, <code>..3</code> etc
+</p>
+</li></ul>
+
+<p>This syntax allows you to create very compact anonymous functions.
+</p>
+<p>If <strong>character vector</strong>, <strong>numeric vector</strong>, or <strong>list</strong>, it is
+converted to an extractor function. Character vectors index by
+name and numeric vectors index by position; use a list to index
+by position and name at different levels. If a component is not
+present, the value of <code>.default</code> will be returned.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional arguments passed on to the mapped function.</p>
+</td></tr>
+<tr valign="top"><td><code>.id</code></td>
+<td>
+<p>Either a string or <code>NULL</code>. If a string, the output will contain
+a variable with that name, storing either the name (if <code>.x</code> is named) or
+the index (if <code>.x</code> is unnamed) of the input. If <code>NULL</code>, the default, no
+variable will be created.
+</p>
+<p>Only applies to <code style="white-space: pre;">_dfr</code> variant.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+
+<ul>
+<li> <p><code>map()</code> Returns a list the same length as <code>.x</code>.
+</p>
+</li>
+<li> <p><code>map_lgl()</code> returns a logical vector, <code>map_int()</code> an integer
+vector, <code>map_dbl()</code> a double vector, and <code>map_chr()</code> a character
+vector.
+</p>
+</li>
+<li> <p><code>map_df()</code>, <code>map_dfc()</code>, <code>map_dfr()</code> all return a data frame.
+</p>
+</li>
+<li><p> If <code>.x</code> has <code>names()</code>, the return value preserves those names.
+</p>
+</li>
+<li><p> The output of <code>.f</code> will be automatically typed upwards, e.g.
+logical -&gt; integer -&gt; double -&gt; character.
+</p>
+</li></ul>
+
+
+<ul>
+<li> <p><code>walk()</code> returns the input <code>.x</code> (invisibly). This makes it easy to
+use in pipe.
+</p>
+</li></ul>
+
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/map_if.html">map_if()</a></code> for applying a function to only those elements
+of <code>.x</code> that meet a specified condition.
+</p>
+<p>Other map variants: 
+<code><a href="../../purrr/help/imap.html">imap</a>()</code>,
+<code><a href="../../purrr/help/invoke.html">invoke</a>()</code>,
+<code><a href="../../purrr/help/lmap.html">lmap</a>()</code>,
+<code><a href="../../purrr/help/map2.html">map2</a>()</code>,
+<code><a href="../../purrr/help/map_if.html">map_if</a>()</code>,
+<code><a href="../../purrr/help/modify.html">modify</a>()</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Compute normal distributions from an atomic vector
+1:10 %&gt;%
+  map(rnorm, n = 10)
+
+# You can also use an anonymous function
+1:10 %&gt;%
+  map(function(x) rnorm(10, x))
+
+# Or a formula
+1:10 %&gt;%
+  map(~ rnorm(10, .x))
+
+# Simplify output to a vector instead of a list by computing the mean of the distributions
+1:10 %&gt;%
+  map(rnorm, n = 10) %&gt;%  # output a list
+  map_dbl(mean)           # output an atomic vector
+
+# Using set_names() with character vectors is handy to keep track
+# of the original inputs:
+set_names(c("foo", "bar")) %&gt;% map_chr(paste0, ":suffix")
+
+# Working with lists
+favorite_desserts &lt;- list(Sophia = "banana bread", Eliott = "pancakes", Karina = "chocolate cake")
+favorite_desserts %&gt;% map_chr(~ paste(.x, "rocks!"))
+
+# Extract by name or position
+# .default specifies value for elements that are missing or NULL
+l1 &lt;- list(list(a = 1L), list(a = NULL, b = 2L), list(b = 3L))
+l1 %&gt;% map("a", .default = "???")
+l1 %&gt;% map_int("b", .default = NA)
+l1 %&gt;% map_int(2, .default = NA)
+
+# Supply multiple values to index deeply into a list
+l2 &lt;- list(
+  list(num = 1:3,     letters[1:3]),
+  list(num = 101:103, letters[4:6]),
+  list()
+)
+l2 %&gt;% map(c(2, 2))
+
+# Use a list to build an extractor that mixes numeric indices and names,
+# and .default to provide a default value if the element does not exist
+l2 %&gt;% map(list("num", 3))
+l2 %&gt;% map_int(list("num", 3), .default = NA)
+
+# Working with data frames
+# Use map_lgl(), map_dbl(), etc to return a vector instead of a list:
+mtcars %&gt;% map_dbl(sum)
+
+# A more realistic example: split a data frame into pieces, fit a
+# model to each piece, summarise and extract R^2
+mtcars %&gt;%
+  split(.$cyl) %&gt;%
+  map(~ lm(mpg ~ wt, data = .x)) %&gt;%
+  map(summary) %&gt;%
+  map_dbl("r.squared")
+
+# If each element of the output is a data frame, use
+# map_dfr to row-bind them together:
+mtcars %&gt;%
+  split(.$cyl) %&gt;%
+  map(~ lm(mpg ~ wt, data = .x)) %&gt;%
+  map_dfr(~ as.data.frame(t(as.matrix(coef(.)))))
+# (if you also want to preserve the variable names see
+# the broom package)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>

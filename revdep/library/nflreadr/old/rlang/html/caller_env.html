@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get the current or caller environment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for caller_env {rlang}"><tr><td>caller_env {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get the current or caller environment</h2>
+
+<h3>Description</h3>
+
+
+<ul>
+<li><p> The current environment is the execution environment of the
+current function (the one currently being evaluated).
+</p>
+</li>
+<li><p> The caller environment is the execution environment of the
+function that called the current function.
+</p>
+</li></ul>
+
+
+
+<h3>Usage</h3>
+
+<pre>
+caller_env(n = 1)
+
+current_env()
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>Number of frames to go back.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../rlang/help/caller_frame.html">caller_frame()</a></code> and <code><a href="../../rlang/help/current_frame.html">current_frame()</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+if (FALSE) {
+
+# Let's create a function that returns its current environment and
+# its caller environment:
+fn &lt;- function() list(current = current_env(), caller = caller_env())
+
+# The current environment is an unique execution environment
+# created when `fn()` was called. The caller environment is the
+# global env because that's where we called `fn()`.
+fn()
+
+# Let's call `fn()` again but this time within a function:
+g &lt;- function() fn()
+
+# Now the caller environment is also a unique execution environment.
+# This is the exec env created by R for our call to g():
+g()
+
+}
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

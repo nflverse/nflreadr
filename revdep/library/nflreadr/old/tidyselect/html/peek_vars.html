@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Peek at variables in the selection context</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for peek_vars {tidyselect}"><tr><td>peek_vars {tidyselect}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Peek at variables in the selection context</h2>
+
+<h3>Description</h3>
+
+
+<ul>
+<li> <p><code>peek_vars()</code> returns the vector of names of the variables
+currently available for selection.
+</p>
+</li>
+<li> <p><code>peek_data()</code> returns the whole input vector (only available with
+<code><a href="../../tidyselect/help/eval_select.html">eval_select()</a></code>).
+</p>
+</li></ul>
+
+<p>Read the <a href="https://tidyselect.r-lib.org/articles/tidyselect.html">Get started</a> for
+examples of how to create selection helpers with <code>peek_vars()</code>.
+</p>
+<p>The variable names in a selection context are registered
+automatically by <code><a href="../../tidyselect/help/eval_select.html">eval_select()</a></code> and <code><a href="../../tidyselect/help/eval_rename.html">eval_rename()</a></code> for the
+duration of the evaluation. <code>peek_vars()</code> is the glue that connects
+<a href="../../tidyselect/help/language.html">selection helpers</a> to the current selection
+context.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+peek_vars(..., fn = NULL)
+
+peek_data(..., fn = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>These dots are for future extensions and must be empty.</p>
+</td></tr>
+<tr valign="top"><td><code>fn</code></td>
+<td>
+<p>The name of the function to use in error messages when
+the helper is used in the wrong context. If not supplied, a
+generic error message is used instead.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>tidyselect</em> version 1.1.1 <a href="00Index.html">Index</a>]</div>
+</body></html>

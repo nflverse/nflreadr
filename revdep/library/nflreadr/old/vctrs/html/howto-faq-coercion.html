@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: FAQ - How to implement ptype2 and cast methods?</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for howto-faq-coercion {vctrs}"><tr><td>howto-faq-coercion {vctrs}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>FAQ - How to implement ptype2 and cast methods?</h2>
+
+<h3>Description</h3>
+
+<p>This guide illustrates how to implement <code>vec_ptype2()</code> and <code>vec_cast()</code>
+methods for existing classes. Related topics:
+</p>
+
+<ul>
+<li><p> For an overview of how these generics work and their roles in vctrs,
+see <code><a href="../../vctrs/help/theory-faq-coercion.html">?theory-faq-coercion</a></code>.
+</p>
+</li>
+<li><p> For an example of implementing coercion methods for data frame
+subclasses, see
+<code><a href="../../vctrs/help/howto-faq-coercion-data-frame.html">?howto-faq-coercion-data-frame</a></code>.
+</p>
+</li>
+<li><p> For a tutorial about implementing vctrs classes from scratch, see
+<code>vignette("s3-vector")</code>
+</p>
+</li></ul>
+
+
+
+<h4>The natural number class</h4>
+
+<p>We’ll illustrate how to implement coercion methods with a simple class
+that represents natural numbers. In this scenario we have an existing
+class that already features a constructor and methods for <code>print()</code> and
+subset.<div class="r"></p>
+<pre>#' @export
+new_natural &lt;- function(x) {
+  if (is.numeric(x) || is.logical(x)) {
+    stopifnot(is_whole(x))
+    x &lt;- as.integer(x)
+  } else {
+    stop("Can't construct natural from unknown type.")
+  }
+  structure(x, class = "my_natural")
+}
+is_whole &lt;- function(x) {
+  all(x %% 1 == 0 | is.na(x))
+}
+
+#' @export
+print.my_natural &lt;- function(x, ...) {
+  cat("&lt;natural&gt;\n")
+  x &lt;- unclass(x)
+  NextMethod()
+}
+#' @export
+`[.my_natural` &lt;- function(x, i, ...) {
+  new_natural(NextMethod())
+}
+</pre></div><div class="r"><pre>new_natural(1:3)
+#&gt; &lt;natural&gt;
+#&gt; [1] 1 2 3
+new_natural(c(1, NA))
+#&gt; &lt;natural&gt;
+#&gt; [1]  1 NA
+</pre></div>
+
+
+
+<h4>Roxygen workflow</h4>
+
+<p>To implement methods for generics, first import the generics in your
+namespace and redocument:<div class="r"></p>
+<pre>#' @importFrom vctrs vec_ptype2 vec_cast
+NULL
+</pre></div>
+<p>Note that for each batches of methods that you add to your package, you
+need to export the methods and redocument immediately, even during
+development. Otherwise they won’t be in scope when you run unit tests
+e.g. with testthat.
+</p>
+<p>Implementing double dispatch methods is very similar to implementing
+regular S3 methods. In these examples we are using roxygen2 tags to
+register the methods, but you can also register the methods manually in
+your NAMESPACE file or lazily with <code>s3_register()</code>.
+</p>
+
+
+
+<h4>Implementing <code>vec_ptype2()</code></h4>
+
+
+
+<h5>The self-self method</h5>
+
+<p>The first method to implement is the one that signals that your class is
+compatible with itself:<div class="r"></p>
+<pre>#' @export
+vec_ptype2.my_natural.my_natural &lt;- function(x, y, ...) {
+  x
+}
+
+vec_ptype2(new_natural(1), new_natural(2:3))
+#&gt; &lt;natural&gt;
+#&gt; integer(0)
+</pre></div>
+<p><code>vec_ptype2()</code> implements a fallback to try and be compatible with
+simple classes, so it may seem that you don’t need to implement the
+self-self coercion method. However, you must implement it explicitly
+because this is how vctrs knows that a class that is implementing vctrs
+methods (for instance this disable fallbacks to <code>base::c()</code>). Also, it
+makes your class a bit more efficient.
+</p>
+
+
+
+<h5>The parent and children methods</h5>
+
+<p>Our natural number class is conceptually a parent of <code style="white-space: pre;">&lt;logical&gt;</code> and a
+child of <code style="white-space: pre;">&lt;integer&gt;</code>, but the class is not compatible with logical,
+integer, or double vectors yet:<div class="r"></p>
+<pre>vec_ptype2(TRUE, new_natural(2:3))
+#&gt; Error: Can't combine &lt;logical&gt; and &lt;my_natural&gt;.
+
+vec_ptype2(new_natural(1), 2:3)
+#&gt; Error: Can't combine &lt;my_natural&gt; and &lt;integer&gt;.
+</pre></div>
+<p>We’ll specify the twin methods for each of these classes, returning the
+richer class in each case.<div class="r"></p>
+<pre>#' @export
+vec_ptype2.my_natural.logical &lt;- function(x, y, ...) {
+  # The order of the classes in the method name follows the order of
+  # the arguments in the function signature, so `x` is the natural
+  # number and `y` is the logical
+  x
+}
+#' @export
+vec_ptype2.logical.my_natural &lt;- function(x, y, ...) {
+  # In this case `y` is the richer natural number
+  y
+}
+</pre></div>
+<p>Between a natural number and an integer, the latter is the richer class:<div class="r"></p>
+<pre>#' @export
+vec_ptype2.my_natural.integer &lt;- function(x, y, ...) {
+  y
+}
+#' @export
+vec_ptype2.integer.my_natural &lt;- function(x, y, ...) {
+  x
+}
+</pre></div>
+<p>We no longer get common type errors for logical and integer:<div class="r"></p>
+<pre>vec_ptype2(TRUE, new_natural(2:3))
+#&gt; &lt;natural&gt;
+#&gt; integer(0)
+
+vec_ptype2(new_natural(1), 2:3)
+#&gt; integer(0)
+</pre></div>
+<p>We are not done yet. Pairwise coercion methods must be implemented for
+all the connected nodes in the coercion hierarchy, which include double
+vectors further up. The coercion methods for grand-parent types must be
+implemented separately:<div class="r"></p>
+<pre>#' @export
+vec_ptype2.my_natural.double &lt;- function(x, y, ...) {
+  y
+}
+#' @export
+vec_ptype2.double.my_natural &lt;- function(x, y, ...) {
+  x
+}
+</pre></div>
+
+
+
+<h5>Incompatible attributes</h5>
+
+<p>Most of the time, inputs are incompatible because they have different
+classes for which no <code>vec_ptype2()</code> method is implemented. More rarely,
+inputs could be incompatible because of their attributes. In that case
+incompatibility is signalled by calling <code>stop_incompatible_type()</code>.
+</p>
+<p>In the following example, we implement a self-self ptype2 method for a
+hypothetical subclass of <code style="white-space: pre;">&lt;factor&gt;</code> that has stricter combination
+semantics. The method throws when the levels of the two factors are not
+compatible.<div class="r"></p>
+<pre>#' @export
+vec_ptype2.my_strict_factor.my_strict_factor &lt;- function(x, y, ..., x_arg = "", y_arg = "") {
+  if (!setequal(levels(x), levels(y))) {
+    stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg)
+  }
+
+  x
+}
+</pre></div>
+<p>Note how the methods need to take <code>x_arg</code> and <code>y_arg</code> parameters and
+pass them on to <code>stop_incompatible_type()</code>. These argument tags help
+create more informative error messages when the common type
+determination is for a column of a data frame. They are part of the
+generic signature but can usually be left out if not used.
+</p>
+
+
+
+
+<h4>Implementing <code>vec_cast()</code></h4>
+
+<p>Corresponding <code>vec_cast()</code> methods must be implemented for all
+<code>vec_ptype2()</code> methods. The general pattern is to convert the argument
+<code>x</code> to the type of <code>to</code>. The methods should validate the values in <code>x</code>
+and make sure they conform to the values of <code>to</code>.
+</p>
+<p>Please note that for historical reasons, the order of the classes in the
+method name is in reverse order of the arguments in the function
+signature. The first class represents <code>to</code>, whereas the second class
+represents <code>x</code>.
+</p>
+<p>The self-self method is easy in this case, it just returns the target
+input:<div class="r"></p>
+<pre>#' @export
+vec_cast.my_natural.my_natural &lt;- function(x, to, ...) {
+  x
+}
+</pre></div>
+<p>The other types need to be validated. We perform input validation in the
+<code>new_natural()</code> constructor, so that’s a good fit for our <code>vec_cast()</code>
+implementations.<div class="r"></p>
+<pre>#' @export
+vec_cast.my_natural.logical &lt;- function(x, to, ...) {
+  # The order of the classes in the method name is in reverse order
+  # of the arguments in the function signature, so `to` is the natural
+  # number and `x` is the logical
+  new_natural(x)
+}
+vec_cast.my_natural.integer &lt;- function(x, to, ...) {
+  new_natural(x)
+}
+vec_cast.my_natural.double &lt;- function(x, to, ...) {
+  new_natural(x)
+}
+</pre></div>
+<p>With these methods, vctrs is now able to combine logical and natural
+vectors. It properly returns the richer type of the two, a natural
+vector:<div class="r"></p>
+<pre>vec_c(TRUE, new_natural(1), FALSE)
+#&gt; &lt;natural&gt;
+#&gt; [1] 1 1 0
+</pre></div>
+<p>Because we haven’t implemented conversions <em>from</em> natural, it still
+doesn’t know how to combine natural with the richer integer and double
+types:<div class="r"></p>
+<pre>vec_c(new_natural(1), 10L)
+#&gt; Error: Can't convert &lt;my_natural&gt; to &lt;integer&gt;.
+vec_c(1.5, new_natural(1))
+#&gt; Error: Can't convert &lt;my_natural&gt; to &lt;double&gt;.
+</pre></div>
+<p>This is quick work which completes the implementation of coercion
+methods for vctrs:<div class="r"></p>
+<pre>#' @export
+vec_cast.logical.my_natural &lt;- function(x, to, ...) {
+  # In this case `to` is the logical and `x` is the natural number
+  attributes(x) &lt;- NULL
+  as.logical(x)
+}
+#' @export
+vec_cast.integer.my_natural &lt;- function(x, to, ...) {
+  attributes(x) &lt;- NULL
+  as.integer(x)
+}
+#' @export
+vec_cast.double.my_natural &lt;- function(x, to, ...) {
+  attributes(x) &lt;- NULL
+  as.double(x)
+}
+</pre></div>
+<p>And we now get the expected combinations.<div class="r"></p>
+<pre>vec_c(new_natural(1), 10L)
+#&gt; [1]  1 10
+
+vec_c(1.5, new_natural(1))
+#&gt; [1] 1.5 1.0
+</pre></div>
+
+
+<hr /><div style="text-align: center;">[Package <em>vctrs</em> version 0.3.8 <a href="00Index.html">Index</a>]</div>
+</body></html>

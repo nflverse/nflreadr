@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create an overscope</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for as_overscope {rlang}"><tr><td>as_overscope {rlang}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create an overscope</h2>
+
+<h3>Description</h3>
+
+<p><img src="../help/figures/lifecycle-deprecated.svg" alt='Deprecated lifecycle' />
+</p>
+<p>These functions have been deprecated in rlang 0.2.0. Please use
+<code><a href="../../rlang/help/as_data_mask.html">as_data_mask()</a></code> and <code><a href="../../rlang/help/new_data_mask.html">new_data_mask()</a></code> instead. We no longer
+require the mask to be cleaned up so <code>overscope_clean()</code> does not
+have a replacement.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+as_overscope(quo, data = NULL)
+
+new_overscope(bottom, top = NULL, enclosure = NULL)
+
+overscope_clean(overscope)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>quo</code></td>
+<td>
+<p>A <a href="../../rlang/help/nse-defuse.html">quosure</a>.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A data frame or named vector of masking data.</p>
+</td></tr>
+<tr valign="top"><td><code>bottom</code></td>
+<td>
+<p>The environment containing masking objects if the
+data mask is one environment deep. The bottom environment if the
+data mask comprises multiple environment.
+</p>
+<p>If you haven't supplied <code>top</code>, this <strong>must</strong> be an environment
+that you own, i.e. that you have created yourself.</p>
+</td></tr>
+<tr valign="top"><td><code>top</code></td>
+<td>
+<p>The last environment of the data mask. If the data mask
+is only one environment deep, <code>top</code> should be the same as
+<code>bottom</code>.
+</p>
+<p>This <strong>must</strong> be an environment that you own, i.e. that you have
+created yourself. The parent of <code>top</code> will be changed by the tidy
+eval engine and should be considered undetermined. Never make
+assumption about the parent of <code>top</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>enclosure</code></td>
+<td>
+<p>The <code>parent</code> argument of <code><a href="../../rlang/help/new_data_mask.html">new_data_mask()</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>overscope</code></td>
+<td>
+<p>A data mask.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>rlang</em> version 0.4.11 <a href="00Index.html">Index</a>]</div>
+</body></html>

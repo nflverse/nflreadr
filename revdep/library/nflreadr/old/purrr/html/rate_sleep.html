@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Wait for a given time</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rate_sleep {purrr}"><tr><td>rate_sleep {purrr}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Wait for a given time</h2>
+
+<h3>Description</h3>
+
+<p>If the rate's internal counter exceeds the maximum number of times
+it is allowed to sleep, <code>rate_sleep()</code> throws an error of class
+<code>purrr_error_rate_excess</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rate_sleep(rate, quiet = TRUE)
+
+rate_reset(rate)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rate</code></td>
+<td>
+<p>A <a href="../../purrr/help/rate_backoff.html">rate</a> object determining the waiting time.</p>
+</td></tr>
+<tr valign="top"><td><code>quiet</code></td>
+<td>
+<p>If <code>FALSE</code>, prints a message displaying how long until
+the next request.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Call <code>rate_reset()</code> to reset the internal rate counter to 0.
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="../../purrr/help/rate_backoff.html">rate_backoff()</a></code>, <code><a href="../../purrr/help/insistently.html">insistently()</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>purrr</em> version 0.3.4 <a href="00Index.html">Index</a>]</div>
+</body></html>
