@@ -1,3 +1,5 @@
+# nflreadr (development version)
+
 # nflreadr 1.1.0
 
 This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance. 
