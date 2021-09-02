@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -209,21 +209,28 @@
       <small>Source: <a href='https://github.com/nflverse/nflreadr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="nflreadr-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#nflreadr-development-version" class="anchor"></a>nflreadr (development version)<small> Unreleased </small>
+    <div id="nflreadr-110" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0">
+<a href="#nflreadr-110" class="anchor"></a>nflreadr 1.1.0<small> 2021-09-02 </small>
 </h1>
-<div id="minor-changes" class="section level2">
+<p>This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance.</p>
+<div id="new-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor changes</h2>
+<a href="#new-data" class="anchor"></a>New Data</h2>
 <ul>
-<li>Remove progress handling from <code>*_from_url()</code> family of functions and move responsibility to <code><a href="../reference/progressively.html">progressively()</a></code> function decorator instead. (v1.0.0.1)</li>
-<li>Add weekly kicking data.</li>
-<li>Add <code>stat_type</code> argument to <code><a href="../reference/load_player_stats.html">load_player_stats()</a></code> - currently available options are <code>"offense"</code> and <code>"kicking"</code>, future iterations may include <code>"defense"</code>, <code>"punting"</code>, <code>"return"</code>. (v1.0.0.2)</li>
-<li>Refactored to use <code>data.table</code> instead of <code>dplyr</code>/<code>purrr</code> - this hopefully improves speed and reduces the dependency footprint. (v1.0.0.3)</li>
-<li>Use <code><a href="https://rlang.r-lib.org/reference/arg_match.html">rlang::arg_match0</a></code> instead of <code>match.arg</code> - uses rlang explicitly (instead of implicitly) (v1.0.0.4)</li>
-<li>Add nfl combine data (v1.0.0.5)</li>
-<li>Add csv_from_url (v1.0.0.6)</li>
+<li>
+<code><a href="../reference/load_player_stats.html">load_player_stats()</a></code> can now retrieve weekly summaries of kicking data by specifying the <code>stat_type</code> argument to be <code>"kicking"</code>.</li>
+<li>
+<code><a href="../reference/load_combine.html">load_combine()</a></code> retrieves NFL combine data (from PFR).</li>
+</ul>
+</div>
+<div id="backend-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#backend-changes" class="anchor"></a>Backend Changes</h2>
+<ul>
+<li>Remove progress handling from <code>*_from_url()</code> family of functions and move responsibility to <code><a href="../reference/progressively.html">progressively()</a></code> function decorator instead. See vignette for details.</li>
+<li>Removed dependency on <code>dplyr</code> and <code>purrr</code> in favour of <code>data.table</code> - this hopefully improves speed and reduces the dependency footprint.</li>
+<li>Uses <code><a href="https://rlang.r-lib.org/reference/arg_match.html">rlang::arg_match0</a></code> instead of match.arg (uses rlang explicitly instead of implicitly as a dependency of memoise).</li>
 </ul>
 <hr>
 </div>
@@ -239,6 +246,7 @@
 <li><a href="https://github.com/nflverse/nfldata">nflverse/nfldata</a></li>
 <li><a href="https://github.com/nflverse/nflfastR-roster">nflverse/nflfastR-roster</a></li>
 <li><a href="https://github.com/nflverse/espnscrapeR-data">nflverse/espnscrapeR-data</a></li>
+<li><a href="https://github.com/nflverse/pfr_scrapR">nflverse/pfr_scrapR</a></li>
 <li><a href="https://github.com/dynastyprocess/data">dynastyprocess/data</a></li>
 </ul>
 <p>This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.</p>
