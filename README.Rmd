@@ -11,6 +11,10 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(tibble)
+options(tibble.max_extra_cols = 20,
+        tibble.bold = TRUE,
+        tibble.print_max = 5)
 ```
 
 # nflreadr <a href='https://nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
@@ -78,7 +82,7 @@ You can also configure `nflreadr` to display progress messages with the [`progre
 
 ```{r eval = FALSE}
 progressr::with_progress(load_rosters(seasons = 2010:2020))
- |========             |  40%
+ |========            |  40%
 ```
 
 ## Getting help
