@@ -11,7 +11,7 @@
 #' @examples
 #' {
 #' x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV")
-#' clean_team_abbr(x)
+#' clean_team_abbrs(x)
 #' }
 clean_team_abbrs <- function(abbr, current_location = TRUE){
   stopifnot(is.character(abbr),
