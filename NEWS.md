@@ -1,5 +1,8 @@
 # nflreadr (development version)
 
+## New Data
+- `clean_player_names()` and `clean_team_abbrs()` added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)
+
 # nflreadr 1.1.0
 
 This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance. 

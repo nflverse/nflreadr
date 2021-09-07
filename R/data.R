@@ -78,3 +78,59 @@
 #' @seealso `vignette("Data Dictionary - Snap Counts")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html>
 "dictionary_snap_counts"
+
+#' Alternate player name mappings
+#'
+#' A named character vector mapping common alternate names, re-exported from `ffscrapr`.
+#'
+#' You can suggest additions to this table by [opening an issue in ffscrapr](https://github.com/ffverse/ffscrapr/issues/new/choose).
+#'
+#' @examples
+#' \donttest{
+#' player_name_mapping[c("Chatarius Atwell", "Robert Kelley")]
+#' }
+#'
+#' @format A named character vector
+#' \describe{
+#'   \item{name attribute}{The "alternate" name.}
+#'   \item{value attribute}{The "correct" name.}
+#' }
+"player_name_mapping"
+
+#' Alternate team abbreviation mappings
+#'
+#' A named character vector mapping common alternate team abbreviations.
+#'
+#' You can suggest additions to this table by [opening an issue in nflreadr](https://github.com/nflverse/nflreadr/issues/new/choose).
+#'
+#' @examples
+#' \donttest{
+#' team_abbr_mapping[c("STL", "OAK","CRD","BLT", "CLV")]
+#' }
+#'
+#' @seealso `team_abbr_mapping_norelocate` for the same thing but relocations stay in their original cities.
+#'
+#' @format A named character vector
+#' \describe{
+#'   \item{name attribute}{The "alternate" name.}
+#'   \item{value attribute}{The "correct" name.}
+#' }
+"team_abbr_mapping"
+
+#' Alternate team abbreviation mappings, no relocation
+#'
+#' A named character vector mapping common alternate team abbreviations, but does not follow relocations to their current city.
+#'
+#' You can suggest additions to this table by [opening an issue in nflreadr](https://github.com/nflverse/nflreadr/issues/new/choose).
+#'
+#' @examples
+#' \donttest{
+#' team_abbr_mapping_norelocate[c("STL", "OAK","CRD","BLT", "CLV")]
+#' }
+#'
+#' @format A named character vector
+#' \describe{
+#'   \item{name attribute}{The "alternate" name.}
+#'   \item{value attribute}{The "correct" name.}
+#' }
+"team_abbr_mapping_norelocate"

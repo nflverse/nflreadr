@@ -10,19 +10,23 @@
 #'
 #' @examples
 #' {
-#' x <- c("LVR","PIE","LAC","PIT")
+#' x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV")
 #' clean_team_abbr(x)
 #' }
-clean_team_abbr <- function(abbr){
-  stopifnot(is.character(abbr))
+clean_team_abbrs <- function(abbr, current_location = TRUE){
+  stopifnot(is.character(abbr),
+            is.logical(current_location))
 
-  x <- unname(nflreadr::map_team_abbrs[abbr])
+  m <- if(current_location) nflreadr::team_abbr_mapping else nflreadr::team_abbr_mapping_norelocate
 
-  if(any(is.na(x))) {
-    warning(paste(abbr[is.na(x)],collapse = ";")," not found in `nflreadr::nfl_team_abbrs` mapping!")
+
+  a <- unname(m[toupper(abbr)])
+
+  if(any(is.na(a))) {
+    warning(paste(head(abbr[is.na(a)],10),collapse = ";")," not found in `nflreadr::team_abbr_mapping`!")
   }
 
-  x
+  a
 }
 
 #' Create player merge names
@@ -56,16 +60,18 @@ clean_player_names <- function(player_name,
                               convert_lastfirst = TRUE,
                               use_name_database = TRUE){
 
-  stopifnot(is.character(player_name),
-            is.logical(c(lowercase,convert_lastfirst,use_name_database)),
-            length(c(lowercase,convert_lastfirst,use_name_database))==3,
-            !any(is.na(c(lowercase,convert_lastfirst,use_name_database)))
-            )
+  stopifnot(
+    is.character(player_name),
+    is.logical(c(lowercase,convert_lastfirst,use_name_database)),
+    length(c(lowercase,convert_lastfirst,use_name_database))==3,
+    !any(is.na(c(lowercase,convert_lastfirst,use_name_database)))
+  )
 
   n <- player_name
 
   # convert Last, First
   if(convert_lastfirst) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+
   # suffix removal
   n <- gsub(pattern = "( Jr\\.$)|( Sr\\.$)|( III$)|( II$)|( IV$)|( V$)|(\\')|(\\.)",
             replacement = "",
@@ -77,7 +83,7 @@ clean_player_names <- function(player_name,
   # trim whitespace
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
-  if(use_name_database) n <- unname(nflreadr::map_player_names[n] %||% n)
+  if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %||% n)
 
   if(lowercase) n <- tolower(n)
 

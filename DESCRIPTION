@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.1.0.00
+Version: 1.1.0.01
 Authors@R: 
     c(person(given = "Tan",
              family = "Ho",
@@ -40,8 +40,7 @@ Imports:
     memoise (>= 2.0.0),
     qs (>= 0.24.0),
     rappdirs (>= 0.3.0),
-    rlang (>= 0.4.0),
-    magrittr
+    rlang (>= 0.4.0)
 Suggests:
     covr (>= 3.0.0),
     DT (>= 0.15.0),
