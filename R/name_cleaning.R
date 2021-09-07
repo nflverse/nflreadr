@@ -48,11 +48,10 @@ clean_team_abbrs <- function(abbr, current_location = TRUE){
 #'
 #' @examples
 #'
-#' clean_player_names(c("A.J. Green", "Odell Beckham Jr.", "Le'Veon Bell Sr."), lowercase = TRUE, use_name_database = FALSE)
+#' clean_player_names(c("A.J. Green", "Odell Beckham Jr.", "Le'Veon Bell Sr."))
 #'
 #' clean_player_names(c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore"),
-#'                   convert_lastfirst = TRUE,
-#'                   use_name_database = FALSE)
+#'                   convert_lastfirst = TRUE)
 #'
 #' @export
 clean_player_names <- function(player_name,
@@ -83,7 +82,7 @@ clean_player_names <- function(player_name,
   # trim whitespace
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
-  if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %||% n)
+  if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %c% n)
 
   if(lowercase) n <- tolower(n)
 

@@ -33,7 +33,9 @@ choose_loader <- function(type) {
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
-#' @importFrom rlang %||%
 ## usethis namespace: end
 NULL
 
+`%c%` <- function(x,y){
+  ifelse(!is.na(x),x,y)
+}
