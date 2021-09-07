@@ -26,3 +26,14 @@ choose_loader <- function(type) {
     "qs" = qs_from_url
   )
 }
+
+#' @keywords internal
+"_PACKAGE"
+
+# The following block is used by usethis to automatically manage
+# roxygen namespace tags. Modify with care!
+## usethis namespace: start
+#' @importFrom rlang %||%
+## usethis namespace: end
+NULL
+
