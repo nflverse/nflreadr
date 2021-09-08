@@ -1,6 +1,6 @@
 destination: docs
 
-url: nflreadr.nflverse.com
+url: https://nflreadr.nflverse.com
 
 reference:
 - title: Load nflverse data
