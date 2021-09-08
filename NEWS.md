@@ -2,6 +2,7 @@
 
 ## New Data
 - `clean_player_names()` and `clean_team_abbrs()` added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)
+- `load_ff_rankings()` now has a `type` argument and can return `"draft"` or `"week"` rankings from the DP/data repo. (v1.1.0.02)
 
 # nflreadr 1.1.0
 
