@@ -4,6 +4,7 @@
 - `clean_player_names()` and `clean_team_abbrs()` added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)
 - `load_ff_rankings()` now has a `type` argument and can return `"draft"` or `"week"` rankings from the DP/data repo. (v1.1.0.02)
 - `clean_team_abbrs()` now accepts the conference abbreviations `"AFC"` and `"NFC"`. (v1.1.0.03)
+- `clean_homeaway()` converts a dataframe of games with columns prefixed with `home_` and `away_` to a dataframe of teams, renaming to `team_` and `opponent_` and doubling the rows. (v1.1.0.04)
 
 # nflreadr 1.1.0
 

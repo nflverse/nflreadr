@@ -102,3 +102,50 @@ clean_player_names <- function(player_name,
 
   n
 }
+
+#' Clean Home/Away in dataframes into Team/Opponent dataframes
+#'
+#' This function converts dataframes with "home_" and "away_" prefixed columns to "team_" and "opponent_", and doubles the rows. This makes sure that there's one row for each team (as opposed to one row for each game).
+#'
+#' @param dataframe dataframe
+#' @param invert a character vector of columns that gets inverted when referring to the away team (e.g. home spread = 1 gets converted to away_spread = -1)
+#'
+#' @examples
+#' \donttest{
+#'  # creating a small example dataframe!
+#'
+#'  x <- load_schedules(2020)
+#'  x <- x[,c("season", "week", "home_team", "home_score", "away_team", "away_score", "result", "spread_line")]
+#'
+#'  clean_homeaway(x, invert = c("result","spread_line"))
+#' }
+#' @return a dataframe with one row per team (twice as long as the input dataframe)
+#' @export
+clean_homeaway <- function(dataframe, invert = NULL){
+  stopifnot(
+    is.data.frame(dataframe),
+    is.null(invert)||is.character(invert)
+  )
+  dataframe$.row_order <- seq_len(nrow(dataframe))
+  home <- dataframe
+  away <- dataframe
+
+  names(home) <- gsub(x = names(home), pattern = "^home_", replacement = "team_")
+  names(home) <- gsub(x = names(home), pattern = "^away_", replacement = "opponent_")
+  names(home) <- gsub(x = names(home), pattern = "team_team", replacement = "team")
+  names(home) <- gsub(x = names(home), pattern = "opponent_team", replacement = "opponent")
+  home$location <- "home"
+
+  names(away) <- gsub(x = names(away), pattern = "^away_", replacement = "team_")
+  names(away) <- gsub(x = names(away), pattern = "^home_", replacement = "opponent_")
+  names(away) <- gsub(x = names(away), pattern = "team_team", replacement = "team")
+  names(away) <- gsub(x = names(away), pattern = "opponent_team", replacement = "opponent")
+  away$location <- "away"
+
+  if(!is.null(invert)) data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1
+
+  .row_order <- NULL
+  out <- data.table::rbindlist(list(home,away), use.names = TRUE)[order(.row_order),-c(".row_order")]
+  class(out) <- c("tbl_df", "tbl", "data.table", "data.frame")
+  out
+}
