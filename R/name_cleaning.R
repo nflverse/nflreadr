@@ -1,30 +1,43 @@
-#' Standardise NFL team abbreviations
+#' Standardize NFL Team Abbreviations
 #'
-#' This function standardises NFL team abbreviations to nflverse defaults.
+#' This function standardizes NFL team abbreviations to nflverse defaults.
 #' This helps for joins and plotting, especially with the new nflplotR package!
 #'
 #' @param abbr a character vector of abbreviations
+#' @param current_location If `TRUE` (the default), the abbreviation of the most
+#'   recent team location will be used.
+#' @param keep_non_matches If `TRUE` (the default) an element of `abbr` that can't
+#'   be matched to any of the internal mapping vectors will be kept as is. Otherwise
+#'   it will be replaced with `NA`.
 #'
-#' @return
+#' @return A character vector with the length of `abbr` and cleaned team abbreviations
+#'   if they are included in [`team_abbr_mapping`] or [`team_abbr_mapping_norelocate`]
+#'   (depending on the value of `current_location`). Non matches may be replaced
+#'   with `NA` (depending on the value of `keep_non_matches`).
 #' @export
-#'
 #' @examples
-#' {
-#' x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV")
+#' x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL")
+#' # use current location and keep non matches
 #' clean_team_abbrs(x)
-#' }
-clean_team_abbrs <- function(abbr, current_location = TRUE){
-  stopifnot(is.character(abbr),
-            is.logical(current_location))
+#'
+#' # keep old location and replace non matches
+#' clean_team_abbrs(x, current_location = FALSE, keep_non_matches = FALSE)
+clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = TRUE) {
+  stopifnot(
+    is.character(abbr),
+    is.logical(current_location)
+  )
 
-  m <- if(current_location) nflreadr::team_abbr_mapping else nflreadr::team_abbr_mapping_norelocate
+  m <- if (isTRUE(current_location)) nflreadr::team_abbr_mapping else nflreadr::team_abbr_mapping_norelocate
 
 
   a <- unname(m[toupper(abbr)])
 
-  if(any(is.na(a))) {
-    warning(paste(head(abbr[is.na(a)],10),collapse = ";")," not found in `nflreadr::team_abbr_mapping`!")
+  if (any(is.na(a))) {
+    warning("Abbreviations not found in `nflreadr::team_abbr_mapping`: ", paste(head(abbr[is.na(a)], 10), collapse = " , "))
   }
+
+  if (isTRUE(keep_non_matches)) a[is.na(a)] <- abbr[is.na(a)]
 
   a
 }
