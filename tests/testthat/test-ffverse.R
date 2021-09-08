@@ -15,9 +15,11 @@ test_that("load_schedules", {
   skip_if_offline("github.com")
   skip_on_cran()
 
-  rankings <- load_ff_rankings()
+  rankings_draft <- load_ff_rankings(type = "draft")
+  rankings_week <- load_ff_rankings(type = "week")
 
-  expect_s3_class(rankings, "tbl_df")
-
-  expect_gt(nrow(rankings), 2000)
+  expect_s3_class(rankings_draft, "tbl_df")
+  expect_gt(nrow(rankings_draft), 2000)
+  expect_s3_class(rankings_week, "tbl_df")
+  expect_gt(nrow(rankings_week), 500)
 })

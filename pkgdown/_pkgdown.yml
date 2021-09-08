@@ -36,6 +36,8 @@ reference:
 - title: Miscellaneous
   contents:
   - ".clear_cache"
+  - "clean_team_abbrs"
+  - "clean_player_names"
 
 authors:
   Tan Ho:
