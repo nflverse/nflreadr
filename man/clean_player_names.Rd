@@ -2,7 +2,7 @@
 % Please edit documentation in R/name_cleaning.R
 \name{clean_player_names}
 \alias{clean_player_names}
-\title{Create player merge names}
+\title{Create Player Merge Names}
 \usage{
 clean_player_names(
   player_name,

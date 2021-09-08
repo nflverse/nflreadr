@@ -34,7 +34,7 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
   a <- unname(m[toupper(abbr)])
 
   if (any(is.na(a))) {
-    warning("Abbreviations not found in `nflreadr::team_abbr_mapping`: ", paste(head(abbr[is.na(a)], 10), collapse = " , "))
+    warning("Abbreviations not found in `nflreadr::team_abbr_mapping`: ", paste(utils::head(abbr[is.na(a)], 10), collapse = " , "))
   }
 
   if (isTRUE(keep_non_matches)) a[is.na(a)] <- abbr[is.na(a)]
@@ -42,7 +42,7 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
   a
 }
 
-#' Create player merge names
+#' Create Player Merge Names
 #'
 #' Applies some name-cleaning heuristics to facilitate joins. These heuristics may include:
 #'   - removing periods and apostrophes
@@ -68,9 +68,9 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 #'
 #' @export
 clean_player_names <- function(player_name,
-                              lowercase = FALSE,
-                              convert_lastfirst = TRUE,
-                              use_name_database = TRUE){
+                               lowercase = FALSE,
+                               convert_lastfirst = TRUE,
+                               use_name_database = TRUE){
 
   stopifnot(
     is.character(player_name),
