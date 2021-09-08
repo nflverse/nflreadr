@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>nflreadr.nflverse.com/index.html</loc>
+    <loc>https://nflreadr.nflverse.com/index.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/clean_player_names.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/clean_player_names.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/clean_team_abbrs.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/clean_team_abbrs.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/csv_from_url.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/csv_from_url.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_draft_picks.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_draft_picks.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_ff_playerids.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_playerids.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_ff_rankings.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_rankings.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_nextgen_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_nextgen_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_pbp.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_pbp.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_pfr_passing.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_pfr_passing.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_player_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_player_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_rosters.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_rosters.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_schedules.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_schedules.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dictionary_snap_counts.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_snap_counts.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_combine.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_combine.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_depth_charts.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_depth_charts.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_draft_picks.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_draft_picks.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_espn_qbr.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_espn_qbr.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_ff_playerids.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_ff_playerids.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_ff_rankings.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_ff_rankings.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_injuries.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_injuries.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_nextgen_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_nextgen_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_pbp.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_pbp.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_pfr_passing.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_pfr_passing.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_player_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_player_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_rosters.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_rosters.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_schedules.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_schedules.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_snap_counts.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_snap_counts.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_teams.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_teams.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/load_trades.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/load_trades.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/nflreadr-package.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/nflreadr-package.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/player_name_mapping.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/player_name_mapping.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/progressively.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/progressively.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/qs_from_url.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/qs_from_url.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/raw_from_url.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/raw_from_url.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/rds_from_url.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/rds_from_url.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/team_abbr_mapping.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/team_abbr_mapping.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/reference/team_abbr_mapping_norelocate.html</loc>
+    <loc>https://nflreadr.nflverse.com/reference/team_abbr_mapping_norelocate.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_player_stats.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_player_stats.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_rosters.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_rosters.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_schedules.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_schedules.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
   </url>
   <url>
-    <loc>nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>
+    <loc>https://nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>
   </url>
 </urlset>
