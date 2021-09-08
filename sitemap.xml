@@ -4,6 +4,12 @@
     <loc>nflreadr.nflverse.com/index.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/reference/clean_player_names.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/clean_team_abbrs.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/reference/csv_from_url.html</loc>
   </url>
   <url>
@@ -91,6 +97,9 @@
     <loc>nflreadr.nflverse.com/reference/nflreadr-package.html</loc>
   </url>
   <url>
+    <loc>nflreadr.nflverse.com/reference/player_name_mapping.html</loc>
+  </url>
+  <url>
     <loc>nflreadr.nflverse.com/reference/progressively.html</loc>
   </url>
   <url>
@@ -101,6 +110,12 @@
   </url>
   <url>
     <loc>nflreadr.nflverse.com/reference/rds_from_url.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/team_abbr_mapping.html</loc>
+  </url>
+  <url>
+    <loc>nflreadr.nflverse.com/reference/team_abbr_mapping_norelocate.html</loc>
   </url>
   <url>
     <loc>nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
