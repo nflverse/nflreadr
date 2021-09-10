@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.03</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.05</span>
       </span>
     </div>
 
@@ -251,14 +251,34 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
   <span class='fu'>load_player_stats</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 0 × 48</span>
-#&gt; <span style='color: #949494;'># … with 48 variables: player_id &lt;chr&gt;, player_name &lt;chr&gt;, recent_team &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   season &lt;int&gt;, week &lt;int&gt;, season_type &lt;chr&gt;, completions &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   attempts &lt;int&gt;, passing_yards &lt;dbl&gt;, passing_tds &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   interceptions &lt;dbl&gt;, sacks &lt;dbl&gt;, sack_yards &lt;dbl&gt;, sack_fumbles &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   sack_fumbles_lost &lt;int&gt;, passing_air_yards &lt;dbl&gt;,</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 18 × 48</span>
+#&gt;    player_id  player_name  recent_team season  week season_type completions
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 00-0019596 T.Brady      TB            <span style='text-decoration: underline;'>2</span>021     1 REG                  32
+#&gt; <span style='color: #BCBCBC;'> 2</span> 00-0027656 R.Gronkowski TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 3</span> 00-0027793 A.Brown      TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 4</span> 00-0030456 G.Bernard    TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 5</span> 00-0031408 M.Evans      TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 6</span> 00-0031544 A.Cooper     DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 7</span> 00-0033045 E.Elliott    DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'> 8</span> 00-0033077 D.Prescott   DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                  42
+#&gt; <span style='color: #BCBCBC;'> 9</span> 00-0033658 B.Jarwin     DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>10</span> 00-0033856 L.Fournette  TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>11</span> 00-0033921 C.Godwin     TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>12</span> 00-0034383 D.Schultz    DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>13</span> 00-0034418 C.Wilson     DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>14</span> 00-0034764 M.Gallup     DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>15</span> 00-0034816 R.Jones      TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>16</span> 00-0035261 T.Pollard    DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>17</span> 00-0036358 C.Lamb       DAL           <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #BCBCBC;'>18</span> 00-0036427 T.Johnson    TB            <span style='text-decoration: underline;'>2</span>021     1 REG                   0
+#&gt; <span style='color: #949494;'># … with 41 more variables: attempts &lt;int&gt;, passing_yards &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   passing_tds &lt;int&gt;, interceptions &lt;dbl&gt;, sacks &lt;dbl&gt;, sack_yards &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   sack_fumbles &lt;int&gt;, sack_fumbles_lost &lt;int&gt;, passing_air_yards &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   passing_yards_after_catch &lt;dbl&gt;, passing_first_downs &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   passing_epa &lt;dbl&gt;, passing_2pt_conversions &lt;int&gt;, pacr &lt;dbl&gt;, …</span></div><div class='input'>  <span class='fu'>load_player_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"kicking"</span><span class='op'>)</span>
+#&gt; <span style='color: #949494;'>#   passing_epa &lt;dbl&gt;, passing_2pt_conversions &lt;int&gt;, pacr &lt;dbl&gt;, dakota &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   carries &lt;int&gt;, rushing_yards &lt;dbl&gt;, rushing_tds &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   rushing_fumbles &lt;dbl&gt;, rushing_fumbles_lost &lt;dbl&gt;, …</span></div><div class='input'>  <span class='fu'>load_player_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"kicking"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 0 × 40</span>
 #&gt; <span style='color: #949494;'># … with 40 variables: season &lt;int&gt;, week &lt;int&gt;, season_type &lt;chr&gt;, team &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   player_name &lt;chr&gt;, player_id &lt;chr&gt;, fg_made &lt;int&gt;, fg_missed &lt;int&gt;,</span>

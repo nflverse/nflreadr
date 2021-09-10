@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.03</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.05</span>
       </span>
     </div>
 
@@ -238,7 +238,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
  <span class='fu'>load_schedules</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 269 × 41</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 269 × 43</span>
 #&gt;    game_id  season game_type  week gameday weekday gametime away_team away_score
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
 #&gt; <span style='color: #BCBCBC;'> 1</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Thursd… 20:20    HOU               20
@@ -251,13 +251,13 @@
 #&gt; <span style='color: #BCBCBC;'> 8</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    GB                43
 #&gt; <span style='color: #BCBCBC;'> 9</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    MIA               11
 #&gt; <span style='color: #BCBCBC;'>10</span> 2020_01…   <span style='text-decoration: underline;'>2</span>020 REG           1 2020-0… Sunday  13:00    PHI               17
-#&gt; <span style='color: #949494;'># … with 259 more rows, and 32 more variables: home_team &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'># … with 259 more rows, and 34 more variables: home_team &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   home_score &lt;int&gt;, location &lt;chr&gt;, result &lt;int&gt;, total &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   overtime &lt;int&gt;, old_game_id &lt;chr&gt;, espn &lt;chr&gt;, away_rest &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   home_rest &lt;int&gt;, away_moneyline &lt;int&gt;, home_moneyline &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   spread_line &lt;dbl&gt;, away_spread_odds &lt;int&gt;, home_spread_odds &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   total_line &lt;dbl&gt;, under_odds &lt;int&gt;, over_odds &lt;int&gt;, div_game &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   roof &lt;chr&gt;, surface &lt;chr&gt;, temp &lt;int&gt;, wind &lt;int&gt;, away_qb_id &lt;chr&gt;, …</span></div><div class='input'><span class='co'># }</span>
+#&gt; <span style='color: #949494;'>#   overtime &lt;int&gt;, old_game_id &lt;chr&gt;, gsis &lt;int&gt;, nfl_detail_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   espn &lt;chr&gt;, away_rest &lt;int&gt;, home_rest &lt;int&gt;, away_moneyline &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   home_moneyline &lt;int&gt;, spread_line &lt;dbl&gt;, away_spread_odds &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   home_spread_odds &lt;int&gt;, total_line &lt;dbl&gt;, under_odds &lt;int&gt;,</span>
+#&gt; <span style='color: #949494;'>#   over_odds &lt;int&gt;, div_game &lt;int&gt;, roof &lt;chr&gt;, surface &lt;chr&gt;, temp &lt;int&gt;, …</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>

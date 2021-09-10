@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.03</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.05</span>
       </span>
     </div>
 
@@ -257,42 +257,54 @@
 #&gt; 6122:        KC         NA       DEN         NA     Home     NA    NA       NA
 #&gt; 6123:        SF         NA        LA         NA     Home     NA    NA       NA
 #&gt; 6124:       LAC         NA        LV         NA     Home     NA    NA       NA
-#&gt;       old_game_id      espn away_rest home_rest away_moneyline home_moneyline
-#&gt;    1:  1999091210 190912001         7         7             NA             NA
-#&gt;    2:  1999091206 190912003         7         7             NA             NA
-#&gt;    3:  1999091213 190912005         7         7             NA             NA
-#&gt;    4:  1999091208 190912009         7         7             NA             NA
-#&gt;    5:  1999091202 190912011         7         7             NA             NA
-#&gt;   ---                                                                        
-#&gt; 6120:  2022010905 401326596         7         7             NA             NA
-#&gt; 6121:  2022010915 401326597         7         7             NA             NA
-#&gt; 6122:  2022010914 401326598         7         7             NA             NA
-#&gt; 6123:  2022010913 401326599         7         7             NA             NA
-#&gt; 6124:  2022010912 401326600         7         7             NA             NA
-#&gt;       spread_line away_spread_odds home_spread_odds total_line under_odds
-#&gt;    1:          -4               NA               NA       49.0         NA
-#&gt;    2:          -3               NA               NA       38.0         NA
-#&gt;    3:          -6               NA               NA       37.0         NA
-#&gt;    4:           9               NA               NA       43.0         NA
-#&gt;    5:          -3               NA               NA       45.5         NA
-#&gt;   ---                                                                    
-#&gt; 6120:          NA               NA               NA         NA         NA
-#&gt; 6121:          NA               NA               NA         NA         NA
-#&gt; 6122:          NA               NA               NA         NA         NA
-#&gt; 6123:          NA               NA               NA         NA         NA
-#&gt; 6124:          NA               NA               NA         NA         NA
-#&gt;       over_odds div_game     roof    surface temp wind away_qb_id home_qb_id
-#&gt;    1:        NA        0     dome  astroturf   NA   NA 00-0003761 00-0002876
-#&gt;    2:        NA        0 outdoors      grass   80   12 00-0006300 00-0010560
-#&gt;    3:        NA        1 outdoors      grass   78   12 00-0015700 00-0004230
-#&gt;    4:        NA        0 outdoors      grass   67   10 00-0005741 00-0005106
-#&gt;    5:        NA        1     dome  astroturf   NA   NA 00-0005363 00-0010346
-#&gt;   ---                                                                       
-#&gt; 6120:        NA        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6121:        NA        1   closed      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6122:        NA        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6123:        NA        1     dome matrixturf   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6124:        NA        1     dome      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
+#&gt;       old_game_id  gsis                        nfl_detail_id      espn
+#&gt;    1:  1999091210   598                                 &lt;NA&gt; 190912001
+#&gt;    2:  1999091206   597                                 &lt;NA&gt; 190912003
+#&gt;    3:  1999091213   604                                 &lt;NA&gt; 190912005
+#&gt;    4:  1999091208   602                                 &lt;NA&gt; 190912009
+#&gt;    5:  1999091202   591                                 &lt;NA&gt; 190912011
+#&gt;   ---                                                                 
+#&gt; 6120:  2022010905 58770 10160000-0587-704e-6295-0c29cd0a1891 401326596
+#&gt; 6121:  2022010915 58771 10160000-0587-7113-a978-455fec3cda14 401326597
+#&gt; 6122:  2022010914 58772 10160000-0587-7224-5e5e-c71409627e21 401326598
+#&gt; 6123:  2022010913 58773 10160000-0587-738e-2b05-95daf03cb563 401326599
+#&gt; 6124:  2022010912 58774 10160000-0587-7450-0923-b0f39c686c28 401326600
+#&gt;       away_rest home_rest away_moneyline home_moneyline spread_line
+#&gt;    1:         7         7             NA             NA          -4
+#&gt;    2:         7         7             NA             NA          -3
+#&gt;    3:         7         7             NA             NA          -6
+#&gt;    4:         7         7             NA             NA           9
+#&gt;    5:         7         7             NA             NA          -3
+#&gt;   ---                                                              
+#&gt; 6120:         7         7             NA             NA          NA
+#&gt; 6121:         7         7             NA             NA          NA
+#&gt; 6122:         7         7             NA             NA          NA
+#&gt; 6123:         7         7             NA             NA          NA
+#&gt; 6124:         7         7             NA             NA          NA
+#&gt;       away_spread_odds home_spread_odds total_line under_odds over_odds
+#&gt;    1:               NA               NA       49.0         NA        NA
+#&gt;    2:               NA               NA       38.0         NA        NA
+#&gt;    3:               NA               NA       37.0         NA        NA
+#&gt;    4:               NA               NA       43.0         NA        NA
+#&gt;    5:               NA               NA       45.5         NA        NA
+#&gt;   ---                                                                  
+#&gt; 6120:               NA               NA         NA         NA        NA
+#&gt; 6121:               NA               NA         NA         NA        NA
+#&gt; 6122:               NA               NA         NA         NA        NA
+#&gt; 6123:               NA               NA         NA         NA        NA
+#&gt; 6124:               NA               NA         NA         NA        NA
+#&gt;       div_game     roof    surface temp wind away_qb_id home_qb_id
+#&gt;    1:        0     dome  astroturf   NA   NA 00-0003761 00-0002876
+#&gt;    2:        0 outdoors      grass   80   12 00-0006300 00-0010560
+#&gt;    3:        1 outdoors      grass   78   12 00-0015700 00-0004230
+#&gt;    4:        0 outdoors      grass   67   10 00-0005741 00-0005106
+#&gt;    5:        1     dome  astroturf   NA   NA 00-0005363 00-0010346
+#&gt;   ---                                                             
+#&gt; 6120:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
+#&gt; 6121:        1   closed      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
+#&gt; 6122:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
+#&gt; 6123:        1     dome matrixturf   NA   NA       &lt;NA&gt;       &lt;NA&gt;
+#&gt; 6124:        1     dome      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
 #&gt;             away_qb_name   home_qb_name         away_coach      home_coach
 #&gt;    1: Randall Cunningham Chris Chandler       Dennis Green      Dan Reeves
 #&gt;    2:        Elvis Grbac Shane Matthews Gunther Cunningham     Dick Jauron
