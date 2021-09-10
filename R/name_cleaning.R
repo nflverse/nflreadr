@@ -38,7 +38,7 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
             call. = FALSE)
   }
 
-  if (isTRUE(keep_non_matches)) a[is.na(a)] <- abbr[is.na(a)]
+  if (isTRUE(keep_non_matches)) a <- a %c% abbr
 
   a
 }
