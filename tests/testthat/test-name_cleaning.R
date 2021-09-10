@@ -23,3 +23,13 @@ test_that("cleaning player names", {
     c("mitchell trubisky", "tutu atwell","ezekiel elliott", "elijah moore", "aj green", "odell beckham"))
 
 })
+
+test_that("cleaning home and away columns",{
+
+  s <- load_schedules(2020)
+  c <- clean_homeaway(s, invert = c("result","spread_line"))
+
+  expect_equal(nrow(c),nrow(s)*2)
+  expect(all(!grepl(x = names(c),pattern = "^home_")),"Error: `home_` was found in `names(c)`")
+
+})
