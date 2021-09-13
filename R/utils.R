@@ -33,17 +33,10 @@ choose_loader <- function(type) {
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
+#' @importFrom Rcpp getRcppVersion
 ## usethis namespace: end
 NULL
 
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)
-}
-
-#' call rcpp for lulz
-#' allows us to specify Rcpp minversion 1.0.7 and still keep cran quiet
-#'
-#' @keywords internal
-rcpp_version <- function(){
-  stopifnot(Rcpp::getRcppVersion() >= "1.0.7") # nocov
 }
