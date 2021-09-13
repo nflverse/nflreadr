@@ -112,16 +112,15 @@ clean_player_names <- function(player_name,
 #'
 #' @examples
 #' \donttest{
-#' library(nflreadr)
 #' # creating a small example dataframe!
 #' cols <- c("season", "week", "home_team", "home_score",
 #'           "away_team", "away_score", "result", "spread_line")
 #'
 #' x <- as.data.frame(load_schedules(2020))
-#' x <- x[cols]
+#' x <- utils::head(x[cols])
 #'
 #' # how the data looks like
-#' utils::head(x)
+#' x
 #'
 #' clean_homeaway(x, invert = c("result","spread_line"))
 #' }
