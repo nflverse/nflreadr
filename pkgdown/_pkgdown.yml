@@ -38,6 +38,7 @@ reference:
   - ".clear_cache"
   - "clean_team_abbrs"
   - "clean_player_names"
+  - "clean_homeaway"
 
 authors:
   Tan Ho:
