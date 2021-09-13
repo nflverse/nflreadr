@@ -19,14 +19,15 @@ This function converts dataframes with "home_" and "away_" prefixed columns to "
 }
 \examples{
 \donttest{
- # creating a small example dataframe!
+library(nflreadr)
+# creating a small example dataframe!
 
- cols <- c("season", "week", "home_team", "home_score",
-           "away_team", "away_score", "result", "spread_line")
+cols <- c("season", "week", "home_team", "home_score",
+          "away_team", "away_score", "result", "spread_line")
 
- x <- load_schedules(2020)
- x <- x[,..cols]
+x <- load_schedules(2020)
+x <- x[,..cols]
 
- clean_homeaway(x, invert = c("result","spread_line"))
+clean_homeaway(x, invert = c("result","spread_line"))
 }
 }
