@@ -99,8 +99,8 @@ template:
 #      index_name: dynastyprocess
   opengraph:
     image:
-      src: man/figures/logo.svg
-      alt: "nflreadr hex logo"
+      src: man/figures/social_preview.png
+      alt: "nflreadr social preview card"
     twitter:
       creator: "@_TanHo"
       site: "@nflfastR"
