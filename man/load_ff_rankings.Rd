@@ -4,7 +4,10 @@
 \alias{load_ff_rankings}
 \title{Load Latest FantasyPros Rankings}
 \usage{
-load_ff_rankings()
+load_ff_rankings(type = c("draft", "week"))
+}
+\arguments{
+\item{type}{one of "draft" or "week", for preseason or inseason-weekly rankings}
 }
 \value{
 a dataframe of expert consensus rankings
