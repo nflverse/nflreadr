@@ -112,6 +112,7 @@ clean_player_names <- function(player_name,
 #'
 #' @examples
 #' \donttest{
+#' library(nflreadr)
 #' # creating a small example dataframe!
 #'
 #' cols <- c("season", "week", "home_team", "home_score",

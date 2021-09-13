@@ -19,6 +19,7 @@ This function converts dataframes with "home_" and "away_" prefixed columns to "
 }
 \examples{
 \donttest{
+library(nflreadr)
 # creating a small example dataframe!
 
 cols <- c("season", "week", "home_team", "home_score",
