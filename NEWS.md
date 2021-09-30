@@ -6,6 +6,7 @@
 - `clean_team_abbrs()` now accepts the conference abbreviations `"AFC"` and `"NFC"`. (v1.1.0.03)
 - `clean_homeaway()` converts a dataframe of games with columns prefixed with `home_` and `away_` to a dataframe of teams, renaming to `team_` and `opponent_` and doubling the rows. (v1.1.0.06)
 - Add Rcpp 1.0.7 dependency to fix qs issues.
+- Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours. (v1.1.0.07)
 
 # nflreadr 1.1.0
 

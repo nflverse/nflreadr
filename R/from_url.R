@@ -10,13 +10,14 @@
 #' \donttest{
 #' rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
 #' }
-rds_from_url <- function(url){
+rds_from_url <- function(url) {
+  cache_message("rds_from_url")
   con <- url(url)
   on.exit(close(con))
   load <- try(readRDS(con), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <",url,">"), call. = FALSE)
+    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
     return(data.table::data.table())
   }
 
@@ -40,6 +41,7 @@ rds_from_url <- function(url){
 #' csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
 #' }
 csv_from_url <- function(...){
+  cache_message("csv_from_url")
   data.table::fread(...)
 }
 
@@ -62,6 +64,7 @@ csv_from_url <- function(...){
 #' 50)
 #' }
 raw_from_url <- function(url){
+  cache_message("raw_from_url")
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
   if (load$status_code!=200) {
@@ -87,6 +90,7 @@ raw_from_url <- function(url){
 #' )
 #' }
 qs_from_url <- function(url){
+  cache_message("qs_from_url")
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
 
@@ -145,4 +149,16 @@ progressively <- function(f, p = NULL){
     f(...)
   }
 
+}
+
+cache_message <- function(id){
+  rlang::inform(
+    message = c(
+      "Please note that nflreadr caches the loaded data by defualt.\nIf you expect different output try one of the following",
+      i = "Restart your R Session",
+      i = "Run `nflreadr::.clear_cache()`"
+    ),
+    .frequency = "regularly",
+    .frequency_id = id
+  )
 }
