@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.06</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.07</span>
       </span>
     </div>
 
@@ -241,7 +241,12 @@
           <span class='st'>"away_team"</span>, <span class='st'>"away_score"</span>, <span class='st'>"result"</span>, <span class='st'>"spread_line"</span><span class='op'>)</span>
 
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='fu'><a href='load_schedules.html'>load_schedules</a></span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span><span class='va'>cols</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Note: nflreadr caches (i.e., stores a saved version) data by default.</span>
+#&gt; <span class='message'>If you expect different output try one of the following:</span>
+#&gt; <span class='message'><span style='color: #0000BB;'>ℹ</span> Restart your R Session or</span>
+#&gt; <span class='message'><span style='color: #0000BB;'>ℹ</span> Run `nflreadr::.clear_cache()`.</span>
+#&gt; <span class='message'>* To disable this warning, run `options(nflreadr.cache_warning = FALSE)`</span>
+#&gt; <span class='message'><span style='color: #555555;'>This message is displayed once every 8 hours.</span></span></div><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span><span class='va'>cols</span><span class='op'>]</span><span class='op'>)</span>
 
 <span class='co'># how the data looks like</span>
 <span class='va'>x</span>

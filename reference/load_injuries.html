@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.06</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.07</span>
       </span>
     </div>
 
@@ -244,22 +244,23 @@
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
     <span class='fu'>load_injuries</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5,414 × 16</span>
-#&gt;    season team  week  gsis_id    position full_name        first_name last_name 
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2020   ARI   1     00-0035287 WR       KeeSean Johnson  KeeSean    Johnson   
-#&gt; <span style='color: #BCBCBC;'> 2</span> 2020   ARI   1     00-0022921 WR       Larry Fitzgerald Larry      Fitzgerald
-#&gt; <span style='color: #BCBCBC;'> 3</span> 2020   ARI   1     00-0030564 WR       DeAndre Hopkins  DeAndre    Hopkins   
-#&gt; <span style='color: #BCBCBC;'> 4</span> 2020   ARI   1     00-0031558 TE       Maxx Williams    Maxx       Williams  
-#&gt; <span style='color: #BCBCBC;'> 5</span> 2020   ARI   1     00-0036363 T        Josh Jones       Josh       Jones     
-#&gt; <span style='color: #BCBCBC;'> 6</span> 2020   ATL   1     00-0027963 G        James Carpenter  James      Carpenter 
-#&gt; <span style='color: #BCBCBC;'> 7</span> 2020   ATL   1     00-0032241 RB       Todd Gurley      Todd       Gurley    
-#&gt; <span style='color: #BCBCBC;'> 8</span> 2020   ATL   1     00-0026997 C        Alex Mack        Alex       Mack      
-#&gt; <span style='color: #BCBCBC;'> 9</span> 2020   ATL   1     00-0032052 DE       Dante Fowler     Dante      Fowler    
-#&gt; <span style='color: #BCBCBC;'>10</span> 2020   ATL   1     00-0034411 WR       Russell Gage     Russell    Gage      
-#&gt; <span style='color: #949494;'># … with 5,404 more rows, and 8 more variables: practice_primary_injury &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   practice_secondary_injury &lt;chr&gt;, practice_status &lt;chr&gt;, modified_dt &lt;dttm&gt;,</span>
+#&gt;    season season_type team   week gsis_id    position full_name        first_name
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2020   REG         ARI       1 00-0035287 WR       KeeSean Johnson  KeeSean   
+#&gt; <span style='color: #BCBCBC;'> 2</span> 2020   REG         ARI       1 00-0022921 WR       Larry Fitzgerald Larry     
+#&gt; <span style='color: #BCBCBC;'> 3</span> 2020   REG         ARI       1 00-0030564 WR       DeAndre Hopkins  DeAndre   
+#&gt; <span style='color: #BCBCBC;'> 4</span> 2020   REG         ARI       1 00-0031558 TE       Maxx Williams    Maxx      
+#&gt; <span style='color: #BCBCBC;'> 5</span> 2020   REG         ARI       1 00-0036363 T        Josh Jones       Josh      
+#&gt; <span style='color: #BCBCBC;'> 6</span> 2020   REG         ATL       1 00-0027963 G        James Carpenter  James     
+#&gt; <span style='color: #BCBCBC;'> 7</span> 2020   REG         ATL       1 00-0032241 RB       Todd Gurley      Todd      
+#&gt; <span style='color: #BCBCBC;'> 8</span> 2020   REG         ATL       1 00-0026997 C        Alex Mack        Alex      
+#&gt; <span style='color: #BCBCBC;'> 9</span> 2020   REG         ATL       1 00-0032052 DE       Dante Fowler     Dante     
+#&gt; <span style='color: #BCBCBC;'>10</span> 2020   REG         ATL       1 00-0034411 WR       Russell Gage     Russell   
+#&gt; <span style='color: #949494;'># … with 5,404 more rows, and 8 more variables: last_name &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   report_primary_injury &lt;chr&gt;, report_secondary_injury &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   report_status &lt;chr&gt;, date_modified &lt;dttm&gt;</span></div><div class='input'><span class='co'># }</span>
+#&gt; <span style='color: #949494;'>#   report_status &lt;chr&gt;, practice_primary_injury &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   practice_secondary_injury &lt;chr&gt;, practice_status &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   date_modified &lt;dttm&gt;</span></div><div class='input'><span class='co'># }</span>
 
 </div></pre>
   </div>
