@@ -41,7 +41,8 @@ Imports:
     qs (>= 0.24.0),
     rappdirs (>= 0.3.0),
     rlang (>= 0.4.0),
-    Rcpp (>= 1.0.7)
+    Rcpp (>= 1.0.7),
+    RcppParallel (>= 5.1.4)
 Suggests:
     covr (>= 3.0.0),
     DT (>= 0.15.0),

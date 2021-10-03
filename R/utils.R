@@ -30,11 +30,8 @@ choose_loader <- function(type) {
 #' @keywords internal
 "_PACKAGE"
 
-# The following block is used by usethis to automatically manage
-# roxygen namespace tags. Modify with care!
-## usethis namespace: start
 #' @importFrom Rcpp getRcppVersion
-## usethis namespace: end
+#' @importFrom RcppParallel defaultNumThreads
 NULL
 
 `%c%` <- function(x,y){
