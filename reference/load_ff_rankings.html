@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.07</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.08</span>
       </span>
     </div>
 
@@ -237,20 +237,20 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'>load_ff_rankings</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5,173 × 25</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5,130 × 25</span>
 #&gt;    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> /nfl/ran… dynasty-… dp       Jamal… 16375 DB    SEA    1     0        1     1
-#&gt; <span style='color: #BCBCBC;'> 2</span> /nfl/ran… dynasty-… dp       Budda… 16733 DB    ARI    2.67  0.47     2     3
-#&gt; <span style='color: #BCBCBC;'> 3</span> /nfl/ran… dynasty-… dp       Jerem… 19429 DB    CAR    4     0.82     3     5
-#&gt; <span style='color: #BCBCBC;'> 4</span> /nfl/ran… dynasty-… dp       Derwi… 17310 DB    LAC    4.33  2.05     2     7
-#&gt; <span style='color: #BCBCBC;'> 5</span> /nfl/ran… dynasty-… dp       Justi… 15649 DB    DEN    6.33  4.19     2    12
-#&gt; <span style='color: #BCBCBC;'> 6</span> /nfl/ran… dynasty-… dp       Lando… 13895 DB    WAS    7.33  1.25     6     9
-#&gt; <span style='color: #BCBCBC;'> 7</span> /nfl/ran… dynasty-… dp       John … 16747 DB    CLE    7.67  1.25     6     9
-#&gt; <span style='color: #BCBCBC;'> 8</span> /nfl/ran… dynasty-… dp       Jessi… 17544 DB    CIN    8.33  2.36     5    10
-#&gt; <span style='color: #BCBCBC;'> 9</span> /nfl/ran… dynasty-… dp       Jorda… 11759 DB    BUF   10     4.97     6    17
-#&gt; <span style='color: #BCBCBC;'>10</span> /nfl/ran… dynasty-… dp       Vonn … 15544 DB    CIN   10     1.41     8    11
-#&gt; <span style='color: #949494;'># … with 5,163 more rows, and 14 more variables: sportsdata_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> /nfl/ran… dynasty-… dp       Jamal… 16375 DB    SEA     1.5  0.5      1     2
+#&gt; <span style='color: #BCBCBC;'> 2</span> /nfl/ran… dynasty-… dp       Budda… 16733 DB    ARI     2.5  0.5      2     3
+#&gt; <span style='color: #BCBCBC;'> 3</span> /nfl/ran… dynasty-… dp       Derwi… 17310 DB    LAC     2.7  1.68     1     6
+#&gt; <span style='color: #BCBCBC;'> 4</span> /nfl/ran… dynasty-… dp       Lando… 13895 DB    WAS     6.2  2.27     4    11
+#&gt; <span style='color: #BCBCBC;'> 5</span> /nfl/ran… dynasty-… dp       Jabri… 16382 DB    NYG     7    4.15     4    19
+#&gt; <span style='color: #BCBCBC;'> 6</span> /nfl/ran… dynasty-… dp       John … 16747 DB    CLE     7.2  1.17     6     9
+#&gt; <span style='color: #BCBCBC;'> 7</span> /nfl/ran… dynasty-… dp       Jerem… 19429 DB    CAR    10.3  8.3      3    22
+#&gt; <span style='color: #BCBCBC;'> 8</span> /nfl/ran… dynasty-… dp       Justi… 15649 DB    DEN    10.4  2.5      5    14
+#&gt; <span style='color: #BCBCBC;'> 9</span> /nfl/ran… dynasty-… dp       Vonn … 15544 DB    CIN    10.8  1.47     8    14
+#&gt; <span style='color: #BCBCBC;'>10</span> /nfl/ran… dynasty-… dp       Johna… 18234 DB    LV     11.7  2.72     9    17
+#&gt; <span style='color: #949494;'># … with 5,120 more rows, and 14 more variables: sportsdata_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   player_filename &lt;chr&gt;, yahoo_id &lt;chr&gt;, cbs_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   player_owned_avg &lt;dbl&gt;, player_owned_espn &lt;dbl&gt;, player_owned_yahoo &lt;dbl&gt;,</span>
 #&gt; <span style='color: #949494;'>#   player_image_url &lt;chr&gt;, player_square_image_url &lt;chr&gt;, rank_delta &lt;dbl&gt;,</span>

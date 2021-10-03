@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • nflreadr</title>
+<title>Load Advanced Stats from PFR — load_pfr_advstats • nflreadr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Load Advanced Stats from PFR — load_pfr_advstats" />
+<meta property="og:description" content="Loads player level season stats provided by Pro Football Reference
+starting with the 2018 season, primarily to augment existing nflverse data." />
 <meta property="og:image" content="https://nflreadr.nflverse.com/reference/figures/social_preview.png" />
 <meta property="og:image:alt" content="nflreadr social preview card" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -72,7 +74,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -205,86 +207,70 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/nflverse/nflreadr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Load Advanced Stats from PFR</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_nflverse.R'><code>R/load_nflverse.R</code></a></small>
+    <div class="hidden name"><code>load_pfr_advstats.Rd</code></div>
     </div>
 
-    <div id="nflreadr-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#nflreadr-development-version" class="anchor"></a>nflreadr (development version)<small> Unreleased </small>
-</h1>
-<div id="new-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-data" class="anchor"></a>New Data</h2>
-<ul>
-<li>
-<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> and <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)</li>
-<li>
-<code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> now has a <code>type</code> argument and can return <code>"draft"</code> or <code>"week"</code> rankings from the DP/data repo. (v1.1.0.02)</li>
-<li>
-<code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now accepts the conference abbreviations <code>"AFC"</code> and <code>"NFC"</code>. (v1.1.0.03)</li>
-<li>
-<code><a href="../reference/clean_homeaway.html">clean_homeaway()</a></code> converts a dataframe of games with columns prefixed with <code>home_</code> and <code>away_</code> to a dataframe of teams, renaming to <code>team_</code> and <code>opponent_</code> and doubling the rows. (v1.1.0.06)</li>
-<li>Add Rcpp 1.0.7 dependency to fix qs issues.</li>
-<li>Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours. (v1.1.0.07)</li>
-<li>Added <code><a href="../reference/load_pfr_advstats.html">load_pfr_advstats()</a></code> which provides pass, rush, rec, def additional data for each week. (v1.1.0.08)</li>
-<li>Adjusted file location of snap count data (v1.1.0.08)</li>
-<li>Adjusted caching reminder to check if interactive. (v1.1.0.08)</li>
-<li>Add RcppParallel 5.1.4 dependency to further fix qs issues. (v1.1.0.08)</li>
-</ul>
-</div>
-</div>
-    <div id="nflreadr-110" class="section level1">
-<h1 class="page-header" data-toc-text="1.1.0">
-<a href="#nflreadr-110" class="anchor"></a>nflreadr 1.1.0<small> 2021-09-02 </small>
-</h1>
-<p>This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance.</p>
-<div id="new-data-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-data-1" class="anchor"></a>New Data</h2>
-<ul>
-<li>
-<code><a href="../reference/load_player_stats.html">load_player_stats()</a></code> can now retrieve weekly summaries of kicking data by specifying the <code>stat_type</code> argument to be <code>"kicking"</code>.</li>
-<li>
-<code><a href="../reference/load_combine.html">load_combine()</a></code> retrieves NFL combine data (from PFR).</li>
-</ul>
-</div>
-<div id="backend-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#backend-changes" class="anchor"></a>Backend Changes</h2>
-<ul>
-<li>Remove progress handling from <code>*_from_url()</code> family of functions and move responsibility to <code><a href="../reference/progressively.html">progressively()</a></code> function decorator instead. See vignette for details.</li>
-<li>Removed dependency on <code>dplyr</code> and <code>purrr</code> in favour of <code>data.table</code> - this hopefully improves speed and reduces the dependency footprint.</li>
-<li>Uses <code><a href="https://rlang.r-lib.org/reference/arg_match.html">rlang::arg_match0</a></code> instead of match.arg (uses rlang explicitly instead of implicitly as a dependency of memoise).</li>
-</ul>
-<hr>
-</div>
-</div>
-    <div id="nflreadr-100" class="section level1">
-<h1 class="page-header" data-toc-text="1.0.0">
-<a href="#nflreadr-100" class="anchor"></a>nflreadr 1.0.0<small> 2021-08-09 </small>
-</h1>
-<p>The goal of {<code>nflreadr</code>} is to efficiently load data from <a href="https://github.com/nflverse">nflverse GitHub repositories</a>, and features caching, optional progress updates, and data dictionaries.</p>
-<p>At this time, it includes data from the following repositories:</p>
-<ul>
-<li><a href="https://github.com/nflverse/nflfastR-data">nflverse/nflfastR-data</a></li>
-<li><a href="https://github.com/nflverse/nfldata">nflverse/nfldata</a></li>
-<li><a href="https://github.com/nflverse/nflfastR-roster">nflverse/nflfastR-roster</a></li>
-<li><a href="https://github.com/nflverse/espnscrapeR-data">nflverse/espnscrapeR-data</a></li>
-<li><a href="https://github.com/nflverse/pfr_scrapR">nflverse/pfr_scrapR</a></li>
-<li><a href="https://github.com/dynastyprocess/data">dynastyprocess/data</a></li>
-</ul>
-<p>This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.</p>
-<p>Special thanks to Seb, Ben, John, Lee, and Thomas for their contributions to the package and to the data pipelines that this package relies on 🎉</p>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Loads player level season stats provided by Pro Football Reference
+starting with the 2018 season, primarily to augment existing nflverse data.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>load_pfr_advstats</span><span class='op'>(</span>
+  seasons <span class='op'>=</span> <span class='fu'>most_recent_season</span><span class='op'>(</span><span class='op'>)</span>,
+  stat_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pass"</span>, <span class='st'>"rush"</span>, <span class='st'>"rec"</span>, <span class='st'>"def"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>seasons</th>
+      <td><p>a numeric vector specifying what seasons to return, if <code>TRUE</code> returns all available data</p></td>
+    </tr>
+    <tr>
+      <th>stat_type</th>
+      <td><p>one of "pass", "rush", "rec", "def"</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A tibble of week-level player statistics provided by Pro Football Reference to supplement data in nflverse</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><a href='https://www.pro-football-reference.com/years/2021/passing_advanced.htm'>https://www.pro-football-reference.com/years/2021/passing_advanced.htm</a></p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+  <span class='fu'>load_pfr_advstats</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 111 × 19</span>
+#&gt;    game_id         pfr_game_id  season  week game_type team  opponent pfr_player_name
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2021_01_DAL_TB  202109090tam   <span style='text-decoration: underline;'>2</span>021     1 REG       TB    DAL      Tom Brady      
+#&gt; <span style='color: #BCBCBC;'> 2</span> 2021_01_DAL_TB  202109090tam   <span style='text-decoration: underline;'>2</span>021     1 REG       DAL   TB       Dak Prescott   
+#&gt; <span style='color: #BCBCBC;'> 3</span> 2021_01_PHI_ATL 202109120atl   <span style='text-decoration: underline;'>2</span>021     1 REG       ATL   PHI      Matt Ryan      
+#&gt; <span style='color: #BCBCBC;'> 4</span> 2021_01_PHI_ATL 202109120atl   <span style='text-decoration: underline;'>2</span>021     1 REG       PHI   ATL      Jalen Hurts    
+#&gt; <span style='color: #BCBCBC;'> 5</span> 2021_01_PIT_BUF 202109120buf   <span style='text-decoration: underline;'>2</span>021     1 REG       BUF   PIT      Josh Allen     
+#&gt; <span style='color: #BCBCBC;'> 6</span> 2021_01_PIT_BUF 202109120buf   <span style='text-decoration: underline;'>2</span>021     1 REG       PIT   BUF      Ben Roethlisbe…
+#&gt; <span style='color: #BCBCBC;'> 7</span> 2021_01_NYJ_CAR 202109120car   <span style='text-decoration: underline;'>2</span>021     1 REG       CAR   NYJ      Sam Darnold    
+#&gt; <span style='color: #BCBCBC;'> 8</span> 2021_01_NYJ_CAR 202109120car   <span style='text-decoration: underline;'>2</span>021     1 REG       NYJ   CAR      Zach Wilson    
+#&gt; <span style='color: #BCBCBC;'> 9</span> 2021_01_MIN_CIN 202109120cin   <span style='text-decoration: underline;'>2</span>021     1 REG       CIN   MIN      Joe Burrow     
+#&gt; <span style='color: #BCBCBC;'>10</span> 2021_01_MIN_CIN 202109120cin   <span style='text-decoration: underline;'>2</span>021     1 REG       MIN   CIN      Kirk Cousins   
+#&gt; <span style='color: #949494;'># … with 101 more rows, and 11 more variables: pfr_player_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #949494;'>#   passing_drops &lt;dbl&gt;, passing_drop_pct &lt;dbl&gt;, passing_bad_throws &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;, times_blitzed &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;, times_pressured &lt;dbl&gt;,</span>
+#&gt; <span style='color: #949494;'>#   times_pressured_pct &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
+
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
