@@ -10,6 +10,7 @@
 - Added `load_pfr_advstats()` which provides pass, rush, rec, def additional data for each week. (v1.1.0.08)
 - Adjusted file location of snap count data (v1.1.0.08)
 - Adjusted caching reminder to check if interactive. (v1.1.0.08)
+- Add RcppParallel 5.1.4 dependency to further fix qs issues. (v1.1.0.08)
 
 # nflreadr 1.1.0
 
