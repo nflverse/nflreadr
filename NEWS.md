@@ -7,6 +7,8 @@
 - `clean_homeaway()` converts a dataframe of games with columns prefixed with `home_` and `away_` to a dataframe of teams, renaming to `team_` and `opponent_` and doubling the rows. (v1.1.0.06)
 - Add Rcpp 1.0.7 dependency to fix qs issues.
 - Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours. (v1.1.0.07)
+- Added `load_pfr_advstats()` which provides pass, rush, rec, def additional data for each week. (v1.1.0.08)
+- Adjusted caching reminder to check if interactive.
 
 # nflreadr 1.1.0
 

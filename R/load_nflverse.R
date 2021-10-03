@@ -374,15 +374,48 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
 
-  if(!isTRUE(seasons)) {
-    stopifnot(is.numeric(seasons),
-            seasons >= 2019,
-            seasons <= most_recent_season())}
+  load_pfr_advstats(seasons = seasons, stat_type = "pass")
 
-  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/pfr_advanced_passing.rds"
+}
 
-  out <- rds_from_url(url)
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
+#' Load Advanced Stats from PFR
+#'
+#' @description Loads player level season stats provided by Pro Football Reference
+#' starting with the 2018 season, primarily to augment existing nflverse data.
+#'
+#' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
+#' @param stat_type one of "pass", "rush", "rec", "def"
+#'
+#' @examples
+#' \donttest{
+#'   load_pfr_advstats()
+#' }
+#'
+#' @return A tibble of week-level player statistics provided by Pro Football Reference to supplement data in nflverse
+#'
+#' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
+#'
+#' @export
+load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def")){
+
+  if(isTRUE(seasons)) seasons <- 2018:most_recent_season()
+  stat_type <- rlang::arg_match0(stat_type, c("pass","rush","rec","def"))
+
+  stopifnot(is.numeric(seasons),
+            seasons >= 2018,
+            seasons <= most_recent_season())
+
+  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
+                 "raw/master/data/adv_stats/weekly/",
+                 stat_type,
+                 "_",
+                 seasons,
+                 ".rds")
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+  out <- lapply(urls, progressively(rds_from_url, p))
+  out <- data.table::rbindlist(out, use.names = TRUE)
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
@@ -413,9 +446,9 @@ load_snap_counts <- function(seasons = most_recent_season()){
             seasons <= most_recent_season())
 
   urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
-                 "blob/master/data/snap_counts_",
+                 "raw/master/data/snap_counts/weekly/snap_counts_",
                  seasons,
-                 ".rds?raw=true")
+                 ".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
