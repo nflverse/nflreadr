@@ -152,7 +152,7 @@ progressively <- function(f, p = NULL){
 }
 
 cache_message <- function(){
-  do_it <- getOption("nflreadr.cache_warning", default = TRUE)
+  do_it <- interactive() && getOption("nflreadr.cache_warning", default = TRUE)
   if (isTRUE(do_it)){
     rlang::inform(
       message = c(
