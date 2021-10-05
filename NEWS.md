@@ -1,16 +1,18 @@
 # nflreadr 1.1.1
 
-## New Data
-- `clean_player_names()` and `clean_team_abbrs()` added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)
-- `load_ff_rankings()` now has a `type` argument and can return `"draft"` or `"week"` rankings from the DP/data repo. (v1.1.0.02)
-- `clean_team_abbrs()` now accepts the conference abbreviations `"AFC"` and `"NFC"`. (v1.1.0.03)
-- `clean_homeaway()` converts a dataframe of games with columns prefixed with `home_` and `away_` to a dataframe of teams, renaming to `team_` and `opponent_` and doubling the rows. (v1.1.0.06)
-- Add Rcpp 1.0.7 dependency to fix qs issues.
-- Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours. (v1.1.0.07)
-- Added `load_pfr_advstats()` which provides pass, rush, rec, def additional data for each week. (v1.1.0.08)
-- Adjusted file location of snap count data (v1.1.0.08)
-- Adjusted caching reminder to check if interactive. (v1.1.0.08)
-- Add RcppParallel 5.1.4 dependency to further fix qs issues. (v1.1.0.08)
+## New Data and Functions
+- `clean_player_names()` and `clean_team_abbrs()` added - these help standardise player names and team abbreviations based on internal dictionaries. 
+- `load_ff_rankings()` now has a `type` argument and can return `"draft"` or `"week"` rankings from the DynastyProcess/data repo.
+- `clean_homeaway()` converts a dataframe of games with columns prefixed with `home_` and `away_` to a dataframe of teams, renaming to `team_` and `opponent_` and doubling the rows.
+- Added `load_pfr_advstats()` which provides pass, rush, rec, def additional data for each week.
+
+## Bug Fixes
+
+- Add Rcpp and RcppParallel minimum dependencies to fix qs issues.
+- Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours if the session is interactive.
+- Adjusted file location of snap count data 
+
+---
 
 # nflreadr 1.1.0
 

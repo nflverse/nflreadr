@@ -84,12 +84,17 @@ found in one of the following repositories:
 For a full list of functions, please see the [reference
 page](https://nflreadr.nflverse.com/reference/index.html).
 
+This data is maintained by the nflverse project team and is primarily
+automated via GitHub Actions. You can check the status and schedules
+page here: <https://github.com/nflverse/status>
+
 ## Configuration
 
 The following options help configure default `nflreadr` behaviours.
 
 ``` r
 options(nflreadr.cache) # one of "memory", "filesystem", or "off"
+options(nflreadr.cache_warning) # FALSE to silence the reminder, which happens every eight hours or so.
 options(nflreadr.prefer) # one of "qs" or "rds"
 ```
 
