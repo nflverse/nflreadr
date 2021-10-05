@@ -135,8 +135,7 @@ qs_from_url <- function(url){
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.
 #'
-#' @seealso `vignette("Using nflreadr in packages")`
-#' @seealso <https://nflreadr.nflverse.com/articles/exporting_nflreadr.html> for web version of vignette
+#' @seealso <https://nflreadr.nflverse.com/articles/exporting_nflreadr.html> for vignette on exporting nflreadr in packages
 #'
 #' @export
 progressively <- function(f, p = NULL){

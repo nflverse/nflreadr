@@ -11,3 +11,7 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
+
+## Reverse dependencies
+
+Both reverse dependencies (ffscrapr and ffsimulator) were checked with R CMD check and passed cleanly.
