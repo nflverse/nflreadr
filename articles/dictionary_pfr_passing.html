@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.08</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -160,13 +160,7 @@
 
       
 
-      </header><script src="dictionary_pfr_passing_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_pfr_passing_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="dictionary_pfr_passing_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dictionary_pfr_passing_files/datatables-binding-0.19/datatables.js"></script><script src="dictionary_pfr_passing_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="dictionary_pfr_passing_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dictionary_pfr_passing_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dictionary_pfr_passing_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="dictionary_pfr_passing_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="dictionary_pfr_passing_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_pfr_passing_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="dictionary_pfr_passing_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_pfr_passing_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="dictionary_pfr_passing_files/crosstalk-1.1.1/js/crosstalk.min.js"></script><div class="row">
+      </header><script src="dictionary_pfr_passing_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Data Dictionary - PFR Passing</h1>
@@ -179,8 +173,155 @@
 
     
     
-<div id="htmlwidget-8009082d1c8ce10d5fb0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8009082d1c8ce10d5fb0">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["player","team","pfr_id","pass_attempts","batted_balls","throwaways","spikes","drops","drop_pct","bad_throws","bad_throw_pct","on_tgt_throws","on_tgt_pct","season","pocket_time","times_blitzed","times_hurried","times_hit","times_pressured","pressure_pct","rpo_plays","rpo_yards","rpo_pass_att","rpo_pass_yards","rpo_rush_att","rpo_rush_yards","pa_pass_att","pa_pass_yards"],["character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric"],["Player name","Player team","PFR player ID","Pass attempts","Batted balls","Throwaways","Spikes","Throws dropped","Percent of throws dropped","Bad throws","Percent of throws that were bad","On target throws","Percent of throws on target","Season","Average time in pocket","Number of times blitzed","Number of times hurried","Number of times hit","Number of times pressured","Percent of the time pressured","Number of RPO plays","Yards on RPOs","Number of pass attempts on RPOs","Passing yards on RPOs","Rush attempts on RPOs","Rushing yards on RPOs","Play action pass attempts","Play action passing yards"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<table class="table">
+<thead><tr class="header">
+<th align="left">field</th>
+<th align="left">data_type</th>
+<th align="left">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">player</td>
+<td align="left">character</td>
+<td align="left">Player name</td>
+</tr>
+<tr class="even">
+<td align="left">team</td>
+<td align="left">character</td>
+<td align="left">Player team</td>
+</tr>
+<tr class="odd">
+<td align="left">pfr_id</td>
+<td align="left">character</td>
+<td align="left">PFR player ID</td>
+</tr>
+<tr class="even">
+<td align="left">pass_attempts</td>
+<td align="left">numeric</td>
+<td align="left">Pass attempts</td>
+</tr>
+<tr class="odd">
+<td align="left">batted_balls</td>
+<td align="left">numeric</td>
+<td align="left">Batted balls</td>
+</tr>
+<tr class="even">
+<td align="left">throwaways</td>
+<td align="left">numeric</td>
+<td align="left">Throwaways</td>
+</tr>
+<tr class="odd">
+<td align="left">spikes</td>
+<td align="left">numeric</td>
+<td align="left">Spikes</td>
+</tr>
+<tr class="even">
+<td align="left">drops</td>
+<td align="left">numeric</td>
+<td align="left">Throws dropped</td>
+</tr>
+<tr class="odd">
+<td align="left">drop_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of throws dropped</td>
+</tr>
+<tr class="even">
+<td align="left">bad_throws</td>
+<td align="left">numeric</td>
+<td align="left">Bad throws</td>
+</tr>
+<tr class="odd">
+<td align="left">bad_throw_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of throws that were bad</td>
+</tr>
+<tr class="even">
+<td align="left">on_tgt_throws</td>
+<td align="left">numeric</td>
+<td align="left">On target throws</td>
+</tr>
+<tr class="odd">
+<td align="left">on_tgt_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of throws on target</td>
+</tr>
+<tr class="even">
+<td align="left">season</td>
+<td align="left">numeric</td>
+<td align="left">Season</td>
+</tr>
+<tr class="odd">
+<td align="left">pocket_time</td>
+<td align="left">numeric</td>
+<td align="left">Average time in pocket</td>
+</tr>
+<tr class="even">
+<td align="left">times_blitzed</td>
+<td align="left">numeric</td>
+<td align="left">Number of times blitzed</td>
+</tr>
+<tr class="odd">
+<td align="left">times_hurried</td>
+<td align="left">numeric</td>
+<td align="left">Number of times hurried</td>
+</tr>
+<tr class="even">
+<td align="left">times_hit</td>
+<td align="left">numeric</td>
+<td align="left">Number of times hit</td>
+</tr>
+<tr class="odd">
+<td align="left">times_pressured</td>
+<td align="left">numeric</td>
+<td align="left">Number of times pressured</td>
+</tr>
+<tr class="even">
+<td align="left">pressure_pct</td>
+<td align="left">numeric</td>
+<td align="left">Percent of the time pressured</td>
+</tr>
+<tr class="odd">
+<td align="left">rpo_plays</td>
+<td align="left">numeric</td>
+<td align="left">Number of RPO plays</td>
+</tr>
+<tr class="even">
+<td align="left">rpo_yards</td>
+<td align="left">numeric</td>
+<td align="left">Yards on RPOs</td>
+</tr>
+<tr class="odd">
+<td align="left">rpo_pass_att</td>
+<td align="left">numeric</td>
+<td align="left">Number of pass attempts on RPOs</td>
+</tr>
+<tr class="even">
+<td align="left">rpo_pass_yards</td>
+<td align="left">numeric</td>
+<td align="left">Passing yards on RPOs</td>
+</tr>
+<tr class="odd">
+<td align="left">rpo_rush_att</td>
+<td align="left">numeric</td>
+<td align="left">Rush attempts on RPOs</td>
+</tr>
+<tr class="even">
+<td align="left">rpo_rush_yards</td>
+<td align="left">numeric</td>
+<td align="left">Rushing yards on RPOs</td>
+</tr>
+<tr class="odd">
+<td align="left">pa_pass_att</td>
+<td align="left">numeric</td>
+<td align="left">Play action pass attempts</td>
+</tr>
+<tr class="even">
+<td align="left">pa_pass_yards</td>
+<td align="left">numeric</td>
+<td align="left">Play action passing yards</td>
+</tr>
+</tbody>
+</table>
 </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -85,7 +85,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.08</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -209,29 +209,32 @@
       <small>Source: <a href='https://github.com/nflverse/nflreadr/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="nflreadr-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#nflreadr-development-version" class="anchor"></a>nflreadr (development version)<small> Unreleased </small>
+    <div id="nflreadr-111" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.1">
+<a href="#nflreadr-111" class="anchor"></a>nflreadr 1.1.1<small> Unreleased </small>
 </h1>
-<div id="new-data" class="section level2">
+<div id="new-data-and-functions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-data" class="anchor"></a>New Data</h2>
+<a href="#new-data-and-functions" class="anchor"></a>New Data and Functions</h2>
 <ul>
 <li>
-<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> and <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> added - these help standardise player names and team abbreviations based on internal dictionaries. (v1.1.0.01)</li>
+<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> and <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> added - these help standardise player names and team abbreviations based on internal dictionaries.</li>
 <li>
-<code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> now has a <code>type</code> argument and can return <code>"draft"</code> or <code>"week"</code> rankings from the DP/data repo. (v1.1.0.02)</li>
+<code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> now has a <code>type</code> argument and can return <code>"draft"</code> or <code>"week"</code> rankings from the DynastyProcess/data repo.</li>
 <li>
-<code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now accepts the conference abbreviations <code>"AFC"</code> and <code>"NFC"</code>. (v1.1.0.03)</li>
-<li>
-<code><a href="../reference/clean_homeaway.html">clean_homeaway()</a></code> converts a dataframe of games with columns prefixed with <code>home_</code> and <code>away_</code> to a dataframe of teams, renaming to <code>team_</code> and <code>opponent_</code> and doubling the rows. (v1.1.0.06)</li>
-<li>Add Rcpp 1.0.7 dependency to fix qs issues.</li>
-<li>Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours. (v1.1.0.07)</li>
-<li>Added <code><a href="../reference/load_pfr_advstats.html">load_pfr_advstats()</a></code> which provides pass, rush, rec, def additional data for each week. (v1.1.0.08)</li>
-<li>Adjusted file location of snap count data (v1.1.0.08)</li>
-<li>Adjusted caching reminder to check if interactive. (v1.1.0.08)</li>
-<li>Add RcppParallel 5.1.4 dependency to further fix qs issues. (v1.1.0.08)</li>
+<code><a href="../reference/clean_homeaway.html">clean_homeaway()</a></code> converts a dataframe of games with columns prefixed with <code>home_</code> and <code>away_</code> to a dataframe of teams, renaming to <code>team_</code> and <code>opponent_</code> and doubling the rows.</li>
+<li>Added <code><a href="../reference/load_pfr_advstats.html">load_pfr_advstats()</a></code> which provides pass, rush, rec, def additional data for each week.</li>
 </ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug Fixes</h2>
+<ul>
+<li>Add Rcpp and RcppParallel minimum dependencies to fix qs issues.</li>
+<li>Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours if the session is interactive.</li>
+<li>Adjusted file location of snap count data</li>
+</ul>
+<hr>
 </div>
 </div>
     <div id="nflreadr-110" class="section level1">
@@ -239,9 +242,9 @@
 <a href="#nflreadr-110" class="anchor"></a>nflreadr 1.1.0<small> 2021-09-02 </small>
 </h1>
 <p>This release makes some backend changes for speed, reduced dependency footprint, and ease of maintenance.</p>
-<div id="new-data-1" class="section level2">
+<div id="new-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-data-1" class="anchor"></a>New Data</h2>
+<a href="#new-data" class="anchor"></a>New Data</h2>
 <ul>
 <li>
 <code><a href="../reference/load_player_stats.html">load_player_stats()</a></code> can now retrieve weekly summaries of kicking data by specifying the <code>stat_type</code> argument to be <code>"kicking"</code>.</li>

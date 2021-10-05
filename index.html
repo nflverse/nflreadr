@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.08</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -224,6 +224,7 @@
 <li><a href="https://github.com/dynastyprocess/data">dynastyprocess/data</a></li>
 </ul>
 <p>For a full list of functions, please see the <a href="https://nflreadr.nflverse.com/reference/index.html">reference page</a>.</p>
+<p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/status" class="uri">https://github.com/nflverse/status</a></p>
 </div>
 <div id="configuration" class="section level2">
 <h2 class="hasAnchor">
@@ -231,6 +232,7 @@
 <p>The following options help configure default <code>nflreadr</code> behaviours.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> <span class="co"># one of "memory", "filesystem", or "off"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache_warning</span><span class="op">)</span> <span class="co"># FALSE to silence the reminder, which happens every eight hours or so.</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org"><code>progressr</code> package</a>, e.g.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>progressr<span class="op">::</span><span class="kw">with_progress</span>(<span class="kw">load_rosters</span>(<span class="dt">seasons =</span> <span class="dv">2010</span><span class="op">:</span><span class="dv">2020</span>))</span>

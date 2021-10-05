@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.08</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -228,20 +228,20 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='fu'>load_ff_playerids</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10,570 × 35</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10,574 × 35</span>
 #&gt;    mfl_id sportradar_id  fantasypros_id gsis_id pff_id sleeper_id nfl_id espn_id
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'> 1</span> 15237  aaa8b42c-4d87… 19780          00-003… <span style='color: #BB0000;'>NA</span>     7523       <span style='color: #BB0000;'>NA</span>     4360310
-#&gt; <span style='color: #BCBCBC;'> 2</span> 15238  cf15be8f-9117… 19781          00-003… <span style='color: #BB0000;'>NA</span>     7591       <span style='color: #BB0000;'>NA</span>     4362887
-#&gt; <span style='color: #BCBCBC;'> 3</span> 15239  17bb63b1-1b0e… 22679          00-003… <span style='color: #BB0000;'>NA</span>     7538       <span style='color: #BB0000;'>NA</span>     4361259
-#&gt; <span style='color: #BCBCBC;'> 4</span> 15240  676a508c-c65f… 20082          00-003… <span style='color: #BB0000;'>NA</span>     7610       <span style='color: #BB0000;'>NA</span>     4383351
-#&gt; <span style='color: #BCBCBC;'> 5</span> 15241  1fd00ec3-b758… 20156          00-003… <span style='color: #BB0000;'>NA</span>     7527       <span style='color: #BB0000;'>NA</span>     4241464
-#&gt; <span style='color: #BCBCBC;'> 6</span> 15242  13038760-a019… 19800          00-003… <span style='color: #BB0000;'>NA</span>     7605       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'> 7</span> 15243  631e6ad5-0a97… 19383          00-003… <span style='color: #BB0000;'>NA</span>     7581       <span style='color: #BB0000;'>NA</span>     4240904
-#&gt; <span style='color: #BCBCBC;'> 8</span> 15244  79a849be-0552… 20081          00-003… <span style='color: #BB0000;'>NA</span>     7531       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
+#&gt; <span style='color: #BCBCBC;'> 1</span> 15237  aaa8b42c-4d87… 19780          00-003… 77632  7523       <span style='color: #BB0000;'>NA</span>     4360310
+#&gt; <span style='color: #BCBCBC;'> 2</span> 15238  cf15be8f-9117… 19781          00-003… 82118  7591       <span style='color: #BB0000;'>NA</span>     4362887
+#&gt; <span style='color: #BCBCBC;'> 3</span> 15239  17bb63b1-1b0e… 22679          00-003… 82096  7538       <span style='color: #BB0000;'>NA</span>     4361259
+#&gt; <span style='color: #BCBCBC;'> 4</span> 15240  676a508c-c65f… 20082          00-003… 91399  7610       <span style='color: #BB0000;'>NA</span>     4383351
+#&gt; <span style='color: #BCBCBC;'> 5</span> 15241  1fd00ec3-b758… 20156          00-003… 60323  7527       <span style='color: #BB0000;'>NA</span>     4241464
+#&gt; <span style='color: #BCBCBC;'> 6</span> 15242  13038760-a019… 19800          00-003… 39987  7605       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
+#&gt; <span style='color: #BCBCBC;'> 7</span> 15243  631e6ad5-0a97… 19383          00-003… 60556  7581       <span style='color: #BB0000;'>NA</span>     4240904
+#&gt; <span style='color: #BCBCBC;'> 8</span> 15244  79a849be-0552… 20081          00-003… 40217  7531       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
 #&gt; <span style='color: #BCBCBC;'> 9</span> 15245  22fd9495-1745… 19785          <span style='color: #BB0000;'>NA</span>      <span style='color: #BB0000;'>NA</span>     7555       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #BCBCBC;'>10</span> 15246  0d3113f7-2a82… 20159          00-003… <span style='color: #BB0000;'>NA</span>     7589       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
-#&gt; <span style='color: #949494;'># … with 10,560 more rows, and 27 more variables: yahoo_id &lt;chr&gt;,</span>
+#&gt; <span style='color: #BCBCBC;'>10</span> 15246  0d3113f7-2a82… 20159          00-003… 40216  7589       <span style='color: #BB0000;'>NA</span>     <span style='color: #BB0000;'>NA</span>     
+#&gt; <span style='color: #949494;'># … with 10,564 more rows, and 27 more variables: yahoo_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   fleaflicker_id &lt;chr&gt;, cbs_id &lt;chr&gt;, rotowire_id &lt;chr&gt;, rotoworld_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   ktc_id &lt;chr&gt;, pfr_id &lt;chr&gt;, cfbref_id &lt;chr&gt;, stats_id &lt;chr&gt;,</span>
 #&gt; <span style='color: #949494;'>#   stats_global_id &lt;chr&gt;, fantasy_data_id &lt;chr&gt;, swish_id &lt;chr&gt;, name &lt;chr&gt;,</span>
