@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Load Latest FantasyPros Rankings — load_ff_rankings • nflreadr</title>
+<title>Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies — nflverse_sitrep • nflreadr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,11 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Load Latest FantasyPros Rankings — load_ff_rankings" />
-<meta property="og:description" content="Accesses DynastyProcess.com's repository of the latest FP expert consensus rankings - updated on a weekly basis." />
+<meta property="og:title" content="Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies — nflverse_sitrep" />
+<meta property="og:description" content="This function gives a quick overview of the versions of R and the operating
+system as well as the versions of nflverse/ffverse packages and their dependencies.
+It's primarily designed to help you get a quick idea of what's going on when
+you're helping someone else debug a problem." />
 <meta property="og:image" content="https://nflreadr.nflverse.com/reference/figures/social_preview.png" />
 <meta property="og:image:alt" content="nflreadr social preview card" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -206,56 +209,64 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Load Latest FantasyPros Rankings</h1>
-    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/load_ffverse.R'><code>R/load_ffverse.R</code></a></small>
-    <div class="hidden name"><code>load_ff_rankings.Rd</code></div>
+    <h1>Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies</h1>
+    <small class="dont-index">Source: <a href='https://github.com/nflverse/nflreadr/blob/master/R/sitrep.R'><code>R/sitrep.R</code></a></small>
+    <div class="hidden name"><code>sitrep.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Accesses DynastyProcess.com's repository of the latest FP expert consensus rankings - updated on a weekly basis.</p>
+    <p>This function gives a quick overview of the versions of R and the operating
+system as well as the versions of nflverse/ffverse packages and their dependencies.
+It's primarily designed to help you get a quick idea of what's going on when
+you're helping someone else debug a problem.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_ff_rankings</span><span class='op'>(</span>type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"draft"</span>, <span class='st'>"week"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>nflverse_sitrep</span><span class='op'>(</span>
+  pkg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nflreadr"</span>, <span class='st'>"nflfastR"</span>, <span class='st'>"nflseedR"</span>, <span class='st'>"nfl4th"</span>, <span class='st'>"nflplotR"</span><span class='op'>)</span>,
+  recursive <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
+
+<span class='fu'>ffverse_sitrep</span><span class='op'>(</span>pkg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ffscrapr"</span>, <span class='st'>"ffsimulator"</span>, <span class='st'>"ffpros"</span><span class='op'>)</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>type</th>
-      <td><p>one of "draft" or "week", for preseason or inseason-weekly rankings</p></td>
+      <th>pkg</th>
+      <td><p>a character vector naming installed packages, or <code>NULL</code>
+(the default) meaning all nflverse packages. The function checks internally
+if all packages are installed and informs if that is not the case.</p></td>
+    </tr>
+    <tr>
+      <th>recursive</th>
+      <td><p>a logical indicating whether dependencies of <code>pkg</code> and their
+dependencies (and so on) should be included.
+Can also be a character vector listing the types of dependencies, a subset
+of <code><a href='https://rdrr.io/r/base/c.html'>c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")</a></code>.
+Character string <code>"all"</code> is shorthand for that vector, character string
+<code>"most"</code> for the same vector without <code>"Enhances"</code>, character string <code>"strong"</code>
+(default) for the first three elements of that vector.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>a dataframe of expert consensus rankings</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><a href='https://github.com/dynastyprocess/data'>https://github.com/dynastyprocess/data</a></p>
-<p><a href='https://www.fantasypros.com'>https://www.fantasypros.com</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>load_ff_rankings</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 4,656 × 25</span>
-#&gt;    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> /nfl/ran… dynasty-… dp       Jamal… 16375 DB    SEA    1.56  0.5      1     2
-#&gt; <span style='color: #BCBCBC;'> 2</span> /nfl/ran… dynasty-… dp       Derwi… 17310 DB    LAC    2.56  1.71     1     6
-#&gt; <span style='color: #BCBCBC;'> 3</span> /nfl/ran… dynasty-… dp       Budda… 16733 DB    ARI    2.56  0.5      2     3
-#&gt; <span style='color: #BCBCBC;'> 4</span> /nfl/ran… dynasty-… dp       Jabri… 16382 DB    NYG    5.67  1.15     4     8
-#&gt; <span style='color: #BCBCBC;'> 5</span> /nfl/ran… dynasty-… dp       Lando… 13895 DB    WAS    6.11  2.38     4    11
-#&gt; <span style='color: #BCBCBC;'> 6</span> /nfl/ran… dynasty-… dp       John … 16747 DB    CLE    7     1.05     6     9
-#&gt; <span style='color: #BCBCBC;'> 7</span> /nfl/ran… dynasty-… dp       Justi… 15649 DB    DEN   11     1.83     8    14
-#&gt; <span style='color: #BCBCBC;'> 8</span> /nfl/ran… dynasty-… dp       Jerem… 19429 DB    CAR   11.1   8.36     3    22
-#&gt; <span style='color: #BCBCBC;'> 9</span> /nfl/ran… dynasty-… dp       Vonn … 15544 DB    CIN   11.1   1.2      9    14
-#&gt; <span style='color: #BCBCBC;'>10</span> /nfl/ran… dynasty-… dp       Kevin… 15635 DB    TEN   11.6   2.83     8    18
-#&gt; <span style='color: #949494;'># … with 4,646 more rows, and 14 more variables: sportsdata_id &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   player_filename &lt;chr&gt;, yahoo_id &lt;chr&gt;, cbs_id &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   player_owned_avg &lt;dbl&gt;, player_owned_espn &lt;dbl&gt;, player_owned_yahoo &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   player_image_url &lt;chr&gt;, player_square_image_url &lt;chr&gt;, rank_delta &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   bye &lt;dbl&gt;, mergename &lt;chr&gt;, scrape_date &lt;date&gt;, tm &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
-
+<span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='op'>{</span>
+<span class='fu'>nflverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>ffverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> You've asked for the packages nflfastR, nflseedR, nfl4th, and nflplotR which are not installed. </span>
+#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; ── System Info ─────────────────────────────────────────────────────────────────
+#&gt; • R version 4.1.1 (2021-08-10)   * Running under: Ubuntu 20.04.3 LTS
+#&gt; ── nflverse Packages ───────────────────────────────────────────────────────────
+#&gt; • nflreadr (1.1.1.01)
+#&gt; ── nflverse Dependencies ───────────────────────────────────────────────────────
+#&gt; • cachem     (1.0.6)   • memoise       (2.0.0)   • Rcpp         (1.0.7)   
+#&gt; • curl       (4.3.2)   • qs            (0.25.1)  • RcppParallel (5.1.4)   
+#&gt; • data.table (1.14.2)  • RApiSerialize (0.1.0)   • rlang        (0.4.12)  
+#&gt; • fastmap    (1.1.0)   • rappdirs      (0.3.3)   • stringfish   (0.15.4)  </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> You've asked for the packages ffscrapr, ffsimulator, and ffpros which are not installed. </span>
+#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; Error in utils::sessionInfo(packages) : no valid packages were specified</div><div class='input'><span class='co'># }</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
