@@ -18,6 +18,7 @@ reference:
   - "load_injuries"
   - "load_espn_qbr"
   - "load_pfr_passing"
+  - "load_pfr_advstats"
   - "load_snap_counts"
 - title: Load ffverse data
   contents:
@@ -36,8 +37,9 @@ reference:
 - title: Miscellaneous
   contents:
   - ".clear_cache"
-  - "clean_team_abbrs"
+  - "nflverse_sitrep"
   - "clean_player_names"
+  - "clean_team_abbrs"
   - "clean_homeaway"
 
 authors:
