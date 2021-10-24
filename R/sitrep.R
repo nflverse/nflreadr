@@ -18,7 +18,7 @@
 #' @examples
 #' \donttest{
 #' nflverse_sitrep()
-#' nflverse_sitrep("nflreadr", TRUE)
+#' ffverse_sitrep()
 #' }
 #' @rdname sitrep
 #' @export
@@ -30,19 +30,19 @@ nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","n
 #' @rdname sitrep
 #' @export
 ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
-                            recursive = TRUE){
+                           recursive = TRUE){
   .sitrep(pkg = pkg, recursive = recursive, header = "ffverse")
 }
 
-.sitrep <- function(pkg = NULL, recursive = TRUE, header = NA_character_){
+.sitrep <- function(pkg, recursive = TRUE, header = NA_character_){
   packages <- pkg
 
-  installed <- lapply(packages, is_installed) %>% unlist()
+  installed <- unlist(lapply(packages, is_installed))
 
   if (!is.null(pkg)){
     not_installed <- packages[!installed]
     if (length(not_installed) >= 1){
-      cli::cli_alert_info("You've asked for the package{?s} {not_installed} which {?is/are} not installed. {?It/They} {?is/are} skipped.")
+      cli::cli_alert_info("You've asked for the package{?s} {not_installed} which {?is/are} not installed. \n {?It/They} {?is/are} skipped.")
     }
   }
 
@@ -54,7 +54,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   cli::cat_bullet(glue::glue("{s$R.version$version.string}   * Running under: {s$running}"))
 
   cli::cat_rule(paste(header, "Packages"))
-  packages <- format(unlist(lapply(s$otherPkgs,function(pkg) pkg$Package)))
+  packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
   versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
 
   cat_packages(packages, versions)
@@ -106,7 +106,7 @@ cat_packages <- function(packages,versions){
   stopifnot(length(packages) == length(versions))
 
   if(length(packages) <= 2){
-    cli::cat_bullet(glue::glue("   {packages} ({versions})"))
+    cli::cat_bullet(glue::glue("{format(packages)} ({format(versions)})"))
     return()
   }
 
@@ -120,24 +120,18 @@ cat_packages <- function(packages,versions){
 
   r <- length(p[[1]])-length(p[[3]])
 
-  if(length(p[[3]])!=length(p[[1]])){
+  if(r != 0){
     p[[3]] <- c(p[[3]],rep("",r))
     v[[3]] <- c(v[[3]],rep("",r))
   }
 
-  cli::cat_bullet(
+  p <- lapply(p, function(x) ifelse(x!="",format(paste(cli::symbol$bullet,x)),""))
+  v <- lapply(v, function(x) ifelse(x!="",format(paste0(" (",x,")")),""))
+
+  cli::cat_line(
     paste0(
-    format(p[[1]]),
-    paste0(" (", v[[1]], ")") %>% format(),
-    "   ",
-    cli::symbol$bullet,
-    " ",
-    format(p[[2]]),
-    paste0(" (", v[[2]], ")") %>% format(),
-    "   ",
-    cli::symbol$bullet,
-    " ",
-    format(p[[3]]),
-    paste0(" (", v[[3]], ")") %>% format()
-  ))
+      p[[1]],v[[1]],"  ",
+      p[[2]],v[[2]],"  ",
+      p[[3]],v[[3]],"  "
+    ))
 }
