@@ -1,5 +1,9 @@
 # nflreadr (development version)
 
+## New Functions
+
+- `nflverse_sitrep()` and `ffverse_sitrep()` give a minimal overview of the package dependencies (v1.1.1.01)
+
 ---
 
 # nflreadr 1.1.1
