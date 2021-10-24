@@ -33,7 +33,9 @@ you're helping someone else debug a problem.
 }
 \examples{
 \donttest{
+try({
 nflverse_sitrep()
 ffverse_sitrep()
+})
 }
 }

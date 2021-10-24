@@ -17,8 +17,10 @@
 #'  (default) for the first three elements of that vector.
 #' @examples
 #' \donttest{
+#' try({
 #' nflverse_sitrep()
 #' ffverse_sitrep()
+#' })
 #' }
 #' @rdname sitrep
 #' @export
