@@ -35,20 +35,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
 }
 
 .sitrep <- function(pkg = NULL, recursive = TRUE, header = NA_character_){
-  if (is.null(pkg)){
-    packages <- c(
-      "nflreadr",
-      "nflfastR",
-      "nflseedR",
-      "nfl4th",
-      "nflplotR",
-      "ffsimulator",
-      "ffscrapr"
-    )
-    header <- "nflverse "
-  } else {
-    packages <- pkg
-  }
+  packages <- pkg
 
   installed <- lapply(packages, is_installed) %>% unlist()
 
