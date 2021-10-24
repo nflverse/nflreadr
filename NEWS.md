@@ -1,5 +1,9 @@
 # nflreadr (development version)
 
+## New Functions
+
+- `nflverse_sitrep()` and `ffverse_sitrep()` give a minimal overview of the package dependencies (v1.1.1.01)
+
 ---
 
 # nflreadr 1.1.1
@@ -15,6 +19,8 @@
 - Add Rcpp and RcppParallel minimum dependencies to fix qs issues.
 - Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours if the session is interactive.
 - Adjusted file location of snap count data 
+
+Thank you to [&#x0040;ajreinhard](https://github.com/ajreinhard), [&#x0040;brunomioto](https://github.com/brunomioto), [&#x0040;jthomasmock](https://github.com/jthomasmock), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), and [&#x0040;tanho63](https://github.com/tanho63) for their feedback and contributions to this package!
 
 ---
 
