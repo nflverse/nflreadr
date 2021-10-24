@@ -18,7 +18,7 @@
 #' @examples
 #' \donttest{
 #' nflverse_sitrep()
-#' nflverse_sitrep("nflreadr", TRUE)
+#' ffverse_sitrep()
 #' }
 #' @rdname sitrep
 #' @export
@@ -30,14 +30,14 @@ nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","n
 #' @rdname sitrep
 #' @export
 ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
-                            recursive = TRUE){
+                           recursive = TRUE){
   .sitrep(pkg = pkg, recursive = recursive, header = "ffverse")
 }
 
-.sitrep <- function(pkg = NULL, recursive = TRUE, header = NA_character_){
+.sitrep <- function(pkg, recursive = TRUE, header = NA_character_){
   packages <- pkg
 
-  installed <- lapply(packages, is_installed) %>% unlist()
+  installed <- unlist(lapply(packages, is_installed))
 
   if (!is.null(pkg)){
     not_installed <- packages[!installed]
@@ -127,17 +127,17 @@ cat_packages <- function(packages,versions){
 
   cli::cat_bullet(
     paste0(
-    format(p[[1]]),
-    paste0(" (", v[[1]], ")") %>% format(),
-    "   ",
-    cli::symbol$bullet,
-    " ",
-    format(p[[2]]),
-    paste0(" (", v[[2]], ")") %>% format(),
-    "   ",
-    cli::symbol$bullet,
-    " ",
-    format(p[[3]]),
-    paste0(" (", v[[3]], ")") %>% format()
-  ))
+      format(p[[1]]),
+      format(paste0(" (", v[[1]], ")")),
+      "   ",
+      cli::symbol$bullet,
+      " ",
+      format(p[[2]]),
+      format(paste0(" (", v[[2]], ")")),
+      "   ",
+      cli::symbol$bullet,
+      " ",
+      format(p[[3]]),
+      format(paste0(" (", v[[3]], ")"))
+    ))
 }
