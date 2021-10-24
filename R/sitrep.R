@@ -54,7 +54,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   cli::cat_bullet(glue::glue("{s$R.version$version.string}   * Running under: {s$running}"))
 
   cli::cat_rule(paste(header, "Packages"))
-  packages <- format(unlist(lapply(s$otherPkgs,function(pkg) pkg$Package)))
+  packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
   versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
 
   cat_packages(packages, versions)
@@ -106,7 +106,7 @@ cat_packages <- function(packages,versions){
   stopifnot(length(packages) == length(versions))
 
   if(length(packages) <= 2){
-    cli::cat_bullet(glue::glue("   {packages} ({versions})"))
+    cli::cat_bullet(glue::glue("   {format(packages)} ({format(versions)})"))
     return()
   }
 
@@ -120,24 +120,18 @@ cat_packages <- function(packages,versions){
 
   r <- length(p[[1]])-length(p[[3]])
 
-  if(length(p[[3]])!=length(p[[1]])){
+  if(r != 0){
     p[[3]] <- c(p[[3]],rep("",r))
     v[[3]] <- c(v[[3]],rep("",r))
   }
 
-  cli::cat_bullet(
+  p <- lapply(p, function(x) ifelse(x!="",format(paste(cli::symbol$bullet,x)),""))
+  v <- lapply(v, function(x) ifelse(x!="",format(paste0(" (",x,")")),""))
+
+  cli::cat_line(
     paste0(
-      format(p[[1]]),
-      format(paste0(" (", v[[1]], ")")),
-      "   ",
-      cli::symbol$bullet,
-      " ",
-      format(p[[2]]),
-      format(paste0(" (", v[[2]], ")")),
-      "   ",
-      cli::symbol$bullet,
-      " ",
-      format(p[[3]]),
-      format(paste0(" (", v[[3]], ")"))
+      p[[1]],v[[1]],"  ",
+      p[[2]],v[[2]],"  ",
+      p[[3]],v[[3]],"  "
     ))
 }
