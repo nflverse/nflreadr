@@ -3,7 +3,6 @@
 \name{nflverse_sitrep}
 \alias{nflverse_sitrep}
 \alias{ffverse_sitrep}
-\alias{.sitrep}
 \title{Get a Situation Report on System, nflverse Package Versions and Dependencies}
 \usage{
 nflverse_sitrep(
@@ -12,8 +11,6 @@ nflverse_sitrep(
 )
 
 ffverse_sitrep(pkg = c("ffscrapr", "ffsimulator", "ffpros"), recursive = TRUE)
-
-.sitrep(pkg = NULL, recursive = TRUE)
 }
 \arguments{
 \item{pkg}{a character vector naming installed packages, or \code{NULL}
