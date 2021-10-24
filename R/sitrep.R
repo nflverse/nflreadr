@@ -42,7 +42,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   if (!is.null(pkg)){
     not_installed <- packages[!installed]
     if (length(not_installed) >= 1){
-      cli::cli_alert_info("You've asked for the package{?s} {not_installed} which {?is/are} not installed. {?It/They} {?is/are} skipped.")
+      cli::cli_alert_info("You've asked for the package{?s} {not_installed} which {?is/are} not installed. \n {?It/They} {?is/are} skipped.")
     }
   }
 
@@ -106,7 +106,7 @@ cat_packages <- function(packages,versions){
   stopifnot(length(packages) == length(versions))
 
   if(length(packages) <= 2){
-    cli::cat_bullet(glue::glue("   {format(packages)} ({format(versions)})"))
+    cli::cat_bullet(glue::glue("{format(packages)} ({format(versions)})"))
     return()
   }
 
