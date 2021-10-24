@@ -39,6 +39,7 @@ reference:
   - ".clear_cache"
   - "nflverse_sitrep"
   - "clean_player_names"
+  - "clean_team_abbrs"
   - "clean_homeaway"
 
 authors:
