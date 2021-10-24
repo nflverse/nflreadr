@@ -69,10 +69,13 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   # after the call to package_dependencies()
   old <- options(repos = "https://cran.rstudio.com/")
   deps <-
-    tools::package_dependencies(packages, recursive = TRUE) %>%
-    unlist(use.names = FALSE) %>%
-    sort() %>%
-    unique()
+    sort(
+      unique(
+        unlist(
+          tools::package_dependencies(packages, recursive = TRUE),
+          use.names = FALSE)
+      )
+    )
 
   # restore old options
   options(old)
@@ -124,17 +127,17 @@ cat_packages <- function(packages,versions){
 
   cli::cat_bullet(
     paste0(
-    p[[1]] %>% format(),
+    format(p[[1]]),
     paste0(" (", v[[1]], ")") %>% format(),
     "   ",
     cli::symbol$bullet,
     " ",
-    p[[2]] %>% format(),
+    format(p[[2]]),
     paste0(" (", v[[2]], ")") %>% format(),
     "   ",
     cli::symbol$bullet,
     " ",
-    p[[3]] %>% format(),
+    format(p[[3]]),
     paste0(" (", v[[3]], ")") %>% format()
   ))
 }
