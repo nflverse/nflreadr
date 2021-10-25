@@ -114,7 +114,7 @@ cat_packages <- function(packages,versions){
 
   if(length(packages) <= 2){
     cli::cat_bullet(glue::glue("{format(packages)} ({format(versions)})"))
-    return()
+    return(invisible())
   }
 
   l <- length(packages)
