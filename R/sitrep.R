@@ -58,7 +58,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   s <- utils::sessionInfo(packages)
 
   cli::cat_rule(cli::style_bold("System Info"))
-  cli::cat_bullet(glue::glue("{s$R.version$version.string}   * Running under: {s$running}"))
+  cli::cat_bullet(glue::glue("{s$R.version$version.string}   {cli::symbol$bullet} Running under: {s$running}"))
 
   cli::cat_rule(cli::style_bold(paste0(header, "Packages")))
   packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
