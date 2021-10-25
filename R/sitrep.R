@@ -15,28 +15,33 @@
 #'  Character string `"all"` is shorthand for that vector, character string
 #'  `"most"` for the same vector without `"Enhances"`, character string `"strong"`
 #'  (default) for the first three elements of that vector.
+#' @param header a string that is printed in the horizontal separation lines and
+#'   used to differentiate between nflverse and ffverse output.
 #' @examples
 #' \donttest{
 #' try({
 #' nflverse_sitrep()
 #' ffverse_sitrep()
+#' .sitrep("cachem")
 #' })
 #' }
 #' @rdname sitrep
 #' @export
 nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR"),
                             recursive = TRUE){
-  .sitrep(pkg = pkg, recursive = recursive, header = "nflverse")
+  .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ")
 }
 
 #' @rdname sitrep
 #' @export
 ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
                            recursive = TRUE){
-  .sitrep(pkg = pkg, recursive = recursive, header = "ffverse")
+  .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ")
 }
 
-.sitrep <- function(pkg, recursive = TRUE, header = NA_character_){
+#' @rdname sitrep
+#' @export
+.sitrep <- function(pkg, recursive = TRUE, header = ""){
   packages <- pkg
 
   installed <- unlist(lapply(packages, is_installed))
@@ -52,10 +57,10 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
 
   s <- utils::sessionInfo(packages)
 
-  cli::cat_rule("System Info")
-  cli::cat_bullet(glue::glue("{s$R.version$version.string}   * Running under: {s$running}"))
+  cli::cat_rule(cli::style_bold("System Info"))
+  cli::cat_bullet(glue::glue("{s$R.version$version.string}   {cli::symbol$bullet} Running under: {s$running}"))
 
-  cli::cat_rule(paste(header, "Packages"))
+  cli::cat_rule(cli::style_bold(paste0(header, "Packages")))
   packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
   versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
 
@@ -64,7 +69,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   # Exit here if we don't want recursive deps
   if (isFALSE(recursive)) return(invisible(NULL))
 
-  cli::cat_rule(paste(header, "Dependencies"))
+  cli::cat_rule(cli::style_bold(paste0(header, "Dependencies")))
 
   # The checks failed because the repo option is empty sometimes
   # so we set it here to the rstudio mirror and restore the options
@@ -109,7 +114,7 @@ cat_packages <- function(packages,versions){
 
   if(length(packages) <= 2){
     cli::cat_bullet(glue::glue("{format(packages)} ({format(versions)})"))
-    return()
+    return(invisible())
   }
 
   l <- length(packages)

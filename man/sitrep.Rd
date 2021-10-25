@@ -3,6 +3,7 @@
 \name{nflverse_sitrep}
 \alias{nflverse_sitrep}
 \alias{ffverse_sitrep}
+\alias{.sitrep}
 \title{Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies}
 \usage{
 nflverse_sitrep(
@@ -11,6 +12,8 @@ nflverse_sitrep(
 )
 
 ffverse_sitrep(pkg = c("ffscrapr", "ffsimulator", "ffpros"), recursive = TRUE)
+
+.sitrep(pkg, recursive = TRUE, header = "")
 }
 \arguments{
 \item{pkg}{a character vector naming installed packages, or \code{NULL}
@@ -24,6 +27,9 @@ of \code{c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")}.
 Character string \code{"all"} is shorthand for that vector, character string
 \code{"most"} for the same vector without \code{"Enhances"}, character string \code{"strong"}
 (default) for the first three elements of that vector.}
+
+\item{header}{a string that is printed in the horizontal separation lines and
+used to differentiate between nflverse and ffverse output.}
 }
 \description{
 This function gives a quick overview of the versions of R and the operating
@@ -36,6 +42,7 @@ you're helping someone else debug a problem.
 try({
 nflverse_sitrep()
 ffverse_sitrep()
+.sitrep("cachem")
 })
 }
 }
