@@ -89,7 +89,7 @@ you're helping someone else debug a problem." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.01</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
       </span>
     </div>
 
@@ -226,7 +226,9 @@ you're helping someone else debug a problem.</p>
   recursive <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span>
 
-<span class='fu'>ffverse_sitrep</span><span class='op'>(</span>pkg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ffscrapr"</span>, <span class='st'>"ffsimulator"</span>, <span class='st'>"ffpros"</span><span class='op'>)</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+<span class='fu'>ffverse_sitrep</span><span class='op'>(</span>pkg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ffscrapr"</span>, <span class='st'>"ffsimulator"</span>, <span class='st'>"ffpros"</span><span class='op'>)</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='fu'>.sitrep</span><span class='op'>(</span><span class='va'>pkg</span>, recursive <span class='op'>=</span> <span class='cn'>TRUE</span>, header <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -247,6 +249,11 @@ Character string <code>"all"</code> is shorthand for that vector, character stri
 <code>"most"</code> for the same vector without <code>"Enhances"</code>, character string <code>"strong"</code>
 (default) for the first three elements of that vector.</p></td>
     </tr>
+    <tr>
+      <th>header</th>
+      <td><p>a string that is printed in the horizontal separation lines and
+used to differentiate between nflverse and ffverse output.</p></td>
+    </tr>
     </table>
 
 
@@ -255,13 +262,14 @@ Character string <code>"all"</code> is shorthand for that vector, character stri
 <span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='op'>{</span>
 <span class='fu'>nflverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'>ffverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>.sitrep</span><span class='op'>(</span><span class='st'>"cachem"</span><span class='op'>)</span>
 <span class='op'>}</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> You've asked for the packages nflfastR, nflseedR, nfl4th, and nflplotR which are not installed. </span>
-#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; ── System Info ─────────────────────────────────────────────────────────────────
-#&gt; • R version 4.1.1 (2021-08-10)   * Running under: Ubuntu 20.04.3 LTS
-#&gt; ── nflverse Packages ───────────────────────────────────────────────────────────
-#&gt; • nflreadr (1.1.1.01)
-#&gt; ── nflverse Dependencies ───────────────────────────────────────────────────────
+#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; ── <span style='font-weight: bold;'>System Info</span> ─────────────────────────────────────────────────────────────────
+#&gt; • R version 4.1.1 (2021-08-10)   • Running under: Ubuntu 20.04.3 LTS
+#&gt; ── <span style='font-weight: bold;'>nflverse Packages</span> ───────────────────────────────────────────────────────────
+#&gt; • nflreadr (1.1.1.02)
+#&gt; ── <span style='font-weight: bold;'>nflverse Dependencies</span> ───────────────────────────────────────────────────────
 #&gt; • cachem     (1.0.6)   • memoise       (2.0.0)   • Rcpp         (1.0.7)   
 #&gt; • curl       (4.3.2)   • qs            (0.25.1)  • RcppParallel (5.1.4)   
 #&gt; • data.table (1.14.2)  • RApiSerialize (0.1.0)   • rlang        (0.4.12)  
