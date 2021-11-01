@@ -175,9 +175,9 @@
     
 <table class="table">
 <colgroup>
-<col width="36%">
-<col width="17%">
-<col width="45%">
+<col width="11%">
+<col width="2%">
+<col width="85%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">field</th>
@@ -228,67 +228,47 @@
 <tr class="odd">
 <td align="left">season</td>
 <td align="left">numeric</td>
-<td align="left">The year of the NFL season. This reperesents the whole season</td>
+<td align="left">The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number</td>
 </tr>
 <tr class="even">
-<td align="left">so regular season games that happen in January as well as playoff games will occur in the year after this number</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left">week</td>
 <td align="left">numeric</td>
-<td align="left">The week of the NFL season the game occurs in. Please note that the <code>game_type</code> will differ for weeks &gt;= 18 because of the season expansion in 2021. Please use <code>game_type</code> to filter for regular season or postseason</td>
+<td align="left">The week of the NFL season the game occurs in. Please note that the <code>game_type</code> will differ for weeks = 18 because of the season expansion in 2021. Please use <code>game_type</code> to filter for regular season or postseason</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">avg_time_to_throw</td>
 <td align="left">numeric</td>
 <td align="left">Average time elapsed from the time of snap to throw on every pass attempt for a passer (sacks excluded).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">avg_completed_air_yards</td>
 <td align="left">numeric</td>
 <td align="left">Average air yards on completed passes</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">avg_intended_air_yards</td>
 <td align="left">numeric</td>
 <td align="left">Average air yards on all attempted passes</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">avg_air_yards_differential</td>
 <td align="left">numeric</td>
 <td align="left">Air Yards Differential is calculated by subtracting the passer’s average Intended Air Yards from his average Completed Air Yards. This stat indicates if he is on average attempting deep passes than he on average completes.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">aggressiveness</td>
 <td align="left">numeric</td>
-<td align="left">Aggressiveness tracks the amount of passing attempts a quarterback makes that are into tight coverage</td>
-</tr>
-<tr class="odd">
-<td align="left">where there is a defender within 1 yard or less of the receiver at the time of completion or incompletion. AGG is shown as a % of attempts into tight windows over all passing attempts.</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">Aggressiveness tracks the amount of passing attempts a quarterback makes that are into tight coverage, where there is a defender within 1 yard or less of the receiver at the time of completion or incompletion. AGG is shown as a % of attempts into tight windows over all passing attempts.</td>
 </tr>
 <tr class="even">
 <td align="left">max_completed_air_distance</td>
 <td align="left">numeric</td>
-<td align="left">Air Distance is the amount of yards the ball has traveled on a pass</td>
+<td align="left">Air Distance is the amount of yards the ball has traveled on a pass, from the point of release to the point of reception (as the crow flies). Unlike Air Yards, Air Distance measures the actual distance the passer throws the ball.</td>
 </tr>
 <tr class="odd">
-<td align="left">from the point of release to the point of reception (as the crow flies). Unlike Air Yards</td>
-<td align="left">Air Distance measures the actual distance the passer throws the ball.</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
 <td align="left">avg_air_yards_to_sticks</td>
 <td align="left">numeric</td>
-<td align="left">Air Yards to the Sticks shows the amount of Air Yards ahead or behind the first down marker on all attempts for a passer. The metric indicates if the passer is attempting his passes past the 1st down marker</td>
-</tr>
-<tr class="odd">
-<td align="left">or if he is relying on his skill position players to make yards after catch.</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">Air Yards to the Sticks shows the amount of Air Yards ahead or behind the first down marker on all attempts for a passer. The metric indicates if the passer is attempting his passes past the 1st down marker, or if he is relying on his skill position players to make yards after catch.</td>
 </tr>
 <tr class="even">
 <td align="left">attempts</td>
@@ -328,52 +308,42 @@
 <tr class="odd">
 <td align="left">expected_completion_percentage</td>
 <td align="left">numeric</td>
-<td align="left">Using a passer’s Completion Probability on every play</td>
+<td align="left">Using a passer’s Completion Probability on every play, determine what a passer’s completion percentage is expected to be.</td>
 </tr>
 <tr class="even">
-<td align="left">determine what a passer’s completion percentage is expected to be.</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left">completion_percentage_above_expectation</td>
 <td align="left">numeric</td>
 <td align="left">A passer’s actual completion percentage compared to their Expected Completion Percentage.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">avg_air_distance</td>
 <td align="left">numeric</td>
 <td align="left">A receiver’s average depth of target</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">max_air_distance</td>
 <td align="left">numeric</td>
 <td align="left">A receiver’s maximum depth of target</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">player_jersey_number</td>
 <td align="left">numeric</td>
 <td align="left">Player’s jersey number</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">avg_cushion</td>
 <td align="left">numeric</td>
 <td align="left">The distance (in yards) measured between a WR/TE and the defender they’re lined up against at the time of snap on all targets.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">avg_separation</td>
 <td align="left">numeric</td>
 <td align="left">The distance (in yards) measured between a WR/TE and the nearest defender at the time of catch or incompletion.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">percent_share_of_intended_air_yards</td>
 <td align="left">numeric</td>
-<td align="left">The sum of the receivers total intended air yards (all attempts) over the sum of his team’s total intended air yards. Represented as a percentage</td>
-</tr>
-<tr class="even">
-<td align="left">this statistic represents how much of a team’s deep yards does the player account for.</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">The sum of the receivers total intended air yards (all attempts) over the sum of his team’s total intended air yards. Represented as a percentage, this statistic represents how much of a team’s deep yards does the player account for.</td>
 </tr>
 <tr class="odd">
 <td align="left">receptions</td>
@@ -408,17 +378,7 @@
 <tr class="odd">
 <td align="left">avg_expected_yac</td>
 <td align="left">numeric</td>
-<td align="left">Average expected yards after catch</td>
-</tr>
-<tr class="even">
-<td align="left">based on numerous factors using tracking data such as how open the receiver is</td>
-<td align="left">how fast they’re traveling</td>
-<td align="left">how many defenders/blockers are in space</td>
-</tr>
-<tr class="odd">
-<td align="left">etc</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="left">Average expected yards after catch, based on numerous factors using tracking data such as how open the receiver is, how fast they’re traveling, how many defenders/blockers are in space, etc</td>
 </tr>
 <tr class="even">
 <td align="left">avg_yac_above_expectation</td>
@@ -428,22 +388,12 @@
 <tr class="odd">
 <td align="left">efficiency</td>
 <td align="left">numeric</td>
-<td align="left">Rushing efficiency is calculated by taking the total distance a player traveled on rushing plays as a ball carrier according to Next Gen Stats (measured in yards) per rushing yards gained. The lower the number</td>
+<td align="left">Rushing efficiency is calculated by taking the total distance a player traveled on rushing plays as a ball carrier according to Next Gen Stats (measured in yards) per rushing yards gained. The lower the number, the more of a North/South runner.</td>
 </tr>
 <tr class="even">
-<td align="left">the more of a North/South runner.</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left">percent_attempts_gte_eight_defenders</td>
 <td align="left">numeric</td>
-<td align="left">On every play</td>
-</tr>
-<tr class="even">
-<td align="left">Next Gen Stats calculates how many defenders are stacked in the box at snap. Using that logic</td>
-<td align="left">DIB% calculates how often does a rusher see 8 or more defenders in the box against them.</td>
-<td align="left"></td>
+<td align="left">On every play, Next Gen Stats calculates how many defenders are stacked in the box at snap. Using that logic, DIB% calculates how often does a rusher see 8 or more defenders in the box against them.</td>
 </tr>
 <tr class="odd">
 <td align="left">avg_time_to_los</td>
