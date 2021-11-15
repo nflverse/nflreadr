@@ -16,7 +16,7 @@ License: MIT + file LICENSE
 URL: https://nflreadr.nflverse.com, https://github.com/nflverse/nflreadr
 BugReports: https://github.com/nflverse/nflreadr/issues
 Depends:
-    R (>= 3.5.0)
+    R (>= 3.6.0)
 Imports:
     cachem (>= 1.0.0),
     cli (>= 3.0.0),
