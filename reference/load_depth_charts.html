@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -234,25 +234,26 @@
     <div class='dont-index'><p><a href='https://github.com/nflverse/nflfastR-roster'>https://github.com/nflverse/nflfastR-roster</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-  <span class='fu'>load_depth_charts</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 36,168 × 13</span>
-#&gt;    season  week team  season_type position depth_chart_pos… formation depth_team
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         WR       WR               Offense            1
-#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         RB       HB               Offense            2
-#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            1
-#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            2
-#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      DE               Defense            1
-#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      DE               Defense            3
-#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            2
-#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            3
-#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         ILB      LB               Defense            2
-#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         CB       CB               Defense            2
-#&gt; <span style='color: #949494;'># … with 36,158 more rows, and 5 more variables: jersey_number &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   full_name &lt;chr&gt;, first_name &lt;chr&gt;, last_name &lt;chr&gt;, gsis_id &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'>  <span class='fu'>load_depth_charts</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 36,168 × 13</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    season  week team  season_type position depth_chart_pos… formation depth_team</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         WR       WR               Offense            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         RB       HB               Offense            2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         DT       DT               Defense            2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      DE               Defense            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      DE               Defense            3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         OLB      LB               Defense            3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         ILB      LB               Defense            2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>020    13 ATL   REG         CB       CB               Defense            2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 36,158 more rows, and 5 more variables: jersey_number &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   full_name &lt;chr&gt;, first_name &lt;chr&gt;, last_name &lt;chr&gt;, gsis_id &lt;chr&gt;</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

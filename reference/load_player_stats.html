@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -235,7 +235,7 @@
     <tr>
       <th>file_type</th>
       <td><p>One of <code>"rds"</code> or <code>"qs"</code>. Can also be set globally with
-<code><a href='https://rdrr.io/r/base/options.html'>options(nflreadr.prefer)</a></code></p></td>
+<code>options(nflreadr.prefer)</code></p></td>
     </tr>
     </table>
 
@@ -249,50 +249,52 @@
 <p><code>vignette("Data Dictionary - Player Stats")</code> for the data dictionary</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-  <span class='fu'>load_player_stats</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2,432 × 48</span>
-#&gt;    player_id  player_name      recent_team season  week season_type completions
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     1 REG                  32
-#&gt; <span style='color: #BCBCBC;'> 2</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     2 REG                  24
-#&gt; <span style='color: #BCBCBC;'> 3</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     3 REG                  41
-#&gt; <span style='color: #BCBCBC;'> 4</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     4 REG                  22
-#&gt; <span style='color: #BCBCBC;'> 5</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     5 REG                  30
-#&gt; <span style='color: #BCBCBC;'> 6</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     6 REG                  34
-#&gt; <span style='color: #BCBCBC;'> 7</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     7 REG                  20
-#&gt; <span style='color: #BCBCBC;'> 8</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     8 REG                  29
-#&gt; <span style='color: #BCBCBC;'> 9</span> 00-0022924 B.Roethlisberger PIT           <span style='text-decoration: underline;'>2</span>021     1 REG                  18
-#&gt; <span style='color: #BCBCBC;'>10</span> 00-0022924 B.Roethlisberger PIT           <span style='text-decoration: underline;'>2</span>021     2 REG                  27
-#&gt; <span style='color: #949494;'># … with 2,422 more rows, and 41 more variables: attempts &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   passing_yards &lt;dbl&gt;, passing_tds &lt;int&gt;, interceptions &lt;dbl&gt;, sacks &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   sack_yards &lt;dbl&gt;, sack_fumbles &lt;int&gt;, sack_fumbles_lost &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   passing_air_yards &lt;dbl&gt;, passing_yards_after_catch &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   passing_first_downs &lt;dbl&gt;, passing_epa &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   passing_2pt_conversions &lt;int&gt;, dakota &lt;dbl&gt;, carries &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   rushing_yards &lt;dbl&gt;, rushing_tds &lt;int&gt;, rushing_fumbles &lt;dbl&gt;, …</span></div><div class='input'>  <span class='fu'>load_player_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"kicking"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 239 × 40</span>
-#&gt;    season  week season_type team  player_name  player_id  fg_made fg_missed
-#&gt;     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         ARI   M.Prater     00-0023853       1         1
-#&gt; <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         ATL   Y.Koo        00-0033702       2         0
-#&gt; <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         BAL   J.Tucker     00-0029597       2         0
-#&gt; <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         BUF   T.Bass       00-0036162       3         0
-#&gt; <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CAR   R.Santoso    00-0034648       2         0
-#&gt; <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CHI   C.Santos     00-0031203       0         0
-#&gt; <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CIN   E.McPherson  00-0036854       2         0
-#&gt; <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CLE   C.McLaughlin 00-0035358       0         0
-#&gt; <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         DAL   G.Zuerlein   00-0029621       3         2
-#&gt; <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         DEN   B.McManus    00-0029822       2         0
-#&gt; <span style='color: #949494;'># … with 229 more rows, and 32 more variables: fg_blocked &lt;int&gt;, fg_long &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   fg_att &lt;dbl&gt;, fg_pct &lt;dbl&gt;, pat_made &lt;int&gt;, pat_missed &lt;int&gt;,</span>
-#&gt; <span style='color: #949494;'>#   pat_blocked &lt;int&gt;, pat_att &lt;dbl&gt;, pat_pct &lt;dbl&gt;, fg_made_distance &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   fg_missed_distance &lt;dbl&gt;, fg_blocked_distance &lt;dbl&gt;, gwfg_att &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   gwfg_distance &lt;dbl&gt;, gwfg_made &lt;dbl&gt;, gwfg_missed &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   gwfg_blocked &lt;dbl&gt;, fg_made_0_19 &lt;dbl&gt;, fg_made_20_29 &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   fg_made_30_39 &lt;dbl&gt;, fg_made_40_49 &lt;dbl&gt;, fg_made_50_59 &lt;dbl&gt;, …</span></div><div class='input'><span class='co'># }</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'>  <span class='fu'>load_player_stats</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 3,006 × 48</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    player_id  player_name      recent_team season  week season_type completions</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     1 REG                  32</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     2 REG                  24</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     3 REG                  41</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     4 REG                  22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     5 REG                  30</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     6 REG                  34</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     7 REG                  20</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021     8 REG                  28</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 00-0019596 T.Brady          TB            <span style='text-decoration: underline;'>2</span>021    10 REG                  23</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 00-0022924 B.Roethlisberger PIT           <span style='text-decoration: underline;'>2</span>021     1 REG                  18</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 2,996 more rows, and 41 more variables: attempts &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   passing_yards &lt;dbl&gt;, passing_tds &lt;int&gt;, interceptions &lt;dbl&gt;, sacks &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   sack_yards &lt;dbl&gt;, sack_fumbles &lt;int&gt;, sack_fumbles_lost &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   passing_air_yards &lt;dbl&gt;, passing_yards_after_catch &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   passing_first_downs &lt;dbl&gt;, passing_epa &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   passing_2pt_conversions &lt;int&gt;, dakota &lt;dbl&gt;, carries &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   rushing_yards &lt;dbl&gt;, rushing_tds &lt;int&gt;, rushing_fumbles &lt;dbl&gt;, …</span></span>
+<span class='r-in'>  <span class='fu'>load_player_stats</span><span class='op'>(</span>stat_type <span class='op'>=</span> <span class='st'>"kicking"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 293 × 40</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    season  week season_type team  player_name  player_id  fg_made fg_missed</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         ARI   M.Prater     00-0023853       1         1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         ATL   Y.Koo        00-0033702       2         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         BAL   J.Tucker     00-0029597       2         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         BUF   T.Bass       00-0036162       3         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CAR   R.Santoso    00-0034648       2         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CHI   C.Santos     00-0031203       0         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CIN   E.McPherson  00-0036854       2         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         CLE   C.McLaughlin 00-0035358       0         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         DAL   G.Zuerlein   00-0029621       3         2</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>   <span style='text-decoration: underline;'>2</span>021     1 REG         DEN   B.McManus    00-0029822       2         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 283 more rows, and 32 more variables: fg_blocked &lt;int&gt;, fg_long &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   fg_att &lt;dbl&gt;, fg_pct &lt;dbl&gt;, pat_made &lt;int&gt;, pat_missed &lt;int&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   pat_blocked &lt;int&gt;, pat_att &lt;dbl&gt;, pat_pct &lt;dbl&gt;, fg_made_distance &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   fg_missed_distance &lt;dbl&gt;, fg_blocked_distance &lt;dbl&gt;, gwfg_att &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   gwfg_distance &lt;dbl&gt;, gwfg_made &lt;dbl&gt;, gwfg_missed &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   gwfg_blocked &lt;dbl&gt;, fg_made_0_19 &lt;dbl&gt;, fg_made_20_29 &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   fg_made_30_39 &lt;dbl&gt;, fg_made_40_49 &lt;dbl&gt;, fg_made_50_59 &lt;dbl&gt;, …</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

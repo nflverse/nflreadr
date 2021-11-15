@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -234,25 +234,26 @@
     <div class='dont-index'><p><a href='https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades'>https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
- <span class='fu'>load_trades</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 211 × 11</span>
-#&gt;    trade_id season trade_date gave  received pick_season pick_round pick_number
-#&gt;       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>     <span style='text-decoration: underline;'>1</span>465   <span style='text-decoration: underline;'>2</span>020 2020-03-03 DEN   JAX             <span style='text-decoration: underline;'>2</span>020          4         137
-#&gt; <span style='color: #BCBCBC;'> 2</span>     <span style='text-decoration: underline;'>1</span>465   <span style='text-decoration: underline;'>2</span>020 2020-03-03 JAX   DEN               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #BCBCBC;'> 3</span>     <span style='text-decoration: underline;'>1</span>466   <span style='text-decoration: underline;'>2</span>020 2020-03-04 CAR   LAC               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #BCBCBC;'> 4</span>     <span style='text-decoration: underline;'>1</span>466   <span style='text-decoration: underline;'>2</span>020 2020-03-04 LAC   CAR               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #BCBCBC;'> 5</span>     <span style='text-decoration: underline;'>1</span>471   <span style='text-decoration: underline;'>2</span>020 2020-03-15 BAL   JAX             <span style='text-decoration: underline;'>2</span>020          5         157
-#&gt; <span style='color: #BCBCBC;'> 6</span>     <span style='text-decoration: underline;'>1</span>471   <span style='text-decoration: underline;'>2</span>020 2020-03-15 JAX   BAL               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #BCBCBC;'> 7</span>     <span style='text-decoration: underline;'>1</span>467   <span style='text-decoration: underline;'>2</span>020 2020-03-16 IND   SF              <span style='text-decoration: underline;'>2</span>020          1          13
-#&gt; <span style='color: #BCBCBC;'> 8</span>     <span style='text-decoration: underline;'>1</span>467   <span style='text-decoration: underline;'>2</span>020 2020-03-16 SF    IND               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span>
-#&gt; <span style='color: #BCBCBC;'> 9</span>     <span style='text-decoration: underline;'>1</span>468   <span style='text-decoration: underline;'>2</span>020 2020-03-16 BUF   MIN             <span style='text-decoration: underline;'>2</span>020          1          22
-#&gt; <span style='color: #BCBCBC;'>10</span>     <span style='text-decoration: underline;'>1</span>468   <span style='text-decoration: underline;'>2</span>020 2020-03-16 BUF   MIN             <span style='text-decoration: underline;'>2</span>020          5         155
-#&gt; <span style='color: #949494;'># … with 201 more rows, and 3 more variables: conditional &lt;dbl&gt;, pfr_id &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   pfr_name &lt;chr&gt;</span></div><div class='input'><span class='co'># }</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'> <span class='fu'>load_trades</span><span class='op'>(</span><span class='fl'>2020</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 211 × 11</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    trade_id season trade_date gave  received pick_season pick_round pick_number</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span>     <span style='text-decoration: underline;'>1</span>465   <span style='text-decoration: underline;'>2</span>020 2020-03-03 DEN   JAX             <span style='text-decoration: underline;'>2</span>020          4         137</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span>     <span style='text-decoration: underline;'>1</span>465   <span style='text-decoration: underline;'>2</span>020 2020-03-03 JAX   DEN               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span>     <span style='text-decoration: underline;'>1</span>466   <span style='text-decoration: underline;'>2</span>020 2020-03-04 CAR   LAC               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span>     <span style='text-decoration: underline;'>1</span>466   <span style='text-decoration: underline;'>2</span>020 2020-03-04 LAC   CAR               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span>     <span style='text-decoration: underline;'>1</span>471   <span style='text-decoration: underline;'>2</span>020 2020-03-15 BAL   JAX             <span style='text-decoration: underline;'>2</span>020          5         157</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span>     <span style='text-decoration: underline;'>1</span>471   <span style='text-decoration: underline;'>2</span>020 2020-03-15 JAX   BAL               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span>     <span style='text-decoration: underline;'>1</span>467   <span style='text-decoration: underline;'>2</span>020 2020-03-16 IND   SF              <span style='text-decoration: underline;'>2</span>020          1          13</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span>     <span style='text-decoration: underline;'>1</span>467   <span style='text-decoration: underline;'>2</span>020 2020-03-16 SF    IND               <span style='color: #BB0000;'>NA</span>         <span style='color: #BB0000;'>NA</span>          <span style='color: #BB0000;'>NA</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span>     <span style='text-decoration: underline;'>1</span>468   <span style='text-decoration: underline;'>2</span>020 2020-03-16 BUF   MIN             <span style='text-decoration: underline;'>2</span>020          1          22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span>     <span style='text-decoration: underline;'>1</span>468   <span style='text-decoration: underline;'>2</span>020 2020-03-16 BUF   MIN             <span style='text-decoration: underline;'>2</span>020          5         155</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 201 more rows, and 3 more variables: conditional &lt;dbl&gt;, pfr_id &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   pfr_name &lt;chr&gt;</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

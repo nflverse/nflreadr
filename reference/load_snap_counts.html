@@ -87,7 +87,7 @@ starting with the 2013 season." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -237,26 +237,27 @@ starting with the 2013 season.</p>
 <p><a href='https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html'>https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-  <span class='fu'>load_snap_counts</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 11,244 × 16</span>
-#&gt;    game_id    pfr_game_id season game_type  week player   pfr_player_id position
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Tristan… WirfTr00      T       
-#&gt; <span style='color: #BCBCBC;'> 2</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Ali Mar… MarpAl00      G       
-#&gt; <span style='color: #BCBCBC;'> 3</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Alex Ca… CappAl00      G       
-#&gt; <span style='color: #BCBCBC;'> 4</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Donovan… SmitDo02      T       
-#&gt; <span style='color: #BCBCBC;'> 5</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Tom Bra… BradTo00      QB      
-#&gt; <span style='color: #BCBCBC;'> 6</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Ryan Je… JensRy00      C       
-#&gt; <span style='color: #BCBCBC;'> 7</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Chris G… GodwCh00      WR      
-#&gt; <span style='color: #BCBCBC;'> 8</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Mike Ev… EvanMi00      WR      
-#&gt; <span style='color: #BCBCBC;'> 9</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Rob Gro… GronRo00      TE      
-#&gt; <span style='color: #BCBCBC;'>10</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Antonio… BrowAn04      WR      
-#&gt; <span style='color: #949494;'># … with 11,234 more rows, and 8 more variables: team &lt;chr&gt;, opponent &lt;chr&gt;,</span>
-#&gt; <span style='color: #949494;'>#   offense_snaps &lt;dbl&gt;, offense_pct &lt;dbl&gt;, defense_snaps &lt;dbl&gt;,</span>
-#&gt; <span style='color: #949494;'>#   defense_pct &lt;dbl&gt;, st_snaps &lt;dbl&gt;, st_pct &lt;dbl&gt;</span></div><div class='input'><span class='co'># }</span>
-
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'>  <span class='fu'>load_snap_counts</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 13,841 × 16</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    game_id    pfr_game_id season game_type  week player   pfr_player_id position</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Tristan… WirfTr00      T       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Ali Mar… MarpAl00      G       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Alex Ca… CappAl00      G       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Donovan… SmitDo02      T       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Tom Bra… BradTo00      QB      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Ryan Je… JensRy00      C       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Chris G… GodwCh00      WR      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Mike Ev… EvanMi00      WR      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Rob Gro… GronRo00      TE      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 2021_01_D… 202109090t…   <span style='text-decoration: underline;'>2</span>021 REG           1 Antonio… BrowAn04      WR      </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 13,831 more rows, and 8 more variables: team &lt;chr&gt;, opponent &lt;chr&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   offense_snaps &lt;dbl&gt;, offense_pct &lt;dbl&gt;, defense_snaps &lt;dbl&gt;,</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'>#   defense_pct &lt;dbl&gt;, st_snaps &lt;dbl&gt;, st_pct &lt;dbl&gt;</span></span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

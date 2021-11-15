@@ -86,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -231,105 +231,106 @@
     <p>a dataframe as created by <code><a href='https://rdrr.io/r/base/readRDS.html'>readRDS()</a></code></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>rds_from_url</span><span class='op'>(</span><span class='st'>"https://github.com/nflverse/nfldata/raw/master/data/games.rds"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;               game_id season game_type week    gameday weekday gametime
-#&gt;    1: 1999_01_MIN_ATL   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;
-#&gt;    2:  1999_01_KC_CHI   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;
-#&gt;    3: 1999_01_PIT_CLE   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;
-#&gt;    4:  1999_01_OAK_GB   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;
-#&gt;    5: 1999_01_BUF_IND   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;
-#&gt;   ---                                                                  
-#&gt; 6120:  2021_18_CAR_TB   2021       REG   18 2022-01-09  Sunday    13:00
-#&gt; 6121: 2021_18_SEA_ARI   2021       REG   18 2022-01-09  Sunday    16:25
-#&gt; 6122:  2021_18_KC_DEN   2021       REG   18 2022-01-09  Sunday    16:25
-#&gt; 6123:   2021_18_SF_LA   2021       REG   18 2022-01-09  Sunday    16:25
-#&gt; 6124:  2021_18_LAC_LV   2021       REG   18 2022-01-09  Sunday    16:25
-#&gt;       away_team away_score home_team home_score location result total overtime
-#&gt;    1:       MIN         17       ATL         14     Home     -3    31        0
-#&gt;    2:        KC         17       CHI         20     Home      3    37        0
-#&gt;    3:       PIT         43       CLE          0     Home    -43    43        0
-#&gt;    4:       OAK         24        GB         28     Home      4    52        0
-#&gt;    5:       BUF         14       IND         31     Home     17    45        0
-#&gt;   ---                                                                         
-#&gt; 6120:       CAR         NA        TB         NA     Home     NA    NA       NA
-#&gt; 6121:       SEA         NA       ARI         NA     Home     NA    NA       NA
-#&gt; 6122:        KC         NA       DEN         NA     Home     NA    NA       NA
-#&gt; 6123:        SF         NA        LA         NA     Home     NA    NA       NA
-#&gt; 6124:       LAC         NA        LV         NA     Home     NA    NA       NA
-#&gt;       old_game_id  gsis                        nfl_detail_id          pfr pff
-#&gt;    1:  1999091210   598                                 &lt;NA&gt; 199909120atl  NA
-#&gt;    2:  1999091206   597                                 &lt;NA&gt; 199909120chi  NA
-#&gt;    3:  1999091213   604                                 &lt;NA&gt; 199909120cle  NA
-#&gt;    4:  1999091208   602                                 &lt;NA&gt; 199909120gnb  NA
-#&gt;    5:  1999091202   591                                 &lt;NA&gt; 199909120clt  NA
-#&gt;   ---                                                                        
-#&gt; 6120:  2022010911 58770 10160000-0587-704e-6295-0c29cd0a1891 202201090tam  NA
-#&gt; 6121:  2022010912 58771 10160000-0587-7113-a978-455fec3cda14 202201090crd  NA
-#&gt; 6122:  2022010913 58772 10160000-0587-7224-5e5e-c71409627e21 202201090den  NA
-#&gt; 6123:  2022010914 58773 10160000-0587-738e-2b05-95daf03cb563 202201090ram  NA
-#&gt; 6124:  2022010915 58774 10160000-0587-7450-0923-b0f39c686c28 202201090rai  NA
-#&gt;            espn away_rest home_rest away_moneyline home_moneyline spread_line
-#&gt;    1: 190912001         7         7             NA             NA          -4
-#&gt;    2: 190912003         7         7             NA             NA          -3
-#&gt;    3: 190912005         7         7             NA             NA          -6
-#&gt;    4: 190912009         7         7             NA             NA           9
-#&gt;    5: 190912011         7         7             NA             NA          -3
-#&gt;   ---                                                                        
-#&gt; 6120: 401326596         7         7             NA             NA          NA
-#&gt; 6121: 401326597         7         7             NA             NA          NA
-#&gt; 6122: 401326598         7         7             NA             NA          NA
-#&gt; 6123: 401326599         7         7             NA             NA          NA
-#&gt; 6124: 401326600         7         7             NA             NA          NA
-#&gt;       away_spread_odds home_spread_odds total_line under_odds over_odds
-#&gt;    1:               NA               NA       49.0         NA        NA
-#&gt;    2:               NA               NA       38.0         NA        NA
-#&gt;    3:               NA               NA       37.0         NA        NA
-#&gt;    4:               NA               NA       43.0         NA        NA
-#&gt;    5:               NA               NA       45.5         NA        NA
-#&gt;   ---                                                                  
-#&gt; 6120:               NA               NA         NA         NA        NA
-#&gt; 6121:               NA               NA         NA         NA        NA
-#&gt; 6122:               NA               NA         NA         NA        NA
-#&gt; 6123:               NA               NA         NA         NA        NA
-#&gt; 6124:               NA               NA         NA         NA        NA
-#&gt;       div_game     roof    surface temp wind away_qb_id home_qb_id
-#&gt;    1:        0     dome  astroturf   NA   NA 00-0003761 00-0002876
-#&gt;    2:        0 outdoors      grass   80   12 00-0006300 00-0010560
-#&gt;    3:        1 outdoors      grass   78   12 00-0015700 00-0004230
-#&gt;    4:        0 outdoors      grass   67   10 00-0005741 00-0005106
-#&gt;    5:        1     dome  astroturf   NA   NA 00-0005363 00-0010346
-#&gt;   ---                                                             
-#&gt; 6120:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6121:        1   closed      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6122:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6123:        1     dome matrixturf   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt; 6124:        1     dome      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;
-#&gt;             away_qb_name   home_qb_name         away_coach      home_coach
-#&gt;    1: Randall Cunningham Chris Chandler       Dennis Green      Dan Reeves
-#&gt;    2:        Elvis Grbac Shane Matthews Gunther Cunningham     Dick Jauron
-#&gt;    3:    Kordell Stewart      Ty Detmer        Bill Cowher    Chris Palmer
-#&gt;    4:        Rich Gannon    Brett Favre         Jon Gruden      Ray Rhodes
-#&gt;    5:        Doug Flutie Peyton Manning      Wade Phillips        Jim Mora
-#&gt;   ---                                                                     
-#&gt; 6120:               &lt;NA&gt;           &lt;NA&gt;         Matt Rhule    Bruce Arians
-#&gt; 6121:               &lt;NA&gt;           &lt;NA&gt;       Pete Carroll Kliff Kingsbury
-#&gt; 6122:               &lt;NA&gt;           &lt;NA&gt;          Andy Reid      Vic Fangio
-#&gt; 6123:               &lt;NA&gt;           &lt;NA&gt;      Kyle Shanahan      Sean McVay
-#&gt; 6124:               &lt;NA&gt;           &lt;NA&gt;     Brandon Staley   Rich Bisaccia
-#&gt;             referee stadium_id                    stadium
-#&gt;    1:  Gerry Austin      ATL00               Georgia Dome
-#&gt;    2:  Phil Luckett      CHI98              Soldier Field
-#&gt;    3:   Bob McElwee      CLE00   Cleveland Browns Stadium
-#&gt;    4: Tony Corrente      GNB00              Lambeau Field
-#&gt;    5:      Ron Blum      IND99                   RCA Dome
-#&gt;   ---                                                    
-#&gt; 6120:          &lt;NA&gt;      TAM00      Raymond James Stadium
-#&gt; 6121:          &lt;NA&gt;      PHO00         State Farm Stadium
-#&gt; 6122:          &lt;NA&gt;      DEN00 Empower Field at Mile High
-#&gt; 6123:          &lt;NA&gt;      LAX01               SoFi Stadium
-#&gt; 6124:          &lt;NA&gt;      VEG00          Allegiant Stadium</div><div class='input'><span class='co'># }</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='fu'>rds_from_url</span><span class='op'>(</span><span class='st'>"https://github.com/nflverse/nfldata/raw/master/data/games.rds"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>               game_id season game_type week    gameday weekday gametime</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1: 1999_01_MIN_ATL   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:  1999_01_KC_CHI   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3: 1999_01_PIT_CLE   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:  1999_01_OAK_GB   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5: 1999_01_BUF_IND   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:  2021_18_CAR_TB   2021       REG   18 2022-01-09  Sunday    13:00</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121: 2021_18_SEA_ARI   2021       REG   18 2022-01-09  Sunday    16:25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:  2021_18_KC_DEN   2021       REG   18 2022-01-09  Sunday    16:25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:   2021_18_SF_LA   2021       REG   18 2022-01-09  Sunday    16:25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:  2021_18_LAC_LV   2021       REG   18 2022-01-09  Sunday    16:25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       away_team away_score home_team home_score location result total overtime</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:       MIN         17       ATL         14     Home     -3    31        0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:        KC         17       CHI         20     Home      3    37        0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:       PIT         43       CLE          0     Home    -43    43        0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:       OAK         24        GB         28     Home      4    52        0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:       BUF         14       IND         31     Home     17    45        0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:       CAR         NA        TB         NA     Home     NA    NA       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:       SEA         NA       ARI         NA     Home     NA    NA       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:        KC         NA       DEN         NA     Home     NA    NA       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:        SF         NA        LA         NA     Home     NA    NA       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:       LAC         NA        LV         NA     Home     NA    NA       NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       old_game_id  gsis                        nfl_detail_id          pfr pff</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:  1999091210   598                                 &lt;NA&gt; 199909120atl  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:  1999091206   597                                 &lt;NA&gt; 199909120chi  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:  1999091213   604                                 &lt;NA&gt; 199909120cle  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:  1999091208   602                                 &lt;NA&gt; 199909120gnb  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:  1999091202   591                                 &lt;NA&gt; 199909120clt  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:  2022010911 58770 10160000-0587-704e-6295-0c29cd0a1891 202201090tam  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:  2022010912 58771 10160000-0587-7113-a978-455fec3cda14 202201090crd  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:  2022010913 58772 10160000-0587-7224-5e5e-c71409627e21 202201090den  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:  2022010914 58773 10160000-0587-738e-2b05-95daf03cb563 202201090ram  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:  2022010915 58774 10160000-0587-7450-0923-b0f39c686c28 202201090rai  NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>            espn away_rest home_rest away_moneyline home_moneyline spread_line</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1: 190912001         7         7             NA             NA          -4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2: 190912003         7         7             NA             NA          -3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3: 190912005         7         7             NA             NA          -6</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4: 190912009         7         7             NA             NA           9</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5: 190912011         7         7             NA             NA          -3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120: 401326596         7         7             NA             NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121: 401326597         7         7             NA             NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122: 401326598         7         7             NA             NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123: 401326599         7         7             NA             NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124: 401326600         7         7             NA             NA          NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       away_spread_odds home_spread_odds total_line under_odds over_odds</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:               NA               NA       49.0         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:               NA               NA       38.0         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:               NA               NA       37.0         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:               NA               NA       43.0         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:               NA               NA       45.5         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:               NA               NA         NA         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:               NA               NA         NA         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:               NA               NA         NA         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:               NA               NA         NA         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:               NA               NA         NA         NA        NA</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>       div_game     roof    surface temp wind away_qb_id home_qb_id</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:        0     dome  astroturf   NA   NA 00-0003761 00-0002876</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:        0 outdoors      grass   80   12 00-0006300 00-0010560</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:        1 outdoors      grass   78   12 00-0015700 00-0004230</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:        0 outdoors      grass   67   10 00-0005741 00-0005106</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:        1     dome  astroturf   NA   NA 00-0005363 00-0010346</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                             </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:        1   closed      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:        1 outdoors      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:        1     dome matrixturf   NA   NA       &lt;NA&gt;       &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:        1     dome      grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             away_qb_name   home_qb_name         away_coach      home_coach</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1: Randall Cunningham Chris Chandler       Dennis Green      Dan Reeves</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:        Elvis Grbac Shane Matthews Gunther Cunningham     Dick Jauron</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:    Kordell Stewart      Ty Detmer        Bill Cowher    Chris Palmer</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4:        Rich Gannon    Brett Favre         Jon Gruden      Ray Rhodes</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:        Doug Flutie Peyton Manning      Wade Phillips        Jim Mora</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:               &lt;NA&gt;           &lt;NA&gt;         Matt Rhule    Bruce Arians</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:               &lt;NA&gt;           &lt;NA&gt;       Pete Carroll Kliff Kingsbury</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:               &lt;NA&gt;           &lt;NA&gt;          Andy Reid      Vic Fangio</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:               &lt;NA&gt;           &lt;NA&gt;      Kyle Shanahan      Sean McVay</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:               &lt;NA&gt;           &lt;NA&gt;     Brandon Staley   Rich Bisaccia</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>             referee stadium_id                    stadium</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    1:  Gerry Austin      ATL00               Georgia Dome</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    2:  Phil Luckett      CHI98              Soldier Field</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    3:   Bob McElwee      CLE00   Cleveland Browns Stadium</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    4: Tony Corrente      GNB00              Lambeau Field</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    5:      Ron Blum      IND99                   RCA Dome</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   ---                                                    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6120:          &lt;NA&gt;      TAM00      Raymond James Stadium</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6121:          &lt;NA&gt;      PHO00         State Farm Stadium</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6122:          &lt;NA&gt;      DEN00 Empower Field at Mile High</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6123:          &lt;NA&gt;      LAX01               SoFi Stadium</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 6124:          &lt;NA&gt;      VEG00          Allegiant Stadium</span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

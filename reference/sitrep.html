@@ -89,7 +89,7 @@ you're helping someone else debug a problem." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.02</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
       </span>
     </div>
 
@@ -244,7 +244,7 @@ if all packages are installed and informs if that is not the case.</p></td>
       <td><p>a logical indicating whether dependencies of <code>pkg</code> and their
 dependencies (and so on) should be included.
 Can also be a character vector listing the types of dependencies, a subset
-of <code><a href='https://rdrr.io/r/base/c.html'>c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")</a></code>.
+of <code>c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")</code>.
 Character string <code>"all"</code> is shorthand for that vector, character string
 <code>"most"</code> for the same vector without <code>"Enhances"</code>, character string <code>"strong"</code>
 (default) for the first three elements of that vector.</p></td>
@@ -258,24 +258,28 @@ used to differentiate between nflverse and ffverse output.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='op'>{</span>
-<span class='fu'>nflverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>ffverse_sitrep</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'>.sitrep</span><span class='op'>(</span><span class='st'>"cachem"</span><span class='op'>)</span>
-<span class='op'>}</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> You've asked for the packages nflfastR, nflseedR, nfl4th, and nflplotR which are not installed. </span>
-#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; ── <span style='font-weight: bold;'>System Info</span> ─────────────────────────────────────────────────────────────────
-#&gt; • R version 4.1.2 (2021-11-01)   • Running under: Ubuntu 20.04.3 LTS
-#&gt; ── <span style='font-weight: bold;'>nflverse Packages</span> ───────────────────────────────────────────────────────────
-#&gt; • nflreadr (1.1.1.02)
-#&gt; ── <span style='font-weight: bold;'>nflverse Dependencies</span> ───────────────────────────────────────────────────────
-#&gt; • cachem     (1.0.6)   • memoise       (2.0.0)   • Rcpp         (1.0.7)   
-#&gt; • curl       (4.3.2)   • qs            (0.25.1)  • RcppParallel (5.1.4)   
-#&gt; • data.table (1.14.2)  • RApiSerialize (0.1.0)   • rlang        (0.4.12)  
-#&gt; • fastmap    (1.1.0)   • rappdirs      (0.3.3)   • stringfish   (0.15.4)  </div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> You've asked for the packages ffscrapr, ffsimulator, and ffpros which are not installed. </span>
-#&gt; <span class='message'>They are skipped.</span></div><div class='output co'>#&gt; Error in utils::sessionInfo(packages) : no valid packages were specified</div><div class='input'><span class='co'># }</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='op'>{</span></span>
+<span class='r-in'><span class='fu'>nflverse_sitrep</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>ffverse_sitrep</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'>.sitrep</span><span class='op'>(</span><span class='st'>"cachem"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> You've asked for the packages nflfastR, nflseedR, nfl4th, and nflplotR which are not installed. </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> They are skipped.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>System Info</span> ─────────────────────────────────────────────────────────────────</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • R version 4.1.2 (2021-11-01)   • Running under: Ubuntu 20.04.3 LTS</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>nflverse Packages</span> ───────────────────────────────────────────────────────────</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • nflreadr (1.1.1.03)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>nflverse Dependencies</span> ───────────────────────────────────────────────────────</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • cachem     (1.0.6)   • memoise       (2.0.0)     • Rcpp         (1.0.7)   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • curl       (4.3.2)   • qs            (0.25.1.1)  • RcppParallel (5.1.4)   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • data.table (1.14.2)  • RApiSerialize (0.1.0)     • rlang        (0.4.12)  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> • fastmap    (1.1.0)   • rappdirs      (0.3.3)     • stringfish   (0.15.4)  </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BBBB;'>ℹ</span> You've asked for the packages ffscrapr, ffsimulator, and ffpros which are not installed. </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> They are skipped.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Error in utils::sessionInfo(packages) : no valid packages were specified</span>
+<span class='r-in'><span class='co'># }</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
