@@ -120,7 +120,7 @@ cat_packages <- function(packages,versions){
   l <- length(packages)
 
   breaks <- cut(x = seq_along(packages),
-                breaks = c(0, ceiling(l / 3), 2 * ceiling(l / 3), l))
+                breaks = c(0, ceiling(l / 3), 2 * ceiling(l / 3), l+1))
 
   p <- split(packages, breaks)
   v <- split(versions, breaks)

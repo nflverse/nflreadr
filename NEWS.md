@@ -3,6 +3,7 @@
 ## New Functions
 
 - `nflverse_sitrep()` and `ffverse_sitrep()` give a minimal overview of the package dependencies (v1.1.1.01)
+- `_sitrep()` fns receive a small print-related bugfix (v1.1.1.02)
 
 ---
 
