@@ -3,6 +3,8 @@
 ## New Functions
 
 - `nflverse_sitrep()` and `ffverse_sitrep()` give a minimal overview of the package dependencies (v1.1.1.01)
+- Minimum R version bumped to R 3.6.0 - this is the minimum version required to read the [current RDS file-version](https://stat.ethz.ch/R-manual/R-devel/library/base/html/readRDS.html). 
+- `_sitrep()` fns receive a small print-related bugfix (v1.1.1.03)
 
 ---
 
