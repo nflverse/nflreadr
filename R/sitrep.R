@@ -57,10 +57,10 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
 
   s <- utils::sessionInfo(packages)
 
-  cli::cat_rule(cli::style_bold("System Info"))
+  cli::cat_rule(cli::style_bold("System Info"), col = cli::make_ansi_style("cyan"), line = 1)
   cli::cat_bullet(glue::glue("{s$R.version$version.string}   {cli::symbol$bullet} Running under: {s$running}"))
 
-  cli::cat_rule(cli::style_bold(paste0(header, "Packages")))
+  cli::cat_rule(cli::style_bold(paste0(header, "Packages")), col = cli::make_ansi_style("cyan"), line = 1)
   packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
   versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
 
@@ -69,7 +69,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   # Exit here if we don't want recursive deps
   if (isFALSE(recursive)) return(invisible(NULL))
 
-  cli::cat_rule(cli::style_bold(paste0(header, "Dependencies")))
+  cli::cat_rule(cli::style_bold(paste0(header, "Dependencies")), col = cli::make_ansi_style("cyan"), line = 1)
 
   # The checks failed because the repo option is empty sometimes
   # so we set it here to the rstudio mirror and restore the options
@@ -106,6 +106,8 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
   }
 
   cat_packages(packages,versions)
+
+  cli::cat_rule(col = cli::make_ansi_style("cyan"), line = 1)
 
 }
 
