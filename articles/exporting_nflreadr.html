@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Functions</a>
 </li>
@@ -106,13 +102,13 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://discord.com/invite/5Er2FBnnQa">
+  <a href="https://discord.com/invite/5Er2FBnnQa" class="external-link">
     <span class="fab fa-discord fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/nflverse/nflreadr/">
+  <a href="https://github.com/nflverse/nflreadr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -126,27 +122,27 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">nflverse Packages</li>
     <li>
-      <a href="https://www.nflfastr.com">nflfastR</a>
+      <a href="https://www.nflfastr.com" class="external-link">nflfastR</a>
     </li>
     <li>
-      <a href="https://nflseedr.com">nflseedR</a>
+      <a href="https://nflseedr.com" class="external-link">nflseedR</a>
     </li>
     <li>
-      <a href="https://www.nfl4th.com">nfl4th</a>
+      <a href="https://www.nfl4th.com" class="external-link">nfl4th</a>
     </li>
     <li>
-      <a href="https://www.opensourcefootball.com">Open Source Football</a>
+      <a href="https://www.opensourcefootball.com" class="external-link">Open Source Football</a>
     </li>
     <li class="dropdown-header">nflverse Data</li>
     <li>
-      <a href="https://github.com/nflverse">nflverse GitHub</a>
+      <a href="https://github.com/nflverse" class="external-link">nflverse GitHub</a>
     </li>
     <li>
-      <a href="https://jthomasmock.github.io/espnscrapeR/">espnscrapeR Package</a>
+      <a href="https://jthomasmock.github.io/espnscrapeR/" class="external-link">espnscrapeR Package</a>
     </li>
     <li class="dropdown-header">ffverse</li>
     <li>
-      <a href="https://www.ffverse.com">ffverse.com</a>
+      <a href="https://www.ffverse.com" class="external-link">ffverse.com</a>
     </li>
   </ul>
 </li>
@@ -166,16 +162,16 @@
       <h1 data-toc-skip>Using nflreadr in packages</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/master/vignettes/exporting_nflreadr.Rmd"><code>vignettes/exporting_nflreadr.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/HEAD/vignettes/exporting_nflreadr.Rmd" class="external-link"><code>vignettes/exporting_nflreadr.Rmd</code></a></small>
       <div class="hidden name"><code>exporting_nflreadr.Rmd</code></div>
 
     </div>
 
     
     
-<div id="re-exporting-nflreadr-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#re-exporting-nflreadr-functions" class="anchor"></a>Re-exporting nflreadr functions</h2>
+<div class="section level2">
+<h2 id="re-exporting-nflreadr-functions">Re-exporting nflreadr functions<a class="anchor" aria-label="anchor" href="#re-exporting-nflreadr-functions"></a>
+</h2>
 <p>You can re-export <code>nflreadr</code> functions in your package by using the following roxygen template:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#' @inherit nflreadr::load_nextgen_stats</span>
@@ -185,33 +181,33 @@
 <span class="co">#' load_ng_stats(2020)</span>
 <span class="va">load_ng_stats</span> <span class="op">&lt;-</span> <span class="fu">nflreadr</span><span class="fu">::</span><span class="va"><a href="../reference/load_nextgen_stats.html">load_nextgen_stats</a></span></code></pre></div>
 </div>
-<div id="using-progressr-with-from_url-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-progressr-with-from_url-functions" class="anchor"></a>Using progressr with from_url functions</h2>
+<div class="section level2">
+<h2 id="using-progressr-with-from_url-functions">Using progressr with from_url functions<a class="anchor" aria-label="anchor" href="#using-progressr-with-from_url-functions"></a>
+</h2>
 <p>The <code>from_url</code> family of functions can be adapted with the <code><a href="../reference/progressively.html">progressively()</a></code> function decorator to signal progress. Here’s an example, adapted from the <code><a href="../reference/load_rosters.html">load_rosters()</a></code> source code:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">load_rosters</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">seasons</span> <span class="op">=</span> <span class="fl">1999</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span><span class="op">{</span>
 
   <span class="co"># Create a progressor function inside your function that knows how many "steps" there will be</span>
-  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/progressor.html">progressor</a></span><span class="op">(</span>steps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">seasons</span><span class="op">)</span><span class="op">)</span> 
+  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/progressor.html" class="external-link">progressor</a></span><span class="op">(</span>steps <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">seasons</span><span class="op">)</span><span class="op">)</span> 
 
   <span class="co"># Form the URLs to pass into rds_from_url</span>
-  <span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span>
+  <span class="va">urls</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span>
     <span class="st">"https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_"</span>,
     <span class="va">seasons</span>, <span class="st">".rds"</span><span class="op">)</span>
 
   <span class="co"># Use `progressively()` to wrap the existing function rds_from_url and </span>
   <span class="co"># call the `p()` progressor function as a signal immediately after each iteration</span>
   
-  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">urls</span>, <span class="fu"><a href="../reference/progressively.html">progressively</a></span><span class="op">(</span><span class="va">rds_from_url</span>,<span class="va">p</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="va">urls</span>, <span class="fu"><a href="../reference/progressively.html">progressively</a></span><span class="op">(</span><span class="va">rds_from_url</span>,<span class="va">p</span><span class="op">)</span><span class="op">)</span>
   
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>This will cause p() to execute once for each rds_from_url call, effectively “signalling” progress.</p>
-<p>In order to receive progress updates, the user must wrap the function (load_rosters, in this case) with <code><a href="https://progressr.futureverse.org/reference/with_progress.html">progressr::with_progress()</a></code> as shown here:</p>
+<p>In order to receive progress updates, the user must wrap the function (load_rosters, in this case) with <code><a href="https://progressr.futureverse.org/reference/with_progress.html" class="external-link">progressr::with_progress()</a></code> as shown here:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html">with_progress</a></span><span class="op">(</span><span class="fu"><a href="../reference/load_rosters.html">load_rosters</a></span><span class="op">(</span><span class="fl">2010</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>For more information, please see the <a href="https://progressr.futureverse.org">progressr</a> documentation.</p>
+<code class="sourceCode R"><span class="fu">progressr</span><span class="fu">::</span><span class="fu"><a href="https://progressr.futureverse.org/reference/with_progress.html" class="external-link">with_progress</a></span><span class="op">(</span><span class="fu"><a href="../reference/load_rosters.html">load_rosters</a></span><span class="op">(</span><span class="fl">2010</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>For more information, please see the <a href="https://progressr.futureverse.org" class="external-link">progressr</a> documentation.</p>
 </div>
   </div>
 
@@ -226,11 +222,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://twitter.com/_TanHo">Tan Ho</a>, <a href="https://twitter.com/mrcaseb">Sebastian Carl</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a>, <a href="https://twitter.com/mrcaseb" class="external-link">Sebastian Carl</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -238,6 +236,8 @@
 
   
 
+
+  
 
   </body>
 </html>

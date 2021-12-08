@@ -1,7 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://nflreadr.nflverse.com/404.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_player_stats.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_rosters.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_schedules.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/authors.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/news/index.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/clean_homeaway.html</loc>
@@ -47,6 +104,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/index.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_combine.html</loc>
@@ -125,38 +185,5 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/team_abbr_mapping_norelocate.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_player_stats.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_rosters.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_schedules.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
-  </url>
-  <url>
-    <loc>https://nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>
   </url>
 </urlset>

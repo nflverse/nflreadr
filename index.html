@@ -32,6 +32,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -44,18 +46,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1.03</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Functions</a>
 </li>
@@ -107,13 +103,13 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://discord.com/invite/5Er2FBnnQa">
+  <a href="https://discord.com/invite/5Er2FBnnQa" class="external-link">
     <span class="fab fa-discord fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/nflverse/nflreadr/">
+  <a href="https://github.com/nflverse/nflreadr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -127,27 +123,27 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">nflverse Packages</li>
     <li>
-      <a href="https://www.nflfastr.com">nflfastR</a>
+      <a href="https://www.nflfastr.com" class="external-link">nflfastR</a>
     </li>
     <li>
-      <a href="https://nflseedr.com">nflseedR</a>
+      <a href="https://nflseedr.com" class="external-link">nflseedR</a>
     </li>
     <li>
-      <a href="https://www.nfl4th.com">nfl4th</a>
+      <a href="https://www.nfl4th.com" class="external-link">nfl4th</a>
     </li>
     <li>
-      <a href="https://www.opensourcefootball.com">Open Source Football</a>
+      <a href="https://www.opensourcefootball.com" class="external-link">Open Source Football</a>
     </li>
     <li class="dropdown-header">nflverse Data</li>
     <li>
-      <a href="https://github.com/nflverse">nflverse GitHub</a>
+      <a href="https://github.com/nflverse" class="external-link">nflverse GitHub</a>
     </li>
     <li>
-      <a href="https://jthomasmock.github.io/espnscrapeR/">espnscrapeR Package</a>
+      <a href="https://jthomasmock.github.io/espnscrapeR/" class="external-link">espnscrapeR Package</a>
     </li>
     <li class="dropdown-header">ffverse</li>
     <li>
-      <a href="https://www.ffverse.com">ffverse.com</a>
+      <a href="https://www.ffverse.com" class="external-link">ffverse.com</a>
     </li>
   </ul>
 </li>
@@ -163,34 +159,34 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="nflreadr-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#nflreadr-" class="anchor"></a>nflreadr <a href="https://nflreadr.nflverse.com"><img src="reference/figures/logo.svg" align="right" width="25%" min-width="120px"></a>
+<div class="section level1">
+<div class="page-header"><h1 id="nflreadr-">nflreadr <a href="https://nflreadr.nflverse.com"><img src="reference/figures/logo.svg" align="right" width="25%" min-width="120px"></a>
+<a class="anchor" aria-label="anchor" href="#nflreadr-"></a>
 </h1></div>
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>nflreadr is a low-level package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<p>nflreadr is a minimal package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Install the stable version from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span><span class="op">)</span></code></pre></div>
 <p>Install the development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span>, repos <span class="op">=</span> <span class="st">"https://nflverse.r-universe.dev"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span>, repos <span class="op">=</span> <span class="st">"https://nflverse.r-universe.dev"</span><span class="op">)</span>
 
 <span class="co"># or use remotes/devtools</span>
 <span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nflverse/nflreadr"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>The main functions of <code>nflreadr</code> are prefixed with <code>load_</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://nflreadr.nflverse.com">nflreadr</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://nflreadr.nflverse.com">nflreadr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 48,514 x 372</span>
 <span class="co">#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam</span>
@@ -212,54 +208,55 @@
 <span class="co">#&gt; #   drive &lt;dbl&gt;, sp &lt;dbl&gt;, qtr &lt;dbl&gt;, down &lt;dbl&gt;, goal_to_go &lt;dbl&gt;, time &lt;chr&gt;,</span>
 <span class="co">#&gt; #   yrdln &lt;chr&gt;, ydstogo &lt;dbl&gt;, ydsnet &lt;dbl&gt;, desc &lt;chr&gt;, ...</span></code></pre></div>
 </div>
-<div id="data-sources" class="section level2">
-<h2 class="hasAnchor">
-<a href="#data-sources" class="anchor"></a>Data Sources</h2>
+<div class="section level2">
+<h2 id="data-sources">Data Sources<a class="anchor" aria-label="anchor" href="#data-sources"></a>
+</h2>
 <p>Data accessed by this package is stored on GitHub and can typically be found in one of the following repositories:</p>
 <ul>
-<li><a href="https://github.com/nflverse/nflfastR-data">nflverse/nflfastR-data</a></li>
-<li><a href="https://github.com/nflverse/nfldata">nflverse/nfldata</a></li>
-<li><a href="https://github.com/nflverse/nflfastR-roster">nflverse/nflfastR-roster</a></li>
-<li><a href="https://github.com/nflverse/espnscrapeR-data">nflverse/espnscrapeR-data</a></li>
-<li><a href="https://github.com/dynastyprocess/data">dynastyprocess/data</a></li>
+<li><a href="https://github.com/nflverse/nflfastR-data" class="external-link">nflverse/nflfastR-data</a></li>
+<li><a href="https://github.com/nflverse/nfldata" class="external-link">nflverse/nfldata</a></li>
+<li><a href="https://github.com/nflverse/nflfastR-roster" class="external-link">nflverse/nflfastR-roster</a></li>
+<li><a href="https://github.com/nflverse/espnscrapeR-data" class="external-link">nflverse/espnscrapeR-data</a></li>
+<li><a href="https://github.com/dynastyprocess/data" class="external-link">dynastyprocess/data</a></li>
 </ul>
 <p>For a full list of functions, please see the <a href="https://nflreadr.nflverse.com/reference/index.html">reference page</a>.</p>
-<p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/status" class="uri">https://github.com/nflverse/status</a></p>
+<p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/status" class="external-link uri">https://github.com/nflverse/status</a></p>
+<p>For Python access to nflverse data, please check out <a href="https://pypi.org/project/nfl-data-py/" class="external-link">nfl-data-py</a> which is maintained by Cooper Adams.</p>
 </div>
-<div id="configuration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#configuration" class="anchor"></a>Configuration</h2>
+<div class="section level2">
+<h2 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a>
+</h2>
 <p>The following options help configure default <code>nflreadr</code> behaviours.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> <span class="co"># one of "memory", "filesystem", or "off"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.cache_warning</span><span class="op">)</span> <span class="co"># FALSE to silence the reminder, which happens every eight hours or so.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
-<p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org"><code>progressr</code> package</a>, e.g.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> <span class="co"># one of "memory", "filesystem", or "off"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache_warning</span><span class="op">)</span> <span class="co"># FALSE to silence the reminder, which happens every eight hours or so.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> <span class="co"># one of "qs" or "rds"</span></code></pre></div>
+<p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>progressr<span class="op">::</span><span class="kw">with_progress</span>(<span class="kw">load_rosters</span>(<span class="dt">seasons =</span> <span class="dv">2010</span><span class="op">:</span><span class="dv">2020</span>))</span>
 <span id="cb5-2"><a href="#cb5-2"></a> <span class="op">|</span><span class="er">========</span><span class="st">            </span><span class="er">|</span><span class="st">  </span><span class="dv">40</span>%</span></code></pre></div>
 </div>
-<div id="getting-help" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-help" class="anchor"></a>Getting help</h2>
+<div class="section level2">
+<h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
+</h2>
 <p>The best places to get help on this package are:</p>
 <ul>
-<li>the <a href="https://discord.com/invite/5Er2FBnnQa">nflverse discord</a> (for both this package as well as anything R/NFL related)</li>
-<li>opening <a href="https://github.com/nflverse/nflreadr/issues/new/choose">an issue</a>
+<li>the <a href="https://discord.com/invite/5Er2FBnnQa" class="external-link">nflverse discord</a> (for both this package as well as anything R/NFL related)</li>
+<li>opening <a href="https://github.com/nflverse/nflreadr/issues/new/choose" class="external-link">an issue</a>
 </li>
 </ul>
 </div>
-<div id="contributing" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributing" class="anchor"></a>Contributing</h2>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
 <p>Many hands make light work! Here are some ways you can contribute to this project:</p>
 <ul>
-<li><p>You can <a href="https://github.com/nflverse/nflreadr/issues/new/choose">open an issue</a> if you’d like to request specific data or report a bug/error.</p></li>
+<li><p>You can <a href="https://github.com/nflverse/nflreadr/issues/new/choose" class="external-link">open an issue</a> if you’d like to request specific data or report a bug/error.</p></li>
 <li><p>If you’d like to contribute code, please check out <a href="https://nflreadr.nflverse.com/CONTRIBUTING.html">the contribution guidelines</a>.</p></li>
 </ul>
 </div>
-<div id="terms-of-use" class="section level2">
-<h2 class="hasAnchor">
-<a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
+<div class="section level2">
+<h2 id="terms-of-use">Terms of Use<a class="anchor" aria-label="anchor" href="#terms-of-use"></a>
+</h2>
 <p>The R code for this package is released as open source under the <a href="https://nflreadr.nflverse.com/LICENSE.html">MIT License</a>. NFL data accessed by this package belong to their respective owners, and are governed by their terms of use.</p>
 </div>
 </div>
@@ -267,62 +264,72 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=nflreadr">https://​cloud.r-project.org/​package=nflreadr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/nflverse/nflreadr/">https://​github.com/​nflverse/​nflreadr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/nflverse/nflreadr/issues">https://​github.com/​nflverse/​nflreadr/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=nflreadr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/nflverse/nflreadr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/nflverse/nflreadr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://twitter.com/_TanHo">Tan Ho</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0001-8388-5155" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://twitter.com/mrcaseb">Sebastian Carl</a> <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing nflreadr</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=nflreadr"><img src="https://img.shields.io/cran/v/nflreadr?style=flat-square&amp;logo=R&amp;label=CRAN" alt="CRAN status"></a></li>
-<li><a href="https://codecov.io/gh/nflverse/nflreadr?branch=main"><img src="https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&amp;style=flat-square&amp;logo=codecov" alt="Codecov test coverage"></a></li>
-<li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/nflverse/nflreadr/actions"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
-<li><a href="https://discord.com/invite/5Er2FBnnQa"><img src="https://img.shields.io/discord/789805604076126219?color=7289da&amp;label=nflverse%20discord&amp;logo=discord&amp;logoColor=fff&amp;style=flat-square" alt="nflverse discord"></a></li>
+<li>
+<a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0001-8388-5155" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://twitter.com/mrcaseb" class="external-link">Sebastian Carl</a> <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=nflreadr" class="external-link"><img src="https://img.shields.io/cran/v/nflreadr?style=flat-square&amp;logo=R&amp;label=CRAN" alt="CRAN status"></a></li>
+<li><a href="https://app.codecov.io/gh/nflverse/nflreadr?branch=main" class="external-link"><img src="https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&amp;style=flat-square&amp;logo=codecov" alt="Codecov test coverage"></a></li>
+<li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/nflverse/nflreadr/actions" class="external-link"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
+<li><a href="https://discord.com/invite/5Er2FBnnQa" class="external-link"><img src="https://img.shields.io/discord/789805604076126219?color=7289da&amp;label=nflverse%20discord&amp;logo=discord&amp;logoColor=fff&amp;style=flat-square" alt="nflverse discord"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://twitter.com/_TanHo">Tan Ho</a>, <a href="https://twitter.com/mrcaseb">Sebastian Carl</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a>, <a href="https://twitter.com/mrcaseb" class="external-link">Sebastian Carl</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -330,6 +337,8 @@
 
   
 
+
+  
 
   </body>
 </html>
