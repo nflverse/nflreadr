@@ -28,4 +28,6 @@ starting with the 2019 season.
 \code{\link{dictionary_pfr_passing}} for the data dictionary
 
 \url{https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html}
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
 }

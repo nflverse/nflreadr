@@ -30,5 +30,5 @@ Load ESPN's QBR
 
 }
 \seealso{
-\url{https://github.com/nflverse/espnscrapeR-data}
+Issues with this data should be filed here: \url{https://github.com/nflverse/espnscrapeR-data}
 }

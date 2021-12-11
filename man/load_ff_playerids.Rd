@@ -19,5 +19,5 @@ load_ff_playerids()
 
 }
 \seealso{
-\url{https://github.com/dynastyprocess/data}
+Issues with this data should be filed here: \url{https://github.com/dynastyprocess/data}
 }

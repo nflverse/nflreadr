@@ -1,5 +1,10 @@
 # nflreadr (development version)
 
+## Updates
+
+- Added "all" parameter for `load_ff_rankings()` to return all available data (weekly archives since 2019). (v1.1.2.01)
+- Added notes about where to file issues to each data function. (v1.1.2.01)
+
 ---
 
 # nflreadr 1.1.2

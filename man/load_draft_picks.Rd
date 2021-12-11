@@ -25,4 +25,6 @@ Loads every draft pick since 1980 courtesy of PFR.
 \code{\link{dictionary_draft_picks}} for the data dictionary
 
 \url{https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html}
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
 }

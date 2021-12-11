@@ -14,3 +14,4 @@
 ^CRAN-RELEASE$
 ^revdep$
 ^man/figures/social_preview\.png$
+^CRAN-SUBMISSION$

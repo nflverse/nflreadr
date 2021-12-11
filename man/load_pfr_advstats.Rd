@@ -29,4 +29,6 @@ starting with the 2018 season, primarily to augment existing nflverse data.
 }
 \seealso{
 \url{https://www.pro-football-reference.com/years/2021/passing_advanced.htm}
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
 }

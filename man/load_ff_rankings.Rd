@@ -4,10 +4,10 @@
 \alias{load_ff_rankings}
 \title{Load Latest FantasyPros Rankings}
 \usage{
-load_ff_rankings(type = c("draft", "week"))
+load_ff_rankings(type = c("draft", "week", "all"))
 }
 \arguments{
-\item{type}{one of "draft" or "week", for preseason or inseason-weekly rankings}
+\item{type}{one of "draft" (preseason), "week" (this week, inseason), or "all" (full archive)}
 }
 \value{
 a dataframe of expert consensus rankings
@@ -22,7 +22,7 @@ load_ff_rankings()
 
 }
 \seealso{
-\url{https://github.com/dynastyprocess/data}
+Issues with this data should be filed here: \url{https://github.com/dynastyprocess/data}
 
 \url{https://www.fantasypros.com}
 }

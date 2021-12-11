@@ -21,3 +21,6 @@ Loads combine data since 2000 courtesy of PFR.
 }
 
 }
+\seealso{
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
+}

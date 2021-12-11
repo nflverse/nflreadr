@@ -16,6 +16,7 @@
 #' @seealso [`dictionary_pbp`] for the data dictionary as a dataframe
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pbp.html> for a web version of the data dictionary
 #' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `nflfastR::build_nflfastR_pbp()`
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "qs")) {
@@ -59,6 +60,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #' @seealso <https://www.nflfastr.com/reference/load_player_stats.html>
 #' @seealso <https://github.com/nflverse/nflfastr-data>
 #' @seealso `vignette("Data Dictionary - Player Stats")` for the data dictionary
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
@@ -112,6 +114,7 @@ load_player_stats <- function(seasons = most_recent_season(),
 #' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#games>
 #' @seealso [`dictionary_schedules`] for the data dictionary as a dataframe
 #' @seealso `vignette("Data Dictionary - Schedules")` for the data dictionary as a vignette
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @examples
 #' \donttest{
@@ -143,7 +146,7 @@ load_schedules <- function(seasons = TRUE){
 #' @return A tibble of season-level roster data.
 #'
 #' @seealso [`dictionary_rosters`] for the data dictionary as a dataframe
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-roster>
 #' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
 #'
 #' @export
@@ -173,7 +176,8 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 #'
 #' @description Loads player level weekly stats provided by NFL Next Gen Stats
 #' starting with the 2016 season. Three different stat types are available and
-#' the current season's data updates every night.
+#' the current season's data updates every night. NGS will only provide data for
+#' players above a minimum number of pass/rush/rec attempts.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
@@ -195,6 +199,7 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 #'
 #' @seealso [`dictionary_nextgen_stats`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html> for a web version of the dictionary
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/ngs-data>
 #'
 #' @export
 load_nextgen_stats <- function(seasons = TRUE,
@@ -232,7 +237,7 @@ load_nextgen_stats <- function(seasons = TRUE,
 #'
 #' @return A tibble of team-level image URLs and hex color codes.
 #'
-#' @seealso <https://github.com/nflverse/nflfastr-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
 load_teams <- function(){
@@ -252,7 +257,7 @@ load_teams <- function(){
 #'   load_depth_charts(2020)
 #' }
 #'
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-roster>
 #'
 #' @return A tibble of week-level depth charts for each team.
 #' @export
@@ -277,6 +282,8 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
 #' Load Injury Reports
 #'
+#' Data collected from an API for weekly injury report data.
+#'
 #' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
 #'
@@ -287,7 +294,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #'
 #' @return a tibble of season-level injury report data.
 #'
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
@@ -322,8 +329,7 @@ load_injuries <- function(seasons = most_recent_season(),
 #' }
 #'
 #' @return a tibble of season-level injury report data.
-#'
-#' @seealso <https://github.com/nflverse/espnscrapeR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/espnscrapeR-data>
 #'
 #' @export
 load_espn_qbr <- function(league = c("nfl", "college"),
@@ -370,6 +376,7 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #' @seealso <https://www.pro-football-reference.com/years/2020/passing_advanced.htm>
 #' @seealso [`dictionary_pfr_passing`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
 #'
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
@@ -394,6 +401,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #' @return A tibble of week-level player statistics provided by Pro Football Reference to supplement data in nflverse
 #'
 #' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
 #'
 #' @export
 load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def")){
@@ -436,6 +444,7 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 #'
 #' @seealso [`dictionary_snap_counts`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
 #'
 #' @export
 load_snap_counts <- function(seasons = most_recent_season()){
@@ -470,6 +479,7 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #' }
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
 load_combine <- function(seasons = TRUE){
@@ -495,6 +505,7 @@ load_combine <- function(seasons = TRUE){
 #'
 #' @seealso [`dictionary_draft_picks`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @export
 load_draft_picks <- function(seasons = TRUE){
@@ -516,6 +527,7 @@ load_draft_picks <- function(seasons = TRUE){
 #' @return A tibble of game information for past and/or future games.
 #'
 #' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @examples
 #' \donttest{

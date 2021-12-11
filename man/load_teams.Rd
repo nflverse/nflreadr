@@ -19,5 +19,5 @@ Loads team graphics, colors, and logos - useful for plots!
 
 }
 \seealso{
-\url{https://github.com/nflverse/nflfastr-data}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
 }
