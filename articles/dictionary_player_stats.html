@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="nflreadr">
 <title>Data Dictionary - Player Stats • nflreadr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -12,12 +13,11 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Data Dictionary - Player Stats">
 <meta property="og:description" content="nflreadr">
 <meta property="og:image" content="https://nflreadr.nflverse.com/reference/figures/social_preview.png">
@@ -30,178 +30,292 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">nflreadr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.2.00</span>
-      </span>
-    </div>
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    
+    <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="../reference/index.html">Functions</a>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.00</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-2">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="../reference/index.html">Functions</a>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/dictionary_draft_picks.html">Data Dictionary - Draft Picks</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_ff_playerids.html">Data Dictionary - FF Player IDs</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_ff_rankings.html">Data Dictionary - FF Rankings</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_nextgen_stats.html">Data Dictionary - Next Gen Stats</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_pbp.html">Data Dictionary - PBP</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_pfr_passing.html">Data Dictionary - PFR Passing</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_player_stats.html">Data Dictionary - Player Stats</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_rosters.html">Data Dictionary - Rosters</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_schedules.html">Data Dictionary - Schedules</a>
-    </li>
-    <li>
-      <a href="../articles/dictionary_snap_counts.html">Data Dictionary - Snap Counts</a>
-    </li>
-    <li>
-      <a href="../articles/exporting_nflreadr.html">Using nflreadr in packages</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://discord.com/invite/5Er2FBnnQa" class="external-link">
-    <span class="fab fa-discord fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://github.com/nflverse/nflreadr/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Packages &amp; More
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">nflverse Packages</li>
-    <li>
-      <a href="https://www.nflfastr.com" class="external-link">nflfastR</a>
-    </li>
-    <li>
-      <a href="https://nflseedr.com" class="external-link">nflseedR</a>
-    </li>
-    <li>
-      <a href="https://www.nfl4th.com" class="external-link">nfl4th</a>
-    </li>
-    <li>
-      <a href="https://www.opensourcefootball.com" class="external-link">Open Source Football</a>
-    </li>
-    <li class="dropdown-header">nflverse Data</li>
-    <li>
-      <a href="https://github.com/nflverse" class="external-link">nflverse GitHub</a>
-    </li>
-    <li>
-      <a href="https://jthomasmock.github.io/espnscrapeR/" class="external-link">espnscrapeR Package</a>
-    </li>
-    <li class="dropdown-header">ffverse</li>
-    <li>
-      <a href="https://www.ffverse.com" class="external-link">ffverse.com</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-</div>
-<!--/.nav-collapse -->
+<li class="active nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-dictionaries">Dictionaries</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-dictionaries">
+    <a class="dropdown-item" href="../articles/dictionary_pbp.html">Play by Play</a>
+    <a class="dropdown-item" href="../articles/dictionary_player_stats.html">Player Stats</a>
+    <a class="dropdown-item" href="../articles/dictionary_rosters.html">Rosters</a>
+    <a class="dropdown-item" href="../articles/dictionary_schedules.html">Schedules</a>
+    <a class="dropdown-item" href="../articles/dictionary_snap_counts.html">Snap Counts</a>
+    <a class="dropdown-item" href="../articles/dictionary_ff_playerids.html">Fantasy Player IDs</a>
+    <a class="dropdown-item" href="../articles/dictionary_ff_rankings.html">Fantasy Rankings</a>
+    <a class="dropdown-item" href="../articles/dictionary_nextgen_stats.html">Next Gen Stats</a>
+    <a class="dropdown-item" href="../articles/dictionary_pfr_passing.html">PFR Advanced Stats</a>
+    <a class="dropdown-item" href="../articles/dictionary_draft_picks.html">Draft Picks</a>
   </div>
-<!--/.container -->
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/index.html">Vignettes</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
+      </ul>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://discord.com/invite/5Er2FBnnQa">
+    <span class="fab fa fab fa-discord fa-lg"></span>
+     
+  </a>
+</li>
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/nflverse/nflreadr/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-packages-amp-more">Packages &amp; More</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-packages-amp-more">
+    <h6 class="dropdown-header" data-toc-skip>nflverse Packages</h6>
+    <a class="external-link dropdown-item" href="https://www.nflfastr.com">nflfastR</a>
+    <a class="external-link dropdown-item" href="https://nflseedr.com">nflseedR</a>
+    <a class="external-link dropdown-item" href="https://www.nfl4th.com">nfl4th</a>
+    <a class="external-link dropdown-item" href="https://www.opensourcefootball.com">Open Source Football</a>
+    <h6 class="dropdown-header" data-toc-skip>nflverse Data</h6>
+    <a class="external-link dropdown-item" href="https://github.com/nflverse">nflverse GitHub</a>
+    <a class="external-link dropdown-item" href="https://jthomasmock.github.io/espnscrapeR/">espnscrapeR Package</a>
+    <h6 class="dropdown-header" data-toc-skip>ffverse</h6>
+    <a class="external-link dropdown-item" href="https://www.ffverse.com">ffverse.com</a>
+  </div>
+</li>
+      </ul>
 </div>
-<!--/.navbar -->
 
-      
-
-      </header><script src="dictionary_player_stats_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_player_stats_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="dictionary_player_stats_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="dictionary_player_stats_files/datatables-binding-0.20/datatables.js"></script><script src="dictionary_player_stats_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="dictionary_player_stats_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="dictionary_player_stats_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="dictionary_player_stats_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="dictionary_player_stats_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
-<script src="dictionary_player_stats_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_player_stats_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
-<script src="dictionary_player_stats_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_player_stats_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="dictionary_player_stats_files/crosstalk-1.2.0/js/crosstalk.min.js"></script><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Data Dictionary - Player Stats</h1>
+    
+  </div>
+</nav><div class="container template-article">
+<script src="dictionary_player_stats_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+  <main id="main"><div class="page-header">
+      <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Player Stats</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/HEAD/vignettes/dictionary_player_stats.Rmd" class="external-link"><code>vignettes/dictionary_player_stats.Rmd</code></a></small>
-      <div class="hidden name"><code>dictionary_player_stats.Rmd</code></div>
-
+      <div class="d-none name"><code>dictionary_player_stats.Rmd</code></div>
     </div>
 
     
     
-<div id="htmlwidget-fc7e1678033c1806e86a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fc7e1678033c1806e86a">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["player_id","player_name","games","recent_team","season","week","season_type","completions","attempts","passing_yards","passing_tds","interceptions","sacks","sack_yards","sack_fumbles","sack_fumbles_lost","passing_air_yards","passing_yards_after_catch","passing_first_downs","passing_epa","passing_2pt_conversions","dakota","carries","rushing_yards","rushing_tds","rushing_fumbles","rushing_fumbles_lost","rushing_first_downs","rushing_epa","rushing_2pt_conversions","receptions","targets","receiving_yards","receiving_tds","receiving_air_yards","receiving_yards_after_catch","receiving_fumbles","receiving_fumbles_lost","receiving_2pt_conversions","fantasy_points","fantasy_points_ppr"],["ID of the player. Use this to join to other sources.","Name of the player","The number of games where the player recorded passing, rushing or receiving stats.","Most recent team player appears in `pbp` with.","Official NFL season","Game week number","`REG` for regular season, `POST` for postseason","The number of completed passes.","The number of pass attempts as defined by the NFL.","Yards gained on pass plays.","The number of passing touchdowns.","The number of interceptions thrown.","The Number of times sacked.","Yards lost on sack plays.","The number of sacks with a fumble.","The number of sacks with a lost fumble.","Passing air yards (includes incomplete passes).","Yards after the catch gained on plays in which player was the passer (this is an unofficial stat and may differ slightly between different sources).","First downs on pass attempts.","Total expected points added on pass attempts and sacks. NOTE: this uses the variable `qb_epa`, which gives QB credit for EPA for up to the point where a receiver lost a fumble after a completed catch and makes EPA work more like passing yards on plays with fumbles.","Two-point conversion passes.","Adjusted EPA + CPOE composite based on coefficients which best predict adjusted EPA/play in the following year.","The number of official rush attempts (incl. scrambles and kneel downs). Rushes after a lateral reception don't count as carry.","Yards gained when rushing with the ball (incl. scrambles and kneel downs). Also includes yards gained after obtaining a lateral on a play that started with a rushing attempt.","The number of rushing touchdowns (incl. scrambles). Also includes touchdowns after obtaining a lateral on a play that started with a rushing attempt.","The number of rushes with a fumble.","The number of rushes with a lost fumble.","First downs on rush attempts (incl. scrambles).","Expected points added on rush attempts (incl. scrambles and kneel downs).","Two-point conversion rushes","The number of pass receptions. Lateral receptions officially don't count as reception.","The number of pass plays where the player was the targeted receiver.","Yards gained after a pass reception. Includes yards gained after receiving a lateral on a play that started as a pass play.","The number of touchdowns following a pass reception. Also includes touchdowns after receiving a lateral on a play that started as a pass play.","Receiving air yards (incl. incomplete passes).","Yards after the catch gained on plays in which player was receiver (this is an unofficial stat and may differ slightly between different sources).","The number of fumbles after a pass reception.","The number of fumbles lost after a pass reception.","Two-point conversion receptions","Standard fantasy points.","PPR fantasy points."]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Field<\/th>\n      <th>Description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<table class="table">
+<colgroup>
+<col width="9%">
+<col width="90%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Field</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">player_id</td>
+<td align="left">ID of the player. Use this to join to other sources.</td>
+</tr>
+<tr class="even">
+<td align="left">player_name</td>
+<td align="left">Name of the player</td>
+</tr>
+<tr class="odd">
+<td align="left">games</td>
+<td align="left">The number of games where the player recorded passing, rushing or receiving stats.</td>
+</tr>
+<tr class="even">
+<td align="left">recent_team</td>
+<td align="left">Most recent team player appears in <code>pbp</code> with.</td>
+</tr>
+<tr class="odd">
+<td align="left">season</td>
+<td align="left">Official NFL season</td>
+</tr>
+<tr class="even">
+<td align="left">week</td>
+<td align="left">Game week number</td>
+</tr>
+<tr class="odd">
+<td align="left">season_type</td>
+<td align="left">
+<code>REG</code> for regular season, <code>POST</code> for postseason</td>
+</tr>
+<tr class="even">
+<td align="left">completions</td>
+<td align="left">The number of completed passes.</td>
+</tr>
+<tr class="odd">
+<td align="left">attempts</td>
+<td align="left">The number of pass attempts as defined by the NFL.</td>
+</tr>
+<tr class="even">
+<td align="left">passing_yards</td>
+<td align="left">Yards gained on pass plays.</td>
+</tr>
+<tr class="odd">
+<td align="left">passing_tds</td>
+<td align="left">The number of passing touchdowns.</td>
+</tr>
+<tr class="even">
+<td align="left">interceptions</td>
+<td align="left">The number of interceptions thrown.</td>
+</tr>
+<tr class="odd">
+<td align="left">sacks</td>
+<td align="left">The Number of times sacked.</td>
+</tr>
+<tr class="even">
+<td align="left">sack_yards</td>
+<td align="left">Yards lost on sack plays.</td>
+</tr>
+<tr class="odd">
+<td align="left">sack_fumbles</td>
+<td align="left">The number of sacks with a fumble.</td>
+</tr>
+<tr class="even">
+<td align="left">sack_fumbles_lost</td>
+<td align="left">The number of sacks with a lost fumble.</td>
+</tr>
+<tr class="odd">
+<td align="left">passing_air_yards</td>
+<td align="left">Passing air yards (includes incomplete passes).</td>
+</tr>
+<tr class="even">
+<td align="left">passing_yards_after_catch</td>
+<td align="left">Yards after the catch gained on plays in which player was the passer (this is an unofficial stat and may differ slightly between different sources).</td>
+</tr>
+<tr class="odd">
+<td align="left">passing_first_downs</td>
+<td align="left">First downs on pass attempts.</td>
+</tr>
+<tr class="even">
+<td align="left">passing_epa</td>
+<td align="left">Total expected points added on pass attempts and sacks. NOTE: this uses the variable <code>qb_epa</code>, which gives QB credit for EPA for up to the point where a receiver lost a fumble after a completed catch and makes EPA work more like passing yards on plays with fumbles.</td>
+</tr>
+<tr class="odd">
+<td align="left">passing_2pt_conversions</td>
+<td align="left">Two-point conversion passes.</td>
+</tr>
+<tr class="even">
+<td align="left">dakota</td>
+<td align="left">Adjusted EPA + CPOE composite based on coefficients which best predict adjusted EPA/play in the following year.</td>
+</tr>
+<tr class="odd">
+<td align="left">carries</td>
+<td align="left">The number of official rush attempts (incl. scrambles and kneel downs). Rushes after a lateral reception don’t count as carry.</td>
+</tr>
+<tr class="even">
+<td align="left">rushing_yards</td>
+<td align="left">Yards gained when rushing with the ball (incl. scrambles and kneel downs). Also includes yards gained after obtaining a lateral on a play that started with a rushing attempt.</td>
+</tr>
+<tr class="odd">
+<td align="left">rushing_tds</td>
+<td align="left">The number of rushing touchdowns (incl. scrambles). Also includes touchdowns after obtaining a lateral on a play that started with a rushing attempt.</td>
+</tr>
+<tr class="even">
+<td align="left">rushing_fumbles</td>
+<td align="left">The number of rushes with a fumble.</td>
+</tr>
+<tr class="odd">
+<td align="left">rushing_fumbles_lost</td>
+<td align="left">The number of rushes with a lost fumble.</td>
+</tr>
+<tr class="even">
+<td align="left">rushing_first_downs</td>
+<td align="left">First downs on rush attempts (incl. scrambles).</td>
+</tr>
+<tr class="odd">
+<td align="left">rushing_epa</td>
+<td align="left">Expected points added on rush attempts (incl. scrambles and kneel downs).</td>
+</tr>
+<tr class="even">
+<td align="left">rushing_2pt_conversions</td>
+<td align="left">Two-point conversion rushes</td>
+</tr>
+<tr class="odd">
+<td align="left">receptions</td>
+<td align="left">The number of pass receptions. Lateral receptions officially don’t count as reception.</td>
+</tr>
+<tr class="even">
+<td align="left">targets</td>
+<td align="left">The number of pass plays where the player was the targeted receiver.</td>
+</tr>
+<tr class="odd">
+<td align="left">receiving_yards</td>
+<td align="left">Yards gained after a pass reception. Includes yards gained after receiving a lateral on a play that started as a pass play.</td>
+</tr>
+<tr class="even">
+<td align="left">receiving_tds</td>
+<td align="left">The number of touchdowns following a pass reception. Also includes touchdowns after receiving a lateral on a play that started as a pass play.</td>
+</tr>
+<tr class="odd">
+<td align="left">receiving_air_yards</td>
+<td align="left">Receiving air yards (incl. incomplete passes).</td>
+</tr>
+<tr class="even">
+<td align="left">receiving_yards_after_catch</td>
+<td align="left">Yards after the catch gained on plays in which player was receiver (this is an unofficial stat and may differ slightly between different sources).</td>
+</tr>
+<tr class="odd">
+<td align="left">receiving_fumbles</td>
+<td align="left">The number of fumbles after a pass reception.</td>
+</tr>
+<tr class="even">
+<td align="left">receiving_fumbles_lost</td>
+<td align="left">The number of fumbles lost after a pass reception.</td>
+</tr>
+<tr class="odd">
+<td align="left">receiving_2pt_conversions</td>
+<td align="left">Two-point conversion receptions</td>
+</tr>
+<tr class="even">
+<td align="left">fantasy_points</td>
+<td align="left">Standard fantasy points.</td>
+</tr>
+<tr class="odd">
+<td align="left">fantasy_points_ppr</td>
+<td align="left">PPR fantasy points.</td>
+</tr>
+</tbody>
+</table></main>
 </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-      </div>
-
-</div>
 
 
-
-      <footer><div class="copyright">
+    <footer><div class="pkgdown-footer-left">
   <p></p>
 <p>Developed by <a href="https://twitter.com/_TanHo" class="external-link">Tan Ho</a>, <a href="https://twitter.com/mrcaseb" class="external-link">Sebastian Carl</a>.</p>
 </div>
 
-<div class="pkgdown">
+<div class="pkgdown-footer-right">
   <p></p>
 <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
   
-
 
   
 

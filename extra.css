@@ -10,6 +10,14 @@ h1 {
   font-weight: 700;
 }
 
+.page-header{
+  min-height: unset;
+}
+
+.template-home .page-header{
+  min-height: unset;
+}
+
 h2,h3 {
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 700;
@@ -19,9 +27,14 @@ pre, code {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-.navbar-link {
+.navbar-brand {
   font-weight: 700;
+  font-size: 1.5rem;
   font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.navbar {
+  font-size: 1.15rem;
 }
 
 h4.author,h4.date {
