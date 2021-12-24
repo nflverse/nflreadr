@@ -1,5 +1,9 @@
 # nflreadr (development version)
 
+## Changes
+
+- Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5
+
 ---
 
 # nflreadr 1.1.2

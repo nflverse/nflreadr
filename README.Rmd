@@ -31,6 +31,8 @@ options(tibble.max_extra_cols = 20,
 
 nflreadr is a minimal package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.
 
+For Python access to nflverse data, please check out [nfl-data-py](https://pypi.org/project/nfl-data-py/)  - maintained by Cooper Adams. 
+
 ## Installation
 
 Install the stable version from CRAN with:
@@ -71,16 +73,17 @@ For a full list of functions, please see the [reference page](https://nflreadr.n
 
 This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: https://github.com/nflverse/status
 
-For Python access to nflverse data, please check out  [nfl-data-py](https://pypi.org/project/nfl-data-py/) which is maintained by Cooper Adams. 
-
 ## Configuration
 
 The following options help configure default `nflreadr` behaviours. 
 
 ```{r eval = FALSE}
-options(nflreadr.cache) # one of "memory", "filesystem", or "off"
-options(nflreadr.cache_warning) # FALSE to silence the reminder, which happens every eight hours or so.
-options(nflreadr.prefer) # one of "qs" or "rds"
+options(nflreadr.cache) 
+# one of "memory", "filesystem", or "off"
+options(nflreadr.cache_warning) 
+# FALSE to silence the reminder, which happens every eight hours or so.
+options(nflreadr.prefer) 
+# one of "qs" or "rds"
 ```
 
 You can also configure `nflreadr` to display progress messages with the [`progressr` package](https://progressr.futureverse.org), e.g.

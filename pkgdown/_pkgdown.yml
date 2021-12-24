@@ -25,6 +25,7 @@ reference:
   - "load_ff_playerids"
   - "load_ff_rankings"
 - title: Data Dictionaries
+  desc: You can also access the web versions from the top of this page!
   contents:
   - starts_with("dictionary_")
 - title: Loading raw data
@@ -64,8 +65,9 @@ home:
     A low-level R package that downloads data from nflverse GitHub data repositories.
 
 navbar:
+  bg: dark
   structure:
-    left:  [home, reference, news, articles]
+    left:  [home, reference, dictionaries, articles, news]
     right: [discord, github, more]
   components:
     discord:
@@ -74,6 +76,33 @@ navbar:
     reference:
       text: "Functions"
       href: reference/index.html
+    articles:
+      text: "Vignettes"
+      href: articles/index.html
+    dictionaries:
+      text: "Dictionaries"
+      menu:
+        - text: Play by Play
+          href: articles/dictionary_pbp.html
+        - text: Player Stats
+          href: articles/dictionary_player_stats.html
+        - text: Rosters
+          href: articles/dictionary_rosters.html
+        - text: Schedules
+          href: articles/dictionary_schedules.html
+        - text: Snap Counts
+          href: articles/dictionary_snap_counts.html
+        - text: Fantasy Player IDs
+          href: articles/dictionary_ff_playerids.html
+        - text: Fantasy Rankings
+          href: articles/dictionary_ff_rankings.html
+        - text: Next Gen Stats
+          href: articles/dictionary_nextgen_stats.html
+        - text: PFR Advanced Stats
+          href: articles/dictionary_pfr_passing.html
+        - text: Draft Picks
+          href: articles/dictionary_draft_picks.html
+
     more:
       text: "Packages & More"
       menu:
@@ -96,8 +125,9 @@ navbar:
           href: https://www.ffverse.com
 
 template:
+  bootstrap: 5
   params:
-    bootswatch: cosmo
+    bootswatch: zephyr
 #    docsearch:
 #      api_key: 7abddd2aa591d955b365235f35d75a38
 #      index_name: dynastyprocess
