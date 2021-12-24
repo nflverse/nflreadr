@@ -29,12 +29,12 @@ pre, code {
 
 .navbar-brand {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .navbar {
-  font-size: 1.15rem;
+  font-size: 1.0rem;
 }
 
 h4.author,h4.date {
