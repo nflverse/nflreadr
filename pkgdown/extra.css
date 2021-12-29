@@ -44,3 +44,8 @@ h4.author,h4.date {
 .display{
   font-size: 0.85rem;
 }
+
+.dropdown-header{
+  font-weight: 700;
+  color: #333;
+}
