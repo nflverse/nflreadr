@@ -110,7 +110,13 @@
     
   </div>
 </nav><div class="container template-article">
-<script src="dictionary_schedules_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+<script src="dictionary_schedules_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_schedules_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="dictionary_schedules_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="dictionary_schedules_files/datatables-binding-0.20/datatables.js"></script><script src="dictionary_schedules_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="dictionary_schedules_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="dictionary_schedules_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="dictionary_schedules_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="dictionary_schedules_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+<script src="dictionary_schedules_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_schedules_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+<script src="dictionary_schedules_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_schedules_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="dictionary_schedules_files/crosstalk-1.2.0/js/crosstalk.min.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Schedules</h1>
             
@@ -121,127 +127,8 @@
 
     
     
-<table class="table">
-<colgroup>
-<col width="4%">
-<col width="95%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">field</th>
-<th align="left">description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">game_id</td>
-<td align="left">The ID of the game as assigned by the NFL. Note that this value matches the game_id field in nflverse packages if you wish to join the data.</td>
-</tr>
-<tr class="even">
-<td align="left">alt_game_id</td>
-<td align="left">This is a more human-readable ID. It consists of: the season, an underscore, the two-digit week number, an underscore, the away team, an underscore, the home team.</td>
-</tr>
-<tr class="odd">
-<td align="left">season</td>
-<td align="left">The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number.</td>
-</tr>
-<tr class="even">
-<td align="left">game_type</td>
-<td align="left">What type of game? One of REG, WC, DIV, CON, SB</td>
-</tr>
-<tr class="odd">
-<td align="left">week</td>
-<td align="left">The week of the NFL season the game occurs in. Please note that the <code>game_type</code> will differ for weeks &gt;= 18 because of the season expansion in 2021. Please use <code>game_type</code> to filter for regular season or postseason.</td>
-</tr>
-<tr class="even">
-<td align="left">gameday</td>
-<td align="left">The date on which the game occurred.</td>
-</tr>
-<tr class="odd">
-<td align="left">weekday</td>
-<td align="left">The day of the week on which the game occcured.</td>
-</tr>
-<tr class="even">
-<td align="left">gametime</td>
-<td align="left">The kickoff time of the game. This is represented in 24-hour time and the Eastern time zone, regardless of what time zone the game was being played in.</td>
-</tr>
-<tr class="odd">
-<td align="left">away_team</td>
-<td align="left">The away team.</td>
-</tr>
-<tr class="even">
-<td align="left">away_score</td>
-<td align="left">The number of points the away team scored. Is NA for games which haven’t yet been played.</td>
-</tr>
-<tr class="odd">
-<td align="left">home_team</td>
-<td align="left">The home team. Note that this contains the designated home team for games which no team is playing at home such as Super Bowls or NFL International games.</td>
-</tr>
-<tr class="even">
-<td align="left">home_score</td>
-<td align="left">The number of points the home team scored. Is NA for games which haven’t yet been played.</td>
-</tr>
-<tr class="odd">
-<td align="left">location</td>
-<td align="left">Either Home if the home team is playing in their home stadium, or Neutral if the game is being played at a neutral location. This still shows as Home for games between the Giants and Jets even though they share the same home stadium.</td>
-</tr>
-<tr class="even">
-<td align="left">result</td>
-<td align="left">The number of points the home team scored minus the number of points the visiting team scored. Equals h_score - v_score. Is NA for games which haven’t yet been played. Convenient for evaluating against the spread bets.</td>
-</tr>
-<tr class="odd">
-<td align="left">total</td>
-<td align="left">The sum of each team’s score in the game. Equals h_score + v_score. Is NA for games which haven’t yet been played. Convenient for evaluating over/under total bets.</td>
-</tr>
-<tr class="even">
-<td align="left">gsis</td>
-<td align="left">The id of the game issued by the NFL Game Statistics &amp; Information System.</td>
-</tr>
-<tr class="odd">
-<td align="left">espn</td>
-<td align="left">The id of the game issued by <a href="https://www.espn.com/" class="external-link">ESPN</a>
-</td>
-</tr>
-<tr class="even">
-<td align="left">spread_line</td>
-<td align="left">The spread line for the game. A positive number means the home team was favored by that many points, a negative number means the away team was favored by that many points. This lines up with the result column.</td>
-</tr>
-<tr class="odd">
-<td align="left">total_line</td>
-<td align="left">The total line for the game.</td>
-</tr>
-<tr class="even">
-<td align="left">roof</td>
-<td align="left">What was the status of the stadium’s roof? One of outdoors, open, closed, dome</td>
-</tr>
-<tr class="odd">
-<td align="left">surface</td>
-<td align="left">What type of ground the game was played on</td>
-</tr>
-<tr class="even">
-<td align="left">temp</td>
-<td align="left">The temperature at the stadium (for outdoors and open only)</td>
-</tr>
-<tr class="odd">
-<td align="left">wind</td>
-<td align="left">The speed of the wind in miles/hour (for outdoors and open only)</td>
-</tr>
-<tr class="even">
-<td align="left">away_coach</td>
-<td align="left">Name of the head coach of the away team</td>
-</tr>
-<tr class="odd">
-<td align="left">home_coach</td>
-<td align="left">Name of the head coach of the home team</td>
-</tr>
-<tr class="even">
-<td align="left">referee</td>
-<td align="left">Name of the game’s referee (head official)</td>
-</tr>
-<tr class="odd">
-<td align="left">stadium</td>
-<td align="left">Name of the stadium</td>
-</tr>
-</tbody>
-</table></main>
+<div id="htmlwidget-050488926ec67ee427f8" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-050488926ec67ee427f8">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["game_id","alt_game_id","season","game_type","week","gameday","weekday","gametime","away_team","away_score","home_team","home_score","location","result","total","gsis","espn","spread_line","total_line","roof","surface","temp","wind","away_coach","home_coach","referee","stadium"],[" The ID of the game as assigned by the NFL. Note that this value matches the game_id field in nflverse packages if you wish to join the data."," This is a more human-readable ID. It consists of: the season, an underscore, the two-digit week number, an underscore, the away team, an underscore, the home team."," The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number."," What type of game? One of REG, WC, DIV, CON, SB"," The week of the NFL season the game occurs in. Please note that the `game_type` will differ for weeks &gt;= 18 because of the season expansion in 2021. Please use `game_type` to filter for regular season or postseason."," The date on which the game occurred."," The day of the week on which the game occcured."," The kickoff time of the game. This is represented in 24-hour time and the Eastern time zone, regardless of what time zone the game was being played in."," The away team."," The number of points the away team scored. Is NA for games which haven't yet been played."," The home team. Note that this contains the designated home team for games which no team is playing at home such as Super Bowls or NFL International games."," The number of points the home team scored. Is NA for games which haven't yet been played."," Either Home if the home team is playing in their home stadium, or Neutral if the game is being played at a neutral location. This still shows as Home for games between the Giants and Jets even though they share the same home stadium."," The number of points the home team scored minus the number of points the visiting team scored. Equals h_score - v_score. Is NA for games which haven't yet been played. Convenient for evaluating against the spread bets."," The sum of each team's score in the game. Equals h_score + v_score. Is NA for games which haven't yet been played. Convenient for evaluating over/under total bets."," The id of the game issued by the NFL Game Statistics &amp; Information System."," The id of the game issued by [ESPN](https://www.espn.com/)"," The spread line for the game. A positive number means the home team was favored by that many points, a negative number means the away team was favored by that many points. This lines up with the result column."," The total line for the game."," What was the status of the stadium's roof? One of outdoors, open, closed, dome"," What type of ground the game was played on"," The temperature at the stadium (for outdoors and open only)"," The speed of the wind in miles/hour (for outdoors and open only)"," Name of the head coach of the away team"," Name of the head coach of the home team"," Name of the game's referee (head official)"," Name of the stadium"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script></main>
 </div>
 
 

@@ -110,7 +110,13 @@
     
   </div>
 </nav><div class="container template-article">
-<script src="dictionary_rosters_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+<script src="dictionary_rosters_files/accessible-code-block-0.0.1/empty-anchor.js"></script><script src="dictionary_rosters_files/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="dictionary_rosters_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="dictionary_rosters_files/datatables-binding-0.20/datatables.js"></script><script src="dictionary_rosters_files/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="dictionary_rosters_files/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="dictionary_rosters_files/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="dictionary_rosters_files/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="dictionary_rosters_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet">
+<script src="dictionary_rosters_files/nouislider-7.0.10/jquery.nouislider.min.js"></script><link href="dictionary_rosters_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet">
+<script src="dictionary_rosters_files/selectize-0.12.0/selectize.min.js"></script><link href="dictionary_rosters_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="dictionary_rosters_files/crosstalk-1.2.0/js/crosstalk.min.js"></script><div class="row">
   <main id="main"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Rosters</h1>
             
@@ -121,140 +127,8 @@
 
     
     
-<table class="table">
-<colgroup>
-<col width="17%">
-<col width="8%">
-<col width="74%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">field</th>
-<th align="left">data_type</th>
-<th align="left">description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">season</td>
-<td align="left">numeric</td>
-<td align="left">NFL season. Defaults to current year after March, otherwise is previous year.</td>
-</tr>
-<tr class="even">
-<td align="left">team</td>
-<td align="left">character</td>
-<td align="left">NFL team. Uses official abbreviations as per NFL.com</td>
-</tr>
-<tr class="odd">
-<td align="left">position</td>
-<td align="left">character</td>
-<td align="left">Primary position as reported by NFL.com</td>
-</tr>
-<tr class="even">
-<td align="left">depth_chart_position</td>
-<td align="left">character</td>
-<td align="left">Position assigned on depth chart. Not always accurate!</td>
-</tr>
-<tr class="odd">
-<td align="left">jersey_number</td>
-<td align="left">numeric</td>
-<td align="left">Jersey number. Often useful for joins by name/team/jersey.</td>
-</tr>
-<tr class="even">
-<td align="left">status</td>
-<td align="left">character</td>
-<td align="left">Roster status: describes things like Active, Inactive, Injured Reserve, Practice Squad etc</td>
-</tr>
-<tr class="odd">
-<td align="left">full_name</td>
-<td align="left">character</td>
-<td align="left">Full name as per NFL.com</td>
-</tr>
-<tr class="even">
-<td align="left">first_name</td>
-<td align="left">character</td>
-<td align="left">First name as per NFL.com</td>
-</tr>
-<tr class="odd">
-<td align="left">last_name</td>
-<td align="left">character</td>
-<td align="left">Last name as per NFL.com</td>
-</tr>
-<tr class="even">
-<td align="left">birth_date</td>
-<td align="left">date</td>
-<td align="left">Birthdate, as recorded by Sleeper API</td>
-</tr>
-<tr class="odd">
-<td align="left">height</td>
-<td align="left">character</td>
-<td align="left">Official height, in inches</td>
-</tr>
-<tr class="even">
-<td align="left">weight</td>
-<td align="left">character</td>
-<td align="left">Official weight, in pounds</td>
-</tr>
-<tr class="odd">
-<td align="left">college</td>
-<td align="left">character</td>
-<td align="left">Official college (usually the last one attended)</td>
-</tr>
-<tr class="even">
-<td align="left">high_school</td>
-<td align="left">character</td>
-<td align="left">High school</td>
-</tr>
-<tr class="odd">
-<td align="left">gsis_id</td>
-<td align="left">character</td>
-<td align="left">Game Stats and Info Service ID: the primary ID for play-by-play data.</td>
-</tr>
-<tr class="even">
-<td align="left">headshot_url</td>
-<td align="left">character</td>
-<td align="left">A URL string that points to player photos used by NFL.com (or sometimes ESPN)</td>
-</tr>
-<tr class="odd">
-<td align="left">sleeper_id</td>
-<td align="left">character</td>
-<td align="left">Player ID for Sleeper API</td>
-</tr>
-<tr class="even">
-<td align="left">espn_id</td>
-<td align="left">numeric</td>
-<td align="left">Player ID for ESPN API</td>
-</tr>
-<tr class="odd">
-<td align="left">yahoo_id</td>
-<td align="left">numeric</td>
-<td align="left">Player ID for Yahoo API</td>
-</tr>
-<tr class="even">
-<td align="left">rotowire_id</td>
-<td align="left">numeric</td>
-<td align="left">Player ID for Rotowire</td>
-</tr>
-<tr class="odd">
-<td align="left">pff_id</td>
-<td align="left">numeric</td>
-<td align="left">Player ID for Pro Football Focus</td>
-</tr>
-<tr class="even">
-<td align="left">fantasy_data_id</td>
-<td align="left">numeric</td>
-<td align="left">Player ID for FantasyData</td>
-</tr>
-<tr class="odd">
-<td align="left">years_exp</td>
-<td align="left">numeric</td>
-<td align="left">Years played in league</td>
-</tr>
-<tr class="even">
-<td align="left">sportradar_id</td>
-<td align="left">character</td>
-<td align="left">Player ID for Sportradar API</td>
-</tr>
-</tbody>
-</table></main>
+<div id="htmlwidget-70552b890f58aeb1d86b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-70552b890f58aeb1d86b">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["season","team","position","depth_chart_position","jersey_number","status","full_name","first_name","last_name","birth_date","height","weight","college","high_school","gsis_id","headshot_url","sleeper_id","espn_id","yahoo_id","rotowire_id","pff_id","fantasy_data_id","years_exp","sportradar_id"],["numeric","character","character","character","numeric","character","character","character","character","date","character","character","character","character","character","character","character","numeric","numeric","numeric","numeric","numeric","numeric","character"],["NFL season. Defaults to current year after March, otherwise is previous year.","NFL team. Uses official abbreviations as per NFL.com","Primary position as reported by NFL.com","Position assigned on depth chart. Not always accurate!","Jersey number. Often useful for joins by name/team/jersey.","Roster status: describes things like Active, Inactive, Injured Reserve, Practice Squad etc","Full name as per NFL.com","First name as per NFL.com","Last name as per NFL.com","Birthdate, as recorded by Sleeper API","Official height, in inches","Official weight, in pounds","Official college (usually the last one attended)","High school","Game Stats and Info Service ID: the primary ID for play-by-play data.","A URL string that points to player photos used by NFL.com (or sometimes ESPN)","Player ID for Sleeper API","Player ID for ESPN API","Player ID for Yahoo API","Player ID for Rotowire","Player ID for Pro Football Focus","Player ID for FantasyData","Years played in league","Player ID for Sportradar API"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>field<\/th>\n      <th>data_type<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"pageLength":25,"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script></main>
 </div>
 
 

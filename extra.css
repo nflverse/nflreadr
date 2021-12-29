@@ -40,3 +40,7 @@ pre, code {
 h4.author,h4.date {
   padding-top:0px;
   margin-top:0px;}
+
+.display{
+  font-size: 0.85rem;
+}
