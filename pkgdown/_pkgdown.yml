@@ -111,6 +111,8 @@ navbar:
         - text: "nflverse Packages"
         - text: nflfastR
           href: https://www.nflfastr.com
+        - text: nflplotR
+          href: https://nflplotr.nflverse.com
         - text: nflseedR
           href: https://nflseedr.com
         - text: nfl4th
