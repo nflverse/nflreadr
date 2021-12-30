@@ -1,6 +1,5 @@
 setwd(here::here())
 
-library(tidyverse)
 dictionary_pbp <- read.csv("data-raw/dictionary_pbp.csv")
 usethis::use_data(dictionary_pbp, overwrite = TRUE)
 
