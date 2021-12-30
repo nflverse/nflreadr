@@ -102,6 +102,8 @@ navbar:
           href: articles/dictionary_pfr_passing.html
         - text: Draft Picks
           href: articles/dictionary_draft_picks.html
+        - text: ESPN QBR
+          href: articles/dictionary_load_qbr.html
 
     more:
       text: "Packages & More"

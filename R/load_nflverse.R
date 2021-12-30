@@ -324,6 +324,8 @@ load_injuries <- function(seasons = most_recent_season(),
 #' @return a tibble of season-level injury report data.
 #'
 #' @seealso <https://github.com/nflverse/espnscrapeR-data>
+#' @seealso [`dictionary_espn_qbr`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_espn_qbrhtml> for a web version of the dictionary
 #'
 #' @export
 load_espn_qbr <- function(league = c("nfl", "college"),

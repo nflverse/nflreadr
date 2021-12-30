@@ -1,0 +1,19 @@
+---
+title: "Data Dictionary - ESPN QBR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Dictionary - ESPN QBR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  comment = "#>"
+)
+```
+```{r}
+knitr::kable(nflreadr::dictionary_espn_qbr)
+```
