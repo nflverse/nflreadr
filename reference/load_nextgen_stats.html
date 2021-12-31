@@ -38,6 +38,7 @@ the current season's data updates every night."><meta property="og:image" conten
     <a class="dropdown-item" href="../articles/dictionary_nextgen_stats.html">Next Gen Stats</a>
     <a class="dropdown-item" href="../articles/dictionary_pfr_passing.html">PFR Advanced Stats</a>
     <a class="dropdown-item" href="../articles/dictionary_draft_picks.html">Draft Picks</a>
+    <a class="dropdown-item" href="../articles/dictionary_load_qbr.html">ESPN QBR</a>
   </div>
 </li>
 <li class="nav-item">
@@ -131,7 +132,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_nextgen_stats</span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"passing"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,403 × 29</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,401 × 29</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type  week player_display_name player_position team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Matt Ryan           QB              ATL      </span>
@@ -144,7 +145,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Brian Hoyer         QB              CHI      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Josh McCown         QB              CLE      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Robert Griffin III  QB              CLE      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,393 more rows, and 23 more variables: avg_time_to_throw &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,391 more rows, and 23 more variables: avg_time_to_throw &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_completed_air_yards &lt;dbl&gt;, avg_intended_air_yards &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_air_yards_differential &lt;dbl&gt;, aggressiveness &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   max_completed_air_distance &lt;dbl&gt;, avg_air_yards_to_sticks &lt;dbl&gt;,</span></span>
@@ -152,7 +153,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   interceptions &lt;int&gt;, passer_rating &lt;dbl&gt;, completions &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   completion_percentage &lt;dbl&gt;, expected_completion_percentage &lt;dbl&gt;, …</span></span>
 <span class="r-in">  <span class="fu">load_nextgen_stats</span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"receiving"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,725 × 23</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,719 × 23</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type  week player_display_name   player_position team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Tyreek Hill           WR              KC       </span>
@@ -165,7 +166,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Rishard Matthews      WR              TEN      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Taylor Gabriel        WR              ATL      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Phillip Dorsett       WR              IND      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,715 more rows, and 17 more variables: avg_cushion &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,709 more rows, and 17 more variables: avg_cushion &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_separation &lt;dbl&gt;, avg_intended_air_yards &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   percent_share_of_intended_air_yards &lt;dbl&gt;, receptions &lt;int&gt;, targets &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   catch_percentage &lt;dbl&gt;, yards &lt;int&gt;, rec_touchdowns &lt;int&gt;, avg_yac &lt;dbl&gt;,</span></span>

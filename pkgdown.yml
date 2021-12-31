@@ -3,6 +3,7 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   dictionary_draft_picks: dictionary_draft_picks.html
+  dictionary_espn_qbr: dictionary_espn_qbr.html
   dictionary_ff_playerids: dictionary_ff_playerids.html
   dictionary_ff_rankings: dictionary_ff_rankings.html
   dictionary_nextgen_stats: dictionary_nextgen_stats.html
@@ -13,7 +14,7 @@ articles:
   dictionary_schedules: dictionary_schedules.html
   dictionary_snap_counts: dictionary_snap_counts.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2021-12-29T21:25Z
+last_built: 2021-12-31T16:46Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
