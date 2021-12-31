@@ -6,7 +6,8 @@
 \alias{nflreadr-package}
 \title{nflreadr: Download 'nflverse' Data}
 \description{
-A low-level package for downloading data from 'GitHub' repositories of the 'nflverse' project.
+A minimal package for downloading data from 'GitHub'
+    repositories of the 'nflverse' project.
 }
 \seealso{
 Useful links:

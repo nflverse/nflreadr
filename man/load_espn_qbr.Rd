@@ -31,4 +31,8 @@ Load ESPN's QBR
 }
 \seealso{
 \url{https://github.com/nflverse/espnscrapeR-data}
+
+\code{\link{dictionary_espn_qbr}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html} for a web version of the dictionary
 }
