@@ -1,0 +1,24 @@
+field,data_type,description
+season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
+season_type,character,REG' or 'POST' indicating if the game belongs to regular or post season.
+game_week,numeric,Season week
+team_abb,character,Abbreviation of Team of Player
+player_id,numeric,ESPN Player ID
+name_short,character,"Short name of player (First Initial, Last Name)"
+rank ,numeric,QBR Rank in specified timeframe
+qbr_total,numeric,"Adjusted Total QBR, which adjusts quarterback play on 0-100 scale adjusted for strength of opposing defenses played."
+pts_added,numeric,Number of points contributed by a quarterback above the average level QB
+qb_plays,numeric,Total dropbacks for the quarterback (excludes handoffs)
+epa_total,numeric,"Total Expected Points Added by quarterback, calculated by ESPN Win Probability Model"
+pass,numeric,Expected Points Added on pass plays
+run,numeric,Expected Points Added on run plays
+exp_sack,numeric,Expected EPA Added on Sacks
+penalty,numeric,Expected Points Added on penalties
+qbr_raw,numeric,"Raw total QBR, does not adjust for strength of opposing defenses played."
+sack,numeric,Expected Points Added on sacks
+name_first,character,First Name of Quarterback
+name_last,character,Last Name of Quarterback
+name_display,character,Full Name of Quarterback
+headshot_href,character,Link to ESPN Headshot of Player
+team,character,Full Team Name of Player
+qualified,character,True/False indicator of whether or not player meets minimum play requirement 

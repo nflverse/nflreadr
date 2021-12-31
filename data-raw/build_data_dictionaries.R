@@ -1,4 +1,5 @@
 setwd(here::here())
+
 dictionary_pbp <- read.csv("data-raw/dictionary_pbp.csv")
 usethis::use_data(dictionary_pbp, overwrite = TRUE)
 
@@ -30,3 +31,6 @@ usethis::use_data(dictionary_draft_picks, overwrite = TRUE)
 
 dictionary_ff_rankings <- read.csv("data-raw/dictionary_ff_rankings.csv")
 usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)
+
+dictionary_espn_qbr <- read.csv("data-raw/dictionary_espn_qbr.csv")
+usethis::use_data(dictionary_espn_qbr, overwrite = TRUE)

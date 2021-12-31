@@ -5,7 +5,7 @@
 \alias{dictionary_nextgen_stats}
 \title{Data Dictionary: Next Gen Stats}
 \format{
-An object of class \code{data.frame} with 61 rows and 3 columns.
+An object of class \code{data.frame} with 51 rows and 3 columns.
 }
 \usage{
 dictionary_nextgen_stats
