@@ -87,6 +87,14 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html>
 "dictionary_espn_qbr"
 
+#' Data Dictionary: ESPN QBR
+#'
+#' A dataframe containing the data dictionary for [`load_combine()`]
+#'
+#' @seealso `vignette("Data Dictionary - Combine")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html>
+"dictionary_combine"
+
 #' Alternate player name mappings
 #'
 #' A named character vector mapping common alternate names, re-exported from `ffscrapr`.

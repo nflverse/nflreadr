@@ -34,3 +34,6 @@ usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)
 
 dictionary_espn_qbr <- read.csv("data-raw/dictionary_espn_qbr.csv")
 usethis::use_data(dictionary_espn_qbr, overwrite = TRUE)
+
+dictionary_combine <- read.csv("data-raw/dictionary_combine.csv")
+usethis::use_data(dictionary_combine, overwrite = TRUE)

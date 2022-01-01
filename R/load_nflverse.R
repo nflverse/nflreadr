@@ -473,6 +473,9 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
 #'
+#' @seealso [`dictionary_combine`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html> for a web version of the dictionary
+#'
 #' @export
 load_combine <- function(seasons = TRUE){
   url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/combine.rds"
