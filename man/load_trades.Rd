@@ -23,4 +23,8 @@ This returns a table of historical trades as maintained by Lee Sharpe.
 }
 \seealso{
 \url{https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades}
+
+\code{\link{dictionary_trades}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_trades.html} for a web version of the dictionary
 }

@@ -525,6 +525,8 @@ load_draft_picks <- function(seasons = TRUE){
 #' @return A tibble of game information for past and/or future games.
 #'
 #' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
+#' @seealso [`dictionary_trades`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html> for a web version of the dictionary
 #'
 #' @examples
 #' \donttest{

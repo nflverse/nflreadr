@@ -43,3 +43,6 @@ usethis::use_data(dictionary_injuries, overwrite = TRUE)
 
 dictionary_depth_charts <- read.csv("data-raw/dictionary_depth_charts.csv")
 usethis::use_data(dictionary_depth_charts, overwrite = TRUE)
+
+dictionary_trades <- read.csv("data-raw/dictionary_trades.csv")
+usethis::use_data(dictionary_trades, overwrite = TRUE)

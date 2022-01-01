@@ -105,11 +105,20 @@
 
 #' Data Dictionary: Depth Charts
 #'
-#' A dataframe containing the data dictionary for [`load_depth_charts)`]
+#' A dataframe containing the data dictionary for [`load_depth_charts()`]
 #'
 #' @seealso `vignette("Data Dictionary - Depth Charts")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html>
 "dictionary_depth_charts"
+
+#' Data Dictionary: Trades
+#'
+#' A dataframe containing the data dictionary for [`load_trades()`]
+#'
+#' @seealso `vignette("Data Dictionary - Trades")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html>
+"dictionary_trades"
+
 
 
 #' Alternate player name mappings

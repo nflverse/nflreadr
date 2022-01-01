@@ -11,9 +11,7 @@ An object of class \code{data.frame} with 13 rows and 3 columns.
 dictionary_depth_charts
 }
 \description{
-A dataframe containing the data dictionary for [\verb{load_depth_charts)}]
-
-[\verb{load_depth_charts)}]: R:\%60load_depth_charts)\%60
+A dataframe containing the data dictionary for \code{\link[=load_depth_charts]{load_depth_charts()}}
 }
 \seealso{
 \code{vignette("Data Dictionary - Depth Charts")}

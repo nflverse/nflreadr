@@ -110,6 +110,8 @@ navbar:
           href: articles/dictionary_injuries.html
         - text: Depth Charts
           href: articles/dictionary_depth_charts.html
+        - text: Trades
+          href: articles/dictionary_trades.html
 
     more:
       text: "Packages & More"
