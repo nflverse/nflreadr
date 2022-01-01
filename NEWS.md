@@ -8,7 +8,6 @@
 - Added [data dictionary for Trades](https://nflreadr.nflverse.com/articles/dictionary_trades.html) (v1.1.2.02)
 - Added [data dictionary for Depth Charts](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) (v1.1.2.02)
 - Added [data dictionary for Combine](https://nflreadr.nflverse.com/articles/dictionary_combine.html) (v1.1.2.02)
-- 
 
 ---
 
