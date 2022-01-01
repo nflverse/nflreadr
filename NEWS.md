@@ -2,7 +2,8 @@
 
 ## Changes
 
-- Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5
+- Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5 (v1.1.2.00)
+- Added [data dictionary for ESPN QBR](https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html) (v1.1.2.01 - thank you, @pranavrajaram!)
 
 ---
 
