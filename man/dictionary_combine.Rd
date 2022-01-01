@@ -3,7 +3,7 @@
 \docType{data}
 \name{dictionary_combine}
 \alias{dictionary_combine}
-\title{Data Dictionary: ESPN QBR}
+\title{Data Dictionary: Combine}
 \format{
 An object of class \code{data.frame} with 18 rows and 3 columns.
 }

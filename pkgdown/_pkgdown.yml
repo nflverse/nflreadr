@@ -104,6 +104,10 @@ navbar:
           href: articles/dictionary_draft_picks.html
         - text: ESPN QBR
           href: articles/dictionary_load_qbr.html
+        - text: Combine
+          href: articles/dictionary_combine.html
+        - text: Injuries
+          href: articles/dictionary_injuries.html
 
     more:
       text: "Packages & More"
