@@ -34,3 +34,15 @@ usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)
 
 dictionary_espn_qbr <- read.csv("data-raw/dictionary_espn_qbr.csv")
 usethis::use_data(dictionary_espn_qbr, overwrite = TRUE)
+
+dictionary_combine <- read.csv("data-raw/dictionary_combine.csv")
+usethis::use_data(dictionary_combine, overwrite = TRUE)
+
+dictionary_injuries <- read.csv("data-raw/dictionary_injuries.csv")
+usethis::use_data(dictionary_injuries, overwrite = TRUE)
+
+dictionary_depth_charts <- read.csv("data-raw/dictionary_depth_charts.csv")
+usethis::use_data(dictionary_depth_charts, overwrite = TRUE)
+
+dictionary_trades <- read.csv("data-raw/dictionary_trades.csv")
+usethis::use_data(dictionary_trades, overwrite = TRUE)

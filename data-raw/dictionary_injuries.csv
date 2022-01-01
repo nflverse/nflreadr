@@ -1,0 +1,17 @@
+field,data_type,description
+season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
+season_type,numeric,REG or POST indicating if the timeframe belongs to regular or post season.
+team,character,Team of injured player
+week,numeric,Week that injury occurred
+gsis_id,numeric,Game Stats and Info Service ID: the primary ID for play-by-play data.
+position,character,Position of injured player
+full_name,character,Full name of player
+first_name,character,First name of player
+last_name,character,Last name of player
+report_primary_injury,character,Primary injury listed on official injury report
+report_secondary_injury,character,Secondary injury listed on official injury report
+report_status,character,Player's status for game on official injury report
+practice_primary_injury,character,Primary injury listed on practice injury report
+practice_secondary_injury,character,Secondary injury listed on practice injury report
+practice_status,character,Player's participation in practice
+date_modified,character,Date and time that injury information was updated

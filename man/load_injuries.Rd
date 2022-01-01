@@ -28,4 +28,8 @@ Load Injury Reports
 }
 \seealso{
 \url{https://github.com/nflverse/nflfastR-roster}
+
+\code{\link{dictionary_injuries}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_injuries.html} for a web version of the dictionary
 }

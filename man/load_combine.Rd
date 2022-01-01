@@ -21,3 +21,8 @@ Loads combine data since 2000 courtesy of PFR.
 }
 
 }
+\seealso{
+\code{\link{dictionary_combine}} for the data dictionary
+
+\url{https://nflreadr.nflverse.com/articles/dictionary_combine.html} for a web version of the dictionary
+}

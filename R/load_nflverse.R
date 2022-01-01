@@ -253,6 +253,8 @@ load_teams <- function(){
 #' }
 #'
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso [`dictionary_depth_charts`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html> for a web version of the dictionary
 #'
 #' @return A tibble of week-level depth charts for each team.
 #' @export
@@ -288,6 +290,8 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #' @return a tibble of season-level injury report data.
 #'
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso [`dictionary_injuries`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_injuries.html> for a web version of the dictionary
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
@@ -473,6 +477,9 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
 #'
+#' @seealso [`dictionary_combine`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html> for a web version of the dictionary
+#'
 #' @export
 load_combine <- function(seasons = TRUE){
   url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/combine.rds"
@@ -518,6 +525,8 @@ load_draft_picks <- function(seasons = TRUE){
 #' @return A tibble of game information for past and/or future games.
 #'
 #' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
+#' @seealso [`dictionary_trades`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html> for a web version of the dictionary
 #'
 #' @examples
 #' \donttest{
