@@ -119,8 +119,6 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html>
 "dictionary_trades"
 
-
-
 #' Alternate player name mappings
 #'
 #' A named character vector mapping common alternate names, re-exported from `ffscrapr`.
