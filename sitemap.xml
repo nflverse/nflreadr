@@ -16,6 +16,12 @@
     <loc>https://nflreadr.nflverse.com/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_combine.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html</loc>
   </url>
   <url>
@@ -26,6 +32,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_injuries.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_trades.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/articles/exporting_nflreadr.html</loc>
@@ -76,6 +88,12 @@
     <loc>https://nflreadr.nflverse.com/reference/csv_from_url.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_combine.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_depth_charts.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_draft_picks.html</loc>
   </url>
   <url>
@@ -86,6 +104,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_rankings.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_injuries.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_nextgen_stats.html</loc>
@@ -107,6 +128,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_snap_counts.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_trades.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>

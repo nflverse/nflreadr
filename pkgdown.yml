@@ -2,10 +2,13 @@ pandoc: 2.7.3
 pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
+  dictionary_combine: dictionary_combine.html
+  dictionary_depth_charts: dictionary_depth_charts.html
   dictionary_draft_picks: dictionary_draft_picks.html
   dictionary_espn_qbr: dictionary_espn_qbr.html
   dictionary_ff_playerids: dictionary_ff_playerids.html
   dictionary_ff_rankings: dictionary_ff_rankings.html
+  dictionary_injuries: dictionary_injuries.html
   dictionary_nextgen_stats: dictionary_nextgen_stats.html
   dictionary_pbp: dictionary_pbp.html
   dictionary_pfr_passing: dictionary_pfr_passing.html
@@ -13,8 +16,9 @@ articles:
   dictionary_rosters: dictionary_rosters.html
   dictionary_schedules: dictionary_schedules.html
   dictionary_snap_counts: dictionary_snap_counts.html
+  dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2021-12-31T16:53Z
+last_built: 2022-01-01T19:57Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
