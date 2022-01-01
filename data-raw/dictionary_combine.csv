@@ -11,9 +11,9 @@ pos,character,Position of player
 school,character,College of player
 ht,numeric,Height of player (feet and inches)
 wt,numeric,Weight of player (lbs)
-forty,numeric,Player’s 40 yard dash time at combine (seconds)
+forty,numeric,Player's 40 yard dash time at combine (seconds)
 bench,numeric,Reps benched by player at combine
 vertical,numeric,Player's vertical jump at combine (inches)
-broad_jump,numeric,Player's broad jump  at combine (inches)
+broad_jump,numeric,Player's broad jump at combine (inches)
 cone,numeric,Player's 3 cone drill time at combine (seconds)
 shuttle,numeric,Player's shuttle run time at combine (seconds)

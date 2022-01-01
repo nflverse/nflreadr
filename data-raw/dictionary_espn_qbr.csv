@@ -1,6 +1,6 @@
 field,data_type,description
 season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
-season_type,character,REG' or 'POST' indicating if the game belongs to regular or post season.
+season_type,character,REG or POST indicating if the game belongs to regular or post season.
 game_week,numeric,Season week
 team_abb,character,Abbreviation of Team of Player
 player_id,numeric,ESPN Player ID
