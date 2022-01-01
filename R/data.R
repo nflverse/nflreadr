@@ -103,6 +103,14 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_injuries.html>
 "dictionary_injuries"
 
+#' Data Dictionary: Depth Charts
+#'
+#' A dataframe containing the data dictionary for [`load_depth_charts)`]
+#'
+#' @seealso `vignette("Data Dictionary - Depth Charts")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html>
+"dictionary_depth_charts"
+
 
 #' Alternate player name mappings
 #'

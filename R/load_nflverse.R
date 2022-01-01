@@ -253,6 +253,8 @@ load_teams <- function(){
 #' }
 #'
 #' @seealso <https://github.com/nflverse/nflfastR-roster>
+#' @seealso [`dictionary_depth_charts`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html> for a web version of the dictionary
 #'
 #' @return A tibble of week-level depth charts for each team.
 #' @export

@@ -1,0 +1,14 @@
+field,data_type,description
+season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
+week,numeric,Week in season that depth chart is for
+team,character,Team that depth chart belongs to
+season_type,character,REG' or 'POST' indicating if the depth chart belongs to regular or post season.
+position,character,Position of player 
+depth_chart_position,character,Position of player listed on depth chart
+formation,character,"Side of ball that player is on (offense, defense, special teams)"
+depth_team,numeric,Position on depth chart
+jersey_number,numeric,Jersey number of player 
+full_name,character,Full name of player
+first_name,character,First name of player
+last_name,character,Last name of player
+gsis_id,numeric,Game Stats and Info Service ID: the primary ID for play-by-play data.

@@ -40,3 +40,6 @@ usethis::use_data(dictionary_combine, overwrite = TRUE)
 
 dictionary_injuries <- read.csv("data-raw/dictionary_injuries.csv")
 usethis::use_data(dictionary_injuries, overwrite = TRUE)
+
+dictionary_depth_charts <- read.csv("data-raw/dictionary_depth_charts.csv")
+usethis::use_data(dictionary_depth_charts, overwrite = TRUE)
