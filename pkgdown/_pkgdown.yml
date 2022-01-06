@@ -44,6 +44,7 @@ reference:
   - "clean_homeaway"
   - starts_with("player_name")
   - starts_with("team_abbr")
+  - "most_recent_season"
 
 authors:
   Tan Ho:

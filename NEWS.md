@@ -3,11 +3,12 @@
 ## Changes
 
 - Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5 (v1.1.2.00)
-- Added [data dictionary for ESPN QBR](https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html) (v1.1.2.01 - thank you, @pranavrajaram!)
+- Added [data dictionary for ESPN QBR](https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html) (v1.1.2.01)
 - Added [data dictionary for Injuries](https://nflreadr.nflverse.com/articles/dictionary_injuries.html) (v1.1.2.02)
 - Added [data dictionary for Trades](https://nflreadr.nflverse.com/articles/dictionary_trades.html) (v1.1.2.02)
 - Added [data dictionary for Depth Charts](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) (v1.1.2.02)
 - Added [data dictionary for Combine](https://nflreadr.nflverse.com/articles/dictionary_combine.html) (v1.1.2.02)
+- Exported `most_recent_season()` function since it can be useful elsewhere (v1.1.2.03)
 
 ---
 
