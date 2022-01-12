@@ -1,6 +1,6 @@
 field,data_type,description
 season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
-week,numeric,Week in season that depth chart is for
+week,numeric,"Week in season that depth chart is for. For 17 week seasons, week 18 reflects the end-of-season depth charts, and week 19-on reflect postseason depth charts. For 18 week seasons, week 19 reflects end-of-season depth charts."
 team,character,Team that depth chart belongs to
 season_type,character,REG or POST indicating if the depth chart belongs to regular or post season.
 position,character,Position of player 
