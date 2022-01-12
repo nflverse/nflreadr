@@ -220,18 +220,18 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in"><span class="fu">csv_from_url</span><span class="op">(</span><span class="st">"https://github.com/nflverse/nfldata/raw/master/data/games.csv"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               game_id season game_type week    gameday weekday gametime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999_01_MIN_ATL   1999       REG    1 1999-09-12  Sunday         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999_01_KC_CHI   1999       REG    1 1999-09-12  Sunday         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999_01_PIT_CLE   1999       REG    1 1999-09-12  Sunday         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999_01_OAK_GB   1999       REG    1 1999-09-12  Sunday         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999_01_BUF_IND   1999       REG    1 1999-09-12  Sunday         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120: 2021_18_NYJ_BUF   2021       REG   18 2022-01-09  Sunday    16:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:   2021_18_SF_LA   2021       REG   18 2022-01-09  Sunday    16:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:  2021_18_NE_MIA   2021       REG   18 2022-01-09  Sunday    16:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:  2021_18_CAR_TB   2021       REG   18 2022-01-09  Sunday    16:25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:  2021_18_LAC_LV   2021       REG   18 2022-01-09  Sunday    20:20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               game_id season game_type week    gameday  weekday gametime</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999_01_MIN_ATL   1999       REG    1 1999-09-12   Sunday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999_01_KC_CHI   1999       REG    1 1999-09-12   Sunday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999_01_PIT_CLE   1999       REG    1 1999-09-12   Sunday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999_01_OAK_GB   1999       REG    1 1999-09-12   Sunday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999_01_BUF_IND   1999       REG    1 1999-09-12   Sunday         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:  2021_19_NE_BUF   2021        WC   19 2022-01-15 Saturday    20:15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:  2021_19_PHI_TB   2021        WC   19 2022-01-16   Sunday    13:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:  2021_19_SF_DAL   2021        WC   19 2022-01-16   Sunday    16:30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:  2021_19_PIT_KC   2021        WC   19 2022-01-16   Sunday    20:15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:  2021_19_ARI_LA   2021        WC   19 2022-01-17   Monday    20:15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       away_team away_score home_team home_score location result total overtime</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:       MIN         17       ATL         14     Home     -3    31        0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    2:        KC         17       CHI         20     Home      3    37        0</span>
@@ -239,83 +239,83 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:       OAK         24        GB         28     Home      4    52        0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:       BUF         14       IND         31     Home     17    45        0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:       NYJ         NA       BUF         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:        SF         NA        LA         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:        NE         NA       MIA         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:       CAR         NA        TB         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:       LAC         NA        LV         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       old_game_id  gsis                        nfl_detail_id          pfr   pff</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  1999091210   598                                      199909120atl    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999091206   597                                      199909120chi    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  1999091213   604                                      199909120cle    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999091208   602                                      199909120gnb    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  1999091202   591                                      199909120clt    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:  2022010902 58761 10160000-0587-6129-08e1-f057261766a8 202201090buf 19866</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:  2022010914 58773 10160000-0587-738e-2b05-95daf03cb563 202201090ram 19879</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:  2022010907 58766 10160000-0587-66a3-2df9-03ed8161cc2e 202201090mia 19871</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:  2022010911 58770 10160000-0587-704e-6295-0c29cd0a1891 202201090tam 19874</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:  2022010915 58774 10160000-0587-7450-0923-b0f39c686c28 202201090rai 19878</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            espn away_rest home_rest away_moneyline home_moneyline spread_line</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 190912001         7         7             NA             NA        -4.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 190912003         7         7             NA             NA        -3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 190912005         7         7             NA             NA        -6.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 190912009         7         7             NA             NA         9.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 190912011         7         7             NA             NA        -3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120: 401326587         7         7            750          -1250        16.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121: 401326599         7         7            175           -210         4.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122: 401326592         7         7           -260            210        -6.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123: 401326596         7         7            290           -380         8.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124: 401326600         7         7           -160            140        -3.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       away_spread_odds home_spread_odds total_line under_odds over_odds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:               NA               NA       49.0         NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:               NA               NA       38.0         NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:               NA               NA       37.0         NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:               NA               NA       43.0         NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:               NA               NA       45.5         NA        NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:             -110             -110       41.0       -110      -110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:             -110             -110       44.5       -110      -110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:             -105             -115       40.0       -110      -110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:             -110             -110       41.5       -110      -110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:             -115             -105       49.5       -110      -110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       div_game     roof    surface temp wind away_qb_id home_qb_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:        0     dome  astroturf   NA   NA 00-0003761 00-0002876</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:        0 outdoors      grass   80   12 00-0006300 00-0010560</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:        1 outdoors      grass   78   12 00-0015700 00-0004230</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:        0 outdoors      grass   67   10 00-0005741 00-0005106</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:        1     dome  astroturf   NA   NA 00-0005363 00-0010346</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:        1 outdoors  astroturf   NA   NA 00-0037013 00-0034857</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:        1     dome matrixturf   NA   NA 00-0031345 00-0026498</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:        1 outdoors      grass   NA   NA 00-0036972 00-0036212</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:        1 outdoors      grass   NA   NA 00-0034869 00-0019596</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:        1     dome      grass   NA   NA 00-0036355 00-0031280</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             away_qb_name     home_qb_name         away_coach     home_coach</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Randall Cunningham   Chris Chandler       Dennis Green     Dan Reeves</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:        Elvis Grbac   Shane Matthews Gunther Cunningham    Dick Jauron</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:    Kordell Stewart        Ty Detmer        Bill Cowher   Chris Palmer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:        Rich Gannon      Brett Favre         Jon Gruden     Ray Rhodes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:        Doug Flutie   Peyton Manning      Wade Phillips       Jim Mora</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:        Zach Wilson       Josh Allen       Robert Saleh Sean McDermott</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:    Jimmy Garoppolo Matthew Stafford      Kyle Shanahan     Sean McVay</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:          Mac Jones   Tua Tagovailoa     Bill Belichick   Brian Flores</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:        Sam Darnold        Tom Brady         Matt Rhule   Bruce Arians</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:     Justin Herbert       Derek Carr     Brandon Staley  Rich Bisaccia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             referee stadium_id                  stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  Gerry Austin      ATL00             Georgia Dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  Phil Luckett      CHI98            Soldier Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:   Bob McElwee      CLE00 Cleveland Browns Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Tony Corrente      GNB00            Lambeau Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:      Ron Blum      IND99                 RCA Dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6120:                    BUF00            New Era Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6121:                    LAX01             SoFi Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6122:                    MIA00        Hard Rock Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6123:                    TAM00    Raymond James Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6124:                    VEG00        Allegiant Stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:        NE         NA       BUF         NA     Home     NA    NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:       PHI         NA        TB         NA     Home     NA    NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:        SF         NA       DAL         NA     Home     NA    NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:       PIT         NA        KC         NA     Home     NA    NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:       ARI         NA        LA         NA     Home     NA    NA       NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       old_game_id gsis nfl_detail_id          pfr pff      espn away_rest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  1999091210  598               199909120atl  NA 190912001         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999091206  597               199909120chi  NA 190912003         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  1999091213  604               199909120cle  NA 190912005         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999091208  602               199909120gnb  NA 190912009         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  1999091202  591               199909120clt  NA 190912011         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:  2022011502   NA               202201150buf  NA 401326626         6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:  2022011601   NA               202201160tam  NA 401326630         8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:  2022011602   NA               202201160dal  NA 401326629         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:  2022011603   NA               202201160kan  NA 401326628         7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:  2022011701   NA               202201170ram  NA 401326625         8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       home_rest away_moneyline home_moneyline spread_line away_spread_odds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:         7             NA             NA        -4.0               NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:         7             NA             NA        -3.0               NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:         7             NA             NA        -6.0               NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:         7             NA             NA         9.0               NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:         7             NA             NA        -3.0               NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:         6            176           -200         4.0             -103</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:         7            308           -372         9.5             -118</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:         8            144           -162         3.0              101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:         8            548           -740        13.0             -111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:         8            165           -187         4.0             -109</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       home_spread_odds total_line under_odds over_odds div_game     roof</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:               NA       49.0         NA        NA        0     dome</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:               NA       38.0         NA        NA        0 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:               NA       37.0         NA        NA        1 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:               NA       43.0         NA        NA        0 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:               NA       45.5         NA        NA        1     dome</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:             -108       44.0       -104      -107        1 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:              106       47.0       -113       101        0 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:             -112       51.0       -113       101        0   closed</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:             -100       46.0       -105      -106        0 outdoors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:             -102       49.5       -112       101        1     dome</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          surface temp wind away_qb_id home_qb_id       away_qb_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  astroturf   NA   NA 00-0003761 00-0002876 Randall Cunningham</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:      grass   80   12 00-0006300 00-0010560        Elvis Grbac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:      grass   78   12 00-0015700 00-0004230    Kordell Stewart</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:      grass   67   10 00-0005741 00-0005106        Rich Gannon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  astroturf   NA   NA 00-0005363 00-0010346        Doug Flutie</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:  astroturf   NA   NA 00-0036972 00-0034857          Mac Jones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:      grass   NA   NA 00-0036389 00-0019596        Jalen Hurts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:  fieldturf   NA   NA 00-0031345 00-0033077    Jimmy Garoppolo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:  astroturf   NA   NA 00-0022924 00-0033873 Ben Roethlisberger</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130: matrixturf   NA   NA 00-0035228 00-0026498       Kyler Murray</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           home_qb_name         away_coach     home_coach       referee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:   Chris Chandler       Dennis Green     Dan Reeves  Gerry Austin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:   Shane Matthews Gunther Cunningham    Dick Jauron  Phil Luckett</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:        Ty Detmer        Bill Cowher   Chris Palmer   Bob McElwee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:      Brett Favre         Jon Gruden     Ray Rhodes Tony Corrente</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:   Peyton Manning      Wade Phillips       Jim Mora      Ron Blum</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:       Josh Allen     Bill Belichick Sean McDermott              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:        Tom Brady      Nick Sirianni   Bruce Arians              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:     Dak Prescott      Kyle Shanahan  Mike McCarthy              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:  Patrick Mahomes        Mike Tomlin      Andy Reid              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130: Matthew Stafford    Kliff Kingsbury     Sean McVay              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       stadium_id                         stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:      ATL00                    Georgia Dome</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:      CHI98                   Soldier Field</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:      CLE00        Cleveland Browns Stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:      GNB00                   Lambeau Field</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:      IND99                        RCA Dome</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6126:      BUF00                   New Era Field</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6127:      TAM00           Raymond James Stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6128:      DAL00                    AT&amp;T Stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6129:      KAN00 GEHA Field at Arrowhead Stadium</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6130:      LAX01                    SoFi Stadium</span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>
