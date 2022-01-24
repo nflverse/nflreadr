@@ -27,14 +27,14 @@
 #' }
 #' @rdname sitrep
 #' @export
-nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR"),
+nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR","nflverse"),
                             recursive = TRUE){
   .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ")
 }
 
 #' @rdname sitrep
 #' @export
-ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros"),
+ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportunity"),
                            recursive = TRUE){
   .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ")
 }
