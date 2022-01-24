@@ -34,4 +34,6 @@ This function downloads precomputed expected points data from the ffopportunity 
 }
 \seealso{
 \url{https://ffopportunity.ffverse.com} for more on the package, data, and modelling
+
+TODO {data dictionary}
 }
