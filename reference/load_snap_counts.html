@@ -12,7 +12,7 @@ starting with the 2013 season."><meta property="og:image" content="https://nflre
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.03</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.04</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,19 +109,19 @@ starting with the 2013 season.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble of season-level player statistics provided by Pro Football Reference.</p>
+    <p>A tibble of game-level snap counts provided by Pro Football Reference.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="dictionary_snap_counts.html">dictionary_snap_counts</a></code> for the data dictionary</p>
-<p><a href="https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html">https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</a></p></div>
+    <div class="dont-index"><p><a href="https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html">https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html</a> for the web data dictionary</p>
+<p><code><a href="dictionary_snap_counts.html">dictionary_snap_counts</a></code> for the data dictionary as bundled within the package</p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_snap_counts</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 25,998 × 16</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 26,181 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    game_id    pfr_game_id season game_type  week player   pfr_player_id position</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021 REG           1 Tristan… WirfTr00      T       </span>
@@ -134,7 +134,7 @@ starting with the 2013 season.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021 REG           1 Mike Ev… EvanMi00      WR      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021 REG           1 Rob Gro… GronRo00      TE      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021 REG           1 Antonio… BrowAn04      WR      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 25,988 more rows, and 8 more variables: team &lt;chr&gt;, opponent &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 26,171 more rows, and 8 more variables: team &lt;chr&gt;, opponent &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   offense_snaps &lt;dbl&gt;, offense_pct &lt;dbl&gt;, defense_snaps &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defense_pct &lt;dbl&gt;, st_snaps &lt;dbl&gt;, st_pct &lt;dbl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
