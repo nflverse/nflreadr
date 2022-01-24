@@ -11,6 +11,7 @@
 - Exported `most_recent_season()` function since it can be useful elsewhere (v1.1.2.03)
 - Updated documentation with more/better linking (v1.1.2.04)
 - Added [ffopportunity](https://ffopportunity.ffverse.com) and [nflverse](https://nflverse.nflverse.com) packages to sitrep (v1.1.2.04)
+- Added `load_ff_opportunity()` function to download expected fantasy points data. (v1.1.2.05)
 
 ---
 
