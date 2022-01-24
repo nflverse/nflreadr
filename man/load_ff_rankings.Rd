@@ -22,7 +22,9 @@ load_ff_rankings()
 
 }
 \seealso{
-\url{https://github.com/dynastyprocess/data}
+\url{https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html} for the web data dictionary
 
-\url{https://www.fantasypros.com}
+\url{https://github.com/dynastyprocess/data} for where the data currently lives
+
+\url{https://www.fantasypros.com} for the source of data
 }

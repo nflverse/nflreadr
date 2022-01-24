@@ -23,9 +23,9 @@ Load Rosters
 
 }
 \seealso{
+\url{https://nflreadr.nflverse.com/articles/dictionary_rosters.html} for a web version of the data dictionary
+
 \code{\link{dictionary_rosters}} for the data dictionary as a dataframe
 
-\url{https://github.com/nflverse/nflfastR-roster}
-
-\url{https://www.nflfastr.com/reference/fast_scraper_roster.html}
+\url{https://github.com/nflverse/nflfastR-roster} for where the data currently lives
 }

@@ -10,7 +10,7 @@ load_snap_counts(seasons = most_recent_season())
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
 }
 \value{
-A tibble of season-level player statistics provided by Pro Football Reference.
+A tibble of game-level snap counts provided by Pro Football Reference.
 }
 \description{
 Loads game level snap counts stats provided by Pro Football Reference
@@ -23,7 +23,7 @@ starting with the 2013 season.
 
 }
 \seealso{
-\code{\link{dictionary_snap_counts}} for the data dictionary
+\url{https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html} for the web data dictionary
 
-\url{https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html}
+\code{\link{dictionary_snap_counts}} for the data dictionary as bundled within the package
 }

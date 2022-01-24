@@ -22,9 +22,9 @@ This returns game/schedule information as maintained by Lee Sharpe.
 
 }
 \seealso{
-\url{https://github.com/nflverse/nfldata/blob/master/DATASETS.md#games}
+\url{https://nflreadr.nflverse.com/articles/dictionary_schedules.html} for a web version of the data dictionary
+
+\url{https://github.com/nflverse/nfldata/} for the data's repository
 
 \code{\link{dictionary_schedules}} for the data dictionary as a dataframe
-
-\code{vignette("Data Dictionary - Schedules")} for the data dictionary as a vignette
 }

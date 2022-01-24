@@ -28,5 +28,7 @@ starting with the 2018 season, primarily to augment existing nflverse data.
 
 }
 \seealso{
+\url{https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html} for the web data dictionary
+
 \url{https://www.pro-football-reference.com/years/2021/passing_advanced.htm}
 }

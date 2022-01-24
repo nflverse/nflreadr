@@ -9,7 +9,8 @@
 #' load_ff_playerids()
 #' }
 #'
-#' @seealso <https://github.com/dynastyprocess/data>
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html> for the web data dictionary
+#' @seealso <https://github.com/dynastyprocess/data> for where the data currently lives
 #'
 #' @export
 load_ff_playerids <- function() {
@@ -31,8 +32,9 @@ load_ff_playerids <- function() {
 #' load_ff_rankings()
 #' }
 #'
-#' @seealso <https://github.com/dynastyprocess/data>
-#' @seealso <https://www.fantasypros.com>
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html> for the web data dictionary
+#' @seealso <https://github.com/dynastyprocess/data> for where the data currently lives
+#' @seealso <https://www.fantasypros.com> for the source of data
 #'
 #' @export
 load_ff_rankings <- function(type = c("draft","week")){
@@ -49,3 +51,4 @@ load_ff_rankings <- function(type = c("draft","week")){
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
+

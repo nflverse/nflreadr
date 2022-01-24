@@ -19,5 +19,7 @@ load_ff_playerids()
 
 }
 \seealso{
-\url{https://github.com/dynastyprocess/data}
+\url{https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html} for the web data dictionary
+
+\url{https://github.com/dynastyprocess/data} for where the data currently lives
 }

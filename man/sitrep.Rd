@@ -7,11 +7,14 @@
 \title{Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies}
 \usage{
 nflverse_sitrep(
-  pkg = c("nflreadr", "nflfastR", "nflseedR", "nfl4th", "nflplotR"),
+  pkg = c("nflreadr", "nflfastR", "nflseedR", "nfl4th", "nflplotR", "nflverse"),
   recursive = TRUE
 )
 
-ffverse_sitrep(pkg = c("ffscrapr", "ffsimulator", "ffpros"), recursive = TRUE)
+ffverse_sitrep(
+  pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffopportunity"),
+  recursive = TRUE
+)
 
 .sitrep(pkg, recursive = TRUE, header = "")
 }

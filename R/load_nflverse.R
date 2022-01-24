@@ -13,8 +13,8 @@
 #' \donttest{
 #'   load_pbp(2019:2020)
 #' }
-#' @seealso [`dictionary_pbp`] for the data dictionary as a dataframe
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pbp.html> for a web version of the data dictionary
+#' @seealso [`dictionary_pbp`] for the data dictionary bundled as a package dataframe
 #' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `nflfastR::build_nflfastR_pbp()`
 #'
 #' @export
@@ -56,9 +56,8 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 #'
 #' @return A tibble of week-level player statistics that aims to match NFL official box scores.
 #'
-#' @seealso <https://www.nflfastr.com/reference/load_player_stats.html>
-#' @seealso <https://github.com/nflverse/nflfastr-data>
-#' @seealso `vignette("Data Dictionary - Player Stats")` for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html> for a web version of the data dictionary
+#' @seealso <https://github.com/nflverse/nflfastr-data> for the repository where the data lives
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
@@ -109,9 +108,9 @@ load_player_stats <- function(seasons = most_recent_season(),
 #'
 #' @return A tibble of game information for past and/or future games.
 #'
-#' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#games>
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_schedules.html> for a web version of the data dictionary
+#' @seealso <https://github.com/nflverse/nfldata/> for the data's repository
 #' @seealso [`dictionary_schedules`] for the data dictionary as a dataframe
-#' @seealso `vignette("Data Dictionary - Schedules")` for the data dictionary as a vignette
 #'
 #' @examples
 #' \donttest{
@@ -142,9 +141,9 @@ load_schedules <- function(seasons = TRUE){
 #'
 #' @return A tibble of season-level roster data.
 #'
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_rosters.html> for a web version of the data dictionary
 #' @seealso [`dictionary_rosters`] for the data dictionary as a dataframe
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
-#' @seealso <https://www.nflfastr.com/reference/fast_scraper_roster.html>
+#' @seealso <https://github.com/nflverse/nflfastR-roster> for where the data currently lives
 #'
 #' @export
 load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
@@ -193,8 +192,8 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 #' @seealso <https://nextgenstats.nfl.com/stats/receiving> for `stat_type = "receiving"`
 #' @seealso <https://nextgenstats.nfl.com/stats/rushing> for `stat_type = "rushing"`
 #'
-#' @seealso [`dictionary_nextgen_stats`] for the data dictionary
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html> for a web version of the dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html> for a web version of the data dictionary
+#' @seealso [`dictionary_nextgen_stats`] for the data dictionary as bundled within the package
 #'
 #' @export
 load_nextgen_stats <- function(seasons = TRUE,
@@ -252,9 +251,9 @@ load_teams <- function(){
 #'   load_depth_charts(2020)
 #' }
 #'
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
-#' @seealso [`dictionary_depth_charts`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html> for a web version of the dictionary
+#' @seealso [`dictionary_depth_charts`] for the data dictionary as bundled within the package
+#' @seealso <https://github.com/nflverse/nflfastR-roster> for where the data currently lives.
 #'
 #' @return A tibble of week-level depth charts for each team.
 #' @export
@@ -289,9 +288,9 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #'
 #' @return a tibble of season-level injury report data.
 #'
-#' @seealso <https://github.com/nflverse/nflfastR-roster>
-#' @seealso [`dictionary_injuries`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_injuries.html> for a web version of the dictionary
+#' @seealso [`dictionary_injuries`] for the data dictionary as bundled within the package
+#' @seealso <https://github.com/nflverse/nflfastR-roster> for where the data currently lives
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
@@ -327,9 +326,9 @@ load_injuries <- function(seasons = most_recent_season(),
 #'
 #' @return a tibble of season-level injury report data.
 #'
-#' @seealso <https://github.com/nflverse/espnscrapeR-data>
-#' @seealso [`dictionary_espn_qbr`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html> for a web version of the dictionary
+#' @seealso [`dictionary_espn_qbr`] for the data dictionary as bundled within the package
+#' @seealso <https://github.com/nflverse/espnscrapeR-data> for where the data currently lives
 #'
 #' @export
 load_espn_qbr <- function(league = c("nfl", "college"),
@@ -373,9 +372,9 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #'
 #' @return A tibble of season-level player statistics provided by Pro Football Reference.
 #'
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
+#' @seealso [`dictionary_pfr_passing`] for the data dictionary as bundled within the package
 #' @seealso <https://www.pro-football-reference.com/years/2020/passing_advanced.htm>
-#' @seealso [`dictionary_pfr_passing`] for the data dictionary
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html>
 #'
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
@@ -399,6 +398,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #' @return A tibble of week-level player statistics provided by Pro Football Reference to supplement data in nflverse
 #'
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
 #' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
 #'
 #' @export
@@ -438,10 +438,10 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 #'   load_snap_counts()
 #' }
 #'
-#' @return A tibble of season-level player statistics provided by Pro Football Reference.
+#' @return A tibble of game-level snap counts provided by Pro Football Reference.
 #'
-#' @seealso [`dictionary_snap_counts`] for the data dictionary
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html>
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html> for the web data dictionary
+#' @seealso [`dictionary_snap_counts`] for the data dictionary as bundled within the package
 #'
 #' @export
 load_snap_counts <- function(seasons = most_recent_season()){
@@ -477,8 +477,8 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
 #'
-#' @seealso [`dictionary_combine`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html> for a web version of the dictionary
+#' @seealso [`dictionary_combine`] for the data dictionary as bundled within the package
 #'
 #' @export
 load_combine <- function(seasons = TRUE){
@@ -502,8 +502,9 @@ load_combine <- function(seasons = TRUE){
 #'
 #' @return A tibble of NFL draft picks provided by Pro Football Reference.
 #'
-#' @seealso [`dictionary_draft_picks`] for the data dictionary
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html>
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_draft_picks.html> for the web data dictionary
+#' @seealso [`dictionary_draft_picks`] for the data dictionary as bundled within the package
+#' @seealso <https://github.com/nflverse/nfldata> for where the data currently lives
 #'
 #' @export
 load_draft_picks <- function(seasons = TRUE){
@@ -524,9 +525,9 @@ load_draft_picks <- function(seasons = TRUE){
 #'
 #' @return A tibble of game information for past and/or future games.
 #'
-#' @seealso <https://github.com/nflverse/nfldata/blob/master/DATASETS.md#trades>
-#' @seealso [`dictionary_trades`] for the data dictionary
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html> for a web version of the dictionary
+#' @seealso [`dictionary_trades`] for the data dictionary as bundled within the package
+#' @seealso <https://github.com/nflverse/nfldata> for where the data currently lives
 #'
 #' @examples
 #' \donttest{
