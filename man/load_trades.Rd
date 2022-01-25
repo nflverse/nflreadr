@@ -26,5 +26,5 @@ This returns a table of historical trades as maintained by Lee Sharpe.
 
 \code{\link{dictionary_trades}} for the data dictionary as bundled within the package
 
-\url{https://github.com/nflverse/nfldata} for where the data currently lives
+Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
 }

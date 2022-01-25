@@ -22,7 +22,11 @@ Loads combine data since 2000 courtesy of PFR.
 
 }
 \seealso{
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
+
 \url{https://nflreadr.nflverse.com/articles/dictionary_combine.html} for a web version of the dictionary
 
 \code{\link{dictionary_combine}} for the data dictionary as bundled within the package
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
 }

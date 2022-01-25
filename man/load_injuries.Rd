@@ -18,7 +18,7 @@ load_injuries(
 a tibble of season-level injury report data.
 }
 \description{
-Load Injury Reports
+Data collected from an API for weekly injury report data.
 }
 \examples{
 \donttest{
@@ -31,5 +31,5 @@ Load Injury Reports
 
 \code{\link{dictionary_injuries}} for the data dictionary as bundled within the package
 
-\url{https://github.com/nflverse/nflfastR-roster} for where the data currently lives
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
 }

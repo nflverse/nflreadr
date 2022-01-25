@@ -5,7 +5,7 @@
 \alias{dictionary_ff_opportunity}
 \title{Data Dictionary: Expected Fantasy Points}
 \format{
-An object of class \code{data.frame} with 219 rows and 1 columns.
+An object of class \code{data.frame} with 219 rows and 4 columns.
 }
 \usage{
 dictionary_ff_opportunity

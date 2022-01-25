@@ -10,7 +10,7 @@
 #' }
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html> for the web data dictionary
-#' @seealso <https://github.com/dynastyprocess/data> for where the data currently lives
+#' @seealso Issues with this data should be filed here: <https://github.com/dynastyprocess/data>
 #'
 #' @export
 load_ff_playerids <- function() {
@@ -23,7 +23,7 @@ load_ff_playerids <- function() {
 #'
 #' Accesses DynastyProcess.com's repository of the latest FP expert consensus rankings - updated on a weekly basis.
 #'
-#' @param type one of "draft" or "week", for preseason or inseason-weekly rankings
+#' @param type one of "draft" (preseason), "week" (this week, inseason), or "all" (full archive)
 #'
 #' @return a dataframe of expert consensus rankings
 #'
@@ -33,18 +33,19 @@ load_ff_playerids <- function() {
 #' }
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html> for the web data dictionary
-#' @seealso <https://github.com/dynastyprocess/data> for where the data currently lives
 #' @seealso <https://www.fantasypros.com> for the source of data
+#' @seealso Issues with this data should be filed here: <https://github.com/dynastyprocess/data>
 #'
 #' @export
-load_ff_rankings <- function(type = c("draft","week")){
+load_ff_rankings <- function(type = c("draft", "week", "all")){
 
-  type <- rlang::arg_match0(type, c("draft","week"))
+  type <- rlang::arg_match0(type, c("draft","week", "all"))
 
   url <- switch(
     type,
     draft = "https://github.com/dynastyprocess/data/raw/master/files/db_fpecr_latest.rds",
-    week = "https://github.com/dynastyprocess/data/raw/master/files/fp_latest_weekly.rds"
+    week = "https://github.com/dynastyprocess/data/raw/master/files/fp_latest_weekly.rds",
+    all = "https://github.com/dynastyprocess/data/master/files/db_fpecr.rds"
   )
 
   out <- rds_from_url(url)
@@ -71,7 +72,9 @@ load_ff_rankings <- function(type = c("draft","week")){
 #' @return Precomputed expected fantasy points data from the ffopportunity automated releases.
 #'
 #' @seealso <https://ffopportunity.ffverse.com> for more on the package, data, and modelling
-#' @seealso TODO {data dictionary}
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_opportunity.html> for the web data dictionary
+#' @seealso [`dictionary_ff_opportunity`] for the data dictionary bundled as a package data frame
+#' @seealso Issues with this data should be filed here: <https://github.com/ffverse/ffopportunity>
 #'
 #' @export
 load_ff_opportunity <- function(seasons = most_recent_season(),

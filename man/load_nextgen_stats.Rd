@@ -24,7 +24,8 @@ Regular season summary is given for \code{week == 0}.
 \description{
 Loads player level weekly stats provided by NFL Next Gen Stats
 starting with the 2016 season. Three different stat types are available and
-the current season's data updates every night.
+the current season's data updates every night. NGS will only provide data for
+players above a minimum number of pass/rush/rec attempts.
 }
 \examples{
 \donttest{
@@ -44,4 +45,6 @@ the current season's data updates every night.
 \url{https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html} for a web version of the data dictionary
 
 \code{\link{dictionary_nextgen_stats}} for the data dictionary as bundled within the package
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/ngs-data}
 }

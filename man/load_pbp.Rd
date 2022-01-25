@@ -33,4 +33,6 @@ Loads multiple seasons from the \href{https://github.com/nflverse/nflfastR-data}
 \code{\link{dictionary_pbp}} for the data dictionary bundled as a package dataframe
 
 \url{https://www.nflfastr.com/reference/build_nflfastR_pbp.html} for the nflfastR function \code{nflfastR::build_nflfastR_pbp()}
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
 }

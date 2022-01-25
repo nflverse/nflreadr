@@ -12,6 +12,8 @@
 - Updated documentation with more/better linking (v1.1.2.04)
 - Added [ffopportunity](https://ffopportunity.ffverse.com) and [nflverse](https://nflverse.nflverse.com) packages to sitrep (v1.1.2.04)
 - Added `load_ff_opportunity()` function to download expected fantasy points data. (v1.1.2.05)
+- Added notes about where to file issues to each data function. (v1.1.2.05)
+- Added "all" parameter for `load_ff_rankings()` to return all available data (weekly archives since 2019). (v1.1.2.05)
 
 ---
 

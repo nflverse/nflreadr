@@ -35,5 +35,9 @@ This function downloads precomputed expected points data from the ffopportunity 
 \seealso{
 \url{https://ffopportunity.ffverse.com} for more on the package, data, and modelling
 
-TODO {data dictionary}
+\url{https://nflreadr.nflverse.com/articles/dictionary_ff_opportunity.html} for the web data dictionary
+
+\code{\link{dictionary_ff_opportunity}} for the data dictionary bundled as a package data frame
+
+Issues with this data should be filed here: \url{https://github.com/ffverse/ffopportunity}
 }
