@@ -55,7 +55,7 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
 
 #' Load Expected Fantasy Points
 #'
-#' This function downloads precomputed expected points data from the ffopportunity automated releases.
+#' This function downloads precomputed expected points data from [{ffopportunity}](https://ffopportunity.ffverse.com) automated releases.
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `TRUE`, returns all available data.
 #' @param stat_type one of `"weekly"`, `"pbp_pass"`, `"pbp_rush"`

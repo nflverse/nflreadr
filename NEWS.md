@@ -25,6 +25,7 @@
 - Improved data dictionaries for ESPN QBR, Injuries, Trades, Depth Charts, and Combine
 - Exported `most_recent_season()` function
 - Updated documentation with improved linking and where to file data issues.
+- Sitrep functions have ffopportunity and nflverse packages.
 - Pkgdown site upgraded to Bootstrap 5.
 
 Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34](https://github.com/Grayhawk34), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;rogers1000](https://github.com/rogers1000), and [&#x0040;tanho63](https://github.com/tanho63) for their contributions and feedback on this release!

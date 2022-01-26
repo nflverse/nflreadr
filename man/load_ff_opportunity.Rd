@@ -21,7 +21,7 @@ load_ff_opportunity(
 Precomputed expected fantasy points data from the ffopportunity automated releases.
 }
 \description{
-This function downloads precomputed expected points data from the ffopportunity automated releases.
+This function downloads precomputed expected points data from \href{https://ffopportunity.ffverse.com}{{ffopportunity}} automated releases.
 }
 \examples{
 \donttest{
