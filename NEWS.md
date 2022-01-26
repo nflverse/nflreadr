@@ -14,6 +14,7 @@
 - Added `load_ff_opportunity()` function to download expected fantasy points data. (v1.1.2.05)
 - Added notes about where to file issues to each data function. (v1.1.2.05)
 - Added "all" parameter for `load_ff_rankings()` to return all available data (weekly archives since 2019). (v1.1.2.05)
+- `options(nflreadr.verbose)` replaces `options(nflreadr.cache_warning)` as the best way to silence nflreadr messages. (v1.1.2.06)
 
 ## New data and functions
 
@@ -22,6 +23,7 @@
 
 ## Backend
 
+- `options(nflreadr.verbose)` replaces `options(nflreadr.cache_warning)` as the best way to silence nflreadr messages.
 - Improved data dictionaries for ESPN QBR, Injuries, Trades, Depth Charts, and Combine
 - Exported `most_recent_season()` function
 - Updated documentation with improved linking and where to file data issues.

@@ -1,5 +1,7 @@
 test_that("cleaning team abbreviations", {
 
+  o <- options(nflreadr.verbose = TRUE)
+
   expected_warning <- "Abbreviations not found in `nflreadr::team_abbr_mapping`: PIE"
 
   x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV")
@@ -10,6 +12,7 @@ test_that("cleaning team abbreviations", {
   expect_equal(new_abbr,      c("PIE", "LA","PIT","ARI","LV","CLE"))
   expect_equal(new_abbr_drop, c(NA, "LA","PIT","ARI","LV","CLE"))
   expect_equal(old_abbr,      c("PIE", "LA","PIT","ARI","OAK","CLE"))
+  options(o)
 })
 
 test_that("cleaning player names", {

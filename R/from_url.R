@@ -151,14 +151,14 @@ progressively <- function(f, p = NULL){
 }
 
 cache_message <- function(){
-  do_it <- interactive() && getOption("nflreadr.cache_warning", default = TRUE)
+  do_it <- getOption("nflreadr.verbose", default = interactive()) && getOption("nflreadr.cache_warning", default = interactive())
   if (isTRUE(do_it)){
     rlang::inform(
       message = c(
         "Note: nflreadr caches (i.e., stores a saved version) data by default.\nIf you expect different output try one of the following:",
         i = "Restart your R Session or",
         i = "Run `nflreadr::.clear_cache()`.",
-        "To disable this warning, run `options(nflreadr.cache_warning = FALSE)`"
+        "To disable this warning, run `options(nflreadr.verbose = FALSE)` or add it to your .Rprofile"
       ),
       .frequency = "regularly",
       .frequency_id = "cache_message"

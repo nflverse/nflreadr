@@ -29,6 +29,8 @@
            envir = parent.env(environment()))
 
   }
+
+  if(is.null(getOption("nflreadr.verbose")) && isFALSE(getOption("nflreadr.cache_warning"))) options("nflreadr.verbose" = TRUE)
 }
 
 .onAttach <- function(libname, pkgname){
