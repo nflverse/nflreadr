@@ -14,4 +14,5 @@
 
 ## Reverse dependencies
 
-Checked all four CRAN reverse dependencies (ffsimulator, ffscrapr, nflfastR, nfl4th) and all package checks passed with no new problems.
+Checked all five CRAN reverse dependencies (ffsimulator, ffscrapr, nflfastR, nfl4th, nflplotR). 
+All package checks passed with no new problems.
