@@ -1,25 +1,10 @@
 # nflreadr (development version)
 
-## Changes
-
-- Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5 (v1.1.2.00)
-- Added [data dictionary for ESPN QBR](https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html) (v1.1.2.01)
-- Added [data dictionary for Injuries](https://nflreadr.nflverse.com/articles/dictionary_injuries.html) (v1.1.2.02)
-- Added [data dictionary for Trades](https://nflreadr.nflverse.com/articles/dictionary_trades.html) (v1.1.2.02)
-- Added [data dictionary for Depth Charts](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) (v1.1.2.02)
-- Added [data dictionary for Combine](https://nflreadr.nflverse.com/articles/dictionary_combine.html) (v1.1.2.02)
-- Exported `most_recent_season()` function since it can be useful elsewhere (v1.1.2.03)
-- Updated documentation with more/better linking (v1.1.2.04)
-- Added [ffopportunity](https://ffopportunity.ffverse.com) and [nflverse](https://nflverse.nflverse.com) packages to sitrep (v1.1.2.04)
-- Added `load_ff_opportunity()` function to download expected fantasy points data. (v1.1.2.05)
-- Added notes about where to file issues to each data function. (v1.1.2.05)
-- Added "all" parameter for `load_ff_rankings()` to return all available data (weekly archives since 2019). (v1.1.2.05)
-- `options(nflreadr.verbose)` replaces `options(nflreadr.cache_warning)` as the best way to silence nflreadr messages. (v1.1.2.06)
-
 ## New data and functions
 
 - `load_ff_opportunity()` downloads expected fantasy points data from the [ffopportunity package](https://ffopportunity.ffverse.com)
 - `load_ff_rankings()` gains an `"all"` parameter to return all available rankings data (weekly archives since 2019)
+- `load_pfr_advstats()` gains a `"summary_level"` parameter to return season-level data, which has some fields that are not available at the week-level. 
 
 ## Backend
 
@@ -30,7 +15,7 @@
 - Sitrep functions have ffopportunity and nflverse packages.
 - Pkgdown site upgraded to Bootstrap 5.
 
-Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34](https://github.com/Grayhawk34), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;rogers1000](https://github.com/rogers1000), and [&#x0040;tanho63](https://github.com/tanho63) for their contributions and feedback on this release!
+Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34](https://github.com/Grayhawk34), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;rogers1000](https://github.com/rogers1000), and [&#x0040;tanho63](https://github.com/tanho63) for their contributions and feedback on this release!
 
 ---
 
