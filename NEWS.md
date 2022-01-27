@@ -11,6 +11,26 @@
 - Exported `most_recent_season()` function since it can be useful elsewhere (v1.1.2.03)
 - Updated documentation with more/better linking (v1.1.2.04)
 - Added [ffopportunity](https://ffopportunity.ffverse.com) and [nflverse](https://nflverse.nflverse.com) packages to sitrep (v1.1.2.04)
+- Added `load_ff_opportunity()` function to download expected fantasy points data. (v1.1.2.05)
+- Added notes about where to file issues to each data function. (v1.1.2.05)
+- Added "all" parameter for `load_ff_rankings()` to return all available data (weekly archives since 2019). (v1.1.2.05)
+- `options(nflreadr.verbose)` replaces `options(nflreadr.cache_warning)` as the best way to silence nflreadr messages. (v1.1.2.06)
+
+## New data and functions
+
+- `load_ff_opportunity()` downloads expected fantasy points data from the [ffopportunity package](https://ffopportunity.ffverse.com)
+- `load_ff_rankings()` gains an `"all"` parameter to return all available rankings data (weekly archives since 2019)
+
+## Backend
+
+- `options(nflreadr.verbose)` replaces `options(nflreadr.cache_warning)` as the best way to silence nflreadr messages.
+- Improved data dictionaries for ESPN QBR, Injuries, Trades, Depth Charts, and Combine
+- Exported `most_recent_season()` function
+- Updated documentation with improved linking and where to file data issues.
+- Sitrep functions have ffopportunity and nflverse packages.
+- Pkgdown site upgraded to Bootstrap 5.
+
+Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34](https://github.com/Grayhawk34), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;rogers1000](https://github.com/rogers1000), and [&#x0040;tanho63](https://github.com/tanho63) for their contributions and feedback on this release!
 
 ---
 

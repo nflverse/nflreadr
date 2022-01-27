@@ -99,8 +99,8 @@ The following options help configure default `nflreadr` behaviours.
 ``` r
 options(nflreadr.cache) 
 # one of "memory", "filesystem", or "off"
-options(nflreadr.cache_warning) 
-# FALSE to silence the reminder, which happens every eight hours or so.
+options(nflreadr.verbose) 
+# TRUE/FALSE to silence messages such as cache warnings
 options(nflreadr.prefer) 
 # one of "qs" or "rds"
 ```

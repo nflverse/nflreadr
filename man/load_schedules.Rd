@@ -24,7 +24,7 @@ This returns game/schedule information as maintained by Lee Sharpe.
 \seealso{
 \url{https://nflreadr.nflverse.com/articles/dictionary_schedules.html} for a web version of the data dictionary
 
-\url{https://github.com/nflverse/nfldata/} for the data's repository
-
 \code{\link{dictionary_schedules}} for the data dictionary as a dataframe
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
 }

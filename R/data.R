@@ -30,6 +30,14 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html>
 "dictionary_ff_rankings"
 
+#' Data Dictionary: Expected Fantasy Points
+#'
+#' A dataframe containing the data dictionary for [`load_ff_opportunity()`]
+#'
+#' @seealso `vignette("Data Dictionary - Expected Fantasy Points")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_opportunity.html>
+"dictionary_ff_opportunity"
+
 #' Data Dictionary: Rosters
 #'
 #' A dataframe containing the data dictionary for [`load_rosters()`]

@@ -24,6 +24,8 @@ reference:
   contents:
   - "load_ff_playerids"
   - "load_ff_rankings"
+  - "load_ff_opportunity"
+  - starts_with("load_ff_")
 - title: Data Dictionaries
   desc: You can also access the web versions from the top of this page!
   contents:

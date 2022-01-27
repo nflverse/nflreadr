@@ -27,5 +27,5 @@ Load Rosters
 
 \code{\link{dictionary_rosters}} for the data dictionary as a dataframe
 
-\url{https://github.com/nflverse/nflfastR-roster} for where the data currently lives
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-roster}
 }

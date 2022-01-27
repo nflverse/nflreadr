@@ -5,11 +5,16 @@ usethis::use_data(dictionary_pbp, overwrite = TRUE)
 
 dictionary_player_stats <- read.csv("data-raw/dictionary_playerstats.csv") |>
   dplyr::mutate_all(stringr::str_squish)
-
 usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
 dictionary_ff_playerids <- read.csv("data-raw/dictionary_ff_playerids.csv")
 usethis::use_data(dictionary_ff_playerids, overwrite = TRUE)
+
+dictionary_ff_rankings <- read.csv("data-raw/dictionary_ff_rankings.csv")
+usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)
+
+dictionary_ff_opportunity <- read.csv("data-raw/dictionary_ffopps.csv")
+usethis::use_data(dictionary_ff_opportunity, overwrite = TRUE)
 
 dictionary_rosters <- read.csv("data-raw/dictionary_rosters.csv")
 usethis::use_data(dictionary_rosters, overwrite = TRUE)
@@ -28,9 +33,6 @@ usethis::use_data(dictionary_pfr_passing, overwrite = TRUE)
 
 dictionary_draft_picks <- read.csv("data-raw/dictionary_draft_picks.csv")
 usethis::use_data(dictionary_draft_picks, overwrite = TRUE)
-
-dictionary_ff_rankings <- read.csv("data-raw/dictionary_ff_rankings.csv")
-usethis::use_data(dictionary_ff_rankings, overwrite = TRUE)
 
 dictionary_espn_qbr <- read.csv("data-raw/dictionary_espn_qbr.csv")
 usethis::use_data(dictionary_espn_qbr, overwrite = TRUE)

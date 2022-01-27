@@ -26,4 +26,6 @@ starting with the 2013 season.
 \url{https://nflreadr.nflverse.com/articles/dictionary_snap_counts.html} for the web data dictionary
 
 \code{\link{dictionary_snap_counts}} for the data dictionary as bundled within the package
+
+Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
 }

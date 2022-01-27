@@ -26,5 +26,5 @@ Loads every draft pick since 1980 courtesy of PFR.
 
 \code{\link{dictionary_draft_picks}} for the data dictionary as bundled within the package
 
-\url{https://github.com/nflverse/nfldata} for where the data currently lives
+Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
 }

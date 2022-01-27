@@ -33,8 +33,8 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 
   a <- unname(m[toupper(abbr)])
 
-  if (any(is.na(a))) {
-    warning("Abbreviations not found in `nflreadr::team_abbr_mapping`: ", paste(utils::head(abbr[is.na(a)], 10), collapse = " , "),
+  if (any(is.na(a)) && getOption("nflreadr.verbose", default = interactive())) {
+    warning("Abbreviations not found in `nflreadr::team_abbr_mapping`: ", paste(utils::head(abbr[is.na(a)], 10), collapse = ", "),
             call. = FALSE)
   }
 

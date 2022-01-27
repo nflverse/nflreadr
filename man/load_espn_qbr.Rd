@@ -34,5 +34,5 @@ Load ESPN's QBR
 
 \code{\link{dictionary_espn_qbr}} for the data dictionary as bundled within the package
 
-\url{https://github.com/nflverse/espnscrapeR-data} for where the data currently lives
+Issues with this data should be filed here: \url{https://github.com/nflverse/espnscrapeR-data}
 }
