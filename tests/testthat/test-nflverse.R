@@ -220,16 +220,14 @@ test_that("load_pfr_passing", {
   skip_on_cran()
   skip_if_offline("github.com")
 
-  expect_error(load_pfr_passing("2020"))
-
-  passing <- load_pfr_passing()
+  expect_warning(passing <- load_pfr_passing())
 
   expect_s3_class(passing, "tbl_df")
 
   expect_gt(nrow(passing), 200)
 })
 
-test_that("load_pfr_passing", {
+test_that("load_pfr_advstats", {
 
   skip_on_cran()
   skip_if_offline("github.com")
@@ -238,6 +236,7 @@ test_that("load_pfr_passing", {
 
   pass <- load_pfr_advstats(seasons = 2020, stat_type = "pass")
   rush <- load_pfr_advstats(seasons = TRUE, stat_type = "rush")
+  def <- load_pfr_advstats(seasons = TRUE, stat_type = "def", summary_level = "season")
 
   expect_s3_class(pass, "tbl_df")
   expect_s3_class(rush, "tbl_df")

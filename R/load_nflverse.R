@@ -385,8 +385,9 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
 
-  load_pfr_advstats(seasons = seasons, stat_type = "pass")
+  cli::cli_warn("`load_pfr_passing()` has been deprecated, please use `load_pfr_advstats(stat_type = 'pass', summary_level = 'season')`")
 
+  load_pfr_advstats(seasons = seasons, stat_type = "pass", summary_level = "season")
 }
 
 #' Load Advanced Stats from PFR
@@ -396,28 +397,35 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of "pass", "rush", "rec", "def"
+#' @param summary_level one of "week" (default) or "season" - some data is only available at the season level
 #'
 #' @examples
 #' \donttest{
 #'   load_pfr_advstats()
 #' }
 #'
-#' @return A tibble of week-level player statistics provided by Pro Football Reference to supplement data in nflverse
+#' @return A tibble of player statistics provided by Pro Football Reference that supplements data in nflverse
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
 #' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
 #'
 #' @export
-load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def")){
+load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def"), summary_level = c("week","season")){
 
   if(isTRUE(seasons)) seasons <- 2018:most_recent_season()
   stat_type <- rlang::arg_match0(stat_type, c("pass","rush","rec","def"))
-
+  summary_level <- rlang::arg_match0(summary_level, c("week","season"))
   stopifnot(is.numeric(seasons),
             seasons >= 2018,
             seasons <= most_recent_season())
 
+  switch(summary_level,
+         "week" = .pfr_advstats_week(seasons, stat_type),
+         "season" = .pfr_advstats_season(seasons, stat_type))
+}
+
+.pfr_advstats_week <- function(seasons,stat_type){
   urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
                  "raw/master/data/adv_stats/weekly/",
                  stat_type,
@@ -429,6 +437,21 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
+  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  out
+}
+
+.pfr_advstats_season <- function(seasons, stat_type){
+
+  data_url <- switch(stat_type,
+                "pass" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_passing_season.rds",
+                "rush" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_rushing_season.rds",
+                "rec" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_receiving_season.rds",
+                "def" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_defense_season.rds",
+                )
+
+  out <- rds_from_url(data_url)
+  out <- out[out$season %in% seasons]
   class(out) <- c("tbl_df","tbl","data.table","data.frame")
   out
 }
