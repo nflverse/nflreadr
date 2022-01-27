@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.07</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,29 +92,14 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
 <div class="section level3">
-<h3 id="changes-development-version">Changes<a class="anchor" aria-label="anchor" href="#changes-development-version"></a></h3>
-<ul><li>Pkgdown site updated to feature dictionaries and also to upgrade to Bootstrap 5 (v1.1.2.00)</li>
-<li>Added <a href="https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html">data dictionary for ESPN QBR</a> (v1.1.2.01)</li>
-<li>Added <a href="https://nflreadr.nflverse.com/articles/dictionary_injuries.html">data dictionary for Injuries</a> (v1.1.2.02)</li>
-<li>Added <a href="https://nflreadr.nflverse.com/articles/dictionary_trades.html">data dictionary for Trades</a> (v1.1.2.02)</li>
-<li>Added <a href="https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html">data dictionary for Depth Charts</a> (v1.1.2.02)</li>
-<li>Added <a href="https://nflreadr.nflverse.com/articles/dictionary_combine.html">data dictionary for Combine</a> (v1.1.2.02)</li>
-<li>Exported <code><a href="../reference/most_recent_season.html">most_recent_season()</a></code> function since it can be useful elsewhere (v1.1.2.03)</li>
-<li>Updated documentation with more/better linking (v1.1.2.04)</li>
-<li>Added <a href="https://ffopportunity.ffverse.com" class="external-link">ffopportunity</a> and <a href="https://nflverse.nflverse.com" class="external-link">nflverse</a> packages to sitrep (v1.1.2.04)</li>
-<li>Added <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> function to download expected fantasy points data. (v1.1.2.05)</li>
-<li>Added notes about where to file issues to each data function. (v1.1.2.05)</li>
-<li>Added “all” parameter for <code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> to return all available data (weekly archives since 2019). (v1.1.2.05)</li>
-<li>
-<code>options(nflreadr.verbose)</code> replaces <code>options(nflreadr.cache_warning)</code> as the best way to silence nflreadr messages. (v1.1.2.06)</li>
-</ul></div>
-<div class="section level3">
 <h3 id="new-data-and-functions-development-version">New data and functions<a class="anchor" aria-label="anchor" href="#new-data-and-functions-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> downloads expected fantasy points data from the <a href="https://ffopportunity.ffverse.com" class="external-link">ffopportunity package</a>
 </li>
 <li>
 <code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> gains an <code>"all"</code> parameter to return all available rankings data (weekly archives since 2019)</li>
+<li>
+<code><a href="../reference/load_pfr_advstats.html">load_pfr_advstats()</a></code> gains a <code>"summary_level"</code> parameter to return season-level data, which has some fields that are not available at the week-level.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="backend-development-version">Backend<a class="anchor" aria-label="anchor" href="#backend-development-version"></a></h3>
@@ -125,7 +110,7 @@
 <li>Updated documentation with improved linking and where to file data issues.</li>
 <li>Sitrep functions have ffopportunity and nflverse packages.</li>
 <li>Pkgdown site upgraded to Bootstrap 5.</li>
-</ul><p>Thank you to <a href="https://github.com/armstjc" class="external-link">@armstjc</a>, <a href="https://github.com/Grayhawk34" class="external-link">@Grayhawk34</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/pranavrajaram" class="external-link">@pranavrajaram</a>, <a href="https://github.com/rogers1000" class="external-link">@rogers1000</a>, and <a href="https://github.com/tanho63" class="external-link">@tanho63</a> for their contributions and feedback on this release!</p>
+</ul><p>Thank you to <a href="https://github.com/armstjc" class="external-link">@armstjc</a>, <a href="https://github.com/Grayhawk34" class="external-link">@Grayhawk34</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/pranavrajaram" class="external-link">@pranavrajaram</a>, <a href="https://github.com/rogers1000" class="external-link">@rogers1000</a>, and <a href="https://github.com/tanho63" class="external-link">@tanho63</a> for their contributions and feedback on this release!</p>
 <hr></div>
 </div>
     <div class="section level2">

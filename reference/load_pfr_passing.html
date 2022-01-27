@@ -12,7 +12,7 @@ starting with the 2019 season."><meta property="og:image" content="https://nflre
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.07</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,24 +122,28 @@ starting with the 2019 season.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_pfr_passing</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2,650 × 19</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2018_01_AT… 201809060p…   <span style="text-decoration: underline;">2</span>018     1 REG       PHI   ATL      Nick Foles     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2018_01_AT… 201809060p…   <span style="text-decoration: underline;">2</span>018     1 REG       PHI   ATL      Nelson Agholor </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2018_01_AT… 201809060p…   <span style="text-decoration: underline;">2</span>018     1 REG       ATL   PHI      Matt Ryan      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2018_01_BU… 201809090r…   <span style="text-decoration: underline;">2</span>018     1 REG       BAL   BUF      Joe Flacco     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2018_01_BU… 201809090r…   <span style="text-decoration: underline;">2</span>018     1 REG       BAL   BUF      Lamar Jackson  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2018_01_BU… 201809090r…   <span style="text-decoration: underline;">2</span>018     1 REG       BUF   BAL      Nathan Peterman</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2018_01_BU… 201809090r…   <span style="text-decoration: underline;">2</span>018     1 REG       BUF   BAL      Josh Allen     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2018_01_PI… 201809090c…   <span style="text-decoration: underline;">2</span>018     1 REG       CLE   PIT      Tyrod Taylor   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2018_01_PI… 201809090c…   <span style="text-decoration: underline;">2</span>018     1 REG       PIT   CLE      Ben Roethlisbe…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2018_01_CI… 201809090c…   <span style="text-decoration: underline;">2</span>018     1 REG       IND   CIN      Andrew Luck    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 2,640 more rows, and 11 more variables: pfr_player_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_drops &lt;dbl&gt;, passing_drop_pct &lt;dbl&gt;, passing_bad_throws &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;, times_blitzed &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;, times_pressured &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_pressured_pct &lt;dbl&gt;</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`load_pfr_passing()` has been deprecated, please use</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> `load_pfr_advstats(stat_type = 'pass', summary_level = 'season')`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 329 × 28</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    player      team  pass_attempts batted_balls throwaways spikes drops drop_pct</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jameis Win… TB              626           11         22      2    23      3.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Dak Presco… DAL             596            9         14      1    36      6.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Jared Goff  LAR             626           17         15      1    27      4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Philip Riv… LAC             591           13         16      3    25      4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Matt Ryan   ATL             616           19         27      1    17      2.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Russell Wi… SEA             516            9         20      3    17      3.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Tom Brady   NE              613            6         40      0    34      5.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Derek Carr  OAK             513            9         28      2    25      5.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Carson Wen… PHI             607           16         10      1    28      4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Patrick Ma… KC              484            6         19      0    25      5.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 319 more rows, and 20 more variables: bad_throws &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   bad_throw_pct &lt;dbl&gt;, on_tgt_throws &lt;dbl&gt;, on_tgt_pct &lt;dbl&gt;, season &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pfr_id &lt;chr&gt;, pocket_time &lt;dbl&gt;, times_blitzed &lt;dbl&gt;, times_hurried &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_hit &lt;dbl&gt;, times_pressured &lt;dbl&gt;, pressure_pct &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rpo_plays &lt;dbl&gt;, rpo_yards &lt;dbl&gt;, rpo_pass_att &lt;dbl&gt;, rpo_pass_yards &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rpo_rush_att &lt;dbl&gt;, rpo_rush_yards &lt;dbl&gt;, pa_pass_att &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pa_pass_yards &lt;dbl&gt;</span></span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"></span>
 </code></pre></div>
