@@ -12,7 +12,7 @@ starting with the 2018 season, primarily to augment existing nflverse data."><me
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,27 +119,28 @@ starting with the 2018 season, primarily to augment existing nflverse data.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html">https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html</a> for the web data dictionary</p>
-<p><a href="https://www.pro-football-reference.com/years/2021/passing_advanced.htm" class="external-link">https://www.pro-football-reference.com/years/2021/passing_advanced.htm</a></p></div>
+<p><a href="https://www.pro-football-reference.com/years/2021/passing_advanced.htm" class="external-link">https://www.pro-football-reference.com/years/2021/passing_advanced.htm</a></p>
+<p>Issues with this data should be filed here: <a href="https://github.com/nflverse/pfr_scrapR" class="external-link">https://github.com/nflverse/pfr_scrapR</a></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_pfr_advstats</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 690 × 19</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id    pfr_game_id season  week game_type team  opponent pfr_player_name </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021     1 REG       TB    DAL      Tom Brady       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021_01_D… 202109090t…   <span style="text-decoration: underline;">2</span>021     1 REG       DAL   TB       Dak Prescott    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021_01_P… 202109120a…   <span style="text-decoration: underline;">2</span>021     1 REG       ATL   PHI      Matt Ryan       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021_01_P… 202109120a…   <span style="text-decoration: underline;">2</span>021     1 REG       PHI   ATL      Jalen Hurts     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021_01_P… 202109120b…   <span style="text-decoration: underline;">2</span>021     1 REG       BUF   PIT      Josh Allen      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021_01_P… 202109120b…   <span style="text-decoration: underline;">2</span>021     1 REG       PIT   BUF      Ben Roethlisber…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021_01_N… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       CAR   NYJ      Sam Darnold     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021_01_N… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       NYJ   CAR      Zach Wilson     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021_01_M… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       CIN   MIN      Joe Burrow      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021_01_M… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       MIN   CIN      Kirk Cousins    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 680 more rows, and 11 more variables: pfr_player_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 698 × 19</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2021_01_DA… 202109090t…   <span style="text-decoration: underline;">2</span>021     1 REG       TB    DAL      Tom Brady      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2021_01_DA… 202109090t…   <span style="text-decoration: underline;">2</span>021     1 REG       DAL   TB       Dak Prescott   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2021_01_PH… 202109120a…   <span style="text-decoration: underline;">2</span>021     1 REG       ATL   PHI      Matt Ryan      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2021_01_PH… 202109120a…   <span style="text-decoration: underline;">2</span>021     1 REG       PHI   ATL      Jalen Hurts    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2021_01_PI… 202109120b…   <span style="text-decoration: underline;">2</span>021     1 REG       BUF   PIT      Josh Allen     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2021_01_PI… 202109120b…   <span style="text-decoration: underline;">2</span>021     1 REG       PIT   BUF      Ben Roethlisbe…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2021_01_NY… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       CAR   NYJ      Sam Darnold    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2021_01_NY… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       NYJ   CAR      Zach Wilson    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2021_01_MI… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       CIN   MIN      Joe Burrow     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2021_01_MI… 202109120c…   <span style="text-decoration: underline;">2</span>021     1 REG       MIN   CIN      Kirk Cousins   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 688 more rows, and 11 more variables: pfr_player_id &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_drops &lt;dbl&gt;, passing_drop_pct &lt;dbl&gt;, passing_bad_throws &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;, times_blitzed &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;, times_pressured &lt;dbl&gt;,</span></span>

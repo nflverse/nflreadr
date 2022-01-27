@@ -28,6 +28,9 @@
     <loc>https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_opportunity.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html</loc>
   </url>
   <url>
@@ -100,6 +103,9 @@
     <loc>https://nflreadr.nflverse.com/reference/dictionary_espn_qbr.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_opportunity.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_playerids.html</loc>
   </url>
   <url>
@@ -149,6 +155,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_espn_qbr.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/load_ff_opportunity.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_ff_playerids.html</loc>

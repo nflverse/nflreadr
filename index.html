@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -192,8 +192,8 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> 
 <span class="co"># one of "memory", "filesystem", or "off"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache_warning</span><span class="op">)</span> 
-<span class="co"># FALSE to silence the reminder, which happens every eight hours or so.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.verbose</span><span class="op">)</span> 
+<span class="co"># TRUE/FALSE to silence messages such as cache warnings</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> 
 <span class="co"># one of "qs" or "rds"</span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>

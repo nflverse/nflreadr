@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,7 +102,31 @@
 <li>Exported <code><a href="../reference/most_recent_season.html">most_recent_season()</a></code> function since it can be useful elsewhere (v1.1.2.03)</li>
 <li>Updated documentation with more/better linking (v1.1.2.04)</li>
 <li>Added <a href="https://ffopportunity.ffverse.com" class="external-link">ffopportunity</a> and <a href="https://nflverse.nflverse.com" class="external-link">nflverse</a> packages to sitrep (v1.1.2.04)</li>
-</ul><hr></div>
+<li>Added <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> function to download expected fantasy points data. (v1.1.2.05)</li>
+<li>Added notes about where to file issues to each data function. (v1.1.2.05)</li>
+<li>Added “all” parameter for <code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> to return all available data (weekly archives since 2019). (v1.1.2.05)</li>
+<li>
+<code>options(nflreadr.verbose)</code> replaces <code>options(nflreadr.cache_warning)</code> as the best way to silence nflreadr messages. (v1.1.2.06)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-data-and-functions-development-version">New data and functions<a class="anchor" aria-label="anchor" href="#new-data-and-functions-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> downloads expected fantasy points data from the <a href="https://ffopportunity.ffverse.com" class="external-link">ffopportunity package</a>
+</li>
+<li>
+<code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> gains an <code>"all"</code> parameter to return all available rankings data (weekly archives since 2019)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="backend-development-version">Backend<a class="anchor" aria-label="anchor" href="#backend-development-version"></a></h3>
+<ul><li>
+<code>options(nflreadr.verbose)</code> replaces <code>options(nflreadr.cache_warning)</code> as the best way to silence nflreadr messages.</li>
+<li>Improved data dictionaries for ESPN QBR, Injuries, Trades, Depth Charts, and Combine</li>
+<li>Exported <code><a href="../reference/most_recent_season.html">most_recent_season()</a></code> function</li>
+<li>Updated documentation with improved linking and where to file data issues.</li>
+<li>Sitrep functions have ffopportunity and nflverse packages.</li>
+<li>Pkgdown site upgraded to Bootstrap 5.</li>
+</ul><p>Thank you to <a href="https://github.com/armstjc" class="external-link">@armstjc</a>, <a href="https://github.com/Grayhawk34" class="external-link">@Grayhawk34</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/pranavrajaram" class="external-link">@pranavrajaram</a>, <a href="https://github.com/rogers1000" class="external-link">@rogers1000</a>, and <a href="https://github.com/tanho63" class="external-link">@tanho63</a> for their contributions and feedback on this release!</p>
+<hr></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.2" id="nflreadr-112">nflreadr 1.1.2<a class="anchor" aria-label="anchor" href="#nflreadr-112"></a></h2><p class="text-muted">CRAN release: 2021-12-08</p>

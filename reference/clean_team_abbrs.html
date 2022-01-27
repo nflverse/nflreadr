@@ -12,7 +12,7 @@ This helps for joins and plotting, especially with the new nflplotR package!"><m
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.2.06</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,12 +126,10 @@ with <code>NA</code> (depending on the value of <code>keep_non_matches</code>).<
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PIE"</span>, <span class="st">"LAR"</span>, <span class="st">"PIT"</span>, <span class="st">"CRD"</span>, <span class="st">"OAK"</span>, <span class="st">"SL"</span><span class="op">)</span></span>
 <span class="r-in"><span class="co"># use current location and keep non matches</span></span>
 <span class="r-in"><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Abbreviations not found in `nflreadr::team_abbr_mapping`: PIE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PIE" "LA"  "PIT" "ARI" "LV"  "LA" </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># keep old location and replace non matches</span></span>
 <span class="r-in"><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span>, current_location <span class="op">=</span> <span class="cn">FALSE</span>, keep_non_matches <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Abbreviations not found in `nflreadr::team_abbr_mapping`: PIE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA    "LA"  "PIT" "ARI" "OAK" "STL"</span>
 </code></pre></div>
     </div>
