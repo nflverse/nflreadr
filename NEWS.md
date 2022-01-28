@@ -1,4 +1,6 @@
-# nflreadr (development version)
+# nflreadr 1.1.3
+
+This release adds functions and arguments to access new data, along with some backend changes. 
 
 ## New data and functions
 
