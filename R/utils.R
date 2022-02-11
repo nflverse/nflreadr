@@ -44,3 +44,13 @@ NULL
 `%c%` <- function(x,y){
   ifelse(!is.na(x),x,y)
 }
+
+#' @export
+#' @noRd
+print.nflverse_data <- function(x,...){
+
+  cli::cli_rule("{.emph nflverse {attr(x,'nflverse_type')}}")
+  cli::cli_alert_info("Data updated: {.val {attr(x,'nflverse_timestamp')}}")
+  NextMethod(print,x)
+  invisible(x)
+}

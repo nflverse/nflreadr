@@ -35,10 +35,12 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out, "nflverse_timestamp") <- as.POSIXct(rawToChar(raw_from_url("https://github.com/nflverse/nflverse-data/releases/download/pbp/timestamp.txt")))
+  attr(out, "nflverse_type") <- "play by play"
   out
 }
 
@@ -83,7 +85,9 @@ load_player_stats <- function(seasons = most_recent_season(),
 
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out, "nflverse_timestamp") <- as.POSIXct(rawToChar(raw_from_url("https://github.com/nflverse/nflverse-data/releases/download/player_stats/timestamp.txt")))
+  attr(out, "nflverse_type") <- paste("player stats:",stat_type)
   out
 }
 
