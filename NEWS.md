@@ -1,3 +1,16 @@
+# nflreadr (development version)
+
+Begin porting URLs over to the nflverse-data release URLs.
+
+Completed: 
+
+- `load_pbp()`
+- `load_player_stats()`
+
+
+---
+
+
 # nflreadr 1.1.3
 
 This release adds functions and arguments to access new data, along with some backend changes. 

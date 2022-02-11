@@ -1,6 +1,6 @@
 #' Load Play By Play
 #'
-#' @description Loads multiple seasons from the [nflfastR data repository](https://github.com/nflverse/nflfastR-data)
+#' @description Loads play by play seasons from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
 #'
 #' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 1999.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
@@ -30,7 +30,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
             seasons >=1999,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_",
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_",
                  seasons, ".", file_type)
 
   p <- NULL
@@ -79,7 +79,7 @@ load_player_stats <- function(seasons = most_recent_season(),
 
   loader <- choose_loader(file_type)
 
-  url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/",base_name,file_type)
+  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",base_name,file_type)
 
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
