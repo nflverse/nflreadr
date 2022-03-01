@@ -486,16 +486,20 @@ load_snap_counts <- function(seasons = most_recent_season()){
             seasons >= 2013,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
-                 "raw/master/data/snap_counts/weekly/snap_counts_",
+  urls <- paste0("https://github.com/nflverse/nflverse-data/",
+                 "releases/download/snap_counts/snap_counts_",
                  seasons,
                  ".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(out[[1]],"nflverse_timestamp")
+  out_type <- attr(out[[1]],"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_timestamp") <- out_ts
+  attr(out,"nflverse_type") <- out_type
   out
 }
 
