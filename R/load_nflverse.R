@@ -515,19 +515,18 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #' }
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html> for a web version of the dictionary
 #' @seealso [`dictionary_combine`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @export
 load_combine <- function(seasons = TRUE){
-  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/combine.rds"
+  url <- "https://github.com/nflverse/nflverse-data/releases/download/combine/combine.rds"
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 #' Load Draft Picks from PFR
@@ -549,7 +548,6 @@ load_combine <- function(seasons = TRUE){
 #'
 #' @export
 load_draft_picks <- function(seasons = TRUE){
-
   url <- "https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
