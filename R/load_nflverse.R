@@ -39,8 +39,6 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
   out <- data.table::rbindlist(out, use.names = TRUE)
 
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  attr(out, "nflverse_timestamp") <- as.POSIXct(rawToChar(raw_from_url("https://github.com/nflverse/nflverse-data/releases/download/pbp/timestamp.txt")))
-  attr(out, "nflverse_type") <- "play by play"
   out
 }
 
@@ -86,8 +84,6 @@ load_player_stats <- function(seasons = most_recent_season(),
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  attr(out, "nflverse_timestamp") <- as.POSIXct(rawToChar(raw_from_url("https://github.com/nflverse/nflverse-data/releases/download/player_stats/timestamp.txt")))
-  attr(out, "nflverse_type") <- paste("player stats:",stat_type)
   out
 }
 
@@ -131,7 +127,8 @@ load_schedules <- function(seasons = TRUE){
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
 
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "games and schedules"
   out
 }
 
@@ -170,7 +167,8 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 
   out <- lapply(urls, progressively(rds_from_url, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "rosters"
   out
 }
 
@@ -225,7 +223,7 @@ load_nextgen_stats <- function(seasons = TRUE,
 
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 #' Load NFL Team Graphics, Colors, and Logos
@@ -244,7 +242,8 @@ load_nextgen_stats <- function(seasons = TRUE,
 #' @export
 load_teams <- function(){
   out <- rds_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds")
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "team graphics"
   out
 }
 
@@ -280,7 +279,8 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
   out <- lapply(urls, progressively(rds_from_url, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "depth charts"
   return(out)
 }
 
@@ -319,7 +319,8 @@ load_injuries <- function(seasons = most_recent_season(),
                 file_type)
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "injury reports"
   out
 }
 
@@ -363,8 +364,8 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
-
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "QBR (via ESPN)"
   out
 }
 
@@ -441,7 +442,7 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -456,7 +457,7 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 
   out <- rds_from_url(data_url)
   out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -486,8 +487,8 @@ load_snap_counts <- function(seasons = most_recent_season()){
             seasons >= 2013,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/",
-                 "releases/download/snap_counts/snap_counts_",
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/",
+                 "download/snap_counts/snap_counts_",
                  seasons,
                  ".rds")
 
@@ -552,7 +553,8 @@ load_draft_picks <- function(seasons = TRUE){
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "draft picks (via PFR)"
   out
 }
 
@@ -580,6 +582,7 @@ load_trades <- function(seasons = TRUE){
 
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "trades (via PFR)"
   out
 }
