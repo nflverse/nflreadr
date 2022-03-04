@@ -50,7 +50,13 @@ NULL
 print.nflverse_data <- function(x,...){
 
   cli::cli_rule("{.emph nflverse {attr(x,'nflverse_type')}}")
-  if(!is.null(attr(x,'nflverse_timestamp'))) cli::cli_alert_info("Data updated: {.val {attr(x,'nflverse_timestamp')}}")
+
+  if(!is.null(attr(x,'nflverse_timestamp'))) {
+    cli::cli_alert_info(
+      "Data updated: {.field {format(attr(x,'nflverse_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+      )
+  }
+
   NextMethod(print,x)
   invisible(x)
 }
