@@ -199,7 +199,7 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html> for a web version of the data dictionary
 #' @seealso [`dictionary_nextgen_stats`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/ngs-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_nextgen_stats <- function(seasons = TRUE,
@@ -215,12 +215,8 @@ load_nextgen_stats <- function(seasons = TRUE,
   file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
   loader <- choose_loader(file_type)
-
-  url <- paste0("https://github.com/nflverse/ngs-data/raw/main/data/ngs_",
-                stat_type,
-                ".",
-                file_type)
-
+  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
+                "nextgen_stats/ngs_", stat_type, ".", file_type)
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
