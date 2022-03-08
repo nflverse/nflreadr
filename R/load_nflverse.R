@@ -409,7 +409,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
 #' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def"), summary_level = c("week","season")){
@@ -427,8 +427,8 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 }
 
 .pfr_advstats_week <- function(seasons,stat_type){
-  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
-                 "raw/master/data/adv_stats/weekly/",
+  https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2018.rds
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_"
                  stat_type,
                  "_",
                  seasons,
@@ -437,7 +437,11 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(tail(out,1),"nflverse_timestamp")
+  out_type <- attr(tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
+  attr(out, "nflverse_timestamp") <- out_ts
+  attr(out, "nflverse_type") <- out_type
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
@@ -491,8 +495,8 @@ load_snap_counts <- function(seasons = most_recent_season()){
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
-  out_ts <- attr(out[[1]],"nflverse_timestamp")
-  out_type <- attr(out[[1]],"nflverse_type")
+  out_ts <- attr(tail(out,1),"nflverse_timestamp")
+  out_type <- attr(tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   attr(out,"nflverse_timestamp") <- out_ts
