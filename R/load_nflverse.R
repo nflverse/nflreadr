@@ -303,7 +303,11 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
-                          file_type = getOption("nflreadr.prefer", default = "qs")){
+                          file_type = NULL){
+
+  if(!is.null(file_type)){
+    cli::cli_warn("`file_type` arg deprecated for load_injuries, now uses rds by default")
+  }
 
   if(isTRUE(seasons)) seasons <- 2009:nflreadr::most_recent_season()
 
@@ -311,20 +315,23 @@ load_injuries <- function(seasons = most_recent_season(),
               seasons >= 2009,
               seasons <= most_recent_season())
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  loader <- choose_loader(file_type)
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_",
-                 seasons, ".",file_type)
 
-  out <- lapply(urls, progressively(loader, p))
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_",
+                 seasons, ".rds")
+
+  out <- lapply(urls, progressively(rds_from_url, p))
+
   out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
   out_type <- attr(utils::tail(out,1),"nflverse_type")
+
   out <- data.table::rbindlist(out, use.names = TRUE)
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+
   attr(out,"nflverse_timestamp") <- out_ts
   attr(out,"nflverse_type") <- out_type
+
   out
 }
 

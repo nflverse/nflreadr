@@ -4,15 +4,12 @@
 \alias{load_injuries}
 \title{Load Injury Reports}
 \usage{
-load_injuries(
-  seasons = most_recent_season(),
-  file_type = getOption("nflreadr.prefer", default = "qs")
-)
+load_injuries(seasons = most_recent_season(), file_type = NULL)
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)}
+\item{file_type}{Deprecated: now uses rds by default.}
 }
 \value{
 a tibble of season-level injury report data.
