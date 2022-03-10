@@ -1,12 +1,6 @@
 # nflreadr (development version)
 
-Begin porting URLs over to the nflverse-data release URLs.
-
-Completed: 
-
-- `load_pbp()`
-- `load_player_stats()`
-
+This release updates all nflverse URLs to use the new [nflverse-data repository](https://github.com/nflverse/nflverse-data) releases, as well as improved pretty-printing methods that tell you when the data was last updated. 
 
 ---
 
