@@ -427,8 +427,8 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 }
 
 .pfr_advstats_week <- function(seasons,stat_type){
-  https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_def_2018.rds
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_"
+
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_",
                  stat_type,
                  "_",
                  seasons,
@@ -448,12 +448,9 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 
 .pfr_advstats_season <- function(seasons, stat_type){
 
-  data_url <- switch(stat_type,
-                "pass" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_passing_season.rds",
-                "rush" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_rushing_season.rds",
-                "rec" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_receiving_season.rds",
-                "def" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_defense_season.rds",
-                )
+  data_url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_season_",
+                 stat_type,
+                 ".rds")
 
   out <- rds_from_url(data_url)
   out <- out[out$season %in% seasons]

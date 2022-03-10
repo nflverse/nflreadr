@@ -93,7 +93,6 @@ qs_from_url <- function(url){
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
-
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
     return(data.table::data.table())
