@@ -288,7 +288,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #' Data collected from an API for weekly injury report data.
 #'
 #' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
-#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#' @param file_type Deprecated: now uses rds by default.
 #'
 #' @examples
 #' \donttest{
