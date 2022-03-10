@@ -59,7 +59,7 @@ csv_from_url <- function(...){
 #' @examples
 #' \donttest{
 #' head(raw_from_url(
-#'   "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.parquet"
+#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
 #'   ),
 #' 50)
 #' }
@@ -86,13 +86,12 @@ raw_from_url <- function(url){
 #' @examples
 #' \donttest{
 #' qs_from_url(
-#' "https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"
+#' "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
 #' )
 #' }
 qs_from_url <- function(url){
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
-
 
   if (inherits(load, "try-error")) {
     warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)

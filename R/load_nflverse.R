@@ -1,6 +1,6 @@
 #' Load Play By Play
 #'
-#' @description Loads multiple seasons from the [nflfastR data repository](https://github.com/nflverse/nflfastR-data)
+#' @description Loads play by play seasons from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
 #'
 #' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 1999.
 #' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
@@ -30,15 +30,15 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
             seasons >=1999,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_",
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_",
                  seasons, ".", file_type)
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-
   out <- lapply(urls, progressively(loader, p))
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -79,11 +79,11 @@ load_player_stats <- function(seasons = most_recent_season(),
 
   loader <- choose_loader(file_type)
 
-  url <- paste0("https://github.com/nflverse/nflfastR-data/raw/master/data/",base_name,file_type)
+  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/player_stats/",base_name,file_type)
 
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -127,7 +127,8 @@ load_schedules <- function(seasons = TRUE){
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
 
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "games and schedules"
   out
 }
 
@@ -145,7 +146,7 @@ load_schedules <- function(seasons = TRUE){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_rosters.html> for a web version of the data dictionary
 #' @seealso [`dictionary_rosters`] for the data dictionary as a dataframe
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-roster>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
@@ -159,14 +160,16 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
 
-  urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
-                 "raw/master/data/seasons/roster_",
-                 seasons,
-                 ".rds")
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_",
+                 seasons, ".rds")
 
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_timestamp") <- out_ts
+  attr(out,"nflverse_type") <- out_type
   out
 }
 
@@ -197,7 +200,7 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE)){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html> for a web version of the data dictionary
 #' @seealso [`dictionary_nextgen_stats`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/ngs-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_nextgen_stats <- function(seasons = TRUE,
@@ -213,15 +216,11 @@ load_nextgen_stats <- function(seasons = TRUE,
   file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
   loader <- choose_loader(file_type)
-
-  url <- paste0("https://github.com/nflverse/ngs-data/raw/main/data/ngs_",
-                stat_type,
-                ".",
-                file_type)
-
+  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
+                "nextgen_stats/ngs_", stat_type, ".", file_type)
   out <- loader(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 #' Load NFL Team Graphics, Colors, and Logos
@@ -240,7 +239,8 @@ load_nextgen_stats <- function(seasons = TRUE,
 #' @export
 load_teams <- function(){
   out <- rds_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds")
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "team graphics"
   out
 }
 
@@ -257,7 +257,7 @@ load_teams <- function(){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html> for a web version of the dictionary
 #' @seealso [`dictionary_depth_charts`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-roster>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @return A tibble of week-level depth charts for each team.
 #' @export
@@ -269,15 +269,18 @@ load_depth_charts <- function(seasons = most_recent_season()){
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  urls <- paste0("https://github.com/nflverse/nflfastR-roster/",
-                 "raw/master/data/seasons/depth_charts_",
-                 seasons,
-                 ".rds")
+
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_",
+                 seasons, ".rds")
 
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
-  return(out)
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_timestamp") <- out_ts
+  attr(out,"nflverse_type") <- out_type
+  out
 }
 
 #' Load Injury Reports
@@ -285,7 +288,7 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #' Data collected from an API for weekly injury report data.
 #'
 #' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
-#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#' @param file_type Deprecated: now uses rds by default.
 #'
 #' @examples
 #' \donttest{
@@ -296,26 +299,39 @@ load_depth_charts <- function(seasons = most_recent_season()){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_injuries.html> for a web version of the dictionary
 #' @seealso [`dictionary_injuries`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
-                          file_type = getOption("nflreadr.prefer", default = "qs")){
-  if(!isTRUE(seasons)) {
-    stopifnot(is.numeric(seasons),
-              seasons >= 2009,
-              seasons <= most_recent_season())
+                          file_type = NULL){
+
+  if(!is.null(file_type)){
+    cli::cli_warn("`file_type` arg deprecated for load_injuries, now uses rds by default")
   }
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
-  loader <- choose_loader(file_type)
+  if(isTRUE(seasons)) seasons <- 2009:nflreadr::most_recent_season()
 
-  url <- paste0("https://github.com/nflverse/nflfastR-roster/raw/master/data/nflfastR-injuries",
-                ".",
-                file_type)
-  out <- loader(url)
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  stopifnot(is.numeric(seasons),
+              seasons >= 2009,
+              seasons <= most_recent_season())
+
+  p <- NULL
+  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_",
+                 seasons, ".rds")
+
+  out <- lapply(urls, progressively(rds_from_url, p))
+
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
+
+  out <- data.table::rbindlist(out, use.names = TRUE)
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+
+  attr(out,"nflverse_timestamp") <- out_ts
+  attr(out,"nflverse_type") <- out_type
+
   out
 }
 
@@ -359,8 +375,8 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
-
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "QBR (via ESPN)"
   out
 }
 
@@ -408,7 +424,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
 #' @seealso <https://www.pro-football-reference.com/years/2021/passing_advanced.htm>
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
 load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def"), summary_level = c("week","season")){
@@ -426,8 +442,8 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
 }
 
 .pfr_advstats_week <- function(seasons,stat_type){
-  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
-                 "raw/master/data/adv_stats/weekly/",
+
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_",
                  stat_type,
                  "_",
                  seasons,
@@ -436,23 +452,24 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  attr(out, "nflverse_timestamp") <- out_ts
+  attr(out, "nflverse_type") <- out_type
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
 .pfr_advstats_season <- function(seasons, stat_type){
 
-  data_url <- switch(stat_type,
-                "pass" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_passing_season.rds",
-                "rush" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_rushing_season.rds",
-                "rec" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_receiving_season.rds",
-                "def" = "https://github.com/nflverse/pfr_scrapR/raw/master/data/adv_stats/adv_defense_season.rds",
-                )
+  data_url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_season_",
+                 stat_type,
+                 ".rds")
 
   out <- rds_from_url(data_url)
   out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 
@@ -482,16 +499,20 @@ load_snap_counts <- function(seasons = most_recent_season()){
             seasons >= 2013,
             seasons <= most_recent_season())
 
-  urls <- paste0("https://github.com/nflverse/pfr_scrapR/",
-                 "raw/master/data/snap_counts/weekly/snap_counts_",
+  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/",
+                 "download/snap_counts/snap_counts_",
                  seasons,
                  ".rds")
 
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_timestamp") <- out_ts
+  attr(out,"nflverse_type") <- out_type
   out
 }
 
@@ -507,19 +528,18 @@ load_snap_counts <- function(seasons = most_recent_season()){
 #' }
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_combine.html> for a web version of the dictionary
 #' @seealso [`dictionary_combine`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @export
 load_combine <- function(seasons = TRUE){
-  url <- "https://raw.githubusercontent.com/nflverse/pfr_scrapR/master/data/combine.rds"
+  url <- "https://github.com/nflverse/nflverse-data/releases/download/combine/combine.rds"
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
 #' Load Draft Picks from PFR
@@ -541,12 +561,12 @@ load_combine <- function(seasons = TRUE){
 #'
 #' @export
 load_draft_picks <- function(seasons = TRUE){
-
   url <- "https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"
   out <- rds_from_url(url)
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "draft picks (via PFR)"
   out
 }
 
@@ -574,6 +594,7 @@ load_trades <- function(seasons = TRUE){
 
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("tbl_df","tbl","data.table","data.frame")
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  attr(out,"nflverse_type") <- "trades (via PFR)"
   out
 }

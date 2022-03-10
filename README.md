@@ -12,7 +12,7 @@ coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codeco
 [![Dev
 status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square)](https://lifecycle.r-lib.org/articles/stages.html)
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg?style=flat-square)](https://lifecycle.r-lib.org/articles/stages.html)
 [![R build
 status](https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&style=flat-square&logo=github)](https://github.com/nflverse/nflreadr/actions)
 [![nflverse
@@ -53,6 +53,7 @@ The main functions of `nflreadr` are prefixed with `load_`.
 ``` r
 library(nflreadr)
 load_pbp(2020)
+#> -- nflverse  -------------------------------------------------------------------
 #> # A tibble: 48,514 x 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
@@ -79,9 +80,8 @@ load_pbp(2020)
 Data accessed by this package is stored on GitHub and can typically be
 found in one of the following repositories:
 
--   [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+-   [nflverse/nflverse-data](https://github.com/nflverse/nflverse-data)
 -   [nflverse/nfldata](https://github.com/nflverse/nfldata)
--   [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
 -   [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
 -   [dynastyprocess/data](https://github.com/dynastyprocess/data)
 
@@ -90,7 +90,7 @@ page](https://nflreadr.nflverse.com/reference/index.html).
 
 This data is maintained by the nflverse project team and is primarily
 automated via GitHub Actions. You can check the status and schedules
-page here: <https://github.com/nflverse/status>
+page here: <https://github.com/nflverse/nflverse-data>
 
 ## Configuration
 

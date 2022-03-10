@@ -20,7 +20,7 @@ The complete nflfastR dataset as returned by \code{nflfastR::build_nflfastR_pbp(
 (see below) for all given \code{seasons}
 }
 \description{
-Loads multiple seasons from the \href{https://github.com/nflverse/nflfastR-data}{nflfastR data repository}
+Loads play by play seasons from the \href{https://github.com/nflverse/nflverse-data}{nflverse-data repository}
 }
 \examples{
 \donttest{

@@ -18,7 +18,7 @@ Load .qs file from a remote connection
 \examples{
 \donttest{
 qs_from_url(
-"https://github.com/nflverse/nflfastR-data/raw/master/data/play_by_play_2020.qs"
+"https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
 )
 }
 }

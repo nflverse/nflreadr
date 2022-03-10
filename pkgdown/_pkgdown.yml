@@ -17,7 +17,6 @@ reference:
   - "load_depth_charts"
   - "load_injuries"
   - "load_espn_qbr"
-  - "load_pfr_passing"
   - "load_pfr_advstats"
   - "load_snap_counts"
 - title: Load ffverse data

@@ -46,5 +46,5 @@ players above a minimum number of pass/rush/rec attempts.
 
 \code{\link{dictionary_nextgen_stats}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/ngs-data}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-data}
 }

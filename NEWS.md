@@ -1,3 +1,10 @@
+# nflreadr (development version)
+
+This release updates all nflverse URLs to use the new [nflverse-data repository](https://github.com/nflverse/nflverse-data) releases, as well as improved pretty-printing methods that tell you when the data was last updated. 
+
+---
+
+
 # nflreadr 1.1.3
 
 This release adds functions and arguments to access new data, along with some backend changes. 
