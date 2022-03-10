@@ -16,7 +16,7 @@ players above a minimum number of pass/rush/rec attempts."><meta property="og:im
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.3.00</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.99.01</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,14 +133,16 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <p><a href="https://nextgenstats.nfl.com/stats/rushing" class="external-link">https://nextgenstats.nfl.com/stats/rushing</a> for <code>stat_type = "rushing"</code></p>
 <p><a href="https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html">https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</a> for a web version of the data dictionary</p>
 <p><code><a href="dictionary_nextgen_stats.html">dictionary_nextgen_stats</a></code> for the data dictionary as bundled within the package</p>
-<p>Issues with this data should be filed here: <a href="https://github.com/nflverse/ngs-data" class="external-link">https://github.com/nflverse/ngs-data</a></p></div>
+<p>Issues with this data should be filed here: <a href="https://github.com/nflverse/nflverse-data" class="external-link">https://github.com/nflverse/nflverse-data</a></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">  <span class="fu">load_nextgen_stats</span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"passing"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,489 × 29</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse NFL Next Gen Stats passing weekly data</span> ─────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-03-05 17:06:02 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,491 × 29</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type  week player_display_name player_position team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Matt Ryan           QB              ATL      </span>
@@ -153,7 +155,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Brian Hoyer         QB              CHI      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Josh McCown         QB              CLE      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Robert Griffin III  QB              CLE      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,479 more rows, and 23 more variables: avg_time_to_throw &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,481 more rows, and 23 more variables: avg_time_to_throw &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_completed_air_yards &lt;dbl&gt;, avg_intended_air_yards &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_air_yards_differential &lt;dbl&gt;, aggressiveness &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   max_completed_air_distance &lt;dbl&gt;, avg_air_yards_to_sticks &lt;dbl&gt;,</span></span>
@@ -161,7 +163,9 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   interceptions &lt;int&gt;, passer_rating &lt;dbl&gt;, completions &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   completion_percentage &lt;dbl&gt;, expected_completion_percentage &lt;dbl&gt;, …</span></span>
 <span class="r-in">  <span class="fu">load_nextgen_stats</span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"receiving"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,946 × 23</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse NFL Next Gen Stats receiving weekly data</span> ───────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-03-05 17:06:04 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8,952 × 23</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type  week player_display_name   player_position team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Tyreek Hill           WR              KC       </span>
@@ -174,7 +178,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Rishard Matthews      WR              TEN      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Taylor Gabriel        WR              ATL      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Phillip Dorsett       WR              IND      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,936 more rows, and 17 more variables: avg_cushion &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 8,942 more rows, and 17 more variables: avg_cushion &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   avg_separation &lt;dbl&gt;, avg_intended_air_yards &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   percent_share_of_intended_air_yards &lt;dbl&gt;, receptions &lt;int&gt;, targets &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   catch_percentage &lt;dbl&gt;, yards &lt;int&gt;, rec_touchdowns &lt;int&gt;, avg_yac &lt;dbl&gt;,</span></span>
@@ -182,7 +186,9 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_gsis_id &lt;chr&gt;, player_first_name &lt;chr&gt;, player_last_name &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   player_jersey_number &lt;int&gt;, player_short_name &lt;chr&gt;</span></span>
 <span class="r-in">  <span class="fu">load_nextgen_stats</span><span class="op">(</span>stat_type <span class="op">=</span> <span class="st">"rushing"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,567 × 22</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse NFL Next Gen Stats rushing weekly data</span> ─────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-03-05 17:06:03 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,569 × 22</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type  week player_display_name player_position team_abbr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>016 REG             0 David Johnson       RB              ARI      </span>
@@ -195,7 +201,7 @@ Regular season summary is given for <code>week == 0</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Matt Asiata         RB              MIN      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Doug Martin         RB              TB       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>016 REG             0 Jay Ajayi           RB              MIA      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,557 more rows, and 16 more variables: efficiency &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3,559 more rows, and 16 more variables: efficiency &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   percent_attempts_gte_eight_defenders &lt;dbl&gt;, avg_time_to_los &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rush_attempts &lt;int&gt;, rush_yards &lt;int&gt;, expected_rush_yards &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rush_yards_over_expected &lt;dbl&gt;, avg_rush_yards &lt;dbl&gt;,</span></span>

@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.3.00</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.99.01</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -151,6 +151,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://nflreadr.nflverse.com">nflreadr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span>
+<span class="co">#&gt; -- nflverse  -------------------------------------------------------------------</span>
 <span class="co">#&gt; # A tibble: 48,514 x 372</span>
 <span class="co">#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam</span>
 <span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  </span>
@@ -176,14 +177,13 @@
 </h2>
 <p>Data accessed by this package is stored on GitHub and can typically be found in one of the following repositories:</p>
 <ul>
-<li><a href="https://github.com/nflverse/nflfastR-data" class="external-link">nflverse/nflfastR-data</a></li>
+<li><a href="https://github.com/nflverse/nflverse-data" class="external-link">nflverse/nflverse-data</a></li>
 <li><a href="https://github.com/nflverse/nfldata" class="external-link">nflverse/nfldata</a></li>
-<li><a href="https://github.com/nflverse/nflfastR-roster" class="external-link">nflverse/nflfastR-roster</a></li>
 <li><a href="https://github.com/nflverse/espnscrapeR-data" class="external-link">nflverse/espnscrapeR-data</a></li>
 <li><a href="https://github.com/dynastyprocess/data" class="external-link">dynastyprocess/data</a></li>
 </ul>
 <p>For a full list of functions, please see the <a href="https://nflreadr.nflverse.com/reference/index.html">reference page</a>.</p>
-<p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/status" class="external-link uri">https://github.com/nflverse/status</a></p>
+<p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/nflverse-data" class="external-link uri">https://github.com/nflverse/nflverse-data</a></p>
 </div>
 <div class="section level2">
 <h2 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a>
@@ -274,7 +274,7 @@
 <li><a href="https://CRAN.R-project.org/package=nflreadr" class="external-link"><img src="https://img.shields.io/cran/v/nflreadr?style=flat-square&amp;logo=R&amp;label=CRAN" alt="CRAN status"></a></li>
 <li><a href="https://app.codecov.io/gh/nflverse/nflreadr?branch=main" class="external-link"><img src="https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&amp;style=flat-square&amp;logo=codecov" alt="Codecov test coverage"></a></li>
 <li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg?style=flat-square" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-green.svg?style=flat-square" alt="Lifecycle: stable"></a></li>
 <li><a href="https://github.com/nflverse/nflreadr/actions" class="external-link"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
 <li><a href="https://discord.com/invite/5Er2FBnnQa" class="external-link"><img src="https://img.shields.io/discord/789805604076126219?color=7289da&amp;label=nflverse%20discord&amp;logo=discord&amp;logoColor=fff&amp;style=flat-square" alt="nflverse discord"></a></li>
 </ul>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.3.00</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.99.01</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,10 +96,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">load_injuries</span><span class="op">(</span>
-  seasons <span class="op">=</span> <span class="fu"><a href="most_recent_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span>,
-  file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"nflreadr.prefer"</span>, default <span class="op">=</span> <span class="st">"qs"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">load_injuries</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="most_recent_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span>, file_type <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -107,7 +104,7 @@
     <dl><dt>seasons</dt>
 <dd><p>a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.</p></dd>
 <dt>file_type</dt>
-<dd><p>One of <code>"rds"</code> or <code>"qs"</code>. Can also be set globally with options(nflreadr.prefer)</p></dd>
+<dd><p>Deprecated: now uses rds by default.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -117,13 +114,14 @@
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="https://nflreadr.nflverse.com/articles/dictionary_injuries.html">https://nflreadr.nflverse.com/articles/dictionary_injuries.html</a> for a web version of the dictionary</p>
 <p><code><a href="dictionary_injuries.html">dictionary_injuries</a></code> for the data dictionary as bundled within the package</p>
-<p>Issues with this data should be filed here: <a href="https://github.com/nflverse/nflfastR-data" class="external-link">https://github.com/nflverse/nflfastR-data</a></p></div>
+<p>Issues with this data should be filed here: <a href="https://github.com/nflverse/nflverse-data" class="external-link">https://github.com/nflverse/nflverse-data</a></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
 <span class="r-in">    <span class="fu">load_injuries</span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse </span> ───────────────────────────────────────────────────────────────────</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,640 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    season season_type team  week  gsis_id    position full_name       first_name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
