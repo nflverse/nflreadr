@@ -63,15 +63,16 @@ load_pbp(2020)
 
 Data accessed by this package is stored on GitHub and can typically be found in one of the following repositories:
 
-- [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+- [nflverse/nflverse-data](https://github.com/nflverse/nflverse-data)
 - [nflverse/nfldata](https://github.com/nflverse/nfldata)
-- [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
 - [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
 - [dynastyprocess/data](https://github.com/dynastyprocess/data)
+~~- [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)~~
+~~- [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)~~
 
 For a full list of functions, please see the [reference page](https://nflreadr.nflverse.com/reference/index.html).
 
-This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: https://github.com/nflverse/status
+This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <https://github.com/nflverse/nflverse-data>
 
 ## Configuration
 
