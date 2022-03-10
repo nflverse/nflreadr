@@ -26,5 +26,5 @@ Loads depth charts for each NFL team for each week back to 2001.
 
 \code{\link{dictionary_depth_charts}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-roster}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-data}
 }

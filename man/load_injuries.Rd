@@ -31,5 +31,5 @@ Data collected from an API for weekly injury report data.
 
 \code{\link{dictionary_injuries}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-data}
 }
