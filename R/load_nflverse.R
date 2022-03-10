@@ -437,8 +437,8 @@ load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pas
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
-  out_ts <- attr(tail(out,1),"nflverse_timestamp")
-  out_type <- attr(tail(out,1),"nflverse_type")
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
   attr(out, "nflverse_timestamp") <- out_ts
   attr(out, "nflverse_type") <- out_type
@@ -492,8 +492,8 @@ load_snap_counts <- function(seasons = most_recent_season()){
   p <- NULL
   if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
   out <- lapply(urls, progressively(rds_from_url, p))
-  out_ts <- attr(tail(out,1),"nflverse_timestamp")
-  out_type <- attr(tail(out,1),"nflverse_type")
+  out_ts <- attr(utils::tail(out,1),"nflverse_timestamp")
+  out_type <- attr(utils::tail(out,1),"nflverse_type")
   out <- data.table::rbindlist(out, use.names = TRUE)
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   attr(out,"nflverse_timestamp") <- out_ts
