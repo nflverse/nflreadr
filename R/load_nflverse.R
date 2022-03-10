@@ -398,6 +398,7 @@ load_espn_qbr <- function(league = c("nfl", "college"),
 #' @seealso [`dictionary_pfr_passing`] for the data dictionary as bundled within the package
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
 #'
+#' @keywords internal
 #' @export
 load_pfr_passing <- function(seasons = TRUE){
 

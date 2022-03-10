@@ -29,3 +29,4 @@ starting with the 2019 season.
 
 Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
 }
+\keyword{internal}
