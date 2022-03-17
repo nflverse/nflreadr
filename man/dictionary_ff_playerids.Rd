@@ -5,7 +5,7 @@
 \alias{dictionary_ff_playerids}
 \title{Data Dictionary: Fantasy Player IDs}
 \format{
-An object of class \code{data.frame} with 34 rows and 3 columns.
+An object of class \code{data.frame} with 35 rows and 3 columns.
 }
 \usage{
 dictionary_ff_playerids

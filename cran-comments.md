@@ -14,5 +14,7 @@
 
 ## Reverse dependencies
 
-Checked all five CRAN reverse dependencies (ffsimulator, ffscrapr, nflfastR, nfl4th, nflplotR). 
-All package checks passed with no new problems.
+We checked 6 reverse dependencies (6 from CRAN + 0 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
