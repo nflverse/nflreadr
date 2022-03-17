@@ -31,7 +31,9 @@ options(tibble.max_extra_cols = 20,
 
 nflreadr is a minimal package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.
 
-For Python access to nflverse data, please check out [nfl-data-py](https://pypi.org/project/nfl-data-py/)  - maintained by Cooper Adams. 
+Please note that nflverse data repositories have been reorganized and pushed towards the [nflverse-data](https://github.com/nflverse/nflverse-data) repo, and v1.2.0+ is the minimum version that supports this change. We encourage all users to upgrade to this version immediately.
+
+For Python access to nflverse data, please check out [nfl-data-py](https://pypi.org/project/nfl-data-py/) - maintained by Cooper Adams. 
 
 ## Installation
 
@@ -67,6 +69,7 @@ Data accessed by this package is stored on GitHub and can typically be found in 
 - [nflverse/nfldata](https://github.com/nflverse/nfldata)
 - [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
 - [dynastyprocess/data](https://github.com/dynastyprocess/data)
+- [ffverse/ffopportunity](https://github.com/ffverse/ffopportunity)
 
 For a full list of functions, please see the [reference page](https://nflreadr.nflverse.com/reference/index.html).
 
@@ -77,10 +80,10 @@ This data is maintained by the nflverse project team and is primarily automated 
 The following options help configure default `nflreadr` behaviours. 
 
 ```{r eval = FALSE}
-options(nflreadr.cache) 
-# one of "memory", "filesystem", or "off"
 options(nflreadr.verbose) 
 # TRUE/FALSE to silence messages such as cache warnings
+options(nflreadr.cache) 
+# one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
 # one of "qs" or "rds"
 ```

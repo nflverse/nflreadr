@@ -24,6 +24,12 @@ nflreadr is a minimal package for downloading data from nflverse
 repositories. It includes caching, optional progress updates, and data
 dictionaries.
 
+Please note that nflverse data repositories have been reorganized and
+pushed towards the
+[nflverse-data](https://github.com/nflverse/nflverse-data) repo, and
+v1.2.0+ is the minimum version that supports this change. We encourage
+all users to upgrade to this version immediately.
+
 For Python access to nflverse data, please check out
 [nfl-data-py](https://pypi.org/project/nfl-data-py/) - maintained by
 Cooper Adams.
@@ -53,7 +59,6 @@ The main functions of `nflreadr` are prefixed with `load_`.
 ``` r
 library(nflreadr)
 load_pbp(2020)
-#> -- nflverse  -------------------------------------------------------------------
 #> # A tibble: 48,514 x 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
@@ -84,6 +89,7 @@ found in one of the following repositories:
 -   [nflverse/nfldata](https://github.com/nflverse/nfldata)
 -   [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
 -   [dynastyprocess/data](https://github.com/dynastyprocess/data)
+-   [ffverse/ffopportunity](https://github.com/ffverse/ffopportunity)
 
 For a full list of functions, please see the [reference
 page](https://nflreadr.nflverse.com/reference/index.html).
@@ -97,10 +103,10 @@ page here: <https://github.com/nflverse/nflverse-data>
 The following options help configure default `nflreadr` behaviours.
 
 ``` r
-options(nflreadr.cache) 
-# one of "memory", "filesystem", or "off"
 options(nflreadr.verbose) 
 # TRUE/FALSE to silence messages such as cache warnings
+options(nflreadr.cache) 
+# one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
 # one of "qs" or "rds"
 ```
