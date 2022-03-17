@@ -25,7 +25,7 @@ team,character,Team as reported by MFL
 birthdate,date,Birthdate
 age,numeric,"Age as of last pipeline build, rounded to one decimal. Pipeline is built on a weekly basis."
 draft_year,numeric,Year of draft. Zero if unknown/undrafted.
-draft_round,numeric,Round of draft. 
+draft_round,numeric,Round of draft.
 draft_pick,numeric,"Draft pick within round, i.e. 32nd pick of second round."
 draft_ovr,character,"Overall draft pick selection. This can be a little bit patchy, since MFL does not report this number."
 twitter_username,character,"Official twitter handle, if known"
@@ -33,3 +33,4 @@ height,numeric,height in inches
 weight,numeric,weight in pounds
 college,character,College attended
 db_season,numeric,Year of database build. Previous years may also be available via dynastyprocess.
+swish_id,character,"Player ID for Swish Analytics"

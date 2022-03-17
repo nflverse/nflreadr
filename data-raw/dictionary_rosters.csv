@@ -23,3 +23,4 @@ pff_id,numeric,Player ID for Pro Football Focus
 fantasy_data_id,numeric,Player ID for FantasyData
 years_exp,numeric,Years played in league
 sportradar_id,character,Player ID for Sportradar API
+pfr_id,character,Player ID for Pro Football Reference
