@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.99.01</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,6 +129,7 @@
 
 <!-- badges: end -->
 <p>nflreadr is a minimal package for downloading data from nflverse repositories. It includes caching, optional progress updates, and data dictionaries.</p>
+<p>Please note that nflverse data repositories have been reorganized and pushed towards the <a href="https://github.com/nflverse/nflverse-data" class="external-link">nflverse-data</a> repo, and v1.2.0+ is the minimum version that supports this change. We encourage all users to upgrade to this version immediately.</p>
 <p>For Python access to nflverse data, please check out <a href="https://pypi.org/project/nfl-data-py/" class="external-link">nfl-data-py</a> - maintained by Cooper Adams.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -151,7 +152,6 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://nflreadr.nflverse.com">nflreadr</a></span><span class="op">)</span>
 <span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span>
-<span class="co">#&gt; -- nflverse  -------------------------------------------------------------------</span>
 <span class="co">#&gt; # A tibble: 48,514 x 372</span>
 <span class="co">#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam</span>
 <span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  </span>
@@ -181,6 +181,7 @@
 <li><a href="https://github.com/nflverse/nfldata" class="external-link">nflverse/nfldata</a></li>
 <li><a href="https://github.com/nflverse/espnscrapeR-data" class="external-link">nflverse/espnscrapeR-data</a></li>
 <li><a href="https://github.com/dynastyprocess/data" class="external-link">dynastyprocess/data</a></li>
+<li><a href="https://github.com/ffverse/ffopportunity" class="external-link">ffverse/ffopportunity</a></li>
 </ul>
 <p>For a full list of functions, please see the <a href="https://nflreadr.nflverse.com/reference/index.html">reference page</a>.</p>
 <p>This data is maintained by the nflverse project team and is primarily automated via GitHub Actions. You can check the status and schedules page here: <a href="https://github.com/nflverse/nflverse-data" class="external-link uri">https://github.com/nflverse/nflverse-data</a></p>
@@ -190,10 +191,10 @@
 </h2>
 <p>The following options help configure default <code>nflreadr</code> behaviours.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> 
-<span class="co"># one of "memory", "filesystem", or "off"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.verbose</span><span class="op">)</span> 
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.verbose</span><span class="op">)</span> 
 <span class="co"># TRUE/FALSE to silence messages such as cache warnings</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> 
+<span class="co"># one of "memory", "filesystem", or "off"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> 
 <span class="co"># one of "qs" or "rds"</span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>
