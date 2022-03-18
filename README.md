@@ -59,25 +59,26 @@ The main functions of `nflreadr` are prefixed with `load_`.
 ``` r
 library(nflreadr)
 load_pbp(2020)
-#> # A tibble: 48,514 x 372
+#> ── nflverse  ───────────────────────────────────────────────────────────────────
+#> # A tibble: 48,514 × 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
-#>  1       1 2020_01_AR~ 2020091311  SF        ARI       REG             1 <NA>   
-#>  2      39 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  3      54 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  4      93 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  5     118 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  6     143 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  7     165 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  8     197 2020_01_AR~ 2020091311  SF        ARI       REG             1 SF     
-#>  9     226 2020_01_AR~ 2020091311  SF        ARI       REG             1 ARI    
-#> 10     245 2020_01_AR~ 2020091311  SF        ARI       REG             1 ARI    
-#> # ... with 48,504 more rows, and 364 more variables: posteam_type <chr>,
+#>  1       1 2020_01_AR… 2020091311  SF        ARI       REG             1 <NA>   
+#>  2      39 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  3      54 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  4      93 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  5     118 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  6     143 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  7     165 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  8     197 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
+#>  9     226 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
+#> 10     245 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
+#> # … with 48,504 more rows, and 364 more variables: posteam_type <chr>,
 #> #   defteam <chr>, side_of_field <chr>, yardline_100 <dbl>, game_date <chr>,
 #> #   quarter_seconds_remaining <dbl>, half_seconds_remaining <dbl>,
 #> #   game_seconds_remaining <dbl>, game_half <chr>, quarter_end <dbl>,
 #> #   drive <dbl>, sp <dbl>, qtr <dbl>, down <dbl>, goal_to_go <dbl>, time <chr>,
-#> #   yrdln <chr>, ydstogo <dbl>, ydsnet <dbl>, desc <chr>, ...
+#> #   yrdln <chr>, ydstogo <dbl>, ydsnet <dbl>, desc <chr>, …
 ```
 
 ## Data Sources
