@@ -60,3 +60,17 @@ print.nflverse_data <- function(x,...){
   NextMethod(print,x)
   invisible(x)
 }
+
+#' rbindlist but maintain attributes of last file
+#'
+#' @export
+#' @keywords internal
+rbindlist_with_attrs <- function(dflist){
+
+  nflverse_timestamp <- attr(utils::tail(dflist,1),"nflverse_timestamp")
+  nflverse_type <- attr(utils::tail(dflist,1),"nflverse_type")
+  out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
+  attr(out,"nflverse_timestamp") <- nflverse_timestamp
+  attr(out,"nflverse_type") <- nflverse_type
+  out
+}
