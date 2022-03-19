@@ -1,6 +1,5 @@
 field,data_type,description
 game_id,numeric, The ID of the game as assigned by the NFL. Note that this value matches the game_id field in nflverse packages if you wish to join the data.
-alt_game_id,numeric," This is a more human-readable ID. It consists of: the season, an underscore, the two-digit week number, an underscore, the away team, an underscore, the home team."
 season,numeric," The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number."
 game_type,character," What type of game? One of REG, WC, DIV, CON, SB"
 week,numeric,The week of the NFL season the game occurs in. Please note that the `game_type` will differ for weeks >= 18 because of the season expansion in 2021. Please use `game_type` to filter for regular season or postseason.
@@ -15,6 +14,7 @@ location,character," Either Home if the home team is playing in their home stadi
 result,numeric, The number of points the home team scored minus the number of points the visiting team scored. Equals h_score - v_score. Is NA for games which haven't yet been played. Convenient for evaluating against the spread bets.
 total,numeric, The sum of each team's score in the game. Equals h_score + v_score. Is NA for games which haven't yet been played. Convenient for evaluating over/under total bets.
 overtime ,numeric,Binary indicator of whether or not game went to overtime.
+old_game_id,numeric,The old id for the game assigned by the NFL.
 gsis,numeric, The id of the game issued by the NFL Game Statistics & Information System.
 nfl_detail_id,numeric, The id of the game issued by NFL Detail.
 pfr,numeric,The id of the game issued by [Pro-Football-Reference](https://www.pro-football-reference.com/)
@@ -29,7 +29,7 @@ away_spread_odds,numeric,Odds for away team to cover the spread.
 home_spread_odds,numeric,Odds for home team to cover the spread.
 total_line,numeric, The total line for the game.
 under_odds,numeric,Odds that total score of game would be under the total_line.
-over_odd,numeric,Odds that total score of game would be over the total_ine.
+over_odds,numeric,Odds that total score of game would be over the total_ine.
 div_game,numeric,Binary indicator of whether or not game was played by 2 teams in the same division.
 roof,character," What was the status of the stadium's roof? One of outdoors, open, closed, dome"
 surface,character, What type of ground the game was played on

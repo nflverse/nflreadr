@@ -3,6 +3,13 @@
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
 
+
+# nflreadr 1.2.01
+
+This release updates the `dictionary_snap_counts()` and `dictionary_schedules()` functions to account for missing fields.
+
+---
+
 --
 
 # nflreadr 1.2.0
