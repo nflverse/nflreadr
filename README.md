@@ -58,27 +58,48 @@ The main functions of `nflreadr` are prefixed with `load_`.
 
 ``` r
 library(nflreadr)
-load_pbp(2020)
-#> ── nflverse  ───────────────────────────────────────────────────────────────────
-#> # A tibble: 48,514 × 372
+
+load_pbp(2021)
+#> ── nflverse play by play ───────────────────────────────────────────────────────
+#> ℹ Data updated: 2022-03-18 00:40:27 EDT
+#> # A tibble: 50,712 × 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
-#>  1       1 2020_01_AR… 2020091311  SF        ARI       REG             1 <NA>   
-#>  2      39 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  3      54 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  4      93 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  5     118 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  6     143 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  7     165 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  8     197 2020_01_AR… 2020091311  SF        ARI       REG             1 SF     
-#>  9     226 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
-#> 10     245 2020_01_AR… 2020091311  SF        ARI       REG             1 ARI    
-#> # … with 48,504 more rows, and 364 more variables: posteam_type <chr>,
+#>  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 <NA>   
+#>  2      40 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  3      55 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  4      76 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  5     100 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  6     122 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  7     152 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> # … with 50,702 more rows, and 364 more variables: posteam_type <chr>,
 #> #   defteam <chr>, side_of_field <chr>, yardline_100 <dbl>, game_date <chr>,
 #> #   quarter_seconds_remaining <dbl>, half_seconds_remaining <dbl>,
-#> #   game_seconds_remaining <dbl>, game_half <chr>, quarter_end <dbl>,
-#> #   drive <dbl>, sp <dbl>, qtr <dbl>, down <dbl>, goal_to_go <dbl>, time <chr>,
-#> #   yrdln <chr>, ydstogo <dbl>, ydsnet <dbl>, desc <chr>, …
+#> #   game_seconds_remaining <dbl>, game_half <chr>, quarter_end <dbl>, …
+
+load_player_stats(2021)
+#> ── nflverse player stats: offense ──────────────────────────────────────────────
+#> ℹ Data updated: 2022-03-09 15:34:12 EST
+#> # A tibble: 5,698 × 48
+#>    player_id  player_name recent_team season  week season_type completions
+#>    <chr>      <chr>       <chr>        <int> <int> <chr>             <int>
+#>  1 00-0019596 T.Brady     TB            2021     1 REG                  32
+#>  2 00-0019596 T.Brady     TB            2021     2 REG                  24
+#>  3 00-0019596 T.Brady     TB            2021     3 REG                  41
+#>  4 00-0019596 T.Brady     TB            2021     4 REG                  22
+#>  5 00-0019596 T.Brady     TB            2021     5 REG                  30
+#>  6 00-0019596 T.Brady     TB            2021     6 REG                  34
+#>  7 00-0019596 T.Brady     TB            2021     7 REG                  20
+#>  8 00-0019596 T.Brady     TB            2021     8 REG                  28
+#>  9 00-0019596 T.Brady     TB            2021    10 REG                  23
+#> 10 00-0019596 T.Brady     TB            2021    11 REG                  30
+#> # … with 5,688 more rows, and 41 more variables: attempts <int>,
+#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, sacks <dbl>,
+#> #   sack_yards <dbl>, sack_fumbles <int>, sack_fumbles_lost <int>,
+#> #   passing_air_yards <dbl>, passing_yards_after_catch <dbl>, …
 ```
 
 ## Data Sources

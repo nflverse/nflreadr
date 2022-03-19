@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 library(tibble)
-options(tibble.max_extra_cols = 20,
+options(tibble.max_extra_cols = 10,
         tibble.bold = TRUE,
         tibble.print_max = 5)
 ```
@@ -58,7 +58,10 @@ The main functions of `nflreadr` are prefixed with `load_`.
 
 ```{r}
 library(nflreadr)
-load_pbp(2020)
+
+load_pbp(2021)
+
+load_player_stats(2021)
 ```
 
 ## Data Sources
