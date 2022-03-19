@@ -318,7 +318,8 @@ load_injuries <- function(seasons = most_recent_season(),
   out <- rbindlist_with_attrs(out)
 
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-
+  
+  out
 }
 
 #' Load ESPN's QBR
