@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.2.0.01
+Version: 1.2.0.02
 Authors@R: c(
     person("Tan", "Ho", , "tan@tanho.ca", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8388-5155")),
@@ -8,7 +8,8 @@ Authors@R: c(
     person("John", "Edwards", , "edwards1860@gmail.com", role = "ctb"),
     person("Ben", "Baldwin", , "bbaldwin206@gmail.com", role = "ctb"),
     person("Thomas", "Mock", role = "ctb"),
-    person("Lee", "Sharpe", role = "ctb")
+    person("Lee", "Sharpe", role = "ctb"),
+    person("Pranav", "Rajaram", , "pranavrajaram@gmail.com", role = "ctb")
   )
 Description: A minimal package for downloading data from 'GitHub'
     repositories of the 'nflverse' project.

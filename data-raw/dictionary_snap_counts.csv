@@ -1,10 +1,14 @@
 field,data_type,description
-player,character,Player name
-pfr_player_id,character,Player PFR ID
 game_id,character,nflfastR game ID
 pfr_game_id,character,PFR game ID
-team,character,Team
-season,numeric,Season
+season,numeric,Season of game
+game_type,character,Type of game (regular or postseason)
+week,numeric,Week of game in NFL season
+player,character,Player name
+pfr_player_id,character,Player PFR ID
+position,character,Position of player
+team,character,Team of player
+opponent,character,Opposing team of player
 offense_snaps,numeric,Number of snaps on offense
 offense_pct,numeric,Percent of offensive snaps taken
 defense_snaps,numeric,Number of snaps on defense

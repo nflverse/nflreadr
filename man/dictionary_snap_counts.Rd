@@ -5,7 +5,7 @@
 \alias{dictionary_snap_counts}
 \title{Data Dictionary: Snap Counts}
 \format{
-An object of class \code{data.frame} with 12 rows and 3 columns.
+An object of class \code{data.frame} with 16 rows and 3 columns.
 }
 \usage{
 dictionary_snap_counts

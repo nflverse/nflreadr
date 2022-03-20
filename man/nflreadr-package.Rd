@@ -31,6 +31,7 @@ Other contributors:
   \item Ben Baldwin \email{bbaldwin206@gmail.com} [contributor]
   \item Thomas Mock [contributor]
   \item Lee Sharpe [contributor]
+  \item Pranav Rajaram \email{pranavrajaram@gmail.com} [contributor]
 }
 
 }

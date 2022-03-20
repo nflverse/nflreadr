@@ -2,6 +2,9 @@
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
+- update `dictionary_snap_counts` and `dictionary_schedules` with some missing fields (v1.2.0.02)
+
+---
 
 --
 
