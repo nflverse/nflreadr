@@ -27,7 +27,7 @@ two_point_converted,numeric,"pbp_rush, pbp_pass",A binary for whether a two poin
 rush_attempt,numeric,"pbp_rush, weekly",Binary indicator for if the play was a run.
 first_down_rush,numeric,pbp_rush,Binary indicator for if a running play converted the first down.
 fumble_lost,numeric,"pbp_rush, pbp_pass",Binary indicator for if the fumble was lost.
-season,numeric,"pbp_rush, pbp_pass",4 digit number indicating to which season the game belongs to.
+season,numeric,"pbp_rush, pbp_pass, weekly",4 digit number indicating to which season the game belongs to.
 week,numeric,"pbp_rush, pbp_pass, weekly",Season week.
 rushing_yards,numeric,pbp_rush,"Numeric yards by the rusher_player_name, excluding yards gained in rush plays with laterals. This should equal official rushing statistics but could miss yards gained in rush plays with laterals. Please see the description of `lateral_rusher_player_name` for further information."
 wind,numeric,"pbp_rush, pbp_pass",The speed of the wind in miles/hour only for 'roof' = 'outdoors' or 'open'. (Source: Pro-Football-Reference)
@@ -71,7 +71,6 @@ yardline_exp,numeric,pbp_pass,Expected number of yardline in this game (weekly) 
 pass_touchdown_exp,numeric,"pbp_pass, weekly",Expected number of pass_touchdown in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
 pass_first_down_exp,numeric,"pbp_pass, weekly",Expected number of pass_first_down in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
 pass_interception_exp,numeric,"pbp_pass, weekly",Expected number of pass_interception in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
-season,character,weekly,4 digit number indicating to which season the game belongs to.
 player_id,character,weekly,Player ID (aka GSIS ID) as defined by nflreadr::load_rosters
 rec_attempt,numeric,weekly,Total number of targets for a given game
 pass_air_yards,numeric,weekly,Total air yards thrown for a given game
@@ -86,9 +85,9 @@ rush_yards_gained,numeric,weekly,Total rushing yards gained for a given game
 pass_yards_gained_exp,numeric,weekly,Expected number of pass_yards_gained in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
 rec_yards_gained_exp,numeric,weekly,Expected number of rec_yards_gained in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
 rush_yards_gained_exp,numeric,weekly,Expected number of rush_yards_gained in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
-pass_touchdown,numeric,weekly,Binary indicator for if the play resulted in a passing TD.
+pass_touchdown,numeric,weekly,Total passing touchdowns
 rec_touchdown,numeric,weekly,Total receiving touchdowns
-rush_touchdown,numeric,weekly,Binary indicator for if the play resulted in a rushing TD.
+rush_touchdown,numeric,weekly,Total rushing touchdowns
 rec_touchdown_exp,numeric,weekly,Expected number of rec_touchdown in this game (weekly) or on this play (pbp_rush/pbp_pass) given situation
 pass_two_point_conv,numeric,weekly,Number of successful passing two point conversions
 rec_two_point_conv,numeric,weekly,Number of successful receiving two point conversions

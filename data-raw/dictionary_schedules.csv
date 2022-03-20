@@ -1,6 +1,6 @@
 field,data_type,description
-game_id,numeric, The ID of the game as assigned by the NFL. Note that this value matches the game_id field in nflverse packages if you wish to join the data.
-season,numeric," The year of the NFL season. This reperesents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number."
+game_id,numeric,"A human-readable game ID. It consists of: the season, an underscore, the two-digit week number, an underscore, the away team, an underscore, the home team. This is the primary identifier for a given game and is also used in various nflverse dataframes."
+season,numeric,"The year of the NFL season. This represents the whole season, so regular season games that happen in January as well as playoff games will occur in the year after this number."
 game_type,character," What type of game? One of REG, WC, DIV, CON, SB"
 week,numeric,The week of the NFL season the game occurs in. Please note that the `game_type` will differ for weeks >= 18 because of the season expansion in 2021. Please use `game_type` to filter for regular season or postseason.
 gameday,character, The date on which the game occurred.
@@ -35,8 +35,8 @@ roof,character," What was the status of the stadium's roof? One of outdoors, ope
 surface,character, What type of ground the game was played on
 temp,numeric, The temperature at the stadium (for outdoors and open only)
 wind,numeric, The speed of the wind in miles/hour (for outdoors and open only)
-away_qb_id,numeric,GSIS Player Id for away team starting quarterback.
-home_qb_id,numeric,GSIS Player Id for home team starting quarterback.
+away_qb_id,numeric,GSIS Player ID for away team starting quarterback.
+home_qb_id,numeric,GSIS Player ID for home team starting quarterback.
 away_qb_name,character,Name of away team starting QB.
 home_qb_name,character,Name of home team starting QB.
 away_coach,character, Name of the head coach of the away team

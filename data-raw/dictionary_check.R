@@ -36,11 +36,11 @@ load_ff_rankings() |>
   dict_check(dictionary_ff_rankings)
 
 lapply(c("weekly","pbp_pass","pbp_rush"), \(.x) load_ff_opportunity(stat_type = .x)) |>
-  data.table::rbindlist(fill = T) |>
+  data.table::rbindlist(use.names = TRUE, fill = T) |>
   dict_check(dictionary_ff_opportunity)
 
 lapply(c("passing","rushing","receiving"), \(.x) load_nextgen_stats(stat_type = .x)) |>
-  data.table::rbindlist(fill = T) |>
+  data.table::rbindlist(use.names = TRUE, fill = T) |>
   dict_check(dictionary_nextgen_stats)
 
 load_espn_qbr() |>
