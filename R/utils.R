@@ -37,8 +37,8 @@ choose_loader <- function(type) {
 #' @keywords internal
 "_PACKAGE"
 
-#' @importFrom Rcpp getRcppVersion
-#' @importFrom RcppParallel defaultNumThreads
+# @importFrom Rcpp getRcppVersion
+# @importFrom RcppParallel defaultNumThreads
 NULL
 
 `%c%` <- function(x,y){
