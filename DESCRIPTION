@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.2.0.02
+Version: 1.2.0.03
 Authors@R: c(
     person("Tan", "Ho", , "tan@tanho.ca", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8388-5155")),
@@ -25,17 +25,18 @@ Imports:
     data.table (>= 1.14.0),
     glue (>= 1.4.0),
     memoise (>= 2.0.0),
-    qs (>= 0.24.0),
     rappdirs (>= 0.3.0),
-    Rcpp (>= 1.0.7),
-    RcppParallel (>= 5.1.4),
-    rlang (>= 0.4.0),
+    rlang (>= 0.4.10),
     utils
 Suggests:
+    arrow (>= 6.0.0),
     covr (>= 3.0.0),
     DT (>= 0.15.0),
     knitr (>= 1.0.0),
     progressr (>= 0.8.0),
+    qs (>= 0.24.0),
+    Rcpp (>= 1.0.7),
+    RcppParallel (>= 5.1.4),
     rmarkdown (>= 2.6.0),
     testthat (>= 3.0.0)
 VignetteBuilder: 
