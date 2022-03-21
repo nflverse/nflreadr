@@ -75,6 +75,41 @@ raw_from_url <- function(url){
   load$content
 }
 
+#' Load .parquet file from a remote connection
+#'
+#' @param url a character url
+#'
+#' @export
+#'
+#' @return a dataframe as parsed by [`arrow::read_parquet()`]
+#'
+#' @examples
+#' \donttest{
+#' parquet_from_url(
+#' "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#' )
+#' }
+parquet_from_url <- function(url){
+  rlang::check_installed("arrow")
+  cache_message()
+  load <- try(curl::curl_fetch_memory(url), silent = TRUE)
+
+  if (inherits(load, "try-error")) {
+    warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
+    return(data.table::data.table())
+  }
+
+  content <- try(arrow::read_parquet(load$content), silent = TRUE)
+
+  if (inherits(content, "try-error")) {
+    warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
+    return(data.table::data.table())
+  }
+
+  data.table::setDT(content)
+  return(content)
+}
+
 #' Load .qs file from a remote connection
 #'
 #' @param url a character url
@@ -90,6 +125,7 @@ raw_from_url <- function(url){
 #' )
 #' }
 qs_from_url <- function(url){
+  rlang::check_installed("qs")
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 

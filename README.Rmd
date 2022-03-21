@@ -88,7 +88,7 @@ options(nflreadr.verbose)
 options(nflreadr.cache) 
 # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
-# one of "qs" or "rds"
+# one of "qs", "rds", "parquet", or "csv"
 ```
 
 You can also configure `nflreadr` to display progress messages with the [`progressr` package](https://progressr.futureverse.org), e.g.
