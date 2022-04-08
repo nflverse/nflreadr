@@ -17,7 +17,7 @@ rds_from_url <- function(url) {
   load <- try(readRDS(con), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    cli::cli_warn("Failed to readRDS from {.url {url}}")
     return(data.table::data.table())
   }
 
@@ -67,9 +67,14 @@ raw_from_url <- function(url){
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
+  if(inherits(load, "try-error")) {
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
+    return(invisible(load))
+  }
+
   if (load$status_code!=200) {
-    warning(paste0("HTTP error",load$status_code," while retrieving data from <",url,"> \n Returning request payload."), call. = FALSE)
-    return(load)
+    cli::cli_warn("HTTP error {.emph {load$status_code}} while retrieving data from {.url {url}}\nReturning request payload.")
+    return(invisible(load))
   }
 
   load$content
@@ -95,14 +100,14 @@ parquet_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
     return(data.table::data.table())
   }
 
   content <- try(arrow::read_parquet(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
-    warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to parse file with {.fun arrow::read_parquet()} from {.url {url}}")
     return(data.table::data.table())
   }
 
@@ -130,19 +135,42 @@ qs_from_url <- function(url){
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
     return(data.table::data.table())
   }
 
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
-    warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}")
+    qs_version_check()
     return(data.table::data.table())
   }
 
   data.table::setDT(content)
   return(content)
+}
+
+#' Checks for minimum version of Rcpp and RcppParallel which seems to resolve most qs-related issues
+#' @keywords internal
+qs_version_check <- function(){
+  version_notes <- NULL
+  rlang::check_installed(c("Rcpp","RcppParallel"))
+  v_rcpp <- utils::packageVersion("Rcpp")
+  v_rcpp_p <- utils::packageVersion("RcppParallel")
+
+  if(v_rcpp < package_version("1.0.7")) {
+    version_notes <- c(version_notes, "!"="Rcpp version is {.val {v_rcpp}} and should be at least {.val {package_version('1.0.7')}}")
+  }
+
+  if(v_rcpp_p < package_version("5.1.4")){
+    version_notes <- c(version_notes, "!"="RcppParallel version is {.val {v_rcpp_p}} and should be at least {.val {package_version('5.1.4')}}")
+  }
+
+  if(is.null(version_notes)) return(invisible(NULL))
+
+  cli::cli_bullets(c("Resolving the following dependency issues may help:", version_notes))
+  return(invisible(NULL))
 }
 
 #' Progressively
