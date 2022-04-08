@@ -33,6 +33,7 @@ Suggests:
     covr (>= 3.0.0),
     DT (>= 0.15.0),
     knitr (>= 1.0.0),
+    piggyback (>= 0.1.1),
     progressr (>= 0.8.0),
     qs (>= 0.24.0),
     rmarkdown (>= 2.6.0),

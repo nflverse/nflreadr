@@ -1,10 +1,13 @@
 # nflreadr (development version)
 
-## fixes
+## changes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
 - update `dictionary_snap_counts` and `dictionary_schedules` with some missing fields (v1.2.0.02)
 - begin splitting out how the URL is parsed (v1.2.0.03)
 - rewrite from_url error messages to use cli and improve usefulness (v1.2.0.04)
+- bump minimum rlang version to 1.0.0
+- add piggyback suggested dependency
+
 
 ---
 

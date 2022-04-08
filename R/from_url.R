@@ -143,34 +143,16 @@ qs_from_url <- function(url){
 
   if (inherits(content, "try-error")) {
     cli::cli_warn("Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}")
-    qs_version_check()
+
+    rlang::check_installed(
+      pkg = c("Rcpp (>= 1.0.8)","RcppParallel (>= 5.1.5)"),
+      reason = "- updating these packages frequently resolves qs-related issues.")
+
     return(data.table::data.table())
   }
 
   data.table::setDT(content)
   return(content)
-}
-
-#' Checks for minimum version of Rcpp and RcppParallel which seems to resolve most qs-related issues
-#' @keywords internal
-qs_version_check <- function(){
-  version_notes <- NULL
-  rlang::check_installed(c("Rcpp","RcppParallel"))
-  v_rcpp <- utils::packageVersion("Rcpp")
-  v_rcpp_p <- utils::packageVersion("RcppParallel")
-
-  if(v_rcpp < package_version("1.0.7")) {
-    version_notes <- c(version_notes, "!"="Rcpp version is {.val {v_rcpp}} and should be at least {.val {package_version('1.0.7')}}")
-  }
-
-  if(v_rcpp_p < package_version("5.1.4")){
-    version_notes <- c(version_notes, "!"="RcppParallel version is {.val {v_rcpp_p}} and should be at least {.val {package_version('5.1.4')}}")
-  }
-
-  if(is.null(version_notes)) return(invisible(NULL))
-
-  cli::cli_bullets(c("Resolving the following dependency issues may help:", version_notes))
-  return(invisible(NULL))
 }
 
 #' Progressively
