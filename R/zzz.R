@@ -37,12 +37,25 @@
     options("nflreadr.verbose" = TRUE)
   }
 
+  #' validate suggested package installation
   if(!is.null(getOption("nflreadr.prefer")) && getOption("nflreadr.prefer") %in% c("qs","parquet")){
-    # also check Rcpp/RcppParallel here?
-    # auto set to fastest one available if not previously set? e.g. see if arrow is installed, see if qs is installed, then fall back to RDS?
+
     switch(getOption("nflreadr.prefer"),
-           "qs" = rlang::check_installed("qs"),
-           "parquet" = rlang::check_installed("arrow"))
+           "qs" = {
+             rlang::check_installed(
+               pkg = c("qs","Rcpp (>= 1.0.7)","RcppParallel (>= 5.1.4)"),
+               reason = "these packages are required to use options(nflreadr.prefer = 'qs')")
+
+             options("nflreadr.qs_ok" = TRUE)
+           },
+           "parquet" = {
+             rlang::check_installed(
+               pkg = "arrow (>= 6.0.0)",
+               reason = "these packages are required to use options(nflreadr.prefer = 'parquet')")
+
+             options("nflreadr.arrow_ok" = TRUE)
+           }
+    )
   }
 
 }
@@ -51,12 +64,16 @@
 
   # validate nflreadr.prefer
 
-  prefer_type <- getOption("nflreadr.prefer", default = "qs")
+  prefer_type <- getOption("nflreadr.prefer", default = "rds")
 
-  if(!prefer_type %in% c("qs", "parquet", "rds", "csv")) {
+  if(!prefer_type %in% c("rds", "parquet", "qs", "csv")) {
+
     packageStartupMessage("Note: nflreadr.prefer is set to ",
                           prefer_type,
-                          'and should be one of c("qs", "parquet", "rds", "csv")')
+                          'and should be one of c("qs", "parquet", "rds", "csv"). \n,',
+                          'Defaulting back to "rds"')
+
+    options("nflreadr.prefer" = "rds")
   }
 
   # validate nflreadr.cache
@@ -64,12 +81,15 @@
   memoise_option <- getOption("nflreadr.cache",default = "memory")
 
   if (!memoise_option %in% c("memory", "filesystem", "off")) {
+
     packageStartupMessage('Note: nflreadr.cache is set to "',
                           memoise_option,
                           '" and should be one of c("memory","filesystem", "off"). \n',
                           'Defaulting to "memory".')
-    memoise_option <- "memory"
+
+    options("nflreadr.cache" = "memory")
   }
+
   if(memoise_option == "off") packageStartupMessage('Note: nflreadr.cache is set to "off"')
 }
 
