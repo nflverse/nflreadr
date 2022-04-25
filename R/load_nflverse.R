@@ -318,7 +318,7 @@ load_injuries <- function(seasons = most_recent_season(),
   out <- rbindlist_with_attrs(out)
 
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  
+
   out
 }
 
@@ -576,5 +576,33 @@ load_trades <- function(seasons = TRUE){
   if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   attr(out,"nflverse_type") <- "trades (via PFR)"
+  out
+}
+
+#' Load Historical Player Contracts from OverTheCap.com
+#'
+#' @description Loads player contracts from OverTheCap.com
+#'
+#' @param file_type One of `"rds"` or `"qs"`.
+#'   Can also be set globally with options(nflreadr.prefer)
+#'
+#' @examples
+#' \donttest{
+#'   load_otc_contracts()
+#' }
+#'
+#' @return A tibble of active and non-active NFL player contracts.
+#'
+#' @seealso <https://overthecap.com/contract-history/> for a web version of the data
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/rotc>
+#'
+#' @export
+load_otc_contracts <- function(file_type = getOption("nflreadr.prefer", default = "qs")){
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  loader <- choose_loader(file_type)
+  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
+                "otc_contract_data/otc_historical_contracts.", file_type)
+  out <- loader(url)
+  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
 }
