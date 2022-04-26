@@ -61,15 +61,16 @@ test_that("download_local downloads files",{
 
   expect_error(
     expect_warning(
-      download_nflverse(temp_dir,releases = "asdf"),
+      download_nflverse("asdf", folder_path = temp_dir),
       "Could not find"
     ),
     "No matching releases"
   )
 
-  download_nflverse(folder_path = temp_dir,
-                 releases = c("combine","contracts"),
-                 file_type = "parquet")
+  download_nflverse(
+    combine, "contracts",
+    folder_path = temp_dir,
+    file_type = "parquet")
 
   expect_true(
     length(list.files(temp_dir,recursive = TRUE)) >= 2
