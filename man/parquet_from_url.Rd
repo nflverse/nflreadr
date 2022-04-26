@@ -13,12 +13,12 @@ parquet_from_url(url)
 a dataframe as parsed by \code{\link[arrow:read_parquet]{arrow::read_parquet()}}
 }
 \description{
-Load .parquet file from a remote connection
+Retrieves a parquet file from URL. This function is cached
 }
 \examples{
 \donttest{
 parquet_from_url(
-"https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+  "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
 )
 }
 }

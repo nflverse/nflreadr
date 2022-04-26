@@ -48,7 +48,7 @@ csv_from_url <- function(...){
 #' Load raw filedata from a remote connection
 #'
 #' This function allows you to retrieve data from a URL into raw format, which
-#' can then be passed into the appropriate file-reading function, such as `arrow::read_parquet()`
+#' can then be passed into the appropriate file-reading function. Data is memoised/cached for 24 hours.
 #'
 #' @param url a character url
 #'
@@ -82,6 +82,8 @@ raw_from_url <- function(url){
 
 #' Load .parquet file from a remote connection
 #'
+#' Retrieves a parquet file from URL. This function is cached
+#'
 #' @param url a character url
 #'
 #' @export
@@ -91,7 +93,7 @@ raw_from_url <- function(url){
 #' @examples
 #' \donttest{
 #' parquet_from_url(
-#' "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
 #' )
 #' }
 parquet_from_url <- function(url){

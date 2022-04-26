@@ -4,14 +4,12 @@
 \alias{download_local}
 \title{Bulk download utilities via piggyback}
 \usage{
-download_local(folder_path, releases = TRUE, seasons = TRUE, file_type = "rds")
+download_local(folder_path = ".", releases = "pbp", file_type = "rds")
 }
 \arguments{
 \item{folder_path}{a folder in which subfolders will be created for each release}
 
 \item{releases}{one or more of the available releases, or \code{TRUE} to include all available releases - defaults to \code{"pbp"}}
-
-\item{seasons}{a numeric vector of seasons to include, or \code{TRUE} to include all available seasons - defaults to \code{TRUE}}
 
 \item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} - defaults to "rds"}
 }
