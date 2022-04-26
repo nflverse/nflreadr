@@ -37,7 +37,7 @@
     options("nflreadr.verbose" = TRUE)
   }
 
-  #' validate suggested package installation
+  # validate suggested package installation
   if(!is.null(getOption("nflreadr.prefer")) && getOption("nflreadr.prefer") %in% c("qs","parquet")){
 
     switch(getOption("nflreadr.prefer"),
