@@ -8,7 +8,7 @@ test_that("from_url fails nicely", {
     regexp = "Failed to readRDS"
   )
   expect_warning(
-    qs_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds"),
+    qs_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds"),
     regexp = "Failed to parse file"
   )
 
@@ -30,7 +30,7 @@ test_that("progress updates in raw_from_url work", {
   skip_if_offline("github.com")
 
   # enable progress updates in batch mode for testing the progress updates
-  options(progressr.enable = TRUE)
+  old <- options(progressr.enable = TRUE)
 
   urls <- rep("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds", 3)
 
@@ -52,4 +52,29 @@ test_that("progress updates in raw_from_url work", {
 
   expect_true(is.list(load))
   expect_true(is.raw(unlist(load)))
+  options(old)
+})
+
+test_that("download_local downloads files",{
+
+  temp_dir <- tempdir(check = TRUE)
+
+  expect_error(
+    expect_warning(
+      download_nflverse("asdf", folder_path = temp_dir),
+      "Could not find"
+    ),
+    "No matching releases"
+  )
+
+  download_nflverse(
+    combine, "contracts",
+    folder_path = temp_dir,
+    file_type = "parquet")
+
+  expect_true(
+    length(list.files(temp_dir,recursive = TRUE)) >= 2
+  )
+
+  unlink(temp_dir, recursive = TRUE)
 })

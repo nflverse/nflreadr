@@ -29,6 +29,7 @@ jobs:
           extra-packages: |
             any::covr
             local::.
+            ropensci/piggyback
 
       - name: Test coverage
         run: covr::codecov(token = "${{secrets.CODECOV_TOKEN}}")

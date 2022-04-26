@@ -14,7 +14,8 @@ knitr::opts_chunk$set(
 library(tibble)
 options(tibble.max_extra_cols = 10,
         tibble.bold = TRUE,
-        tibble.print_max = 5)
+        tibble.print_max = 5,
+        pillar.min_title_width = 5)
 ```
 
 # nflreadr <a href='https://nflreadr.nflverse.com'><img src='man/figures/logo.svg' align="right" width="25%" min-width="120px" /></a>
@@ -88,7 +89,9 @@ options(nflreadr.verbose)
 options(nflreadr.cache) 
 # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
-# one of "qs" or "rds"
+# one of "qs", "rds", "parquet", or "csv"
+options(nflreadr.download_path)
+# defaults to current working directory - change to specify where `download_nflverse()` places data.
 ```
 
 You can also configure `nflreadr` to display progress messages with the [`progressr` package](https://progressr.futureverse.org), e.g.

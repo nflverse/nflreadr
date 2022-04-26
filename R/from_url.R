@@ -17,7 +17,7 @@ rds_from_url <- function(url) {
   load <- try(readRDS(con), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to readRDS from <", url, ">"), call. = FALSE)
+    cli::cli_warn("Failed to readRDS from {.url {url}}")
     return(data.table::data.table())
   }
 
@@ -48,7 +48,7 @@ csv_from_url <- function(...){
 #' Load raw filedata from a remote connection
 #'
 #' This function allows you to retrieve data from a URL into raw format, which
-#' can then be passed into the appropriate file-reading function, such as `arrow::read_parquet()`
+#' can then be passed into the appropriate file-reading function. Data is memoised/cached for 24 hours.
 #'
 #' @param url a character url
 #'
@@ -67,12 +67,54 @@ raw_from_url <- function(url){
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
+  if(inherits(load, "try-error")) {
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
+    return(invisible(load))
+  }
+
   if (load$status_code!=200) {
-    warning(paste0("HTTP error",load$status_code," while retrieving data from <",url,"> \n Returning request payload."), call. = FALSE)
-    return(load)
+    cli::cli_warn("HTTP error {.emph {load$status_code}} while retrieving data from {.url {url}}\nReturning request payload.")
+    return(invisible(load))
   }
 
   load$content
+}
+
+#' Load .parquet file from a remote connection
+#'
+#' Retrieves a parquet file from URL. This function is cached
+#'
+#' @param url a character url
+#'
+#' @export
+#'
+#' @return a dataframe as parsed by [`arrow::read_parquet()`]
+#'
+#' @examples
+#' \donttest{
+#' parquet_from_url(
+#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#' )
+#' }
+parquet_from_url <- function(url){
+  rlang::check_installed("arrow")
+  cache_message()
+  load <- try(curl::curl_fetch_memory(url), silent = TRUE)
+
+  if (inherits(load, "try-error")) {
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
+    return(data.table::data.table())
+  }
+
+  content <- try(arrow::read_parquet(load$content), silent = TRUE)
+
+  if (inherits(content, "try-error")) {
+    cli::cli_warn("Failed to parse file with {.fun arrow::read_parquet()} from {.url {url}}")
+    return(data.table::data.table())
+  }
+
+  data.table::setDT(content)
+  return(content)
 }
 
 #' Load .qs file from a remote connection
@@ -90,18 +132,24 @@ raw_from_url <- function(url){
 #' )
 #' }
 qs_from_url <- function(url){
+  rlang::check_installed("qs")
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
   if (inherits(load, "try-error")) {
-    warning(paste0("Failed to retrieve data from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to retrieve data from {.url {url}}")
     return(data.table::data.table())
   }
 
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
-    warning(paste0("Failed to parse file with qs::qdeserialize() from <",url,">"), call. = FALSE)
+    cli::cli_warn("Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}")
+
+    rlang::check_installed(
+      pkg = c("Rcpp (>= 1.0.8)","RcppParallel (>= 5.1.5)"),
+      reason = "- updating these packages frequently resolves qs-related issues.")
+
     return(data.table::data.table())
   }
 

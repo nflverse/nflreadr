@@ -30,15 +30,17 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 choose_loader <- function(type) {
   switch(type,
     "rds" = rds_from_url,
-    "qs" = qs_from_url
+    "qs" = qs_from_url,
+    "parquet" = parquet_from_url,
+    "csv" = csv_from_url
   )
 }
 
 #' @keywords internal
 "_PACKAGE"
 
-#' @importFrom Rcpp getRcppVersion
-#' @importFrom RcppParallel defaultNumThreads
+# @importFrom Rcpp getRcppVersion
+# @importFrom RcppParallel defaultNumThreads
 NULL
 
 `%c%` <- function(x,y){
