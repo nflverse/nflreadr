@@ -2,7 +2,7 @@
 
 ## New data and functions
 
-- `load_otc_contracts()` downloads (historical) player contracts from the [OverTheCap.com](https://overthecap.com/contract-history/)
+- `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
