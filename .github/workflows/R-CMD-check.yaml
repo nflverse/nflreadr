@@ -53,6 +53,7 @@ jobs:
           cache-version: 2
           extra-packages: |
             rcmdcheck
+            ropensci/piggyback
 
       - name: Check
         env:

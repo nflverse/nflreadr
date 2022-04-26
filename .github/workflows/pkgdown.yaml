@@ -29,6 +29,7 @@ jobs:
           extra-packages: |
             any::pkgdown
             local::.
+            ropensci/piggyback
 
 
       - name: Deploy package
