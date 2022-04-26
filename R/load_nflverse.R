@@ -583,7 +583,7 @@ load_trades <- function(seasons = TRUE){
 #'
 #' @description Loads player contracts from OverTheCap.com
 #'
-#' @param file_type One of `"rds"` or `"qs"`.
+#' @param file_type One of `"rds"`, `"qs"`, `"csv"`, or `"parquet"`.
 #'   Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -600,10 +600,10 @@ load_trades <- function(seasons = TRUE){
 #'
 #' @export
 load_contracts <- function(file_type = getOption("nflreadr.prefer", default = "qs")){
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet","csv"))
   loader <- choose_loader(file_type)
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
-                "contract_data/historical_contracts.", file_type)
+                "contracts/historical_contracts.", file_type)
   out <- loader(url)
   class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
   out
