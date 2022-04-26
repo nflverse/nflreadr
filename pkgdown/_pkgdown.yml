@@ -115,6 +115,8 @@ navbar:
           href: articles/dictionary_depth_charts.html
         - text: Trades
           href: articles/dictionary_trades.html
+        - text: Contracts
+          href: articles/dictionary_contracts.html
 
     more:
       text: "Packages & More"
