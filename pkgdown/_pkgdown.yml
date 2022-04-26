@@ -20,7 +20,7 @@ reference:
   - "load_pfr_advstats"
   - "load_snap_counts"
   - "load_contracts"
-  - "download_local"
+  - "download_nflverse"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
