@@ -64,7 +64,7 @@ download_nflverse <- function(...,
 
   cli::cli_alert_info("Now downloading {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")
 
-  lapply(split(download_list,download_list$tag),
+  lapply(data.table::split(x = download_list, by = tag),
          function(x){
            piggyback::pb_download(
              file = x$file_name,
