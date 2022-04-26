@@ -4,14 +4,18 @@
 \alias{download_local}
 \title{Bulk download utilities via piggyback}
 \usage{
-download_local(folder_path = ".", releases = "pbp", file_type = "rds")
+download_local(
+  folder_path = ".",
+  releases = "pbp",
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{folder_path}{a folder in which subfolders will be created for each release}
 
 \item{releases}{one or more of the available releases, or \code{TRUE} to include all available releases - defaults to \code{"pbp"}}
 
-\item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} - defaults to "rds"}
+\item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} - defaults to file type specified in \code{options(nflreadr.prefer)}}
 }
 \description{
 This function downloads or updates data from the nflverse-data repository releases,

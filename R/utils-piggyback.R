@@ -5,10 +5,12 @@
 #'
 #' @param folder_path a folder in which subfolders will be created for each release
 #' @param releases one or more of the available releases, or `TRUE` to include all available releases - defaults to `"pbp"`
-#' @param file_type one of `c("rds","parquet", "csv", "qs")` - defaults to "rds"
+#' @param file_type one of `c("rds","parquet", "csv", "qs")` - defaults to file type specified in `options(nflreadr.prefer)`
 #'
 #' @export
-download_local <- function(folder_path = ".", releases = "pbp", file_type = "rds"){
+download_local <- function(folder_path = ".",
+                           releases = "pbp",
+                           file_type = getOption("nflreadr.prefer", default = "rds")){
 
   file_name <- NULL
   tag <- NULL
