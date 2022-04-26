@@ -60,3 +60,6 @@ load_depth_charts() |>
 
 load_trades() |>
   dict_check(dictionary_trades)
+
+load_contracts() |>
+  dict_check(dictionary_contracts)

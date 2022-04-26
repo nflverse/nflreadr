@@ -127,6 +127,14 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_trades.html>
 "dictionary_trades"
 
+#' Data Dictionary: Contracts
+#'
+#' A dataframe containing the data dictionary for [`load_contracts()`]
+#'
+#' @seealso `vignette("Data Dictionary - Contracts")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_contracts.html>
+"dictionary_contracts"
+
 #' Alternate player name mappings
 #'
 #' A named character vector mapping common alternate names, re-exported from `ffscrapr`.

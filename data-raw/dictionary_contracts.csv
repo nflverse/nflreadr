@@ -1,0 +1,16 @@
+field,data_type,description
+player,character,Player name
+position,character,Player's position
+team,character,Player's team
+is_active,logical,Active contract
+year_signed,numeric,Year the contract was signed
+years,numeric,Contract length
+value,numeric,Total contract value
+apy,numeric,Average money per contract year
+guaranteed,numeric,Total guaranteed money
+apy_cap_pct,numeric,Average money per contract year as percentage of the team's salary cap at signing
+inflated_value,numeric,Total contract value inflated to account for the rise of the salary cap
+inflated_apy,numeric,Average money per contract year inflated to account for the rise of the salary cap
+inflated_guaranteed,numeric,Total guaranteed money inflated to account for the rise of the salary cap
+player_page,character,Player's OverTheCap url
+otc_id,numeric,Player's OverTheCap ID
