@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.03</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.05</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,7 +150,7 @@
     If type coercion results in an error, introduces <code>NA</code>s, or would result in loss of accuracy, the coercion attempt is aborted for that column with warning and the column's type is left unchanged. If you really desire data loss (e.g. reading <code>3.14</code> as <code>integer</code>) you have to truncate such columns afterwards yourself explicitly so that this is clear to future readers of your code.</p></dd>
 
     <dt><code>integer64</code></dt>
-<dd><p>"integer64" (default) reads columns detected as containing integers larger than 2^31 as type <code>bit64::integer64</code>. Alternatively, <code>"double"|"numeric"</code> reads as <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.csv</a></code> does; i.e., possibly with loss of precision and if so silently. Or, "character".</p></dd>
+<dd><p>"integer64" (default) reads columns detected as containing integers larger than 2^31 as type <code><a href="https://rdrr.io/pkg/bit64/man/bit64-package.html" class="external-link">bit64::integer64</a></code>. Alternatively, <code>"double"|"numeric"</code> reads as <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.csv</a></code> does; i.e., possibly with loss of precision and if so silently. Or, "character".</p></dd>
 
     <dt><code>dec</code></dt>
 <dd><p>The decimal separator as in <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">utils::read.csv</a></code>. If not "." (default) then usually ",". See details.</p></dd>

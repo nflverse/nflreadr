@@ -148,6 +148,9 @@
     <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/download_nflverse.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/index.html</loc>
   </url>
   <url>
@@ -212,6 +215,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/nflreadr-package.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/parquet_from_url.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/player_name_mapping.html</loc>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.03</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.05</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,13 +96,18 @@
 <h3 id="new-data-and-functions-development-version">New data and functions<a class="anchor" aria-label="anchor" href="#new-data-and-functions-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history/" class="external-link">OverTheCap.com</a>
-</li></ul></div>
+</li>
+<li>
+<code>download_local()</code> downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="fixes-development-version">fixes<a class="anchor" aria-label="anchor" href="#fixes-development-version"></a></h3>
 <ul><li>moved rbindlist to a helper that manages attributes better (v1.2.0.01)</li>
 <li>update <code>dictionary_snap_counts</code> and <code>dictionary_schedules</code> with some missing fields (v1.2.0.02)</li>
-</ul><hr><p>–</p>
-</div>
+<li>rewrite from_url error messages to use cli and improve usefulness (v1.2.0.04)</li>
+<li>bump minimum rlang version to 1.0.0</li>
+<li>add piggyback suggested dependency</li>
+</ul><hr></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.0" id="nflreadr-120">nflreadr 1.2.0<a class="anchor" aria-label="anchor" href="#nflreadr-120"></a></h2><p class="text-muted">CRAN release: 2022-03-17</p>
