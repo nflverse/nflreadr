@@ -131,6 +131,8 @@ options(nflreadr.cache)
 # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
 # one of "qs", "rds", "parquet", or "csv"
+options(nflreadr.download_path)
+# defaults to current working directory - change to specify where `download_nflverse()` places data.
 ```
 
 You can also configure `nflreadr` to display progress messages with the
