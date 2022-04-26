@@ -59,10 +59,10 @@ download_nflverse <- function(...,
 
   if(any(!releases %in% download_list$tag)){
     missing <- releases[!releases %in% download_list$tag]
-    cli::cli_warn("Could not find files of type {.val file_type} for the following releases: {.val {missing}}. Skipping.")
+    cli::cli_warn("Could not find files of type {.val {file_type}} for the following {cli::qty(missing)} release{?s}: {.val {missing}}. Please try another file type.")
   }
 
-  cli::cli_alert_info("Now downloading {.val {nrow(download_list)}} file(s) to {.file {folder_path}}.")
+  cli::cli_alert_info("Now downloading {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")
 
   lapply(split(download_list,download_list$tag),
          function(x){
@@ -75,7 +75,7 @@ download_nflverse <- function(...,
            )
          })
 
-  cli::cli_alert_success("Downloaded {.val {nrow(download_list)}} file(s) to {.file {folder_path}}.")
+  cli::cli_alert_success("Downloaded {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")
 
   return(invisible(download_list))
 }
