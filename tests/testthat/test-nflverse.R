@@ -259,3 +259,15 @@ test_that("load_snap_counts", {
   expect_gt(nrow(counts), 20000)
 })
 
+test_that("load_contracts", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  contracts <- load_contracts()
+
+  expect_s3_class(contracts, "tbl_df")
+
+  expect_gt(nrow(contracts), 20000)
+})
+
