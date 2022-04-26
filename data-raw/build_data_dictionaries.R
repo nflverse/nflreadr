@@ -63,3 +63,7 @@ usethis::use_data(dictionary_depth_charts, overwrite = TRUE)
 dictionary_trades <- read.csv("data-raw/dictionary_trades.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_trades, overwrite = TRUE)
+
+dictionary_contracts <- read.csv("data-raw/dictionary_contracts.csv") |>
+  dplyr::mutate_all(stringr::str_squish)
+usethis::use_data(dictionary_contracts, overwrite = TRUE)
