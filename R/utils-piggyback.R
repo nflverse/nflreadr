@@ -26,6 +26,8 @@ download_local <- function(folder_path = ".", releases = "pbp", file_type = "rds
 
   if(isTRUE(releases)) releases <- all_releases$release_name
 
+  if(length(releases)==0) cli::cli_abort("No matching releases to download.")
+
   fs::dir_create(file.path(folder_path,releases))
 
   file_list <- piggyback::pb_list(repo = "nflverse/nflverse-data", tag = releases)

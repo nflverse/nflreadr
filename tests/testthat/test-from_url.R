@@ -54,3 +54,26 @@ test_that("progress updates in raw_from_url work", {
   expect_true(is.raw(unlist(load)))
   options(old)
 })
+
+test_that("download_local downloads files",{
+
+  temp_dir <- tempdir(check = TRUE)
+
+  expect_error(
+    expect_warning(
+      download_local(temp_dir,releases = "asdf"),
+      "Could not find"
+    ),
+    "No matching releases"
+  )
+
+  download_local(folder_path = temp_dir,
+                 releases = c("combine","contracts"),
+                 file_type = "parquet")
+
+  expect_true(
+    length(list.files(temp_dir,recursive = TRUE)) >= 2
+  )
+
+  unlink(temp_dir, recursive = TRUE)
+})
