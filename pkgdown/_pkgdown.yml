@@ -19,6 +19,7 @@ reference:
   - "load_espn_qbr"
   - "load_pfr_advstats"
   - "load_snap_counts"
+  - "load_contracts"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
@@ -114,6 +115,8 @@ navbar:
           href: articles/dictionary_depth_charts.html
         - text: Trades
           href: articles/dictionary_trades.html
+        - text: Contracts
+          href: articles/dictionary_contracts.html
 
     more:
       text: "Packages & More"
