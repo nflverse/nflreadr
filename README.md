@@ -63,43 +63,49 @@ load_pbp(2021)
 #> -- nflverse play by play -------------------------------------------------------
 #> i Data updated: 2022-03-18 00:40:27 EDT
 #> # A tibble: 50,712 x 372
-#>    play_id game_id     old_game_id home_team away_team season_type  week posteam
-#>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
-#>  1       1 2021_01_AR~ 2021091207  TEN       ARI       REG             1 <NA>   
-#>  2      40 2021_01_AR~ 2021091207  TEN       ARI       REG             1 TEN    
-#>  3      55 2021_01_AR~ 2021091207  TEN       ARI       REG             1 TEN    
-#>  4      76 2021_01_AR~ 2021091207  TEN       ARI       REG             1 TEN    
-#>  5     100 2021_01_AR~ 2021091207  TEN       ARI       REG             1 TEN    
-#>  6     122 2021_01_AR~ 2021091207  TEN       ARI       REG             1 TEN    
-#>  7     152 2021_01_AR~ 2021091207  TEN       ARI       REG             1 ARI    
-#>  8     181 2021_01_AR~ 2021091207  TEN       ARI       REG             1 ARI    
-#>  9     218 2021_01_AR~ 2021091207  TEN       ARI       REG             1 ARI    
-#> 10     253 2021_01_AR~ 2021091207  TEN       ARI       REG             1 ARI    
-#> # ... with 50,702 more rows, and 364 more variables: posteam_type <chr>,
-#> #   defteam <chr>, side_of_field <chr>, yardline_100 <dbl>, game_date <chr>,
-#> #   quarter_seconds_remaining <dbl>, half_seconds_remaining <dbl>,
-#> #   game_seconds_remaining <dbl>, game_half <chr>, quarter_end <dbl>, ...
+#>    pla~1 gam~2 old~3 hom~4 awa~5 sea~6  week pos~7 pos~8 def~9 sid~* yar~* gam~*
+#>    <dbl> <chr> <chr> <chr> <chr> <chr> <int> <chr> <chr> <chr> <chr> <dbl> <chr>
+#>  1     1 2021~ 2021~ TEN   ARI   REG       1 <NA>  <NA>  <NA>  <NA>     NA 2021~
+#>  2    40 2021~ 2021~ TEN   ARI   REG       1 TEN   home  ARI   ARI      35 2021~
+#>  3    55 2021~ 2021~ TEN   ARI   REG       1 TEN   home  ARI   TEN      75 2021~
+#>  4    76 2021~ 2021~ TEN   ARI   REG       1 TEN   home  ARI   TEN      78 2021~
+#>  5   100 2021~ 2021~ TEN   ARI   REG       1 TEN   home  ARI   TEN      75 2021~
+#>  6   122 2021~ 2021~ TEN   ARI   REG       1 TEN   home  ARI   TEN      75 2021~
+#>  7   152 2021~ 2021~ TEN   ARI   REG       1 ARI   away  TEN   ARI      61 2021~
+#>  8   181 2021~ 2021~ TEN   ARI   REG       1 ARI   away  TEN   TEN      23 2021~
+#>  9   218 2021~ 2021~ TEN   ARI   REG       1 ARI   away  TEN   TEN      31 2021~
+#> 10   253 2021~ 2021~ TEN   ARI   REG       1 ARI   away  TEN   TEN      30 2021~
+#> # ... with 50,702 more rows, abbreviated variable names 1: play_id, 2: game_id,
+#> #   3: old_game_id, 4: home_team, 5: away_team, 6: season_type, 7: posteam,
+#> #   8: posteam_type, 9: defteam, *: side_of_field, *: yardline_100,
+#> #   *: game_date, and 359 more variables: quarter_seconds_remaining <dbl>,
+#> #   half_seconds_remaining <dbl>, game_seconds_remaining <dbl>,
+#> #   game_half <chr>, quarter_end <dbl>, drive <dbl>, sp <dbl>, qtr <dbl>,
+#> #   down <dbl>, goal_to_go <dbl>, ...
 
 load_player_stats(2021)
 #> -- nflverse player stats: offense ----------------------------------------------
 #> i Data updated: 2022-03-09 15:34:12 EST
 #> # A tibble: 5,698 x 48
-#>    player_id  player_name recent_team season  week season_type completions
-#>    <chr>      <chr>       <chr>        <int> <int> <chr>             <int>
-#>  1 00-0019596 T.Brady     TB            2021     1 REG                  32
-#>  2 00-0019596 T.Brady     TB            2021     2 REG                  24
-#>  3 00-0019596 T.Brady     TB            2021     3 REG                  41
-#>  4 00-0019596 T.Brady     TB            2021     4 REG                  22
-#>  5 00-0019596 T.Brady     TB            2021     5 REG                  30
-#>  6 00-0019596 T.Brady     TB            2021     6 REG                  34
-#>  7 00-0019596 T.Brady     TB            2021     7 REG                  20
-#>  8 00-0019596 T.Brady     TB            2021     8 REG                  28
-#>  9 00-0019596 T.Brady     TB            2021    10 REG                  23
-#> 10 00-0019596 T.Brady     TB            2021    11 REG                  30
-#> # ... with 5,688 more rows, and 41 more variables: attempts <int>,
-#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, sacks <dbl>,
-#> #   sack_yards <dbl>, sack_fumbles <int>, sack_fumbles_lost <int>,
-#> #   passing_air_yards <dbl>, passing_yards_after_catch <dbl>, ...
+#>    pla~1 pla~2 rec~3 sea~4  week sea~5 com~6 att~7 pas~8 pas~9 int~* sacks sac~*
+#>    <chr> <chr> <chr> <int> <int> <chr> <int> <int> <dbl> <int> <dbl> <dbl> <dbl>
+#>  1 00-0~ T.Br~ TB     2021     1 REG      32    50   379     4     2     0     0
+#>  2 00-0~ T.Br~ TB     2021     2 REG      24    36   276     5     0     3    17
+#>  3 00-0~ T.Br~ TB     2021     3 REG      41    55   432     1     0     3    21
+#>  4 00-0~ T.Br~ TB     2021     4 REG      22    43   269     0     0     1     8
+#>  5 00-0~ T.Br~ TB     2021     5 REG      30    41   411     5     0     2    15
+#>  6 00-0~ T.Br~ TB     2021     6 REG      34    42   297     2     1     0     0
+#>  7 00-0~ T.Br~ TB     2021     7 REG      20    36   211     4     0     0     0
+#>  8 00-0~ T.Br~ TB     2021     8 REG      28    40   375     4     2     3    25
+#>  9 00-0~ T.Br~ TB     2021    10 REG      23    34   220     2     2     0     0
+#> 10 00-0~ T.Br~ TB     2021    11 REG      30    46   307     2     1     0     0
+#> # ... with 5,688 more rows, abbreviated variable names 1: player_id,
+#> #   2: player_name, 3: recent_team, 4: season, 5: season_type, 6: completions,
+#> #   7: attempts, 8: passing_yards, 9: passing_tds, *: interceptions,
+#> #   *: sack_yards, and 35 more variables: sack_fumbles <int>,
+#> #   sack_fumbles_lost <int>, passing_air_yards <dbl>,
+#> #   passing_yards_after_catch <dbl>, passing_first_downs <dbl>,
+#> #   passing_epa <dbl>, passing_2pt_conversions <int>, pacr <dbl>, ...
 ```
 
 ## Data Sources
