@@ -17,7 +17,7 @@
 #'
 #'   download_nflverse(combine, contracts, folder_path = temp_dir, file_type = "parquet")
 #'
-#'   unlink(temp_dir, recursive = TRUE) # cleanup
+#'   unlink(temp_dir) # cleanup
 #' })
 #' }
 #' }
