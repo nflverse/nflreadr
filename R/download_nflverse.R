@@ -15,9 +15,12 @@
 #' try({
 #'   temp_dir <- tempdir()
 #'
+#'   ## could also set options like
+#'   # options(nflreadr.download_path = temp_dir, nflreadr.prefer = "parquet")
+#'
 #'   download_nflverse(combine, contracts, folder_path = temp_dir, file_type = "parquet")
 #'
-#'   unlink(temp_dir) # cleanup
+#'   list.files(temp_dir,pattern = ".parquet$") # check that files were downloaded!
 #' })
 #' }
 #' }
@@ -30,7 +33,7 @@ download_nflverse <- function(...,
   file_name <- NULL
   tag <- NULL
 
-  rlang::check_installed(c("piggyback (> 0.1.1)","fs"))
+  rlang::check_installed(c("piggyback (>= 0.1.2)","fs"))
   rlang::arg_match0(file_type, c("rds","csv","parquet","qs"))
   stopifnot(
     length(folder_path) == 1,

@@ -30,9 +30,12 @@ creating subfolders that match the release structure.
 try({
   temp_dir <- tempdir()
 
+  ## could also set options like
+  # options(nflreadr.download_path = temp_dir, nflreadr.prefer = "parquet")
+
   download_nflverse(combine, contracts, folder_path = temp_dir, file_type = "parquet")
 
-  unlink(temp_dir) # cleanup
+  list.files(temp_dir,pattern = ".parquet$") # check that files were downloaded!
 })
 }
 }
