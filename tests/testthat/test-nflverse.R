@@ -269,5 +269,6 @@ test_that("load_contracts", {
   expect_s3_class(contracts, "tbl_df")
 
   expect_gt(nrow(contracts), 20000)
+  expect_message(print(contracts), regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
 })
 
