@@ -57,6 +57,9 @@ test_that("progress updates in raw_from_url work", {
 
 test_that("download_local downloads files",{
 
+  skip_on_cran()
+  skip_if_offline("github.com")
+  
   temp_dir <- tempdir(check = TRUE)
 
   expect_error(
