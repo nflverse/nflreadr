@@ -67,6 +67,15 @@ test_that("download_local downloads files",{
     "No matching releases"
   )
 
+  expect_warning(
+    download_nflverse(
+      combine, "contracts",
+      folder_path = temp_dir,
+      file_type = "qs"
+    ),
+    regexp = "Please try another file type."
+  )
+
   download_nflverse(
     combine, "contracts",
     folder_path = temp_dir,
@@ -76,5 +85,4 @@ test_that("download_local downloads files",{
     length(list.files(temp_dir,recursive = TRUE)) >= 2
   )
 
-  unlink(temp_dir, recursive = TRUE)
 })
