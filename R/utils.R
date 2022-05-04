@@ -76,3 +76,6 @@ rbindlist_with_attrs <- function(dflist){
   attr(out,"nflverse_type") <- nflverse_type
   out
 }
+
+#' @exportClass nflverse_data
+methods::setOldClass(c("nflverse_data","tbl_df","tbl","data.frame"))

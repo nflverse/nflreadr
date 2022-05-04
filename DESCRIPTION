@@ -25,6 +25,7 @@ Imports:
     data.table (>= 1.14.0),
     glue (>= 1.4.0),
     memoise (>= 2.0.0),
+    methods,
     rappdirs (>= 0.3.0),
     rlang (>= 0.4.10),
     utils
