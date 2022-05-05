@@ -36,7 +36,9 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_pfr_advstats()
+#' })
 #' }
 #'
 #' @return A tibble of player statistics provided by Pro Football Reference that supplements data in nflverse

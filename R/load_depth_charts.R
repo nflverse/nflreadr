@@ -6,7 +6,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_depth_charts(2020)
+#' })
 #' }
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html> for a web version of the dictionary

@@ -26,8 +26,10 @@ Load Player Level Weekly Stats
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_player_stats()
   load_player_stats(stat_type = "kicking")
+})
 }
 
 }

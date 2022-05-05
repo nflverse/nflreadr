@@ -17,6 +17,8 @@ Load .rds file from a remote connection
 }
 \examples{
 \donttest{
-rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+try({ # prevents cran errors
+  rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+})
 }
 }

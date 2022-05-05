@@ -7,8 +7,10 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_player_stats()
 #'   load_player_stats(stat_type = "kicking")
+#' })
 #' }
 #'
 #' @return A tibble of week-level player statistics that aims to match NFL official box scores.

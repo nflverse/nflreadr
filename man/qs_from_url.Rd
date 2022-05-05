@@ -17,8 +17,10 @@ Load .qs file from a remote connection
 }
 \examples{
 \donttest{
-qs_from_url(
-"https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
-)
+try({
+  qs_from_url(
+    "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
+  )
+})
 }
 }

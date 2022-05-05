@@ -17,7 +17,9 @@ Accesses DynastyProcess.com's repository of the latest FP expert consensus ranki
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
 load_ff_rankings()
+})
 }
 
 }

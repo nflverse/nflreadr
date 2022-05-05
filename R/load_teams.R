@@ -4,7 +4,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_teams()
+#' })
 #' }
 #'
 #' @return A tibble of team-level image URLs and hex color codes.

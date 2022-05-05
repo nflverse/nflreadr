@@ -11,6 +11,7 @@
 - rewrite from_url error messages to use cli and improve usefulness (v1.2.0.04)
 - bump minimum rlang version to 1.0.0
 - add piggyback suggested dependency
+- Export old class to support S4/DBI/`nflfastR::update_db()` as if it were a tibble. (v1.2.0.06)
 
 
 ---

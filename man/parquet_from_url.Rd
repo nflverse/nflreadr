@@ -17,8 +17,10 @@ Retrieves a parquet file from URL. This function is cached
 }
 \examples{
 \donttest{
-parquet_from_url(
-  "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
-)
+try({
+  parquet_from_url(
+    "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+  )
+})
 }
 }

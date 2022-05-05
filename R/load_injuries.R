@@ -7,7 +7,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({# prevents cran errors
 #'     load_injuries(2020)
+#' })
 #' }
 #'
 #' @return a tibble of season-level injury report data.

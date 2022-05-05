@@ -26,7 +26,9 @@ starting with the 2018 season, primarily to augment existing nflverse data.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_pfr_advstats()
+})
 }
 
 }

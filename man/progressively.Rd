@@ -23,6 +23,8 @@ This is inspired by purrr's \code{safely}, \code{quietly}, and \code{possibly} f
 \examples{
 
 \donttest{
+try({ # prevents cran errors
+
 read_rosters <- function(){
   urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
@@ -32,6 +34,8 @@ read_rosters <- function(){
 }
 
 progressr::with_progress(read_rosters())
+
+})
 }
 
 }

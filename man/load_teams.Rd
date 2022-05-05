@@ -14,7 +14,9 @@ Loads team graphics, colors, and logos - useful for plots!
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_teams()
+})
 }
 
 }

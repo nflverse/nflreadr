@@ -7,7 +7,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_contracts()
+#' })
 #' }
 #'
 #' @return A tibble of active and non-active NFL player contracts.

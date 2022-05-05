@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.2.0.05
+Version: 1.2.0.06
 Authors@R: c(
     person("Tan", "Ho", , "tan@tanho.ca", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8388-5155")),
@@ -25,6 +25,7 @@ Imports:
     data.table (>= 1.14.0),
     glue (>= 1.4.0),
     memoise (>= 2.0.0),
+    methods,
     rappdirs (>= 0.3.0),
     rlang (>= 0.4.10),
     utils

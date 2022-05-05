@@ -24,7 +24,9 @@ Loads play by play seasons from the \href{https://github.com/nflverse/nflverse-d
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_pbp(2019:2020)
+})
 }
 }
 \seealso{

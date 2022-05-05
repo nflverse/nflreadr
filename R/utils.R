@@ -6,6 +6,7 @@
 #'
 #' @param roster a TRUE/FALSE flag: if TRUE, returns the current year if March 1st or later. if FALSE, returns the current year if September 1st or later. Otherwise returns current year minus 1.
 #'
+#'
 #' @return season (a four digit numeric)
 #' @export
 most_recent_season <- function(roster = FALSE) {
@@ -76,3 +77,13 @@ rbindlist_with_attrs <- function(dflist){
   attr(out,"nflverse_type") <- nflverse_type
   out
 }
+
+#' nflverse data class
+#'
+#' This class has a special S3 print method that tries to read attached metadata and
+#' provide timestamps and source attributes. It otherwise will dispatch to the tibble
+#' `tbl_df`, `data.table`, or `data.frame` classes, in order.
+#'
+#' @name nflverse_data-class
+#' @exportClass nflverse_data
+methods::setOldClass(c("nflverse_data","tbl_df","tbl","data.table","data.frame"))

@@ -11,7 +11,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_pbp(2019:2020)
+#' })
 #' }
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pbp.html> for a web version of the data dictionary
 #' @seealso [`dictionary_pbp`] for the data dictionary bundled as a package dataframe
