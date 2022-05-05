@@ -19,7 +19,9 @@ Data collected from an API for weekly injury report data.
 }
 \examples{
 \donttest{
+try({# prevents cran errors
     load_injuries(2020)
+})
 }
 
 }

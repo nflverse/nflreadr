@@ -11,9 +11,11 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_nextgen_stats(stat_type = "passing")
 #'   load_nextgen_stats(stat_type = "receiving")
 #'   load_nextgen_stats(stat_type = "rushing")
+#' })
 #' }
 #'
 #' @return A tibble of week-level player statistics provided by NFL Next Gen Stats.

@@ -8,7 +8,9 @@
 #'
 #' @examples
 #' \donttest{
-#' rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+#' try({ # prevents cran errors
+#'   rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+#' })
 #' }
 rds_from_url <- function(url) {
   cache_message()
@@ -38,7 +40,9 @@ rds_from_url <- function(url) {
 #'
 #' @examples
 #' \donttest{
-#' csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
+#' try({ # prevents cran errors
+#'   csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
+#' })
 #' }
 csv_from_url <- function(...){
   cache_message()
@@ -92,9 +96,11 @@ raw_from_url <- function(url){
 #'
 #' @examples
 #' \donttest{
-#' parquet_from_url(
-#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
-#' )
+#' try({
+#'   parquet_from_url(
+#'     "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#'   )
+#' })
 #' }
 parquet_from_url <- function(url){
   rlang::check_installed("arrow")
@@ -127,9 +133,11 @@ parquet_from_url <- function(url){
 #'
 #' @examples
 #' \donttest{
-#' qs_from_url(
-#' "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
-#' )
+#' try({
+#'   qs_from_url(
+#'     "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.qs"
+#'   )
+#' })
 #' }
 qs_from_url <- function(url){
   rlang::check_installed("qs")
@@ -169,6 +177,8 @@ qs_from_url <- function(url){
 #' @examples
 #'
 #' \donttest{
+#' try({ # prevents cran errors
+#'
 #' read_rosters <- function(){
 #'   urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
 #'             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
@@ -178,6 +188,8 @@ qs_from_url <- function(url){
 #' }
 #'
 #' progressr::with_progress(read_rosters())
+#'
+#' })
 #' }
 #'
 #' @return a function that does the same as `f` but it calls `p()` after iteration.

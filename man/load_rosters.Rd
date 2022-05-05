@@ -18,7 +18,9 @@ Load Rosters
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_rosters(2020)
+})
 }
 
 }

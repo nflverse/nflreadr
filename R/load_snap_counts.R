@@ -7,7 +7,9 @@
 #'
 #' @examples
 #' \donttest{
+#'   try({ # prevents CRAN errors
 #'   load_snap_counts()
+#'   })
 #' }
 #'
 #' @return A tibble of game-level snap counts provided by Pro Football Reference.

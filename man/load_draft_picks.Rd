@@ -17,7 +17,9 @@ Loads every draft pick since 1980 courtesy of PFR.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_draft_picks()
+})
 }
 
 }

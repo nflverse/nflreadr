@@ -18,7 +18,9 @@ Loads player contracts from OverTheCap.com
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_contracts()
+})
 }
 
 }

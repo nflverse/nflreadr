@@ -29,9 +29,11 @@ players above a minimum number of pass/rush/rec attempts.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_nextgen_stats(stat_type = "passing")
   load_nextgen_stats(stat_type = "receiving")
   load_nextgen_stats(stat_type = "rushing")
+})
 }
 
 }

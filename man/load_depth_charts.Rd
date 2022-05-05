@@ -17,7 +17,9 @@ Loads depth charts for each NFL team for each week back to 2001.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_depth_charts(2020)
+})
 }
 
 }

@@ -14,7 +14,9 @@ Accesses DynastyProcess.com's database of fantasy football player IDs, which hel
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
 load_ff_playerids()
+})
 }
 
 }

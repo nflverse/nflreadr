@@ -12,7 +12,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'  load_schedules(2020)
+#' })
 #' }
 #'
 #' @export

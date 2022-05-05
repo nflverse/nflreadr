@@ -6,7 +6,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_combine()
+#' })
 #' }
 #'
 #' @return A tibble of NFL combine data provided by Pro Football Reference.

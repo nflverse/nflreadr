@@ -6,7 +6,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #'   load_draft_picks()
+#' })
 #' }
 #'
 #' @return A tibble of NFL draft picks provided by Pro Football Reference.

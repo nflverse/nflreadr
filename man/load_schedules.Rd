@@ -17,7 +17,9 @@ This returns game/schedule information as maintained by Lee Sharpe.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
  load_schedules(2020)
+})
 }
 
 }

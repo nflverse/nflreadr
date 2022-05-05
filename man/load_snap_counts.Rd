@@ -18,7 +18,9 @@ starting with the 2013 season.
 }
 \examples{
 \donttest{
+  try({ # prevents CRAN errors
   load_snap_counts()
+  })
 }
 
 }

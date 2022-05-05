@@ -6,7 +6,9 @@
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #' load_ff_playerids()
+#' })
 #' }
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.html> for the web data dictionary
@@ -30,7 +32,9 @@ load_ff_playerids <- function() {
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents cran errors
 #' load_ff_rankings()
+#' })
 #' }
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html> for the web data dictionary
@@ -65,7 +69,7 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
 #'
 #' @examples
 #' \donttest{
-#'   try({
+#'   try({ # prevents cran errors
 #'   load_ff_opportunity()
 #'   load_ff_opportunity(seasons = 2021, type = "pbp_pass", version = "v1.0.0")
 #'   })

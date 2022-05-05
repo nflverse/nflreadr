@@ -17,7 +17,9 @@ Loads combine data since 2000 courtesy of PFR.
 }
 \examples{
 \donttest{
+try({ # prevents cran errors
   load_combine()
+})
 }
 
 }
