@@ -55,7 +55,7 @@ test_that("progress updates in raw_from_url work", {
   options(old)
 })
 
-test_that("download_local downloads files",{
+test_that("download_nflverse downloads files",{
 
   skip_on_cran()
   skip_if_offline("github.com")
@@ -72,7 +72,7 @@ test_that("download_local downloads files",{
 
   expect_warning(
     download_nflverse(
-      combine, "contracts",
+      combine, "test",
       folder_path = temp_dir,
       file_type = "qs"
     ),
