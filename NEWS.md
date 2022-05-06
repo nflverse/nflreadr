@@ -4,6 +4,7 @@
 
 - `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
 - `download_local()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
+- `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
