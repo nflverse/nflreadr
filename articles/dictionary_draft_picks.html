@@ -38,7 +38,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.06</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.07</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,6 +133,11 @@
     
     
 <table class="table">
+<colgroup>
+<col width="18%">
+<col width="10%">
+<col width="70%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">field</th>
 <th align="left">data_type</th>
@@ -140,54 +145,184 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">season</td>
+<td align="left">integer</td>
+<td align="left">Draft Year</td>
+</tr>
+<tr class="even">
+<td align="left">round</td>
+<td align="left">integer</td>
+<td align="left">Draft round</td>
+</tr>
+<tr class="odd">
+<td align="left">pick</td>
+<td align="left">integer</td>
+<td align="left">Draft overall pick</td>
+</tr>
+<tr class="even">
 <td align="left">team</td>
 <td align="left">character</td>
-<td align="left">Team</td>
-</tr>
-<tr class="even">
-<td align="left">pfr_id</td>
-<td align="left">character</td>
-<td align="left">PFR player ID</td>
+<td align="left">Draft team</td>
 </tr>
 <tr class="odd">
-<td align="left">pfr_name</td>
+<td align="left">gsis_id</td>
 <td align="left">character</td>
-<td align="left">PFR player name</td>
+<td align="left">ID for joining with nflverse data</td>
 </tr>
 <tr class="even">
-<td align="left">player_id</td>
+<td align="left">pfr_player_id</td>
 <td align="left">character</td>
-<td align="left">GSIS player ID (missing for most players)</td>
+<td align="left">ID from Pro Football Reference</td>
 </tr>
 <tr class="odd">
-<td align="left">side</td>
+<td align="left">cfb_player_id</td>
 <td align="left">character</td>
-<td align="left">O for offense; D defense; S special teams</td>
+<td align="left">ID from College Football Reference</td>
 </tr>
 <tr class="even">
-<td align="left">category</td>
+<td align="left">pfr_player_name</td>
 <td align="left">character</td>
-<td align="left">Player’s position</td>
+<td align="left">Player’s name as recorded by PFR</td>
 </tr>
 <tr class="odd">
+<td align="left">hof</td>
+<td align="left">logical</td>
+<td align="left">Whether player has been selected to the Pro Football Hall of Fame</td>
+</tr>
+<tr class="even">
 <td align="left">position</td>
 <td align="left">character</td>
-<td align="left">Player’s postition</td>
-</tr>
-<tr class="even">
-<td align="left">season</td>
-<td align="left">numeric</td>
-<td align="left">Season</td>
+<td align="left">Player position as recorded by PFR</td>
 </tr>
 <tr class="odd">
-<td align="left">round</td>
-<td align="left">numeric</td>
-<td align="left">Round selected</td>
+<td align="left">category</td>
+<td align="left">character</td>
+<td align="left">Broader category of player positions</td>
 </tr>
 <tr class="even">
-<td align="left">pick</td>
+<td align="left">side</td>
+<td align="left">character</td>
+<td align="left">O for offense, D for defense, S for special teams</td>
+</tr>
+<tr class="odd">
+<td align="left">college</td>
+<td align="left">character</td>
+<td align="left">College attended in final year</td>
+</tr>
+<tr class="even">
+<td align="left">age</td>
+<td align="left">integer</td>
+<td align="left">Player age as of draft</td>
+</tr>
+<tr class="odd">
+<td align="left">to</td>
+<td align="left">integer</td>
+<td align="left">Final season played in NFL</td>
+</tr>
+<tr class="even">
+<td align="left">allpro</td>
 <td align="left">numeric</td>
-<td align="left">Overall pick number</td>
+<td align="left">Number of AP First Team All-Pro selections as recorded by PFR</td>
+</tr>
+<tr class="odd">
+<td align="left">probowls</td>
+<td align="left">numeric</td>
+<td align="left">Number of Pro Bowls</td>
+</tr>
+<tr class="even">
+<td align="left">seasons_started</td>
+<td align="left">numeric</td>
+<td align="left">Number of seasons recorded as primary starter for position</td>
+</tr>
+<tr class="odd">
+<td align="left">w_av</td>
+<td align="left">numeric</td>
+<td align="left">Weighted Approximate Value</td>
+</tr>
+<tr class="even">
+<td align="left">car_av</td>
+<td align="left">numeric</td>
+<td align="left">Career Approximate Value</td>
+</tr>
+<tr class="odd">
+<td align="left">dr_av</td>
+<td align="left">numeric</td>
+<td align="left">Draft Approximate Value</td>
+</tr>
+<tr class="even">
+<td align="left">games</td>
+<td align="left">numeric</td>
+<td align="left">Games played in career</td>
+</tr>
+<tr class="odd">
+<td align="left">pass_completions</td>
+<td align="left">numeric</td>
+<td align="left">Career pass completions</td>
+</tr>
+<tr class="even">
+<td align="left">pass_attempts</td>
+<td align="left">numeric</td>
+<td align="left">Career pass attempts</td>
+</tr>
+<tr class="odd">
+<td align="left">pass_yards</td>
+<td align="left">numeric</td>
+<td align="left">Career pass yards thrown</td>
+</tr>
+<tr class="even">
+<td align="left">pass_tds</td>
+<td align="left">numeric</td>
+<td align="left">Career pass touchdowns thrown</td>
+</tr>
+<tr class="odd">
+<td align="left">pass_ints</td>
+<td align="left">numeric</td>
+<td align="left">Career pass interceptions thrown</td>
+</tr>
+<tr class="even">
+<td align="left">rush_atts</td>
+<td align="left">numeric</td>
+<td align="left">Career rushing attempts</td>
+</tr>
+<tr class="odd">
+<td align="left">rush_yards</td>
+<td align="left">numeric</td>
+<td align="left">Career rushing yards</td>
+</tr>
+<tr class="even">
+<td align="left">rush_tds</td>
+<td align="left">numeric</td>
+<td align="left">Career rushing touchdowns</td>
+</tr>
+<tr class="odd">
+<td align="left">receptions</td>
+<td align="left">numeric</td>
+<td align="left">Career receptions</td>
+</tr>
+<tr class="even">
+<td align="left">rec_yards</td>
+<td align="left">numeric</td>
+<td align="left">Career receiving yards</td>
+</tr>
+<tr class="odd">
+<td align="left">rec_tds</td>
+<td align="left">numeric</td>
+<td align="left">Career receiving touchdowns</td>
+</tr>
+<tr class="even">
+<td align="left">def_solo_tackles</td>
+<td align="left">numeric</td>
+<td align="left">Career solo tackles</td>
+</tr>
+<tr class="odd">
+<td align="left">def_ints</td>
+<td align="left">numeric</td>
+<td align="left">Career interceptions</td>
+</tr>
+<tr class="even">
+<td align="left">def_sacks</td>
+<td align="left">numeric</td>
+<td align="left">Career sacks</td>
 </tr>
 </tbody>
 </table></main>
