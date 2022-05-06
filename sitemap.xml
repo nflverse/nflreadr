@@ -217,6 +217,9 @@
     <loc>https://nflreadr.nflverse.com/reference/nflreadr-package.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/nflverse_data-class.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/parquet_from_url.html</loc>
   </url>
   <url>
