@@ -49,6 +49,7 @@ reference:
   - starts_with("player_name")
   - starts_with("team_abbr")
   - "most_recent_season"
+  - "nflverse_data-class"
 
 authors:
   Tan Ho:
