@@ -11,7 +11,7 @@ dict_check <- function(df,dict){
     dplyr::pull(1) |>
     sort()
 
-  waldo::compare(actual_vars,dictionary_vars)
+  waldo::compare(actual_vars,dictionary_vars,max_diffs = Inf)
 }
 
 load_pbp() |>

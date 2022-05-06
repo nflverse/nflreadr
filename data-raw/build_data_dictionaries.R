@@ -28,7 +28,7 @@ dictionary_schedules <- read.csv("data-raw/dictionary_schedules.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_schedules, overwrite = TRUE)
 
-  dictionary_nextgen_stats <- read.csv2("data-raw/dictionary_nextgenstats.csv") |>
+dictionary_nextgen_stats <- read.csv2("data-raw/dictionary_nextgenstats.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_nextgen_stats, overwrite = TRUE)
 

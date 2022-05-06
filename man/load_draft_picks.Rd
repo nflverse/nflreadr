@@ -28,5 +28,5 @@ try({ # prevents cran errors
 
 \code{\link{dictionary_draft_picks}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/nfldata}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-data}
 }
