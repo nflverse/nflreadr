@@ -81,9 +81,9 @@ rbindlist_with_attrs <- function(dflist){
 #' nflverse data class
 #'
 #' This class has a special S3 print method that tries to read attached metadata and
-#' provide timestamps and source attributes. It otherwise will dispatch to the tibble
-#' `tbl_df`, `data.table`, or `data.frame` classes, in order.
+#' provide timestamps and source attributes. It otherwise will dispatch to the
+#' `data.frame` class.
 #'
 #' @name nflverse_data-class
 #' @exportClass nflverse_data
-methods::setOldClass(c("nflverse_data","tbl_df","tbl","data.table","data.frame"))
+methods::setOldClass(c("nflverse_data", "data.frame"))
