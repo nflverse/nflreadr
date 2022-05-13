@@ -21,7 +21,7 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
 #'
 #' @export
-load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "qs")) {
+load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {
 
   file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
   loader <- choose_loader(file_type)

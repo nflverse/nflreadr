@@ -6,7 +6,7 @@
 \usage{
 load_pbp(
   seasons = most_recent_season(),
-  file_type = getOption("nflreadr.prefer", default = "qs")
+  file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{

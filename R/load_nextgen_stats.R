@@ -32,7 +32,7 @@
 #' @export
 load_nextgen_stats <- function(seasons = TRUE,
                                stat_type = c("passing", "receiving", "rushing"),
-                               file_type = getOption("nflreadr.prefer", default = "qs")){
+                               file_type = getOption("nflreadr.prefer", default = "rds")){
 
   if(!isTRUE(seasons)) {
     stopifnot(is.numeric(seasons),
