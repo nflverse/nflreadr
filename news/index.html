@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.08</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.09</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@
 <code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history/" class="external-link">OverTheCap.com</a>
 </li>
 <li>
-<code>download_local()</code> downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.</li>
+<code><a href="../reference/download_nflverse.html">download_nflverse()</a></code> downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.</li>
 <li>
 <code><a href="../reference/load_draft_picks.html">load_draft_picks()</a></code> now has the rest of the career stat fields from PFR (v1.2.0.07)</li>
 </ul></div>
@@ -111,6 +111,8 @@
 <li>add piggyback suggested dependency</li>
 <li>Export old class to support S4/DBI/<code>nflfastR::update_db()</code> as if it were a tibble. (v1.2.0.06)</li>
 <li>Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,, (v1.2.0.08)</li>
+<li>
+<code>options(nflreadr.prefer)</code> defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)</li>
 </ul><hr></div>
 </div>
     <div class="section level2">
