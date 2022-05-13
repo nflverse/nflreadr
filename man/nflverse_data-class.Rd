@@ -5,6 +5,6 @@
 \title{nflverse data class}
 \description{
 This class has a special S3 print method that tries to read attached metadata and
-provide timestamps and source attributes. It otherwise will dispatch to the tibble
-\code{tbl_df}, \code{data.table}, or \code{data.frame} classes, in order.
+provide timestamps and source attributes. It otherwise will dispatch to the
+\code{data.frame} class.
 }

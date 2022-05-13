@@ -13,7 +13,9 @@
 - bump minimum rlang version to 1.0.0
 - add piggyback suggested dependency
 - Export old class to support S4/DBI/`nflfastR::update_db()` as if it were a tibble. (v1.2.0.06)
+- Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,, (v1.2.0.08)
 - `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)
+
 
 ---
 
