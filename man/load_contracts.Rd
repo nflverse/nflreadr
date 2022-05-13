@@ -4,7 +4,7 @@
 \alias{load_contracts}
 \title{Load Historical Player Contracts from OverTheCap.com}
 \usage{
-load_contracts(file_type = getOption("nflreadr.prefer", default = "qs"))
+load_contracts(file_type = getOption("nflreadr.prefer", default = "rds"))
 }
 \arguments{
 \item{file_type}{One of \code{"rds"}, \code{"qs"}, \code{"csv"}, or \code{"parquet"}.

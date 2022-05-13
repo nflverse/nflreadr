@@ -7,7 +7,7 @@
 load_player_stats(
   seasons = most_recent_season(),
   stat_type = c("offense", "kicking"),
-  file_type = getOption("nflreadr.prefer", default = "qs")
+  file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{

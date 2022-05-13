@@ -3,7 +3,7 @@
 ## New data and functions
 
 - `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
-- `download_local()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
+- `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
 - `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
 
 ## fixes
@@ -13,7 +13,7 @@
 - bump minimum rlang version to 1.0.0
 - add piggyback suggested dependency
 - Export old class to support S4/DBI/`nflfastR::update_db()` as if it were a tibble. (v1.2.0.06)
-
+- `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)
 
 ---
 
