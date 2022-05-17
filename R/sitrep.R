@@ -1,7 +1,7 @@
 #' Get a Situation Report on System, nflverse/ffverse Package Versions and Dependencies
 #'
 #' This function gives a quick overview of the versions of R and the operating
-#' system as well as the versions of nflverse/ffverse packages and their dependencies.
+#' system as well as the versions of nflverse/ffverse packages, options, and their dependencies.
 #' It's primarily designed to help you get a quick idea of what's going on when
 #' you're helping someone else debug a problem.
 #'
@@ -65,6 +65,15 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
   versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
 
   cat_packages(packages, versions)
+
+  # Relies on options for a given package being prefixed by said package name
+  opts <- options()
+  package_opts <- opts[Reduce(lapply(packages, function(package) grepl(package, x = names(opts), fixed = TRUE)),f = `|`)]
+
+  cli::cat_rule(cli::style_bold(paste0(header, "Options")), col = cli::make_ansi_style("cyan"), line = 1)
+
+  if(length(package_opts) == 0) cli::cli_bullets("No options set for {packages}")
+  if(length(package_opts) > 0) cat_options(names(package_opts), unname(package_opts))
 
   # Exit here if we don't want recursive deps
   if (isFALSE(recursive)) return(invisible(NULL))
@@ -143,4 +152,10 @@ cat_packages <- function(packages,versions){
       p[[2]],v[[2]],"  ",
       p[[3]],v[[3]],"  "
     ))
+}
+
+cat_options <- function(option_names, option_values){
+  stopifnot(length(option_names) == length(option_values))
+
+  cli::cat_bullet(glue::glue("{format(option_names)}: {format(option_values)}"))
 }
