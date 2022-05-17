@@ -5,14 +5,14 @@ test_that("load_pbp", {
 
   pbp <- load_pbp()
   pbp_years <- load_pbp(2019:2020)
-  pbp_rds <- load_pbp(2019:2020, file_type = "rds")
+  pbp_csv <- load_pbp(2019:2020, file_type = "csv")
 
   expect_s3_class(pbp, "tbl_df")
-  expect_s3_class(pbp_rds, "tbl_df")
+  expect_s3_class(pbp_csv, "tbl_df")
   expect_s3_class(pbp_years, "tbl_df")
 
   expect_gt(nrow(pbp_years), 90000)
-  expect_gt(nrow(pbp_rds), 90000)
+  expect_gt(nrow(pbp_csv), 90000)
 })
 
 test_that("load_player_stats", {
@@ -22,19 +22,19 @@ test_that("load_player_stats", {
 
   ps <- load_player_stats()
   ps_2020 <- load_player_stats(2020,stat_type = "offense")
-  ps_rds <- load_player_stats(2020, file_type = "rds")
+  ps_csv <- load_player_stats(2020, file_type = "csv")
   ps_all <- load_player_stats(seasons = TRUE)
 
   kick <- load_player_stats(2020, stat_type = "kicking")
 
   expect_s3_class(ps, "tbl_df")
   expect_s3_class(ps_2020, "tbl_df")
-  expect_s3_class(ps_rds, "tbl_df")
+  expect_s3_class(ps_csv, "tbl_df")
   expect_s3_class(ps_all, "tbl_df")
   expect_s3_class(kick, "tbl_df")
 
   expect_gt(nrow(ps_2020), 5000)
-  expect_gt(nrow(ps_rds), 5000)
+  expect_gt(nrow(ps_csv), 5000)
   expect_gt(nrow(ps_all), 110000)
   expect_gt(nrow(kick), 500)
 })
@@ -81,7 +81,7 @@ test_that("load_ngs", {
   skip_if_offline("github.com")
 
   ngs_passing <- load_nextgen_stats()
-  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "rds")
+  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "csv")
   ngs_rushing <- load_nextgen_stats(seasons = 2020, stat_type = "rushing")
 
   expect_s3_class(ngs_passing, "tbl_df")
@@ -109,13 +109,13 @@ test_that("Cache clearing works",{
   skip_on_cran()
   skip_if_offline("github.com")
 
-  rds_from_url("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds")
+  csv_from_url("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv")
 
-  expect(memoise::has_cache(rds_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"), "Function was not memoised!")
+  expect(memoise::has_cache(csv_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv"), "Function was not memoised!")
 
   expect_message(.clear_cache(), "nflreadr function cache cleared!")
 
-  expect(!memoise::has_cache(rds_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.rds"), "Cache was not cleared!")
+  expect(!memoise::has_cache(csv_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv"), "Cache was not cleared!")
 })
 
 test_that("load_depth_charts", {
