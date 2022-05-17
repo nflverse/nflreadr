@@ -8,15 +8,17 @@
 \usage{
 nflverse_sitrep(
   pkg = c("nflreadr", "nflfastR", "nflseedR", "nfl4th", "nflplotR", "nflverse"),
-  recursive = TRUE
+  recursive = TRUE,
+  redact_path = TRUE
 )
 
 ffverse_sitrep(
   pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffopportunity"),
-  recursive = TRUE
+  recursive = TRUE,
+  redact_path = TRUE
 )
 
-.sitrep(pkg, recursive = TRUE, header = "")
+.sitrep(pkg, recursive = TRUE, header = "", redact_path = TRUE)
 }
 \arguments{
 \item{pkg}{a character vector naming installed packages, or \code{NULL}
@@ -30,6 +32,9 @@ of \code{c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")}.
 Character string \code{"all"} is shorthand for that vector, character string
 \code{"most"} for the same vector without \code{"Enhances"}, character string \code{"strong"}
 (default) for the first three elements of that vector.}
+
+\item{redact_path}{a logical indicating whether options that contain "path"
+in the name should be redacted, default = TRUE}
 
 \item{header}{a string that is printed in the horizontal separation lines and
 used to differentiate between nflverse and ffverse output.}

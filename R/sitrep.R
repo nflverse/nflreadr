@@ -17,6 +17,8 @@
 #'  (default) for the first three elements of that vector.
 #' @param header a string that is printed in the horizontal separation lines and
 #'   used to differentiate between nflverse and ffverse output.
+#' @param redact_path a logical indicating whether options that contain "path"
+#' in the name should be redacted, default = TRUE
 #' @examples
 #' \donttest{
 #' try({
@@ -28,20 +30,24 @@
 #' @rdname sitrep
 #' @export
 nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR","nflverse"),
-                            recursive = TRUE){
-  .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ")
+                            recursive = TRUE,
+                            redact_path = TRUE
+                            ){
+  .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ", redact_path = redact_path)
 }
 
 #' @rdname sitrep
 #' @export
 ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportunity"),
-                           recursive = TRUE){
-  .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ")
+                           recursive = TRUE,
+                           redact_path = TRUE
+                           ){
+  .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ", redact_path = redact_path)
 }
 
 #' @rdname sitrep
 #' @export
-.sitrep <- function(pkg, recursive = TRUE, header = ""){
+.sitrep <- function(pkg, recursive = TRUE, header = "", redact_path = TRUE){
   packages <- pkg
 
   installed <- unlist(lapply(packages, is_installed))
@@ -69,6 +75,8 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
   # Relies on options for a given package being prefixed by said package name
   opts <- options()
   package_opts <- opts[Reduce(lapply(packages, function(package) grepl(package, x = names(opts), fixed = TRUE)),f = `|`)]
+
+  if(redact_path) package_opts[grepl("path", names(package_opts))] <- "{redacted, use redact_path = FALSE to show}"
 
   cli::cat_rule(cli::style_bold(paste0(header, "Options")), col = cli::make_ansi_style("cyan"), line = 1)
 
