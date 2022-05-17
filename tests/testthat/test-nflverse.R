@@ -5,10 +5,10 @@ test_that("load_pbp", {
 
   pbp <- load_pbp()
   pbp_years <- load_pbp(2019:2020)
-  pbp_csv <- load_pbp(2019:2020, file_type = "csv")
+  pbp_qs <- load_pbp(2019:2020, file_type = "qs")
 
   expect_s3_class(pbp, "tbl_df")
-  expect_s3_class(pbp_csv, "tbl_df")
+  expect_s3_class(pbp_qs, "tbl_df")
   expect_s3_class(pbp_years, "tbl_df")
 
   expect_gt(nrow(pbp_years), 90000)
@@ -81,7 +81,7 @@ test_that("load_ngs", {
   skip_if_offline("github.com")
 
   ngs_passing <- load_nextgen_stats()
-  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "csv")
+  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "qs")
   ngs_rushing <- load_nextgen_stats(seasons = 2020, stat_type = "rushing")
 
   expect_s3_class(ngs_passing, "tbl_df")
@@ -109,13 +109,13 @@ test_that("Cache clearing works",{
   skip_on_cran()
   skip_if_offline("github.com")
 
-  csv_from_url("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv")
+  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
 
-  expect(memoise::has_cache(csv_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv"), "Function was not memoised!")
+  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
 
   expect_message(.clear_cache(), "nflreadr function cache cleared!")
 
-  expect(!memoise::has_cache(csv_from_url)("https://raw.githubusercontent.com/nflverse/nfldata/master/data/draft_picks.csv"), "Cache was not cleared!")
+  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
 })
 
 test_that("load_depth_charts", {
