@@ -3,7 +3,7 @@
 #' @description Loads play by play seasons from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
 #'
 #' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 1999.
-#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @return The complete nflfastR dataset as returned by `nflfastR::build_nflfastR_pbp()`
@@ -23,7 +23,7 @@
 #' @export
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
   loader <- choose_loader(file_type)
 
   if(isTRUE(seasons)) seasons <- 1999:most_recent_season()

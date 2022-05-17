@@ -12,7 +12,7 @@ load_pbp(
 \arguments{
 \item{seasons}{A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to \code{TRUE}, returns all available data since 1999.}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

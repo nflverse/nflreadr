@@ -40,7 +40,7 @@ load_nextgen_stats <- function(seasons = TRUE,
               seasons <= most_recent_season())
   }
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
   stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
   loader <- choose_loader(file_type)
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
