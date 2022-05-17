@@ -87,3 +87,6 @@ rbindlist_with_attrs <- function(dflist){
 #' @name nflverse_data-class
 #' @exportClass nflverse_data
 methods::setOldClass(c("nflverse_data", "data.frame"))
+
+#' @importFrom curl curl_fetch_memory
+NULL
