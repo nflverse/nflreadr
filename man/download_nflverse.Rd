@@ -15,7 +15,7 @@ download_nflverse(
 (i.e. pbp or "pbp" are both fine)}
 
 \item{folder_path}{a folder in which subfolders will be created for each release -
-defaults to path specified in \verb{options("nflreadr.download_path)} or "." (the current working directory)}
+defaults to path specified in \code{options(nflreadr.download_path)} or "." (the current working directory)}
 
 \item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} -
 defaults to file type specified in \code{options(nflreadr.prefer)} or "rds"}

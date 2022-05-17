@@ -6,7 +6,7 @@
 #' @param ... releases to download, provided in either unquoted or character format
 #' (i.e. pbp or "pbp" are both fine)
 #' @param folder_path a folder in which subfolders will be created for each release -
-#' defaults to path specified in `options("nflreadr.download_path)` or "." (the current working directory)
+#' defaults to path specified in `options(nflreadr.download_path)` or "." (the current working directory)
 #' @param file_type one of `c("rds","parquet", "csv", "qs")` -
 #' defaults to file type specified in `options(nflreadr.prefer)` or "rds"
 #'
