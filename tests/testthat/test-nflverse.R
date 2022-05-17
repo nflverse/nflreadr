@@ -12,7 +12,7 @@ test_that("load_pbp", {
   expect_s3_class(pbp_years, "tbl_df")
 
   expect_gt(nrow(pbp_years), 90000)
-  expect_gt(nrow(pbp_csv), 90000)
+  expect_gt(nrow(pbp_qs), 90000)
 })
 
 test_that("load_player_stats", {
