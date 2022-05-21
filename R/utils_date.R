@@ -1,4 +1,3 @@
-
 #' Get Latest Season
 #'
 #' A helper function to choose the most recent season available for a given dataset
@@ -58,10 +57,10 @@ get_current_week <- function(use_date = FALSE) {
     result <- NULL
     current_season <- data.table::as.data.table(load_schedules())[season == most_recent_season()]
 
-    if(all(!is.na(current_season$result))) return(max(current_season$week))
+    if(all(!is.na(current_season$result))) return(max(current_season$week, na.rm = TRUE))
 
-    current_week <- current_season[is.na(result), week][1]
-    return(current_week)
+    current_week <- current_season[is.na(result), week]
+    return(min(current_week, na.rm = TRUE))
   }
 
   if(use_date){
