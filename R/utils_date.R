@@ -60,7 +60,7 @@ get_current_week <- function(use_date = FALSE) {
 
   if(use_date){
     # Find first Monday of September in current season
-    week1_sep <- as.POSIXlt(paste0(most_recent_season(),"-09-0",1:7), tz = "GMT")
+    week1_sep <- as.POSIXlt(paste0(most_recent_season(TRUE),"-09-0",1:7), tz = "GMT")
     monday1_sep <- week1_sep[week1_sep$wday == 1]
 
     # NFL season starts 4 days later
