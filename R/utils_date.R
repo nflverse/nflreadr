@@ -53,9 +53,9 @@ get_latest_season <- most_recent_season
 get_current_week <- function(use_date = FALSE) {
 
   if(!use_date){
+    season <- NULL
     week <- NULL
     result <- NULL
-    season <- NULL
     current_season <- data.table::as.data.table(load_schedules())[season == most_recent_season()]
 
     if(all(!is.na(current_season$result))) return(max(current_season$week))
@@ -69,13 +69,14 @@ get_current_week <- function(use_date = FALSE) {
     week1_sep <- as.POSIXlt(paste0(most_recent_season(),"-09-0",1:7), tz = "GMT")
     monday1_sep <- week1_sep[week1_sep$wday == 1]
 
-    # NFL season starts 4 days later
+    # NFL season starts 3 days later
     first_game <- monday1_sep
     first_game$mday <- first_game$mday + 3
 
     # current week number of nfl season is 1 + how many weeks have elapsed since first game
     current_week <- as.numeric(Sys.Date() - as.Date(first_game)) %/% 7 + 1
 
+    # hardcoded week bounds because this whole date based thing has assumptions anyway
     if(current_week < 1) current_week <- 1
     if(current_week > 22) current_week <- 22
 
