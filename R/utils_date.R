@@ -51,16 +51,22 @@ get_latest_season <- most_recent_season
 #' @return current nfl regular season week as a numeric
 #' @export
 get_current_week <- function(use_date = FALSE) {
+
   if(!use_date){
     week <- NULL
     result <- NULL
-    current_week <- data.table::as.data.table(load_schedules())[is.na(result),week][1]
+    season <- NULL
+    current_season <- data.table::as.data.table(load_schedules())[season == most_recent_season()]
+
+    if(all(!is.na(current_season$result))) return(max(current_season$week))
+
+    current_week <- current_season[is.na(result),week]
     return(current_week)
   }
 
   if(use_date){
     # Find first Monday of September in current season
-    week1_sep <- as.POSIXlt(paste0(most_recent_season(TRUE),"-09-0",1:7), tz = "GMT")
+    week1_sep <- as.POSIXlt(paste0(most_recent_season(),"-09-0",1:7), tz = "GMT")
     monday1_sep <- week1_sep[week1_sep$wday == 1]
 
     # NFL season starts 4 days later
