@@ -60,7 +60,7 @@ get_current_week <- function(use_date = FALSE) {
 
     if(all(!is.na(current_season$result))) return(max(current_season$week))
 
-    current_week <- current_season[is.na(result),week]
+    current_week <- current_season[is.na(result), week][1]
     return(current_week)
   }
 
