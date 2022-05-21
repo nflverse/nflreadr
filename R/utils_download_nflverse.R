@@ -33,7 +33,7 @@ download_nflverse <- function(...,
   file_name <- NULL
   tag <- NULL
 
-  rlang::check_installed(c("piggyback (>= 0.1.2)","fs"))
+  rlang::check_installed(c("piggyback (>= 0.1.2)", "fs"))
   rlang::arg_match0(file_type, c("rds","csv","parquet","qs"))
   stopifnot(
     length(folder_path) == 1,

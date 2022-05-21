@@ -48,7 +48,8 @@ reference:
   - "clean_homeaway"
   - starts_with("player_name")
   - starts_with("team_abbr")
-  - "most_recent_season"
+  - "get_latest_season"
+  - "get_current_week"
   - "nflverse_data-class"
 
 authors:

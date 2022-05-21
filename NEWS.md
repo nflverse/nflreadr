@@ -6,6 +6,7 @@
 - `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
 - `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
 - `*sitrep()` functions now report package-specific options that are set. (v1.2.0.10)
+- `get_current_week()` helper to get the current nfl season week (v1.2.0.11)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
