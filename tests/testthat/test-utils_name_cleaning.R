@@ -25,6 +25,15 @@ test_that("cleaning player names", {
     lower,
     c("mitchell trubisky", "tutu atwell","ezekiel elliott", "elijah moore", "aj green", "odell beckham"))
 
+  otc <- c("Willie Gay, Jr.", "Jerry Rice, Jr.")
+
+  otc_clean <- clean_player_names(otc, convert_lastfirst = FALSE)
+
+  expect_equal(
+    otc_clean,
+    c("Willie Gay", "Jerry Rice")
+  )
+
 })
 
 test_that("cleaning home and away columns",{
