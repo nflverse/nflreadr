@@ -18,6 +18,7 @@
 - Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,, (v1.2.0.08)
 - `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)
 - `clean_player_names()` now also removes commas (after optionally using them for `convert_lastfirst`) (v1.2.0.12)
+- `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
 
 ---
 

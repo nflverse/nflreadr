@@ -36,6 +36,18 @@ test_that("cleaning player names", {
 
 })
 
+test_that("all caps names with suffix are cleaned correctly", {
+
+  p <- c("LENO JR., CHARLES")
+
+  lower <- clean_player_names(p, lowercase = TRUE, use_name_database = TRUE, convert_lastfirst = TRUE)
+  allcaps <- clean_player_names(p, lowercase = FALSE, use_name_database = TRUE, convert_lastfirst = TRUE)
+
+  expect_equal(lower, c("charles leno"))
+  expect_equal(allcaps, c("CHARLES LENO"))
+
+})
+
 test_that("cleaning home and away columns",{
 
   s <- load_schedules(2020)

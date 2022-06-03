@@ -88,7 +88,8 @@ clean_player_names <- function(player_name,
   # suffix removal
   n <- gsub(pattern = "Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
             replacement = "",
-            x = n)
+            x = n,
+            ignore.case = TRUE)
 
   # squish internal whitespace
   n <- gsub(pattern = "\\s+", replacement = " ", x = n)
