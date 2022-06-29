@@ -271,4 +271,28 @@ test_that("load_contracts", {
   expect_gt(nrow(contracts), 20000)
   expect_message(print(contracts), regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
 })
+test_that("load_players", {
 
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  players <- load_players()
+
+  expect_s3_class(players, "tbl_df")
+
+  expect_gt(nrow(players), 5000)
+  expect_message(print(players), regexp = "nflverse players")
+})
+
+test_that("load_officials", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  officials <- load_officials()
+
+  expect_s3_class(officials, "tbl_df")
+
+  expect_gt(nrow(officials), 10000)
+  expect_message(print(officials), regexp = "nflverse officials")
+})
