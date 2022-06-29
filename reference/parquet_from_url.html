@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.14</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,30 +97,177 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">parquet_from_url</span><span class="op">(</span><span class="va">url</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">parquet_from_url</span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>url</dt>
 <dd><p>a character url</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a dataframe as parsed by <code><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html" class="external-link">arrow::read_parquet()</a></code></p>
+    
+
+<p>a dataframe as parsed by <code><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html" class="external-link">arrow::read_parquet()</a></code></p>
+
+
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span>
-<span class="r-in">  <span class="fu">parquet_from_url</span><span class="op">(</span></span>
-<span class="r-in">    <span class="st">"https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in vapply(keys, remove_one_, TRUE) : values must be length 1,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  but FUN(X[[3]]) result is length 0</span>
-<span class="r-in"><span class="co"># }</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">parquet_from_url</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          player_id player_name recent_team season week season_type completions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1: 00-0000003 A.al-Jabbar         MIA   1999    1         REG           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2: 00-0000003 A.al-Jabbar         MIA   1999    2         REG           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3: 00-0000003 A.al-Jabbar         MIA   1999    4         REG           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4: 00-0000003 A.al-Jabbar         CLE   1999    7         REG           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5: 00-0000003 A.al-Jabbar         CLE   1999    8         REG           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451: 00-0037013    Z.Wilson         NYJ   2021   14         REG          19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452: 00-0037013    Z.Wilson         NYJ   2021   15         REG          13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453: 00-0037013    Z.Wilson         NYJ   2021   16         REG          14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454: 00-0037013    Z.Wilson         NYJ   2021   17         REG          19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455: 00-0037013    Z.Wilson         NYJ   2021   18         REG           7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         attempts passing_yards passing_tds interceptions sacks sack_yards</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:        0             0           0             0     0          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:        0             0           0             0     0          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:        0             0           0             0     0          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:        0             0           0             0     0          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:        0             0           0             0     0          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:       42           202           0             0     3         24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:       23           170           0             0     6         44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:       22           102           1             0     1          2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:       33           234           1             0     1         10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:       20            87           1             0     8         79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         sack_fumbles sack_fumbles_lost passing_air_yards</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:            0                 0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:            0                 0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:            0                 0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:            0                 0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:            0                 0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:            0                 0               305</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:            1                 1               127</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:            0                 0               101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:            0                 0               237</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:            1                 0               136</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         passing_yards_after_catch passing_first_downs passing_epa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                         0                   0          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                         0                   0          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                         0                   0          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                         0                   0          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                         0                   0          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:                       109                   9 -15.4053883</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:                       126                   8 -11.6399882</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:                        51                   7  -0.7609113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:                       148                  14   8.4023567</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:                        33                   3 -16.8727470</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         passing_2pt_conversions      dakota carries rushing_yards rushing_tds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                       0          NA      16            60           1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                       0          NA       9            33           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                       0          NA       3             2           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                       0          NA       6            27           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                       0          NA      13            39           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:                       0 -0.08531825       4            33           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:                       0 -0.04335738       4            12           1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:                       0  0.14345570       4            91           1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:                       0  0.07571573       2             0           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:                       0 -0.12917477       2            24           0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         rushing_fumbles rushing_fumbles_lost rushing_first_downs rushing_epa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:               0                    0                   4   6.2487711</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:               0                    0                   1  -1.4349502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:               0                    0                   0  -1.5399517</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:               0                    0                   0   0.2160509</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:               0                    0                   2  -2.9722589</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:               0                    0                   1  -2.5408663</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:               0                    0                   2   1.2215496</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:               0                    0                   3   9.1837906</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:               0                    0                   0  -3.4315242</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:               0                    0                   0   0.6019657</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         rushing_2pt_conversions receptions targets receiving_yards</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                       0          1       1               7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                       0          3       4              18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                       0          0       1               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                       0          2       2               8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                       0          0       0               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:                       0          0       0               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:                       0          0       1               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:                       0          0       0               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:                       0          0       0               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:                       0          0       0               0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         receiving_tds receiving_fumbles receiving_fumbles_lost</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:             0                 0                      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         receiving_air_yards receiving_yards_after_catch receiving_first_downs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:                   0                           0                     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:                   8                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:                   0                           0                     0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         receiving_epa receiving_2pt_conversions special_teams_tds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:     0.2923782                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:     0.3770089                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:    -0.6995777                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:    -0.2284540                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:            NA                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:            NA                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:    -0.7408588                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:            NA                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:            NA                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:            NA                         0                 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         fantasy_points fantasy_points_ppr      pacr racr target_share</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:          12.70              13.70        NA   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:           5.10               8.10        NA   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:           0.20               0.20        NA   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:           3.50               5.50        NA   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:           3.90               3.90        NA   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:          11.38              11.38 0.6622951   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:          12.00              12.00 1.3385827    0   0.04545455</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:          23.18              23.18 1.0099010   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:          13.36              13.36 0.9873418   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:           9.88               9.88 0.6397059   NA           NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         air_yards_share      wopr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      1:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      2:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      3:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      4:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      5:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ---                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118451:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118452:      0.07207207 0.1186323</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118453:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118454:              NA        NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118455:              NA        NA</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -132,7 +279,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

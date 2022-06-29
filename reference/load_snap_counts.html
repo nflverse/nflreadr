@@ -12,7 +12,7 @@ starting with the 2013 season."><meta property="og:image" content="https://nflre
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.14</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,17 +100,20 @@ starting with the 2013 season.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">load_snap_counts</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="latest_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_snap_counts</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="latest_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>seasons</dt>
 <dd><p>a numeric vector specifying what seasons to return, if <code>TRUE</code> returns all available data</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble of game-level snap counts provided by Pro Football Reference.</p>
+    
+
+<p>A tibble of game-level snap counts provided by Pro Football Reference.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -121,30 +124,14 @@ starting with the 2013 season.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in">  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents CRAN errors</span></span>
-<span class="r-in">  <span class="fu">load_snap_counts</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in">  <span class="op">}</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse snap counts</span> ────────────────────────────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2022-03-01 15:04:38 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 242,187 × 16</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id      pfr_game_id season game_type  week player pfr_player_id position</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 David… BaasDa20      C       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 David… DiehDa21      T       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Sean … LockSe20      T       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Chris… SneeCh20      G       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Kevin… BootKe20      G       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Eli M… MannEl00      QB      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Marte… BennMa00      TE      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Hakee… NickHa01      WR      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Ahmad… BradAh00      RB      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2012_01_DAL… 201209050n…   <span style="text-decoration: underline;">2</span>012 REG           1 Victo… CruzVi00      WR      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 242,177 more rows, and 8 more variables: team &lt;chr&gt;, opponent &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   offense_snaps &lt;dbl&gt;, offense_pct &lt;dbl&gt;, defense_snaps &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defense_pct &lt;dbl&gt;, st_snaps &lt;dbl&gt;, st_pct &lt;dbl&gt;</span></span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents CRAN errors</span></span></span>
+<span class="r-in"><span>  <span class="fu">load_snap_counts</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in vapply(keys, remove_one_, TRUE) : values must be length 1,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  but FUN(X[[3]]) result is length 0</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -156,7 +143,7 @@ starting with the 2013 season.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

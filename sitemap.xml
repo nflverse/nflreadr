@@ -190,6 +190,9 @@
     <loc>https://nflreadr.nflverse.com/reference/load_nextgen_stats.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/load_officials.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/load_pbp.html</loc>
   </url>
   <url>
@@ -200,6 +203,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_player_stats.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/load_players.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_rosters.html</loc>

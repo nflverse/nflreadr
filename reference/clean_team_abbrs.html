@@ -12,7 +12,7 @@ This helps for joins and plotting, especially with the new nflplotR package!"><m
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.14</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,37 +100,47 @@ This helps for joins and plotting, especially with the new nflplotR package!</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">abbr</span>, current_location <span class="op">=</span> <span class="cn">TRUE</span>, keep_non_matches <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">abbr</span>, current_location <span class="op">=</span> <span class="cn">TRUE</span>, keep_non_matches <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>abbr</dt>
 <dd><p>a character vector of abbreviations</p></dd>
+
+
 <dt>current_location</dt>
 <dd><p>If <code>TRUE</code> (the default), the abbreviation of the most
 recent team location will be used.</p></dd>
+
+
 <dt>keep_non_matches</dt>
 <dd><p>If <code>TRUE</code> (the default) an element of <code>abbr</code> that can't
 be matched to any of the internal mapping vectors will be kept as is. Otherwise
 it will be replaced with <code>NA</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A character vector with the length of <code>abbr</code> and cleaned team abbreviations
-if they are included in <code><a href="team_abbr_mapping.html">team_abbr_mapping</a></code> or <code><a href="team_abbr_mapping_norelocate.html">team_abbr_mapping_norelocate</a></code>(depending on the value of <code>current_location</code>). Non matches may be replaced
+    
+
+<p>A character vector with the length of <code>abbr</code> and cleaned team abbreviations
+if they are included in <code><a href="team_abbr_mapping.html">team_abbr_mapping</a></code> or <code><a href="team_abbr_mapping_norelocate.html">team_abbr_mapping_norelocate</a></code></p>
+
+
+<p>(depending on the value of <code>current_location</code>). Non matches may be replaced
 with <code>NA</code> (depending on the value of <code>keep_non_matches</code>).</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PIE"</span>, <span class="st">"LAR"</span>, <span class="st">"PIT"</span>, <span class="st">"CRD"</span>, <span class="st">"OAK"</span>, <span class="st">"SL"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># use current location and keep non matches</span></span>
-<span class="r-in"><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"PIE"</span>, <span class="st">"LAR"</span>, <span class="st">"PIT"</span>, <span class="st">"CRD"</span>, <span class="st">"OAK"</span>, <span class="st">"SL"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># use current location and keep non matches</span></span></span>
+<span class="r-in"><span><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PIE" "LA"  "PIT" "ARI" "LV"  "LA" </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># keep old location and replace non matches</span></span>
-<span class="r-in"><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span>, current_location <span class="op">=</span> <span class="cn">FALSE</span>, keep_non_matches <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># keep old location and replace non matches</span></span></span>
+<span class="r-in"><span><span class="fu">clean_team_abbrs</span><span class="op">(</span><span class="va">x</span>, current_location <span class="op">=</span> <span class="cn">FALSE</span>, keep_non_matches <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA    "LA"  "PIT" "ARI" "OAK" "STL"</span>
 </code></pre></div>
     </div>
@@ -143,7 +153,7 @@ with <code>NA</code> (depending on the value of <code>keep_non_matches</code>).<
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>

@@ -1,5 +1,5 @@
 pandoc: 2.14.2
-pkgdown: 2.0.3
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   dictionary_combine: dictionary_combine.html
@@ -20,7 +20,7 @@ articles:
   dictionary_snap_counts: dictionary_snap_counts.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2022-06-03T11:16Z
+last_built: 2022-06-29T18:13Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
