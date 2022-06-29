@@ -7,6 +7,8 @@
 - `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
 - `*sitrep()` functions now report package-specific options that are set. (v1.2.0.10)
 - `get_current_week()` helper to get the current nfl season week (v1.2.0.11)
+- `load_players()` returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.
+- `load_officials()` returns game-level information about which officials are assigned to specific games. (v1.2.0.14)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
@@ -19,6 +21,7 @@
 - `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)
 - `clean_player_names()` now also removes commas (after optionally using them for `convert_lastfirst`) (v1.2.0.12)
 - `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
+- dictionary updates: return labelled.
 
 ---
 
