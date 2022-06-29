@@ -4,10 +4,16 @@
 \alias{load_combine}
 \title{Load Combine Data from PFR}
 \usage{
-load_combine(seasons = TRUE)
+load_combine(
+  seasons = TRUE,
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, default \code{TRUE} returns all available data}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of NFL combine data provided by Pro Football Reference.
