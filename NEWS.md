@@ -22,6 +22,7 @@
 - `clean_player_names()` now also removes commas (after optionally using them for `convert_lastfirst`) (v1.2.0.12)
 - `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
 - dictionary updates: return labelled.
+- `.sitrep()` exits nicely if no packages are to be investigated. #114 (v1.2.0.15)
 
 ---
 

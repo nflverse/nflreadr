@@ -61,6 +61,8 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
 
   packages <- packages[installed]
 
+  if(length(packages) == 0) return(invisible(NULL))
+
   s <- utils::sessionInfo(packages)
 
   cli::cat_rule(cli::style_bold("System Info"), col = cli::make_ansi_style("cyan"), line = 1)
