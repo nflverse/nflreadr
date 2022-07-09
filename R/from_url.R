@@ -224,3 +224,53 @@ cache_message <- function(){
     )
   }
 }
+
+load_from_url <- function(url, seasons = TRUE, nflverse = FALSE){
+
+  if(length(url) == 1) {
+    out <- loader(url)
+    if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
+  }
+
+  if(length(url) > 1) {
+    p <- NULL
+    if (is_installed("progressr")) p <- progressr::progressor(along = url)
+    out <- lapply(urls, progressively(loader, p))
+    out <- rbindlist_with_attrs(out)
+  }
+
+  if(nflverse) out <- make_nflverse_data(out)
+  return(out)
+}
+
+loader <- function(url){
+  switch(detect_filetype(url),
+         "rds" = rds_from_url(url),
+         "qs" = qs_from_url(url),
+         "parquet" = parquet_from_url(url),
+         "csv" = csv_from_url(url)
+         )
+}
+
+detect_filetype <- function(url){
+  tools::file_ext(gsub(x = url, pattern = ".gz$", replacement = ""))
+}
+
+make_nflverse_data <- function(dataframe, nflverse_type = NULL, ...){
+
+  class(dataframe) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+
+  dots <- rlang::dots_list(..., .named = TRUE)
+
+  for(i in seq_along(dots)){
+    attr(dataframe, names(dots)[[i]]) <- dots[[i]]
+  }
+
+  if(!is.null(nflverse_type)) attr(dataframe, "nflverse_type") <- nflverse_type
+
+  if(length(dots) > 0 | !is.null(nflverse_type)){
+    attr(dataframe, "nflverse_timestamp") <- Sys.time()
+  }
+
+  return(dataframe)
+}

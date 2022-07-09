@@ -28,6 +28,7 @@ Imports:
     methods,
     rappdirs (>= 0.3.0),
     rlang (>= 0.4.10),
+    tools,
     utils
 Suggests:
     arrow (>= 6.0.0),
