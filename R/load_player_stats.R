@@ -35,8 +35,6 @@ load_player_stats <- function(seasons = most_recent_season(),
                       "offense" = "player_stats.",
                       "kicking" = "player_stats_kicking.")
 
-  loader <- choose_loader(file_type)
-
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/player_stats/",base_name,file_type)
 
   out <- loader(url)

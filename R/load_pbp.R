@@ -24,7 +24,6 @@
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {
 
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
-  loader <- choose_loader(file_type)
 
   if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
 

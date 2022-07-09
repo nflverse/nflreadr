@@ -22,7 +22,6 @@
 load_combine <- function(seasons = TRUE, file_type = getOption("nflreadr.prefer", default = "rds")){
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  loader <- choose_loader(file_type)
 
   url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/combine/combine.{file_type}")
   out <- loader(url)
