@@ -229,7 +229,7 @@ load_from_url <- function(url, seasons = TRUE, nflverse = FALSE){
 
   if(length(url) == 1) {
     out <- loader(url)
-    if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
+    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
   }
 
   if(length(url) > 1) {
@@ -239,7 +239,7 @@ load_from_url <- function(url, seasons = TRUE, nflverse = FALSE){
     out <- rbindlist_with_attrs(out)
   }
 
-  if(nflverse) out <- make_nflverse_data(out)
+  if(isTRUE(nflverse)) out <- make_nflverse_data(out)
   return(out)
 }
 
