@@ -227,10 +227,12 @@ cache_message <- function(){
 
 load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
 
+  url <- as.character(url)
+
   if(length(url) == 1) {
     out <- loader(url)
     if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-    if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
+    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
   }
 
   if(length(url) > 1) {

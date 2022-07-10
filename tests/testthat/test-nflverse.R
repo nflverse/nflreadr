@@ -1,17 +1,4 @@
-test_that("Cache clearing works",{
-
-  skip_on_cran()
-  skip_if_offline("github.com")
-
-  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
-
-  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
-
-  expect_message(.clear_cache(), "nflreadr function cache cleared!")
-
-  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
-})
-
+context("nflverse load functions")
 test_that("load_pbp", {
 
   skip_on_cran()
@@ -290,8 +277,10 @@ test_that("load_officials", {
   expect_gt(nrow(officials), 10000)
 })
 
+
 ## NEW LOAD FUNCTIONS GO ABOVE THIS LINE ##
 
+context("print method")
 test_that("nflverse_data print method works", {
 
   skip_on_cran()
@@ -305,4 +294,19 @@ test_that("nflverse_data print method works", {
       regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
   )
 
+})
+
+context("caching/cache-clearing")
+test_that("Cache clearing works",{
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
+
+  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
+
+  expect_message(.clear_cache(), "nflreadr function cache cleared!")
+
+  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
 })
