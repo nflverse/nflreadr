@@ -4,7 +4,11 @@
 \alias{load_players}
 \title{Load Players}
 \usage{
-load_players()
+load_players(file_type = getOption("nflreadr.prefer", default = "rds"))
+}
+\arguments{
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble with one row per player.

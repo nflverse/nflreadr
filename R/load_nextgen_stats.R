@@ -7,7 +7,9 @@
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
-#' @param file_type One of `"rds"` or `"qs"`. Can also be set globally with options(nflreadr.prefer)
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
+#'
 #'
 #' @examples
 #' \donttest{
@@ -42,11 +44,10 @@ load_nextgen_stats <- function(seasons = TRUE,
 
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
   stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
-  loader <- choose_loader(file_type)
+
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
                 "nextgen_stats/ngs_", stat_type, ".", file_type)
-  out <- loader(url)
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+
+  out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
   out
 }

@@ -15,7 +15,8 @@ load_nextgen_stats(
 
 \item{stat_type}{one of \code{"passing"}, \code{"receiving"}, or \code{"rushing"}}
 
-\item{file_type}{One of \code{"rds"} or \code{"qs"}. Can also be set globally with options(nflreadr.prefer)}
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of week-level player statistics provided by NFL Next Gen Stats.

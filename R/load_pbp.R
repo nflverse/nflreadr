@@ -24,7 +24,6 @@
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {
 
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
-  loader <- choose_loader(file_type)
 
   if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
 
@@ -35,11 +34,7 @@ load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflr
   urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_",
                  seasons, ".", file_type)
 
-  p <- NULL
-  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  out <- lapply(urls, progressively(loader, p))
-  out <- rbindlist_with_attrs(out)
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  out <- load_from_url(urls,nflverse = TRUE, seasons = seasons)
 
-  out
+  return(out)
 }

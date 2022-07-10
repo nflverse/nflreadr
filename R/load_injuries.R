@@ -3,7 +3,8 @@
 #' Data collected from an API for weekly injury report data.
 #'
 #' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
-#' @param file_type Deprecated: now uses rds by default.
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
 #'
 #' @examples
 #' \donttest{
@@ -20,29 +21,18 @@
 #'
 #' @export
 load_injuries <- function(seasons = most_recent_season(),
-                          file_type = NULL){
-
-  if(!is.null(file_type)){
-    cli::cli_warn("`file_type` arg deprecated for load_injuries, now uses rds by default")
-  }
+                          file_type = getOption("nflreadr.prefer", default = "rds")){
 
   if(isTRUE(seasons)) seasons <- 2009:nflreadr::most_recent_season()
 
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
   stopifnot(is.numeric(seasons),
             seasons >= 2009,
             seasons <= most_recent_season())
 
-  p <- NULL
-  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
+  urls <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_{seasons}.{file_type}")
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_",
-                 seasons, ".rds")
+  out <- load_from_url(urls, seasons = seasons, nflverse = TRUE)
 
-  out <- lapply(urls, progressively(rds_from_url, p))
-
-  out <- rbindlist_with_attrs(out)
-
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-
-  out
+  return(out)
 }

@@ -4,10 +4,16 @@
 \alias{load_officials}
 \title{Load Officials}
 \usage{
-load_officials(seasons = TRUE)
+load_officials(
+  seasons = TRUE,
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble with one row per game per official.

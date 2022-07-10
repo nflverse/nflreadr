@@ -19,13 +19,10 @@
 #'
 #' @export
 load_schedules <- function(seasons = TRUE){
-
-  out <- rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
-
   if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  attr(out,"nflverse_type") <- "games and schedules"
-  out
+  out <- load_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds",
+                       seasons = seasons,
+                       nflverse = TRUE,
+                       nflverse_type = "games and schedules")
+  return(out)
 }

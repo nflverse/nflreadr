@@ -225,21 +225,22 @@ cache_message <- function(){
   }
 }
 
-load_from_url <- function(url, seasons = TRUE, nflverse = FALSE){
+load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
 
   if(length(url) == 1) {
     out <- loader(url)
+    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
     if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
   }
 
   if(length(url) > 1) {
     p <- NULL
     if (is_installed("progressr")) p <- progressr::progressor(along = url)
-    out <- lapply(urls, progressively(loader, p))
+    out <- lapply(url, progressively(loader, p))
     out <- rbindlist_with_attrs(out)
   }
 
-  if(nflverse) out <- make_nflverse_data(out)
+  if(nflverse) out <- make_nflverse_data(out,...)
   return(out)
 }
 
@@ -268,7 +269,10 @@ make_nflverse_data <- function(dataframe, nflverse_type = NULL, ...){
 
   if(!is.null(nflverse_type)) attr(dataframe, "nflverse_type") <- nflverse_type
 
-  if(length(dots) > 0 | !is.null(nflverse_type)){
+  if(
+    (length(dots) > 0 | !is.null(nflverse_type)) &&
+    is.null(attr(dataframe, "nflverse_timestamp"))
+  ){
     attr(dataframe, "nflverse_timestamp") <- Sys.time()
   }
 
