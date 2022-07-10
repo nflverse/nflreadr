@@ -1,3 +1,44 @@
+#' Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+#'
+#' @param url a vector of URLs to load into memory. If more than one URL provided, will row-bind them.
+#' @param seasons a numeric vector of years that will be used to filter the dataframe's `season` column. If `TRUE` (default), does not filter.
+#' @param nflverse TRUE to add nflverse_data classing and attributes.
+#' @param ... named arguments that will be added as attributes to the data, e.g. `nflverse_type` = "pbp"
+#'
+#' @export
+#'
+#' @return a dataframe, possibly of type `nflverse_data`
+#'
+#' @examples
+#' \donttest{
+#' try({ # prevents cran errors
+#'   urls <- c("https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2020.csv",
+#'             "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2021.csv")
+#'  load_from_url(urls, nflverse = TRUE, nflverse_type = "rosters for 2020 & 2021")
+#' })
+#' }
+load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
+
+  url <- as.character(url)
+
+  if(length(url) == 1) {
+    out <- loader(url)
+    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
+  }
+
+  if(length(url) > 1) {
+    p <- NULL
+    if (is_installed("progressr")) p <- progressr::progressor(along = url)
+    out <- lapply(url, progressively(loader, p))
+    out <- rbindlist_with_attrs(out)
+  }
+
+  if(nflverse) out <- make_nflverse_data(out,...)
+  return(out)
+}
+
+
 #' Load .rds file from a remote connection
 #'
 #' @param url a character url
@@ -225,26 +266,6 @@ cache_message <- function(){
   }
 }
 
-load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
-
-  url <- as.character(url)
-
-  if(length(url) == 1) {
-    out <- loader(url)
-    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
-  }
-
-  if(length(url) > 1) {
-    p <- NULL
-    if (is_installed("progressr")) p <- progressr::progressor(along = url)
-    out <- lapply(url, progressively(loader, p))
-    out <- rbindlist_with_attrs(out)
-  }
-
-  if(nflverse) out <- make_nflverse_data(out,...)
-  return(out)
-}
 
 loader <- function(url){
   switch(detect_filetype(url),
