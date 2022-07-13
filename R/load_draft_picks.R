@@ -3,6 +3,8 @@
 #' @description Loads every draft pick since 1980 courtesy of PFR.
 #'
 #' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
 #'
 #' @examples
 #' \donttest{
@@ -18,11 +20,10 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
-load_draft_picks <- function(seasons = TRUE){
-  url <- "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.rds"
-  out <- rds_from_url(url)
-  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  out
+load_draft_picks <- function(seasons = TRUE,
+                             file_type = getOption("nflreadr.prefer", default = "rds")){
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.{file_type}")
+  out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
+  return(out)
 }

@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.2.0.15
+Version: 1.2.0.16
 Authors@R: c(
     person("Tan", "Ho", , "tan@tanho.ca", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8388-5155")),
@@ -28,6 +28,7 @@ Imports:
     methods,
     rappdirs (>= 0.3.0),
     rlang (>= 0.4.10),
+    tools,
     utils
 Suggests:
     arrow (>= 6.0.0),

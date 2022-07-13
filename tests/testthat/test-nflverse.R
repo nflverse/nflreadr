@@ -1,3 +1,4 @@
+context("nflverse load functions")
 test_that("load_pbp", {
 
   skip_on_cran()
@@ -104,20 +105,6 @@ test_that("load_teams", {
   expect_gte(nrow(team_graphics), 32)
 })
 
-test_that("Cache clearing works",{
-
-  skip_on_cran()
-  skip_if_offline("github.com")
-
-  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
-
-  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
-
-  expect_message(.clear_cache(), "nflreadr function cache cleared!")
-
-  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
-})
-
 test_that("load_depth_charts", {
 
   skip_on_cran()
@@ -129,7 +116,7 @@ test_that("load_depth_charts", {
   expect_s3_class(depth_charts, "tbl_df")
   expect_s3_class(depth_charts_years, "tbl_df")
   expect_gt(nrow(depth_charts_years), 60000)
-  })
+})
 
 test_that("load_injuries", {
 
@@ -223,7 +210,6 @@ test_that("load_pfr_passing", {
   expect_warning(passing <- load_pfr_passing())
 
   expect_s3_class(passing, "tbl_df")
-
   expect_gt(nrow(passing), 200)
 })
 
@@ -255,7 +241,6 @@ test_that("load_snap_counts", {
   counts <- load_snap_counts(2020)
 
   expect_s3_class(counts, "tbl_df")
-
   expect_gt(nrow(counts), 20000)
 })
 
@@ -267,10 +252,9 @@ test_that("load_contracts", {
   contracts <- load_contracts()
 
   expect_s3_class(contracts, "tbl_df")
-
   expect_gt(nrow(contracts), 20000)
-  expect_message(print(contracts), regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
 })
+
 test_that("load_players", {
 
   skip_on_cran()
@@ -279,9 +263,7 @@ test_that("load_players", {
   players <- load_players()
 
   expect_s3_class(players, "tbl_df")
-
   expect_gt(nrow(players), 5000)
-  expect_message(print(players), regexp = "nflverse players")
 })
 
 test_that("load_officials", {
@@ -292,7 +274,39 @@ test_that("load_officials", {
   officials <- load_officials()
 
   expect_s3_class(officials, "tbl_df")
-
   expect_gt(nrow(officials), 10000)
-  expect_message(print(officials), regexp = "nflverse officials")
+})
+
+
+## NEW LOAD FUNCTIONS GO ABOVE THIS LINE ##
+
+context("print method")
+test_that("nflverse_data print method works", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  contracts <- load_contracts()
+
+  expect_output(
+    expect_message(
+      print(contracts),
+      regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
+  )
+
+})
+
+context("caching/cache-clearing")
+test_that("Cache clearing works",{
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
+
+  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
+
+  expect_message(.clear_cache(), "nflreadr function cache cleared!")
+
+  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
 })

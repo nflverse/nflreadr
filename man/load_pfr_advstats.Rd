@@ -7,7 +7,8 @@
 load_pfr_advstats(
   seasons = most_recent_season(),
   stat_type = c("pass", "rush", "rec", "def"),
-  summary_level = c("week", "season")
+  summary_level = c("week", "season"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{
@@ -16,6 +17,9 @@ load_pfr_advstats(
 \item{stat_type}{one of "pass", "rush", "rec", "def"}
 
 \item{summary_level}{one of "week" (default) or "season" - some data is only available at the season level}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of player statistics provided by Pro Football Reference that supplements data in nflverse

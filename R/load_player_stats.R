@@ -2,7 +2,7 @@
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `TRUE`, returns all available data.
 #' @param stat_type one of `offense` or `kicking`
-#' @param file_type One of `c("rds", "csv","qs", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -35,13 +35,9 @@ load_player_stats <- function(seasons = most_recent_season(),
                       "offense" = "player_stats.",
                       "kicking" = "player_stats_kicking.")
 
-  loader <- choose_loader(file_type)
-
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/player_stats/",base_name,file_type)
 
-  out <- loader(url)
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+  out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
   out
 }
 
