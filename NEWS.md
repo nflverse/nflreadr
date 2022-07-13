@@ -25,6 +25,7 @@
 - dictionary updates: return labelled.
 - `.sitrep()` exits nicely if no packages are to be investigated. #114 (v1.2.0.15)
 - refactored all the loaders to use `load_from_url` as primary (v1.2.0.16)
+- fixed broken example in `load_ff_opportunity()` documentation. #117 (v1.2.0.17) 
 
 ---
 

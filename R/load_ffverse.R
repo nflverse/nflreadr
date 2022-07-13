@@ -69,7 +69,7 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
 #' \donttest{
 #'   try({ # prevents cran errors
 #'   load_ff_opportunity()
-#'   load_ff_opportunity(seasons = 2021, type = "pbp_pass", version = "v1.0.0")
+#'   load_ff_opportunity(seasons = 2021, stat_type = "pbp_pass", model_version = "v1.0.0")
 #'   })
 #' }
 #'
