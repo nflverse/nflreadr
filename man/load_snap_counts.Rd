@@ -4,10 +4,16 @@
 \alias{load_snap_counts}
 \title{Load Snap Counts from PFR}
 \usage{
-load_snap_counts(seasons = most_recent_season())
+load_snap_counts(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of game-level snap counts provided by Pro Football Reference.

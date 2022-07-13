@@ -4,10 +4,16 @@
 \alias{load_draft_picks}
 \title{Load Draft Picks from PFR}
 \usage{
-load_draft_picks(seasons = TRUE)
+load_draft_picks(
+  seasons = TRUE,
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, default \code{TRUE} returns all available data}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of NFL draft picks provided by Pro Football Reference.

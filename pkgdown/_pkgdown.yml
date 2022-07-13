@@ -35,6 +35,7 @@ reference:
   - starts_with("dictionary_")
 - title: Loading raw data
   contents:
+  - "load_from_url"
   - "csv_from_url"
   - "parquet_from_url"
   - "qs_from_url"

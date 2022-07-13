@@ -1,6 +1,8 @@
 #' Load Players
 #'
 #' @description Load a dataframe of player-level information, including IDs and other mostly-immutable data (birthdates, college, draft position etc.)
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
 #'
 #' @examples
 #' \donttest{
@@ -14,8 +16,9 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflreadr> and it will be triaged appropriately.
 #'
 #' @export
-load_players <- function(){
-  out <- rds_from_url("https://github.com/nflverse/nflverse-data/releases/download/players/players.rds")
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+load_players <- function(file_type = getOption("nflreadr.prefer", default = "rds")){
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/players/players.{file_type}")
+  out <- load_from_url(url, nflverse = TRUE)
   out
 }

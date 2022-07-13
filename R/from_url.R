@@ -1,3 +1,44 @@
+#' Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+#'
+#' @param url a vector of URLs to load into memory. If more than one URL provided, will row-bind them.
+#' @param seasons a numeric vector of years that will be used to filter the dataframe's `season` column. If `TRUE` (default), does not filter.
+#' @param nflverse TRUE to add nflverse_data classing and attributes.
+#' @param ... named arguments that will be added as attributes to the data, e.g. `nflverse_type` = "pbp"
+#'
+#' @export
+#'
+#' @return a dataframe, possibly of type `nflverse_data`
+#'
+#' @examples
+#' \donttest{
+#' try({ # prevents cran errors
+#'   urls <- c("https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2020.csv",
+#'             "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2021.csv")
+#'  load_from_url(urls, nflverse = TRUE, nflverse_type = "rosters for 2020 & 2021")
+#' })
+#' }
+load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
+
+  url <- as.character(url)
+
+  if(length(url) == 1) {
+    out <- loader(url)
+    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
+    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
+  }
+
+  if(length(url) > 1) {
+    p <- NULL
+    if (is_installed("progressr")) p <- progressr::progressor(along = url)
+    out <- lapply(url, progressively(loader, p))
+    out <- rbindlist_with_attrs(out)
+  }
+
+  if(nflverse) out <- make_nflverse_data(out,...)
+  return(out)
+}
+
+
 #' Load .rds file from a remote connection
 #'
 #' @param url a character url
@@ -223,4 +264,40 @@ cache_message <- function(){
       .frequency_id = "cache_message"
     )
   }
+}
+
+
+loader <- function(url){
+  switch(detect_filetype(url),
+         "rds" = rds_from_url(url),
+         "qs" = qs_from_url(url),
+         "parquet" = parquet_from_url(url),
+         "csv" = csv_from_url(url)
+         )
+}
+
+detect_filetype <- function(url){
+  tools::file_ext(gsub(x = url, pattern = ".gz$", replacement = ""))
+}
+
+make_nflverse_data <- function(dataframe, nflverse_type = NULL, ...){
+
+  class(dataframe) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
+
+  dots <- rlang::dots_list(..., .named = TRUE)
+
+  for(i in seq_along(dots)){
+    attr(dataframe, names(dots)[[i]]) <- dots[[i]]
+  }
+
+  if(!is.null(nflverse_type)) attr(dataframe, "nflverse_type") <- nflverse_type
+
+  if(
+    (length(dots) > 0 | !is.null(nflverse_type)) &&
+    is.null(attr(dataframe, "nflverse_timestamp"))
+  ){
+    attr(dataframe, "nflverse_timestamp") <- Sys.time()
+  }
+
+  return(dataframe)
 }

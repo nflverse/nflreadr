@@ -22,10 +22,7 @@
 #' @export
 load_contracts <- function(file_type = getOption("nflreadr.prefer", default = "rds")){
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet","csv"))
-  loader <- choose_loader(file_type)
-  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
-                "contracts/historical_contracts.", file_type)
-  out <- loader(url)
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  out
+  url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/contracts/historical_contracts.{file_type}")
+  out <- load_from_url(url, nflverse = TRUE)
+  return(out)
 }

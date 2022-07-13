@@ -9,6 +9,7 @@
 - `get_current_week()` helper to get the current nfl season week (v1.2.0.11)
 - `load_players()` returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.
 - `load_officials()` returns game-level information about which officials are assigned to specific games. (v1.2.0.14)
+- `load_from_url()` exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. (v1.2.0.16)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)
@@ -23,7 +24,8 @@
 - `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
 - dictionary updates: return labelled.
 - `.sitrep()` exits nicely if no packages are to be investigated. #114 (v1.2.0.15)
-- fixed broken example in `load_ff_opportunity()` documentation. #117 (v1.2.0.16) 
+- refactored all the loaders to use `load_from_url` as primary (v1.2.0.16)
+- fixed broken example in `load_ff_opportunity()` documentation. #117 (v1.2.0.17) 
 
 ---
 

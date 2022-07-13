@@ -33,6 +33,9 @@ load_pfr_passing <- function(seasons = TRUE){
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of "pass", "rush", "rec", "def"
 #' @param summary_level one of "week" (default) or "season" - some data is only available at the season level
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
+#'
 #'
 #' @examples
 #' \donttest{
@@ -48,44 +51,46 @@ load_pfr_passing <- function(seasons = TRUE){
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
-load_pfr_advstats <- function(seasons = most_recent_season(), stat_type = c("pass","rush","rec","def"), summary_level = c("week","season")){
+load_pfr_advstats <- function(seasons = most_recent_season(),
+                              stat_type = c("pass","rush","rec","def"),
+                              summary_level = c("week","season"),
+                              file_type = getOption("nflreadr.prefer", default = "rds")
+                              ){
 
   if(isTRUE(seasons)) seasons <- 2018:most_recent_season()
-  stat_type <- rlang::arg_match0(stat_type, c("pass","rush","rec","def"))
-  summary_level <- rlang::arg_match0(summary_level, c("week","season"))
   stopifnot(is.numeric(seasons),
             seasons >= 2018,
             seasons <= most_recent_season())
 
+  stat_type <- rlang::arg_match0(stat_type, c("pass","rush","rec","def"))
+  summary_level <- rlang::arg_match0(summary_level, c("week","season"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+
   switch(summary_level,
-         "week" = .pfr_advstats_week(seasons, stat_type),
-         "season" = .pfr_advstats_season(seasons, stat_type))
+         "week" = .pfr_advstats_week(seasons, stat_type, file_type),
+         "season" = .pfr_advstats_season(seasons, stat_type, file_type))
 }
 
-.pfr_advstats_week <- function(seasons,stat_type){
+.pfr_advstats_week <- function(seasons,stat_type, file_type){
 
   urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_",
                  stat_type,
                  "_",
                  seasons,
-                 ".rds")
+                 ".",
+                 file_type)
 
-  p <- NULL
-  if (is_installed("progressr")) p <- progressr::progressor(along = seasons)
-  out <- lapply(urls, progressively(rds_from_url, p))
-  out <- rbindlist_with_attrs(out)
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  out
+  out <- load_from_url(urls, seasons = seasons, nflverse = TRUE)
+  return(out)
 }
 
-.pfr_advstats_season <- function(seasons, stat_type){
+.pfr_advstats_season <- function(seasons, stat_type, file_type){
 
   data_url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_season_",
                      stat_type,
-                     ".rds")
+                     ".",
+                     file_type)
 
-  out <- rds_from_url(data_url)
-  out <- out[out$season %in% seasons]
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  out
+  out <- load_from_url(data_url,seasons = seasons, nflverse = TRUE)
+  return(out)
 }

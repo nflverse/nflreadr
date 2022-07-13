@@ -19,26 +19,13 @@
 load_espn_qbr <- function(league = c("nfl", "college"),
                           seasons = most_recent_season(),
                           summary_type = c("season","weekly")
-){
-
+                          ){
   league <- rlang::arg_match0(league, c("nfl","college"))
   summary_type <- rlang::arg_match0(summary_type, c("season","weekly"))
-  if(!isTRUE(seasons)) {
-    stopifnot(is.numeric(seasons),
-              seasons >= 2006,
-              seasons <= most_recent_season())
-  }
 
+  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons), seasons >= 2006, seasons <= most_recent_season())
 
-  url <- paste0("https://github.com/nflverse/espnscrapeR-data/raw/master/data/qbr-",
-                league,
-                "-",
-                summary_type,
-                ".rds")
-
-  out <- rds_from_url(url)
-  if(!isTRUE(seasons)) out <- out[out$season %in% seasons]
-  class(out) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-  attr(out,"nflverse_type") <- "QBR (via ESPN)"
-  out
+  url <- glue::glue("https://github.com/nflverse/espnscrapeR-data/raw/master/data/qbr-{league}-{summary_type}.rds")
+  out <- load_from_url(url, seasons = seasons, nflverse = TRUE, nflverse_type = "QBR (via ESPN/espnscrapeR)")
+  return(out)
 }

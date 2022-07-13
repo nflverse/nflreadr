@@ -15,7 +15,7 @@ load_player_stats(
 
 \item{stat_type}{one of \code{offense} or \code{kicking}}
 
-\item{file_type}{One of \code{c("rds", "csv","qs", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{
