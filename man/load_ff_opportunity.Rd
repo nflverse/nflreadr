@@ -27,7 +27,7 @@ This function downloads precomputed expected points data from \href{https://ffop
 \donttest{
   try({ # prevents cran errors
   load_ff_opportunity()
-  load_ff_opportunity(seasons = 2021, type = "pbp_pass", version = "v1.0.0")
+  load_ff_opportunity(seasons = 2021, stat_type = "pbp_pass", model_version = "v1.0.0")
   })
 }
 

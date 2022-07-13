@@ -23,6 +23,7 @@
 - `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
 - dictionary updates: return labelled.
 - `.sitrep()` exits nicely if no packages are to be investigated. #114 (v1.2.0.15)
+- fixed broken example in `load_ff_opportunity()` documentation. #117 (v1.2.0.16) 
 
 ---
 
