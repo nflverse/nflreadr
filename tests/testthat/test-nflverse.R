@@ -29,7 +29,7 @@ test_that("load_participation", {
   expect_gt(ncol(participation), 5)
   expect_gt(ncol(pbp_participation), 300)
   expect_gt(nrow(participation), 50000)
-  expect_gt(nrow(pbp_participation), 50000)
+  expect_gt(nrow(pbp_participation), 40000)
 })
 
 test_that("load_player_stats", {
