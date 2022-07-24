@@ -2,6 +2,7 @@
 
 ## New data and functions
 
+- `load_participation()` returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward  (v1.2.0.17)
 - `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
 - `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
 - `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
