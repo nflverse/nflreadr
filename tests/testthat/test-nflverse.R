@@ -15,6 +15,22 @@ test_that("load_pbp", {
   expect_gt(nrow(pbp_years), 90000)
   expect_gt(nrow(pbp_qs), 90000)
 })
+test_that("load_participation", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  participation <- load_participation(2019)
+  pbp_participation <- load_participation(2020,include_pbp = TRUE,file_type = "qs")
+
+  expect_s3_class(participation, "tbl_df")
+  expect_s3_class(pbp_participation, "tbl_df")
+
+  expect_gt(ncol(participation), 5)
+  expect_gt(ncol(pbp_participation), 300)
+  expect_gt(nrow(participation), 50000)
+  expect_gt(nrow(pb_participation), 50000)
+})
 
 test_that("load_player_stats", {
 
