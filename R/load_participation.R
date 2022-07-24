@@ -47,7 +47,7 @@ load_participation <- function(seasons = most_recent_season(),
 
   pbp_participation <- data.table::merge.data.table(participation,pbp)
 
-  make_nflverse_data(pbp_participation,
+  pbp_participation <- make_nflverse_data(pbp_participation,
                      nflverse_type = "play-by-play participation",
                      nflverse_timestamp = attr(participation,"nflverse_timestamp"))
 
