@@ -4,13 +4,15 @@
 
 - `load_participation()` returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward  (v1.2.0.17)
 - `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
-- `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05) - requires dev version of piggyback atm.
+- `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05)
 - `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
 - `*sitrep()` functions now report package-specific options that are set. (v1.2.0.10)
 - `get_current_week()` helper to get the current nfl season week (v1.2.0.11)
 - `load_players()` returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.
 - `load_officials()` returns game-level information about which officials are assigned to specific games. (v1.2.0.14)
 - `load_from_url()` exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. (v1.2.0.16)
+- `load_rosters_weekly()` provides week-by-week team rosters dating back to 2002. (v1.2.0.18)
+- `load_rosters()` now provides season-level rosters dating back to 1920. (v1.2.0.18)
 
 ## fixes
 - moved rbindlist to a helper that manages attributes better (v1.2.0.01)

@@ -90,6 +90,20 @@ test_that("load_rosters", {
   expect_gt(nrow(rosters_years), 5000)
 })
 
+test_that("load_rosters_weekly", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  rosters <- load_rosters_weekly()
+  rosters_years <- load_rosters_weekly(seasons = 2019:2020)
+
+  expect_s3_class(rosters, "nflverse_data")
+  expect_s3_class(rosters_years, "nflverse_data")
+  expect_gt(nrow(rosters), 2000)
+  expect_gt(nrow(rosters_years), 90000)
+})
+
 test_that("load_ngs", {
 
   skip_on_cran()

@@ -10,6 +10,7 @@ reference:
   - "load_participation"
   - "load_players"
   - "load_rosters"
+  - "load_rosters_weekly"
   - "load_teams"
   - "load_schedules"
   - "load_officials"
