@@ -23,9 +23,9 @@ load_rosters <- function(seasons = most_recent_season(roster = TRUE),
                          file_type = getOption("nflreadr.prefer", default = "rds")){
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
   current_year <- most_recent_season(roster = TRUE)
-  if(isTRUE(seasons)) seasons <- 1999:current_year
+  if(isTRUE(seasons)) seasons <- 1920:current_year
   stopifnot(is.numeric(seasons),
-            seasons >= 1999,
+            seasons >= 1920,
             seasons <= current_year)
 
   urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_",
