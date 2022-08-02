@@ -2,6 +2,7 @@
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to returning
 #' this year's data if it is March or later. If set to `TRUE`, will return all available data.
+#' Data available back to 1920.
 #' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
