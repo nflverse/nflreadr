@@ -11,7 +11,8 @@ load_rosters(
 }
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, defaults to returning
-this year's data if it is March or later. If set to \code{TRUE}, will return all available data.}
+this year's data if it is March or later. If set to \code{TRUE}, will return all available data.
+Data available back to 1920.}
 
 \item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}

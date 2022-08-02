@@ -83,13 +83,11 @@ test_that("load_rosters", {
 
   rosters <- load_rosters()
   rosters_years <- load_rosters(seasons = 2019:2020)
-  rosters_all <- load_rosters(seasons = TRUE)
 
   expect_s3_class(rosters, "nflverse_data")
   expect_s3_class(rosters_years, "nflverse_data")
-  expect_s3_class(rosters_all, "nflverse_data")
-  expect_gt(nrow(rosters_years), 7000)
-  expect_gt(nrow(rosters_all), 60000)
+  expect_gt(nrow(rosters), 2000)
+  expect_gt(nrow(rosters_years), 5000)
 })
 
 test_that("load_ngs", {
