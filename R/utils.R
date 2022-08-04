@@ -7,8 +7,7 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 #' @keywords internal
 "_PACKAGE"
 
-# @importFrom Rcpp getRcppVersion
-# @importFrom RcppParallel defaultNumThreads
+#' @importFrom data.table `:=`
 NULL
 
 `%c%` <- function(x,y){

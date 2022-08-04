@@ -1,34 +1,42 @@
 # nflreadr (development version)
 
-## New data and functions
+## New Data!
 
-- `load_participation()` returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward  (v1.2.0.17)
+- `load_participation()` returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward  
 - `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
-- `download_nflverse()` downloads all files attached to specified/all releases to a local folder. (v1.2.0.05)
-- `load_draft_picks()` now has the rest of the career stat fields from PFR (v1.2.0.07)
-- `*sitrep()` functions now report package-specific options that are set. (v1.2.0.10)
-- `get_current_week()` helper to get the current nfl season week (v1.2.0.11)
 - `load_players()` returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.
-- `load_officials()` returns game-level information about which officials are assigned to specific games. (v1.2.0.14)
-- `load_from_url()` exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. (v1.2.0.16)
-- `load_rosters_weekly()` provides week-by-week team rosters dating back to 2002. (v1.2.0.18)
-- `load_rosters()` now provides season-level rosters dating back to 1920. (v1.2.0.18)
+- `load_rosters_weekly()` provides week-by-week team rosters dating back to 2002.
+- `load_officials()` returns game-level information about which officials are assigned to specific games.
 
-## fixes
-- moved rbindlist to a helper that manages attributes better (v1.2.0.01)
-- update `dictionary_snap_counts` and `dictionary_schedules` with some missing fields (v1.2.0.02)
-- rewrite from_url error messages to use cli and improve usefulness (v1.2.0.04)
+## New Functions! 
+
+- `download_nflverse()` downloads all files attached to specified/all releases to a local folder.
+- `load_from_url()` exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. 
+
+## Function Updates!
+
+- `load_draft_picks()` now has the rest of the career stat fields from PFR 
+- `*sitrep()` functions now report package-specific options that are set.
+- `get_current_week()` helper to get the current nfl season week 
+- `load_rosters()` now provides season-level rosters dating back to 1920. 
+
+## Other bugfixes
+
+- moved rbindlist to a helper that manages attributes better
+- update `dictionary_snap_counts` and `dictionary_schedules` with some missing fields 
+- rewrite from_url error messages to use cli and improve usefulness
 - bump minimum rlang version to 1.0.0
 - add piggyback suggested dependency
-- Export old class to support S4/DBI/`nflfastR::update_db()` as if it were a tibble. (v1.2.0.06)
-- Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,, (v1.2.0.08)
-- `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)
-- `clean_player_names()` now also removes commas (after optionally using them for `convert_lastfirst`) (v1.2.0.12)
-- `clean_player_names()` now also removes all caps suffixes (v1.2.0.13)
+- Export old class to support S4/DBI/`nflfastR::update_db()` as if it were a tibble
+- Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,,
+- `options(nflreadr.prefer)` defaults to rds now since qs is no longer a required dependency
+- `clean_player_names()` now also removes commas (after optionally using them for `convert_lastfirst`) 
+- `clean_player_names()` now also removes all caps suffixes
 - dictionary updates: return labelled.
-- `.sitrep()` exits nicely if no packages are to be investigated. #114 (v1.2.0.15)
-- refactored all the loaders to use `load_from_url` as primary (v1.2.0.16)
-- fixed broken example in `load_ff_opportunity()` documentation. #117 (v1.2.0.17) 
+- `.sitrep()` exits nicely if no packages are to be investigated. #114 
+- refactored all the loaders to use `load_from_url` as primary
+- fixed broken example in `load_ff_opportunity()` documentation. #117
+
 
 ---
 
