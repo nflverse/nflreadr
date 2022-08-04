@@ -7,7 +7,8 @@
 download_nflverse(
   ...,
   folder_path = getOption("nflreadr.download_path", default = "."),
-  file_type = getOption("nflreadr.prefer", default = "rds")
+  file_type = getOption("nflreadr.prefer", default = "rds"),
+  use_hive = file_type \%in\% c("parquet", "csv")
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ defaults to path specified in \code{options(nflreadr.download_path)} or "." (the
 
 \item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} -
 defaults to file type specified in \code{options(nflreadr.prefer)} or "rds"}
+
+\item{use_hive}{whether to create hive-style partition folders for each season, e.g. \code{"~/pbp/.season=2021/pbp.csv"}}
 }
 \description{
 This function downloads or updates data from the nflverse-data repository releases,
@@ -28,14 +31,12 @@ creating subfolders that match the release structure.
 {
 \donttest{
 try({
-  temp_dir <- tempdir()
-
   ## could also set options like
-  # options(nflreadr.download_path = temp_dir, nflreadr.prefer = "parquet")
+  # options(nflreadr.download_path = tempdir(), nflreadr.prefer = "parquet")
 
-  download_nflverse(combine, contracts, folder_path = temp_dir, file_type = "parquet")
+  download_nflverse(combine, contracts, folder_path = tempdir(), file_type = "parquet")
 
-  list.files(temp_dir,pattern = ".parquet$") # check that files were downloaded!
+  list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 })
 }
 }

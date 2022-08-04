@@ -9,35 +9,37 @@
 #' defaults to path specified in `options(nflreadr.download_path)` or "." (the current working directory)
 #' @param file_type one of `c("rds","parquet", "csv", "qs")` -
 #' defaults to file type specified in `options(nflreadr.prefer)` or "rds"
+#' @param use_hive whether to create hive-style partition folders for each season, e.g. `"~/pbp/.season=2021/pbp.csv"`
 #'
 #' @examples {
 #' \donttest{
 #' try({
-#'   temp_dir <- tempdir()
-#'
 #'   ## could also set options like
-#'   # options(nflreadr.download_path = temp_dir, nflreadr.prefer = "parquet")
+#'   # options(nflreadr.download_path = tempdir(), nflreadr.prefer = "parquet")
 #'
-#'   download_nflverse(combine, contracts, folder_path = temp_dir, file_type = "parquet")
+#'   download_nflverse(combine, contracts, folder_path = tempdir(), file_type = "parquet")
 #'
-#'   list.files(temp_dir,pattern = ".parquet$") # check that files were downloaded!
+#'   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 #' })
 #' }
 #' }
 #' @export
 download_nflverse <- function(...,
                               folder_path = getOption("nflreadr.download_path", default = "."),
-                              file_type = getOption("nflreadr.prefer", default = "rds")){
-
-  releases <- as.character(rlang::ensyms(...))
-  file_name <- NULL
-  tag <- NULL
+                              file_type = getOption("nflreadr.prefer", default = "rds"),
+                              use_hive = file_type %in% c("parquet","csv")
+                              ){
 
   rlang::check_installed(c("piggyback (>= 0.1.2)", "fs"))
-  rlang::arg_match0(file_type, c("rds","csv","parquet","qs"))
+
+  releases <- as.character(rlang::ensyms(...))
+  file_type <- rlang::arg_match0(file_type, c("rds","csv","parquet","qs"))
+
   stopifnot(
     length(folder_path) == 1,
-    is.character(folder_path)
+    is.character(folder_path),
+    length(use_hive) == 1,
+    is.logical(use_hive)
   )
 
   all_releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", verbose = FALSE)
@@ -58,7 +60,21 @@ download_nflverse <- function(...,
 
   data.table::setDT(file_list)
 
-  download_list <- file_list[grepl(paste0("\\.",file_type,"$"),file_name), list(file_name, tag, path = file.path(folder_path,tag))]
+  file_name <- NULL
+  tag <- NULL
+  path <- NULL
+  .season <- NULL
+
+  download_list <- file_list[grepl(paste0("\\.",file_type,"$"),file_name),
+                             list(file_name, tag, path = file.path(folder_path,tag))]
+
+  if(use_hive){
+    download_list <- download_list[
+      ,`:=`(.season = gsub(x = file_name, pattern = ".+([0-9]{4}).+", replacement = "\\1"))
+    ][,`:=`(path = ifelse(.season == file_name, path, file.path(path, paste0("season=",.season))))]
+
+    fs::dir_create(download_list$path)
+  }
 
   if(any(!releases %in% download_list$tag)){
     missing <- releases[!releases %in% download_list$tag]
@@ -67,7 +83,7 @@ download_nflverse <- function(...,
 
   cli::cli_alert_info("Now downloading {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")
 
-  lapply(split(x = download_list, by = "tag", drop = TRUE, flatten = FALSE),
+  lapply(split(x = download_list, by = "path", drop = TRUE, flatten = FALSE),
          function(x){
            piggyback::pb_download(
              file = x$file_name,
@@ -76,6 +92,7 @@ download_nflverse <- function(...,
              tag = x$tag[[1]],
              overwrite = TRUE
            )
+           invisible(NULL)
          })
 
   cli::cli_alert_success("Downloaded {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")

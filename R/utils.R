@@ -7,8 +7,7 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 #' @keywords internal
 "_PACKAGE"
 
-# @importFrom Rcpp getRcppVersion
-# @importFrom RcppParallel defaultNumThreads
+#' @importFrom data.table `:=`
 NULL
 
 `%c%` <- function(x,y){
@@ -56,4 +55,5 @@ rbindlist_with_attrs <- function(dflist){
 methods::setOldClass(c("nflverse_data", "data.frame"))
 
 #' @importFrom curl curl_fetch_memory
+#' @importFrom methods setOldClass
 NULL
