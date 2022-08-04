@@ -93,51 +93,57 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
 <div class="section level3">
-<h3 id="new-data-and-functions-development-version">New data and functions<a class="anchor" aria-label="anchor" href="#new-data-and-functions-development-version"></a></h3>
+<h3 id="new-data-development-version">New Data!<a class="anchor" aria-label="anchor" href="#new-data-development-version"></a></h3>
 <ul><li>
-<code><a href="../reference/load_participation.html">load_participation()</a></code> returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward (v1.2.0.17)</li>
+<code><a href="../reference/load_participation.html">load_participation()</a></code> returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward<br></li>
 <li>
 <code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history/" class="external-link">OverTheCap.com</a>
 </li>
 <li>
-<code><a href="../reference/download_nflverse.html">download_nflverse()</a></code> downloads all files attached to specified/all releases to a local folder. (v1.2.0.05)</li>
-<li>
-<code><a href="../reference/load_draft_picks.html">load_draft_picks()</a></code> now has the rest of the career stat fields from PFR (v1.2.0.07)</li>
-<li>
-<code>*sitrep()</code> functions now report package-specific options that are set. (v1.2.0.10)</li>
-<li>
-<code><a href="../reference/get_current_week.html">get_current_week()</a></code> helper to get the current nfl season week (v1.2.0.11)</li>
-<li>
 <code><a href="../reference/load_players.html">load_players()</a></code> returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.</li>
 <li>
-<code><a href="../reference/load_officials.html">load_officials()</a></code> returns game-level information about which officials are assigned to specific games. (v1.2.0.14)</li>
+<code><a href="../reference/load_rosters_weekly.html">load_rosters_weekly()</a></code> provides week-by-week team rosters dating back to 2002.</li>
 <li>
-<code><a href="../reference/load_from_url.html">load_from_url()</a></code> exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. (v1.2.0.16)</li>
-<li>
-<code><a href="../reference/load_rosters_weekly.html">load_rosters_weekly()</a></code> provides week-by-week team rosters dating back to 2002. (v1.2.0.18)</li>
-<li>
-<code><a href="../reference/load_rosters.html">load_rosters()</a></code> now provides season-level rosters dating back to 1920. (v1.2.0.18)</li>
+<code><a href="../reference/load_officials.html">load_officials()</a></code> returns game-level information about which officials are assigned to specific games.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="fixes-development-version">fixes<a class="anchor" aria-label="anchor" href="#fixes-development-version"></a></h3>
-<ul><li>moved rbindlist to a helper that manages attributes better (v1.2.0.01)</li>
-<li>update <code>dictionary_snap_counts</code> and <code>dictionary_schedules</code> with some missing fields (v1.2.0.02)</li>
-<li>rewrite from_url error messages to use cli and improve usefulness (v1.2.0.04)</li>
+<h3 id="new-functions-development-version">New Functions!<a class="anchor" aria-label="anchor" href="#new-functions-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/download_nflverse.html">download_nflverse()</a></code> downloads all files attached to specified/all releases to a local folder. This facilitates something like <code><a href="https://arrow.apache.org/docs/r/reference/open_dataset.html" class="external-link">arrow::open_dataset()</a></code> for reading files locally.</li>
+<li>
+<code><a href="../reference/load_from_url.html">load_from_url()</a></code> exposes a new utility function for loading any csv, rds, qs, parquet URL to memory.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="function-updates-development-version">Function Updates!<a class="anchor" aria-label="anchor" href="#function-updates-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/load_draft_picks.html">load_draft_picks()</a></code> now has the rest of the career stat fields from PFR</li>
+<li>
+<code>*sitrep()</code> functions now report package-specific options that are set.</li>
+<li>
+<code><a href="../reference/get_current_week.html">get_current_week()</a></code> helper to get the current nfl season week</li>
+<li>
+<code><a href="../reference/load_rosters.html">load_rosters()</a></code> now provides season-level rosters dating back to 1920.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-bugfixes-development-version">Other bugfixes<a class="anchor" aria-label="anchor" href="#other-bugfixes-development-version"></a></h3>
+<ul><li>moved rbindlist to a helper that manages attributes better</li>
+<li>update <code>dictionary_snap_counts</code> and <code>dictionary_schedules</code> with some missing fields</li>
+<li>rewrite from_url error messages to use cli and improve usefulness</li>
 <li>bump minimum rlang version to 1.0.0</li>
 <li>add piggyback suggested dependency</li>
-<li>Export old class to support S4/DBI/<code>nflfastR::update_db()</code> as if it were a tibble. (v1.2.0.06)</li>
-<li>Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,, (v1.2.0.08)</li>
+<li>Export old class to support S4/DBI/<code>nflfastR::update_db()</code> as if it were a tibble</li>
+<li>Fix exportOldClass so that it supports only data.frame stuff? we have no idea,,,</li>
 <li>
-<code>options(nflreadr.prefer)</code> defaults to rds now since qs is no longer a required dependency. (v1.2.0.09)</li>
+<code>options(nflreadr.prefer)</code> defaults to rds now since qs is no longer a required dependency</li>
 <li>
-<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now also removes commas (after optionally using them for <code>convert_lastfirst</code>) (v1.2.0.12)</li>
+<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now also removes commas (after optionally using them for <code>convert_lastfirst</code>)</li>
 <li>
-<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now also removes all caps suffixes (v1.2.0.13)</li>
+<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now also removes all caps suffixes</li>
 <li>dictionary updates: return labelled.</li>
 <li>
-<code><a href="../reference/sitrep.html">.sitrep()</a></code> exits nicely if no packages are to be investigated. <a href="https://github.com/nflverse/nflreadr/issues/114" class="external-link">#114</a> (v1.2.0.15)</li>
-<li>refactored all the loaders to use <code>load_from_url</code> as primary (v1.2.0.16)</li>
-<li>fixed broken example in <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> documentation. <a href="https://github.com/nflverse/nflreadr/issues/117" class="external-link">#117</a> (v1.2.0.17)</li>
+<code><a href="../reference/sitrep.html">.sitrep()</a></code> exits nicely if no packages are to be investigated. <a href="https://github.com/nflverse/nflreadr/issues/114" class="external-link">#114</a></li>
+<li>refactored all the loaders to use <code>load_from_url</code> as primary</li>
+<li>fixed broken example in <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> documentation. <a href="https://github.com/nflverse/nflreadr/issues/117" class="external-link">#117</a></li>
 </ul><hr></div>
 </div>
     <div class="section level2">
