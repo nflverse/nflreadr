@@ -71,7 +71,7 @@ download_nflverse <- function(...,
   if(use_hive){
     download_list <- download_list[
       ,`:=`(.season = gsub(x = file_name, pattern = ".+([0-9]{4}).+", replacement = "\\1"))
-    ][,`:=`(path = ifelse(.season == file_name, path, file.path(path, paste0("season_=",.season))))]
+    ][,`:=`(path = ifelse(.season == file_name, path, file.path(path, paste0("season=",.season))))]
 
     fs::dir_create(download_list$path)
   }
