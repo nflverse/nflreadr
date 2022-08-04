@@ -55,4 +55,5 @@ rbindlist_with_attrs <- function(dflist){
 methods::setOldClass(c("nflverse_data", "data.frame"))
 
 #' @importFrom curl curl_fetch_memory
+#' @importFrom methods setOldClass
 NULL
