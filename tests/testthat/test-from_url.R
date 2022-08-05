@@ -55,7 +55,7 @@ test_that("progress updates in raw_from_url work", {
   options(old)
 })
 
-test_that("download_nflverse downloads files",{
+test_that("nflverse_download downloads files",{
 
   skip_on_cran()
   skip_if_offline("github.com")
@@ -64,14 +64,14 @@ test_that("download_nflverse downloads files",{
 
   expect_error(
     expect_warning(
-      download_nflverse("asdf", folder_path = temp_dir),
+      nflverse_download("asdf", folder_path = temp_dir),
       "Could not find"
     ),
     "No matching releases"
   )
 
   expect_warning(
-    download_nflverse(
+    nflverse_download(
       combine, "test",
       folder_path = temp_dir,
       file_type = "qs"
@@ -79,7 +79,7 @@ test_that("download_nflverse downloads files",{
     regexp = "Could not find file"
   )
 
-  download_nflverse(
+  nflverse_download(
     combine, "contracts",
     folder_path = temp_dir,
     file_type = "parquet")

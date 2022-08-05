@@ -18,14 +18,14 @@
 #'   ## could also set options like
 #'   # options(nflreadr.download_path = tempdir(), nflreadr.prefer = "parquet")
 #'
-#'   download_nflverse(combine, contracts, folder_path = tempdir(), file_type = "parquet")
+#'   nflverse_download(combine, contracts, folder_path = tempdir(), file_type = "parquet")
 #'
 #'   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 #' })
 #' }
 #' }
 #' @export
-download_nflverse <- function(...,
+nflverse_download <- function(...,
                               folder_path = getOption("nflreadr.download_path", default = "."),
                               file_type = getOption("nflreadr.prefer", default = "rds"),
                               use_hive = file_type %in% c("parquet","csv")
@@ -106,7 +106,7 @@ download_nflverse <- function(...,
 #'
 #' @description This functions lists all nflverse data releases that are available
 #'   in the nflverse-data repo. Release names can be used for downloads in
-#'   [`download_nflverse()`].
+#'   [`nflverse_download()`].
 #'
 #' @return A data.table containing release names and release descriptions
 #' @export

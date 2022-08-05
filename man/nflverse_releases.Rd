@@ -12,7 +12,7 @@ A data.table containing release names and release descriptions
 \description{
 This functions lists all nflverse data releases that are available
 in the nflverse-data repo. Release names can be used for downloads in
-\code{\link[=download_nflverse]{download_nflverse()}}.
+\code{\link[=nflverse_download]{nflverse_download()}}.
 }
 \examples{
 \donttest{

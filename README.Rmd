@@ -91,7 +91,7 @@ options(nflreadr.cache)
 options(nflreadr.prefer) 
 # one of "qs", "rds", "parquet", or "csv"
 options(nflreadr.download_path)
-# defaults to current working directory - change to specify where `download_nflverse()` places data.
+# defaults to current working directory - change to specify where `nflverse_download()` places data.
 ```
 
 You can also configure `nflreadr` to display progress messages with the [`progressr` package](https://progressr.futureverse.org), e.g.
