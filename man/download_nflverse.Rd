@@ -13,7 +13,8 @@ download_nflverse(
 }
 \arguments{
 \item{...}{releases to download, provided in either unquoted or character format
-(i.e. pbp or "pbp" are both fine)}
+(i.e. pbp or "pbp" are both fine). Available release names can be listed with
+\code{\link[=nflverse_releases]{nflverse_releases()}}}
 
 \item{folder_path}{a folder in which subfolders will be created for each release -
 defaults to path specified in \code{options(nflreadr.download_path)} or "." (the current working directory)}

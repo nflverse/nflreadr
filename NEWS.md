@@ -11,6 +11,7 @@
 ## New Functions! 
 
 - `download_nflverse()` downloads all files attached to specified/all releases to a local folder. This facilitates something like `arrow::open_dataset()` for reading files locally.
+- `nflverse_releases()` lists all releases that can be loaded through `download_nflverse()`
 - `load_from_url()` exposes a new utility function for loading any csv, rds, qs, parquet URL to memory. 
 
 ## Function Updates!

@@ -4,7 +4,8 @@
 #' creating subfolders that match the release structure.
 #'
 #' @param ... releases to download, provided in either unquoted or character format
-#' (i.e. pbp or "pbp" are both fine)
+#' (i.e. pbp or "pbp" are both fine). Available release names can be listed with
+#' [`nflverse_releases()`]
 #' @param folder_path a folder in which subfolders will be created for each release -
 #' defaults to path specified in `options(nflreadr.download_path)` or "." (the current working directory)
 #' @param file_type one of `c("rds","parquet", "csv", "qs")` -
@@ -98,4 +99,29 @@ download_nflverse <- function(...,
   cli::cli_alert_success("Downloaded {.val {nrow(download_list)}} file{?s} to {.file {folder_path}}.")
 
   return(invisible(download_list))
+}
+
+
+#' List all Available nflverse Releases
+#'
+#' @description This functions lists all nflverse data releases that are available
+#'   in the nflverse-data repo. Release names can be used for downloads in
+#'   [`download_nflverse()`].
+#'
+#' @return A data.table containing release names and release descriptions
+#' @export
+#'
+#' @examples
+#' \donttest{
+#' try(
+#' nflverse_releases()
+#' )
+#' }
+nflverse_releases <- function(){
+  rlang::check_installed("piggyback (>= 0.1.2)")
+  releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data")
+  data.table::data.table(
+    release_name = releases$release_name,
+    release_description = gsub("[\r\n]", "", releases$release_body)
+  )
 }

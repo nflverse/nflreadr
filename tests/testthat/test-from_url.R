@@ -89,3 +89,16 @@ test_that("download_nflverse downloads files",{
   )
 
 })
+
+test_that("nflverse_releases lists releases",{
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  releases <- nflverse_releases()
+
+  expect_true(is.data.frame(releases))
+  expect_true(nrow(releases) >= 15)
+  expect_true(all(c("pbp", "player_stats") %in% releases$release_name))
+
+})
