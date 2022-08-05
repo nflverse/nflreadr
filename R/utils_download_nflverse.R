@@ -122,69 +122,31 @@ nflverse_download <- function(...,
 nflverse_releases <- function() {
   rlang::check_installed("piggyback (>= 0.1.2)")
   releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data")
-  join_df <- data.table::data.table(
+  assets <- piggyback::pb_list(repo = "nflverse/nflverse-data")
+  data.table::setDT(assets)
+
+  timestamp <- NULL
+  file_name <- NULL
+
+  release_summary <- assets[
+    ,list(
+      timestamp = format(max(timestamp),tz = "America/Toronto", usetz = TRUE),
+      rds = sum(grepl("rds$",file_name)),
+      parquet = sum(grepl("parquet$",file_name)),
+      csv = sum(grepl("csv$",file_name)),
+      csvgz = sum(grepl("csv.gz$",file_name)),
+      zip = sum(grepl("zip$",file_name))
+    ),
+    by = tag
+    ][order(timestamp, decreasing = TRUE)]
+
+  out <- data.table::data.table(
     release_name = releases$release_name,
     release_description = gsub("[\r\n]", "", releases$release_body)
-  )
-  assets_list <- piggyback::pb_list("nflverse/nflverse-data", releases$release_name)
-  ###################################################
-  # Create the following code with this dtplyr pipe
-  # assets_list |>
-  #   dtplyr::lazy_dt() |>
-  #   dplyr::mutate(
-  #     file_type = tools::file_ext(file_name),
-  #     file_type = ifelse(file_type == "gz", "csv.gz", file_type)
-  #   ) |>
-  #   dplyr::filter(!file_type %in% c("json", "txt")) |>
-  #   dplyr::group_by(release_name = tag, file_type) |>
-  #   dplyr::arrange(timestamp) |>
-  #   dplyr::summarise(
-  #     n_files = dplyr::n(),
-  #     last_update = tail(timestamp, n = 1)
-  #   ) |>
-  #   dplyr::group_by(release_name) |>
-  #   dplyr::arrange(last_update) |>
-  #   dplyr::summarise(
-  #     file_types = file_type |> sort() |> paste0(collapse = ", "),
-  #     files_per_type = n_files |> max(),
-  #     last_update = tail(last_update, n = 1) |> format(tz = "America/New_York", usetz = TRUE)
-  #   ) |>
-  #   dplyr::ungroup() |>
-  #   dplyr::left_join(join_df, by = "release_name") |>
-  #   dplyr::show_query()
-  ###################################################
-  data.table::setcolorder(join_df[data.table::as.data.table(assets_list)[, `:=`(c("file_type"), {
-    file_type <- tools::file_ext(file_name)
-    file_type <- data.table::fifelse(file_type == "gz", "csv.gz", file_type)
-    .(file_type)
-  })][!file_type %in% c("json", "txt")][, `:=`(release_name = tag)][order(timestamp)][,
-    .(n_files = .N, last_update = tail(timestamp, n = 1)),
-    keyby = .(
-      release_name,
-      file_type
-    )
-  ][order(last_update)][, .(file_types = paste0(sort(file_type),
-    collapse = ", "
-  ), files_per_type = max(n_files), last_update = format(tail(last_update,
-    n = 1
-  ), tz = "America/New_York", usetz = TRUE)), keyby = .(release_name)],
-  on = .(release_name), allow.cartesian = TRUE
-  ], c(
-    1L, 3L,
-    4L, 5L, 2L
-  ))
+  )[release_summary, on = c("release_name"="tag")]
+
+  out <- make_nflverse_data(out, "release listing")
+
+  return(out)
 }
 
-# To silence NSE check note for variables that are used in the above function
-utils::globalVariables(
-  names = c(
-    "file_type",
-    "timestamp",
-    "release_name",
-    "file_name",
-    "tag",
-    "last_update",
-    "n_files"
-  ),
-  package = "nflreadr"
-)
