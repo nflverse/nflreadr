@@ -102,13 +102,13 @@ nflverse_download <- function(...,
 }
 
 
-#' List all Available nflverse Releases
+#' List all available nflverse releases
 #'
 #' @description This functions lists all nflverse data releases that are available
 #'   in the nflverse-data repo. Release names can be used for downloads in
 #'   [`nflverse_download()`].
 #'
-#' @return A data.table containing release names, release descriptions, and
+#' @return A dataframe containing release names, release descriptions, and
 #'   other relevant release information.
 #' @export
 #' @examples
@@ -116,7 +116,7 @@ nflverse_download <- function(...,
 #' # Change option for better output
 #' old <- options(piggyback.verbose = FALSE)
 #'
-#' try(
+#' try( # avoids cran failures, can skip in normal usage
 #' nflverse_releases()
 #' )
 #'
@@ -136,11 +136,11 @@ nflverse_releases <- function() {
 
   release_summary <- assets[
     ,list(
-      timestamp = format(max(timestamp),tz = "America/Toronto", usetz = TRUE),
+      timestamp = format(max(timestamp), tz = "America/Toronto", usetz = TRUE),
       rds = sum(grepl("rds$",file_name)),
       parquet = sum(grepl("parquet$",file_name)),
       csv = sum(grepl("csv$",file_name)),
-      csvgz = sum(grepl("csv.gz$",file_name)),
+      csv_gz = sum(grepl("csv.gz$",file_name)),
       zip = sum(grepl("zip$",file_name))
     ),
     by = tag

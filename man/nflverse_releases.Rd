@@ -2,12 +2,12 @@
 % Please edit documentation in R/utils_download_nflverse.R
 \name{nflverse_releases}
 \alias{nflverse_releases}
-\title{List all Available nflverse Releases}
+\title{List all available nflverse releases}
 \usage{
 nflverse_releases()
 }
 \value{
-A data.table containing release names, release descriptions, and
+A dataframe containing release names, release descriptions, and
 other relevant release information.
 }
 \description{
@@ -20,7 +20,7 @@ in the nflverse-data repo. Release names can be used for downloads in
 # Change option for better output
 old <- options(piggyback.verbose = FALSE)
 
-try(
+try( # avoids cran failures, can skip in normal usage
 nflverse_releases()
 )
 
