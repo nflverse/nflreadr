@@ -4,7 +4,8 @@
 #' creating subfolders that match the release structure.
 #'
 #' @param ... releases to download, provided in either unquoted or character format
-#' (i.e. pbp or "pbp" are both fine)
+#' (i.e. pbp or "pbp" are both fine). Available release names can be listed with
+#' [`nflverse_releases()`]
 #' @param folder_path a folder in which subfolders will be created for each release -
 #' defaults to path specified in `options(nflreadr.download_path)` or "." (the current working directory)
 #' @param file_type one of `c("rds","parquet", "csv", "qs")` -
@@ -17,14 +18,14 @@
 #'   ## could also set options like
 #'   # options(nflreadr.download_path = tempdir(), nflreadr.prefer = "parquet")
 #'
-#'   download_nflverse(combine, contracts, folder_path = tempdir(), file_type = "parquet")
+#'   nflverse_download(combine, contracts, folder_path = tempdir(), file_type = "parquet")
 #'
 #'   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 #' })
 #' }
 #' }
 #' @export
-download_nflverse <- function(...,
+nflverse_download <- function(...,
                               folder_path = getOption("nflreadr.download_path", default = "."),
                               file_type = getOption("nflreadr.prefer", default = "rds"),
                               use_hive = file_type %in% c("parquet","csv")
@@ -99,3 +100,53 @@ download_nflverse <- function(...,
 
   return(invisible(download_list))
 }
+
+
+#' List all Available nflverse Releases
+#'
+#' @description This functions lists all nflverse data releases that are available
+#'   in the nflverse-data repo. Release names can be used for downloads in
+#'   [`nflverse_download()`].
+#'
+#' @return A data.table containing release names, release descriptions, and
+#'   other relevant release information.
+#' @export
+#' @importFrom utils tail
+#' @importFrom data.table .N .I ':='
+#' @examples
+#' \donttest{
+#' try(
+#' nflverse_releases()
+#' )
+#' }
+nflverse_releases <- function() {
+  rlang::check_installed("piggyback (>= 0.1.2)")
+  releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data")
+  assets <- piggyback::pb_list(repo = "nflverse/nflverse-data")
+  data.table::setDT(assets)
+
+  timestamp <- NULL
+  file_name <- NULL
+
+  release_summary <- assets[
+    ,list(
+      timestamp = format(max(timestamp),tz = "America/Toronto", usetz = TRUE),
+      rds = sum(grepl("rds$",file_name)),
+      parquet = sum(grepl("parquet$",file_name)),
+      csv = sum(grepl("csv$",file_name)),
+      csvgz = sum(grepl("csv.gz$",file_name)),
+      zip = sum(grepl("zip$",file_name))
+    ),
+    by = tag
+    ][order(timestamp, decreasing = TRUE)]
+
+  out <- data.table::data.table(
+    release_name = releases$release_name,
+    release_description = gsub("[\r\n]", "", releases$release_body)
+  )[release_summary, on = c("release_name"="tag")]
+
+  out <- make_nflverse_data(out, "release listing")
+
+  return(out)
+}
+
