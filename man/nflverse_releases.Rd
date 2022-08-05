@@ -7,7 +7,8 @@
 nflverse_releases()
 }
 \value{
-A data.table containing release names and release descriptions
+A data.table containing release names, release descriptions, and
+other relevant release information.
 }
 \description{
 This functions lists all nflverse data releases that are available
