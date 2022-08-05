@@ -148,9 +148,6 @@
     <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
   </url>
   <url>
-    <loc>https://nflreadr.nflverse.com/reference/download_nflverse.html</loc>
-  </url>
-  <url>
     <loc>https://nflreadr.nflverse.com/reference/get_current_week.html</loc>
   </url>
   <url>
@@ -236,6 +233,12 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/nflverse_data-class.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/nflverse_download.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/nflverse_releases.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/parquet_from_url.html</loc>

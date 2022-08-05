@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.20</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -225,7 +225,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> </span>
 <span><span class="co"># one of "qs", "rds", "parquet", or "csv"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.download_path</span><span class="op">)</span></span>
-<span><span class="co"># defaults to current working directory - change to specify where `download_nflverse()` places data.</span></span></code></pre></div>
+<span><span class="co"># defaults to current working directory - change to specify where `nflverse_download()` places data.</span></span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>progressr<span class="sc">::</span><span class="fu">with_progress</span>(<span class="fu">load_rosters</span>(<span class="at">seasons =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="sc">|</span><span class="er">========</span>            <span class="er">|</span>  <span class="dv">40</span>%</span></code></pre></div>

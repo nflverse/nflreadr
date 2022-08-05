@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.20</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,7 +109,10 @@
 <div class="section level3">
 <h3 id="new-functions-development-version">New Functions!<a class="anchor" aria-label="anchor" href="#new-functions-development-version"></a></h3>
 <ul><li>
-<code><a href="../reference/download_nflverse.html">download_nflverse()</a></code> downloads all files attached to specified/all releases to a local folder. This facilitates something like <code><a href="https://arrow.apache.org/docs/r/reference/open_dataset.html" class="external-link">arrow::open_dataset()</a></code> for reading files locally.</li>
+<code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> downloads all files attached to specified/all releases to a local folder. This facilitates something like <code><a href="https://arrow.apache.org/docs/r/reference/open_dataset.html" class="external-link">arrow::open_dataset()</a></code> for reading files locally.</li>
+<li>
+<code><a href="../reference/nflverse_releases.html">nflverse_releases()</a></code> lists all releases that can be loaded through <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code>
+</li>
 <li>
 <code><a href="../reference/load_from_url.html">load_from_url()</a></code> exposes a new utility function for loading any csv, rds, qs, parquet URL to memory.</li>
 </ul></div>
