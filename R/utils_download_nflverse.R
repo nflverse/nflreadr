@@ -111,13 +111,17 @@ nflverse_download <- function(...,
 #' @return A data.table containing release names, release descriptions, and
 #'   other relevant release information.
 #' @export
-#' @importFrom utils tail
-#' @importFrom data.table .N .I ':='
 #' @examples
 #' \donttest{
+#' # Change option for better output
+#' old <- options(piggyback.verbose = FALSE)
+#'
 #' try(
 #' nflverse_releases()
 #' )
+#'
+#' # Restore old options
+#' options(old)
 #' }
 nflverse_releases <- function() {
   rlang::check_installed("piggyback (>= 0.1.2)")
@@ -125,8 +129,10 @@ nflverse_releases <- function() {
   assets <- piggyback::pb_list(repo = "nflverse/nflverse-data")
   data.table::setDT(assets)
 
+  # define variables to prevent NSE check NOTE
   timestamp <- NULL
   file_name <- NULL
+  tag <- NULL
 
   release_summary <- assets[
     ,list(

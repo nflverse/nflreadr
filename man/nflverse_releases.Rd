@@ -17,8 +17,14 @@ in the nflverse-data repo. Release names can be used for downloads in
 }
 \examples{
 \donttest{
+# Change option for better output
+old <- options(piggyback.verbose = FALSE)
+
 try(
 nflverse_releases()
 )
+
+# Restore old options
+options(old)
 }
 }
