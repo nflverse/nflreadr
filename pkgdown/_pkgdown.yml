@@ -25,6 +25,7 @@ reference:
   - "load_snap_counts"
   - "load_contracts"
   - "nflverse_download"
+  - "nflverse_releases"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
@@ -56,7 +57,6 @@ reference:
   - "get_latest_season"
   - "get_current_week"
   - "nflverse_data-class"
-  - "nflverse_releases"
 
 authors:
   Tan Ho:
