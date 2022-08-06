@@ -14,7 +14,7 @@
 #'
 #' @return A tibble of active and non-active NFL player contracts.
 #'
-#' @seealso <https://overthecap.com/contract-history/> for a web version of the data
+#' @seealso <https://overthecap.com/contract-history> for a web version of the data
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_contracts.html> for a web version of the dictionary
 #' @seealso [`dictionary_contracts`] for the data dictionary as bundled within the package
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/rotc>
