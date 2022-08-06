@@ -25,7 +25,7 @@ try({ # prevents cran errors
 
 }
 \seealso{
-\url{https://overthecap.com/contract-history/} for a web version of the data
+\url{https://overthecap.com/contract-history} for a web version of the data
 
 \url{https://nflreadr.nflverse.com/articles/dictionary_contracts.html} for a web version of the dictionary
 

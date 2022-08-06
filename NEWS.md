@@ -5,7 +5,7 @@ This release introduces several new data functions, some new utilities, and an a
 ## New Data!
 
 - `load_participation()` returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward  
-- `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history/)
+- `load_contracts()` downloads (historical) player contracts from [OverTheCap.com](https://overthecap.com/contract-history)
 - `load_players()` returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.
 - `load_rosters_weekly()` provides week-by-week team rosters dating back to 2002.
 - `load_officials()` returns game-level information about which officials are assigned to specific games.
