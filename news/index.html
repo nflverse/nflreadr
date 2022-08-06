@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.20</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,13 +91,14 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.3.0" id="nflreadr-130">nflreadr 1.3.0<a class="anchor" aria-label="anchor" href="#nflreadr-130"></a></h2>
+<p>This release introduces several new data functions, some new utilities, and an array of data/function updates.</p>
 <div class="section level3">
-<h3 id="new-data-development-version">New Data!<a class="anchor" aria-label="anchor" href="#new-data-development-version"></a></h3>
+<h3 id="new-data-1-3-0">New Data!<a class="anchor" aria-label="anchor" href="#new-data-1-3-0"></a></h3>
 <ul><li>
 <code><a href="../reference/load_participation.html">load_participation()</a></code> returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward<br></li>
 <li>
-<code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history/" class="external-link">OverTheCap.com</a>
+<code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history" class="external-link">OverTheCap.com</a>
 </li>
 <li>
 <code><a href="../reference/load_players.html">load_players()</a></code> returns player-level information and is the new recommended source (over rosters) for IDs, positions, birthdates etc.</li>
@@ -107,7 +108,7 @@
 <code><a href="../reference/load_officials.html">load_officials()</a></code> returns game-level information about which officials are assigned to specific games.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-functions-development-version">New Functions!<a class="anchor" aria-label="anchor" href="#new-functions-development-version"></a></h3>
+<h3 id="new-functions-1-3-0">New Functions!<a class="anchor" aria-label="anchor" href="#new-functions-1-3-0"></a></h3>
 <ul><li>
 <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> downloads all files attached to specified/all releases to a local folder. This facilitates something like <code><a href="https://arrow.apache.org/docs/r/reference/open_dataset.html" class="external-link">arrow::open_dataset()</a></code> for reading files locally.</li>
 <li>
@@ -117,7 +118,7 @@
 <code><a href="../reference/load_from_url.html">load_from_url()</a></code> exposes a new utility function for loading any csv, rds, qs, parquet URL to memory.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="function-updates-development-version">Function Updates!<a class="anchor" aria-label="anchor" href="#function-updates-development-version"></a></h3>
+<h3 id="function-updates-1-3-0">Function Updates!<a class="anchor" aria-label="anchor" href="#function-updates-1-3-0"></a></h3>
 <ul><li>
 <code><a href="../reference/load_draft_picks.html">load_draft_picks()</a></code> now has the rest of the career stat fields from PFR</li>
 <li>
@@ -128,7 +129,7 @@
 <code><a href="../reference/load_rosters.html">load_rosters()</a></code> now provides season-level rosters dating back to 1920.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-bugfixes-development-version">Other bugfixes<a class="anchor" aria-label="anchor" href="#other-bugfixes-development-version"></a></h3>
+<h3 id="other-bugfixes-1-3-0">Other bugfixes<a class="anchor" aria-label="anchor" href="#other-bugfixes-1-3-0"></a></h3>
 <ul><li>moved rbindlist to a helper that manages attributes better</li>
 <li>update <code>dictionary_snap_counts</code> and <code>dictionary_schedules</code> with some missing fields</li>
 <li>rewrite from_url error messages to use cli and improve usefulness</li>
@@ -147,7 +148,8 @@
 <code><a href="../reference/sitrep.html">.sitrep()</a></code> exits nicely if no packages are to be investigated. <a href="https://github.com/nflverse/nflreadr/issues/114" class="external-link">#114</a></li>
 <li>refactored all the loaders to use <code>load_from_url</code> as primary</li>
 <li>fixed broken example in <code><a href="../reference/load_ff_opportunity.html">load_ff_opportunity()</a></code> documentation. <a href="https://github.com/nflverse/nflreadr/issues/117" class="external-link">#117</a></li>
-</ul><hr></div>
+</ul><p>Thank you to <a href="https://github.com/albtree" class="external-link">@albtree</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/pranavrajaram" class="external-link">@pranavrajaram</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/tpenney89" class="external-link">@tpenney89</a> for their contributions and feedback on this release!</p>
+<hr></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.0" id="nflreadr-120">nflreadr 1.2.0<a class="anchor" aria-label="anchor" href="#nflreadr-120"></a></h2><p class="text-muted">CRAN release: 2022-03-17</p>
