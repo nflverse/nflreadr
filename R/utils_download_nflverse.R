@@ -47,7 +47,7 @@ nflverse_download <- function(...,
     is.logical(use_hive)
   )
 
-  all_releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", verbose = FALSE)
+  all_releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", verbose = FALSE, .token = .token)
 
   if(!isTRUE(releases) && any(!releases %in% all_releases$release_name)){
     missing <- releases[!releases %in% all_releases$release_name]
@@ -61,7 +61,7 @@ nflverse_download <- function(...,
 
   fs::dir_create(file.path(folder_path,releases))
 
-  file_list <- piggyback::pb_list(repo = "nflverse/nflverse-data", tag = releases)
+  file_list <- piggyback::pb_list(repo = "nflverse/nflverse-data", tag = releases, .token = .token)
 
   data.table::setDT(file_list)
 
@@ -95,7 +95,8 @@ nflverse_download <- function(...,
              dest = x$path[[1]],
              repo = "nflverse/nflverse-data",
              tag = x$tag[[1]],
-             overwrite = TRUE
+             overwrite = TRUE,
+             .token = .token
            )
            invisible(NULL)
          })
