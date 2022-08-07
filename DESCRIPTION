@@ -35,6 +35,7 @@ Suggests:
     covr (>= 3.0.0),
     DT (>= 0.15.0),
     fs (>= 1.5.0),
+    gh (>= 1.0.0),
     knitr (>= 1.0.0),
     piggyback (>= 0.1.2),
     progressr (>= 0.8.0),
