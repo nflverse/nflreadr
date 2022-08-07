@@ -1,7 +1,7 @@
 #' Load Snap Counts from PFR
 #'
 #' @description Loads game level snap counts stats provided by Pro Football Reference
-#' starting with the 2013 season.
+#' starting with the 2012 season.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
@@ -25,9 +25,9 @@ load_snap_counts <- function(seasons = most_recent_season(),
                              file_type = getOption("nflreadr.prefer", default = "rds")){
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
+  if(isTRUE(seasons)) seasons <- 2012:most_recent_season()
   stopifnot(is.numeric(seasons),
-            seasons >= 2013,
+            seasons >= 2012,
             seasons <= most_recent_season())
 
   urls <- paste0("https://github.com/nflverse/nflverse-data/releases/",
