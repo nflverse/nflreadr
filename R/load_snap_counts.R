@@ -1,7 +1,7 @@
 #' Load Snap Counts from PFR
 #'
 #' @description Loads game level snap counts stats provided by Pro Football Reference
-#' starting with the 2013 season.
+#' starting with the 2012 season.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with

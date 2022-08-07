@@ -1,3 +1,10 @@
+# nflreadr (development version)
+
+## Bugfixes
+- `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128)
+
+---
+
 # nflreadr 1.3.0
 
 This release introduces several new data functions, some new utilities, and an array of data/function updates. 

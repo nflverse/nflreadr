@@ -20,7 +20,7 @@ A tibble of game-level snap counts provided by Pro Football Reference.
 }
 \description{
 Loads game level snap counts stats provided by Pro Football Reference
-starting with the 2013 season.
+starting with the 2012 season.
 }
 \examples{
 \donttest{
