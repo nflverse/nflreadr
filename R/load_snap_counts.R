@@ -25,9 +25,9 @@ load_snap_counts <- function(seasons = most_recent_season(),
                              file_type = getOption("nflreadr.prefer", default = "rds")){
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  if(isTRUE(seasons)) seasons <- 2013:most_recent_season()
+  if(isTRUE(seasons)) seasons <- 2012:most_recent_season()
   stopifnot(is.numeric(seasons),
-            seasons >= 2013,
+            seasons >= 2012,
             seasons <= most_recent_season())
 
   urls <- paste0("https://github.com/nflverse/nflverse-data/releases/",
