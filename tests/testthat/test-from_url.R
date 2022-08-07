@@ -64,7 +64,10 @@ test_that("nflverse_download downloads files",{
 
   expect_error(
     expect_warning(
-      nflverse_download("asdf", folder_path = temp_dir),
+      nflverse_download(
+        "asdf",
+        folder_path = temp_dir,
+        .token = Sys.getenv("NFLVERSE_GH_TOKEN")),
       "Could not find"
     ),
     "No matching releases"
@@ -74,7 +77,8 @@ test_that("nflverse_download downloads files",{
     nflverse_download(
       combine, "test",
       folder_path = temp_dir,
-      file_type = "qs"
+      file_type = "qs",
+      .token = Sys.getenv("NFLVERSE_GH_TOKEN")
     ),
     regexp = "Could not find file"
   )
@@ -82,7 +86,9 @@ test_that("nflverse_download downloads files",{
   nflverse_download(
     combine, "contracts",
     folder_path = temp_dir,
-    file_type = "parquet")
+    file_type = "parquet",
+    .token = Sys.getenv("NFLVERSE_GH_TOKEN")
+  )
 
   expect_true(
     length(list.files(temp_dir,recursive = TRUE)) >= 2
@@ -95,7 +101,7 @@ test_that("nflverse_releases lists releases",{
   skip_on_cran()
   skip_if_offline("github.com")
 
-  releases <- nflverse_releases()
+  releases <- nflverse_releases(.token = Sys.getenv("NFLVERSE_GH_TOKEN"))
 
   expect_true(is.data.frame(releases))
   expect_true(nrow(releases) >= 15)

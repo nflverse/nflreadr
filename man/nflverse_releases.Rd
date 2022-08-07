@@ -4,7 +4,10 @@
 \alias{nflverse_releases}
 \title{List all available nflverse releases}
 \usage{
-nflverse_releases()
+nflverse_releases(.token = "default")
+}
+\arguments{
+\item{.token}{a GitHub API token, \code{"default"} uses \code{gh::gh_token()}}
 }
 \value{
 A dataframe containing release names, release descriptions, and

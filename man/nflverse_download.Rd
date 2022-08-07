@@ -8,7 +8,8 @@ nflverse_download(
   ...,
   folder_path = getOption("nflreadr.download_path", default = "."),
   file_type = getOption("nflreadr.prefer", default = "rds"),
-  use_hive = file_type \%in\% c("parquet", "csv")
+  use_hive = file_type \%in\% c("parquet", "csv"),
+  .token = "default"
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ defaults to path specified in \code{options(nflreadr.download_path)} or "." (the
 defaults to file type specified in \code{options(nflreadr.prefer)} or "rds"}
 
 \item{use_hive}{whether to create hive-style partition folders for each season, e.g. \code{"~/pbp/.season=2021/pbp.csv"}}
+
+\item{.token}{a GitHub API token, \code{"default"} uses \code{gh::gh_token()}}
 }
 \description{
 This function downloads or updates data from the nflverse-data repository releases,
