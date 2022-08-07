@@ -11,6 +11,7 @@
 #' @param file_type one of `c("rds","parquet", "csv", "qs")` -
 #' defaults to file type specified in `options(nflreadr.prefer)` or "rds"
 #' @param use_hive whether to create hive-style partition folders for each season, e.g. `"~/pbp/.season=2021/pbp.csv"`
+#' @param .token a GitHub API token, `"default"` uses `gh::gh_token()`
 #'
 #' @examples {
 #' \donttest{
@@ -28,10 +29,13 @@
 nflverse_download <- function(...,
                               folder_path = getOption("nflreadr.download_path", default = "."),
                               file_type = getOption("nflreadr.prefer", default = "rds"),
-                              use_hive = file_type %in% c("parquet","csv")
+                              use_hive = file_type %in% c("parquet","csv"),
+                              .token = "default"
                               ){
 
-  rlang::check_installed(c("piggyback (>= 0.1.2)", "fs"))
+  rlang::check_installed(c("piggyback (>= 0.1.2)", "fs", "gh"))
+
+  if(.token == "default") .token <- gh::gh_token()
 
   releases <- as.character(rlang::ensyms(...))
   file_type <- rlang::arg_match0(file_type, c("rds","csv","parquet","qs"))
@@ -43,7 +47,7 @@ nflverse_download <- function(...,
     is.logical(use_hive)
   )
 
-  all_releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", verbose = FALSE)
+  all_releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", verbose = FALSE, .token = .token)
 
   if(!isTRUE(releases) && any(!releases %in% all_releases$release_name)){
     missing <- releases[!releases %in% all_releases$release_name]
@@ -57,7 +61,7 @@ nflverse_download <- function(...,
 
   fs::dir_create(file.path(folder_path,releases))
 
-  file_list <- piggyback::pb_list(repo = "nflverse/nflverse-data", tag = releases)
+  file_list <- piggyback::pb_list(repo = "nflverse/nflverse-data", tag = releases, .token = .token)
 
   data.table::setDT(file_list)
 
@@ -91,7 +95,8 @@ nflverse_download <- function(...,
              dest = x$path[[1]],
              repo = "nflverse/nflverse-data",
              tag = x$tag[[1]],
-             overwrite = TRUE
+             overwrite = TRUE,
+             .token = .token
            )
            invisible(NULL)
          })
@@ -108,6 +113,8 @@ nflverse_download <- function(...,
 #'   in the nflverse-data repo. Release names can be used for downloads in
 #'   [`nflverse_download()`].
 #'
+#' @param .token a GitHub API token, `"default"` uses `gh::gh_token()`
+#'
 #' @return A dataframe containing release names, release descriptions, and
 #'   other relevant release information.
 #' @export
@@ -123,10 +130,11 @@ nflverse_download <- function(...,
 #' # Restore old options
 #' options(old)
 #' }
-nflverse_releases <- function() {
-  rlang::check_installed("piggyback (>= 0.1.2)")
-  releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data")
-  assets <- piggyback::pb_list(repo = "nflverse/nflverse-data")
+nflverse_releases <- function(.token = "default") {
+  rlang::check_installed("piggyback (>= 0.1.2)", "gh")
+  if(.token == "default") .token <- gh::gh_token()
+  releases <- piggyback::pb_releases(repo = "nflverse/nflverse-data", .token = .token)
+  assets <- piggyback::pb_list(repo = "nflverse/nflverse-data", .token = .token)
   data.table::setDT(assets)
 
   # define variables to prevent NSE check NOTE
