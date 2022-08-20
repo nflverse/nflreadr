@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0.02</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0.03</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,6 +98,7 @@
 <code><a href="../reference/load_snap_counts.html">load_snap_counts()</a></code> now allows download of the 2012 season which was previously hardcoded from 2013 (<a href="https://github.com/nflverse/nflreadr/issues/128" class="external-link">#128</a>) (v1.3.0.01)</li>
 <li>
 <code><a href="../reference/nflverse_releases.html">nflverse_releases()</a></code> and <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> now accept <code>.token</code> arguments which default to <code><a href="https://gh.r-lib.org/reference/gh_token.html" class="external-link">gh::gh_token()</a></code>. This is mostly to let us test things properly. (<a href="https://github.com/nflverse/nflreadr/issues/131" class="external-link">#131</a>) (v1.3.0.02)</li>
+<li>Adjust import references per Jenny Bryan’s recommendations in hadley/r-pkgs#828 to avoid loading unused packages. (v1.3.0.03)</li>
 </ul><hr></div>
 </div>
     <div class="section level2">
