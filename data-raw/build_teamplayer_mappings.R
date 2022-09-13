@@ -2,7 +2,11 @@ library(nflreadr)
 library(tidyverse)
 library(usethis)
 
-player_name_mapping <- read.csv("data-raw/clean_player_names.csv")
+player_name_mapping <- read.csv("data-raw/clean_player_names.csv") |>
+  dplyr::select(alt_name, correct_name) %>%
+  dplyr::distinct(alt_name, .keep_all = TRUE) %>%
+  tibble::deframe()
+
 usethis::use_data(player_name_mapping, overwrite = TRUE)
 
 teams <- csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams.csv") %>%
