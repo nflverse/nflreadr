@@ -62,7 +62,7 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 #'
 #' @examples
 #'
-#' clean_player_names(c("A.J. Green", "Odell Beckham Jr.", "Le'Veon Bell Sr."))
+#' clean_player_names(c("A.J. Green", "Odell Beckham Jr.  ", "Le'Veon Bell Sr."))
 #'
 #' clean_player_names(c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore"),
 #'                   convert_lastfirst = TRUE)
@@ -82,20 +82,26 @@ clean_player_names <- function(player_name,
 
   n <- player_name
 
-  # convert Last, First
-  if(convert_lastfirst) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
-
-  # suffix removal
-  n <- gsub(pattern = "Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
-            replacement = "",
-            x = n,
-            ignore.case = TRUE)
-
   # squish internal whitespace
   n <- gsub(pattern = "\\s+", replacement = " ", x = n)
 
   # trim whitespace
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
+
+  # convert Last, First
+  if(convert_lastfirst) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+
+  # suffix removal
+  n <- gsub(pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
+            replacement = "",
+            x = n,
+            ignore.case = TRUE)
+
+#   # squish internal whitespace
+#   n <- gsub(pattern = "\\s+", replacement = " ", x = n)
+#
+#   # trim whitespace
+#   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
   if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %c% n)
 
