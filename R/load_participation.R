@@ -41,11 +41,15 @@ load_participation <- function(seasons = most_recent_season(),
   pbp <- load_pbp(seasons = seasons, file_type = file_type)
 
   data.table::setDT(participation)
-  data.table::setkeyv(participation, c("old_game_id","play_id"))
+  data.table::setkeyv(participation, c("nflverse_game_id","play_id"))
   data.table::setDT(pbp)
-  data.table::setkeyv(pbp, c("old_game_id","play_id"))
+  data.table::setkeyv(pbp, c("game_id","play_id"))
 
-  pbp_participation <- data.table::merge.data.table(participation,pbp)
+  pbp_participation <- data.table::merge.data.table(
+    participation[,-c("old_game_id")],
+    pbp,
+    by.x = c("nflverse_game_id","play_id"),
+    by.y = c("game_id","play_id"))
 
   pbp_participation <- make_nflverse_data(pbp_participation,
                      nflverse_type = "play-by-play participation",

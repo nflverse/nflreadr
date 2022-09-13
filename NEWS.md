@@ -4,6 +4,7 @@
 - `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128) (v1.3.0.01)
 - `nflverse_releases()` and `nflverse_download()` now accept `.token` arguments which default to `gh::gh_token()`. This is mostly to let us test things properly. (#131) (v1.3.0.02)
 - Adjust import references per Jenny Bryan's recommendations in hadley/r-pkgs#828 to avoid loading unused packages. (v1.3.0.03)
+- `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id` (v1.3.0.04)
 
 
 ---
