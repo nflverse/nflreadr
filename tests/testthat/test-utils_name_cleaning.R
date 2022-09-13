@@ -17,7 +17,7 @@ test_that("cleaning team abbreviations", {
 
 test_that("cleaning player names", {
 
-  p <- c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore", "A.J. Green", "Odell Beckham Jr.")
+  p <- c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore", "A.J. Green", "Odell Beckham Jr.   ")
 
   lower <- clean_player_names(p,lowercase = TRUE, use_name_database = TRUE, convert_lastfirst = TRUE)
 
