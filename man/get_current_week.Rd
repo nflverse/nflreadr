@@ -18,6 +18,11 @@ A helper function that returns the upcoming NFL regular season week based on eit
 the nflverse schedules file (as found in \code{load_schedules()})
 or some date-based heuristics (number of weeks since the first Monday of September)
 }
+\details{
+Note that the date heuristic will count a new week starting on Thursdays, while
+the schedule-based method will count a new week after the last game of the previous
+week, e.g. after MNF is completed. Tan and Ben argued for a while about this.
+}
 \examples{
 {
   \donttest{
