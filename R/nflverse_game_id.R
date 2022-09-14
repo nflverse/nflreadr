@@ -17,8 +17,8 @@ nflverse_game_id <- function(season,
   season <- as.numeric(season)
   week <- as.numeric(week)
 
-  if (!all(season %in% 1999:most_recent_season())){
-    cli::cli_abort("{.arg season} must be between 1999 and {most_recent_season()}")
+  if (!all(season %in% 1999:most_recent_season(roster = TRUE))){
+    cli::cli_abort("{.arg season} must be between 1999 and {most_recent_season(roster = TRUE)}")
   }
 
   if (!all(week %in% 1:22)){
