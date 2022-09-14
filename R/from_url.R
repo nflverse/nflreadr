@@ -215,7 +215,7 @@ qs_from_url <- function(url){
 #' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
 #'
 #' @param f a function to add progressr functionality to.
-#' @param p a progressor function as created by `progressr::progressor()`
+#' @param p a progressor function such as one created by `progressr::progressor()`
 #'
 #' @examples
 #'
@@ -241,7 +241,7 @@ qs_from_url <- function(url){
 #'
 #' @export
 progressively <- function(f, p = NULL){
-  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if(!is.null(p)) p <- rlang::as_function(p)
   if(is.null(p)) p <- function(...) NULL
   force(f)
 
