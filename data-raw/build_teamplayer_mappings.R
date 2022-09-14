@@ -1,9 +1,11 @@
 library(nflreadr)
 library(tidyverse)
 library(usethis)
-library(ffscrapr)
 
-player_name_mapping <- ffscrapr::dp_name_mapping
+player_name_mapping <- read.csv("data-raw/clean_player_names.csv") |>
+  dplyr::select(alt_name, correct_name) %>%
+  dplyr::distinct(alt_name, .keep_all = TRUE) %>%
+  tibble::deframe()
 
 usethis::use_data(player_name_mapping, overwrite = TRUE)
 
