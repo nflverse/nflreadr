@@ -1,4 +1,3 @@
-context("nflverse load functions")
 test_that("load_pbp", {
 
   skip_on_cran()
@@ -308,7 +307,6 @@ test_that("load_officials", {
 
 ## NEW LOAD FUNCTIONS GO ABOVE THIS LINE ##
 
-context("print method")
 test_that("nflverse_data print method works", {
 
   skip_on_cran()
@@ -324,7 +322,6 @@ test_that("nflverse_data print method works", {
 
 })
 
-context("caching/cache-clearing")
 test_that("Cache clearing works",{
 
   skip_on_cran()
