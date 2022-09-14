@@ -33,12 +33,11 @@ nflverse_game_id <- function(season,
     cli::cli_abort("{.val {away}} is not a valid {.arg away} abbreviation.")
   }
 
-  # This could be used to require equal length of input vectors but it
-  # wouldn't allow recycling of single values. So I keep it commented for now
+  arg_lengths <- lengths(list(season, week, away, home))
 
-  # if (lengths(list(season, week, away, home)) |> unique() |> length() > 1){
-  #   cli::cli_abort("All arguments are required same length.")
-  # }
+  if (!all(arg_lengths %in% c(1, max(arg_lengths)))){
+    cli::cli_warn("Arguments should be of of length one or of length {max(arg_lengths)}. Recycling may produce unexpected results.")
+  }
 
   paste(
     season,

@@ -370,4 +370,10 @@ test_that("nflverse_game_id works", {
     nflverse_game_id(2022, 2, "LAC", "KKC"), "is not a valid `home` abbreviation"
   )
 
+  # warn on non smart input
+  expect_warning(
+    nflverse_game_id(2022, 2, rep("LAC", 2), rep("KC", 3)),
+    "Arguments should be of of length one or of length"
+  )
+
 })
