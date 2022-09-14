@@ -25,11 +25,11 @@ nflverse_game_id <- function(season,
     cli::cli_abort("{.arg week} must be between 1 and 22")
   }
 
-  if (!all(home %in% team_abbr_mapping)){
+  if (!all(home %in% nflreadr::team_abbr_mapping)){
     cli::cli_abort("{.val {home}} is not a valid {.arg home} abbreviation.")
   }
 
-  if (!all(away %in% team_abbr_mapping)){
+  if (!all(away %in% nflreadr::team_abbr_mapping)){
     cli::cli_abort("{.val {away}} is not a valid {.arg away} abbreviation.")
   }
 

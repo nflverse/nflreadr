@@ -52,6 +52,7 @@ reference:
   - "clean_player_names"
   - "clean_team_abbrs"
   - "clean_homeaway"
+  - "nflverse_game_id"
   - starts_with("player_name")
   - starts_with("team_abbr")
   - "get_latest_season"

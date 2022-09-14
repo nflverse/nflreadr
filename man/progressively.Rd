@@ -9,7 +9,7 @@ progressively(f, p = NULL)
 \arguments{
 \item{f}{a function to add progressr functionality to.}
 
-\item{p}{a progressor function as created by \code{progressr::progressor()}}
+\item{p}{a progressor function such as one created by \code{progressr::progressor()}}
 }
 \value{
 a function that does the same as \code{f} but it calls \code{p()} after iteration.

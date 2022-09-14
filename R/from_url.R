@@ -50,7 +50,7 @@ load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
 #' @examples
 #' \donttest{
 #' try({ # prevents cran errors
-#'   rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+#'   rds_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds")
 #' })
 #' }
 rds_from_url <- function(url) {
@@ -82,7 +82,7 @@ rds_from_url <- function(url) {
 #' @examples
 #' \donttest{
 #' try({ # prevents cran errors
-#'   csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
+#'   csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.csv")
 #' })
 #' }
 csv_from_url <- function(...){
@@ -103,10 +103,12 @@ csv_from_url <- function(...){
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents CRAN errors
 #' head(raw_from_url(
-#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#'   "https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds"
 #'   ),
 #' 50)
+#' })
 #' }
 raw_from_url <- function(url){
   cache_message()
@@ -213,7 +215,7 @@ qs_from_url <- function(url){
 #' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
 #'
 #' @param f a function to add progressr functionality to.
-#' @param p a progressor function as created by `progressr::progressor()`
+#' @param p a progressor function such as one created by `progressr::progressor()`
 #'
 #' @examples
 #'
@@ -239,7 +241,7 @@ qs_from_url <- function(url){
 #'
 #' @export
 progressively <- function(f, p = NULL){
-  if(!is.null(p) && !inherits(p, "progressor")) stop("`p` must be a progressor function!")
+  if(!is.null(p)) p <- rlang::as_function(p)
   if(is.null(p)) p <- function(...) NULL
   force(f)
 
