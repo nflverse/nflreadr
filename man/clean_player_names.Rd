@@ -37,7 +37,7 @@ Equivalent to the operation done by \code{ffscrapr::dp_clean_names()} and uses t
 }
 \examples{
 
-clean_player_names(c("A.J. Green", "Odell Beckham Jr.", "Le'Veon Bell Sr."))
+clean_player_names(c("A.J. Green", "Odell Beckham Jr.  ", "Le'Veon Bell Sr."))
 
 clean_player_names(c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore"),
                   convert_lastfirst = TRUE)
