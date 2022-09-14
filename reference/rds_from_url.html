@@ -119,104 +119,44 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents cran errors</span></span></span>
-<span class="r-in"><span>  <span class="fu">rds_from_url</span><span class="op">(</span><span class="st">"https://github.com/nflverse/nfldata/raw/master/data/games.rds"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">rds_from_url</span><span class="op">(</span><span class="st">"https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               game_id season game_type week    gameday weekday gametime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999_01_MIN_ATL   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999_01_KC_CHI   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999_01_PIT_CLE   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999_01_OAK_GB   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999_01_BUF_IND   1999       REG    1 1999-09-12  Sunday     &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405: 2022_18_NYG_PHI   2022       REG   18 2023-01-08  Sunday    13:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406: 2022_18_CLE_PIT   2022       REG   18 2023-01-08  Sunday    13:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:  2022_18_LA_SEA   2022       REG   18 2023-01-08  Sunday    13:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:  2022_18_ARI_SF   2022       REG   18 2023-01-08  Sunday    13:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409: 2022_18_DAL_WAS   2022       REG   18 2023-01-08  Sunday    13:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       away_team away_score home_team home_score location result total overtime</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:       MIN         17       ATL         14     Home     -3    31        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:        KC         17       CHI         20     Home      3    37        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:       PIT         43       CLE          0     Home    -43    43        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:       OAK         24        GB         28     Home      4    52        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:       BUF         14       IND         31     Home     17    45        0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:       NYG         NA       PHI         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:       CLE         NA       PIT         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:        LA         NA       SEA         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:       ARI         NA        SF         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:       DAL         NA       WAS         NA     Home     NA    NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       old_game_id gsis nfl_detail_id          pfr pff      espn away_rest</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  1999091210  598          &lt;NA&gt; 199909120atl  NA 190912001         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  1999091206  597          &lt;NA&gt; 199909120chi  NA 190912003         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  1999091213  604          &lt;NA&gt; 199909120cle  NA 190912005         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  1999091208  602          &lt;NA&gt; 199909120gnb  NA 190912009         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  1999091202  591          &lt;NA&gt; 199909120clt  NA 190912011         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:  2023010809   NA          &lt;NA&gt; 202301080phi  NA 401437957         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:  2023010810   NA          &lt;NA&gt; 202301080pit  NA 401437958         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:  2023010814   NA          &lt;NA&gt; 202301080sea  NA 401437963         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:  2023010815   NA          &lt;NA&gt; 202301080sfo  NA 401437962         7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:  2023010811   NA          &lt;NA&gt; 202301080was  NA 401437959        10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       home_rest away_moneyline home_moneyline spread_line away_spread_odds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:         7             NA             NA          -4               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:         7             NA             NA          -3               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:         7             NA             NA          -6               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:         7             NA             NA           9               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:         7             NA             NA          -3               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:         7             NA             NA          NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:         7             NA             NA          NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:         7             NA             NA          NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:         7             NA             NA          NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:         7             NA             NA          NA               NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       home_spread_odds total_line under_odds over_odds div_game     roof</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:               NA       49.0         NA        NA        0     dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:               NA       38.0         NA        NA        0 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:               NA       37.0         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:               NA       43.0         NA        NA        0 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:               NA       45.5         NA        NA        1     dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:               NA         NA         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:               NA         NA         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:               NA         NA         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:               NA         NA         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:               NA         NA         NA        NA        1 outdoors</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         surface temp wind away_qb_id home_qb_id       away_qb_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: astroturf   NA   NA 00-0003761 00-0002876 Randall Cunningham</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:     grass   80   12 00-0006300 00-0010560        Elvis Grbac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:     grass   78   12 00-0015700 00-0004230    Kordell Stewart</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:     grass   67   10 00-0005741 00-0005106        Rich Gannon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: astroturf   NA   NA 00-0005363 00-0010346        Doug Flutie</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:     grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;               &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:     grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;               &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407: fieldturf   NA   NA       &lt;NA&gt;       &lt;NA&gt;               &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:     grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;               &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:     grass   NA   NA       &lt;NA&gt;       &lt;NA&gt;               &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         home_qb_name         away_coach    home_coach       referee stadium_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Chris Chandler       Dennis Green    Dan Reeves  Gerry Austin      ATL00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Shane Matthews Gunther Cunningham   Dick Jauron  Phil Luckett      CHI98</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:      Ty Detmer        Bill Cowher  Chris Palmer   Bob McElwee      CLE00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:    Brett Favre         Jon Gruden    Ray Rhodes Tony Corrente      GNB00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Peyton Manning      Wade Phillips      Jim Mora      Ron Blum      IND99</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:           &lt;NA&gt;       Brian Daboll Nick Sirianni          &lt;NA&gt;      PHI00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:           &lt;NA&gt;    Kevin Stefanski   Mike Tomlin          &lt;NA&gt;      PIT00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:           &lt;NA&gt;         Sean McVay  Pete Carroll          &lt;NA&gt;      SEA00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:           &lt;NA&gt;    Kliff Kingsbury Kyle Shanahan          &lt;NA&gt;      SFO01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:           &lt;NA&gt;      Mike McCarthy    Ron Rivera          &lt;NA&gt;      WAS00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:             Georgia Dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:            Soldier Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Cleveland Browns Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:            Lambeau Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:                 RCA Dome</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6405:  Lincoln Financial Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6406:         Acrisure Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6407:              Lumen Field</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6408:           Levi's Stadium</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6409:               FedExField</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       season draft_year           draft_team draft_round draft_ovr   pfr_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:   2000       2000        New York Jets           1        13 AbraJo00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:   2000       2000     Seattle Seahawks           1        19 AlexSh00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:   2000       2000   Kansas City Chiefs           6       188 AlfoDa20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:   2000         NA                 &lt;NA&gt;          NA        NA     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:   2000       2000    Carolina Panthers           1        23 AndeRa21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7676:   2022       2022    Green Bay Packers           1        28 WyatDe00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7677:   2022         NA                 &lt;NA&gt;          NA        NA WydeJa00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7678:   2022       2022     Cleveland Browns           4       124 YorkCa00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7679:   2022         NA                 &lt;NA&gt;          NA        NA     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7680:   2022       2022 New England Patriots           4       137 ZappBa00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  cfb_id      player_name pos           school  ht  wt forty</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:              &lt;NA&gt;     John Abraham OLB   South Carolina 6-4 252  4.55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: shaun-alexander-1  Shaun Alexander  RB          Alabama 6-0 218  4.58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:              &lt;NA&gt;   Darnell Alford  OT      Boston Col. 6-4 334  5.56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:              &lt;NA&gt;     Kyle Allamon  TE       Texas Tech 6-2 253  4.97</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:              &lt;NA&gt; Rashard Anderson  CB    Jackson State 6-2 206  4.55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7676:   devonte-wyatt-1    Devonte Wyatt  DT          Georgia 6-3 304  4.77</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7677: jalen-wydermyer-1  Jalen Wydermyer  TE        Texas A&amp;M 6-4 255    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7678:       cade-york-1        Cade York   K              LSU 6-1 206    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7679:              &lt;NA&gt;      Nick Zakelj  OT          Fordham 6-6 316  5.13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7680:    bailey-zappe-1     Bailey Zappe  QB Western Kentucky 6-1 215  4.88</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       bench vertical broad_jump cone shuttle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:    NA       NA         NA   NA      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:    NA       NA         NA   NA      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:    23     25.0         94 8.48    4.98</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:    NA     29.0        104 7.29    4.49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:    NA     34.0        123 7.18    4.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7676:    NA     29.0        111   NA      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7677:    NA       NA         NA   NA      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7678:    12       NA         NA   NA      NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7679:    27     28.5        110 7.75    4.71</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7680:    NA     30.0        109 7.19    4.40</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -93,6 +93,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
 <div class="section level3">
+<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<ul><li>added the function <code><a href="../reference/nflverse_game_id.html">nflverse_game_id()</a></code> which computes valid nflverse game identifiers in the format <code>"{season}_{week}_{away}_{home}"</code>
+</li></ul></div>
+<div class="section level3">
 <h3 id="bugfixes-development-version">Bugfixes<a class="anchor" aria-label="anchor" href="#bugfixes-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/load_snap_counts.html">load_snap_counts()</a></code> now allows download of the 2012 season which was previously hardcoded from 2013 (<a href="https://github.com/nflverse/nflreadr/issues/128" class="external-link">#128</a>) (v1.3.0.01)</li>
@@ -103,6 +107,8 @@
 <code><a href="../reference/load_participation.html">load_participation()</a></code> now joins pbp on via <code>nflverse_game_id</code> instead of <code>old_game_id</code> (v1.3.0.04)</li>
 <li>
 <code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)</li>
+<li>
+<code><a href="../reference/progressively.html">progressively()</a></code> now works with lambda functions and no longer checks for progressors. (allows cli)</li>
 </ul><hr></div>
 </div>
     <div class="section level2">
