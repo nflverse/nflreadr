@@ -13,6 +13,10 @@ nflverse_game_id <- function(season,
                              week,
                              away,
                              home){
+  # catch character input of season and week
+  season <- as.numeric(season)
+  week <- as.numeric(week)
+
   if (!all(season %in% 1999:most_recent_season())){
     cli::cli_abort("{.arg season} must be between 1999 and {most_recent_season()}")
   }
