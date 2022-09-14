@@ -50,7 +50,7 @@ load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
 #' @examples
 #' \donttest{
 #' try({ # prevents cran errors
-#'   rds_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds")
+#'   rds_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds")
 #' })
 #' }
 rds_from_url <- function(url) {
@@ -82,7 +82,7 @@ rds_from_url <- function(url) {
 #' @examples
 #' \donttest{
 #' try({ # prevents cran errors
-#'   csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.csv")
+#'   csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.csv")
 #' })
 #' }
 csv_from_url <- function(...){
@@ -103,10 +103,12 @@ csv_from_url <- function(...){
 #'
 #' @examples
 #' \donttest{
+#' try({ # prevents CRAN errors
 #' head(raw_from_url(
-#'   "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+#'   "https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds"
 #'   ),
 #' 50)
+#' })
 #' }
 raw_from_url <- function(url){
   cache_message()

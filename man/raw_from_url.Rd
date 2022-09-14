@@ -18,9 +18,11 @@ can then be passed into the appropriate file-reading function. Data is memoised/
 }
 \examples{
 \donttest{
+try({ # prevents CRAN errors
 head(raw_from_url(
-  "https://github.com/nflverse/nflverse-data/releases/download/player_stats/player_stats.parquet"
+  "https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds"
   ),
 50)
+})
 }
 }
