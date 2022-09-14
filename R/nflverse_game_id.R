@@ -1,7 +1,7 @@
 #' Compute nflverse Game Identifiers
 #'
 #' @param season 4 digit season between 1999 and the output of [most_recent_season()]
-#' @param week Numeric or character giving the week, bewtween 1 and 22.
+#' @param week Numeric or character giving the week, between 1 and 22.
 #' @param home,away Valid NFL team abbreviation as it can be found in [team_abbr_mapping]
 #'
 #' @return A character vector

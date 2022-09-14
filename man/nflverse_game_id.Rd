@@ -9,7 +9,7 @@ nflverse_game_id(season, week, away, home)
 \arguments{
 \item{season}{4 digit season between 1999 and the output of \code{\link[=most_recent_season]{most_recent_season()}}}
 
-\item{week}{Numeric or character giving the week, bewtween 1 and 22.}
+\item{week}{Numeric or character giving the week, between 1 and 22.}
 
 \item{home, away}{Valid NFL team abbreviation as it can be found in \link{team_abbr_mapping}}
 }
