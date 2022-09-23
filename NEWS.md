@@ -11,6 +11,7 @@
 - `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id` (v1.3.0.04)
 - `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)
 - `progressively()` now works with lambda functions and no longer checks for progressors. (allows cli)
+- player name mapping update (v1.3.0.06)
 
 ---
 
