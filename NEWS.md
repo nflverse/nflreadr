@@ -12,6 +12,7 @@
 - `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)
 - `progressively()` now works with lambda functions and no longer checks for progressors. (allows cli)
 - player name mapping update (v1.3.0.06)
+- `get_current_season()` now exists, because we can't agree on what to name things so aliases go everywhere. woop. 
 
 ---
 
