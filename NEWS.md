@@ -1,18 +1,22 @@
-# nflreadr (development version)
+# nflreadr 1.3.1
+
+Fixes CRAN bug and provides some function improvements, most notably improved logic for `load_participation()`'s pbp join. 
 
 ## New Features
 
 - added the function `nflverse_game_id()` which computes valid nflverse game identifiers in the format `"{season}_{week}_{away}_{home}"`
 
-## Bugfixes
-- `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128) (v1.3.0.01)
-- `nflverse_releases()` and `nflverse_download()` now accept `.token` arguments which default to `gh::gh_token()`. This is mostly to let us test things properly. (#131) (v1.3.0.02)
-- Adjust import references per Jenny Bryan's recommendations in hadley/r-pkgs#828 to avoid loading unused packages. (v1.3.0.03)
-- `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id` (v1.3.0.04)
-- `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)
+## Function Updates
+- `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id`
+- `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128)
 - `progressively()` now works with lambda functions and no longer checks for progressors. (allows cli)
-- player name mapping update (v1.3.0.06)
-- `get_current_season()` now exists, because we can't agree on what to name things so aliases go everywhere. woop. 
+
+## Bugfixes
+- `nflverse_releases()` and `nflverse_download()` now accept `.token` arguments which default to `gh::gh_token()`. This is mostly to let us test things properly. (#131)
+- Adjust import references per Jenny Bryan's recommendations in hadley/r-pkgs#828 to avoid loading unused packages.
+- `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first
+- player name mapping update
+- `get_current_season()` now exists, because we can't agree on what to name things.
 
 ---
 
