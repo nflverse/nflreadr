@@ -18,6 +18,8 @@ Fixes CRAN bug and provides some function improvements, most notably improved lo
 - player name mapping update
 - `get_current_season()` now exists, because we can't agree on what to name things.
 
+Thank you to [&#x0040;atungate](https://github.com/atungate),[&#x0040;grayhawk40](https://github.com/grayhawk40), [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
+
 ---
 
 # nflreadr 1.3.0
@@ -147,11 +149,11 @@ The goal of {`nflreadr`} is to efficiently load data from [nflverse GitHub repos
 
 At this time, it includes data from the following repositories:
 
-- [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+- [nflverse/nflverse-pbp](https://github.com/nflverse/nflverse-pbp)
 - [nflverse/nfldata](https://github.com/nflverse/nfldata)
-- [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
+- [nflverse/nflverse-rosters](https://github.com/nflverse/nflverse-rosters)
 - [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
-- [nflverse/pfr_scrapR](https://github.com/nflverse/pfr_scrapR)
+- [nflverse/nflverse-pfr](https://github.com/nflverse/nflverse-pfr)
 - [dynastyprocess/data](https://github.com/dynastyprocess/data)
 
 This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.
