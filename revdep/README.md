@@ -1,18 +1,17 @@
 # Platform
 
-|field    |value                                                         |
-|:--------|:-------------------------------------------------------------|
-|version  |R version 4.2.0 (2022-04-22)                                  |
-|os       |Ubuntu 20.04.4 LTS                                            |
-|system   |x86_64, linux-gnu                                             |
-|ui       |RStudio                                                       |
-|language |en_CA:en                                                      |
-|collate  |en_CA.UTF-8                                                   |
-|ctype    |en_CA.UTF-8                                                   |
-|tz       |America/Toronto                                               |
-|date     |2022-09-24                                                    |
-|rstudio  |2022.06.0-daily+429 Spotted Wakerobin (desktop)               |
-|pandoc   |2.18 @ /usr/lib/rstudio/bin/quarto/bin/tools/ (via rmarkdown) |
+|field    |value                             |
+|:--------|:---------------------------------|
+|version  |R version 4.2.0 (2022-04-22 ucrt) |
+|os       |Windows 10 x64 (build 19044)      |
+|system   |x86_64, mingw32                   |
+|ui       |RTerm                             |
+|language |(EN)                              |
+|collate  |English_Canada.utf8               |
+|ctype    |English_Canada.utf8               |
+|tz       |America/New_York                  |
+|date     |2022-09-24                        |
+|pandoc   |NA                                |
 
 # Dependencies
 
@@ -30,15 +29,4 @@
 |rlang      |1.0.5  |1.0.5  |   |
 
 # Revdeps
-
-## Failed to check (6)
-
-|package     |version |error |warning |note |
-|:-----------|:-------|:-----|:-------|:----|
-|ffsimulator |?       |      |        |     |
-|nfl4th      |?       |      |        |     |
-|nflfastR    |?       |      |        |     |
-|nflplotR    |?       |      |        |     |
-|nflseedR    |?       |      |        |     |
-|nflverse    |?       |      |        |     |
 
