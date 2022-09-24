@@ -208,50 +208,6 @@ qs_from_url <- function(url){
   return(content)
 }
 
-#' Progressively
-#'
-#' This function helps add progress-reporting to any function - given function `f()` and progressor `p()`, it will return a new function that calls `f()` and then (on-exiting) will call `p()` after every iteration.
-#'
-#' This is inspired by purrr's `safely`, `quietly`, and `possibly` function decorators.
-#'
-#' @param f a function to add progressr functionality to.
-#' @param p a progressor function such as one created by `progressr::progressor()`
-#'
-#' @examples
-#'
-#' \donttest{
-#' try({ # prevents cran errors
-#'
-#' read_rosters <- function(){
-#'   urls <- c("https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2020.csv",
-#'             "https://github.com/nflverse/nflfastR-roster/raw/master/data/seasons/roster_2021.csv")
-#'
-#'   p <- progressr::progressor(along = urls)
-#'   lapply(urls, progressively(read.csv, p))
-#' }
-#'
-#' progressr::with_progress(read_rosters())
-#'
-#' })
-#' }
-#'
-#' @return a function that does the same as `f` but it calls `p()` after iteration.
-#'
-#' @seealso <https://nflreadr.nflverse.com/articles/exporting_nflreadr.html> for vignette on exporting nflreadr in packages
-#'
-#' @export
-progressively <- function(f, p = NULL){
-  if(!is.null(p)) p <- rlang::as_function(p)
-  if(is.null(p)) p <- function(...) NULL
-  force(f)
-
-  function(...){
-    on.exit(p("loading..."))
-    f(...)
-  }
-
-}
-
 cache_message <- function(){
   do_it <- getOption("nflreadr.verbose", default = interactive()) && getOption("nflreadr.cache_warning", default = interactive())
   if (isTRUE(do_it)){
