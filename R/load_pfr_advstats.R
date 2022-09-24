@@ -14,7 +14,7 @@
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.html> for the web data dictionary
 #' @seealso [`dictionary_pfr_passing`] for the data dictionary as bundled within the package
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/pfr_scrapR>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pfr>
 #'
 #' @keywords internal
 #' @export

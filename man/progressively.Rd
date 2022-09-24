@@ -26,14 +26,14 @@ try({ # prevents cran errors
 
 urls <- rep("https://github.com/nflverse/nflverse-data/releases/download/test/combines.csv",3)
 
+lapply(urls, progressively(read.csv, ~cli::cli_progress_step('Loading...')))
+
 read_rosters <- function(urls){
   p <- progressr::progressor(along = urls)
   lapply(urls, progressively(read.csv, p))
 }
 
 progressr::with_progress(read_rosters())
-
-lapply(urls, progressively(read.csv, ~cli::cli_progress_step('Loading...')))
 
 })
 }

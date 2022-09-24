@@ -18,7 +18,7 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_pbp.html> for a web version of the data dictionary
 #' @seealso [`dictionary_pbp`] for the data dictionary bundled as a package dataframe
 #' @seealso <https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the nflfastR function `nflfastR::build_nflfastR_pbp()`
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pbp>
 #'
 #' @export
 load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {

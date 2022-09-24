@@ -27,6 +27,6 @@ starting with the 2019 season.
 
 \code{\link{dictionary_pfr_passing}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-pfr}
 }
 \keyword{internal}

@@ -38,5 +38,5 @@ try({ # prevents cran errors
 
 \code{\link{dictionary_player_stats}} for the data dictionary
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/nflfastR-data}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-pbp}
 }

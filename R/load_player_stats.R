@@ -17,7 +17,7 @@
 #'
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html> for a web version of the data dictionary
 #' @seealso [`dictionary_player_stats`] for the data dictionary
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pbp>
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),

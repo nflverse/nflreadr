@@ -11,11 +11,11 @@
 #'
 #' @return A tibble of team-level image URLs and hex color codes.
 #'
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflfastR-data>
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pbp>
 #'
 #' @export
 load_teams <- function(){
-  out <- load_from_url("https://github.com/nflverse/nflfastR-data/raw/master/teams_colors_logos.rds",
+  out <- load_from_url("https://github.com/nflverse/nflverse-pbp/raw/master/teams_colors_logos.rds",
                        nflverse = TRUE,
                        nflverse_type = "team graphics")
   out
