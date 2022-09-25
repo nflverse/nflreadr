@@ -35,5 +35,5 @@ starting with the 2012 season.
 
 \code{\link{dictionary_snap_counts}} for the data dictionary as bundled within the package
 
-Issues with this data should be filed here: \url{https://github.com/nflverse/pfr_scrapR}
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-pfr}
 }

@@ -1,17 +1,24 @@
-# nflreadr (development version)
+# nflreadr 1.3.1
+
+Fixes CRAN bug and provides some function improvements, most notably improved logic for `load_participation()`'s pbp join. 
 
 ## New Features
 
-- added the function `nflverse_game_id()` which computes valid nflverse game identifiers in the format `"{season}_{week}_{away}_{home}"`
+- Added `nflverse_game_id()` which computes valid nflverse game identifiers in the format `"{season}_{week}_{away}_{home}"`
+
+## Function Updates
+- `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id`
+- `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128)
+- `progressively()` now works with purrr-style lambda functions and no longer checks for progressor class, allowing it to be used more flexibly (and with cli-based progress bars.)
 
 ## Bugfixes
-- `load_snap_counts()` now allows download of the 2012 season which was previously hardcoded from 2013 (#128) (v1.3.0.01)
-- `nflverse_releases()` and `nflverse_download()` now accept `.token` arguments which default to `gh::gh_token()`. This is mostly to let us test things properly. (#131) (v1.3.0.02)
-- Adjust import references per Jenny Bryan's recommendations in hadley/r-pkgs#828 to avoid loading unused packages. (v1.3.0.03)
-- `load_participation()` now joins pbp on via `nflverse_game_id` instead of `old_game_id` (v1.3.0.04)
-- `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)
-- `progressively()` now works with lambda functions and no longer checks for progressors. (allows cli)
-- player name mapping update (v1.3.0.06)
+- `nflverse_releases()` and `nflverse_download()` now accept `.token` arguments which default to `gh::gh_token()`. This is mostly to let us test things properly. (#131)
+- Adjust import references per Jenny Bryan's recommendations in hadley/r-pkgs#828 to avoid loading unused packages.
+- `clean_player_names()` now fully lives in nflreadr, the squish/trim happens first
+- player name mapping update
+- `get_current_season()` now exists, because we can't agree on what to name things.
+
+Thank you to [&#x0040;atungate](https://github.com/atungate),[&#x0040;grayhawk40](https://github.com/grayhawk40), [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
 
 ---
 
@@ -142,11 +149,11 @@ The goal of {`nflreadr`} is to efficiently load data from [nflverse GitHub repos
 
 At this time, it includes data from the following repositories:
 
-- [nflverse/nflfastR-data](https://github.com/nflverse/nflfastR-data)
+- [nflverse/nflverse-pbp](https://github.com/nflverse/nflverse-pbp)
 - [nflverse/nfldata](https://github.com/nflverse/nfldata)
-- [nflverse/nflfastR-roster](https://github.com/nflverse/nflfastR-roster)
+- [nflverse/nflverse-rosters](https://github.com/nflverse/nflverse-rosters)
 - [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
-- [nflverse/pfr_scrapR](https://github.com/nflverse/pfr_scrapR)
+- [nflverse/nflverse-pfr](https://github.com/nflverse/nflverse-pfr)
 - [dynastyprocess/data](https://github.com/dynastyprocess/data)
 
 This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.

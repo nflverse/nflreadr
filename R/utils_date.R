@@ -27,6 +27,11 @@ most_recent_season <- function(roster = FALSE) {
 #' @export
 get_latest_season <- most_recent_season
 
+#' @rdname latest_season
+#' @export
+get_current_season <- most_recent_season
+
+
 #' Get Current Week
 #'
 #' A helper function that returns the upcoming NFL regular season week based on either

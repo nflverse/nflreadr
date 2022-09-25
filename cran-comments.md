@@ -1,6 +1,6 @@
-## RESUBMISSION
+## SUBMISSION
 
-Resubmit to correct URL-redirection issues.
+Resolves test failure.
 
 ## Test environments
 * local windows R installation,     R 4.2.0

@@ -3,11 +3,14 @@
 \name{most_recent_season}
 \alias{most_recent_season}
 \alias{get_latest_season}
+\alias{get_current_season}
 \title{Get Latest Season}
 \usage{
 most_recent_season(roster = FALSE)
 
 get_latest_season(roster = FALSE)
+
+get_current_season(roster = FALSE)
 }
 \arguments{
 \item{roster}{a TRUE/FALSE flag: if TRUE, returns the current year if March 1st or later. if FALSE, returns the current year if September 1st or later. Otherwise returns current year minus 1.}
