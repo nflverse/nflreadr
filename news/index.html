@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0.06</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,26 +91,34 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.3.1" id="nflreadr-131">nflreadr 1.3.1<a class="anchor" aria-label="anchor" href="#nflreadr-131"></a></h2>
+<p>Fixes CRAN bug and provides some function improvements, most notably improved logic for <code><a href="../reference/load_participation.html">load_participation()</a></code>’s pbp join.</p>
 <div class="section level3">
-<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
-<ul><li>added the function <code><a href="../reference/nflverse_game_id.html">nflverse_game_id()</a></code> which computes valid nflverse game identifiers in the format <code>"{season}_{week}_{away}_{home}"</code>
+<h3 id="new-features-1-3-1">New Features<a class="anchor" aria-label="anchor" href="#new-features-1-3-1"></a></h3>
+<ul><li>Added <code><a href="../reference/nflverse_game_id.html">nflverse_game_id()</a></code> which computes valid nflverse game identifiers in the format <code>"{season}_{week}_{away}_{home}"</code>
 </li></ul></div>
 <div class="section level3">
-<h3 id="bugfixes-development-version">Bugfixes<a class="anchor" aria-label="anchor" href="#bugfixes-development-version"></a></h3>
+<h3 id="function-updates-1-3-1">Function Updates<a class="anchor" aria-label="anchor" href="#function-updates-1-3-1"></a></h3>
 <ul><li>
-<code><a href="../reference/load_snap_counts.html">load_snap_counts()</a></code> now allows download of the 2012 season which was previously hardcoded from 2013 (<a href="https://github.com/nflverse/nflreadr/issues/128" class="external-link">#128</a>) (v1.3.0.01)</li>
+<code><a href="../reference/load_participation.html">load_participation()</a></code> now joins pbp on via <code>nflverse_game_id</code> instead of <code>old_game_id</code>
+</li>
 <li>
-<code><a href="../reference/nflverse_releases.html">nflverse_releases()</a></code> and <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> now accept <code>.token</code> arguments which default to <code><a href="https://gh.r-lib.org/reference/gh_token.html" class="external-link">gh::gh_token()</a></code>. This is mostly to let us test things properly. (<a href="https://github.com/nflverse/nflreadr/issues/131" class="external-link">#131</a>) (v1.3.0.02)</li>
-<li>Adjust import references per Jenny Bryan’s recommendations in hadley/r-pkgs#828 to avoid loading unused packages. (v1.3.0.03)</li>
+<code><a href="../reference/load_snap_counts.html">load_snap_counts()</a></code> now allows download of the 2012 season which was previously hardcoded from 2013 (<a href="https://github.com/nflverse/nflreadr/issues/128" class="external-link">#128</a>)</li>
 <li>
-<code><a href="../reference/load_participation.html">load_participation()</a></code> now joins pbp on via <code>nflverse_game_id</code> instead of <code>old_game_id</code> (v1.3.0.04)</li>
+<code><a href="../reference/progressively.html">progressively()</a></code> now works with purrr-style lambda functions and no longer checks for progressor class, allowing it to be used more flexibly (and with cli-based progress bars.)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bugfixes-1-3-1">Bugfixes<a class="anchor" aria-label="anchor" href="#bugfixes-1-3-1"></a></h3>
+<ul><li>
+<code><a href="../reference/nflverse_releases.html">nflverse_releases()</a></code> and <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> now accept <code>.token</code> arguments which default to <code><a href="https://gh.r-lib.org/reference/gh_token.html" class="external-link">gh::gh_token()</a></code>. This is mostly to let us test things properly. (<a href="https://github.com/nflverse/nflreadr/issues/131" class="external-link">#131</a>)</li>
+<li>Adjust import references per Jenny Bryan’s recommendations in hadley/r-pkgs#828 to avoid loading unused packages.</li>
 <li>
-<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now fully lives in nflreadr, the squish/trim happens first (v1.3.0.05)</li>
+<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now fully lives in nflreadr, the squish/trim happens first</li>
+<li>player name mapping update</li>
 <li>
-<code><a href="../reference/progressively.html">progressively()</a></code> now works with lambda functions and no longer checks for progressors. (allows cli)</li>
-<li>player name mapping update (v1.3.0.06)</li>
-</ul><hr></div>
+<code><a href="../reference/latest_season.html">get_current_season()</a></code> now exists, because we can’t agree on what to name things.</li>
+</ul><p>Thank you to <a href="https://github.com/atungate" class="external-link">@atungate</a>,<a href="https://github.com/grayhawk40" class="external-link">@grayhawk40</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>,<a href="https://github.com/jestarr" class="external-link">@jestarr</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>,<a href="https://github.com/marvin3FF" class="external-link">@marvin3FF</a>,<a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, <a href="https://github.com/shirondru" class="external-link">@shirondru</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their contributions and feedback towards this release!</p>
+<hr></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.0" id="nflreadr-130">nflreadr 1.3.0<a class="anchor" aria-label="anchor" href="#nflreadr-130"></a></h2><p class="text-muted">CRAN release: 2022-08-06</p>
@@ -254,11 +262,11 @@
 <h2 class="pkg-version" data-toc-text="1.0.0" id="nflreadr-100">nflreadr 1.0.0<a class="anchor" aria-label="anchor" href="#nflreadr-100"></a></h2><p class="text-muted">CRAN release: 2021-08-09</p>
 <p>The goal of {<code>nflreadr</code>} is to efficiently load data from <a href="https://github.com/nflverse" class="external-link">nflverse GitHub repositories</a>, and features caching, optional progress updates, and data dictionaries.</p>
 <p>At this time, it includes data from the following repositories:</p>
-<ul><li><a href="https://github.com/nflverse/nflfastR-data" class="external-link">nflverse/nflfastR-data</a></li>
+<ul><li><a href="https://github.com/nflverse/nflverse-pbp" class="external-link">nflverse/nflverse-pbp</a></li>
 <li><a href="https://github.com/nflverse/nfldata" class="external-link">nflverse/nfldata</a></li>
-<li><a href="https://github.com/nflverse/nflfastR-roster" class="external-link">nflverse/nflfastR-roster</a></li>
+<li><a href="https://github.com/nflverse/nflverse-rosters" class="external-link">nflverse/nflverse-rosters</a></li>
 <li><a href="https://github.com/nflverse/espnscrapeR-data" class="external-link">nflverse/espnscrapeR-data</a></li>
-<li><a href="https://github.com/nflverse/pfr_scrapR" class="external-link">nflverse/pfr_scrapR</a></li>
+<li><a href="https://github.com/nflverse/nflverse-pfr" class="external-link">nflverse/nflverse-pfr</a></li>
 <li><a href="https://github.com/dynastyprocess/data" class="external-link">dynastyprocess/data</a></li>
 </ul><p>This will hopefully provide a unified and reliable package for downloading nflverse data that can be extended to the rest of the nflverse and ffverse package families.</p>
 <p>Special thanks to Seb, Ben, John, Lee, and Thomas for their contributions to the package and to the data pipelines that this package relies on 🎉</p>
