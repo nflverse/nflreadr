@@ -1,3 +1,11 @@
+# nflreadr (development version)
+
+## Changes
+
+- `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious. (1.3.1.01)
+
+---
+
 # nflreadr 1.3.1
 
 Fixes CRAN bug and provides some function improvements, most notably improved logic for `load_participation()`'s pbp join. 
