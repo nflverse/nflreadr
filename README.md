@@ -45,7 +45,7 @@ install.packages("nflreadr")
 Install the development version from GitHub with:
 
 ``` r
-install.packages("nflreadr", repos = "https://nflverse.r-universe.dev")
+install.packages("nflreadr", repos = c("https://nflverse.r-universe.dev",getOption("repos")))
 
 # or use remotes/devtools
 # install.packages("remotes")
