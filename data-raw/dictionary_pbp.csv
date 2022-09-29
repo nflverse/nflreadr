@@ -91,7 +91,7 @@
 "total_away_raw_air_epa","Cumulative total raw air EPA for the away team in the game so far.","numeric"
 "total_home_raw_yac_epa","Cumulative total raw yac EPA for the home team in the game so far.","numeric"
 "total_away_raw_yac_epa","Cumulative total raw yac EPA for the away team in the game so far.","numeric"
-"wp","Estimated win probabiity for the posteam given the current situation at the start of the given play.","numeric"
+"wp","Estimated win probability for the posteam given the current situation at the start of the given play.","numeric"
 "def_wp","Estimated win probability for the defteam.","numeric"
 "home_wp","Estimated win probability for the home team.","numeric"
 "away_wp","Estimated win probability for the away team.","numeric"
