@@ -57,6 +57,7 @@ reference:
   - starts_with("team_abbr")
   - "get_latest_season"
   - "get_current_week"
+  - "join_coalesce"
   - "nflverse_data-class"
 
 authors:
