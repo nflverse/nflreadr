@@ -10,6 +10,8 @@
 #' "inner" (matching rows of x and y), "full" (all rows of x and y)
 #' @param by.x,by.y alternate form of keys to join on - if provided, will override `by`.
 #' @param incomparables keys to NOT match on, i.e. NA should not match on NA.
+#' @param sort whether to sort output by the join keys
+#' @param ... other args passed to `merge.data.frame()`
 #'
 #' @return a data.table joining x and y dataframes together, with every column from
 #' both x and y and patching NA values in x with those in y.
@@ -28,7 +30,9 @@
 #' @export
 join_coalesce <- function(x, y, by = NULL,
                           type = c("left", "inner", "full"),
+                          ...,
                           by.x = NULL,by.y = NULL,
+                          sort = TRUE,
                           incomparables = c(NA,NaN)) {
 
   type <- rlang::arg_match0(type, c("left", "inner", "full"))
@@ -56,7 +60,9 @@ join_coalesce <- function(x, y, by = NULL,
     by.y = keys_y,
     all.x = type %in% c("left", "full"),
     all.y = type == "full",
+    sort = sort,
     incomparables = incomparables,
+    ...,
     suffixes = c("..x", "..y")
   )
 

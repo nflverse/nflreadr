@@ -9,8 +9,10 @@ join_coalesce(
   y,
   by = NULL,
   type = c("left", "inner", "full"),
+  ...,
   by.x = NULL,
   by.y = NULL,
+  sort = TRUE,
   incomparables = c(NA, NaN)
 )
 }
@@ -22,7 +24,11 @@ join_coalesce(
 \item{type}{one of "left" (all rows of x and matching rows of y),
 "inner" (matching rows of x and y), "full" (all rows of x and y)}
 
+\item{...}{other args passed to \code{merge.data.frame()}}
+
 \item{by.x, by.y}{alternate form of keys to join on - if provided, will override \code{by}.}
+
+\item{sort}{whether to sort output by the join keys}
 
 \item{incomparables}{keys to NOT match on, i.e. NA should not match on NA.}
 }
@@ -31,7 +37,7 @@ a data.table joining x and y dataframes together, with every column from
 both x and y and patching NA values in x with those in y.
 }
 \description{
-This function joins two dataframes together by key, and then coalesces any
+EXPERIMENTAL! This function joins two dataframes together by key, and then coalesces any
 columns that have shared names (i.e. fills in NAs). A utility function primarily
 used internally within nflverse to help build player IDs
 }
