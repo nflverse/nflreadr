@@ -4,6 +4,7 @@
 
 - `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious. (v1.3.1.01)
 - `join_coalesce()` is now added as a utility to join two dataframes and coalesce any shared columns. (v1.3.1.02)
+- `load_teams()` now uses the argument `current` to only return team abbreviations in `nflreadr::team_abbr_mapping`.
 
 ---
 
