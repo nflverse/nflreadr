@@ -2,8 +2,8 @@
 #'
 #' @description Loads team graphics, colors, and logos - useful for plots!
 #'
-#' @param current If `TRUE` (the default), returns only team abbreviations in
-#'   [nflreadr::team_abbr_mapping].
+#' @param current If `TRUE` (the default), returns a standardized list of current teams only, 
+#' with abbreviations as per [nflreadr::team_abbr_mapping].
 #' @examples
 #' \donttest{
 #' try({ # prevents cran errors
