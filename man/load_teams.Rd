@@ -4,7 +4,11 @@
 \alias{load_teams}
 \title{Load NFL Team Graphics, Colors, and Logos}
 \usage{
-load_teams()
+load_teams(current = TRUE)
+}
+\arguments{
+\item{current}{If \code{TRUE} (the default), returns only team abbreviations in
+\link{team_abbr_mapping}.}
 }
 \value{
 A tibble of team-level image URLs and hex color codes.

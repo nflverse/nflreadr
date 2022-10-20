@@ -126,10 +126,13 @@ test_that("load_teams", {
   skip_if_offline("github.com")
 
   team_graphics <- load_teams()
+  team_graphics_all <- load_teams(current = FALSE)
 
   expect_s3_class(team_graphics, "nflverse_data")
+  expect_s3_class(team_graphics_all, "nflverse_data")
 
   expect_gte(nrow(team_graphics), 32)
+  expect_gt(nrow(team_graphics_all), 32)
 })
 
 test_that("load_depth_charts", {
