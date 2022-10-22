@@ -71,3 +71,4 @@ usethis::use_data(dictionary_contracts, overwrite = TRUE)
 dictionary_participation <- read.csv("data-raw/dictionary_participation.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_participation, overwrite = TRUE)
+
