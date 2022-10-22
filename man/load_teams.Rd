@@ -7,8 +7,8 @@
 load_teams(current = TRUE)
 }
 \arguments{
-\item{current}{If \code{TRUE} (the default), returns only team abbreviations in
-\link{team_abbr_mapping}.}
+\item{current}{If \code{TRUE} (the default), returns a standardized list of current teams only,
+with abbreviations as per \link{team_abbr_mapping}.}
 }
 \value{
 A tibble of team-level image URLs and hex color codes.

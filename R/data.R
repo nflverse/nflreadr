@@ -135,6 +135,14 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_contracts.html>
 "dictionary_contracts"
 
+#' Data Dictionary: Participation
+#'
+#' A dataframe containing the data dictionary for [`load_participation()`]
+#'
+#' @seealso `vignette("Data Dictionary - Participation")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_participation.html>
+"dictionary_participation"
+
 #' Alternate player name mappings
 #'
 #' A named character vector mapping common alternate names, re-exported from `ffscrapr`.
