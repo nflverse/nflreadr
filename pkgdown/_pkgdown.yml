@@ -101,6 +101,8 @@ navbar:
           href: articles/dictionary_pbp.html
         - text: Player Stats
           href: articles/dictionary_player_stats.html
+        - text: Participation
+          href: articles/dictionary_participation.html          
         - text: Rosters
           href: articles/dictionary_rosters.html
         - text: Schedules
