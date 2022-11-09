@@ -145,13 +145,27 @@ clean_homeaway <- function(dataframe, invert = NULL){
   names(home) <- gsub(x = names(home), pattern = "^away_", replacement = "opponent_")
   names(home) <- gsub(x = names(home), pattern = "team_team", replacement = "team")
   names(home) <- gsub(x = names(home), pattern = "opponent_team", replacement = "opponent")
-  home$location <- data.table::fifelse(home$location == "Neutral", "neutral", "home", "home")
+
+  # The location variable depends on if there is location in input. If yes, preserve
+  # "neutral" otherwise just set to home/away
+  home$location <- if ("location" %in% names(home)){
+    data.table::fifelse(home$location == "Neutral", "neutral", "home", "home")
+  } else {
+    "home"
+  }
 
   names(away) <- gsub(x = names(away), pattern = "^away_", replacement = "team_")
   names(away) <- gsub(x = names(away), pattern = "^home_", replacement = "opponent_")
   names(away) <- gsub(x = names(away), pattern = "team_team", replacement = "team")
   names(away) <- gsub(x = names(away), pattern = "opponent_team", replacement = "opponent")
-  away$location <- data.table::fifelse(home$location == "Neutral", "neutral", "away", "away")
+
+  # The location variable depends on if there is location in input. If yes, preserve
+  # "neutral" otherwise just set to home/away
+  away$location <- if ("location" %in% names(away)){
+    data.table::fifelse(away$location == "Neutral", "neutral", "away", "away")
+  } else {
+    "away"
+  }
 
   if(!is.null(invert)) data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1
 
