@@ -55,5 +55,6 @@ test_that("cleaning home and away columns",{
 
   expect_equal(nrow(c),nrow(s)*2)
   expect(all(!grepl(x = names(c),pattern = "^home_")),"Error: `home_` was found in `names(c)`")
-
+  expect_true("neutral" %in% c$location)
+  expect_identical(class(c), class(s))
 })
