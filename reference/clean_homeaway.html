@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1.05</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,22 +139,32 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6   2020    1       DET         23       CHI         27     -4         2.5</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">clean_homeaway</span><span class="op">(</span><span class="va">x</span>, invert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"result"</span>,<span class="st">"spread_line"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    season  week team  team_score opponent opponent_score result spread…¹ locat…²</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   <span style="text-decoration: underline;">2</span>020     1 KC            34 HOU                  20     14      9.5 home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   <span style="text-decoration: underline;">2</span>020     1 HOU           20 KC                   34    -<span style="color: #BB0000;">14</span>     -<span style="color: #BB0000;">9.5</span> away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   <span style="text-decoration: underline;">2</span>020     1 ATL           25 SEA                  38    -<span style="color: #BB0000;">13</span>      1   home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   <span style="text-decoration: underline;">2</span>020     1 SEA           38 ATL                  25     13     -<span style="color: #BB0000;">1</span>   away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   <span style="text-decoration: underline;">2</span>020     1 BAL           38 CLE                   6     32      7   home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   <span style="text-decoration: underline;">2</span>020     1 CLE            6 BAL                  38    -<span style="color: #BB0000;">32</span>     -<span style="color: #BB0000;">7</span>   away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>   <span style="text-decoration: underline;">2</span>020     1 BUF           27 NYJ                  17     10      6.5 home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   <span style="text-decoration: underline;">2</span>020     1 NYJ           17 BUF                  27    -<span style="color: #BB0000;">10</span>     -<span style="color: #BB0000;">6.5</span> away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   <span style="text-decoration: underline;">2</span>020     1 CAR           30 LV                   34     -<span style="color: #BB0000;">4</span>     -<span style="color: #BB0000;">3</span>   home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>   <span style="text-decoration: underline;">2</span>020     1 LV            34 CAR                  30      4      3   away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>   <span style="text-decoration: underline;">2</span>020     1 DET           23 CHI                  27     -<span style="color: #BB0000;">4</span>      2.5 home   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>   <span style="text-decoration: underline;">2</span>020     1 CHI           27 DET                  23      4     -<span style="color: #BB0000;">2.5</span> away   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​spread_line, ²​location</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    season week team team_score opponent opponent_score result spread_line</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    2020    1   KC         34      HOU             20     14         9.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    2020    1  HOU         20       KC             34    -14        -9.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    2020    1  ATL         25      SEA             38    -13         1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    2020    1  SEA         38      ATL             25     13        -1.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    2020    1  BAL         38      CLE              6     32         7.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    2020    1  CLE          6      BAL             38    -32        -7.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7    2020    1  BUF         27      NYJ             17     10         6.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8    2020    1  NYJ         17      BUF             27    -10        -6.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9    2020    1  CAR         30       LV             34     -4        -3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10   2020    1   LV         34      CAR             30      4         3.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11   2020    1  DET         23      CHI             27     -4         2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12   2020    1  CHI         27      DET             23      4        -2.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    location</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      away</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      away</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      away</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      away</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10     away</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11     home</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     away</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
