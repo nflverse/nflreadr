@@ -145,18 +145,34 @@ clean_homeaway <- function(dataframe, invert = NULL){
   names(home) <- gsub(x = names(home), pattern = "^away_", replacement = "opponent_")
   names(home) <- gsub(x = names(home), pattern = "team_team", replacement = "team")
   names(home) <- gsub(x = names(home), pattern = "opponent_team", replacement = "opponent")
-  home$location <- "home"
+  home$location <- data.table::fifelse(home$location == "Neutral", "neutral", "home", "home")
 
   names(away) <- gsub(x = names(away), pattern = "^away_", replacement = "team_")
   names(away) <- gsub(x = names(away), pattern = "^home_", replacement = "opponent_")
   names(away) <- gsub(x = names(away), pattern = "team_team", replacement = "team")
   names(away) <- gsub(x = names(away), pattern = "opponent_team", replacement = "opponent")
-  away$location <- "away"
+  away$location <- data.table::fifelse(home$location == "Neutral", "neutral", "away", "away")
 
   if(!is.null(invert)) data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1
 
   .row_order <- NULL
   out <- data.table::rbindlist(list(home,away), use.names = TRUE)[order(.row_order),-c(".row_order")]
-  class(out) <- c("tbl_df", "tbl", "data.table", "data.frame")
+
+  # we want to preserve the input class(es)
+  class(out) <- class(dataframe)
+
+  # input attributes shall be presrved mostly so we gotta do some acrobatic
+  # and combine input attributes with new attributes
+  df_attrs <- attributes(dataframe)
+  df_attrs <- df_attrs[setdiff(names(df_attrs), c("row.names","names",".internal.selfref"))]
+  out_attrs <- attributes(out)[c("names","row.names",".internal.selfref")]
+  attributes(out) <- c(out_attrs, df_attrs)
+
+  # the input may or may not have the nflverse_type attribute
+  # if it is available, we'll add "by team" to make clear it's a different
+  # nflverse_type
+  if ("nflverse_type" %in% names(attributes(out))){
+    attr(out, "nflverse_type") <- paste(attr(out, "nflverse_type"), "by team")
+  }
   out
 }
