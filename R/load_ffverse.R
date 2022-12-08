@@ -48,9 +48,9 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
 
   url <- switch(
     type,
-    draft = "https://github.com/dynastyprocess/data/blob/master/files/db_fpecr_latest.rds?raw=true",
-    week = "https://github.com/dynastyprocess/data/blob/master/files/fp_latest_weekly.rds?raw=true",
-    all = "https://github.com/dynastyprocess/data/blob/master/files/db_fpecr.rds?raw=true"
+    draft = "https://github.com/dynastyprocess/data/raw/master/files/db_fpecr_latest.rds",
+    week = "https://github.com/dynastyprocess/data/raw/master/files/fp_latest_weekly.rds",
+    all = "https://github.com/dynastyprocess/data/raw/master/files/db_fpecr.rds"
   )
 
   out <- load_from_url(url, nflverse = TRUE, nflverse_type = "FP expert rankings")
