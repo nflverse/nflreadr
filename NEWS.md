@@ -8,6 +8,7 @@
 - `dictionary_participation` added (thank you @josephhero!) (v1.3.1.04)
 - `clean_homeaway()` now preserves neutral site location as well as input class and input attributes (v1.3.1.05)
 - `load_ff_rankings()` URL bug corrected (thank you @kharigardner) (v1.3.1.06)
+- test for `clean_homeaway()` resolved for CRAN failure (v1.3.1.07)
 
 ---
 
