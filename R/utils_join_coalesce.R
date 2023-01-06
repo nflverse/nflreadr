@@ -48,6 +48,19 @@ join_coalesce <- function(x, y, by = NULL,
   keys_x <- if (!is.null(by.x)) by.x else if(is.null(names(by))) by else ifelse(names(by) == "", by, names(by))
   keys_y <- if (!is.null(by.y)) by.y else by
 
+  check_keys <- c(
+    "Join `by` keys in x are not unique" = nrow(x) != nrow(unique(x[keys_x])),
+    "Join `by` keys in y are not unique" = nrow(y) != nrow(unique(y[keys_y])),
+    "Join `by` keys in x have NAs" = any(is.na(x[keys_x])),
+    "Join `by` keys in y have NAs"= any(is.na(y[keys_y]))
+  )
+
+  if(any(check_keys)) {
+    cli::cli_warn(
+      names(check_keys)[which(check_keys)]
+    )
+  }
+
   joined_cols <- c(setdiff(names(x), keys_x), setdiff(names(y), keys_y))
   dupl_cols <- joined_cols[duplicated(joined_cols)]
 
