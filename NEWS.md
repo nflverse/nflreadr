@@ -1,6 +1,6 @@
 # nflreadr 1.3.2
 
-Minor changes and patch CRAN-related example issue.
+Minor changes per changelist and patch CRAN-related example issue.
 
 ## Changes
 
@@ -11,6 +11,8 @@ Minor changes and patch CRAN-related example issue.
 - `clean_homeaway()` now preserves neutral site location as well as input class and input attributes
 - `load_ff_rankings()` URL bug corrected (thank you @kharigardner)
 - test and example for `clean_homeaway()` resolved for CRAN failure
+
+Thank you to [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;bachlaw](https://github.com/bachlaw), [&#x0040;brunomioto](https://github.com/brunomioto), [&#x0040;guga31bb](https://github.com/guga31bb), [&#x0040;Josephhero](https://github.com/Josephhero), [&#x0040;kharigardner](https://github.com/kharigardner), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;MysteryPollster](https://github.com/MysteryPollster), [&#x0040;numbersinfigures](https://github.com/numbersinfigures), and [&#x0040;ohri](https://github.com/ohri) for their questions, feedback, and contributions towards this release.
 
 ---
 
