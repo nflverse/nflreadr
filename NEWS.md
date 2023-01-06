@@ -1,5 +1,7 @@
 # nflreadr 1.3.2
 
+Minor changes and patch CRAN-related example issue.
+
 ## Changes
 
 - `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious.

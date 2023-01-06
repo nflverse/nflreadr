@@ -20,18 +20,17 @@ This function converts dataframes with "home_" and "away_" prefixed columns to "
 \examples{
 \donttest{
 # a small example dataframe
-
- s <- data.frame(
-    game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"), 
-    game_type = c("CON", "CON", "SB"), 
-    away_team = c("TB", "BUF", "KC"), 
-    away_score = c(31L, 24L, 9L), 
-    home_team = c("GB", "KC", "TB"), 
-    home_score = c(26L, 38L, 31L), 
-    location = c("Home", "Home", "Neutral"), 
-    result = c(-5L, 14L, 22L), 
-    spread_line = c(3, 3, -3)
-  )
+s <- data.frame(
+   game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"), 
+   game_type = c("CON", "CON", "SB"), 
+   away_team = c("TB", "BUF", "KC"), 
+   away_score = c(31L, 24L, 9L), 
+   home_team = c("GB", "KC", "TB"), 
+   home_score = c(26L, 38L, 31L), 
+   location = c("Home", "Home", "Neutral"), 
+   result = c(-5L, 14L, 22L), 
+   spread_line = c(3, 3, -3)
+ )
 
 clean_homeaway(s, invert = c("result","spread_line"))
 }
