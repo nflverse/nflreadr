@@ -25,7 +25,7 @@ options(tibble.max_extra_cols = 10,
 [![Codecov test coverage](https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&style=flat-square&logo=codecov)](https://app.codecov.io/gh/nflverse/nflreadr?branch=main)
 [![Dev status](https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&style=flat-square&logo=github)](https://nflreadr.nflverse.com/)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg?style=flat-square)](https://lifecycle.r-lib.org/articles/stages.html)
-[![R build status](https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&style=flat-square&logo=github)](https://github.com/nflverse/nflreadr/actions)
+[![R build status](https://img.shields.io/github/actions/workflow/status/nflverse/nflreadr/R-CMD-check.yaml?label=R%20check&style=flat-square&logo=github)](https://github.com/nflverse/nflreadr/actions)
 [![nflverse discord](https://img.shields.io/discord/789805604076126219?color=7289da&label=nflverse%20discord&logo=discord&logoColor=fff&style=flat-square)](https://discord.com/invite/5Er2FBnnQa)
 
 <!-- badges: end -->
