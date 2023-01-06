@@ -36,7 +36,7 @@ Fixes CRAN bug and provides some function improvements, most notably improved lo
 - player name mapping update
 - `get_current_season()` now exists, because we can't agree on what to name things.
 
-Thank you to [&#x0040;atungate](https://github.com/atungate),[&#x0040;grayhawk40](https://github.com/grayhawk40), [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
+Thank you to [&#x0040;atungate](https://github.com/atungate), &#x0040;grayhawk40, [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
 
 ---
 

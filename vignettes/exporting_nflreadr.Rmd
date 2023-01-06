@@ -32,8 +32,10 @@ load_rosters <- function(seasons = 1999:2020){
 
   # Form the URLs to pass into rds_from_url
   urls <- paste0(
-    "https://github.com/nflverse/nflverse-rosters/raw/master/data/seasons/roster_",
-    seasons, ".rds")
+    "https://github.com/nflverse/nflverse-rosters/",
+    "raw/master/data/seasons/roster_",
+    seasons, 
+    ".rds")
 
   # Use `progressively()` to wrap the existing function rds_from_url and 
   # call the `p()` progressor function as a signal immediately after each iteration
