@@ -1,14 +1,14 @@
-# nflreadr (development version)
+# nflreadr 1.3.2
 
 ## Changes
 
-- `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious. (v1.3.1.01)
-- `join_coalesce()` is now added as a utility to join two dataframes and coalesce any shared columns. (v1.3.1.02)
+- `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious.
+- `join_coalesce()` is now added as a utility to join two dataframes and coalesce any shared columns.
 - `load_teams()` now uses the argument `current` (TRUE/FALSE) to standardize which rows are returned - this aligns with `nflreadr::clean_team_abbrs` and `nflreadr::team_abbr_mapping`
-- `dictionary_participation` added (thank you @josephhero!) (v1.3.1.04)
-- `clean_homeaway()` now preserves neutral site location as well as input class and input attributes (v1.3.1.05)
-- `load_ff_rankings()` URL bug corrected (thank you @kharigardner) (v1.3.1.06)
-- test for `clean_homeaway()` resolved for CRAN failure (v1.3.1.07)
+- `dictionary_participation` added (thank you @josephhero!)
+- `clean_homeaway()` now preserves neutral site location as well as input class and input attributes
+- `load_ff_rankings()` URL bug corrected (thank you @kharigardner)
+- test and example for `clean_homeaway()` resolved for CRAN failure
 
 ---
 
