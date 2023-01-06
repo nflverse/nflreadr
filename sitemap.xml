@@ -46,6 +46,9 @@
     <loc>https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_participation.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_pbp.html</loc>
   </url>
   <url>
@@ -91,6 +94,9 @@
     <loc>https://nflreadr.nflverse.com/reference/clean_team_abbrs.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/clear_cache.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/csv_from_url.html</loc>
   </url>
   <url>
@@ -124,6 +130,9 @@
     <loc>https://nflreadr.nflverse.com/reference/dictionary_nextgen_stats.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_participation.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_pbp.html</loc>
   </url>
   <url>
@@ -145,13 +154,13 @@
     <loc>https://nflreadr.nflverse.com/reference/dictionary_trades.html</loc>
   </url>
   <url>
-    <loc>https://nflreadr.nflverse.com/reference/dot-clear_cache.html</loc>
-  </url>
-  <url>
     <loc>https://nflreadr.nflverse.com/reference/get_current_week.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/join_coalesce.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/latest_season.html</loc>

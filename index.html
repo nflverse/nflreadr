@@ -40,7 +40,7 @@
     
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,6 +57,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-dictionaries">
     <a class="dropdown-item" href="articles/dictionary_pbp.html">Play by Play</a>
     <a class="dropdown-item" href="articles/dictionary_player_stats.html">Player Stats</a>
+    <a class="dropdown-item" href="articles/dictionary_participation.html">Participation</a>
     <a class="dropdown-item" href="articles/dictionary_rosters.html">Rosters</a>
     <a class="dropdown-item" href="articles/dictionary_schedules.html">Schedules</a>
     <a class="dropdown-item" href="articles/dictionary_snap_counts.html">Snap Counts</a>
@@ -140,7 +141,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span><span class="op">)</span></span></code></pre></div>
 <p>Install the development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span>, repos <span class="op">=</span> <span class="st">"https://nflverse.r-universe.dev"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"nflreadr"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://nflverse.r-universe.dev"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># or use remotes/devtools</span></span>
 <span><span class="co"># install.packages("remotes")</span></span>
@@ -154,46 +155,52 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://nflreadr.nflverse.com">nflreadr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── nflverse play by play ───────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; ℹ Data updated: 2022-07-28 18:10:55 EDT</span></span>
+<span><span class="co">#&gt; ── nflverse play by play data ──────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; ℹ Data updated: 2022-09-27 07:35:02 EDT</span></span>
 <span><span class="co">#&gt; # A tibble: 50,712 × 372</span></span>
-<span><span class="co">#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam</span></span>
-<span><span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  2      40 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    </span></span>
-<span><span class="co">#&gt;  3      55 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    </span></span>
-<span><span class="co">#&gt;  4      76 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    </span></span>
-<span><span class="co">#&gt;  5     100 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    </span></span>
-<span><span class="co">#&gt;  6     122 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    </span></span>
-<span><span class="co">#&gt;  7     152 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
-<span><span class="co">#&gt;  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
-<span><span class="co">#&gt;  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
-<span><span class="co">#&gt; 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
-<span><span class="co">#&gt; # … with 50,702 more rows, and 364 more variables: posteam_type &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   defteam &lt;chr&gt;, side_of_field &lt;chr&gt;, yardline_100 &lt;dbl&gt;, game_date &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   quarter_seconds_remaining &lt;dbl&gt;, half_seconds_remaining &lt;dbl&gt;,</span></span>
-<span><span class="co">#&gt; #   game_seconds_remaining &lt;dbl&gt;, game_half &lt;chr&gt;, quarter_end &lt;dbl&gt;, …</span></span>
+<span><span class="co">#&gt;    play_id game_id old_g…¹ home_…² away_…³ seaso…⁴  week posteam poste…⁵ defteam</span></span>
+<span><span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1       1 2021_0… 202109… TEN     ARI     REG         1 &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
+<span><span class="co">#&gt;  2      40 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    </span></span>
+<span><span class="co">#&gt;  3      55 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    </span></span>
+<span><span class="co">#&gt;  4      76 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    </span></span>
+<span><span class="co">#&gt;  5     100 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    </span></span>
+<span><span class="co">#&gt;  6     122 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    </span></span>
+<span><span class="co">#&gt;  7     152 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    </span></span>
+<span><span class="co">#&gt;  8     181 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    </span></span>
+<span><span class="co">#&gt;  9     218 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    </span></span>
+<span><span class="co">#&gt; 10     253 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    </span></span>
+<span><span class="co">#&gt; # … with 50,702 more rows, 362 more variables: side_of_field &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   yardline_100 &lt;dbl&gt;, game_date &lt;chr&gt;, quarter_seconds_remaining &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   half_seconds_remaining &lt;dbl&gt;, game_seconds_remaining &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   game_half &lt;chr&gt;, quarter_end &lt;dbl&gt;, drive &lt;dbl&gt;, sp &lt;dbl&gt;, …, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​old_game_id, ²​home_team, ³​away_team,</span></span>
+<span><span class="co">#&gt; #   ⁴​season_type, ⁵​posteam_type</span></span>
+<span><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/load_player_stats.html">load_player_stats</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── nflverse player stats: offense ──────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; ℹ Data updated: 2022-07-28 18:18:44 EDT</span></span>
-<span><span class="co">#&gt; # A tibble: 5,698 × 48</span></span>
-<span><span class="co">#&gt;    player_id  player_name recent_team season  week season_type completions</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;        &lt;int&gt; &lt;int&gt; &lt;chr&gt;             &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1 00-0019596 T.Brady     TB            2021     1 REG                  32</span></span>
-<span><span class="co">#&gt;  2 00-0019596 T.Brady     TB            2021     2 REG                  24</span></span>
-<span><span class="co">#&gt;  3 00-0019596 T.Brady     TB            2021     3 REG                  41</span></span>
-<span><span class="co">#&gt;  4 00-0019596 T.Brady     TB            2021     4 REG                  22</span></span>
-<span><span class="co">#&gt;  5 00-0019596 T.Brady     TB            2021     5 REG                  30</span></span>
-<span><span class="co">#&gt;  6 00-0019596 T.Brady     TB            2021     6 REG                  34</span></span>
-<span><span class="co">#&gt;  7 00-0019596 T.Brady     TB            2021     7 REG                  20</span></span>
-<span><span class="co">#&gt;  8 00-0019596 T.Brady     TB            2021     8 REG                  28</span></span>
-<span><span class="co">#&gt;  9 00-0019596 T.Brady     TB            2021    10 REG                  23</span></span>
-<span><span class="co">#&gt; 10 00-0019596 T.Brady     TB            2021    11 REG                  30</span></span>
-<span><span class="co">#&gt; # … with 5,688 more rows, and 41 more variables: attempts &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; ℹ Data updated: 2023-01-05 04:08:21 EST</span></span>
+<span><span class="co">#&gt; # A tibble: 5,698 × 52</span></span>
+<span><span class="co">#&gt;    player…¹ playe…² playe…³ posit…⁴ posit…⁵ heads…⁶ recen…⁷ season  week seaso…⁸</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     1 REG    </span></span>
+<span><span class="co">#&gt;  2 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     2 REG    </span></span>
+<span><span class="co">#&gt;  3 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     3 REG    </span></span>
+<span><span class="co">#&gt;  4 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     4 REG    </span></span>
+<span><span class="co">#&gt;  5 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     5 REG    </span></span>
+<span><span class="co">#&gt;  6 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     6 REG    </span></span>
+<span><span class="co">#&gt;  7 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     7 REG    </span></span>
+<span><span class="co">#&gt;  8 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     8 REG    </span></span>
+<span><span class="co">#&gt;  9 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021    10 REG    </span></span>
+<span><span class="co">#&gt; 10 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021    11 REG    </span></span>
+<span><span class="co">#&gt; # … with 5,688 more rows, 42 more variables: completions &lt;int&gt;, attempts &lt;int&gt;,</span></span>
 <span><span class="co">#&gt; #   passing_yards &lt;dbl&gt;, passing_tds &lt;int&gt;, interceptions &lt;dbl&gt;, sacks &lt;dbl&gt;,</span></span>
 <span><span class="co">#&gt; #   sack_yards &lt;dbl&gt;, sack_fumbles &lt;int&gt;, sack_fumbles_lost &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   passing_air_yards &lt;dbl&gt;, passing_yards_after_catch &lt;dbl&gt;, …</span></span></code></pre></div>
+<span><span class="co">#&gt; #   passing_air_yards &lt;dbl&gt;, …, and abbreviated variable names ¹​player_id,</span></span>
+<span><span class="co">#&gt; #   ²​player_name, ³​player_display_name, ⁴​position, ⁵​position_group,</span></span>
+<span><span class="co">#&gt; #   ⁶​headshot_url, ⁷​recent_team, ⁸​season_type</span></span>
+<span><span class="co">#&gt; # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data-sources">Data Sources<a class="anchor" aria-label="anchor" href="#data-sources"></a>
@@ -301,7 +308,7 @@
 <li><a href="https://app.codecov.io/gh/nflverse/nflreadr?branch=main" class="external-link"><img src="https://img.shields.io/codecov/c/github/nflverse/nflreadr?label=codecov&amp;style=flat-square&amp;logo=codecov" alt="Codecov test coverage"></a></li>
 <li><a href="https://nflreadr.nflverse.com/"><img src="https://img.shields.io/github/r-package/v/nflverse/nflreadr/main?label=dev%20version&amp;style=flat-square&amp;logo=github" alt="Dev status"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-green.svg?style=flat-square" alt="Lifecycle: stable"></a></li>
-<li><a href="https://github.com/nflverse/nflreadr/actions" class="external-link"><img src="https://img.shields.io/github/workflow/status/nflverse/nflreadr/R-CMD-check?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
+<li><a href="https://github.com/nflverse/nflreadr/actions" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflreadr/R-CMD-check.yaml?label=R%20check&amp;style=flat-square&amp;logo=github" alt="R build status"></a></li>
 <li><a href="https://discord.com/invite/5Er2FBnnQa" class="external-link"><img src="https://img.shields.io/discord/789805604076126219?color=7289da&amp;label=nflverse%20discord&amp;logo=discord&amp;logoColor=fff&amp;style=flat-square" alt="nflverse discord"></a></li>
 </ul>
 </div>

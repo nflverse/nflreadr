@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +26,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-dictionaries">
     <a class="dropdown-item" href="../articles/dictionary_pbp.html">Play by Play</a>
     <a class="dropdown-item" href="../articles/dictionary_player_stats.html">Player Stats</a>
+    <a class="dropdown-item" href="../articles/dictionary_participation.html">Participation</a>
     <a class="dropdown-item" href="../articles/dictionary_rosters.html">Rosters</a>
     <a class="dropdown-item" href="../articles/dictionary_schedules.html">Schedules</a>
     <a class="dropdown-item" href="../articles/dictionary_snap_counts.html">Snap Counts</a>
@@ -91,6 +92,28 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.3.2" id="nflreadr-132">nflreadr 1.3.2<a class="anchor" aria-label="anchor" href="#nflreadr-132"></a></h2><p class="text-muted">CRAN release: 2023-01-06</p>
+<p>Minor changes per changelist and patch CRAN-related example issue.</p>
+<div class="section level3">
+<h3 id="changes-1-3-2">Changes<a class="anchor" aria-label="anchor" href="#changes-1-3-2"></a></h3>
+<ul><li>
+<code><a href="../reference/clear_cache.html">.clear_cache()</a></code> now re-exported without dot prefix as <code><a href="../reference/clear_cache.html">clear_cache()</a></code>. Hopefully more obvious.</li>
+<li>
+<code><a href="../reference/join_coalesce.html">join_coalesce()</a></code> is now added as a utility to join two dataframes and coalesce any shared columns.</li>
+<li>
+<code><a href="../reference/load_teams.html">load_teams()</a></code> now uses the argument <code>current</code> (TRUE/FALSE) to standardize which rows are returned - this aligns with <code><a href="../reference/clean_team_abbrs.html">nflreadr::clean_team_abbrs</a></code> and <code><a href="../reference/team_abbr_mapping.html">nflreadr::team_abbr_mapping</a></code>
+</li>
+<li>
+<code>dictionary_participation</code> added (thank you <a href="https://github.com/josephhero" class="external-link">@josephhero</a>!)</li>
+<li>
+<code><a href="../reference/clean_homeaway.html">clean_homeaway()</a></code> now preserves neutral site location as well as input class and input attributes</li>
+<li>
+<code><a href="../reference/load_ff_rankings.html">load_ff_rankings()</a></code> URL bug corrected (thank you <a href="https://github.com/kharigardner" class="external-link">@kharigardner</a>)</li>
+<li>test and example for <code><a href="../reference/clean_homeaway.html">clean_homeaway()</a></code> resolved for CRAN failure</li>
+</ul><p>Thank you to <a href="https://github.com/ak47twq" class="external-link">@ak47twq</a>, <a href="https://github.com/bachlaw" class="external-link">@bachlaw</a>, <a href="https://github.com/brunomioto" class="external-link">@brunomioto</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>, <a href="https://github.com/Josephhero" class="external-link">@Josephhero</a>, <a href="https://github.com/kharigardner" class="external-link">@kharigardner</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/MysteryPollster" class="external-link">@MysteryPollster</a>, <a href="https://github.com/numbersinfigures" class="external-link">@numbersinfigures</a>, and <a href="https://github.com/ohri" class="external-link">@ohri</a> for their questions, feedback, and contributions towards this release.</p>
+<hr></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.1" id="nflreadr-131">nflreadr 1.3.1<a class="anchor" aria-label="anchor" href="#nflreadr-131"></a></h2><p class="text-muted">CRAN release: 2022-09-25</p>
 <p>Fixes CRAN bug and provides some function improvements, most notably improved logic for <code><a href="../reference/load_participation.html">load_participation()</a></code>’s pbp join.</p>
 <div class="section level3">
@@ -118,7 +141,7 @@
 <li>player name mapping update</li>
 <li>
 <code><a href="../reference/latest_season.html">get_current_season()</a></code> now exists, because we can’t agree on what to name things.</li>
-</ul><p>Thank you to <a href="https://github.com/atungate" class="external-link">@atungate</a>,<a href="https://github.com/grayhawk40" class="external-link">@grayhawk40</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>,<a href="https://github.com/jestarr" class="external-link">@jestarr</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>,<a href="https://github.com/marvin3FF" class="external-link">@marvin3FF</a>,<a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, <a href="https://github.com/shirondru" class="external-link">@shirondru</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their contributions and feedback towards this release!</p>
+</ul><p>Thank you to <a href="https://github.com/atungate" class="external-link">@atungate</a>, <a href="https://github.com/grayhawk40" class="external-link">@grayhawk40</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>,<a href="https://github.com/jestarr" class="external-link">@jestarr</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>,<a href="https://github.com/marvin3FF" class="external-link">@marvin3FF</a>,<a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, <a href="https://github.com/shirondru" class="external-link">@shirondru</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their contributions and feedback towards this release!</p>
 <hr></div>
 </div>
     <div class="section level2">
