@@ -1,14 +1,18 @@
-# nflreadr (development version)
+# nflreadr 1.3.2
+
+Minor changes per changelist and patch CRAN-related example issue.
 
 ## Changes
 
-- `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious. (v1.3.1.01)
-- `join_coalesce()` is now added as a utility to join two dataframes and coalesce any shared columns. (v1.3.1.02)
+- `.clear_cache()` now re-exported without dot prefix as `clear_cache()`. Hopefully more obvious.
+- `join_coalesce()` is now added as a utility to join two dataframes and coalesce any shared columns.
 - `load_teams()` now uses the argument `current` (TRUE/FALSE) to standardize which rows are returned - this aligns with `nflreadr::clean_team_abbrs` and `nflreadr::team_abbr_mapping`
-- `dictionary_participation` added (thank you @josephhero!) (v1.3.1.04)
-- `clean_homeaway()` now preserves neutral site location as well as input class and input attributes (v1.3.1.05)
-- `load_ff_rankings()` URL bug corrected (thank you @kharigardner) (v1.3.1.06)
-- test for `clean_homeaway()` resolved for CRAN failure (v1.3.1.07)
+- `dictionary_participation` added (thank you @josephhero!)
+- `clean_homeaway()` now preserves neutral site location as well as input class and input attributes
+- `load_ff_rankings()` URL bug corrected (thank you @kharigardner)
+- test and example for `clean_homeaway()` resolved for CRAN failure
+
+Thank you to [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;bachlaw](https://github.com/bachlaw), [&#x0040;brunomioto](https://github.com/brunomioto), [&#x0040;guga31bb](https://github.com/guga31bb), [&#x0040;Josephhero](https://github.com/Josephhero), [&#x0040;kharigardner](https://github.com/kharigardner), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;MysteryPollster](https://github.com/MysteryPollster), [&#x0040;numbersinfigures](https://github.com/numbersinfigures), and [&#x0040;ohri](https://github.com/ohri) for their questions, feedback, and contributions towards this release.
 
 ---
 
@@ -32,7 +36,7 @@ Fixes CRAN bug and provides some function improvements, most notably improved lo
 - player name mapping update
 - `get_current_season()` now exists, because we can't agree on what to name things.
 
-Thank you to [&#x0040;atungate](https://github.com/atungate),[&#x0040;grayhawk40](https://github.com/grayhawk40), [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
+Thank you to [&#x0040;atungate](https://github.com/atungate), &#x0040;grayhawk40, [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
 
 ---
 
