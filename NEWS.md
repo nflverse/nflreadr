@@ -1,3 +1,11 @@
+# nflreadr (devel version)
+
+## Changes
+
+- `nflreadr::most_recent_season()` and aliases `get_latest_season`, `get_current_season` 
+etc now use March 15th as the changeover for league year. Hopefully this is not
+a moving target 🙃 (1.3.2.01)
+
 # nflreadr 1.3.2
 
 Minor changes per changelist and patch CRAN-related example issue.
