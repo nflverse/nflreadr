@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.01</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,7 +132,7 @@
 <dd><p>A character vector of strings which are to be interpreted as <code>NA</code> values. By default, <code>",,"</code> for columns of all types, including type <code>character</code> is read as <code>NA</code> for consistency. <code>,"",</code> is unambiguous and read as an empty string. To read <code>,NA,</code> as <code>NA</code>, set <code>na.strings="NA"</code>. To read <code>,,</code> as blank string <code>""</code>, set <code>na.strings=NULL</code>. When they occur in the file, the strings in <code>na.strings</code> should not appear quoted since that is how the string literal <code>,"NA",</code> is distinguished from <code>,NA,</code>, for example, when <code>na.strings="NA"</code>.</p></dd>
 
     <dt><code>stringsAsFactors</code></dt>
-<dd><p>Convert all character columns to factors?</p></dd>
+<dd><p>Convert all or some character columns to factors? Acceptable inputs are <code>TRUE</code>, <code>FALSE</code>, or a decimal value between 0.0 and 1.0. For <code>stringsAsFactors = FALSE</code>, all string columns are stored as <code>character</code> vs. all stored as <code>factor</code> when <code>TRUE</code>. When <code>stringsAsFactors = p</code> for <code>0 &lt;= p &lt;= 1</code>, string columns <code>col</code> are stored as <code>factor</code> if <code>uniqueN(col)/nrow &lt; p</code>.</p></dd>
 
     <dt><code>verbose</code></dt>
 <dd><p>Be chatty and report timings?</p></dd>
