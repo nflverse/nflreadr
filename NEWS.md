@@ -5,6 +5,7 @@
 - `nflreadr::most_recent_season()` and aliases `get_latest_season`, `get_current_season` 
 etc now use March 15th as the changeover for league year. Hopefully this is not
 a moving target 🙃 (1.3.2.01)
+- `nflreadr::clean_homeaway()` now handles columns with suffixes `_home` and `_away` (1.3.2.02)
 
 # nflreadr 1.3.2
 

@@ -146,6 +146,8 @@ clean_homeaway <- function(dataframe, invert = NULL){
 
   names(home) <- gsub(x = names(home), pattern = "^home_", replacement = "team_")
   names(home) <- gsub(x = names(home), pattern = "^away_", replacement = "opponent_")
+  names(home) <- gsub(x = names(home), pattern = "_home$", replacement = "")
+  names(home) <- gsub(x = names(home), pattern = "_away$", replacement = "_opponent")
   names(home) <- gsub(x = names(home), pattern = "team_team", replacement = "team")
   names(home) <- gsub(x = names(home), pattern = "opponent_team", replacement = "opponent")
 
@@ -159,6 +161,8 @@ clean_homeaway <- function(dataframe, invert = NULL){
 
   names(away) <- gsub(x = names(away), pattern = "^away_", replacement = "team_")
   names(away) <- gsub(x = names(away), pattern = "^home_", replacement = "opponent_")
+  names(away) <- gsub(x = names(away), pattern = "_away$", replacement = "")
+  names(away) <- gsub(x = names(away), pattern = "_home$", replacement = "_opponent")
   names(away) <- gsub(x = names(away), pattern = "team_team", replacement = "team")
   names(away) <- gsub(x = names(away), pattern = "opponent_team", replacement = "opponent")
 
