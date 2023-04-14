@@ -58,7 +58,7 @@ test_that("cleaning home and away columns",{
     team_id_home = c("001","002","003"), 
     away_team = c("TB", "BUF", "KC"), 
     away_score = c(31L, 24L, 9L), 
-    team_id_away = c("003","004","002")
+    team_id_away = c("003","004","002"),
     location = c("Home", "Home", "Neutral"), 
     result = c(-5L, 14L, 22L), 
     spread_line = c(3, 3, -3)
