@@ -53,10 +53,12 @@ test_that("cleaning home and away columns",{
   s <- data.frame(
     game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"), 
     game_type = c("CON", "CON", "SB"), 
+    home_team = c("GB", "KC", "TB"), 
+    home_score = c(26L, 38L, 31L),
+    team_id_home = c("001","002","003"), 
     away_team = c("TB", "BUF", "KC"), 
     away_score = c(31L, 24L, 9L), 
-    home_team = c("GB", "KC", "TB"), 
-    home_score = c(26L, 38L, 31L), 
+    team_id_away = c("003","004","002")
     location = c("Home", "Home", "Neutral"), 
     result = c(-5L, 14L, 22L), 
     spread_line = c(3, 3, -3)
@@ -65,6 +67,7 @@ test_that("cleaning home and away columns",{
 
   expect_equal(nrow(c),nrow(s)*2)
   expect(all(!grepl(x = names(c),pattern = "^home_")),"Error: `home_` was found in `names(c)`")
+  expect(all(!grepl(x = names(c),pattern = "_home$")),"Error: `_home` was found in `names(c)`")
   expect_true("neutral" %in% c$location)
   expect_identical(class(c), class(s))
 })
