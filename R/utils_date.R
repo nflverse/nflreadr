@@ -16,7 +16,8 @@ most_recent_season <- function(roster = FALSE) {
   current_day <- as.integer(format(today, format = "%d"))
 
   if ((isFALSE(roster) && current_month >= 9) ||
-      (isTRUE(roster) && current_month >= 3 && current_day >= 15)) {
+      (isTRUE(roster) && current_month == 3 && current_day >= 15) ||
+      (isTRUE(roster) && current_month > 3 )) {
 
     return(current_year)
   }
