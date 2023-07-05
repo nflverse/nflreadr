@@ -174,7 +174,7 @@ clean_homeaway <- function(dataframe, invert = NULL){
     "away"
   }
 
-  if(!is.null(invert)) data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1
+  if(!is.null(invert)){ data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1 }
 
   .row_order <- NULL
   out <- data.table::rbindlist(list(home,away), use.names = TRUE)[order(.row_order),-c(".row_order")]
