@@ -349,7 +349,7 @@
 "rush","Binary indicator if the play was a rushing play.","numeric"
 "first_down","Binary indicator if the play ended in a first down.","numeric"
 "aborted_play","Binary indicator if the play description indicates ""Aborted"".","numeric"
-"special","Binary indicator if the play was a special teams play.","numeric"
+"special","Binary indicator if ""play_type"" is one of ""extra_point"", ""field_goal"", ""kickoff"", or ""punt"".","numeric"
 "play","Binary indicator: 1 if the play was a 'normal' play (including penalties), 0 otherwise.","numeric"
 "passer_id","ID of the player in the 'passer' column.","character"
 "rusher_id","ID of the player in the 'rusher' column.","character"
