@@ -28,12 +28,12 @@ nflverse_game_id <- function(season,
   valid_names <- names(nflreadr::team_abbr_mapping_norelocate)
 
   if (!all(home %in% valid_names)) {
-    invalid <- home[!home %in% valid_names]
+    invalid <- unique(home[!home %in% valid_names])
     cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg home} abbreviation{?s}.")
   }
 
   if (!all(away %in% valid_names)) {
-    invalid <- away[!away %in% valid_names]
+    invalid <- unique(away[!away %in% valid_names])
     cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg away} abbreviation{?s}.")
   }
 
