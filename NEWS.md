@@ -9,6 +9,7 @@ a moving target 🙃 (1.3.2.01)
 - `nflreadr::most_recent_season(roster = TRUE)` and aliases `get_latest_season`, `get_current_season` 
 etc falsely returned last season after March 15th early in the month. (1.3.2.03)
 - Clarified description of the `"special"` variable in the play-by-play data dictionary. (1.3.2.04) (#189)
+- `nflreadr::nflverse_game_id()` accepts old team abbreviations and outputs useful errors. (1.3.2.05) (#191)
 
 # nflreadr 1.3.2
 

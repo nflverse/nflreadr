@@ -25,13 +25,20 @@ nflverse_game_id <- function(season,
     cli::cli_abort("{.arg week} must be between 1 and 22")
   }
 
-  if (!all(home %in% nflreadr::team_abbr_mapping)){
-    cli::cli_abort("{.val {home}} is not a valid {.arg home} abbreviation.")
+  valid_names <- names(nflreadr::team_abbr_mapping_norelocate)
+
+  if (!all(home %in% valid_names)) {
+    invalid <- unique(home[!home %in% valid_names])
+    cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg home} abbreviation{?s}.")
   }
 
-  if (!all(away %in% nflreadr::team_abbr_mapping)){
-    cli::cli_abort("{.val {away}} is not a valid {.arg away} abbreviation.")
+  if (!all(away %in% valid_names)) {
+    invalid <- unique(away[!away %in% valid_names])
+    cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg away} abbreviation{?s}.")
   }
+
+  away <- clean_team_abbrs(away, current_location = FALSE)
+  home <- clean_team_abbrs(home, current_location = FALSE)
 
   arg_lengths <- lengths(list(season, week, away, home))
 
