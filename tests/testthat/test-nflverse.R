@@ -350,6 +350,12 @@ test_that("nflverse_game_id works", {
     c("2022_02_LAC_KC", "2022_13_LAC_LV")
   )
 
+  # allow old names (SD) and clean team abbreviations (LAR -> LA)
+  expect_equal(
+    nflverse_game_id(rep(2022, 2), c(2,13), c("SD", "LAC"), c("KC", "LAR")),
+    c("2022_02_SD_KC", "2022_13_LAC_LA")
+  )
+
   # error on season outside range
   expect_error(
     nflverse_game_id(1998, 2, "LAC", "KC"), "must be between 1999"
@@ -362,12 +368,12 @@ test_that("nflverse_game_id works", {
 
   # error on away team
   expect_error(
-    nflverse_game_id(2022, 2, "LACC", "KC"), "is not a valid `away` abbreviation"
+    nflverse_game_id(2022, 2, rep("LACC",2), "KC"), "invalid `away` abbreviation"
   )
 
   # error on home team
   expect_error(
-    nflverse_game_id(2022, 2, "LAC", "KKC"), "is not a valid `home` abbreviation"
+    nflverse_game_id(2022, 2, "LAC", rep("KKC", 2)), "invalid `home` abbreviation"
   )
 
   # warn on non smart input
