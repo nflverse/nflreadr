@@ -1,0 +1,23 @@
+field,data_type,description
+def_tackles,numeric,Total number of tackles for this player
+def_tackles_solo,numeric,Total number of solo tackles for this player
+def_tackles_with_assist,numeric,Number of tackles this player had with an assisted tackle
+def_tackle_assists,numeric,Number of assisted tackles for this player
+def_tackles_for_loss,numeric,Number of tackles for loss (TFL) for this player
+def_tackles_for_loss_yards,numeric,Yards lost from TFLs involving this player
+def_fumbles_forced,numeric,Number of times a fumble was forced from this player
+def_sacks,numeric,Number of sacks form this player
+def_sack_yards,numeric,Yards lost from sacks forced by this player
+def_qb_hits,numeric,Number of QB hits from this player (should not include plays where the QB was sacked)
+def_interceptions,numeric,Number of interceptions forced by this player
+def_interception_yards,numeric,yards gained/lost by interception returns from this player
+def_pass_defended,numeric,Number of passes defended/broken up by this player
+def_tds,numeric,Number of defensive touchdowns scored by this player
+def_fumbles,numeric,Number of fumbles by this player
+def_fumble_recovery_own,numeric,Number of times a player's team fumbled the ball and this player recovered
+def_fumble_recovery_yards_own,numeric,Number of yards gained/lost from fumble recoveries that happened because the player's team fumbled the ball and this player recovered the fumble on that same play
+def_fumble_recovery_opp,numeric,Number of times a player's opponent fumbled the ball and this player recovered
+def_fumble_recovery_yards_opp,numeric,Number of yards gained/lost from fumble recoveries that happened because the player's opponent  fumbled the ball and this player recovered the fumble on that same play
+def_safety,numeric,Number of times this player forced a defensive safety
+def_penalty,numeric,Number of times this player was penalized defensively
+def_penalty_yards,numeric,Number of penalty yards for this player defensively
