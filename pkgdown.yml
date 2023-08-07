@@ -16,12 +16,13 @@ articles:
   dictionary_pbp: dictionary_pbp.html
   dictionary_pfr_passing: dictionary_pfr_passing.html
   dictionary_player_stats: dictionary_player_stats.html
+  dictionary_player_stats_def: dictionary_player_stats_def.html
   dictionary_rosters: dictionary_rosters.html
   dictionary_schedules: dictionary_schedules.html
   dictionary_snap_counts: dictionary_snap_counts.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2023-08-01T21:00Z
+last_built: 2023-08-07T12:09Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
