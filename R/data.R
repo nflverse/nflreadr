@@ -16,7 +16,7 @@
 
 #' Data Dictionary: Player Stats Defense
 #'
-#' A dataframe containing the data dictionary for [`load_player_stats(stat_type = "defense")`]
+#' A dataframe containing the data dictionary for [`load_player_stats()`]
 #'
 #' @seealso `vignette("Data Dictionary - Player Stats Defense")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats_def.html>

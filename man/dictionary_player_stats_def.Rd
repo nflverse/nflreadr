@@ -11,7 +11,7 @@ An object of class \code{data.frame} with 22 rows and 3 columns.
 dictionary_player_stats_def
 }
 \description{
-A dataframe containing the data dictionary for \code{\link{load_player_stats(stat_type = "defense")}}
+A dataframe containing the data dictionary for \code{\link[=load_player_stats]{load_player_stats()}}
 }
 \seealso{
 \code{vignette("Data Dictionary - Player Stats Defense")}
