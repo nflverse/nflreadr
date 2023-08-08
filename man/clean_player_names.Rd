@@ -36,7 +36,7 @@ Applies some name-cleaning heuristics to facilitate joins. These heuristics may 
 Equivalent to the operation done by \code{ffscrapr::dp_clean_names()} and uses the same player name database.
 }
 \examples{
-
+\dontshow{.for_cran()}
 clean_player_names(c("A.J. Green", "Odell Beckham Jr.  ", "Le'Veon Bell Sr."))
 
 clean_player_names(c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore"),

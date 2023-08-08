@@ -23,6 +23,7 @@ Loads game level snap counts stats provided by Pro Football Reference
 starting with the 2012 season.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
   try({ # prevents CRAN errors
   load_snap_counts()

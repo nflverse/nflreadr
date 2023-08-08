@@ -17,6 +17,7 @@ A tibble of active and non-active NFL player contracts.
 Loads player contracts from OverTheCap.com
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_contracts()

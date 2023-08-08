@@ -8,6 +8,7 @@
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #'   try({ # prevents CRAN errors
 #'   load_snap_counts()

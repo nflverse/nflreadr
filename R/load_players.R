@@ -5,6 +5,7 @@
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_players()

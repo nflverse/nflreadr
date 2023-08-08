@@ -16,6 +16,7 @@
 #'   with `NA` (depending on the value of `keep_non_matches`).
 #' @export
 #' @examples
+#' \dontshow{.for_cran()}
 #' x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL")
 #' # use current location and keep non matches
 #' clean_team_abbrs(x)
@@ -60,7 +61,7 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 #' @return a character vector of cleaned names
 #'
 #' @examples
-#'
+#' \dontshow{.for_cran()}
 #' clean_player_names(c("A.J. Green", "Odell Beckham Jr.  ", "Le'Veon Bell Sr."))
 #'
 #' clean_player_names(c("Trubisky,      Mitch", "Atwell, Chatarius", "Elliott, Zeke", "Elijah Moore"),
@@ -117,22 +118,21 @@ clean_player_names <- function(player_name,
 #' @param invert a character vector of columns that gets inverted when referring to the away team (e.g. home spread = 1 gets converted to away_spread = -1)
 #'
 #' @examples
-#' \donttest{
+#' \dontshow{.for_cran()}
 #' # a small example dataframe
 #' s <- data.frame(
-#'    game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"), 
-#'    game_type = c("CON", "CON", "SB"), 
-#'    away_team = c("TB", "BUF", "KC"), 
-#'    away_score = c(31L, 24L, 9L), 
-#'    home_team = c("GB", "KC", "TB"), 
-#'    home_score = c(26L, 38L, 31L), 
-#'    location = c("Home", "Home", "Neutral"), 
-#'    result = c(-5L, 14L, 22L), 
+#'    game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"),
+#'    game_type = c("CON", "CON", "SB"),
+#'    away_team = c("TB", "BUF", "KC"),
+#'    away_score = c(31L, 24L, 9L),
+#'    home_team = c("GB", "KC", "TB"),
+#'    home_score = c(26L, 38L, 31L),
+#'    location = c("Home", "Home", "Neutral"),
+#'    result = c(-5L, 14L, 22L),
 #'    spread_line = c(3, 3, -3)
 #'  )
 #'
 #' clean_homeaway(s, invert = c("result","spread_line"))
-#' }
 #' @return a dataframe with one row per team (twice as long as the input dataframe)
 #' @export
 clean_homeaway <- function(dataframe, invert = NULL){

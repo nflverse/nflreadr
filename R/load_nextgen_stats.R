@@ -12,6 +12,7 @@
 #'
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_nextgen_stats(stat_type = "passing")

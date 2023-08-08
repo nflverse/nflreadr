@@ -56,6 +56,7 @@ a dataframe as created by \code{\link[data.table:fread]{data.table::fread()}}
 This is a thin wrapper on data.table::fread, but memoised & cached for twenty four hours.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.csv")

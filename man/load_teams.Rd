@@ -17,6 +17,7 @@ A tibble of team-level image URLs and hex color codes.
 Loads team graphics, colors, and logos - useful for plots!
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_teams()

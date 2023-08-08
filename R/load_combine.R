@@ -6,6 +6,7 @@
 #' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_combine()

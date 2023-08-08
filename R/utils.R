@@ -35,7 +35,6 @@ print.nflverse_data <- function(x,...){
 #' @export
 #' @keywords internal
 rbindlist_with_attrs <- function(dflist){
-
   nflverse_timestamp <- attr(dflist[[length(dflist)]], "nflverse_timestamp")
   nflverse_type <- attr(dflist[[length(dflist)]], "nflverse_type")
   out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)

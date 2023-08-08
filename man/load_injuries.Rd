@@ -22,6 +22,7 @@ a tibble of season-level injury report data.
 Data collected from an API for weekly injury report data.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({# prevents cran errors
     load_injuries(2020)

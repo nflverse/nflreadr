@@ -23,6 +23,7 @@ The complete nflfastR dataset as returned by \code{nflfastR::build_nflfastR_pbp(
 Loads play by play seasons from the \href{https://github.com/nflverse/nflverse-data}{nflverse-data repository}
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_pbp(2019:2020)

@@ -16,6 +16,7 @@ a dataframe as parsed by \code{\link[qs:qdeserialize]{qs::qdeserialize()}}
 Load .qs file from a remote connection
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({
   qs_from_url(

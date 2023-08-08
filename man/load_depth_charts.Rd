@@ -22,6 +22,7 @@ A tibble of week-level depth charts for each team.
 Loads depth charts for each NFL team for each week back to 2001.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_depth_charts(2020)

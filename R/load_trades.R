@@ -11,6 +11,7 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #'  load_trades(2020)
 #' }

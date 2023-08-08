@@ -17,6 +17,7 @@ A tibble with one row per player.
 Load a dataframe of player-level information, including IDs and other mostly-immutable data (birthdates, college, draft position etc.)
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_players()

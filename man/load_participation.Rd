@@ -25,6 +25,7 @@ A dataframe of participation data, optionally merged with play by play
 Loads participation data from the \href{https://github.com/nflverse/nflverse-data}{nflverse-data repository}
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_participation(seasons = 2020, include_pbp = TRUE)

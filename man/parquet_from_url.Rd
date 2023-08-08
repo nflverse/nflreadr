@@ -16,6 +16,7 @@ a dataframe as parsed by \code{\link[arrow:read_parquet]{arrow::read_parquet()}}
 Retrieves a parquet file from URL. This function is cached
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({
   parquet_from_url(

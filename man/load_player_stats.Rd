@@ -25,6 +25,7 @@ A tibble of week-level player statistics that aims to match NFL official box sco
 Load Player Level Weekly Stats
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_player_stats()

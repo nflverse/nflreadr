@@ -13,6 +13,7 @@ a dataframe of player IDs
 Accesses DynastyProcess.com's database of fantasy football player IDs, which help connect nflverse to various other platforms and IDs.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
 load_ff_playerids()

@@ -10,6 +10,7 @@
 #' @return A dataframe of participation data, optionally merged with play by play
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_participation(seasons = 2020, include_pbp = TRUE)

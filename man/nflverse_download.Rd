@@ -32,7 +32,7 @@ This function downloads or updates data from the nflverse-data repository releas
 creating subfolders that match the release structure.
 }
 \examples{
-{
+\dontshow{.for_cran()}
 \donttest{
 try({
   ## could also set options like
@@ -42,6 +42,5 @@ try({
 
   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 })
-}
 }
 }

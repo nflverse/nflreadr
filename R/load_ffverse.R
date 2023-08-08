@@ -5,6 +5,7 @@
 #' @return a dataframe of player IDs
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #' load_ff_playerids()

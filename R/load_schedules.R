@@ -11,6 +11,7 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nfldata>
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'  load_schedules(2020)

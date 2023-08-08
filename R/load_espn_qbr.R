@@ -5,6 +5,7 @@
 #' @param summary_type One of "season" or "weekly", defaults to season
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #'     load_espn_qbr("nfl",2020)
 #' }

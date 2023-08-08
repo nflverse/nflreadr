@@ -6,6 +6,7 @@
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #'   load_pfr_passing()
 #' }
@@ -38,6 +39,7 @@ load_pfr_passing <- function(seasons = TRUE){
 #'
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_pfr_advstats()

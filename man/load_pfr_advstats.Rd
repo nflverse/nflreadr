@@ -29,6 +29,7 @@ Loads player level season stats provided by Pro Football Reference
 starting with the 2018 season, primarily to augment existing nflverse data.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_pfr_advstats()

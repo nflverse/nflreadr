@@ -16,6 +16,7 @@ A tibble of game information for past and/or future games.
 This returns a table of historical trades as maintained by Lee Sharpe.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
  load_trades(2020)
 }

@@ -42,7 +42,7 @@ columns that have shared names (i.e. fills in NAs). A utility function primarily
 used internally within nflverse to help build player IDs
 }
 \examples{
-
+\dontshow{.for_cran()}
 x <- data.frame(id1 = c(NA_character_,letters[1:4]), a = c(1,NA,3,NA,5), b = 1:5 * 10)
 y <- data.frame(id2 = c(letters[3:11],NA_character_), a = -(1:10), c = 1:10 * 100)
 

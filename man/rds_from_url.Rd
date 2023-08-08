@@ -16,6 +16,7 @@ a dataframe as created by \code{\link[=readRDS]{readRDS()}}
 Load .rds file from a remote connection
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   rds_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.rds")

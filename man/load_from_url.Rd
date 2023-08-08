@@ -22,6 +22,7 @@ a dataframe, possibly of type \code{nflverse_data}
 Load any rds/csv/csv.gz/parquet/qs file from a remote URL
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   urls <- c("https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2020.csv",
