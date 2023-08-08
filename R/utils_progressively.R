@@ -8,7 +8,7 @@
 #' @param p a function such as one created by `progressr::progressor()` - also accepts purrr-style lambda functions.
 #'
 #' @examples
-#'
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'

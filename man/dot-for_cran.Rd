@@ -10,3 +10,4 @@
 Some code to comply with CRAN policies, e.g.
 limiting data.table CPU cores for examples/tests
 }
+\keyword{internal}

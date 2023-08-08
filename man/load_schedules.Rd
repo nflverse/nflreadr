@@ -16,6 +16,7 @@ A tibble of game information for past and/or future games.
 This returns game/schedule information as maintained by Lee Sharpe.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
  load_schedules(2020)

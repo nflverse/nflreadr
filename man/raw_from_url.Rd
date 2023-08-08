@@ -17,6 +17,7 @@ This function allows you to retrieve data from a URL into raw format, which
 can then be passed into the appropriate file-reading function. Data is memoised/cached for 24 hours.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents CRAN errors
 head(raw_from_url(

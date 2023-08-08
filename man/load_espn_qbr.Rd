@@ -24,6 +24,7 @@ a tibble of season-level injury report data.
 Load ESPN's QBR
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
     load_espn_qbr("nfl",2020)
 }

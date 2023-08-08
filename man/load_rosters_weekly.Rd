@@ -24,6 +24,7 @@ A tibble of weekly roster data.
 Returns week level rosters (rather than latest for a given season as returned by \code{load_rosters()})
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_rosters_weekly(2020)

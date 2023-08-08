@@ -2,9 +2,10 @@
 #'
 #' @description Loads team graphics, colors, and logos - useful for plots!
 #'
-#' @param current If `TRUE` (the default), returns a standardized list of current teams only, 
+#' @param current If `TRUE` (the default), returns a standardized list of current teams only,
 #' with abbreviations as per [nflreadr::team_abbr_mapping].
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_teams()

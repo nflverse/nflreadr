@@ -27,6 +27,7 @@ This function standardizes NFL team abbreviations to nflverse defaults.
 This helps for joins and plotting, especially with the new nflplotR package!
 }
 \examples{
+\dontshow{.for_cran()}
 x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL")
 # use current location and keep non matches
 clean_team_abbrs(x)

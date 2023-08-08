@@ -13,7 +13,8 @@
 #' @param use_hive whether to create hive-style partition folders for each season, e.g. `"~/pbp/.season=2021/pbp.csv"`
 #' @param .token a GitHub API token, `"default"` uses `gh::gh_token()`
 #'
-#' @examples {
+#' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({
 #'   ## could also set options like
@@ -23,7 +24,6 @@
 #'
 #'   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 #' })
-#' }
 #' }
 #' @export
 nflverse_download <- function(...,
@@ -115,21 +115,26 @@ nflverse_download <- function(...,
 #'
 #' @param .token a GitHub API token, `"default"` uses `gh::gh_token()`
 #'
-#' @return A dataframe containing release names, release descriptions, and
-#'   other relevant release information.
-#' @export
 #' @examples
-#' \donttest{
+#' \dontshow{
+#' .for_cran()
 #' # Change option for better output
 #' old <- options(piggyback.verbose = FALSE)
+#' }
+#' \donttest{
 #'
 #' try( # avoids cran failures, can skip in normal usage
 #' nflverse_releases()
 #' )
-#'
+#' }
+#' \dontshow{
 #' # Restore old options
 #' options(old)
 #' }
+#'
+#' @return A dataframe containing release names, release descriptions, and
+#'   other relevant release information.
+#' @export
 nflverse_releases <- function(.token = "default") {
   rlang::check_installed("piggyback (>= 0.1.2)", "gh")
   if(.token == "default") .token <- gh::gh_token()

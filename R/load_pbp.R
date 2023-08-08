@@ -10,6 +10,7 @@
 #' (see below) for all given `seasons`
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_pbp(2019:2020)

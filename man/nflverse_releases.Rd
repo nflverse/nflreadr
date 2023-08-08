@@ -19,15 +19,20 @@ in the nflverse-data repo. Release names can be used for downloads in
 \code{\link[=nflverse_download]{nflverse_download()}}.
 }
 \examples{
-\donttest{
+\dontshow{
+.for_cran()
 # Change option for better output
 old <- options(piggyback.verbose = FALSE)
+}
+\donttest{
 
 try( # avoids cran failures, can skip in normal usage
 nflverse_releases()
 )
-
+}
+\dontshow{
 # Restore old options
 options(old)
 }
+
 }

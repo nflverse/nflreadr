@@ -20,6 +20,7 @@
 #' @param redact_path a logical indicating whether options that contain "path"
 #' in the name should be redacted, default = TRUE
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({
 #' nflverse_sitrep()

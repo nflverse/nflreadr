@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' nflverse_game_id(2022, 2, "LAC", "KC")
 nflverse_game_id <- function(season,
                              week,

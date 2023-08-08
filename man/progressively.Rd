@@ -20,7 +20,7 @@ it will return a new function that calls \code{f()} and then (on exiting) will c
 This is inspired by purrr's \code{safely}, \code{quietly}, and \code{possibly} function decorators.
 }
 \examples{
-
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
 

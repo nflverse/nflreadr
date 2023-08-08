@@ -29,6 +29,7 @@ the current season's data updates every night. NGS will only provide data for
 players above a minimum number of pass/rush/rec attempts.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_nextgen_stats(stat_type = "passing")

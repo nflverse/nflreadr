@@ -17,6 +17,7 @@ Loads player level season stats provided by Pro Football Reference
 starting with the 2019 season.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
   load_pfr_passing()
 }

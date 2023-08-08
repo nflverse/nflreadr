@@ -22,6 +22,7 @@ A tibble of NFL combine data provided by Pro Football Reference.
 Loads combine data since 2000 courtesy of PFR.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_combine()

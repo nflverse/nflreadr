@@ -20,5 +20,6 @@ A character vector
 Compute nflverse Game Identifiers
 }
 \examples{
+\dontshow{.for_cran()}
 nflverse_game_id(2022, 2, "LAC", "KC")
 }

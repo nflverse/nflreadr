@@ -22,6 +22,7 @@ A tibble with one row per game per official.
 Loads data on which officials are assigned to oversee a specific game. Data available from 2015 onwards.
 }
 \examples{
+\dontshow{.for_cran()}
 \donttest{
 try({ # prevents cran errors
   load_officials()

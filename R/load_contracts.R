@@ -6,6 +6,7 @@
 #'   Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
+#' \dontshow{.for_cran()}
 #' \donttest{
 #' try({ # prevents cran errors
 #'   load_contracts()

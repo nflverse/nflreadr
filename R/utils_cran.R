@@ -4,6 +4,7 @@
 #' limiting data.table CPU cores for examples/tests
 #'
 #' @export
+#' @keywords internal
 .for_cran <- function(){
 
   cores <- min(
