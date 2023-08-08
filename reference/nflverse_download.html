@@ -12,7 +12,7 @@ creating subfolders that match the release structure."><meta property="og:image"
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.06</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.07</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -139,7 +139,7 @@ defaults to file type specified in <code>options(nflreadr.prefer)</code> or "rds
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="dot-for_cran.html">.for_cran</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="co">## could also set options like</span></span></span>
@@ -149,13 +149,10 @@ defaults to file type specified in <code>options(nflreadr.prefer)</code> or "rds
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,pattern <span class="op">=</span> <span class="st">".parquet$"</span><span class="op">)</span> <span class="co"># check that files were downloaded!</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Now downloading <span style="color: #0000BB;">2</span> files to <span style="color: #0000BB;">/tmp/RtmpHtdmZl</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloaded <span style="color: #0000BB;">2</span> files to <span style="color: #0000BB;">/tmp/RtmpHtdmZl</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Error in value[[3L]](cond) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #BBBB00;">!</span> Cannot access release data for repo <span style="color: #0000BB;">"nflverse/nflverse-data"</span>.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Check that you have provided a `.token` and that the repo is correctly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GitHub API error (403): API rate limit exceeded for installation ID 16217660.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
