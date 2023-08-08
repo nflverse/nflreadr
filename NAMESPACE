@@ -2,6 +2,7 @@
 
 S3method(print,nflverse_data)
 export(.clear_cache)
+export(.for_cran)
 export(.sitrep)
 export(clean_homeaway)
 export(clean_player_names)
