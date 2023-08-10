@@ -32,8 +32,7 @@
 #' @export
 nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR","nflverse"),
                             recursive = TRUE,
-                            redact_path = TRUE
-                            ){
+                            redact_path = TRUE) {
   .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ", redact_path = redact_path)
 }
 
@@ -41,8 +40,7 @@ nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","n
 #' @export
 ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportunity"),
                            recursive = TRUE,
-                           redact_path = TRUE
-                           ){
+                           redact_path = TRUE) {
   .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ", redact_path = redact_path)
 }
 
@@ -89,7 +87,10 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
   opts <- options()
   pkg_search_string <- paste(packages, collapse = "|")
   out$package_options <- opts[grepl(pkg_search_string, x = names(opts))]
-if(redact_path) out$package_options[grepl("path|token", names(out$package_options))] <- "{redacted, use redact_path = FALSE to show}"
+  if(redact_path) {
+    out$package_options[grepl("path|token", names(out$package_options))] <- "{redacted, use redact_path = FALSE to show}"
+  }
+
   # Exit here if we don't want recursive deps or if no internet
   if (isFALSE(recursive)) return(out)
   if (!curl::has_internet()) {
@@ -99,8 +100,8 @@ if(redact_path) out$package_options[grepl("path|token", names(out$package_option
 
   ## PKG DEPENDENCIES
   # using pak allows you to access the dependencies of GitHub-installed packages
-  if(is_installed("pak")) out$dependencies <- .sitrep_deps_pak(packages)
-  if(!is_installed("pak")) out$dependencies <- .sitrep_deps_base(packages)
+  # if(is_installed("pak")) out$dependencies <- .sitrep_deps_pak(packages)
+  out$dependencies <- .sitrep_deps_base(packages)
 
   return(out)
 }
@@ -145,43 +146,39 @@ print.nflverse_sitrep <- function(x, ...) {
   return(invisible(x))
 }
 
-.sitrep_deps_pak <- function(packages){
-  ref <- NULL
-  pak_status <- rlang::env_get(rlang::ns_env("pak"), "pkg_status")
-  pak_deps <- rlang::env_get(rlang::ns_env("pak"), "pkg_deps")
-  pkg_status <- data.table::as.data.table(pak_status(packages))
-  pkg_status <- unique(pkg_status, by = "package")
-  pkg_spec <- data.table::fcoalesce(pkg_status$remotepkgref, pkg_status$package)
-
-  # Add any repositories found by pkg_status to the search list
-  # as well as cran.rstudio.com
-  pkg_repos <- unique(c(stats::na.omit(pkg_status$repos), getOption("repos"), "https://cran.rstudio.com"))
-  old_repos <- options(repos = pkg_repos)
-  on.exit(options(old_repos))
-
-  deps <- data.table::as.data.table(pak_deps(pkg_spec))[!ref %in% pkg_spec][["ref"]]
-  dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
-
-  if(any(!deps %in% dep_status$package)) {
-    missing_pkgs <- setdiff(deps, dep_status$package)
-    rlang::check_installed(missing_pkgs, reason = "in scanned dependencies")
-    dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
-  }
-
-  dep_status <- as.data.frame(dep_status)
-
-  return(dep_status)
-}
+# .sitrep_deps_pak <- function(packages){
+#   ref <- NULL
+#   pak_status <- rlang::env_get(rlang::ns_env("pak"), "pkg_status")
+#   pak_deps <- rlang::env_get(rlang::ns_env("pak"), "pkg_deps")
+#   pkg_status <- data.table::as.data.table(pak_status(packages))
+#   pkg_status <- unique(pkg_status, by = "package")
+#   pkg_spec <- data.table::fcoalesce(pkg_status$remotepkgref, pkg_status$package)
+#
+#   # Add any repositories found by pkg_status to the search list
+#   # as well as cran.rstudio.com
+#   pkg_repos <- unique(c(stats::na.omit(pkg_status$repos), getOption("repos"), "https://cran.rstudio.com"))
+#   old_repos <- options(repos = pkg_repos)
+#   on.exit(options(old_repos))
+#
+#   deps <- data.table::as.data.table(pak_deps(pkg_spec))[!ref %in% pkg_spec][["package"]]
+#   dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
+#
+#   if(any(!deps %in% dep_status$package)) {
+#     missing_pkgs <- data.table::data.table(
+#       package = setdiff(deps, dep_status$package),
+#       version = "missing"
+#     )
+#     data.table::rbindlist(list(dep_status, missing_pkgs))
+#   }
+#
+#   return(dep_status)
+# }
 
 .sitrep_deps_base <- function(packages){
-  cli::cli_inform(
-    "i" = "To get dependencies of GitHub packages, please install pak with {.code install.packages('pak')}"
-  )
-
   # The checks failed because the repo option is empty sometimes
   # so we set it here to the rstudio mirror and restore the options
   # after the call to package_dependencies()
-  old <- options(repos = c(getOption("repos"), "https://cran.rstudio.com/"))
+  old <- options(repos = unique(c(getOption("repos"), "https://cran.rstudio.com/")))
   on.exit(options(old))
 
   deps <-
@@ -189,22 +186,27 @@ print.nflverse_sitrep <- function(x, ...) {
       unique(
         unlist(
           tools::package_dependencies(packages, recursive = TRUE),
-          use.names = FALSE)
+          use.names = FALSE
+        )
       )
     )
 
   deps <- deps[!deps %in% packages]
   sys_pkgs <- utils::installed.packages()[,"Package"]
+  missing_pkgs <- setdiff(deps, sys_pkgs)
 
-  if(any(!deps %in% sys_pkgs)){
-    missing_pkgs <- deps[!deps %in% sys_pkgs]
-    rlang::check_installed(missing_pkgs, reason = "in scanned dependencies")
-  }
-
+  deps <- intersect(deps, sys_pkgs)
   dep_status <- utils::sessionInfo(deps)$otherPkgs
   dep_status <- data.table::rbindlist(dep_status, fill = TRUE)[, c("Package", "Version")]
   dep_status <- stats::setNames(dep_status, c("package","version"))
-  dep_status <- as.data.frame(dep_status)
+  if(length(missing_pkgs) > 0) {
+    dep_status <- data.table::rbindlist(
+      list(
+        dep_status,
+        data.table::data.table(package = missing_pkgs, version = "missing")
+      )
+    )
+  }
 
   return(dep_status)
 }
