@@ -17,19 +17,19 @@
 
     assign(x = "rds_from_url",
            value = memoise::memoise(rds_from_url, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+           envir = rlang::ns_env("nflreadr"))
     assign(x = "csv_from_url",
            value = memoise::memoise(csv_from_url, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+           envir = rlang::ns_env("nflreadr"))
     assign(x = "qs_from_url",
            value = memoise::memoise(qs_from_url, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+           envir = rlang::ns_env("nflreadr"))
     assign(x = "raw_from_url",
            value = memoise::memoise(raw_from_url, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+           envir = rlang::ns_env("nflreadr"))
     assign(x = "parquet_from_url",
            value = memoise::memoise(parquet_from_url, ~ memoise::timeout(86400), cache = cache),
-           envir = parent.env(environment()))
+           envir = rlang::ns_env("nflreadr"))
 
   }
 
