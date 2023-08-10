@@ -5,14 +5,14 @@ test_that("load_pbp", {
 
   pbp <- load_pbp()
   pbp_years <- load_pbp(2019:2020)
-  pbp_qs <- load_pbp(2019:2020, file_type = "qs")
+  pbp_parquet <- load_pbp(2019:2020, file_type = "parquet")
 
   expect_s3_class(pbp, "nflverse_data")
-  expect_s3_class(pbp_qs, "nflverse_data")
+  expect_s3_class(pbp_parquet, "nflverse_data")
   expect_s3_class(pbp_years, "nflverse_data")
 
   expect_gt(nrow(pbp_years), 90000)
-  expect_gt(nrow(pbp_qs), 90000)
+  expect_gt(nrow(pbp_parquet), 90000)
 })
 test_that("load_participation", {
 
@@ -20,7 +20,7 @@ test_that("load_participation", {
   skip_if_offline("github.com")
 
   participation <- load_participation(2019)
-  pbp_participation <- load_participation(2020,include_pbp = TRUE,file_type = "qs")
+  pbp_participation <- load_participation(2020,include_pbp = TRUE, file_type = "parquet")
 
   expect_s3_class(participation, "nflverse_data")
   expect_s3_class(pbp_participation, "nflverse_data")
@@ -109,7 +109,7 @@ test_that("load_ngs", {
   skip_if_offline("github.com")
 
   ngs_passing <- load_nextgen_stats()
-  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "qs")
+  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "parquet")
   ngs_rushing <- load_nextgen_stats(seasons = 2020, stat_type = "rushing")
 
   expect_s3_class(ngs_passing, "nflverse_data")
