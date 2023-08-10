@@ -243,25 +243,3 @@ loader <- function(url){
 detect_filetype <- function(url){
   tools::file_ext(gsub(x = url, pattern = ".gz$", replacement = ""))
 }
-
-make_nflverse_data <- function(dataframe, nflverse_type = NULL, ...){
-
-  class(dataframe) <- c("nflverse_data","tbl_df","tbl","data.table","data.frame")
-
-  dots <- rlang::dots_list(..., .named = TRUE)
-
-  for(i in seq_along(dots)){
-    attr(dataframe, names(dots)[[i]]) <- dots[[i]]
-  }
-
-  if(!is.null(nflverse_type)) attr(dataframe, "nflverse_type") <- nflverse_type
-
-  if(
-    (length(dots) > 0 | !is.null(nflverse_type)) &&
-    is.null(attr(dataframe, "nflverse_timestamp"))
-  ){
-    attr(dataframe, "nflverse_timestamp") <- Sys.time()
-  }
-
-  return(dataframe)
-}

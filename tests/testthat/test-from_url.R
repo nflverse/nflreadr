@@ -7,19 +7,20 @@ test_that("from_url fails nicely", {
     rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds"),
     regexp = "Failed to readRDS"
   )
-  expect_warning(
-    qs_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds"),
-    regexp = "Failed to parse file"
-  )
-
-  expect_warning(
-    qs_from_url("https://asfdjklasfsadffasd.com"),
-    regexp = "Failed to retrieve data"
-  )
 
   expect_warning(
     raw_from_url("https://github.com/nflverse/nfl/blob/master/data/games.rd"),
     regexp = "HTTP error"
+  )
+
+  # skip_if(!rlang::is_installed("qs"))
+  expect_warning(
+    qs_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds"),
+    regexp = "Failed to parse file"
+  )
+  expect_warning(
+    qs_from_url("https://asfdjklasfsadffasd.com"),
+    regexp = "Failed to retrieve data"
   )
 
 })
@@ -67,7 +68,7 @@ test_that("nflverse_download downloads files",{
       nflverse_download(
         "asdf",
         folder_path = temp_dir,
-        .token = Sys.getenv("NFLVERSE_GH_TOKEN")),
+        .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())),
       "Could not find"
     ),
     "No matching releases"
@@ -78,7 +79,7 @@ test_that("nflverse_download downloads files",{
       combine, "test",
       folder_path = temp_dir,
       file_type = "qs",
-      .token = Sys.getenv("NFLVERSE_GH_TOKEN")
+      .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())
     ),
     regexp = "Could not find file"
   )
@@ -87,7 +88,7 @@ test_that("nflverse_download downloads files",{
     combine, "contracts",
     folder_path = temp_dir,
     file_type = "parquet",
-    .token = Sys.getenv("NFLVERSE_GH_TOKEN")
+    .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())
   )
 
   expect_true(
@@ -101,7 +102,7 @@ test_that("nflverse_releases lists releases",{
   skip_on_cran()
   skip_if_offline("github.com")
 
-  releases <- nflverse_releases(.token = Sys.getenv("NFLVERSE_GH_TOKEN"))
+  releases <- nflverse_releases(.token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token()))
 
   expect_true(is.data.frame(releases))
   expect_true(nrow(releases) >= 15)

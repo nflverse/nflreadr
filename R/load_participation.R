@@ -52,9 +52,11 @@ load_participation <- function(seasons = most_recent_season(),
     by.x = c("nflverse_game_id","play_id"),
     by.y = c("game_id","play_id"))
 
-  pbp_participation <- make_nflverse_data(pbp_participation,
-                     nflverse_type = "play-by-play participation",
-                     nflverse_timestamp = attr(participation,"nflverse_timestamp"))
+  pbp_participation <- make_nflverse_data(
+    pbp_participation,
+    nflverse_type = "play-by-play participation",
+    nflverse_timestamp = attr(participation, "nflverse_timestamp")
+  )
 
   return(pbp_participation)
 }
