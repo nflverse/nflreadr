@@ -89,7 +89,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
   opts <- options()
   pkg_search_string <- paste(packages, collapse = "|")
   out$package_options <- opts[grepl(pkg_search_string, x = names(opts))]
-
+if(redact_path) out$package_options[grepl("path|token", names(out$package_options))] <- "{redacted, use redact_path = FALSE to show}"
   # Exit here if we don't want recursive deps or if no internet
   if (isFALSE(recursive)) return(out)
   if (!curl::has_internet()) {
