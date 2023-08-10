@@ -49,52 +49,141 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
 #' @rdname sitrep
 #' @export
 .sitrep <- function(pkg, recursive = TRUE, header = "", redact_path = TRUE){
-  packages <- pkg
 
-  installed <- unlist(lapply(packages, is_installed))
+  out <- structure(
+    list(
+      system_info = list(),
+      installed = list(),
+      dependencies = list(),
+      package_options = list(),
+      not_installed = list(),
+      packages = pkg,
+      timestamp = Sys.time()
+    ),
+    class = c("nflverse_sitrep", "list")
+  )
 
-  if (!is.null(pkg)){
-    not_installed <- packages[!installed]
-    if (length(not_installed) >= 1){
-      cli::cli_alert_info("You've asked for the package{?s} {not_installed} which {?is/are} not installed. \n {?It/They} {?is/are} skipped.")
-    }
-  }
+  s <- utils::sessionInfo()
 
-  packages <- packages[installed]
+  # OPERATING SYSTEM INFO
+  out$system_info <- list(
+    r_version = s$R.version$version.string,
+    os_version = s$running
+  )
 
-  if(length(packages) == 0) return(invisible(NULL))
+  # PACKAGES FROM LIST
+  which_installed <- sapply(out$packages, is_installed)
+  out$not_installed <- out$packages[!which_installed]
+
+  packages <- out$packages[which_installed]
+
+  if (length(packages) == 0) return(out)
 
   s <- utils::sessionInfo(packages)
 
-  cli::cat_rule(cli::style_bold("System Info"), col = cli::make_ansi_style("cyan"), line = 1)
-  cli::cat_bullet(glue::glue("{s$R.version$version.string}   {cli::symbol$bullet} Running under: {s$running}"))
-
-  cli::cat_rule(cli::style_bold(paste0(header, "Packages")), col = cli::make_ansi_style("cyan"), line = 1)
-  packages <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Package))
-  versions <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Version))
-
-  cat_packages(packages, versions)
+  out$installed <- lapply(s$otherPkgs, `[`, c("Package", "Version"))
+  out$installed <- as.data.frame(data.table::rbindlist(out$installed))
+  out$installed <- stats::setNames(out$installed, c("package","version"))
 
   # Relies on options for a given package being prefixed by said package name
   opts <- options()
-  package_opts <- opts[Reduce(lapply(packages, function(package) grepl(package, x = names(opts), fixed = TRUE)),f = `|`)]
+  pkg_search_string <- paste(packages, collapse = "|")
+  out$package_options <- opts[grepl(pkg_search_string, x = names(opts))]
 
-  if(redact_path) package_opts[grepl("path", names(package_opts))] <- "{redacted, use redact_path = FALSE to show}"
+  # Exit here if we don't want recursive deps or if no internet
+  if (isFALSE(recursive)) return(out)
+  if (!curl::has_internet()) {
+    cli::cli_alert_warning("Requires internet access to scan recursive dependencies")
+    return(out)
+  }
 
-  cli::cat_rule(cli::style_bold(paste0(header, "Options")), col = cli::make_ansi_style("cyan"), line = 1)
+  ## PKG DEPENDENCIES
+  # using pak allows you to access the dependencies of GitHub-installed packages
+  if(is_installed("pak")) out$dependencies <- .sitrep_deps_pak(packages)
+  if(!is_installed("pak")) out$dependencies <- .sitrep_deps_base(packages)
 
-  if(length(package_opts) == 0) cli::cli_bullets("No options set for {packages}")
-  if(length(package_opts) > 0) cat_options(names(package_opts), unname(package_opts))
+  return(out)
+}
 
-  # Exit here if we don't want recursive deps
-  if (isFALSE(recursive)) return(invisible(NULL))
+#' nflverse_sitrep data class
+#'
+#' `nflverse_sitrep()` returns an S3 class that was created to allow for custom
+#' printing. It will otherwise dispatch to the `list` class.
+#'
+#' Re-exporting with `methods::setOldClass()` allows these dataframes to be used
+#' in S4 generics like those from DBI and jsonlite.
+#'
+#' @name nflverse_sitrep-class
+#' @keywords internal
+#' @exportClass nflverse_sitrep
+methods::setOldClass("nflverse_sitrep", "list")
 
-  cli::cat_rule(cli::style_bold(paste0(header, "Dependencies")), col = cli::make_ansi_style("cyan"), line = 1)
+#' @export
+#' @noRd
+print.nflverse_sitrep <- function(x, ...) {
+  cli::cat_rule(cli::style_bold("System Info"), col = cli::make_ansi_style("cyan"), line = 1)
+  cli::cat_bullet(glue::glue("{x$system_info$r_version} {cli::symbol$bullet} Running under: {x$system_info$os_version}")) # nolint
+
+  cli::cat_rule(cli::style_bold("Package Status"), col = cli::make_ansi_style("cyan"), line = 1)
+  .cat_packages(x$installed$package, x$installed$version)
+
+  cli::cat_rule(cli::style_bold("Package Options"), col = cli::make_ansi_style("cyan"), line = 1)
+  if (length(x$package_options) == 0) cli::cli_bullets("No options set for above packages")
+  if (length(x$package_options) > 0) .cat_options(names(x$package_options), unname(x$package_options))
+
+  if (length(x$dependencies) >= 1) {
+    cli::cat_rule(cli::style_bold("Package Dependencies"), col = cli::make_ansi_style("cyan"), line = 1)
+    .cat_packages(x$dependencies$package, x$dependencies$version)
+  }
+  if (length(x$not_installed) >= 1) {
+    cli::cat_rule(cli::style_bold("Not Installed"), col = cli::make_ansi_style("cyan"), line = 1)
+    .cat_packages(x$not_installed, rep_len("", length(x$not_installed)))
+  }
+
+  cli::cat_rule(col = cli::make_ansi_style("cyan"), line = 1)
+
+  return(invisible(x))
+}
+
+.sitrep_deps_pak <- function(packages){
+  ref <- NULL
+  pak_status <- rlang::env_get(rlang::ns_env("pak"), "pkg_status")
+  pak_deps <- rlang::env_get(rlang::ns_env("pak"), "pkg_deps")
+  pkg_status <- data.table::as.data.table(pak_status(packages))
+  pkg_status <- unique(pkg_status, by = "package")
+  pkg_spec <- data.table::fcoalesce(pkg_status$remotepkgref, pkg_status$package)
+
+  # Add any repositories found by pkg_status to the search list
+  # as well as cran.rstudio.com
+  pkg_repos <- unique(c(stats::na.omit(pkg_status$repos), getOption("repos"), "https://cran.rstudio.com"))
+  old_repos <- options(repos = pkg_repos)
+  on.exit(options(old_repos))
+
+  deps <- data.table::as.data.table(pak_deps(pkg_spec))[!ref %in% pkg_spec][["ref"]]
+  dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
+
+  if(any(!deps %in% dep_status$package)) {
+    missing_pkgs <- setdiff(deps, dep_status$package)
+    rlang::check_installed(missing_pkgs, reason = "in scanned dependencies")
+    dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
+  }
+
+  dep_status <- as.data.frame(dep_status)
+
+  return(dep_status)
+}
+
+.sitrep_deps_base <- function(packages){
+  cli::cli_inform(
+    "i" = "To get dependencies of GitHub packages, please install pak with {.code install.packages('pak')}"
+  )
 
   # The checks failed because the repo option is empty sometimes
   # so we set it here to the rstudio mirror and restore the options
   # after the call to package_dependencies()
-  old <- options(repos = "https://cran.rstudio.com/")
+  old <- options(repos = c(getOption("repos"), "https://cran.rstudio.com/"))
+  on.exit(options(old))
+
   deps <-
     sort(
       unique(
@@ -104,69 +193,60 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
       )
     )
 
-  # restore old options
-  options(old)
-
   deps <- deps[!deps %in% packages]
   sys_pkgs <- utils::installed.packages()[,"Package"]
 
   if(any(!deps %in% sys_pkgs)){
     missing_pkgs <- deps[!deps %in% sys_pkgs]
-    rlang::check_installed(missing_pkgs, reason = "in your dependencies.")
+    rlang::check_installed(missing_pkgs, reason = "in scanned dependencies")
   }
 
-  s <- utils::sessionInfo(deps)
+  dep_status <- utils::sessionInfo(deps)$otherPkgs
+  dep_status <- data.table::rbindlist(dep_status, fill = TRUE)[, c("Package", "Version")]
+  dep_status <- stats::setNames(dep_status, c("package","version"))
+  dep_status <- as.data.frame(dep_status)
 
-  packages <- unlist(lapply(s$otherPkgs, function(pkg) pkg$Package))
-  versions <- unlist(lapply(s$otherPkgs,function(pkg) pkg$Version))
-
-  if (is.null(packages)){
-    cli::cat_bullet("No non-base dependencies")
-    return(invisible())
-  }
-
-  cat_packages(packages,versions)
-
-  cli::cat_rule(col = cli::make_ansi_style("cyan"), line = 1)
-
+  return(dep_status)
 }
 
-cat_packages <- function(packages,versions){
+.cat_packages <- function(packages, versions) {
   stopifnot(length(packages) == length(versions))
 
-  if(length(packages) <= 2){
+  if (length(packages) <= 2) {
     cli::cat_bullet(glue::glue("{format(packages)} ({format(versions)})"))
     return(invisible())
   }
 
   l <- length(packages)
 
-  breaks <- cut(x = seq_along(packages),
-                breaks = c(0, ceiling(l / 3), 2 * ceiling(l / 3), l+1))
+  breaks <- cut(
+    x = seq_along(packages),
+    breaks = c(0, ceiling(l / 3), 2 * ceiling(l / 3), l + 1)
+  )
 
   p <- split(packages, breaks)
   v <- split(versions, breaks)
 
-  r <- length(p[[1]])-length(p[[3]])
+  r <- length(p[[1]]) - length(p[[3]])
 
-  if(r != 0){
-    p[[3]] <- c(p[[3]],rep("",r))
-    v[[3]] <- c(v[[3]],rep("",r))
+  if (r != 0) {
+    p[[3]] <- c(p[[3]], rep("", r))
+    v[[3]] <- c(v[[3]], rep("", r))
   }
 
-  p <- lapply(p, function(x) ifelse(x!="",format(paste(cli::symbol$bullet,x)),""))
-  v <- lapply(v, function(x) ifelse(x!="",format(paste0(" (",x,")")),""))
+  p <- lapply(p, function(x) ifelse(x != "", format(paste(cli::symbol$bullet, x)), ""))
+  v <- lapply(v, function(x) ifelse(x != "", format(paste0(" (", x, ")")), ""))
 
   cli::cat_line(
     paste0(
-      p[[1]],v[[1]],"  ",
-      p[[2]],v[[2]],"  ",
-      p[[3]],v[[3]],"  "
-    ))
+      p[[1]], v[[1]], "  ",
+      p[[2]], v[[2]], "  ",
+      p[[3]], v[[3]], "  "
+    )
+  )
 }
 
-cat_options <- function(option_names, option_values){
+.cat_options <- function(option_names, option_values) {
   stopifnot(length(option_names) == length(option_values))
-
   cli::cat_bullet(glue::glue("{format(option_names)}: {format(option_values)}"))
 }

@@ -12,6 +12,9 @@ etc falsely returned last season after March 15th early in the month. (1.3.2.03)
 - `nflreadr::nflverse_game_id()` accepts old team abbreviations and outputs useful errors. (1.3.2.05) (#191)
 - Added `dictionary_player_stats_def` (thank you @mpcen!) (1.3.2.06) (#192)
 - Added `.for_cran()` to limit parallelization in CRAN examples and tests (1.3.2.07)
+- `nflverse_sitrep()` and friends now return a list of sitrep attributes instead of just printing to console.
+- `nflverse_sitrep()` now tries to use pak to scan dependencies
+- `make_nflverse_data_class()` now uses `data.table::setattr()` to set attributes and retain data.table pointer (v1.3.2.08)
 
 # nflreadr 1.3.2
 
