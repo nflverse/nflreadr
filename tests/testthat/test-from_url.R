@@ -13,7 +13,7 @@ test_that("from_url fails nicely", {
     regexp = "HTTP error"
   )
 
-  skip_if(!rlang::is_installed("qs"))
+  # skip_if(!rlang::is_installed("qs"))
   expect_warning(
     qs_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds"),
     regexp = "Failed to parse file"
