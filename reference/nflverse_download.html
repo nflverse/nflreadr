@@ -149,9 +149,11 @@ defaults to file type specified in <code>options(nflreadr.prefer)</code> or "rds
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,pattern <span class="op">=</span> <span class="st">".parquet$"</span><span class="op">)</span> <span class="co"># check that files were downloaded!</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Now downloading <span style="color: #0000BB;">2</span> files to <span style="color: #0000BB;">/tmp/RtmpHtdmZl</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Downloaded <span style="color: #0000BB;">2</span> files to <span style="color: #0000BB;">/tmp/RtmpHtdmZl</span>.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error in value[[3L]](cond) : </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #BBBB00;">!</span> Cannot access release data for repo <span style="color: #0000BB;">"nflverse/nflverse-data"</span>.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Check that you have provided a `.token` and that the repo is correctly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> specified.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GitHub API error (403): API rate limit exceeded for installation ID 16217660.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
