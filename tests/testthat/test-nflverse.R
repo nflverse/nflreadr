@@ -42,17 +42,20 @@ test_that("load_player_stats", {
   ps_all <- load_player_stats(seasons = TRUE)
 
   kick <- load_player_stats(2020, stat_type = "kicking")
+  defense <- load_player_stats(2022, stat_type = "defense")
 
   expect_s3_class(ps, "nflverse_data")
   expect_s3_class(ps_2020, "nflverse_data")
   expect_s3_class(ps_csv, "nflverse_data")
   expect_s3_class(ps_all, "nflverse_data")
   expect_s3_class(kick, "nflverse_data")
+  expect_s3_class(defense, "nflverse_data")
 
   expect_gt(nrow(ps_2020), 5000)
   expect_gt(nrow(ps_csv), 5000)
   expect_gt(nrow(ps_all), 110000)
   expect_gt(nrow(kick), 500)
+  expect_gt(nrow(defense), 9800)
 })
 
 test_that("load_schedules", {
