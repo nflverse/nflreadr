@@ -1,7 +1,7 @@
 #' Load Player Level Weekly Stats
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent season. If set to `TRUE`, returns all available data.
-#' @param stat_type one of `offense` or `kicking`
+#' @param stat_type one of `"offense"`, `"defense"`, or `"kicking"`
 #' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
@@ -22,7 +22,7 @@
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
-                              stat_type = c("offense","kicking"), # defense, punting, other as added
+                              stat_type = c("offense", "defense", "kicking"), # defense, punting, other as added
                               file_type = getOption("nflreadr.prefer", default = "rds")){
 
   if(!isTRUE(seasons)) {stopifnot(is.numeric(seasons),
@@ -30,10 +30,11 @@ load_player_stats <- function(seasons = most_recent_season(),
                                   seasons <= most_recent_season())}
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv","qs", "parquet"))
-  stat_type <- rlang::arg_match0(stat_type, c("offense","kicking"))
+  stat_type <- rlang::arg_match0(stat_type, c("offense", "defense", "kicking"))
 
   base_name <- switch(stat_type,
                       "offense" = "player_stats.",
+                      "defense" = "player_stats_def.",
                       "kicking" = "player_stats_kicking.")
 
   url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/player_stats/",base_name,file_type)
