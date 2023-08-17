@@ -22,7 +22,7 @@
 #'
 #' @export
 load_player_stats <- function(seasons = most_recent_season(),
-                              stat_type = c("offense", "defense", "kicking"), # defense, punting, other as added
+                              stat_type = c("offense", "defense", "kicking"), 
                               file_type = getOption("nflreadr.prefer", default = "rds")){
 
   if(!isTRUE(seasons)) {stopifnot(is.numeric(seasons),
