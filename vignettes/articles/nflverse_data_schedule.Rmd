@@ -1,0 +1,42 @@
+---
+title: "nflverse Data Update and Availability Schedule"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## nflverse Play-by-Play Data
+
+There are three ways to obtain nflverse pbp data. 
+
+1. `nflfastR::build_nflfastR_pbp()` parses raw pbp and is usually available within 15 minutes after a game ended.
+2. `nflfastR::update_db()` maintains a pbp database for the user. It runs 1.) to add new games and is therefore subject to the same update schedule.
+3. `nflreadr::load_pbp()` or `nflfastR::load_pbp()` load the complete season of data, automatically computed with 1.). The dataset updates every night (in the range of 3 am - 5 am ET) during the season.
+
+In all cases, it is recommended to update the data again during the night from Wednesday to Thursday in order to also receive the stat corrections that the NFL will incorporate from Monday to Wednesday at the latest. -> Thursday's `load_pbp()` is the cleanest data we have.
+
+## nflverse Player Level Weekly Stats
+
+[Weekly player stats](https://nflreadr.nflverse.com/reference/load_player_stats.html) (offense, defense, kicking) are computed using
+
+- `nflfastR::calculate_player_stats()`, 
+- `nflfastR::calculate_player_stats_def()`, and
+- `nflfastR::calculate_player_stats_kicking()`
+
+with up to date nflverse pbp data. All player stats update every night (in the range of 3 am - 5 am ET) during the season.
+
+## nflverse Participation Data
+
+[Participation data](https://nflreadr.nflverse.com/reference/load_participation.html) is computed using unpublished code. Data updates every night (in the range of 3 am - 5 am ET) during the season.
+
+## nflverse Game/Schedule Data
+
+[Game/Schedule data](https://nflreadr.nflverse.com/reference/load_schedules.html) updates very 5 minutes during the season.
+
+## Player Level Weekly NFL Next Gen Stats
+
+Player level [weekly stats](https://nflreadr.nflverse.com/reference/load_nextgen_stats.html) provided by NFL Next Gen Stats update every night (in the range of 3 am - 5 am ET) during the season. The actual availability of new data depends on the update schedule of NGS.

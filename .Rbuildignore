@@ -16,3 +16,4 @@
 ^man/figures/social_preview\.png$
 ^CRAN-SUBMISSION$
 ^dev$
+^vignettes/articles$
