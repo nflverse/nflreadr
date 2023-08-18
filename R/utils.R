@@ -31,3 +31,14 @@ rbindlist_with_attrs <- function(dflist){
   curl::curl_fetch_memory
   methods::setOldClass
 }
+
+# additional release issue bullets for usethis::use_release_issue()
+release_bullets <- function() {
+  c(
+    '`devtools::check_mac_release()`',
+    '`c <- rhub::check_for_cran(show_status = FALSE)`',
+    '`pkgdown::check_pkgdown()`',
+    '`usethis::use_tidy_thanks()`',
+    NULL
+  )
+}
