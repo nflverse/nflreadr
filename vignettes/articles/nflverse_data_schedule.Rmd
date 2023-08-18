@@ -9,6 +9,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+`nflreadr` provides a wide range of NFL related data. This is powered by an extensive, automated data infrastructure. This article provides information on update and availability schedules, as this is a pressing question for many nflverse users, especially right before the start of a season. 
+
 ## nflverse Play-by-Play Data
 
 There are three ways to obtain nflverse pbp data. 
