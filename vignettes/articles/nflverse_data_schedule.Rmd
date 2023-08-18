@@ -11,6 +11,63 @@ knitr::opts_chunk$set(
 
 `nflreadr` provides a wide range of NFL related data. This is powered by an extensive, automated data infrastructure. This article provides information on update and availability schedules, as this is a pressing question for many nflverse users, especially right before the start of a season. 
 
+## Automation Status
+
+The following table reports on the status and last update times of nflverse data pipelines.
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+# 
+# ONLY RUN IF WE NEED TO UPDATE THE LIST OF RELEASES!!!
+# 
+l <- piggyback::pb_list(repo = "nflverse/nflverse-data") 
+data_releases <- l |>
+  dplyr::filter(file_name %in% c("timestamp.json","")) |>
+  dplyr::distinct(tag,file_name) |> 
+  dplyr::mutate(
+    url = glue::glue("https://github.com/nflverse/nflverse-data/releases/download/{tag}/timestamp.json"),
+    badge = glue::glue("[![{tag}](https://img.shields.io/badge/dynamic/json?color=blue&label={paste0('load_',tag)}&query=last_updated&style=flat-square&url={URLencode(url)})](https://github.com/nflverse/nflverse-data/releases/tag/{tag})")) |> 
+  dplyr::select(
+    Data = tag,
+    `Last Updated` = badge
+  ) |> 
+  dplyr::bind_rows(
+    list(Data = "pbp_raw", `Last Updated` = "[![raw pbp data](https://img.shields.io/github/last-commit/nflverse/nflfastR-raw?label=Raw%20PBP%20Updated&style=flat-square)]()")
+  )
+
+nflversedata::nflverse_save(data_releases, "data_releases", "nflverse Data Releases", "misc", file_types = "rds")
+```
+
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+update_times <- nflreadr::rds_from_url("https://github.com/nflverse/nflverse-data/releases/download/misc/data_releases.rds")
+
+status <- tibble::tribble(
+  ~Data, ~ Status,
+  "pbp_raw", "",
+  "pbp", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=pbp_status&style=flat-square)",
+  "player_stats", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=ps_status&style=flat-square)",
+  "rosters", "![rosters](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_rosters.yaml?label=rosters_status&style=flat-square)",
+  "snap_counts", "![snap_counts](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_snap_counts.yaml?label=snaps_status&style=flat-square)",
+  "draft_picks", "![snap_counts](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_draft_picks.yaml?label=draft_status&style=flat-square)",
+  "pfr_advstats", "![adv_stats](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_advanced_stats.yaml?label=advstats_status&style=flat-square)",
+  "nextgen_stats", "![ngs](https://img.shields.io/github/actions/workflow/status/nflverse/ngs-data/update_ngs.yaml?label=ngs_status&style=flat-square)",
+  "injuries", "![injuries](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_injuries.yaml?label=injuries_status&style=flat-square)",
+  "depth_charts", "![depthcharts](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_depth_charts.yaml?label=depth_charts_status&style=flat-square)",
+  "combine", "![combine](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_combine.yaml?label=combine_status&style=flat-square)",
+  "nfl4th", "![nfl4th](https://img.shields.io/github/actions/workflow/status/nflverse/nfl4th/update_precompute.yaml?label=nfl4th_precompute&style=flat-square)",
+  "ffverse player IDs", "![weekly-playerids](https://img.shields.io/github/actions/workflow/status/dynastyprocess/data/weekly-playerids.yml?label=ff_playerids&style=flat-square)",
+  "ffverse rankings", "![weekly-fantasypros](https://img.shields.io/github/actions/workflow/status/dynastyprocess/data/weekly-fantasypros.yml?label=rankings&style=flat-square)",
+  "contracts", "![contracts](https://img.shields.io/github/actions/workflow/status/nflverse/rotc/update_otc.yaml?label=contracts&style=flat-square)"
+  ) |> 
+  dplyr::left_join(update_times, by = "Data") |> 
+  dplyr::mutate_all(tidyr::replace_na,"") |> 
+  dplyr::mutate(Status = glue::glue("[{Status}]()"))
+```
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+knitr::kable(status)
+```
+
 ## nflverse Play-by-Play Data
 
 There are three ways to obtain nflverse pbp data. 
