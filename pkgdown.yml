@@ -2,6 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  nflverse_data_schedule: nflverse_data_schedule.html
   dictionary_combine: dictionary_combine.html
   dictionary_contracts: dictionary_contracts.html
   dictionary_depth_charts: dictionary_depth_charts.html
@@ -22,7 +23,7 @@ articles:
   dictionary_snap_counts: dictionary_snap_counts.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2023-08-17T12:47Z
+last_built: 2023-08-21T16:16Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles

@@ -92,6 +92,29 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<div class="section level3">
+<h3 id="changes-development-version">Changes<a class="anchor" aria-label="anchor" href="#changes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/latest_season.html">nflreadr::most_recent_season()</a></code> and aliases <code>get_latest_season</code>, <code>get_current_season</code> etc now use March 15th as the changeover for league year. Hopefully this is not a moving target 🙃 (1.3.2.01)</li>
+<li>
+<code><a href="../reference/clean_homeaway.html">nflreadr::clean_homeaway()</a></code> now handles columns with suffixes <code>_home</code> and <code>_away</code> (1.3.2.02)</li>
+<li>
+<code>nflreadr::most_recent_season(roster = TRUE)</code> and aliases <code>get_latest_season</code>, <code>get_current_season</code> etc falsely returned last season after March 15th early in the month. (1.3.2.03)</li>
+<li>Clarified description of the <code>"special"</code> variable in the play-by-play data dictionary. (1.3.2.04) (<a href="https://github.com/nflverse/nflreadr/issues/189" class="external-link">#189</a>)</li>
+<li>
+<code><a href="../reference/nflverse_game_id.html">nflreadr::nflverse_game_id()</a></code> accepts old team abbreviations and outputs useful errors. (1.3.2.05) (<a href="https://github.com/nflverse/nflreadr/issues/191" class="external-link">#191</a>)</li>
+<li>Added <code>dictionary_player_stats_def</code> (thank you <a href="https://github.com/mpcen" class="external-link">@mpcen</a>!) (1.3.2.06) (<a href="https://github.com/nflverse/nflreadr/issues/192" class="external-link">#192</a>)</li>
+<li>Added <code><a href="../reference/dot-for_cran.html">.for_cran()</a></code> to limit parallelization in CRAN examples and tests (1.3.2.07)</li>
+<li>
+<code><a href="../reference/sitrep.html">nflverse_sitrep()</a></code> and friends now return a list of sitrep attributes instead of just printing to console.</li>
+<li>
+<code>make_nflverse_data_class()</code> now uses <code><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">data.table::setattr()</a></code> to set attributes and retain data.table pointer (v1.3.2.08)</li>
+<li>
+<code><a href="../reference/load_player_stats.html">nflreadr::load_player_stats()</a></code> now accepts <code>stat_type = "defense"</code> and loads defensive player stats computed with <code>nflfastR::calculate_player_stats_def()</code>. (v1.3.2.09) (<a href="https://github.com/nflverse/nflreadr/issues/200" class="external-link">#200</a>)</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.2" id="nflreadr-132">nflreadr 1.3.2<a class="anchor" aria-label="anchor" href="#nflreadr-132"></a></h2><p class="text-muted">CRAN release: 2023-01-06</p>
 <p>Minor changes per changelist and patch CRAN-related example issue.</p>
 <div class="section level3">
