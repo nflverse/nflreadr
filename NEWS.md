@@ -1,4 +1,4 @@
-# nflreadr (devel version)
+# nflreadr (development version)
 
 ## Changes
 

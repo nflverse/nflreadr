@@ -22,12 +22,23 @@ rbindlist_with_attrs <- function(dflist){
   nflverse_timestamp <- attr(dflist[[length(dflist)]], "nflverse_timestamp")
   nflverse_type <- attr(dflist[[length(dflist)]], "nflverse_type")
   out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
-  attr(out,"nflverse_timestamp") <- nflverse_timestamp
-  attr(out,"nflverse_type") <- nflverse_type
+  data.table::setattr(out, "nflverse_timestamp", nflverse_timestamp)
+  data.table::setattr(out, "nflverse_type",      nflverse_type)
   out
 }
 
 .ignore_unused_imports <- function(){
   curl::curl_fetch_memory
   methods::setOldClass
+}
+
+# additional release issue bullets for usethis::use_release_issue()
+release_bullets <- function() {
+  c(
+    '`devtools::check_mac_release()`',
+    '`c <- rhub::check_for_cran(show_status = FALSE)`',
+    '`pkgdown::check_pkgdown()`',
+    '`usethis::use_tidy_thanks()`',
+    NULL
+  )
 }
