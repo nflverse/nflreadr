@@ -72,9 +72,9 @@ knitr::kable(status)
 
 There are three ways to obtain nflverse pbp data. 
 
-1. `nflfastR::build_nflfastR_pbp()` parses raw pbp and is usually available within 15 minutes after a game ended.
-2. `nflfastR::update_db()` maintains a pbp database for the user. It runs 1.) to add new games and is therefore subject to the same update schedule.
-3. `nflreadr::load_pbp()` or `nflfastR::load_pbp()` load the complete season of data, automatically computed with 1.). The dataset updates every night (in the range of 3 am - 5 am ET) during the season.
+1. We recommend using `nflreadr::load_pbp()` or `nflfastR::load_pbp()` as the primary method of retrieving pbp data. This uses our automated data infrastructure to download clean data, and [we update this](https://github.com/nflverse/nflverse-pbp/blob/8f5c211ded16ea96df593cee4cc3ea1fa6563ade/.github/workflows/automated_pbp_update.yaml#L2-L13) on a nightly basis after each game day (and additionally at specific points on game days) during the season.
+2. If this is not quick enough, `nflfastR::build_nflfastR_pbp()` parses raw pbp json files we save, usually available within 15 minutes after a game has ended.
+3. If you have a SQL database, `nflfastR::update_db()` helps maintain a pbp database. It uses `nflfastR::build_nflfastR_pbp()` so can be run on the same schedule (i.e. within 15 minutes after a game has ended).
 
 In all cases, it is recommended to update the data again during the night from Wednesday to Thursday in order to also receive the stat corrections that the NFL will incorporate from Monday to Wednesday at the latest. -> Thursday's `load_pbp()` is the cleanest data we have.
 
