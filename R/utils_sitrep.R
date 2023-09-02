@@ -91,17 +91,10 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
     out$package_options[grepl("path|token", names(out$package_options))] <- "{redacted, use redact_path = FALSE to show}"
   }
 
-  # Exit here if we don't want recursive deps or if no internet
+  # Exit here if we don't want pkg deps
   if (isFALSE(recursive)) return(out)
-  if (!curl::has_internet()) {
-    cli::cli_alert_warning("Requires internet access to scan recursive dependencies")
-    return(out)
-  }
 
-  ## PKG DEPENDENCIES
-  # using pak allows you to access the dependencies of GitHub-installed packages
-  # if(is_installed("pak")) out$dependencies <- .sitrep_deps_pak(packages)
-  out$dependencies <- .sitrep_deps_base(packages)
+  out$dependencies <- .sitrep_deps(packages)
 
   return(out)
 }
@@ -146,59 +139,22 @@ print.nflverse_sitrep <- function(x, ...) {
   return(invisible(x))
 }
 
-# .sitrep_deps_pak <- function(packages){
-#   ref <- NULL
-#   pak_status <- rlang::env_get(rlang::ns_env("pak"), "pkg_status")
-#   pak_deps <- rlang::env_get(rlang::ns_env("pak"), "pkg_deps")
-#   pkg_status <- data.table::as.data.table(pak_status(packages))
-#   pkg_status <- unique(pkg_status, by = "package")
-#   pkg_spec <- data.table::fcoalesce(pkg_status$remotepkgref, pkg_status$package)
-#
-#   # Add any repositories found by pkg_status to the search list
-#   # as well as cran.rstudio.com
-#   pkg_repos <- unique(c(stats::na.omit(pkg_status$repos), getOption("repos"), "https://cran.rstudio.com"))
-#   old_repos <- options(repos = pkg_repos)
-#   on.exit(options(old_repos))
-#
-#   deps <- data.table::as.data.table(pak_deps(pkg_spec))[!ref %in% pkg_spec][["package"]]
-#   dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
-#
-#   if(any(!deps %in% dep_status$package)) {
-#     missing_pkgs <- data.table::data.table(
-#       package = setdiff(deps, dep_status$package),
-#       version = "missing"
-#     )
-#     data.table::rbindlist(list(dep_status, missing_pkgs))
-#   }
-#
-#   return(dep_status)
-# }
+#' Show dependency versions of installed packages
+.sitrep_deps <- function(packages){
 
-.sitrep_deps_base <- function(packages){
-  # The checks failed because the repo option is empty sometimes
-  # so we set it here to the rstudio mirror and restore the options
-  # after the call to package_dependencies()
-  old <- options(repos = unique(c(getOption("repos"), "https://cran.rstudio.com/")))
-  on.exit(options(old))
-
-  deps <-
-    sort(
-      unique(
-        unlist(
-          tools::package_dependencies(packages, recursive = TRUE),
-          use.names = FALSE
-        )
-      )
-    )
+  .flatten <- function(x) sort(unique(unlist(x, use.names = FALSE)))
+  inst_pkgs <- installed.packages()
+  deps <- .flatten(tools::package_dependencies(packages, db = inst_pkgs, recursive = TRUE))
 
   deps <- deps[!deps %in% packages]
-  sys_pkgs <- utils::installed.packages()[,"Package"]
+  sys_pkgs <- inst_pkgs[,"Package"]
   missing_pkgs <- setdiff(deps, sys_pkgs)
 
   deps <- intersect(deps, sys_pkgs)
   dep_status <- utils::sessionInfo(deps)$otherPkgs
   dep_status <- data.table::rbindlist(dep_status, fill = TRUE)[, c("Package", "Version")]
   dep_status <- stats::setNames(dep_status, c("package","version"))
+
   if(length(missing_pkgs) > 0) {
     dep_status <- data.table::rbindlist(
       list(
