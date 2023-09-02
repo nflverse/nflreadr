@@ -67,7 +67,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
   )
   packages <- pkg
 
-  inst_pkgs <- data.table::as.data.table(installed.packages())
+  inst_pkgs <- data.table::as.data.table(utils::installed.packages())
 
   out$not_installed <- packages[!packages %in% inst_pkgs$Package]
   packages <- packages[packages %in% inst_pkgs$Package]
@@ -93,7 +93,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
 }
 
 .sitrep_pkg_status <- function(packages,
-                               inst_pkgs = data.table::as.data.table(installed.packages()),
+                               inst_pkgs = utils::installed.packages(),
                                dev_repos = c("https://nflverse.r-universe.dev", "https://ffverse.r-universe.dev"),
                                check_latest = curl::has_internet()){
 
@@ -103,8 +103,8 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
   if (!curl::has_internet() || !check_latest) return(as.data.frame(inst))
 
   cran_repos <- c("https://packagemanager.posit.co/cran/latest", "https://cloud.r-project.org", "https://cran.rstudio.com")
-  cran_pkgs <- data.table::as.data.table(available.packages(repos = cran_repos))[Package %in% packages, list(package = Package, cran = Version)]
-  dev_pkgs <- data.table::as.data.table(available.packages(repos = dev_repos))[Package %in% packages, list(package = Package, dev = Version)]
+  cran_pkgs <- data.table::as.data.table(utils::available.packages(repos = cran_repos))[Package %in% packages, list(package = Package, cran = Version)]
+  dev_pkgs <- data.table::as.data.table(utils::available.packages(repos = dev_repos))[Package %in% packages, list(package = Package, dev = Version)]
 
   package <- installed <- cran <- dev <- behind_cran <- behind_dev <- behind <- NULL
 
@@ -150,7 +150,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
 
 #' Show dependency versions of installed packages
 #' @keywords internal
-.sitrep_pkg_deps <- function(packages, inst_pkgs = installed.packages(), recursive = TRUE){
+.sitrep_pkg_deps <- function(packages, inst_pkgs = utils::installed.packages(), recursive = TRUE){
 
   inst_pkgs <- data.table::as.data.table(inst_pkgs)
   .flatten <- function(x) sort(unique(unlist(x, use.names = FALSE)))
@@ -159,7 +159,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
   deps <- deps[!deps %in% packages]
   missing_pkgs <- setdiff(deps, inst_pkgs$Package)
 
-  dep_status <- inst_pkgs[Package %in% deps][, c("Package", "Version")]
+  dep_status <- inst_pkgs[inst_pkgs$Package %in% deps][, c("Package", "Version")]
   data.table::setnames(dep_status, c("package","version"))
 
   if(length(missing_pkgs) > 0) {
