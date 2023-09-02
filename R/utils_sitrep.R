@@ -100,7 +100,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
   inst_pkgs <- data.table::as.data.table(inst_pkgs)
   Package <- Version <- NULL
   inst <- inst_pkgs[Package %in% packages][, list(package = Package, installed = Version, cran = NA, dev = NA, behind = NA)]
-  if (!curl::has_internet() || !check_latest) return(inst)
+  if (!curl::has_internet() || !check_latest) return(as.data.frame(inst))
 
   cran_repos <- c("https://packagemanager.posit.co/cran/latest", "https://cloud.r-project.org", "https://cran.rstudio.com")
   cran_pkgs <- data.table::as.data.table(available.packages(repos = cran_repos))[Package %in% packages, list(package = Package, cran = Version)]
@@ -194,7 +194,10 @@ print.nflverse_sitrep <- function(x, ...) {
   cli::cat_bullet(glue::glue("{x$system_info$r_version} {cli::symbol$bullet} Running under: {x$system_info$os_version}")) # nolint
 
   cli::cat_rule(cli::style_bold("Package Status"), col = cli::make_ansi_style("cyan"), line = 1)
-  print(x$installed, row.names = FALSE)
+  pkg_status <- x$installed
+  rownames(pkg_status) <- pkg_status$package
+  pkg_status$package <- NULL
+  print(pkg_status)
 
   cli::cat_rule(cli::style_bold("Package Options"), col = cli::make_ansi_style("cyan"), line = 1)
   if (length(x$package_options) == 0) cli::cli_bullets("No options set for above packages")
