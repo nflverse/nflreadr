@@ -15,6 +15,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       NFLVERSE_GH_TOKEN: ${{ secrets.NFLVERSE_GH_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
@@ -33,7 +34,6 @@ jobs:
           covr::codecov(
             quiet = FALSE,
             clean = FALSE,
-            token = "${{ secrets.CODECOV_TOKEN }}"
             install_path = file.path(Sys.getenv("RUNNER_TEMP"), "package")
           )
         shell: Rscript {0}
