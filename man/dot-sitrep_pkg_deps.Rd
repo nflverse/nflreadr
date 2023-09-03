@@ -4,7 +4,11 @@
 \alias{.sitrep_pkg_deps}
 \title{Show dependency versions of installed packages}
 \usage{
-.sitrep_pkg_deps(packages, inst_pkgs = installed.packages(), recursive = TRUE)
+.sitrep_pkg_deps(
+  packages,
+  inst_pkgs = utils::installed.packages(),
+  recursive = TRUE
+)
 }
 \description{
 Show dependency versions of installed packages
