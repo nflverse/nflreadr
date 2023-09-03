@@ -18,7 +18,12 @@ ffverse_sitrep(
   redact_path = TRUE
 )
 
-.sitrep(pkg, recursive = TRUE, header = "", redact_path = TRUE)
+.sitrep(
+  pkg,
+  recursive = TRUE,
+  redact_path = TRUE,
+  dev_repos = c("https://nflverse.r-universe.dev", "https://ffverse.r-universe.dev")
+)
 }
 \arguments{
 \item{pkg}{a character vector naming installed packages, or \code{NULL}
@@ -36,8 +41,7 @@ Character string \code{"all"} is shorthand for that vector, character string
 \item{redact_path}{a logical indicating whether options that contain "path"
 in the name should be redacted, default = TRUE}
 
-\item{header}{a string that is printed in the horizontal separation lines and
-used to differentiate between nflverse and ffverse output.}
+\item{dev_repos}{Developmental cran-like repos to check, e.g. r-universe repos}
 }
 \description{
 This function gives a quick overview of the versions of R and the operating

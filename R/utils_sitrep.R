@@ -15,10 +15,9 @@
 #'  Character string `"all"` is shorthand for that vector, character string
 #'  `"most"` for the same vector without `"Enhances"`, character string `"strong"`
 #'  (default) for the first three elements of that vector.
-#' @param header a string that is printed in the horizontal separation lines and
-#'   used to differentiate between nflverse and ffverse output.
 #' @param redact_path a logical indicating whether options that contain "path"
 #' in the name should be redacted, default = TRUE
+#' @param dev_repos Developmental cran-like repos to check, e.g. r-universe repos
 #' @examples
 #' \dontshow{.for_cran()}
 #' \donttest{
@@ -33,20 +32,20 @@
 nflverse_sitrep <- function(pkg = c("nflreadr","nflfastR","nflseedR","nfl4th","nflplotR","nflverse"),
                             recursive = TRUE,
                             redact_path = TRUE) {
-  .sitrep(pkg = pkg, recursive = recursive, header = "nflverse ", redact_path = redact_path)
+  .sitrep(pkg = pkg, recursive = recursive, redact_path = redact_path, dev_repos = "https://nflverse.r-universe.dev")
 }
 
 #' @rdname sitrep
 #' @export
-ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportunity"),
+ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffopportunity"),
                            recursive = TRUE,
                            redact_path = TRUE) {
-  .sitrep(pkg = pkg, recursive = recursive, header = "ffverse ", redact_path = redact_path)
+  .sitrep(pkg = pkg, recursive = recursive, redact_path = redact_path, dev_repos = "https://ffverse.r-universe.dev")
 }
 
 #' @rdname sitrep
 #' @export
-.sitrep <- function(pkg, recursive = TRUE, header = "", redact_path = TRUE){
+.sitrep <- function(pkg, recursive = TRUE, redact_path = TRUE, dev_repos = c("https://nflverse.r-universe.dev", "https://ffverse.r-universe.dev")){
 
   out <- structure(
     list(
@@ -61,49 +60,118 @@ ffverse_sitrep <- function(pkg = c("ffscrapr","ffsimulator","ffpros","ffopportun
     class = c("nflverse_sitrep", "list")
   )
 
-  s <- utils::sessionInfo()
-
   # OPERATING SYSTEM INFO
   out$system_info <- list(
-    r_version = s$R.version$version.string,
-    os_version = s$running
+    r_version = R.version$version.string,
+    os_version = utils::osVersion
   )
+  packages <- pkg
 
-  # PACKAGES FROM LIST
-  which_installed <- sapply(out$packages, is_installed)
-  out$not_installed <- out$packages[!which_installed]
+  inst_pkgs <- data.table::as.data.table(utils::installed.packages())
 
-  packages <- out$packages[which_installed]
+  out$not_installed <- packages[!packages %in% inst_pkgs$Package]
+  packages <- packages[packages %in% inst_pkgs$Package]
 
   if (length(packages) == 0) return(out)
 
-  s <- utils::sessionInfo(packages)
-
-  out$installed <- lapply(s$otherPkgs, `[`, c("Package", "Version"))
-  out$installed <- as.data.frame(data.table::rbindlist(out$installed))
-  out$installed <- stats::setNames(out$installed, c("package","version"))
+  out$installed <- .sitrep_pkg_status(packages = packages,
+                                      inst_pkgs = inst_pkgs,
+                                      dev_repos = dev_repos,
+                                      check_latest = TRUE)
 
   # Relies on options for a given package being prefixed by said package name
-  opts <- options()
-  pkg_search_string <- paste(packages, collapse = "|")
-  out$package_options <- opts[grepl(pkg_search_string, x = names(opts))]
-  if(redact_path) {
-    out$package_options[grepl("path|token", names(out$package_options))] <- "{redacted, use redact_path = FALSE to show}"
-  }
+  out$package_options <- .sitrep_pkg_opts(packages, redact_path = redact_path)
 
-  # Exit here if we don't want recursive deps or if no internet
+  # Exit here if we don't want pkg deps
   if (isFALSE(recursive)) return(out)
-  if (!curl::has_internet()) {
-    cli::cli_alert_warning("Requires internet access to scan recursive dependencies")
-    return(out)
-  }
 
-  ## PKG DEPENDENCIES
-  # using pak allows you to access the dependencies of GitHub-installed packages
-  # if(is_installed("pak")) out$dependencies <- .sitrep_deps_pak(packages)
-  out$dependencies <- .sitrep_deps_base(packages)
+  out$dependencies <- .sitrep_pkg_deps(packages = packages,
+                                       inst_pkgs = inst_pkgs,
+                                       recursive = recursive)
 
   return(out)
+}
+
+.sitrep_pkg_status <- function(packages,
+                               inst_pkgs = utils::installed.packages(),
+                               dev_repos = c("https://nflverse.r-universe.dev", "https://ffverse.r-universe.dev"),
+                               check_latest = curl::has_internet()){
+
+  inst_pkgs <- data.table::as.data.table(inst_pkgs)
+  Package <- Version <- NULL
+  inst <- inst_pkgs[Package %in% packages][, list(package = Package, installed = Version, cran = NA, dev = NA, behind = NA)]
+  if (!curl::has_internet() || !check_latest) return(as.data.frame(inst))
+
+  cran_repos <- c("https://packagemanager.posit.co/cran/latest", "https://cloud.r-project.org", "https://cran.rstudio.com")
+  cran_pkgs <- data.table::as.data.table(utils::available.packages(repos = cran_repos))[Package %in% packages, list(package = Package, cran = Version)]
+  dev_pkgs <- data.table::as.data.table(utils::available.packages(repos = dev_repos))[Package %in% packages, list(package = Package, dev = Version)]
+
+  package <- installed <- cran <- dev <- behind_cran <- behind_dev <- behind <- NULL
+
+  inst <- merge(
+    merge(
+      inst[, list(package, installed)],
+      cran_pkgs,
+      by = "package",
+      all = TRUE
+    ),
+    dev_pkgs,
+    all = TRUE,
+    by = "package"
+  )[
+    , list(
+      package, installed, cran, dev,
+      behind_cran = ifelse(!is.na(cran), package_version(installed, strict = FALSE) < package_version(cran, strict = FALSE), FALSE),
+      behind_dev = ifelse(!is.na(dev), package_version(installed, strict = FALSE) < package_version(dev, strict = FALSE), FALSE)
+    )
+  ][
+    , list(
+      package, installed, cran, dev,
+      behind = paste0(ifelse(behind_cran, "cran;", ""), ifelse(behind_dev, "dev", "")),
+      behind_cran = NULL,
+      behind_dev = NULL
+    )
+  ]
+
+  return(as.data.frame(inst))
+}
+
+#' Show options for installed packages
+#' @keywords internal
+.sitrep_pkg_opts <- function(packages, redact_path = TRUE){
+  opts <- options()
+  pkg_search_string <- paste(packages, collapse = "|")
+  package_options <- opts[grepl(pkg_search_string, x = names(opts))]
+  if(redact_path) {
+    package_options[grepl("path|token|auth", names(package_options))] <- "{redacted, use redact_path = FALSE to show}"
+  }
+  return(package_options)
+}
+
+#' Show dependency versions of installed packages
+#' @keywords internal
+.sitrep_pkg_deps <- function(packages, inst_pkgs = utils::installed.packages(), recursive = TRUE){
+
+  inst_pkgs <- data.table::as.data.table(inst_pkgs)
+  .flatten <- function(x) sort(unique(unlist(x, use.names = FALSE)))
+  deps <- .flatten(tools::package_dependencies(packages, db = inst_pkgs, recursive = recursive))
+
+  deps <- deps[!deps %in% packages]
+  missing_pkgs <- setdiff(deps, inst_pkgs$Package)
+
+  dep_status <- inst_pkgs[inst_pkgs$Package %in% deps][, c("Package", "Version")]
+  data.table::setnames(dep_status, c("package","version"))
+
+  if(length(missing_pkgs) > 0) {
+    dep_status <- data.table::rbindlist(
+      list(
+        dep_status,
+        data.table::data.table(package = missing_pkgs, version = "missing")
+      )
+    )
+  }
+
+  return(as.data.frame(dep_status))
 }
 
 #' nflverse_sitrep data class
@@ -126,7 +194,10 @@ print.nflverse_sitrep <- function(x, ...) {
   cli::cat_bullet(glue::glue("{x$system_info$r_version} {cli::symbol$bullet} Running under: {x$system_info$os_version}")) # nolint
 
   cli::cat_rule(cli::style_bold("Package Status"), col = cli::make_ansi_style("cyan"), line = 1)
-  .cat_packages(x$installed$package, x$installed$version)
+  pkg_status <- x$installed
+  rownames(pkg_status) <- pkg_status$package
+  pkg_status$package <- NULL
+  print(pkg_status)
 
   cli::cat_rule(cli::style_bold("Package Options"), col = cli::make_ansi_style("cyan"), line = 1)
   if (length(x$package_options) == 0) cli::cli_bullets("No options set for above packages")
@@ -134,11 +205,12 @@ print.nflverse_sitrep <- function(x, ...) {
 
   if (length(x$dependencies) >= 1) {
     cli::cat_rule(cli::style_bold("Package Dependencies"), col = cli::make_ansi_style("cyan"), line = 1)
-    .cat_packages(x$dependencies$package, x$dependencies$version)
+    .cat_pkg(x$dependencies$package, x$dependencies$version)
   }
+
   if (length(x$not_installed) >= 1) {
     cli::cat_rule(cli::style_bold("Not Installed"), col = cli::make_ansi_style("cyan"), line = 1)
-    .cat_packages(x$not_installed, rep_len("", length(x$not_installed)))
+    .cat_pkg(x$not_installed, rep_len("", length(x$not_installed)))
   }
 
   cli::cat_rule(col = cli::make_ansi_style("cyan"), line = 1)
@@ -146,72 +218,7 @@ print.nflverse_sitrep <- function(x, ...) {
   return(invisible(x))
 }
 
-# .sitrep_deps_pak <- function(packages){
-#   ref <- NULL
-#   pak_status <- rlang::env_get(rlang::ns_env("pak"), "pkg_status")
-#   pak_deps <- rlang::env_get(rlang::ns_env("pak"), "pkg_deps")
-#   pkg_status <- data.table::as.data.table(pak_status(packages))
-#   pkg_status <- unique(pkg_status, by = "package")
-#   pkg_spec <- data.table::fcoalesce(pkg_status$remotepkgref, pkg_status$package)
-#
-#   # Add any repositories found by pkg_status to the search list
-#   # as well as cran.rstudio.com
-#   pkg_repos <- unique(c(stats::na.omit(pkg_status$repos), getOption("repos"), "https://cran.rstudio.com"))
-#   old_repos <- options(repos = pkg_repos)
-#   on.exit(options(old_repos))
-#
-#   deps <- data.table::as.data.table(pak_deps(pkg_spec))[!ref %in% pkg_spec][["package"]]
-#   dep_status <- data.table::as.data.table(pak_status(deps))[,c("package", "version")]
-#
-#   if(any(!deps %in% dep_status$package)) {
-#     missing_pkgs <- data.table::data.table(
-#       package = setdiff(deps, dep_status$package),
-#       version = "missing"
-#     )
-#     data.table::rbindlist(list(dep_status, missing_pkgs))
-#   }
-#
-#   return(dep_status)
-# }
-
-.sitrep_deps_base <- function(packages){
-  # The checks failed because the repo option is empty sometimes
-  # so we set it here to the rstudio mirror and restore the options
-  # after the call to package_dependencies()
-  old <- options(repos = unique(c(getOption("repos"), "https://cran.rstudio.com/")))
-  on.exit(options(old))
-
-  deps <-
-    sort(
-      unique(
-        unlist(
-          tools::package_dependencies(packages, recursive = TRUE),
-          use.names = FALSE
-        )
-      )
-    )
-
-  deps <- deps[!deps %in% packages]
-  sys_pkgs <- utils::installed.packages()[,"Package"]
-  missing_pkgs <- setdiff(deps, sys_pkgs)
-
-  deps <- intersect(deps, sys_pkgs)
-  dep_status <- utils::sessionInfo(deps)$otherPkgs
-  dep_status <- data.table::rbindlist(dep_status, fill = TRUE)[, c("Package", "Version")]
-  dep_status <- stats::setNames(dep_status, c("package","version"))
-  if(length(missing_pkgs) > 0) {
-    dep_status <- data.table::rbindlist(
-      list(
-        dep_status,
-        data.table::data.table(package = missing_pkgs, version = "missing")
-      )
-    )
-  }
-
-  return(dep_status)
-}
-
-.cat_packages <- function(packages, versions) {
+.cat_pkg <- function(packages, versions) {
   stopifnot(length(packages) == length(versions))
 
   if (length(packages) <= 2) {
