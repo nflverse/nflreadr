@@ -16,7 +16,7 @@ you're helping someone else debug a problem."><meta property="og:image" content=
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.09</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.10</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,12 @@ you're helping someone else debug a problem.</p>
 <span>  redact_path <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">.sitrep</span><span class="op">(</span><span class="va">pkg</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span>, header <span class="op">=</span> <span class="st">""</span>, redact_path <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">.sitrep</span><span class="op">(</span></span>
+<span>  <span class="va">pkg</span>,</span>
+<span>  recursive <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  redact_path <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dev_repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://nflverse.r-universe.dev"</span>, <span class="st">"https://ffverse.r-universe.dev"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -145,9 +150,8 @@ Character string <code>"all"</code> is shorthand for that vector, character stri
 in the name should be redacted, default = TRUE</p></dd>
 
 
-<dt>header</dt>
-<dd><p>a string that is printed in the horizontal separation lines and
-used to differentiate between nflverse and ffverse output.</p></dd>
+<dt>dev_repos</dt>
+<dd><p>Developmental cran-like repos to check, e.g. r-universe repos</p></dd>
 
 </dl></div>
 
@@ -163,12 +167,12 @@ used to differentiate between nflverse and ffverse output.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB; font-weight: bold;">System Info</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • R version 4.3.1 (2023-06-16) • Running under: Ubuntu 22.04.3 LTS</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB; font-weight: bold;">Package Status</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • cachem (1.0.8)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        installed  cran  dev behind</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cachem     1.0.8 1.0.8 &lt;NA&gt;       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB; font-weight: bold;">Package Options</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No options set for above packages</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB; font-weight: bold;">Package Dependencies</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • fastmap (1.1.1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • rlang   (1.1.1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • fastmap (1.1.1)  • rlang (1.1.1)  • utils (4.3.1)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────────────────────────────</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
