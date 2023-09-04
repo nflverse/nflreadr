@@ -40,6 +40,9 @@
     <loc>https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/articles/dictionary_injuries.html</loc>
   </url>
   <url>
@@ -130,6 +133,9 @@
     <loc>https://nflreadr.nflverse.com/reference/dictionary_ff_rankings.html</loc>
   </url>
   <url>
+    <loc>https://nflreadr.nflverse.com/reference/dictionary_ftn_charting.html</loc>
+  </url>
+  <url>
     <loc>https://nflreadr.nflverse.com/reference/dictionary_injuries.html</loc>
   </url>
   <url>
@@ -209,6 +215,9 @@
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_from_url.html</loc>
+  </url>
+  <url>
+    <loc>https://nflreadr.nflverse.com/reference/load_ftn_charting.html</loc>
   </url>
   <url>
     <loc>https://nflreadr.nflverse.com/reference/load_injuries.html</loc>

@@ -11,6 +11,7 @@ articles:
   dictionary_ff_opportunity: dictionary_ff_opportunity.html
   dictionary_ff_playerids: dictionary_ff_playerids.html
   dictionary_ff_rankings: dictionary_ff_rankings.html
+  dictionary_ftn_charting: dictionary_ftn_charting.html
   dictionary_injuries: dictionary_injuries.html
   dictionary_nextgen_stats: dictionary_nextgen_stats.html
   dictionary_participation: dictionary_participation.html
@@ -23,7 +24,7 @@ articles:
   dictionary_snap_counts: dictionary_snap_counts.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
-last_built: 2023-09-03T18:56Z
+last_built: 2023-09-04T05:21Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles

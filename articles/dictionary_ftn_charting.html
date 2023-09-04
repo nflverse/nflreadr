@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="nflreadr">
-<title>Data Dictionary - Combine • nflreadr</title>
+<title>Data Dictionary - FTN Charting • nflreadr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Data Dictionary - Combine">
+<meta property="og:title" content="Data Dictionary - FTN Charting">
 <meta property="og:description" content="nflreadr">
 <meta property="og:image" content="https://nflreadr.nflverse.com/reference/figures/social_preview.png">
 <meta property="og:image:alt" content="nflreadr social preview card">
@@ -125,117 +125,236 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Combine</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - FTN Charting</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/HEAD/vignettes/dictionary_combine.Rmd" class="external-link"><code>vignettes/dictionary_combine.Rmd</code></a></small>
-      <div class="d-none name"><code>dictionary_combine.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/HEAD/vignettes/dictionary_ftn_charting.Rmd" class="external-link"><code>vignettes/dictionary_ftn_charting.Rmd</code></a></small>
+      <div class="d-none name"><code>dictionary_ftn_charting.Rmd</code></div>
     </div>
 
     
     
 <table class="table">
 <colgroup>
-<col width="12%">
-<col width="10%">
-<col width="77%">
+<col width="14%">
+<col width="6%">
+<col width="9%">
+<col width="3%">
+<col width="66%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">field</th>
-<th align="left">data_type</th>
+<th align="left">field_name</th>
+<th align="left">field_type</th>
+<th align="left">ftn_field_name</th>
+<th align="left">order</th>
 <th align="left">description</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">ftn_game_id</td>
+<td align="left">numeric</td>
+<td align="left">gid</td>
+<td align="left">1</td>
+<td align="left">FTN game ID</td>
+</tr>
+<tr class="even">
+<td align="left">nflverse_game_id</td>
+<td align="left">character</td>
+<td align="left">game_id</td>
+<td align="left">2</td>
+<td align="left">Game ID used by nflverse - built from season, week,
+home, and away teams</td>
+</tr>
+<tr class="odd">
 <td align="left">season</td>
 <td align="left">numeric</td>
-<td align="left">4 digit number indicating which season(s) the specified
-combine occurred.</td>
+<td align="left">year</td>
+<td align="left">3</td>
+<td align="left">NFL season starting year. Data is currently available
+from 2022 onwards.</td>
 </tr>
 <tr class="even">
-<td align="left">draft_year</td>
+<td align="left">week</td>
 <td align="left">numeric</td>
-<td align="left">Year that player was drafted</td>
+<td align="left">week</td>
+<td align="left">4</td>
+<td align="left">NFL week number.</td>
 </tr>
 <tr class="odd">
-<td align="left">draft_team</td>
+<td align="left">ftn_play_id</td>
+<td align="left">numeric</td>
+<td align="left">pid</td>
+<td align="left">5</td>
+<td align="left">FTN play ID</td>
+</tr>
+<tr class="even">
+<td align="left">nflverse_play_id</td>
+<td align="left">numeric</td>
+<td align="left">play_id</td>
+<td align="left">6</td>
+<td align="left">Play ID used by nflverse, corresponds to GSIS play
+ID</td>
+</tr>
+<tr class="odd">
+<td align="left">starting_hash</td>
 <td align="left">character</td>
-<td align="left">Team that drafted player</td>
+<td align="left">hash</td>
+<td align="left">7</td>
+<td align="left">hash the ball was place(L = left, M = middle, R =
+right)</td>
 </tr>
 <tr class="even">
-<td align="left">draft_round</td>
-<td align="left">numeric</td>
-<td align="left">Round that player was drafted in</td>
-</tr>
-<tr class="odd">
-<td align="left">draft_ovr</td>
-<td align="left">numeric</td>
-<td align="left">Pick number of player</td>
-</tr>
-<tr class="even">
-<td align="left">pfr_id</td>
-<td align="left">numeric</td>
-<td align="left">Pro-Football-Reference ID for player</td>
-</tr>
-<tr class="odd">
-<td align="left">cfb_id</td>
-<td align="left">numeric</td>
-<td align="left">Sports Reference (CFB) ID for player</td>
-</tr>
-<tr class="even">
-<td align="left">player_name</td>
+<td align="left">qb_location</td>
 <td align="left">character</td>
-<td align="left">Full name of player</td>
+<td align="left">qb_pos</td>
+<td align="left">8</td>
+<td align="left">pre-snap position of quarterback(U = under center, S =
+shotgun, P = pistol)</td>
 </tr>
 <tr class="odd">
-<td align="left">pos</td>
+<td align="left">n_offense_backfield</td>
+<td align="left">numeric</td>
+<td align="left">back</td>
+<td align="left">9</td>
+<td align="left">number of players in the backfield at the snap</td>
+</tr>
+<tr class="even">
+<td align="left">is_no_huddle</td>
+<td align="left">logical</td>
+<td align="left">nh</td>
+<td align="left">10</td>
+<td align="left">no huddle</td>
+</tr>
+<tr class="odd">
+<td align="left">is_motion</td>
+<td align="left">logical</td>
+<td align="left">mot</td>
+<td align="left">11</td>
+<td align="left">motion occurred on the play before or at the time of
+the snap</td>
+</tr>
+<tr class="even">
+<td align="left">is_play_action</td>
+<td align="left">logical</td>
+<td align="left">pap</td>
+<td align="left">12</td>
+<td align="left">play-action pass</td>
+</tr>
+<tr class="odd">
+<td align="left">is_screen_pass</td>
+<td align="left">logical</td>
+<td align="left">scre</td>
+<td align="left">13</td>
+<td align="left">screen pass</td>
+</tr>
+<tr class="even">
+<td align="left">is_rpo</td>
+<td align="left">logical</td>
+<td align="left">rpo</td>
+<td align="left">14</td>
+<td align="left">play is considered run-pass option</td>
+</tr>
+<tr class="odd">
+<td align="left">is_trick_play</td>
+<td align="left">logical</td>
+<td align="left">trick</td>
+<td align="left">15</td>
+<td align="left">trick play</td>
+</tr>
+<tr class="even">
+<td align="left">is_qb_out_of_pocket</td>
+<td align="left">logical</td>
+<td align="left">oop</td>
+<td align="left">16</td>
+<td align="left">quarterback moved out of pocket</td>
+</tr>
+<tr class="odd">
+<td align="left">is_interception_worthy</td>
+<td align="left">logical</td>
+<td align="left">intw</td>
+<td align="left">17</td>
+<td align="left">interception worthy pass</td>
+</tr>
+<tr class="even">
+<td align="left">is_throw_away</td>
+<td align="left">logical</td>
+<td align="left">qbta</td>
+<td align="left">18</td>
+<td align="left">quarterback thrown away</td>
+</tr>
+<tr class="odd">
+<td align="left">read_thrown</td>
 <td align="left">character</td>
-<td align="left">Position of player</td>
+<td align="left">read</td>
+<td align="left">19</td>
+<td align="left">read the ball was thrown</td>
 </tr>
 <tr class="even">
-<td align="left">school</td>
-<td align="left">character</td>
-<td align="left">College of player</td>
+<td align="left">is_catchable_ball</td>
+<td align="left">logical</td>
+<td align="left">cball</td>
+<td align="left">20</td>
+<td align="left">catchable ball(defined by throws that are generally on
+target that are not defended away)</td>
 </tr>
 <tr class="odd">
-<td align="left">ht</td>
-<td align="left">numeric</td>
-<td align="left">Height of player (feet and inches)</td>
+<td align="left">is_contested_ball</td>
+<td align="left">logical</td>
+<td align="left">cnb</td>
+<td align="left">21</td>
+<td align="left">contested ball(defined by whether or not the receiver
+is facing physical contact at the time of the catch)</td>
 </tr>
 <tr class="even">
-<td align="left">wt</td>
-<td align="left">numeric</td>
-<td align="left">Weight of player (lbs)</td>
+<td align="left">is_created_reception</td>
+<td align="left">logical</td>
+<td align="left">crr</td>
+<td align="left">22</td>
+<td align="left">created reception(defined by a reception that only
+occurs due to an exceptional play by the receiver)</td>
 </tr>
 <tr class="odd">
-<td align="left">forty</td>
-<td align="left">numeric</td>
-<td align="left">Player’s 40 yard dash time at combine (seconds)</td>
+<td align="left">is_drop</td>
+<td align="left">logical</td>
+<td align="left">drp</td>
+<td align="left">23</td>
+<td align="left">receiver drop</td>
 </tr>
 <tr class="even">
-<td align="left">bench</td>
-<td align="left">numeric</td>
-<td align="left">Reps benched by player at combine</td>
+<td align="left">is_qb_sneak</td>
+<td align="left">logical</td>
+<td align="left">sneak</td>
+<td align="left">24</td>
+<td align="left">quarterback sneak</td>
 </tr>
 <tr class="odd">
-<td align="left">vertical</td>
+<td align="left">n_blitzers</td>
 <td align="left">numeric</td>
-<td align="left">Player’s vertical jump at combine (inches)</td>
+<td align="left">blz</td>
+<td align="left">25</td>
+<td align="left">number of blitzers</td>
 </tr>
 <tr class="even">
-<td align="left">broad_jump</td>
+<td align="left">n_pass_rushers</td>
 <td align="left">numeric</td>
-<td align="left">Player’s broad jump at combine (inches)</td>
+<td align="left">pru</td>
+<td align="left">26</td>
+<td align="left">number of pass rushers</td>
 </tr>
 <tr class="odd">
-<td align="left">cone</td>
-<td align="left">numeric</td>
-<td align="left">Player’s 3 cone drill time at combine (seconds)</td>
+<td align="left">is_qb_fault_sack</td>
+<td align="left">logical</td>
+<td align="left">qbsk</td>
+<td align="left">27</td>
+<td align="left">sack that is the fault of the quarterback</td>
 </tr>
 <tr class="even">
-<td align="left">shuttle</td>
-<td align="left">numeric</td>
-<td align="left">Player’s shuttle run time at combine (seconds)</td>
+<td align="left">date_pulled</td>
+<td align="left">POSIXct</td>
+<td align="left">date_pulled</td>
+<td align="left">28</td>
+<td align="left">Date the data was retrieved from the FTN Data API by
+nflverse jobs</td>
 </tr>
 </tbody>
 </table></main>
