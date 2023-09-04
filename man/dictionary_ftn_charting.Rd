@@ -14,7 +14,7 @@ dictionary_ftn_charting
 A dataframe containing the data dictionary for \code{\link[=load_ftn_charting]{load_ftn_charting()}}
 }
 \seealso{
-\code{\link{vignette("Data Dictionary - FTN Charting")}}
+\code{vignette("Data Dictionary - FTN Charting")}
 
 \url{https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html}
 

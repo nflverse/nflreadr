@@ -34,6 +34,8 @@ Creative Commons license and attribution must be made to \strong{FTN Data via nf
 \seealso{
 \url{https://ftndata.com}
 
+\code{vignette("Data Dictionary - FTN Charting")}
+
 \url{https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html} for the web data dictionary
 
 Other ftn_charting: 

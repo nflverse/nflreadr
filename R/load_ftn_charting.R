@@ -22,6 +22,7 @@
 #' @return Precomputed expected fantasy points data from the ffopportunity automated releases.
 #'
 #' @seealso <https://ftndata.com>
+#' @seealso `vignette("Data Dictionary - FTN Charting")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html> for the web data dictionary
 #' @family ftn_charting
 #'
@@ -49,6 +50,6 @@ load_ftn_charting <- function(seasons = most_recent_season()){
 #' A dataframe containing the data dictionary for [`load_ftn_charting()`]
 #'
 #' @family ftn_charting
-#' @seealso [`vignette("Data Dictionary - FTN Charting")`]
+#' @seealso `vignette("Data Dictionary - FTN Charting")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html>
 "dictionary_ftn_charting"
