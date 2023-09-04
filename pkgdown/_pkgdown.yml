@@ -83,7 +83,7 @@ home:
 navbar:
   bg: dark
   structure:
-    left:  [home, reference, articles, schedule, news]
+    left:  [home, reference, articles, news]
     right: [discord, github, more]
   components:
     discord:
@@ -95,9 +95,6 @@ navbar:
     articles:
       text: "Articles & Dictionaries"
       href: articles/index.html
-    schedule:
-      text: Update Schedule
-      href: articles/nflverse_update_schedule.html
     more:
       text: "Packages & More"
       menu:
@@ -125,7 +122,7 @@ articles:
   - title: Dictionaries
     contents: starts_with("dictionary")
   - title: Other
-    contents: 
+    contents:
       - "articles/nflverse_data_schedule"
       - "exporting_nflreadr"
 
