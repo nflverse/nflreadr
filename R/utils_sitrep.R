@@ -194,10 +194,12 @@ print.nflverse_sitrep <- function(x, ...) {
   cli::cat_bullet(glue::glue("{x$system_info$r_version} {cli::symbol$bullet} Running under: {x$system_info$os_version}")) # nolint
 
   cli::cat_rule(cli::style_bold("Package Status"), col = cli::make_ansi_style("cyan"), line = 1)
-  pkg_status <- x$installed
-  rownames(pkg_status) <- pkg_status$package
-  pkg_status$package <- NULL
-  print(pkg_status)
+  if(nrow(x$installed) > 0) {
+    pkg_status <- x$installed
+    rownames(pkg_status) <- pkg_status$package
+    pkg_status$package <- NULL
+    print(pkg_status)
+  }
 
   cli::cat_rule(cli::style_bold("Package Options"), col = cli::make_ansi_style("cyan"), line = 1)
   if (length(x$package_options) == 0) cli::cli_bullets("No options set for above packages")
