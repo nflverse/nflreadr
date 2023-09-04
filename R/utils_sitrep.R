@@ -133,6 +133,8 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
     )
   ]
 
+
+
   return(as.data.frame(inst))
 }
 
@@ -196,7 +198,7 @@ print.nflverse_sitrep <- function(x, ...) {
   cli::cat_rule(cli::style_bold("Package Status"), col = cli::make_ansi_style("cyan"), line = 1)
   if(nrow(x$installed) > 0) {
     pkg_status <- x$installed
-    rownames(pkg_status) <- pkg_status$package
+    row.names(pkg_status) <- pkg_status$package
     pkg_status$package <- NULL
     print(pkg_status)
   }
