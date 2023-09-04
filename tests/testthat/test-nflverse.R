@@ -310,6 +310,17 @@ test_that("load_officials", {
   expect_gt(nrow(officials), 10000)
 })
 
+test_that("load_ftn_charting", {
+
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  ftn_charting <- load_ftn_charting(2022)
+
+  expect_s3_class(ftn_charting, "nflverse_data")
+  expect_gt(nrow(ftn_charting), 40000)
+})
+
 
 ## NEW LOAD FUNCTIONS GO ABOVE THIS LINE ##
 
