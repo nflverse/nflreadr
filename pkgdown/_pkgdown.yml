@@ -83,7 +83,7 @@ home:
 navbar:
   bg: dark
   structure:
-    left:  [home, reference, dictionaries, articles, news]
+    left:  [home, reference, articles, news]
     right: [discord, github, more]
   components:
     discord:
@@ -93,48 +93,8 @@ navbar:
       text: "Functions"
       href: reference/index.html
     articles:
-      text: "Vignettes"
+      text: "Articles & Dictionaries"
       href: articles/index.html
-    dictionaries:
-      text: "Dictionaries"
-      menu:
-        - text: Play by Play
-          href: articles/dictionary_pbp.html
-        - text: Player Stats
-          href: articles/dictionary_player_stats.html
-        - text: Participation
-          href: articles/dictionary_participation.html
-        - text: Rosters
-          href: articles/dictionary_rosters.html
-        - text: Schedules
-          href: articles/dictionary_schedules.html
-        - text: Snap Counts
-          href: articles/dictionary_snap_counts.html
-        - text: Fantasy Player IDs
-          href: articles/dictionary_ff_playerids.html
-        - text: Fantasy Rankings
-          href: articles/dictionary_ff_rankings.html
-        - text: Next Gen Stats
-          href: articles/dictionary_nextgen_stats.html
-        - text: PFR Advanced Stats
-          href: articles/dictionary_pfr_passing.html
-        - text: Draft Picks
-          href: articles/dictionary_draft_picks.html
-        - text: ESPN QBR
-          href: articles/dictionary_espn_qbr.html
-        - text: Combine
-          href: articles/dictionary_combine.html
-        - text: Injuries
-          href: articles/dictionary_injuries.html
-        - text: Depth Charts
-          href: articles/dictionary_depth_charts.html
-        - text: Trades
-          href: articles/dictionary_trades.html
-        - text: Contracts
-          href: articles/dictionary_contracts.html
-        - text: FTN Charting
-          href: articles/dictionary_ftn_charting.html
-
     more:
       text: "Packages & More"
       menu:
@@ -157,6 +117,13 @@ navbar:
         - text: ffverse
         - text: "ffverse.com"
           href: https://www.ffverse.com
+
+articles:
+  - title: Dictionaries
+    contents: starts_with("dictionary")
+  - title: Other
+    contents: 
+      - "exporting_nflreadr"
 
 template:
   bootstrap: 5
