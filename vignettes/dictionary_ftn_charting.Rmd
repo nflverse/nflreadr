@@ -1,0 +1,20 @@
+---
+title: "Data Dictionary - FTN Charting"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Data Dictionary - FTN Charting}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  comment = "#>"
+)
+```
+
+```{r}
+knitr::kable(nflreadr::dictionary_ftn_charting)
+```

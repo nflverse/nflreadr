@@ -1,0 +1,29 @@
+field_name,field_type,ftn_field_name,order,description
+ftn_game_id,numeric,gid,1,FTN game ID
+nflverse_game_id,character,game_id,2,"Game ID used by nflverse - built from season, week, home, and away teams"
+season,numeric,year,3,NFL season starting year. Data is currently available from 2022 onwards.
+week,numeric,week,4,NFL week number.
+ftn_play_id,numeric,pid,5,FTN play ID
+nflverse_play_id,numeric,play_id,6,"Play ID used by nflverse, corresponds to GSIS play ID"
+starting_hash,character,hash,7,"hash the ball was place(L = left, M = middle, R = right)"
+qb_location,character,qb_pos,8,"pre-snap position of quarterback(U = under center, S = shotgun, P = pistol)"
+n_offense_backfield,numeric,back,9,number of players in the backfield at the snap
+is_no_huddle,logical,nh,10,no huddle
+is_motion,logical,mot,11,motion occurred on the play before or at the time of the snap
+is_play_action,logical,pap,12,play-action pass
+is_screen_pass,logical,scre,13,screen pass
+is_rpo,logical,rpo,14,play is considered run-pass option
+is_trick_play,logical,trick,15,trick play
+is_qb_out_of_pocket,logical,oop,16,quarterback moved out of pocket
+is_interception_worthy,logical,intw,17,interception worthy pass
+is_throw_away,logical,qbta,18,quarterback thrown away
+read_thrown,character,read,19,read the ball was thrown
+is_catchable_ball,logical,cball,20,catchable ball(defined by throws that are generally on target that are not defended away)
+is_contested_ball,logical,cnb,21,contested ball(defined by whether or not the receiver is facing physical contact at the time of the catch)
+is_created_reception,logical,crr,22,created reception(defined by a reception that only occurs due to an exceptional play by the receiver)
+is_drop,logical,drp,23,receiver drop
+is_qb_sneak,logical,sneak,24,quarterback sneak
+n_blitzers,numeric,blz,25,number of blitzers
+n_pass_rushers,numeric,pru,26,number of pass rushers
+is_qb_fault_sack,logical,qbsk,27,sack that is the fault of the quarterback
+date_pulled,POSIXct,date_pulled,28,Date the data was retrieved from the FTN Data API by nflverse jobs
