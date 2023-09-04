@@ -26,6 +26,7 @@ print.nflverse_data <- function(x,...){
 }
 
 #' @export
+#' @aliases make_nflverse_data
 #' @rdname nflverse_data-class
 as.nflverse_data <- function(df, nflverse_type = NULL, ...){
 
@@ -50,5 +51,4 @@ as.nflverse_data <- function(df, nflverse_type = NULL, ...){
   return(df)
 }
 
-#' @export
 make_nflverse_data <- as.nflverse_data
