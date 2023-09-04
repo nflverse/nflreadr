@@ -24,6 +24,7 @@ reference:
   - "load_pfr_advstats"
   - "load_snap_counts"
   - "load_contracts"
+  - "load_ftn_charting"
   - "nflverse_download"
   - "nflverse_releases"
 - title: Load ffverse data
@@ -102,7 +103,7 @@ navbar:
         - text: Player Stats
           href: articles/dictionary_player_stats.html
         - text: Participation
-          href: articles/dictionary_participation.html          
+          href: articles/dictionary_participation.html
         - text: Rosters
           href: articles/dictionary_rosters.html
         - text: Schedules
@@ -131,6 +132,8 @@ navbar:
           href: articles/dictionary_trades.html
         - text: Contracts
           href: articles/dictionary_contracts.html
+        - text: FTN Charting
+          href: articles/dictionary_ftn_charting.html
 
     more:
       text: "Packages & More"
@@ -168,7 +171,6 @@ template:
       alt: "nflreadr social preview card"
     twitter:
       creator: "@_TanHo"
-      site: "@nflfastR"
       card: summary_large_image
 
 #development:
