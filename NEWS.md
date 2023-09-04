@@ -1,22 +1,39 @@
-# nflreadr (development version)
+# nflreadr 1.4.0
 
-## Changes
+This release addresses bugs, improves some utilities, and adds a few new datasets.
 
+## New Datasets
+
+- `load_player_stats(stat_type = "defense")` added to provide defensive player stats
+as computed by `nflfastR::calculate_player_stats_def()` (#200) It also comes with 
+a data dictionary, courtesy of @mpcen (#192)
+- `load_ftn_charting()` adds manual charting data for 2022-onwards, graciously 
+provided by <https://ftndata.com>. This should automatically be updated when published
+by FTN, and the early indication is that it will be within 48 hours after a game 
+has finished. 
+
+## Function Improvements
+
+- `nflverse_sitrep()` and friends overhauled: 
+   - now returns a list of sitrep attributes rather than only printing to console (for programmatic use)
+   - now checks CRAN and r-universe to tell you if your installation is behind cran or devel
+   - now handles dependencies for nflverse/ffverse packages that are not on CRAN
 - `nflreadr::most_recent_season()` and aliases `get_latest_season`, `get_current_season` 
 etc now use March 15th as the changeover for league year. Hopefully this is not
-a moving target 🙃 (1.3.2.01)
-- `nflreadr::clean_homeaway()` now handles columns with suffixes `_home` and `_away` (1.3.2.02)
-- `nflreadr::most_recent_season(roster = TRUE)` and aliases `get_latest_season`, `get_current_season` 
-etc falsely returned last season after March 15th early in the month. (1.3.2.03)
+a moving target 🙃
+- `nflreadr::clean_homeaway()` now handles columns with suffixes `_home` and `_away`
+- `nflreadr::nflverse_game_id()` now accepts old team abbreviations and outputs useful errors. 
+- Added `.for_cran()` to limit parallelization in CRAN examples and tests
+- `make_nflverse_data_class()` now uses `data.table::setattr()` to preserve data.table pointer
+
+## Dictionary updates
 - Clarified description of the `"special"` variable in the play-by-play data dictionary. (1.3.2.04) (#189)
-- `nflreadr::nflverse_game_id()` accepts old team abbreviations and outputs useful errors. (1.3.2.05) (#191)
-- Added `dictionary_player_stats_def` (thank you @mpcen!) (1.3.2.06) (#192)
-- Added `.for_cran()` to limit parallelization in CRAN examples and tests (1.3.2.07)
-- `nflverse_sitrep()` and friends now return a list of sitrep attributes instead of just printing to console.
-- `make_nflverse_data_class()` now uses `data.table::setattr()` to set attributes and retain data.table pointer (v1.3.2.08)
-- `nflreadr::load_player_stats()` now accepts `stat_type = "defense"` and loads defensive player stats computed with `nflfastR::calculate_player_stats_def()`. (v1.3.2.09) (#200)
-- `nflverse_sitrep()` and friends now check CRAN and r-universe versions of packages (v1.3.2.10) (#206)
-- `load_ftn_charting()` adds charting data provided by FTNData.com (v1.3.2.11)
+
+
+Thank you to   [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;alecglen](https://github.com/alecglen), [&#x0040;andycancapital](https://github.com/andycancapital), [&#x0040;bullaspc](https://github.com/bullaspc), [&#x0040;mcarman8](https://github.com/mcarman8), [&#x0040;mpcen](https://github.com/mpcen), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;tanho63](https://github.com/tanho63), [&#x0040;tashapiro](https://github.com/tashapiro), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) 
+for their questions, feedback, and contributions to this release
+
+--
 
 # nflreadr 1.3.2
 
