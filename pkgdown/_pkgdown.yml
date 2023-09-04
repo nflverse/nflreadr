@@ -126,7 +126,7 @@ articles:
     contents: starts_with("dictionary")
   - title: Other
     contents: 
-      - "nflverse_data_schedule"
+      - "articles/nflverse_data_schedule"
       - "exporting_nflreadr"
 
 template:
