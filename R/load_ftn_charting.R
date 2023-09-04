@@ -21,7 +21,7 @@
 #'
 #' @return Precomputed expected fantasy points data from the ffopportunity automated releases.
 #'
-#' @seealso <https://ftndata.com>
+#' @seealso <https://www.ftndata.com>
 #' @seealso `vignette("Data Dictionary - FTN Charting")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html> for the web data dictionary
 #' @family ftn_charting
