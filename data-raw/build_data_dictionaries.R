@@ -24,6 +24,10 @@ dictionary_ff_opportunity <- read.csv("data-raw/dictionary_ffopps.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_ff_opportunity, overwrite = TRUE)
 
+dictionary_ftn_charting <- read.csv("data-raw/dictionary_ftn_charting.csv") |>
+  dplyr::mutate_all(stringr::str_squish)
+usethis::use_data(dictionary_ftn_charting, overwrite = TRUE)
+
 dictionary_rosters <- read.csv("data-raw/dictionary_rosters.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_rosters, overwrite = TRUE)
