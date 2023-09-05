@@ -1,3 +1,11 @@
+# nflreadr (development version)
+
+## Changelog
+
+- `%c%` internal helper now uses `data.table::fifelse()` to avoid falsely converting dates to integers. (#214)
+
+---
+
 # nflreadr 1.4.0
 
 This release addresses bugs, improves some utilities, and adds a few new datasets.
@@ -27,13 +35,13 @@ a moving target 🙃
 - `make_nflverse_data_class()` now uses `data.table::setattr()` to preserve data.table pointer
 
 ## Dictionary updates
-- Clarified description of the `"special"` variable in the play-by-play data dictionary. (1.3.2.04) (#189)
-
+- Clarified description of the `"special"` variable in the play-by-play data dictionary. (#189)
 
 Thank you to   [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;alecglen](https://github.com/alecglen), [&#x0040;andycancapital](https://github.com/andycancapital), [&#x0040;bullaspc](https://github.com/bullaspc), [&#x0040;mcarman8](https://github.com/mcarman8), [&#x0040;mpcen](https://github.com/mpcen), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;tanho63](https://github.com/tanho63), [&#x0040;tashapiro](https://github.com/tashapiro), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) 
 for their questions, feedback, and contributions to this release
 
 --
+
 
 # nflreadr 1.3.2
 

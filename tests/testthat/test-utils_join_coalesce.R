@@ -27,3 +27,18 @@ test_that("join coalesce function works", {
   expect_equal(nrow(full1), 13) # 13 rows on full join
 
 })
+
+# join_coalesce converted dates to integers because of the usage
+# of ifelse in %c%. https://github.com/nflverse/nflreadr/issues/213
+test_that("%c% keeps dates as dates", {
+  d1 <- as.Date(c("1998-05-01",
+                  "1997-12-12",
+                  NA_character_))
+  d2 <- as.Date(c("1995-01-31",
+                  NA_character_,
+                  "1997-12-12"))
+  expect_identical(
+    d1 %c% d2,
+    as.Date(c("1998-05-01", "1997-12-12", "1997-12-12"))
+  )
+})
