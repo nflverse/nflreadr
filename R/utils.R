@@ -11,7 +11,7 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 NULL
 
 `%c%` <- function(x,y){
-  ifelse(!is.na(x),x,y)
+  data.table::fifelse(!is.na(x), x, y)
 }
 
 #' rbindlist but maintain attributes of last file
