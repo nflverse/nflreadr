@@ -25,7 +25,10 @@ print.nflverse_data <- function(x,...){
   invisible(x)
 }
 
-make_nflverse_data <- function(df, nflverse_type = NULL, ...){
+#' @export
+#' @aliases make_nflverse_data
+#' @rdname nflverse_data-class
+as.nflverse_data <- function(df, nflverse_type = NULL, ...){
 
   df <- data.table::as.data.table(df)
   data.table::setattr(df, "class",  c("nflverse_data", "tbl_df", "tbl", "data.table","data.frame"))
@@ -47,3 +50,5 @@ make_nflverse_data <- function(df, nflverse_type = NULL, ...){
 
   return(df)
 }
+
+make_nflverse_data <- as.nflverse_data

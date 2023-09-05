@@ -32,7 +32,7 @@ Creative Commons license and attribution must be made to \strong{FTN Data via nf
 
 }
 \seealso{
-\url{https://ftndata.com}
+\url{https://www.ftndata.com}
 
 \code{vignette("Data Dictionary - FTN Charting")}
 

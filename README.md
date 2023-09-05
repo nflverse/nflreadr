@@ -61,51 +61,46 @@ library(nflreadr)
 
 load_pbp(2021)
 #> ── nflverse play by play data ──────────────────────────────────────────────────
-#> ℹ Data updated: 2022-09-27 07:35:02 EDT
+#> ℹ Data updated: 2022-09-27 04:35:02 PDT
 #> # A tibble: 50,712 × 372
-#>    play_id game_id old_g…¹ home_…² away_…³ seaso…⁴  week posteam poste…⁵ defteam
-#>      <dbl> <chr>   <chr>   <chr>   <chr>   <chr>   <int> <chr>   <chr>   <chr>  
-#>  1       1 2021_0… 202109… TEN     ARI     REG         1 <NA>    <NA>    <NA>   
-#>  2      40 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    
-#>  3      55 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    
-#>  4      76 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    
-#>  5     100 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    
-#>  6     122 2021_0… 202109… TEN     ARI     REG         1 TEN     home    ARI    
-#>  7     152 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    
-#>  8     181 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    
-#>  9     218 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    
-#> 10     253 2021_0… 202109… TEN     ARI     REG         1 ARI     away    TEN    
-#> # … with 50,702 more rows, 362 more variables: side_of_field <chr>,
+#>    play_id game_id     old_game_id home_team away_team season_type  week posteam
+#>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
+#>  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 <NA>   
+#>  2      40 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  3      55 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  4      76 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  5     100 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  6     122 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  7     152 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> # ℹ 50,702 more rows
+#> # ℹ 364 more variables: posteam_type <chr>, defteam <chr>, side_of_field <chr>,
 #> #   yardline_100 <dbl>, game_date <chr>, quarter_seconds_remaining <dbl>,
 #> #   half_seconds_remaining <dbl>, game_seconds_remaining <dbl>,
-#> #   game_half <chr>, quarter_end <dbl>, drive <dbl>, sp <dbl>, …, and
-#> #   abbreviated variable names ¹​old_game_id, ²​home_team, ³​away_team,
-#> #   ⁴​season_type, ⁵​posteam_type
-#> # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
+#> #   game_half <chr>, quarter_end <dbl>, …
 
 load_player_stats(2021)
 #> ── nflverse player stats: offense ──────────────────────────────────────────────
-#> ℹ Data updated: 2023-01-05 04:08:21 EST
+#> ℹ Data updated: 2023-02-28 01:26:47 PST
 #> # A tibble: 5,698 × 52
-#>    player…¹ playe…² playe…³ posit…⁴ posit…⁵ heads…⁶ recen…⁷ season  week seaso…⁸
-#>    <chr>    <chr>   <chr>   <chr>   <chr>   <chr>   <chr>    <int> <int> <chr>  
-#>  1 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     1 REG    
-#>  2 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     2 REG    
-#>  3 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     3 REG    
-#>  4 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     4 REG    
-#>  5 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     5 REG    
-#>  6 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     6 REG    
-#>  7 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     7 REG    
-#>  8 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021     8 REG    
-#>  9 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021    10 REG    
-#> 10 00-0019… T.Brady Tom Br… QB      QB      https:… TB        2021    11 REG    
-#> # … with 5,688 more rows, 42 more variables: completions <int>, attempts <int>,
-#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, sacks <dbl>,
-#> #   sack_yards <dbl>, sack_fumbles <int>, sack_fumbles_lost <int>,
-#> #   passing_air_yards <dbl>, …, and abbreviated variable names ¹​player_id,
-#> #   ²​player_name, ³​player_display_name, ⁴​position, ⁵​position_group,
-#> #   ⁶​headshot_url, ⁷​recent_team, ⁸​season_type
-#> # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names
+#>    player_id  player_name player_display_name position position_group
+#>    <chr>      <chr>       <chr>               <chr>    <chr>         
+#>  1 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  2 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  3 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  4 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  5 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  6 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  7 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  8 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  9 00-0019596 T.Brady     Tom Brady           QB       QB            
+#> 10 00-0019596 T.Brady     Tom Brady           QB       QB            
+#> # ℹ 5,688 more rows
+#> # ℹ 47 more variables: headshot_url <chr>, recent_team <chr>, season <int>,
+#> #   week <int>, season_type <chr>, completions <int>, attempts <int>,
+#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, …
 ```
 
 ## Data Sources
