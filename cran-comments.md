@@ -1,14 +1,14 @@
 ## SUBMISSION
 
-Resolves test failure.
+This release addresses bugs, improves some utilities, and adds a few new datasets.
 
 ## Test environments
-* local windows R installation,     R 4.2.0
-* windows      (on GitHub Actions), R 4.2.1
-* macOS        (on GitHub Actions), R 4.2.1
-* ubuntu 20.04 (on GitHub Actions), R 4.2.1
-* ubuntu 20.04 (on GitHub Actions), R 3.6.0
-* ubuntu 20.04 (on GitHub Actions), R devel
+* local windows R installation,     R 4.3.0
+* windows      (on GitHub Actions), R 4.3.1
+* macOS        (on GitHub Actions), R 4.3.1
+* ubuntu 22.04 (on GitHub Actions), R 4.3.1
+* ubuntu 22.04 (on GitHub Actions), R 3.6.0
+* ubuntu 22.04 (on GitHub Actions), R devel
 
 ## R CMD check results
 
@@ -16,7 +16,7 @@ Resolves test failure.
 
 ## Reverse dependencies
 
-We checked 7 reverse dependencies (7 from CRAN + 0 from Bioconductor), 
+We checked 9 reverse dependencies (7 from CRAN, 2 from r-universe, 0 from Bioconductor), 
 comparing R CMD check results across CRAN and dev versions of this package.
 
  * We saw 0 new problems

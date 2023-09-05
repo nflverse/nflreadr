@@ -1,6 +1,6 @@
 test_that("sitrep works", {
   skip_on_cran()
-  nflreadr_sitrep <- .sitrep("nflreadr", recursive = FALSE)
+  nflreadr_sitrep <- .sitrep(c("nflreadr","data.table"), recursive = FALSE)
   expect_named(
     nflreadr_sitrep,
     c("system_info", "installed", "dependencies", "package_options",

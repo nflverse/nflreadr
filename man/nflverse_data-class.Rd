@@ -2,7 +2,12 @@
 % Please edit documentation in R/utils_nflverse_data_class.R
 \name{nflverse_data-class}
 \alias{nflverse_data-class}
+\alias{as.nflverse_data}
+\alias{make_nflverse_data}
 \title{nflverse data class}
+\usage{
+as.nflverse_data(df, nflverse_type = NULL, ...)
+}
 \description{
 This class has a special S3 print method that tries to read attached metadata and
 provide timestamps and source attributes. It otherwise will dispatch to the
