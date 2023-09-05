@@ -17,6 +17,7 @@ etc falsely returned last season after March 15th early in the month. (1.3.2.03)
 - `nflreadr::load_player_stats()` now accepts `stat_type = "defense"` and loads defensive player stats computed with `nflfastR::calculate_player_stats_def()`. (v1.3.2.09) (#200)
 - `nflverse_sitrep()` and friends now check CRAN and r-universe versions of packages (v1.3.2.10) (#206)
 - `load_ftn_charting()` adds charting data provided by FTNData.com (v1.3.2.11)
+- Fix internal helper that falsely converted dates to integers. (#214)
 
 # nflreadr 1.3.2
 
