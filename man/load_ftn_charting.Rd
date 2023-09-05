@@ -14,7 +14,7 @@ load_ftn_charting(seasons = most_recent_season())
 If set to \code{TRUE}, returns all available data. Data available from 2022 onwards.}
 }
 \value{
-Precomputed expected fantasy points data from the ffopportunity automated releases.
+Play-level manual charting data from FTN Data
 }
 \description{
 FTN Data manually charts plays and has graciously provided a subset of their

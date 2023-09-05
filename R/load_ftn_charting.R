@@ -19,7 +19,7 @@
 #'   })
 #' }
 #'
-#' @return Precomputed expected fantasy points data from the ffopportunity automated releases.
+#' @return Play-level manual charting data from FTN Data
 #'
 #' @seealso <https://www.ftndata.com>
 #' @seealso `vignette("Data Dictionary - FTN Charting")`
