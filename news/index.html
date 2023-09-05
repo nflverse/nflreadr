@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,31 +21,8 @@
       <ul class="navbar-nav me-auto"><li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Functions</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-dictionaries">Dictionaries</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-dictionaries">
-    <a class="dropdown-item" href="../articles/dictionary_pbp.html">Play by Play</a>
-    <a class="dropdown-item" href="../articles/dictionary_player_stats.html">Player Stats</a>
-    <a class="dropdown-item" href="../articles/dictionary_participation.html">Participation</a>
-    <a class="dropdown-item" href="../articles/dictionary_rosters.html">Rosters</a>
-    <a class="dropdown-item" href="../articles/dictionary_schedules.html">Schedules</a>
-    <a class="dropdown-item" href="../articles/dictionary_snap_counts.html">Snap Counts</a>
-    <a class="dropdown-item" href="../articles/dictionary_ff_playerids.html">Fantasy Player IDs</a>
-    <a class="dropdown-item" href="../articles/dictionary_ff_rankings.html">Fantasy Rankings</a>
-    <a class="dropdown-item" href="../articles/dictionary_nextgen_stats.html">Next Gen Stats</a>
-    <a class="dropdown-item" href="../articles/dictionary_pfr_passing.html">PFR Advanced Stats</a>
-    <a class="dropdown-item" href="../articles/dictionary_draft_picks.html">Draft Picks</a>
-    <a class="dropdown-item" href="../articles/dictionary_espn_qbr.html">ESPN QBR</a>
-    <a class="dropdown-item" href="../articles/dictionary_combine.html">Combine</a>
-    <a class="dropdown-item" href="../articles/dictionary_injuries.html">Injuries</a>
-    <a class="dropdown-item" href="../articles/dictionary_depth_charts.html">Depth Charts</a>
-    <a class="dropdown-item" href="../articles/dictionary_trades.html">Trades</a>
-    <a class="dropdown-item" href="../articles/dictionary_contracts.html">Contracts</a>
-    <a class="dropdown-item" href="../articles/dictionary_ftn_charting.html">FTN Charting</a>
-  </div>
-</li>
 <li class="nav-item">
-  <a class="nav-link" href="../articles/index.html">Vignettes</a>
+  <a class="nav-link" href="../articles/index.html">Articles &amp; Dictionaries</a>
 </li>
 <li class="active nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -93,31 +70,40 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.4.0" id="nflreadr-140">nflreadr 1.4.0<a class="anchor" aria-label="anchor" href="#nflreadr-140"></a></h2><p class="text-muted">CRAN release: 2023-09-05</p>
+<p>This release addresses bugs, improves some utilities, and adds a few new datasets.</p>
 <div class="section level3">
-<h3 id="changes-development-version">Changes<a class="anchor" aria-label="anchor" href="#changes-development-version"></a></h3>
+<h3 id="new-datasets-1-4-0">New Datasets<a class="anchor" aria-label="anchor" href="#new-datasets-1-4-0"></a></h3>
 <ul><li>
-<code><a href="../reference/latest_season.html">nflreadr::most_recent_season()</a></code> and aliases <code>get_latest_season</code>, <code>get_current_season</code> etc now use March 15th as the changeover for league year. Hopefully this is not a moving target 🙃 (1.3.2.01)</li>
+<code>load_player_stats(stat_type = "defense")</code> added to provide defensive player stats as computed by <code>nflfastR::calculate_player_stats_def()</code> (<a href="https://github.com/nflverse/nflreadr/issues/200" class="external-link">#200</a>) It also comes with a data dictionary, courtesy of <a href="https://github.com/mpcen" class="external-link">@mpcen</a> (<a href="https://github.com/nflverse/nflreadr/issues/192" class="external-link">#192</a>)</li>
 <li>
-<code><a href="../reference/clean_homeaway.html">nflreadr::clean_homeaway()</a></code> now handles columns with suffixes <code>_home</code> and <code>_away</code> (1.3.2.02)</li>
-<li>
-<code>nflreadr::most_recent_season(roster = TRUE)</code> and aliases <code>get_latest_season</code>, <code>get_current_season</code> etc falsely returned last season after March 15th early in the month. (1.3.2.03)</li>
-<li>Clarified description of the <code>"special"</code> variable in the play-by-play data dictionary. (1.3.2.04) (<a href="https://github.com/nflverse/nflreadr/issues/189" class="external-link">#189</a>)</li>
-<li>
-<code><a href="../reference/nflverse_game_id.html">nflreadr::nflverse_game_id()</a></code> accepts old team abbreviations and outputs useful errors. (1.3.2.05) (<a href="https://github.com/nflverse/nflreadr/issues/191" class="external-link">#191</a>)</li>
-<li>Added <code>dictionary_player_stats_def</code> (thank you <a href="https://github.com/mpcen" class="external-link">@mpcen</a>!) (1.3.2.06) (<a href="https://github.com/nflverse/nflreadr/issues/192" class="external-link">#192</a>)</li>
-<li>Added <code><a href="../reference/dot-for_cran.html">.for_cran()</a></code> to limit parallelization in CRAN examples and tests (1.3.2.07)</li>
-<li>
-<code><a href="../reference/sitrep.html">nflverse_sitrep()</a></code> and friends now return a list of sitrep attributes instead of just printing to console.</li>
-<li>
-<code>make_nflverse_data_class()</code> now uses <code><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">data.table::setattr()</a></code> to set attributes and retain data.table pointer (v1.3.2.08)</li>
-<li>
-<code><a href="../reference/load_player_stats.html">nflreadr::load_player_stats()</a></code> now accepts <code>stat_type = "defense"</code> and loads defensive player stats computed with <code>nflfastR::calculate_player_stats_def()</code>. (v1.3.2.09) (<a href="https://github.com/nflverse/nflreadr/issues/200" class="external-link">#200</a>)</li>
-<li>
-<code><a href="../reference/sitrep.html">nflverse_sitrep()</a></code> and friends now check CRAN and r-universe versions of packages (v1.3.2.10) (<a href="https://github.com/nflverse/nflreadr/issues/206" class="external-link">#206</a>)</li>
-<li>
-<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds charting data provided by FTNData.com (v1.3.2.11)</li>
+<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds manual charting data for 2022-onwards, graciously provided by <a href="https://www.ftndata.com/" class="external-link">FTN Data</a>. This should automatically be updated when published by FTN, and the early indication is that it will be within 48 hours after a game has finished.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="function-improvements-1-4-0">Function Improvements<a class="anchor" aria-label="anchor" href="#function-improvements-1-4-0"></a></h3>
+<ul><li>
+<code><a href="../reference/sitrep.html">nflverse_sitrep()</a></code> and friends overhauled:
+<ul><li>now returns a list of sitrep attributes rather than only printing to console (for programmatic use)</li>
+<li>now checks CRAN and r-universe to tell you if your installation is behind cran or devel</li>
+<li>now handles dependencies for nflverse/ffverse packages that are not on CRAN</li>
+</ul></li>
+<li>
+<code><a href="../reference/latest_season.html">nflreadr::most_recent_season()</a></code> and aliases <code>get_latest_season</code>, <code>get_current_season</code> etc now use March 15th as the changeover for league year. Hopefully this is not a moving target 🙃</li>
+<li>
+<code><a href="../reference/clean_homeaway.html">nflreadr::clean_homeaway()</a></code> now handles columns with suffixes <code>_home</code> and <code>_away</code>
+</li>
+<li>
+<code><a href="../reference/nflverse_game_id.html">nflreadr::nflverse_game_id()</a></code> now accepts old team abbreviations and outputs useful errors.</li>
+<li>Added <code><a href="../reference/dot-for_cran.html">.for_cran()</a></code> to limit parallelization in CRAN examples and tests</li>
+<li>
+<code>make_nflverse_data_class()</code> now uses <code><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">data.table::setattr()</a></code> to preserve data.table pointer</li>
+</ul></div>
+<div class="section level3">
+<h3 id="dictionary-updates-1-4-0">Dictionary updates<a class="anchor" aria-label="anchor" href="#dictionary-updates-1-4-0"></a></h3>
+<ul><li>Clarified description of the <code>"special"</code> variable in the play-by-play data dictionary. (1.3.2.04) (<a href="https://github.com/nflverse/nflreadr/issues/189" class="external-link">#189</a>)</li>
+</ul><p>Thank you to <a href="https://github.com/ak47twq" class="external-link">@ak47twq</a>, <a href="https://github.com/alecglen" class="external-link">@alecglen</a>, <a href="https://github.com/andycancapital" class="external-link">@andycancapital</a>, <a href="https://github.com/bullaspc" class="external-link">@bullaspc</a>, <a href="https://github.com/mcarman8" class="external-link">@mcarman8</a>, <a href="https://github.com/mpcen" class="external-link">@mpcen</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, <a href="https://github.com/tashapiro" class="external-link">@tashapiro</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their questions, feedback, and contributions to this release</p>
+<p>–</p>
+</div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.2" id="nflreadr-132">nflreadr 1.3.2<a class="anchor" aria-label="anchor" href="#nflreadr-132"></a></h2><p class="text-muted">CRAN release: 2023-01-06</p>
