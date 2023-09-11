@@ -3,6 +3,7 @@
 ## Changelog
 
 - `%c%` internal helper now uses `data.table::fifelse()` to avoid falsely converting dates to integers. (#214)
+- `load_schedules()` cleans the `roof` variable in order to avoid nflverse model issues. (#218)
 
 ---
 
