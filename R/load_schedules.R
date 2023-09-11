@@ -25,5 +25,12 @@ load_schedules <- function(seasons = TRUE){
                        seasons = seasons,
                        nflverse = TRUE,
                        nflverse_type = "games and schedules")
+  # nflfastR and nfl4th use the "roof" variable in several models
+  # These models expect one of c("indoors", "closed", "outdoors", "open", "retractable") or NA
+  # We ran into problems where roof was empty or something else several time
+  # So we catch these cases here and change invalid data to NA
+  valid_roof_values <- c("indoors", "closed", "dome", "outdoors", "open", "retractable", NA_character_)
+  out$roof[!out$roof %in% valid_roof_values] <- NA_character_
+
   return(out)
 }
