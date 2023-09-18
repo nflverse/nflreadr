@@ -12,7 +12,7 @@ starting with the 2018 season, primarily to augment existing nflverse data."><me
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.03</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.04</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,15 +127,27 @@ starting with the 2018 season, primarily to augment existing nflverse data.</p>
 <span class="r-in"><span>  <span class="fu">load_pfr_advstats</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse advanced pass weekly stats via PFR</span> ─────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-09-03 07:22:55 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 24</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24 variables: game_id &lt;chr&gt;, pfr_game_id &lt;chr&gt;, season &lt;int&gt;, week &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   game_type &lt;chr&gt;, team &lt;lgl&gt;, opponent &lt;lgl&gt;, pfr_player_name &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pfr_player_id &lt;chr&gt;, passing_drops &lt;dbl&gt;, passing_drop_pct &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   receiving_drop &lt;dbl&gt;, receiving_drop_pct &lt;dbl&gt;, passing_bad_throws &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;, times_blitzed &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;, times_pressured &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_pressured_pct &lt;dbl&gt;, def_times_blitzed &lt;dbl&gt;, …</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-09-18 07:15:12 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 39 × 24</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2023_01_DE… 202309070k…   <span style="text-decoration: underline;">2</span>023     1 REG       KC    DET      Patrick Mahomes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2023_01_DE… 202309070k…   <span style="text-decoration: underline;">2</span>023     1 REG       DET   KC       Jared Goff     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2023_01_CA… 202309100a…   <span style="text-decoration: underline;">2</span>023     1 REG       ATL   CAR      Desmond Ridder </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2023_01_CA… 202309100a…   <span style="text-decoration: underline;">2</span>023     1 REG       CAR   ATL      Bryce Young    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2023_01_HO… 202309100r…   <span style="text-decoration: underline;">2</span>023     1 REG       BAL   HOU      Lamar Jackson  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2023_01_HO… 202309100r…   <span style="text-decoration: underline;">2</span>023     1 REG       HOU   BAL      C.J. Stroud    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2023_01_CI… 202309100c…   <span style="text-decoration: underline;">2</span>023     1 REG       CLE   CIN      Deshaun Watson </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2023_01_CI… 202309100c…   <span style="text-decoration: underline;">2</span>023     1 REG       CIN   CLE      Joe Burrow     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2023_01_CI… 202309100c…   <span style="text-decoration: underline;">2</span>023     1 REG       CIN   CLE      Jake Browning  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2023_01_JA… 202309100c…   <span style="text-decoration: underline;">2</span>023     1 REG       IND   JAX      Anthony Richar…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 29 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: pfr_player_id &lt;chr&gt;, passing_drops &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_drop_pct &lt;dbl&gt;, receiving_drop &lt;dbl&gt;, receiving_drop_pct &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_bad_throws &lt;dbl&gt;, passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_blitzed &lt;dbl&gt;, times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_pressured &lt;dbl&gt;, times_pressured_pct &lt;dbl&gt;, def_times_blitzed &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   def_times_hurried &lt;dbl&gt;, def_times_hitqb &lt;dbl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

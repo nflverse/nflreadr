@@ -14,7 +14,7 @@ used internally within nflverse to help build player IDs"><meta property="og:ima
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.03</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.04</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -130,7 +130,7 @@ used internally within nflverse to help build player IDs</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>a data.table joining x and y dataframes together, with every column from
+<p>a data.frame joining x and y dataframes together, with every column from
 both x and y and patching NA values in x with those in y.</p>
     </div>
 
@@ -143,44 +143,44 @@ both x and y and patching NA values in x with those in y.</p>
 <span class="r-in"><span><span class="fu">join_coalesce</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id1"</span><span class="op">=</span><span class="st">"id2"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Join `by` keys in x have NAs</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Join `by` keys in y have NAs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     id1  a  b   c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:    a NA 20  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:    b  3 30  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:    c -1 40 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:    d  5 50 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: &lt;NA&gt;  1 10  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id1  a  b   c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    a NA 20  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    b  3 30  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    c -1 40 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    d  5 50 200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 &lt;NA&gt;  1 10  NA</span>
 <span class="r-in"><span><span class="fu">join_coalesce</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, by.x <span class="op">=</span> <span class="st">"id1"</span>, by.y <span class="op">=</span> <span class="st">"id2"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Join `by` keys in x have NAs</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Join `by` keys in y have NAs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     id1  a  b   c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:    a NA 20  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:    b  3 30  NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:    c -1 40 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:    d  5 50 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: &lt;NA&gt;  1 10  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id1  a  b   c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    a NA 20  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    b  3 30  NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    c -1 40 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    d  5 50 200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 &lt;NA&gt;  1 10  NA</span>
 <span class="r-in"><span><span class="fu">join_coalesce</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id1"</span><span class="op">=</span><span class="st">"id2"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"inner"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Join `by` keys in x have NAs</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Join `by` keys in y have NAs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id1  a  b   c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   c -1 40 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   d  5 50 200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id1  a  b   c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   c -1 40 100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   d  5 50 200</span>
 <span class="r-in"><span><span class="fu">join_coalesce</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id1"</span><span class="op">=</span><span class="st">"id2"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"full"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Join `by` keys in x have NAs</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> Join `by` keys in y have NAs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      id1   a  b    c</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1:    a  NA 20   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2:    b   3 30   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3:    c  -1 40  100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4:    d   5 50  200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5:    e  -3 NA  300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6:    f  -4 NA  400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7:    g  -5 NA  500</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8:    h  -6 NA  600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9:    i  -7 NA  700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10:    j  -8 NA  800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11:    k  -9 NA  900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: &lt;NA&gt;   1 10   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: &lt;NA&gt; -10 NA 1000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     id1   a  b    c</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     a  NA 20   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     b   3 30   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     c  -1 40  100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     d   5 50  200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     e  -3 NA  300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     f  -4 NA  400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     g  -5 NA  500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     h  -6 NA  600</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     i  -7 NA  700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    j  -8 NA  800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    k  -9 NA  900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 &lt;NA&gt;   1 10   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 &lt;NA&gt; -10 NA 1000</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
