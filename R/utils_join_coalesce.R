@@ -13,7 +13,7 @@
 #' @param sort whether to sort output by the join keys
 #' @param ... other args passed to `merge.data.frame()`
 #'
-#' @return a data.table joining x and y dataframes together, with every column from
+#' @return a data.frame joining x and y dataframes together, with every column from
 #' both x and y and patching NA values in x with those in y.
 #'
 #'
@@ -44,6 +44,8 @@ join_coalesce <- function(x, y, by = NULL,
     (is.character(by) && length(by) >= 1) ||
       (is.character(by.x) && is.character(by.y) && length(by.x) >= 1)
   )
+  x <- as.data.frame(x)
+  y <- as.data.frame(y)
 
   keys_x <- if (!is.null(by.x)) by.x else if(is.null(names(by))) by else ifelse(names(by) == "", by, names(by))
   keys_y <- if (!is.null(by.y)) by.y else by
@@ -90,5 +92,7 @@ join_coalesce <- function(x, y, by = NULL,
     data.table::set(merged_df, j = paste0(col, "..y"), value = NULL)
   }
 
-  return(merged_df[,c(keys_x,unique(joined_cols)), with = FALSE])
+  out <- merged_df[,c(keys_x,unique(joined_cols)), with = FALSE]
+  data.table::setDF(out)
+  return(out)
 }

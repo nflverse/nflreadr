@@ -33,7 +33,7 @@ join_coalesce(
 \item{incomparables}{keys to NOT match on, i.e. NA should not match on NA.}
 }
 \value{
-a data.table joining x and y dataframes together, with every column from
+a data.frame joining x and y dataframes together, with every column from
 both x and y and patching NA values in x with those in y.
 }
 \description{
