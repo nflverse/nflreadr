@@ -13,7 +13,10 @@ get_latest_season(roster = FALSE)
 get_current_season(roster = FALSE)
 }
 \arguments{
-\item{roster}{a TRUE/FALSE flag: if TRUE, returns the current year if March 15th or later. if FALSE, returns the current year if September 1st or later. Otherwise returns current year minus 1.}
+\item{roster}{Either \code{TRUE} or \code{FALSE}.
+If \code{TRUE}, will return current year after March 15th, otherwise previous year.
+If \code{FALSE}, will return current year on or after Thursday following Labor Day,
+i.e. Thursday after the first Monday in September. Otherwise previous year.}
 }
 \value{
 most recent season (a four digit numeric)
