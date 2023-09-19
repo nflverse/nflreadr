@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.04</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.05</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,10 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>roster</dt>
-<dd><p>a TRUE/FALSE flag: if TRUE, returns the current year if March 15th or later. if FALSE, returns the current year if September 1st or later. Otherwise returns current year minus 1.</p></dd>
+<dd><p>Either <code>TRUE</code> or <code>FALSE</code>.
+If <code>TRUE</code>, will return current year after March 15th, otherwise previous year.
+If <code>FALSE</code>, will return current year on or after Thursday following Labor Day,
+i.e. Thursday after the first Monday in September. Otherwise previous year.</p></dd>
 
 </dl></div>
     <div class="section level2">
