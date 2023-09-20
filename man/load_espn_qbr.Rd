@@ -5,20 +5,21 @@
 \title{Load ESPN's QBR}
 \usage{
 load_espn_qbr(
-  league = c("nfl", "college"),
   seasons = most_recent_season(),
-  summary_type = c("season", "weekly")
+  summary_type = c("season", "week"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{
-\item{league}{One of "nfl" or "college", defaults to "nfl"}
-
 \item{seasons}{a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.}
 
-\item{summary_type}{One of "season" or "weekly", defaults to season}
+\item{summary_type}{One of \code{"season"} or \code{"week"}, defaults to \code{"season"}}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
-a tibble of season-level injury report data.
+a tibble of ESPN QBR data, summarized according to \code{summary_type}
 }
 \description{
 Load ESPN's QBR
@@ -26,7 +27,7 @@ Load ESPN's QBR
 \examples{
 \dontshow{.for_cran()}
 \donttest{
-    load_espn_qbr("nfl",2020)
+    load_espn_qbr(2020)
 }
 
 }
