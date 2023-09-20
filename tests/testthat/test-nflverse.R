@@ -179,8 +179,8 @@ test_that("load_espn_qbr", {
   qbr_weekly <- load_espn_qbr(seasons = TRUE, summary_type = "week")
 
   expect_s3_class(qbr_default, "nflverse_data")
-  expect_s3_class(qbr_nfl_weekly, "nflverse_data")
-  expect_gt(nrow(qbr_nfl_weekly), 7500)
+  expect_s3_class(qbr_weekly, "nflverse_data")
+  expect_gt(nrow(qbr_weekly), 7500)
 })
 
 test_that("load_trades", {
