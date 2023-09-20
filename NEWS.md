@@ -6,6 +6,7 @@
 - `load_schedules()` cleans the `roof` variable in order to avoid nflverse model issues. (#218)
 - `join_coalesce()` coerces x/y args to data.frame and will return a data.frame
 - `most_recent_season()` now internally computes the exact day of the season opener (= Thursday after first Monday of September). (#221)
+- Internal changes to `load_espn_qbr()` to align with nflverse infrastructure design. Also dropped the argument "league" which used to allow loading of College QBR. That's outside of the nflverse scope. (#222)
 
 ---
 
