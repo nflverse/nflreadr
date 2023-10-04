@@ -69,7 +69,7 @@ test_that("load_schedules", {
 
   expect_gt(nrow(schedules), 6000)
 
-  valid_roof_values <- c("indoors", "closed", "dome", "outdoors", "open", "retractable", NA_character_)
+  valid_roof_values <- c("closed", "dome", "outdoors", "open", "retractable", NA_character_)
   expect_true(all(schedules$roof %in% valid_roof_values))
 
   expect_error(load_schedules("2020"))
