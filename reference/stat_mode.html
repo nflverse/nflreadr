@@ -12,7 +12,7 @@ vector. Returns the first match, if TRUE for multiple values."><meta property="o
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.08</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.09</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,15 +108,15 @@ vector. Returns the first match, if TRUE for multiple values.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">vector_numeric</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">15</span>, <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">vector_numeric</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 4 2 4 5 2 2 5 5 2 5 1 1 5 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 4 4 5 4 3 1 2 5 4 2 2 2 3 5 3</span>
 <span class="r-in"><span><span class="fu">stat_mode</span><span class="op">(</span><span class="va">vector_numeric</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">vector_character</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="fl">15</span>, <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">vector_character</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "B" "E" "A" "A" "C" "B" "E" "C" "B" "B" "D" "D" "E" "B" "D"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "D" "D" "D" "D" "E" "D" "D" "D" "D" "A" "E" "E" "C" "B" "A"</span>
 <span class="r-in"><span><span class="fu">stat_mode</span><span class="op">(</span><span class="va">vector_character</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "B"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "D"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

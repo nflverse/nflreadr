@@ -18,7 +18,7 @@ Creative Commons license and attribution must be made to FTN Data via nflverse">
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.08</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.09</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,7 +88,10 @@ Creative Commons license and attribution must be made to <strong>FTN Data via nf
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_ftn_charting</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fu"><a href="latest_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_ftn_charting</span><span class="op">(</span></span>
+<span>  seasons <span class="op">=</span> <span class="fu"><a href="latest_season.html">most_recent_season</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"nflreadr.prefer"</span>, default <span class="op">=</span> <span class="st">"rds"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -100,6 +103,11 @@ Creative Commons license and attribution must be made to <strong>FTN Data via nf
     <dl><dt>seasons</dt>
 <dd><p>a numeric vector of seasons to return, defaults to most recent season.
 If set to <code>TRUE</code>, returns all available data. Data available from 2022 onwards.</p></dd>
+
+
+<dt>file_type</dt>
+<dd><p>One of <code>c("rds", "qs", "csv", "parquet")</code>. Can also be set globally with
+<code>options(nflreadr.prefer)</code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -128,8 +136,8 @@ If set to <code>TRUE</code>, returns all available data. Data available from 202
 <span class="r-in"><span>  <span class="fu">load_ftn_charting</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse FTN Charting Data - please attribute to 'ftndata.com via nflverse'</span> ─</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-10-04 00:40:08 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,782 × 29</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-10-11 15:15:14 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 13,147 × 29</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ftn_game_id nflverse_game_id season  week ftn_play_id nflverse_play_id</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>        <span style="text-decoration: underline;">6</span>164 2023_01_DET_KC     <span style="text-decoration: underline;">2</span>023     1     1<span style="text-decoration: underline;">009</span>770               40</span>
@@ -142,7 +150,7 @@ If set to <code>TRUE</code>, returns all available data. Data available from 202
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>        <span style="text-decoration: underline;">6</span>164 2023_01_DET_KC     <span style="text-decoration: underline;">2</span>023     1     1<span style="text-decoration: underline;">009</span>777              194</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>        <span style="text-decoration: underline;">6</span>164 2023_01_DET_KC     <span style="text-decoration: underline;">2</span>023     1     1<span style="text-decoration: underline;">009</span>778              219</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        <span style="text-decoration: underline;">6</span>164 2023_01_DET_KC     <span style="text-decoration: underline;">2</span>023     1     1<span style="text-decoration: underline;">009</span>779              244</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10,772 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13,137 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23 more variables: starting_hash &lt;chr&gt;, qb_location &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   n_offense_backfield &lt;int&gt;, n_defense_box &lt;int&gt;, is_no_huddle &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_motion &lt;lgl&gt;, is_play_action &lt;lgl&gt;, is_screen_pass &lt;lgl&gt;, is_rpo &lt;lgl&gt;,</span></span>
