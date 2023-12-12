@@ -32,7 +32,8 @@ teams <- csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams
             "LAC","SD",
             "SD","SDC",
             "AFC", "AFC",
-            "NFC", "NFC"
+            "NFC", "NFC",
+            "NFL", "NFL"
             )
   ) %>%
   arrange(alternate)
