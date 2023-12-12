@@ -9,6 +9,7 @@
 - Internal changes to `load_espn_qbr()` to align with nflverse infrastructure design. Also dropped the argument "league" which used to allow loading of College QBR. That's outside of the nflverse scope. (#222)
 - Add new function `stat_mode()`, a re-export from nflfastR, which computes the statistical mode of a vector. (#224)
 - The function `load_ftn_charting()` now accepts the argument `file_type`. (#228)
+- The function `clean_team_abbrs()` now accepts the "team" name "NFL". (#231)
 
 ---
 
