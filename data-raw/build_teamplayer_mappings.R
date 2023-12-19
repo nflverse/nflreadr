@@ -13,7 +13,7 @@ usethis::use_data(player_name_mapping, overwrite = TRUE)
 
 teams <- csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams.csv") %>%
   dplyr::select(team,nfl, espn, pfr, pfflabel, fo) %>%
-  dplyr::pivot_longer(-team, names_to = NULL, values_to = "alternate") %>%
+  tidyr::pivot_longer(-team, names_to = NULL, values_to = "alternate") %>%
   dplyr::distinct() %>%
   dplyr::filter(alternate!="") %>%
   dplyr::bind_rows(
