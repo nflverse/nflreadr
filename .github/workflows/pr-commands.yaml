@@ -98,7 +98,7 @@ jobs:
         with:
           cache-version: 1
           extra-packages: |
-            any::usethis
+            any::devtools
             any::dplyr
             any::data.table
             any::tidyr
