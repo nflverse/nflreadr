@@ -13,7 +13,7 @@ offense_players,character,"A list of every offensive player on the field for the
 defense_players,character,"A list of every defensive player on the field for the play, by gsis_id"
 n_offense,integer,Number of offensive players on the field for the play
 n_defense,integer,Number of defensive players on the field for the play
-air_yards,double,Distance (in yards) that the ball traveled in the air on a given passing play
+ngs_air_yards,double,Distance (in yards) that the ball traveled in the air on a given passing play as tracked by NGS
 time_to_throw,double,Duration (in seconds) between the time of the ball being snapped and the time of release of a pass attempt
 was_pressure,logical,A boolean indicating whether or not the QB was pressured on a play
 defense_man_zone_type,character,A string indicating whether the defense was in man or zone coverage on a play
