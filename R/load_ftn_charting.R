@@ -8,6 +8,8 @@
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent season.
 #' If set to `TRUE`, returns all available data. Data available from 2022 onwards.
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' `options(nflreadr.prefer)`
 #'
 #' @author FTN Data
 #' @source FTNData.com
@@ -27,7 +29,8 @@
 #' @family ftn_charting
 #'
 #' @export
-load_ftn_charting <- function(seasons = most_recent_season()){
+load_ftn_charting <- function(seasons = most_recent_season(),
+                              file_type = getOption("nflreadr.prefer", default = "rds")){
 
   if(isTRUE(seasons)) seasons <- 2022:most_recent_season()
 
@@ -35,7 +38,9 @@ load_ftn_charting <- function(seasons = most_recent_season()){
             seasons >= 2022,
             seasons <= most_recent_season())
 
-  urls <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_{seasons}.rds")
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+
+  urls <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_{seasons}.{file_type}")
 
   out <- load_from_url(
     urls,
