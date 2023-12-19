@@ -1,0 +1,131 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  issue_comment:
+    types: [created]
+
+name: Commands
+
+jobs:
+  document:
+    if: ${{ github.event.issue.pull_request && (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER') && startsWith(github.event.comment.body, '/document') }}
+    name: document
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/pr-fetch@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::roxygen2
+          needs: pr-document
+
+      - name: Document
+        run: roxygen2::roxygenise()
+        shell: Rscript {0}
+
+      - name: commit
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add man/\* NAMESPACE
+          git commit -m 'Document'
+
+      - uses: r-lib/actions/pr-push@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  style:
+    if: ${{ github.event.issue.pull_request && (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER') && startsWith(github.event.comment.body, '/style') }}
+    name: style
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/pr-fetch@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - name: Install dependencies
+        run: install.packages("styler")
+        shell: Rscript {0}
+
+      - name: Style
+        run: styler::style_pkg()
+        shell: Rscript {0}
+
+      - name: commit
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add \*.R
+          git commit -m 'Style'
+
+      - uses: r-lib/actions/pr-push@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+  rebuild-data-dictionary:
+    if: ${{ github.event.issue.pull_request && (github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER') && startsWith(github.event.comment.body, '/rebuild-dictionary') }}
+    name: rebuild-data-dictionary
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      NFLVERSE_GH_TOKEN: ${{ secrets.NFLVERSE_GH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/pr-fetch@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 1
+          extra-packages: |
+            any::usethis
+            any::dplyr
+            any::data.table
+            any::tidyr
+            any::stringr
+            any::tibble
+            any::here
+            any::skimr
+            any::waldo
+
+      - name: Rebuild Dictionaries
+        run: |
+          Rscript data-raw/build_data_dictionaries.R
+          Rscript data-raw/build_teamplayer_mappings.R
+        shell: bash
+
+      - name: Check Dictionaries
+        run: |
+          Rscript data-raw/dictionary_check.R
+        shell: bash
+
+      - name: Commit
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add data
+          git commit -m 'rebuild dictionaries'
+
+      - uses: r-lib/actions/pr-push@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
