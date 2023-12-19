@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.10</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.11</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,8 +113,8 @@
 <span class="r-in"><span>  <span class="fu">load_participation</span><span class="op">(</span>seasons <span class="op">=</span> <span class="fl">2020</span>, include_pbp <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse play-by-play participation</span> ─────────────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-09-12 22:00:10 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 48,513 × 383</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2023-12-19 06:19:07 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 48,513 × 389</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    nflverse_game_id play_id possession_team offense_formation offense_personnel</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2020_01_ARI_SF         1 <span style="color: #949494;">""</span>              <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span>               </span>
@@ -128,12 +128,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2020_01_ARI_SF       226 <span style="color: #949494;">"</span>SF<span style="color: #949494;">"</span>            <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span>               </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2020_01_ARI_SF       245 <span style="color: #949494;">"</span>ARI<span style="color: #949494;">"</span>           SHOTGUN           1 RB, 1 TE, 3 WR </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 48,503 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 378 more variables: defenders_in_box &lt;int&gt;, defense_personnel &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 384 more variables: defenders_in_box &lt;int&gt;, defense_personnel &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   number_of_pass_rushers &lt;int&gt;, players_on_play &lt;chr&gt;, offense_players &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defense_players &lt;chr&gt;, n_offense &lt;int&gt;, n_defense &lt;int&gt;, old_game_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   home_team &lt;chr&gt;, away_team &lt;chr&gt;, season_type &lt;chr&gt;, week &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   posteam &lt;chr&gt;, posteam_type &lt;chr&gt;, defteam &lt;chr&gt;, side_of_field &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   yardline_100 &lt;dbl&gt;, game_date &lt;chr&gt;, quarter_seconds_remaining &lt;dbl&gt;, …</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defense_players &lt;chr&gt;, n_offense &lt;int&gt;, n_defense &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ngs_air_yards &lt;dbl&gt;, time_to_throw &lt;dbl&gt;, was_pressure &lt;lgl&gt;, route &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   defense_man_zone_type &lt;chr&gt;, defense_coverage_type &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   old_game_id &lt;chr&gt;, home_team &lt;chr&gt;, away_team &lt;chr&gt;, season_type &lt;chr&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
