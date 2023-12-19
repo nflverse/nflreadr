@@ -1,4 +1,4 @@
-library(nflreadr)
+devtools::load_all()
 library(dplyr)
 library(tidyr)
 library(usethis)
