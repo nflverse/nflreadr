@@ -10,6 +10,8 @@
 - Add new function `stat_mode()`, a re-export from nflfastR, which computes the statistical mode of a vector. (#224)
 - The function `load_ftn_charting()` now accepts the argument `file_type`. (#228)
 - The function `clean_team_abbrs()` now accepts the "team" name "NFL". (#231)
+- `load_participation()` now returns additional fields `time_to_throw`, `was_pressure`, `defense_man_zone_type`, and
+`defense_coverage_type` (#233, thank you @mistakia @john-b-edwards)
 
 ---
 
