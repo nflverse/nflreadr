@@ -83,6 +83,7 @@ home:
 
 navbar:
   bg: dark
+  type: dark
   structure:
     left:  [home, reference, articles, news]
     right: [discord, github, more]
