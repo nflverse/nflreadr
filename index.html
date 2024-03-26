@@ -203,8 +203,8 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.download_path</span><span class="op">)</span></span>
 <span><span class="co"># defaults to current working directory - change to specify where `nflverse_download()` places data.</span></span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>progressr<span class="sc">::</span><span class="fu">with_progress</span>(<span class="fu">load_rosters</span>(<span class="at">seasons =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="sc">|</span><span class="er">========</span>            <span class="er">|</span>  <span class="dv">40</span>%</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>progressr<span class="sc">::</span><span class="fu">with_progress</span>(<span class="fu">load_rosters</span>(<span class="at">seasons =</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2020</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a> <span class="sc">|</span><span class="er">========</span>            <span class="er">|</span>  <span class="dv">40</span>%</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
