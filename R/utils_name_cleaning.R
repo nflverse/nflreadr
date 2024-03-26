@@ -92,7 +92,7 @@ clean_player_names <- function(player_name,
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
   # convert Last, First
-  if(convert_lastfirst) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+  if(isTRUE(convert_lastfirst)) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
 
   # suffix removal
   n <- gsub(pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
@@ -101,14 +101,14 @@ clean_player_names <- function(player_name,
             ignore.case = TRUE)
 
   # transliterate to latin-ascii if stringi is available
-  if(convert_to_ascii) {
+  if(isTRUE(convert_to_ascii)) {
     rlang::check_installed("stringi", "to convert text to latin-ascii")
     n <- stringi::stri_trans_general(n, "latin-ascii")
   }
 
-  if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %c% n)
+  if(isTRUE(use_name_database)) n <- unname(nflreadr::player_name_mapping[n] %c% n)
 
-  if(lowercase) n <- tolower(n)
+  if(isTRUE(lowercase)) n <- tolower(n)
 
   n
 }
