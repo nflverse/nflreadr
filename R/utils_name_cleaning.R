@@ -57,6 +57,8 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 #' @param lowercase defaults to FALSE - if TRUE, converts to lowercase
 #' @param convert_lastfirst defaults to TRUE - converts names from "Last, First" to "First Last"
 #' @param use_name_database uses internal name database to do common substitutions (Mitchell Trubisky to Mitch Trubisky etc)
+#' @param convert_to_ascii If `TRUE`, will transliterate to latin-ascii via the
+#' stringi package. Defaults to `TRUE` if the stringi package is installed.
 #'
 #' @return a character vector of cleaned names
 #'
@@ -71,7 +73,8 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 clean_player_names <- function(player_name,
                                lowercase = FALSE,
                                convert_lastfirst = TRUE,
-                               use_name_database = TRUE){
+                               use_name_database = TRUE,
+                               convert_to_ascii = rlang::is_installed("stringi")){
 
   stopifnot(
     is.character(player_name),
@@ -89,7 +92,7 @@ clean_player_names <- function(player_name,
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
   # convert Last, First
-  if(convert_lastfirst) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+  if(isTRUE(convert_lastfirst)) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
 
   # suffix removal
   n <- gsub(pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
@@ -97,15 +100,15 @@ clean_player_names <- function(player_name,
             x = n,
             ignore.case = TRUE)
 
-#   # squish internal whitespace
-#   n <- gsub(pattern = "\\s+", replacement = " ", x = n)
-#
-#   # trim whitespace
-#   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
+  # transliterate to latin-ascii if stringi is available
+  if(isTRUE(convert_to_ascii)) {
+    rlang::check_installed("stringi", "to convert text to latin-ascii")
+    n <- stringi::stri_trans_general(n, "latin-ascii")
+  }
 
-  if(use_name_database) n <- unname(nflreadr::player_name_mapping[n] %c% n)
+  if(isTRUE(use_name_database)) n <- unname(nflreadr::player_name_mapping[n] %c% n)
 
-  if(lowercase) n <- tolower(n)
+  if(isTRUE(lowercase)) n <- tolower(n)
 
   n
 }

@@ -8,7 +8,8 @@ clean_player_names(
   player_name,
   lowercase = FALSE,
   convert_lastfirst = TRUE,
-  use_name_database = TRUE
+  use_name_database = TRUE,
+  convert_to_ascii = rlang::is_installed("stringi")
 )
 }
 \arguments{
@@ -19,6 +20,9 @@ clean_player_names(
 \item{convert_lastfirst}{defaults to TRUE - converts names from "Last, First" to "First Last"}
 
 \item{use_name_database}{uses internal name database to do common substitutions (Mitchell Trubisky to Mitch Trubisky etc)}
+
+\item{convert_to_ascii}{If \code{TRUE}, will transliterate to latin-ascii via the
+stringi package. Defaults to \code{TRUE} if the stringi package is installed.}
 }
 \value{
 a character vector of cleaned names

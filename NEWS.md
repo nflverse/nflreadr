@@ -2,16 +2,25 @@
 
 ## Changelog
 
-- `%c%` internal helper now uses `data.table::fifelse()` to avoid falsely converting dates to integers. (#214)
-- `load_schedules()` cleans the `roof` variable in order to avoid nflverse model issues. (#218)
+- `%c%` internal helper now uses `data.table::fifelse()` to avoid falsely converting 
+dates to integers. (#214)
+- `load_schedules()` cleans the `roof` variable in order to avoid nflverse model 
+issues. (#218)
 - `join_coalesce()` coerces x/y args to data.frame and will return a data.frame
-- `most_recent_season()` now internally computes the exact day of the season opener (= Thursday after first Monday of September). (#221)
-- Internal changes to `load_espn_qbr()` to align with nflverse infrastructure design. Also dropped the argument "league" which used to allow loading of College QBR. That's outside of the nflverse scope. (#222)
-- Add new function `stat_mode()`, a re-export from nflfastR, which computes the statistical mode of a vector. (#224)
+- `most_recent_season()` now internally computes the exact day of the season 
+opener (= Thursday after first Monday of September). (#221)
+- Internal changes to `load_espn_qbr()` to align with nflverse infrastructure 
+design. Also dropped the argument "league" which used to allow loading of College 
+QBR. That's outside of the nflverse scope. (#222)
+- Add new function `stat_mode()`, a re-export from nflfastR, which computes the 
+statistical mode of a vector. (#224)
 - The function `load_ftn_charting()` now accepts the argument `file_type`. (#228)
 - The function `clean_team_abbrs()` now accepts the "team" name "NFL". (#231)
-- `load_participation()` now returns additional fields `time_to_throw`, `was_pressure`, `defense_man_zone_type`, and
-`defense_coverage_type` (#233, thank you @mistakia @john-b-edwards)
+- `load_participation()` now returns additional fields `time_to_throw`, 
+`was_pressure`, `defense_man_zone_type`, and `defense_coverage_type` (#233, 
+thank you @mistakia @john-b-edwards)
+- `clean_player_names()` now can transliterate to latin-ascii if the stringi package 
+is available, controlled by the `convert_to_ascii` argument.
 
 ---
 
