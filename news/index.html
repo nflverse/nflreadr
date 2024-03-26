@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.12</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,6 +87,8 @@
 <li>The function <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now accepts the “team” name “NFL”. (<a href="https://github.com/nflverse/nflreadr/issues/231" class="external-link">#231</a>)</li>
 <li>
 <code><a href="../reference/load_participation.html">load_participation()</a></code> now returns additional fields <code>time_to_throw</code>, <code>was_pressure</code>, <code>defense_man_zone_type</code>, and <code>defense_coverage_type</code> (<a href="https://github.com/nflverse/nflreadr/issues/233" class="external-link">#233</a>, thank you <a href="https://github.com/mistakia" class="external-link">@mistakia</a> <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>)</li>
+<li>
+<code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now can transliterate to latin-ascii if the stringi package is available, controlled by the <code>convert_to_ascii</code> argument.</li>
 </ul><hr></div>
 </div>
     <div class="section level2">
