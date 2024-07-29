@@ -1,12 +1,12 @@
 ## SUBMISSION
 
-This release addresses bugs, improves some utilities, and adds a few new datasets.
+This release covers a number of bugfixes and function improvements.
 
 ## Test environments
-* local windows R installation,     R 4.3.0
-* windows      (on GitHub Actions), R 4.3.1
-* macOS        (on GitHub Actions), R 4.3.1
-* ubuntu 22.04 (on GitHub Actions), R 4.3.1
+* local windows R installation,     R 4.4.1
+* windows      (on GitHub Actions), R 4.4.1
+* macOS        (on GitHub Actions), R 4.4.1
+* ubuntu 22.04 (on GitHub Actions), R 4.4.1
 * ubuntu 22.04 (on GitHub Actions), R 3.6.0
 * ubuntu 22.04 (on GitHub Actions), R devel
 
