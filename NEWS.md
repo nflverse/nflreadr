@@ -1,6 +1,6 @@
-# nflreadr (development version)
+# nflreadr 1.4.1
 
-## Changelog
+This release covers a number of bugfixes and function improvements:
 
 - `%c%` internal helper now uses `data.table::fifelse()` to avoid falsely converting 
 dates to integers. (#214)
@@ -8,19 +8,30 @@ dates to integers. (#214)
 issues. (#218)
 - `join_coalesce()` coerces x/y args to data.frame and will return a data.frame
 - `most_recent_season()` now internally computes the exact day of the season 
-opener (= Thursday after first Monday of September). (#221)
-- Internal changes to `load_espn_qbr()` to align with nflverse infrastructure 
-design. Also dropped the argument "league" which used to allow loading of College 
-QBR. That's outside of the nflverse scope. (#222)
-- Add new function `stat_mode()`, a re-export from nflfastR, which computes the 
+opener as Thursday after first Monday of September. (#221)
+- `load_espn_qbr()` no longer supports argument `league` which used to allow 
+loading of College QBR (not in nflverse scope) (#222)
+- New function `stat_mode()`, a re-export from nflfastR, which computes the 
 statistical mode of a vector. (#224)
-- The function `load_ftn_charting()` now accepts the argument `file_type`. (#228)
-- The function `clean_team_abbrs()` now accepts the "team" name "NFL". (#231)
+- `load_ftn_charting()` now accepts the argument `file_type`. (#228)
+- `clean_team_abbrs()` now accepts the "team" name "NFL". (#231)
 - `load_participation()` now returns additional fields `time_to_throw`, 
 `was_pressure`, `defense_man_zone_type`, and `defense_coverage_type` (#233, 
 thank you @mistakia @john-b-edwards)
 - `clean_player_names()` now can transliterate to latin-ascii if the stringi package 
 is available, controlled by the `convert_to_ascii` argument.
+
+Thank you to: 
+[&#x0040;arjunmenon10](https://github.com/arjunmenon10),
+[&#x0040;engineerchange](https://github.com/engineerchange),
+[&#x0040;isaactpetersen](https://github.com/isaactpetersen),
+[&#x0040;Jeffery-777](https://github.com/Jeffery-777),
+[&#x0040;john-b-edwards](https://github.com/john-b-edwards),
+[&#x0040;justlikekevin](https://github.com/justlikekevin),
+[&#x0040;mrcaseb](https://github.com/mrcaseb),
+[&#x0040;SCasanova](https://github.com/SCasanova), and
+[&#x0040;tanho63](https://github.com/tanho63)
+for their questions, feedback, and contributions to this release. 
 
 ---
 
