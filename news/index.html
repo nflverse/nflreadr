@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0.12</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,13 +42,12 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/nflverse/nflreadr/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/nflverse/nflreadr/blob/v1.4.1/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
-<div class="section level3">
-<h3 id="changelog-development-version">Changelog<a class="anchor" aria-label="anchor" href="#changelog-development-version"></a></h3>
+<h2 class="pkg-version" data-toc-text="1.4.1" id="nflreadr-141">nflreadr 1.4.1<a class="anchor" aria-label="anchor" href="#nflreadr-141"></a></h2><p class="text-muted">CRAN release: 2024-07-29</p>
+<p>This release covers a number of bugfixes and function improvements:</p>
 <ul><li>
 <code>%c%</code> internal helper now uses <code><a href="https://rdatatable.gitlab.io/data.table/reference/fifelse.html" class="external-link">data.table::fifelse()</a></code> to avoid falsely converting dates to integers. (<a href="https://github.com/nflverse/nflreadr/issues/214" class="external-link">#214</a>)</li>
 <li>
@@ -56,17 +55,20 @@
 <li>
 <code><a href="../reference/join_coalesce.html">join_coalesce()</a></code> coerces x/y args to data.frame and will return a data.frame</li>
 <li>
-<code><a href="../reference/latest_season.html">most_recent_season()</a></code> now internally computes the exact day of the season opener (= Thursday after first Monday of September). (<a href="https://github.com/nflverse/nflreadr/issues/221" class="external-link">#221</a>)</li>
-<li>Internal changes to <code><a href="../reference/load_espn_qbr.html">load_espn_qbr()</a></code> to align with nflverse infrastructure design. Also dropped the argument “league” which used to allow loading of College QBR. That’s outside of the nflverse scope. (<a href="https://github.com/nflverse/nflreadr/issues/222" class="external-link">#222</a>)</li>
-<li>Add new function <code><a href="../reference/stat_mode.html">stat_mode()</a></code>, a re-export from nflfastR, which computes the statistical mode of a vector. (<a href="https://github.com/nflverse/nflreadr/issues/224" class="external-link">#224</a>)</li>
-<li>The function <code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> now accepts the argument <code>file_type</code>. (<a href="https://github.com/nflverse/nflreadr/issues/228" class="external-link">#228</a>)</li>
-<li>The function <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now accepts the “team” name “NFL”. (<a href="https://github.com/nflverse/nflreadr/issues/231" class="external-link">#231</a>)</li>
+<code><a href="../reference/latest_season.html">most_recent_season()</a></code> now internally computes the exact day of the season opener as Thursday after first Monday of September. (<a href="https://github.com/nflverse/nflreadr/issues/221" class="external-link">#221</a>)</li>
+<li>
+<code><a href="../reference/load_espn_qbr.html">load_espn_qbr()</a></code> no longer supports argument <code>league</code> which used to allow loading of College QBR (not in nflverse scope) (<a href="https://github.com/nflverse/nflreadr/issues/222" class="external-link">#222</a>)</li>
+<li>New function <code><a href="../reference/stat_mode.html">stat_mode()</a></code>, a re-export from nflfastR, which computes the statistical mode of a vector. (<a href="https://github.com/nflverse/nflreadr/issues/224" class="external-link">#224</a>)</li>
+<li>
+<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> now accepts the argument <code>file_type</code>. (<a href="https://github.com/nflverse/nflreadr/issues/228" class="external-link">#228</a>)</li>
+<li>
+<code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now accepts the “team” name “NFL”. (<a href="https://github.com/nflverse/nflreadr/issues/231" class="external-link">#231</a>)</li>
 <li>
 <code><a href="../reference/load_participation.html">load_participation()</a></code> now returns additional fields <code>time_to_throw</code>, <code>was_pressure</code>, <code>defense_man_zone_type</code>, and <code>defense_coverage_type</code> (<a href="https://github.com/nflverse/nflreadr/issues/233" class="external-link">#233</a>, thank you <a href="https://github.com/mistakia" class="external-link">@mistakia</a> <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>)</li>
 <li>
 <code><a href="../reference/clean_player_names.html">clean_player_names()</a></code> now can transliterate to latin-ascii if the stringi package is available, controlled by the <code>convert_to_ascii</code> argument.</li>
-</ul><hr></div>
-</div>
+</ul><p>Thank you to: <a href="https://github.com/arjunmenon10" class="external-link">@arjunmenon10</a>, <a href="https://github.com/engineerchange" class="external-link">@engineerchange</a>, <a href="https://github.com/isaactpetersen" class="external-link">@isaactpetersen</a>, <a href="https://github.com/Jeffery-777" class="external-link">@Jeffery-777</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/justlikekevin" class="external-link">@justlikekevin</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, and <a href="https://github.com/tanho63" class="external-link">@tanho63</a> for their questions, feedback, and contributions to this release.</p>
+<hr></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.0" id="nflreadr-140">nflreadr 1.4.0<a class="anchor" aria-label="anchor" href="#nflreadr-140"></a></h2><p class="text-muted">CRAN release: 2023-09-05</p>
 <p>This release addresses bugs, improves some utilities, and adds a few new datasets.</p>
