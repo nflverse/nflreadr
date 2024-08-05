@@ -14,13 +14,25 @@ weight,character,"Official weight, in pounds"
 college,character,Official college (usually the last one attended)
 high_school,character,High school
 gsis_id,character,Game Stats and Info Service ID: the primary ID for play-by-play data.
-headshot_url,character,A URL string that points to player photos used by NFL.com (or sometimes ESPN)
-sleeper_id,character,Player ID for Sleeper API
 espn_id,numeric,Player ID for ESPN API
+sportradar_id,character,Player ID for Sportradar API
 yahoo_id,numeric,Player ID for Yahoo API
 rotowire_id,numeric,Player ID for Rotowire
 pff_id,numeric,Player ID for Pro Football Focus
-fantasy_data_id,numeric,Player ID for FantasyData
-years_exp,numeric,Years played in league
-sportradar_id,character,Player ID for Sportradar API
 pfr_id,character,Player ID for Pro Football Reference
+fantasy_data_id,numeric,Player ID for FantasyData
+sleeper_id,character,Player ID for Sleeper API
+years_exp,numeric,Years played in league
+headshot_url,character,A URL string that points to player photos used by NFL.com (or sometimes ESPN)
+ngs_position,character,Primary position as reported by the NextGen stats API.
+week,numeric,The most recent week of that season that a player appeared on the roster.
+game_type,character,The most recent game type of that season that a player appeared on the roster.
+status_description_abbr,character,A code corresponding to a particular NFL status.
+football_name,character,The nickname or first name typically used by a player.
+esb_id,character,Player ID for Elias Sports Bureau
+gsis_it_id,numeric,Player ID for the GSIS IT API
+smart_id,character,Player ID hash for a player's ESB ID 
+entry_year,numeric,The year a player first became eligible to play in the NFL.
+rookie_year,numeric,The year a player lost their rookie eligibility.
+draft_club,character,The team that originally drafted a player. NA if a player went undrafted in their draft-eligible year.
+draft_number,numeric,The number pick that was used to select a given player.
