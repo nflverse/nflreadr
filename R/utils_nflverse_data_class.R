@@ -16,9 +16,15 @@ print.nflverse_data <- function(x,...){
   cli::cli_rule("{.emph nflverse {attr(x,'nflverse_type')}}")
 
   if(!is.null(attr(x,'nflverse_timestamp'))) {
-    cli::cli_alert_info(
-      "Data updated: {.field {format(attr(x,'nflverse_timestamp'), tz = Sys.timezone(), usetz = TRUE)}}"
+    # Print a formatted string in local timezone
+    timestamp <- format(
+      # the attribute is character so we have to convert it to POSIX to be able
+      # to convert the timezone to the local one
+      as.POSIXct(attr(x,'nflverse_timestamp'), tz = nflreadr::nflverse_data_timezone),
+      tz = Sys.timezone(),
+      usetz = TRUE
     )
+    cli::cli_alert_info("Data updated: {.field {timestamp}}")
   }
 
   NextMethod(print,x)
@@ -45,7 +51,7 @@ as.nflverse_data <- function(df, nflverse_type = NULL, ...){
     (length(dots) > 0 | !is.null(nflverse_type)) &&
     is.null(attr(df, "nflverse_timestamp"))
   ){
-    data.table::setattr(df, "nflverse_timestamp", Sys.time())
+    data.table::setattr(df, "nflverse_timestamp", format(Sys.time(), tz = nflreadr::nflverse_data_timezone, usetz = TRUE))
   }
 
   return(df)
