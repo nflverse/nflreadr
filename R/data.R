@@ -206,3 +206,9 @@
 #'   \item{value attribute}{The "correct" name.}
 #' }
 "team_abbr_mapping_norelocate"
+
+#' nflverse Timezone
+#'
+#' A character string defining the default timezone for data across the nflverse
+#'
+"nflverse_data_timezone"
