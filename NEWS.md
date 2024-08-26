@@ -1,6 +1,7 @@
 # nflreadr (development version)
 
-- Added 8 common alternative player names. (#249)
+- Added 8 common alternative player names.
+- nflreadr now exports the variable `nflreadr::nflverse_data_timezone` which defines the standard timezone across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
 
 ---
 
