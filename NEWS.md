@@ -1,6 +1,6 @@
 # nflreadr (development version)
 
-
+- Added 8 common alternative player names. (#249)
 
 ---
 
