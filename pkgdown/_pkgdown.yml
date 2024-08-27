@@ -27,6 +27,7 @@ reference:
   - "load_ftn_charting"
   - "nflverse_download"
   - "nflverse_releases"
+  - "nflverse_data_timezone"
 - title: Load ffverse data
   contents:
   - "load_ff_playerids"
@@ -83,6 +84,7 @@ home:
 
 navbar:
   bg: dark
+  type: dark
   structure:
     left:  [home, reference, articles, news]
     right: [discord, github, more]

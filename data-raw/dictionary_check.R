@@ -1,6 +1,9 @@
 # data dictionary checking
 devtools::load_all()
-library(tidyverse)
+library(dplyr)
+library(skimr)
+library(waldo)
+library(data.table)
 
 dict_check <- function(df,dict){
   actual_vars <- df |>
