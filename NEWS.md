@@ -1,6 +1,8 @@
 # nflreadr (development version)
 
-
+- nflreadr now exports the variable `nflreadr::nflverse_data_timezone` which defines the standard timezone
+across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
+- Added several player name mappings (#249, #253)
 
 ---
 
