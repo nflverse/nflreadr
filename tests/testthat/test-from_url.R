@@ -60,6 +60,12 @@ test_that("nflverse_download downloads files",{
 
   skip_on_cran()
   skip_if_offline("github.com")
+  # The test on Mac keeps failing because of API rate limits,
+  # maybe it's because the runner doesn't pass the token correctly
+  skip_if(
+    condition = Sys.getenv("NFLVERSE_GH_TOKEN", unset = "") == "",
+    message = "Can't find env var NFLVERSE_GH_TOKEN for some reason"
+  )
 
   temp_dir <- tempdir(check = TRUE)
 
@@ -101,6 +107,12 @@ test_that("nflverse_releases lists releases",{
 
   skip_on_cran()
   skip_if_offline("github.com")
+  # The test on Mac keeps failing because of API rate limits,
+  # maybe it's because the runner doesn't pass the token correctly
+  skip_if(
+    condition = Sys.getenv("NFLVERSE_GH_TOKEN", unset = "") == "",
+    message = "Can't find env var NFLVERSE_GH_TOKEN for some reason"
+  )
 
   releases <- nflverse_releases(.token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token()))
 
