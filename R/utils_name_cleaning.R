@@ -95,7 +95,7 @@ clean_player_names <- function(player_name,
   if(isTRUE(convert_lastfirst)) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
 
   # suffix removal
-  n <- gsub(pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
+  n <- gsub(pattern = "(,? Jr\\.?$|,? Sr\\.?$|,? III$|,? II$|,? IV$|,? V$|'|\\.|,)",
             replacement = "",
             x = n,
             ignore.case = TRUE)
