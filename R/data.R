@@ -212,3 +212,8 @@
 #' A character string defining the default timezone for data across the nflverse
 #'
 "nflverse_data_timezone"
+
+#' dictionary_roster_status
+#'
+#' A dictionary translating the shorthand roster status to more verbose explanations of what each status indicates.
+"dictionary_roster_status"
