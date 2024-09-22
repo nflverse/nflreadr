@@ -80,3 +80,7 @@ dictionary_participation <- read.csv("data-raw/dictionary_participation.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_participation, overwrite = TRUE)
 
+dictionary_roster_status <- read.csv("data-raw/dictionary_roster_status.csv") |>
+  dplyr::mutate_all(stringr::str_squish)
+usethis::use_data(dictionary_roster_status, overwrite = TRUE)
+
