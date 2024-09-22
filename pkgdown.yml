@@ -1,6 +1,6 @@
 pandoc: 3.1.11
-pkgdown: 2.1.0.9000
-pkgdown_sha: ee72108bc3a9827dcf313817525652dbd9d4284d
+pkgdown: 2.1.1.9000
+pkgdown_sha: c0cbde4221b87c7e81273e804f210213129c3d83
 articles:
   dictionary_combine: dictionary_combine.html
   dictionary_contracts: dictionary_contracts.html
@@ -18,13 +18,14 @@ articles:
   dictionary_pfr_passing: dictionary_pfr_passing.html
   dictionary_player_stats_def: dictionary_player_stats_def.html
   dictionary_player_stats: dictionary_player_stats.html
+  dictionary_roster_status: dictionary_roster_status.html
   dictionary_rosters: dictionary_rosters.html
   dictionary_schedules: dictionary_schedules.html
   dictionary_snap_counts: dictionary_snap_counts.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
   articles/nflverse_data_schedule: nflverse_data_schedule.html
-last_built: 2024-08-27T22:07Z
+last_built: 2024-09-22T22:34Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles

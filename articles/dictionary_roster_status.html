@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Data Dictionary - Trades • nflreadr</title>
+<title>Data Dictionary - Roster Status • nflreadr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Data Dictionary - Trades">
+<meta property="og:title" content="Data Dictionary - Roster Status">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -71,83 +71,107 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Trades</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>Data Dictionary - Roster Status</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/main/vignettes/dictionary_trades.Rmd" class="external-link"><code>vignettes/dictionary_trades.Rmd</code></a></small>
-      <div class="d-none name"><code>dictionary_trades.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/main/vignettes/dictionary_roster_status.Rmd" class="external-link"><code>vignettes/dictionary_roster_status.Rmd</code></a></small>
+      <div class="d-none name"><code>dictionary_roster_status.Rmd</code></div>
     </div>
 
     
     
 <table class="table">
 <colgroup>
-<col width="12%">
-<col width="10%">
-<col width="76%">
+<col width="5%">
+<col width="94%">
 </colgroup>
 <thead><tr class="header">
-<th align="left">field</th>
-<th align="left">data_type</th>
+<th align="left">status</th>
 <th align="left">description</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">trade_id</td>
-<td align="left">numeric</td>
-<td align="left">ID of Trade</td>
+<td align="left">ACT</td>
+<td align="left">On the active roster</td>
 </tr>
 <tr class="even">
-<td align="left">season</td>
-<td align="left">numeric</td>
-<td align="left">4 digit number indicating to which season the specified
-trade occurred.</td>
+<td align="left">EXE</td>
+<td align="left">On the comissioner’s exempt list</td>
 </tr>
 <tr class="odd">
-<td align="left">trade_date</td>
-<td align="left">numeric</td>
-<td align="left">Exact date that trade occurred</td>
+<td align="left">DEV</td>
+<td align="left">On the practice squad</td>
 </tr>
 <tr class="even">
-<td align="left">gave</td>
-<td align="left">character</td>
-<td align="left">Team that gave pick/player in row</td>
+<td align="left">CUT</td>
+<td align="left">Cut from the team’s roster</td>
 </tr>
 <tr class="odd">
-<td align="left">received</td>
-<td align="left">character</td>
-<td align="left">Team that received pick/player in row</td>
+<td align="left">E14</td>
+<td align="left">On the roster as an exempt international player. See <a href="https://www.nfl.com/news/what-is-the-international-player-pathway" class="external-link uri">https://www.nfl.com/news/what-is-the-international-player-pathway</a>
+for details</td>
 </tr>
 <tr class="even">
-<td align="left">pick_season</td>
-<td align="left">numeric</td>
-<td align="left">Draft in which traded pick was in</td>
+<td align="left">INA</td>
+<td align="left">Under contract but not on the active roster,
+inactive</td>
 </tr>
 <tr class="odd">
-<td align="left">pick_round</td>
-<td align="left">numeric</td>
-<td align="left">Round in which traded pick was in</td>
+<td align="left">NWT</td>
+<td align="left">Rarely used, tends to indicate a waived player</td>
 </tr>
 <tr class="even">
-<td align="left">pick_number</td>
-<td align="left">numeric</td>
-<td align="left">Pick number of traded pick</td>
+<td align="left">PUP</td>
+<td align="left">On the “Physically Unable to Perform” list</td>
 </tr>
 <tr class="odd">
-<td align="left">conditional</td>
-<td align="left">numeric</td>
-<td align="left">Binary indicator of whether or not traded pick was
-conditional</td>
+<td align="left">RES</td>
+<td align="left">On the reserve list</td>
 </tr>
 <tr class="even">
-<td align="left">pfr_id</td>
-<td align="left">character</td>
-<td align="left">Pro-Football-Reference ID of traded player</td>
+<td align="left">RET</td>
+<td align="left">On the retired from football list</td>
 </tr>
 <tr class="odd">
-<td align="left">pfr_name</td>
-<td align="left">character</td>
-<td align="left">Full name of traded player</td>
+<td align="left">RFA</td>
+<td align="left">Rarely used, tends to indicate a cut player who is a
+restricted free agent.</td>
+</tr>
+<tr class="even">
+<td align="left">RSN</td>
+<td align="left">Rarely used, tends to indicate a player is on the
+non-football injured reserve list</td>
+</tr>
+<tr class="odd">
+<td align="left">RSR</td>
+<td align="left">Rarely used, tends to indicate a player released from
+being on the injured reserve list</td>
+</tr>
+<tr class="even">
+<td align="left">SUS</td>
+<td align="left">Player is suspended from the NFL</td>
+</tr>
+<tr class="odd">
+<td align="left">TRC</td>
+<td align="left">Player has been released from the practice squad</td>
+</tr>
+<tr class="even">
+<td align="left">TRD</td>
+<td align="left">Player has been released from the practice squad</td>
+</tr>
+<tr class="odd">
+<td align="left">TRL</td>
+<td align="left">Rarely used and only for a brief period in the 1960s.
+Unable to determine what the status indicates.</td>
+</tr>
+<tr class="even">
+<td align="left">TRT</td>
+<td align="left">Player has been released from the practice squad</td>
+</tr>
+<tr class="odd">
+<td align="left">UFA</td>
+<td align="left">Player has been released and is an unrestricted free
+agent</td>
 </tr>
 </tbody>
 </table></main>
