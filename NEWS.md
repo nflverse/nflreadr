@@ -4,6 +4,7 @@
 across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
 - Added several player name mappings (#249, #253, #255)
 - Added a dictionary to describe what each shorthand roster status indicates (#232)
+- `clean_team_abbrs()` now converts `"PHO"` to `"ARI"`. (#260)
 
 ---
 
