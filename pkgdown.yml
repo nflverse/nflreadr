@@ -1,6 +1,6 @@
 pandoc: 3.1.11
 pkgdown: 2.1.1.9000
-pkgdown_sha: 0a18bc718640aee7160a0ebbcdef5ecaae2ac4a4
+pkgdown_sha: 0cb9d38d1dc25946f01ee7500be9665985d8784e
 articles:
   dictionary_combine: dictionary_combine.html
   dictionary_contracts: dictionary_contracts.html
@@ -25,7 +25,7 @@ articles:
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
   articles/nflverse_data_schedule: nflverse_data_schedule.html
-last_built: 2024-09-25T17:50Z
+last_built: 2024-10-03T11:12Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
