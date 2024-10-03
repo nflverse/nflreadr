@@ -4,14 +4,14 @@ test_that("cleaning team abbreviations", {
 
   expected_warning <- "Abbreviations not found in `nflreadr::team_abbr_mapping`: PIE"
 
-  x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV")
+  x <- c("PIE","LAR","PIT","CRD", "OAK", "CLV", "PHO")
   expect_warning(new_abbr <- clean_team_abbrs(x),regexp = expected_warning)
   expect_warning(old_abbr <- clean_team_abbrs(x, current_location = FALSE), regexp = expected_warning)
   expect_warning(new_abbr_drop <- clean_team_abbrs(x, keep_non_matches = FALSE),regexp = expected_warning)
 
-  expect_equal(new_abbr,      c("PIE", "LA","PIT","ARI","LV","CLE"))
-  expect_equal(new_abbr_drop, c(NA, "LA","PIT","ARI","LV","CLE"))
-  expect_equal(old_abbr,      c("PIE", "LA","PIT","ARI","OAK","CLE"))
+  expect_equal(new_abbr,      c("PIE", "LA","PIT","ARI","LV","CLE", "ARI"))
+  expect_equal(new_abbr_drop, c(NA, "LA","PIT","ARI","LV","CLE", "ARI"))
+  expect_equal(old_abbr,      c("PIE", "LA","PIT","ARI","OAK","CLE", "ARI"))
   options(o)
 })
 
@@ -51,16 +51,16 @@ test_that("all caps names with suffix are cleaned correctly", {
 test_that("cleaning home and away columns",{
 
   s <- data.frame(
-    game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"), 
-    game_type = c("CON", "CON", "SB"), 
-    home_team = c("GB", "KC", "TB"), 
+    game_id = c("2020_20_TB_GB", "2020_20_BUF_KC", "2020_21_KC_TB"),
+    game_type = c("CON", "CON", "SB"),
+    home_team = c("GB", "KC", "TB"),
     home_score = c(26L, 38L, 31L),
-    team_id_home = c("001","002","003"), 
-    away_team = c("TB", "BUF", "KC"), 
-    away_score = c(31L, 24L, 9L), 
+    team_id_home = c("001","002","003"),
+    away_team = c("TB", "BUF", "KC"),
+    away_score = c(31L, 24L, 9L),
     team_id_away = c("003","004","002"),
-    location = c("Home", "Home", "Neutral"), 
-    result = c(-5L, 14L, 22L), 
+    location = c("Home", "Home", "Neutral"),
+    result = c(-5L, 14L, 22L),
     spread_line = c(3, 3, -3)
   )
   c <- clean_homeaway(s, invert = c("result","spread_line"))
