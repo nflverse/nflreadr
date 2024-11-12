@@ -104,17 +104,17 @@ nflverse data pipelines.</p>
 <tbody>
 <tr class="odd">
 <td align="left">pbp_raw</td>
-<td align="left"><a href=""></a></td>
+<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp-internal/release_raw_pbp.yaml?label=raw_pbp_status&amp;style=flat-square" alt="pbp_raw"></a></td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/last-commit/nflverse/nflfastR-raw?label=Raw%20PBP%20Updated&amp;style=flat-square" alt="raw pbp data"></a></td>
 </tr>
 <tr class="even">
 <td align="left">pbp</td>
-<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=pbp_status&amp;style=flat-square" alt="pbp and ps"></a></td>
+<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=pbp_status&amp;style=flat-square" alt="pbp and ps"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/pbp" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_pbp&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/pbp/timestamp.json" alt="pbp"></a></td>
 </tr>
 <tr class="odd">
 <td align="left">player_stats</td>
-<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=ps_status&amp;style=flat-square" alt="pbp and ps"></a></td>
+<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=ps_status&amp;style=flat-square" alt="pbp and ps"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/player_stats" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_player_stats&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/player_stats/timestamp.json" alt="player_stats"></a></td>
 </tr>
 <tr class="even">
@@ -123,56 +123,61 @@ nflverse data pipelines.</p>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/rosters" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_rosters&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/rosters/timestamp.json" alt="rosters"></a></td>
 </tr>
 <tr class="odd">
+<td align="left">players</td>
+<td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-players/update_players.yaml?label=players_status&amp;style=flat-square" alt="players"></a></td>
+<td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/players" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_players&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/players/timestamp.json" alt="players"></a></td>
+</tr>
+<tr class="even">
 <td align="left">snap_counts</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_snap_counts.yaml?label=snaps_status&amp;style=flat-square" alt="snap_counts"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/snap_counts" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_snap_counts&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/snap_counts/timestamp.json" alt="snap_counts"></a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">draft_picks</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_draft_picks.yaml?label=draft_status&amp;style=flat-square" alt="snap_counts"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/draft_picks" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_draft_picks&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/draft_picks/timestamp.json" alt="draft_picks"></a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">pfr_advstats</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_advanced_stats.yaml?label=advstats_status&amp;style=flat-square" alt="adv_stats"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/pfr_advstats" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_pfr_advstats&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/timestamp.json" alt="pfr_advstats"></a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">nextgen_stats</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/ngs-data/update_ngs.yaml?label=ngs_status&amp;style=flat-square" alt="ngs"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/nextgen_stats" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_nextgen_stats&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/nextgen_stats/timestamp.json" alt="nextgen_stats"></a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">injuries</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_injuries.yaml?label=injuries_status&amp;style=flat-square" alt="injuries"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/injuries" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_injuries&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/injuries/timestamp.json" alt="injuries"></a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">depth_charts</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_depth_charts.yaml?label=depth_charts_status&amp;style=flat-square" alt="depthcharts"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/depth_charts" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_depth_charts&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/depth_charts/timestamp.json" alt="depth_charts"></a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">combine</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_combine.yaml?label=combine_status&amp;style=flat-square" alt="combine"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/combine" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_combine&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/combine/timestamp.json" alt="combine"></a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">nfl4th</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/nfl4th/update_precompute.yaml?label=nfl4th_precompute&amp;style=flat-square" alt="nfl4th"></a></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ffverse player IDs</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/dynastyprocess/data/weekly-playerids.yml?label=ff_playerids&amp;style=flat-square" alt="weekly-playerids"></a></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">ffverse rankings</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/dynastyprocess/data/weekly-fantasypros.yml?label=rankings&amp;style=flat-square" alt="weekly-fantasypros"></a></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">contracts</td>
 <td align="left"><a href=""><img src="https://img.shields.io/github/actions/workflow/status/nflverse/rotc/update_otc.yaml?label=contracts&amp;style=flat-square" alt="contracts"></a></td>
 <td align="left"><a href="https://github.com/nflverse/nflverse-data/releases/tag/contracts" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?color=blue&amp;label=load_contracts&amp;query=last_updated&amp;style=flat-square&amp;url=https://github.com/nflverse/nflverse-data/releases/download/contracts/timestamp.json" alt="contracts"></a></td>
@@ -221,11 +226,19 @@ player stats</a> (offense, defense, kicking) are computed using</p>
 night (in the range of 3 am - 5 am ET) during the season.</p>
 </div>
 <div class="section level2">
+<h2 id="nflverse-ftn-charting-data">nflverse-FTN Charting Data<a class="anchor" aria-label="anchor" href="#nflverse-ftn-charting-data"></a>
+</h2>
+<p><a href="https://nflreadr.nflverse.com/reference/load_ftn_charting.html">ftn
+charting data</a> updates every day at 0, 6, 12, 18 UTC during the
+season. The actual availability of new data depends on the update
+schedule of FTN.</p>
+</div>
+<div class="section level2">
 <h2 id="nflverse-participation-data">nflverse Participation Data<a class="anchor" aria-label="anchor" href="#nflverse-participation-data"></a>
 </h2>
 <p><a href="https://nflreadr.nflverse.com/reference/load_participation.html">Participation
-data</a> is computed using unpublished code. Data updates every night
-(in the range of 3 am - 5 am ET) during the season.</p>
+data</a> is computed using unpublished code. <strong>The data source is
+gone and there won’t be updates anymore</strong>.</p>
 </div>
 <div class="section level2">
 <h2 id="nflverse-gameschedule-data">nflverse Game/Schedule Data<a class="anchor" aria-label="anchor" href="#nflverse-gameschedule-data"></a>
@@ -234,12 +247,34 @@ data</a> is computed using unpublished code. Data updates every night
 data</a> updates very 5 minutes during the season.</p>
 </div>
 <div class="section level2">
+<h2 id="nflverse-roster-data">nflverse Roster Data<a class="anchor" aria-label="anchor" href="#nflverse-roster-data"></a>
+</h2>
+<p><a href="https://nflreadr.nflverse.com/reference/load_rosters.html">Roster
+data</a> updates every day at 7AM UTC.</p>
+</div>
+<div class="section level2">
 <h2 id="player-level-weekly-nfl-next-gen-stats">Player Level Weekly NFL Next Gen Stats<a class="anchor" aria-label="anchor" href="#player-level-weekly-nfl-next-gen-stats"></a>
 </h2>
 <p>Player level <a href="https://nflreadr.nflverse.com/reference/load_nextgen_stats.html">weekly
 stats</a> provided by NFL Next Gen Stats update every night (in the
 range of 3 am - 5 am ET) during the season. The actual availability of
 new data depends on the update schedule of NGS.</p>
+</div>
+<div class="section level2">
+<h2 id="pfr-snap-count-data">PFR Snap Count Data<a class="anchor" aria-label="anchor" href="#pfr-snap-count-data"></a>
+</h2>
+<p><a href="https://nflreadr.nflverse.com/reference/load_snap_counts.html">Snap
+Count data</a> updates every day at 0, 6, 12, 18 UTC during the season.
+The actual availability of new data depends on the update schedule of
+PFR.</p>
+</div>
+<div class="section level2">
+<h2 id="pfr-advanced-stats">PFR Advanced Stats<a class="anchor" aria-label="anchor" href="#pfr-advanced-stats"></a>
+</h2>
+<p><a href="https://nflreadr.nflverse.com/reference/load_pfr_advstats.html">PFR
+Advanced Stats</a> updates every day at 7AM UTC during the season. The
+actual availability of new data depends on the update schedule of
+PFR.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
