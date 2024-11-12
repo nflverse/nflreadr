@@ -43,10 +43,11 @@ update_times <- nflreadr::rds_from_url("https://github.com/nflverse/nflverse-dat
 
 status <- tibble::tribble(
   ~Data, ~ Status,
-  "pbp_raw", "",
-  "pbp", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=pbp_status&style=flat-square)",
-  "player_stats", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/automated_pbp_update.yaml?label=ps_status&style=flat-square)",
+  "pbp_raw", "![pbp_raw](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp-internal/release_raw_pbp.yaml?label=raw_pbp_status&style=flat-square)",
+  "pbp", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=pbp_status&style=flat-square)",
+  "player_stats", "![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=ps_status&style=flat-square)",
   "rosters", "![rosters](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-rosters/update_rosters.yaml?label=rosters_status&style=flat-square)",
+  "players", "![players](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-players/update_players.yaml?label=players_status&style=flat-square)",
   "snap_counts", "![snap_counts](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_snap_counts.yaml?label=snaps_status&style=flat-square)",
   "draft_picks", "![snap_counts](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_draft_picks.yaml?label=draft_status&style=flat-square)",
   "pfr_advstats", "![adv_stats](https://img.shields.io/github/actions/workflow/status/nflverse/pfr_scrapR/update_advanced_stats.yaml?label=advstats_status&style=flat-square)",
@@ -88,14 +89,30 @@ In all cases, it is recommended to update the data again during the night from W
 
 with up to date nflverse pbp data. All player stats update every night (in the range of 3 am - 5 am ET) during the season.
 
+## nflverse-FTN Charting Data
+
+[ftn charting data](https://nflreadr.nflverse.com/reference/load_ftn_charting.html) updates every day at 0, 6, 12, 18 UTC during the season. The actual availability of new data depends on the update schedule of FTN.
+
 ## nflverse Participation Data
 
-[Participation data](https://nflreadr.nflverse.com/reference/load_participation.html) is computed using unpublished code. Data updates every night (in the range of 3 am - 5 am ET) during the season.
+[Participation data](https://nflreadr.nflverse.com/reference/load_participation.html) is computed using unpublished code. **The data source is gone and there won't be updates anymore**.
 
 ## nflverse Game/Schedule Data
 
 [Game/Schedule data](https://nflreadr.nflverse.com/reference/load_schedules.html) updates very 5 minutes during the season.
 
+## nflverse Roster Data
+
+[Roster data](https://nflreadr.nflverse.com/reference/load_rosters.html) updates every day at 7AM UTC.
+
 ## Player Level Weekly NFL Next Gen Stats
 
 Player level [weekly stats](https://nflreadr.nflverse.com/reference/load_nextgen_stats.html) provided by NFL Next Gen Stats update every night (in the range of 3 am - 5 am ET) during the season. The actual availability of new data depends on the update schedule of NGS.
+
+## PFR Snap Count Data
+
+[Snap Count data](https://nflreadr.nflverse.com/reference/load_snap_counts.html) updates every day at 0, 6, 12, 18 UTC during the season. The actual availability of new data depends on the update schedule of PFR.
+
+## PFR Advanced Stats
+
+[PFR Advanced Stats](https://nflreadr.nflverse.com/reference/load_pfr_advstats.html) updates every day at 7AM UTC during the season. The actual availability of new data depends on the update schedule of PFR.
