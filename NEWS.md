@@ -6,6 +6,7 @@ across all nflverse data. When printing to the console, nflreadr will convert ti
 - Added a dictionary to describe what each shorthand roster status indicates (#232)
 - `clean_team_abbrs()` now converts `"PHO"` to `"ARI"`. (#260)
 - Improved description of next score probability variables in `nflreadr::dictionary_pbp`. (#262) 
+- `.sitrep` and all `*_sitrep` functions now redact nflfastR option paths. (#263)
 
 ---
 
