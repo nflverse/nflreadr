@@ -145,7 +145,7 @@ ffverse_sitrep <- function(pkg = c("ffscrapr", "ffsimulator", "ffpros", "ffoppor
   pkg_search_string <- paste(packages, collapse = "|")
   package_options <- opts[grepl(pkg_search_string, x = names(opts))]
   if(redact_path) {
-    package_options[grepl("path|token|auth", names(package_options))] <- "{redacted, use redact_path = FALSE to show}"
+    package_options[grepl("path|token|auth|directory", names(package_options))] <- "{redacted, use redact_path = FALSE to show}"
   }
   return(package_options)
 }
