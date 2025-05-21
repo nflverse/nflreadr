@@ -7,7 +7,7 @@
 clean_team_abbrs(abbr, current_location = TRUE, keep_non_matches = TRUE)
 }
 \arguments{
-\item{abbr}{a character vector of abbreviations}
+\item{abbr}{a character vector of abbreviations, full team names, or team nicknames}
 
 \item{current_location}{If \code{TRUE} (the default), the abbreviation of the most
 recent team location will be used.}
@@ -23,12 +23,13 @@ if they are included in \code{\link{team_abbr_mapping}} or \code{\link{team_abbr
 with \code{NA} (depending on the value of \code{keep_non_matches}).
 }
 \description{
-This function standardizes NFL team abbreviations to nflverse defaults.
-This helps for joins and plotting, especially with the new nflplotR package!
+This function standardizes NFL team names, abbreviations, and nicknames to
+nflverse defaults.
+This helps for joins and plotting, especially with the nflplotR package!
 }
 \examples{
 \dontshow{.for_cran()}
-x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL")
+x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL", "Niners", "San Diego Chargers")
 # use current location and keep non matches
 clean_team_abbrs(x)
 
