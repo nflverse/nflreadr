@@ -11,8 +11,8 @@ player_name_mapping <- read.csv("data-raw/clean_player_names.csv") |>
 
 usethis::use_data(player_name_mapping, overwrite = TRUE)
 
-teams <- csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams.csv") %>%
-  dplyr::select(team,nfl, espn, pfr, pfflabel, fo) %>%
+teams <- nflreadr::csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams.csv") %>%
+  dplyr::select(team,nfl, espn, pfr, pfflabel, fo, full, nickname) %>%
   tidyr::pivot_longer(-team, names_to = NULL, values_to = "alternate") %>%
   dplyr::distinct() %>%
   dplyr::filter(alternate!="") %>%
@@ -36,9 +36,17 @@ teams <- csv_from_url("https://github.com/nflverse/nfldata/raw/master/data/teams
       "AFC", "AFC",
       "NFC", "NFC",
       "NFL", "NFL",
-      "ARI", "PHO"
+      "ARI", "PHO",
+      "SF", "Niners",
+      "LAC", "San Diego Chargers",
+      "LV", "Oakland Raiders",
+      "LA", "St Louis Rams"
     )
   ) %>%
+  dplyr::mutate(
+    # clean_team_abbrs calls toupper on it's input
+    alternate = toupper(alternate)
+  ) |>
   dplyr::arrange(alternate)
 
 team_abbr_mapping <- teams %>%
