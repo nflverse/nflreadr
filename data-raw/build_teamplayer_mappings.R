@@ -44,7 +44,7 @@ teams <- nflreadr::csv_from_url("https://github.com/nflverse/nfldata/raw/master/
     )
   ) %>%
   dplyr::mutate(
-    # clean_team_abbrs calls toupper on it's input
+    # clean_team_abbrs calls toupper on its input
     alternate = toupper(alternate)
   ) |>
   dplyr::arrange(alternate)
