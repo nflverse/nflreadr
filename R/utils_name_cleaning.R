@@ -1,9 +1,10 @@
 #' Standardize NFL Team Abbreviations
 #'
-#' This function standardizes NFL team abbreviations to nflverse defaults.
-#' This helps for joins and plotting, especially with the new nflplotR package!
+#' This function standardizes NFL team names, abbreviations, and nicknames to
+#' nflverse defaults.
+#' This helps for joins and plotting, especially with the nflplotR package!
 #'
-#' @param abbr a character vector of abbreviations
+#' @param abbr a character vector of abbreviations, full team names, or team nicknames
 #' @param current_location If `TRUE` (the default), the abbreviation of the most
 #'   recent team location will be used.
 #' @param keep_non_matches If `TRUE` (the default) an element of `abbr` that can't
@@ -17,7 +18,7 @@
 #' @export
 #' @examples
 #' \dontshow{.for_cran()}
-#' x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL")
+#' x <- c("PIE", "LAR", "PIT", "CRD", "OAK", "SL", "Niners", "San Diego Chargers")
 #' # use current location and keep non matches
 #' clean_team_abbrs(x)
 #'
