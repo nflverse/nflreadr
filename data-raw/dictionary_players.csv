@@ -1,0 +1,40 @@
+field,data_type,description
+gsis_id,character,GSIS ID for player. Primary key for all data.
+display_name,character,Full name of player
+common_first_name,character,Common first name of player
+first_name,character,First name of player
+last_name,character,Last name of player
+short_name,character,Player short name (i.e. "F.Last")
+football_name,character,Common player name (i.e. in most cases common_first_name last_name)
+suffix,character,Name suffix of player
+esb_id,character,ESB ID of player
+nfl_id,character,NFL ID of player (this is used in Big Data Bowl Data)
+pfr_id,character,Pro-Football-Reference ID for player
+pff_id,character,PFF ID for player
+otc_id,character,Over the Cap ID for player
+espn_id,character,ESPN ID for player
+smart_id,character,SMART ID for player (that's in raw pbp. It includes a hashed ESB_ID)
+birth_date,character,Player birth date (sourced from NFL. Other sources may differ)
+position_group,character,Postion group of player as listed by NFL
+position,character,Position of player as listed by NFL
+ngs_position_group,character,Position group of player as listed by Next Gen Stats
+ngs_position,character,Position of player as listed by Next Gen Stats
+headshot,character, NFL headshot url for player
+college_name,character,Official college (usually the last one attended)
+college_conference,character,Conference of college
+jersey_number,character,Latest jersey number of player
+latest_team,character,Latest team the player was listed in
+status,character,"Roster status: describes things like Active, Inactive, Injured Reserve, Practice Squad etc"
+ngs_status,character,Next Gen Stats variant of status
+ngs_status_short_description,character,Next Gen Stats status description
+pff_position,character,Position of player as listed by PFF
+pff_status,character,Roster status as listed by PFF
+draft_team,character,Team that drafted player
+height,numeric,Height of player (inches)
+weight,numeric,Weight of player (lbs)
+rookie_season,numeric,4 digit number indicating which season the player was a rookie
+last_season,numeric,4 digit number indicating which season the player was active the last time
+years_of_experience,numeric,Years played in league
+draft_year,numeric,Year that player was drafted
+draft_round,numeric,Round that player was drafted in
+draft_pick,numeric,Pick number of player
