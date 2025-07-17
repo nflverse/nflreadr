@@ -14,7 +14,34 @@
 #'
 #' @return A tibble with one row per player.
 #'
-#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflreadr> and it will be triaged appropriately.
+#' @details
+#'
+#' ## Contribute
+#'
+#' Please visit <https://github.com/nflverse/nflverse-players/blob/master/.github/CONTRIBUTING.md>
+#' for a detailed explanation how to contribute (or correct) players data.
+#'
+#' ## Scope of Players Dataset
+#'
+#' The nflverse players dataset aims to be the single source of truth when it
+#' comes to NFL player IDs across various sources (relevant to the nflverse).
+#' The following source IDs and information are considered in-scope of the
+#' nflverse players dataset:
+#'
+#' - Basic player information e.g. name, height, weight, age, date of birth,
+#' years experience, college, status, position, headshot image (mostly from GSIS)
+#' - Draft information: draft year, draft round, draft pick, draft team (from PFR)
+#' - PFF position and status information
+#' - Primary source IDs from:
+#'   - NFL (`gsis_id`, `smart_id`) - `gsis_id` is the primary key
+#'   - Pro Football Reference (`pfr_id`)
+#'   - Pro Football Focus (`pff_id`)
+#'   - Over The Cap (`otc_id`)
+#'   - Elias Sports Bureau (`esb_id`)
+#'   - ESPN (`espn_id`)
+#'
+#' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-players>.
+#' @seealso [`dictionary_players`] for the data dictionary as bundled within the package
 #'
 #' @export
 load_players <- function(file_type = getOption("nflreadr.prefer", default = "rds")){
