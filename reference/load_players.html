@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.07</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.08</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +69,41 @@
     <p>A tibble with one row per player.</p>
     </div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+
+<div class="section">
+<h3 id="contribute">Contribute<a class="anchor" aria-label="anchor" href="#contribute"></a></h3>
+
+
+<p>Please visit <a href="https://github.com/nflverse/nflverse-players/blob/master/.github/CONTRIBUTING.md" class="external-link">https://github.com/nflverse/nflverse-players/blob/master/.github/CONTRIBUTING.md</a>
+for a detailed explanation how to contribute (or correct) players data.</p>
+</div>
+
+<div class="section">
+<h3 id="scope-of-players-dataset">Scope of Players Dataset<a class="anchor" aria-label="anchor" href="#scope-of-players-dataset"></a></h3>
+
+
+<p>The nflverse players dataset aims to be the single source of truth when it
+comes to NFL player IDs across various sources (relevant to the nflverse).
+The following source IDs and information are considered in-scope of the
+nflverse players dataset:</p><ul><li><p>Basic player information e.g. name, height, weight, age, date of birth,
+years experience, college, status, position, headshot image (mostly from GSIS)</p></li>
+<li><p>Draft information: draft year, draft round, draft pick, draft team (from PFR)</p></li>
+<li><p>PFF position and status information</p></li>
+<li><p>Primary source IDs from:</p><ul><li><p>NFL (<code>gsis_id</code>, <code>smart_id</code>) - <code>gsis_id</code> is the primary key</p></li>
+<li><p>Pro Football Reference (<code>pfr_id</code>)</p></li>
+<li><p>Pro Football Focus (<code>pff_id</code>)</p></li>
+<li><p>Over The Cap (<code>otc_id</code>)</p></li>
+<li><p>Elias Sports Bureau (<code>esb_id</code>)</p></li>
+<li><p>ESPN (<code>espn_id</code>)</p></li>
+</ul></li>
+</ul></div>
+
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Issues with this data should be filed here: <a href="https://github.com/nflverse/nflreadr" class="external-link">https://github.com/nflverse/nflreadr</a> and it will be triaged appropriately.</p></div>
+    <div class="dont-index"><p>Issues with this data should be filed here: <a href="https://github.com/nflverse/nflverse-players" class="external-link">https://github.com/nflverse/nflverse-players</a>.</p>
+<p><code><a href="dictionary_players.html">dictionary_players</a></code> for the data dictionary as bundled within the package</p></div>
     </div>
 
     <div class="section level2">
@@ -79,28 +112,28 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents cran errors</span></span></span>
 <span class="r-in"><span>  <span class="fu">load_players</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse players</span> ────────────────────────────────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2025-06-01 02:15:12 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 21,421 × 32</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    first_name last_name position esb_id    gsis_id    display_name   rookie_year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 'Omar      Ellison   WR       ELL711319 00-0004866 'Omar Ellison           <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> A'Shawn    Robinson  DE       ROB367960 00-0032889 A'Shawn Robin…        <span style="text-decoration: underline;">2</span>016</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> A.J.       Arcuri    T        ARC716900 00-0037845 A.J. Arcuri           <span style="text-decoration: underline;">2</span>022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> A.J.       Barner    TE       BAR235889 00-0039793 A.J. Barner           <span style="text-decoration: underline;">2</span>024</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Arlandus   Bouye     CB       BOU651714 00-0030228 A.J. Bouye            <span style="text-decoration: underline;">2</span>013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Arthur     Brown     WR       BRO413223 00-0035676 A.J. Brown            <span style="text-decoration: underline;">2</span>019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Aaron      Cann      G        CAN364949 00-0032255 A.J. Cann             <span style="text-decoration: underline;">2</span>015</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> A.J.       Cole      P        COL214396 00-0035190 A.J. Cole             <span style="text-decoration: underline;">2</span>019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> A.J.       Cruz      WR       CRU779150 00-0032270 A.J. Cruz               <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> A.J.       Dalton    T        DAL649400 00-0031108 A.J. Dalton             <span style="color: #BB0000;">NA</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21,411 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 25 more variables: college_conference &lt;chr&gt;, current_team_id &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   draft_club &lt;chr&gt;, draft_number &lt;int&gt;, draftround &lt;int&gt;, entry_year &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   football_name &lt;chr&gt;, gsis_it_id &lt;int&gt;, headshot &lt;chr&gt;, jersey_number &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   position_group &lt;chr&gt;, short_name &lt;chr&gt;, smart_id &lt;chr&gt;, status &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   status_description_abbr &lt;chr&gt;, status_short_description &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_abbr &lt;chr&gt;, uniform_number &lt;chr&gt;, height &lt;dbl&gt;, weight &lt;int&gt;, …</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse nflverse Players Data</span> ──────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2025-07-17 19:31:40 UTC</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24,509 × 39</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    gsis_id    display_name     common_first_name first_name last_name short_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 00-0028830 Isaako Aaitui    Isaako            Isaako     Aaitui    <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 00-0038389 Israel Abanikan… Israel            Israel     Abanikan… I.Abanika…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 00-0024644 Jon Abbate       Jon               Jon        Abbate    <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ABB498348  Vince Abbott     Vince             Vincent    Abbott    <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 00-0031021 Jared Abbrederis Jared             Jared      Abbreder… J.Abbrede…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 00-0032860 Mehdi Abdesmad   Mehdi             Mehdi      Abdesmad  M.Abdesmad</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 00-0028564 Isa Abdul-Quddus Isa               Isa        Abdul-Qu… <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 00-0032104 Ameer Abdullah   Ameer             Ameer      Abdullah  A.Abdullah</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 00-0023663 Hamza Abdullah   Hamza             Hamza      Abdullah  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 00-0025940 Husain Abdullah  Husain            Husain     Abdullah  <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 24,499 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 33 more variables: football_name &lt;chr&gt;, suffix &lt;chr&gt;, esb_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nfl_id &lt;chr&gt;, pfr_id &lt;chr&gt;, pff_id &lt;chr&gt;, otc_id &lt;chr&gt;, espn_id &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   smart_id &lt;chr&gt;, birth_date &lt;chr&gt;, position_group &lt;chr&gt;, position &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ngs_position_group &lt;chr&gt;, ngs_position &lt;chr&gt;, height &lt;int&gt;, weight &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   headshot &lt;chr&gt;, college_name &lt;chr&gt;, college_conference &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   jersey_number &lt;chr&gt;, rookie_season &lt;int&gt;, last_season &lt;int&gt;, …</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
