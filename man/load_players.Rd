@@ -57,4 +57,6 @@ try({ # prevents cran errors
 }
 \seealso{
 Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-players}.
+
+\code{\link{dictionary_players}} for the data dictionary as bundled within the package
 }
