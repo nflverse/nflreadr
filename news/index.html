@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.08</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.09</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,8 @@
 <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now converts full team names like <code>"Los Angeles Chargers"</code> or team nicknames like <code>"Bills"</code> to corresponding team abbreviations (<code>"LAC"</code> and <code>"BUF"</code> in this example). (<a href="https://github.com/nflverse/nflreadr/issues/269" class="external-link">#269</a>)</li>
 <li>
 <code><a href="../reference/load_players.html">load_players()</a></code> now loads v2 nflverse players data. This is a breaking change as some variables have been removed or renamed. Please see the <a href="https://github.com/nflverse/nflverse-players?tab=readme-ov-file#whats-new-in-players-v2" class="external-link">data comparison</a> for more details.</li>
+<li>
+<code><a href="../reference/get_current_week.html">get_current_week()</a></code> now passes arguments on to <code><a href="../reference/latest_season.html">most_recent_season()</a></code>. (<a href="https://github.com/nflverse/nflreadr/issues/272" class="external-link">#272</a>)</li>
 </ul><hr></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.1" id="nflreadr-141">nflreadr 1.4.1<a class="anchor" aria-label="anchor" href="#nflreadr-141"></a></h2><p class="text-muted">CRAN release: 2024-07-29</p>
