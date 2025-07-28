@@ -4,11 +4,13 @@
 \alias{get_current_week}
 \title{Get Current Week}
 \usage{
-get_current_week(use_date = FALSE)
+get_current_week(use_date = FALSE, ...)
 }
 \arguments{
 \item{use_date}{a logical to determine whether to use date-based heuristics to
 determine current week, default FALSE (i.e. uses schedule file)}
+
+\item{...}{Arguments passed on to \code{\link[=most_recent_season]{most_recent_season()}}}
 }
 \value{
 current nfl regular season week as a numeric
