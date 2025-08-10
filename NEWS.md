@@ -8,6 +8,8 @@ across all nflverse data. When printing to the console, nflreadr will convert ti
 - Improved description of next score probability variables in `nflreadr::dictionary_pbp`. (#262) 
 - `.sitrep` and all `*_sitrep` functions now redact nflfastR option paths. (#263)
 - `clean_team_abbrs()` now converts full team names like `"Los Angeles Chargers"` or team nicknames like `"Bills"` to corresponding team abbreviations (`"LAC"` and `"BUF"` in this example). (#269)
+- `load_players()` now loads v2 nflverse players data. This is a breaking change as some variables have been removed or renamed. Please see the [data comparison](https://github.com/nflverse/nflverse-players?tab=readme-ov-file#whats-new-in-players-v2) for more details.
+- `get_current_week()` now passes arguments on to `most_recent_season()`. (#272)
 
 ---
 

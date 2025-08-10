@@ -16,6 +16,36 @@ A tibble with one row per player.
 \description{
 Load a dataframe of player-level information, including IDs and other mostly-immutable data (birthdates, college, draft position etc.)
 }
+\details{
+\subsection{Contribute}{
+
+Please visit \url{https://github.com/nflverse/nflverse-players/blob/master/.github/CONTRIBUTING.md}
+for a detailed explanation how to contribute (or correct) players data.
+}
+
+\subsection{Scope of Players Dataset}{
+
+The nflverse players dataset aims to be the single source of truth when it
+comes to NFL player IDs across various sources (relevant to the nflverse).
+The following source IDs and information are considered in-scope of the
+nflverse players dataset:
+\itemize{
+\item Basic player information e.g. name, height, weight, age, date of birth,
+years experience, college, status, position, headshot image (mostly from GSIS)
+\item Draft information: draft year, draft round, draft pick, draft team (from PFR)
+\item PFF position and status information
+\item Primary source IDs from:
+\itemize{
+\item NFL (\code{gsis_id}, \code{smart_id}) - \code{gsis_id} is the primary key
+\item Pro Football Reference (\code{pfr_id})
+\item Pro Football Focus (\code{pff_id})
+\item Over The Cap (\code{otc_id})
+\item Elias Sports Bureau (\code{esb_id})
+\item ESPN (\code{espn_id})
+}
+}
+}
+}
 \examples{
 \dontshow{.for_cran()}
 \donttest{
@@ -26,5 +56,7 @@ try({ # prevents cran errors
 
 }
 \seealso{
-Issues with this data should be filed here: \url{https://github.com/nflverse/nflreadr} and it will be triaged appropriately.
+Issues with this data should be filed here: \url{https://github.com/nflverse/nflverse-players}.
+
+\code{\link{dictionary_players}} for the data dictionary as bundled within the package
 }

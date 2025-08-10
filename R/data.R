@@ -217,3 +217,11 @@
 #'
 #' A dictionary translating the shorthand roster status to more verbose explanations of what each status indicates.
 "dictionary_roster_status"
+
+#' Data Dictionary: Players
+#'
+#' A dataframe containing the data dictionary for [`load_players()`]
+#'
+#' @seealso `vignette("Data Dictionary - Players")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_players.html>
+"dictionary_players"
