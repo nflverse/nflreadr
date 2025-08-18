@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.10</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.11</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,11 +79,14 @@
 
     
     
+<p>Please note that the data source has changed after the 2024 season.
+From 2025 onwards, the following variables and descriptions will
+apply.</p>
 <table class="table">
 <colgroup>
+<col width="6%">
 <col width="8%">
-<col width="3%">
-<col width="87%">
+<col width="85%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">field</th>
@@ -92,76 +95,72 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">season</td>
-<td align="left">numeric</td>
-<td align="left">4 digit number indicating to which season(s) the
-specified timeframe belongs to.</td>
+<td align="left">dt</td>
+<td align="left">character</td>
+<td align="left">The timestamp (ISO8601-formatted text) indicating when
+the data record was loaded. Can be used to assign the data set to a
+specific point in time during the season.</td>
 </tr>
 <tr class="even">
-<td align="left">week</td>
-<td align="left">numeric</td>
-<td align="left">Week in season that depth chart is for. For 17 week
-seasons, week 18 reflects the end-of-season depth charts, and week 19-on
-reflect postseason depth charts. For 18 week seasons, week 19 reflects
-end-of-season depth charts.</td>
-</tr>
-<tr class="odd">
 <td align="left">team</td>
 <td align="left">character</td>
 <td align="left">Team that depth chart belongs to</td>
 </tr>
-<tr class="even">
-<td align="left">season_type</td>
-<td align="left">character</td>
-<td align="left">REG or POST indicating if the depth chart belongs to
-regular or post season.</td>
-</tr>
 <tr class="odd">
-<td align="left">position</td>
-<td align="left">character</td>
-<td align="left">Position of player</td>
-</tr>
-<tr class="even">
-<td align="left">depth_chart_position</td>
-<td align="left">character</td>
-<td align="left">Position of player listed on depth chart</td>
-</tr>
-<tr class="odd">
-<td align="left">formation</td>
-<td align="left">character</td>
-<td align="left">Side of ball that player is on (offense, defense,
-special teams)</td>
-</tr>
-<tr class="even">
-<td align="left">depth_team</td>
-<td align="left">numeric</td>
-<td align="left">Position on depth chart</td>
-</tr>
-<tr class="odd">
-<td align="left">jersey_number</td>
-<td align="left">numeric</td>
-<td align="left">Jersey number of player</td>
-</tr>
-<tr class="even">
-<td align="left">full_name</td>
+<td align="left">player_name</td>
 <td align="left">character</td>
 <td align="left">Full name of player</td>
 </tr>
-<tr class="odd">
-<td align="left">first_name</td>
-<td align="left">character</td>
-<td align="left">First name of player</td>
-</tr>
 <tr class="even">
-<td align="left">last_name</td>
+<td align="left">espn_id</td>
 <td align="left">character</td>
-<td align="left">Last name of player</td>
+<td align="left">ESPN Player ID</td>
 </tr>
 <tr class="odd">
 <td align="left">gsis_id</td>
-<td align="left">numeric</td>
+<td align="left">character</td>
 <td align="left">Game Stats and Info Service ID: the primary ID for
-play-by-play data.</td>
+play-by-play data</td>
+</tr>
+<tr class="even">
+<td align="left">pos_grp_id</td>
+<td align="left">character</td>
+<td align="left">Player position group identifier</td>
+</tr>
+<tr class="odd">
+<td align="left">pos_grp</td>
+<td align="left">character</td>
+<td align="left">Player position group: formation of offense</td>
+</tr>
+<tr class="even">
+<td align="left">defense</td>
+<td align="left">or special teams</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">pos_id</td>
+<td align="left">character</td>
+<td align="left">Player position identifier</td>
+</tr>
+<tr class="even">
+<td align="left">pos_name</td>
+<td align="left">character</td>
+<td align="left">Player position name</td>
+</tr>
+<tr class="odd">
+<td align="left">pos_abb</td>
+<td align="left">character</td>
+<td align="left">Player position abbreviation</td>
+</tr>
+<tr class="even">
+<td align="left">pos_slot</td>
+<td align="left">numeric</td>
+<td align="left">A number assigned to each position in a formation</td>
+</tr>
+<tr class="odd">
+<td align="left">pos_rank</td>
+<td align="left">numeric</td>
+<td align="left">Player’s rank on depth chart grouped by pos_slot</td>
 </tr>
 </tbody>
 </table></main>
