@@ -5,7 +5,7 @@ player_name,character,Full name of player
 espn_id,character,ESPN Player ID
 gsis_id,character,Game Stats and Info Service ID: the primary ID for play-by-play data
 pos_grp_id,character,Player position group identifier
-pos_grp,character,Player position group: formation of offense, defense, or special teams
+pos_grp,character,"Player position group: formation of offense, defense, or special teams"
 pos_id,character,Player position identifier
 pos_name,character,Player position name
 pos_abb,character,Player position abbreviation
