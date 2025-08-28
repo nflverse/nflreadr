@@ -1,6 +1,8 @@
 #' Load Participation Data
 #'
 #' @description Loads participation data from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
+#' 
+#' Participation data prior to 2023 is from NFL NGS. Participation data from 2023 on is courtesy of FTN.
 #'
 #' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 2016.
 #' @param include_pbp a logical: download and join pbp to this data?

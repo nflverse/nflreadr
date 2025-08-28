@@ -23,6 +23,8 @@ A dataframe of participation data, optionally merged with play by play
 }
 \description{
 Loads participation data from the \href{https://github.com/nflverse/nflverse-data}{nflverse-data repository}
+
+Participation data prior to 2023 is from NFL NGS. Participation data from 2023 on is courtesy of FTN.
 }
 \examples{
 \dontshow{.for_cran()}
