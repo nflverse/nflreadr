@@ -8,7 +8,9 @@ dictionary_player_stats <- read.csv("data-raw/dictionary_playerstats.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
-dictionary_player_stats_def <- read.csv("data-raw/dictionary_playerstats_def.csv") |>
+dictionary_player_stats_def <- read.csv(
+  "data-raw/dictionary_playerstats_def.csv"
+) |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_player_stats_def, overwrite = TRUE)
 
@@ -87,4 +89,3 @@ usethis::use_data(dictionary_roster_status, overwrite = TRUE)
 dictionary_players <- read.csv("data-raw/dictionary_players.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_players, overwrite = TRUE)
-

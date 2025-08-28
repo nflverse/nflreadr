@@ -5,7 +5,7 @@
 \alias{dictionary_participation}
 \title{Data Dictionary: Participation}
 \format{
-An object of class \code{data.frame} with 19 rows and 3 columns.
+An object of class \code{data.frame} with 26 rows and 3 columns.
 }
 \usage{
 dictionary_participation

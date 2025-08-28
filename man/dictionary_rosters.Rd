@@ -5,7 +5,7 @@
 \alias{dictionary_rosters}
 \title{Data Dictionary: Rosters}
 \format{
-An object of class \code{data.frame} with 25 rows and 3 columns.
+An object of class \code{data.frame} with 37 rows and 3 columns.
 }
 \usage{
 dictionary_rosters

@@ -4,17 +4,24 @@ old_game_id,character,Legacy NFL game ID.
 play_id,integer,Numeric play id that when used with game_id and drive provides the unique identifier for a single play.
 possession_team,character,String abbreviation for the team with possession.
 offense_formation,character,Formation the offense lines up in to snap the ball.
-offense_personnel,character,"Number of running backs, tight ends, and wide receivers on the field for the play. If there are more than the standard 5 offensive linemen and 1 quarterback, they will be listed here as well."
+offense_personnel,character,The positions of the offensive personnel lined up on the field for a play.
 defenders_in_box,integer,Number of defensive players lined up in the box at the snap.
-defense_personnel,character,"Number of defensive linemen, linebackers, and defensive backs on the field for the play. "
+defense_personnel,character,The positions of the defensive personnel lined up on the field for a play.
 number_of_pass_rushers,integer,Number of defensive player who rushed the passer.
-players_on_play,character,"A list of every player on the field for the play, by gsis_it_id"
+players_on_play,character,"A list of every player on the field for the play, by gsis_id"
 offense_players,character,"A list of every offensive player on the field for the play, by gsis_id"
 defense_players,character,"A list of every defensive player on the field for the play, by gsis_id"
 n_offense,integer,Number of offensive players on the field for the play
 n_defense,integer,Number of defensive players on the field for the play
-ngs_air_yards,double,Distance (in yards) that the ball traveled in the air on a given passing play as tracked by NGS
+ngs_air_yards,double,"Legacy column. For 2023 and prior years, reflects the distance (in yards) that the ball traveled in the air on a given passing play as tracked by NGS. Is NA for 2024 on--we advise instead using the air_yards column from nflreadr::load_pbp() moving forward."
 time_to_throw,double,Duration (in seconds) between the time of the ball being snapped and the time of release of a pass attempt
 was_pressure,logical,A boolean indicating whether or not the QB was pressured on a play
+route,character,"A string indicating the route the primary receiver on a play took. Has the following possible values: ""CORNER"", ""DEEP OUT"", ""GO"", ""HITCH/CURL"", ""IN/DIG"", ""POST"", ""QUICK OUT"", ""SCREEN"", ""SHALLOW CROSS/DRAG"", ""SLANT"", ""SWING"", ""TEXAS/ANGLE"", ""WHEEL""."
 defense_man_zone_type,character,A string indicating whether the defense was in man or zone coverage on a play
-defense_coverage_type,character,A string indicating what type of cover the defense was in on a play
+defense_coverage_type,character,"A string indicating what type of cover the defense was in on a play. Has one of the following values: ""COVER_0"", ""COVER_1"", ""COVER_2"", ""2_MAN"", ""COVER_3"", ""COVER_4"", ""COVER_6"", ""COVER_9"", ""COMBO"", ""BLOWN""."
+offense_names,character,A string listing all of the names of offensive players in the order of their gsis_ids in offense_players.
+defense_names,character,A string listing all of the names of defensive players in the order of their gsis_ids in defense_players.
+offense_positions,character,A string listing all of the positions of offensive players in the order of their gsis_ids in offense_players.
+defense_positions,character,A string listing all of the positions of defensive players in the order of their gsis_ids in defense_players.
+offense_numbers,character,A string listing all of the numbers of offensive players in the order of their gsis_ids in offense_players.
+defense_numbers,character,A string listing all of the numbers of defensive players in the order of their gsis_ids in defense_players.
