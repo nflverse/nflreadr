@@ -44,9 +44,13 @@
 #' @seealso [`dictionary_players`] for the data dictionary as bundled within the package
 #'
 #' @export
-load_players <- function(file_type = getOption("nflreadr.prefer", default = "rds")){
+load_players <- function(
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/players/players.{file_type}")
+  url <- glue::glue(
+    "https://github.com/nflverse/nflverse-data/releases/download/players/players.{file_type}"
+  )
   out <- load_from_url(url, nflverse = TRUE)
   out
 }

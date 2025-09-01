@@ -17,14 +17,17 @@
 #' }
 #'
 #' @export
-load_trades <- function(seasons = TRUE){
+load_trades <- function(seasons = TRUE) {
+  if (!isTRUE(seasons)) {
+    stopifnot(is.numeric(seasons))
+  }
 
-  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-
-  out <- load_from_url("https://github.com/nflverse/nfldata/raw/master/data/trades.rds",
-                       seasons = seasons,
-                       nflverse = TRUE,
-                       nflverse_type = "trades (via PFR / Lee Sharpe)")
+  out <- load_from_url(
+    "https://github.com/nflverse/nfldata/raw/master/data/trades.rds",
+    seasons = seasons,
+    nflverse = TRUE,
+    nflverse_type = "trades (via PFR / Lee Sharpe)"
+  )
 
   return(out)
 }

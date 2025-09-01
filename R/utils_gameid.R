@@ -10,19 +10,18 @@
 #' @examples
 #' \dontshow{.for_cran()}
 #' nflverse_game_id(2022, 2, "LAC", "KC")
-nflverse_game_id <- function(season,
-                             week,
-                             away,
-                             home){
+nflverse_game_id <- function(season, week, away, home) {
   # catch character input of season and week
   season <- as.numeric(season)
   week <- as.numeric(week)
 
-  if (!all(season %in% 1999:most_recent_season(roster = TRUE))){
-    cli::cli_abort("{.arg season} must be between 1999 and {most_recent_season(roster = TRUE)}")
+  if (!all(season %in% 1999:most_recent_season(roster = TRUE))) {
+    cli::cli_abort(
+      "{.arg season} must be between 1999 and {most_recent_season(roster = TRUE)}"
+    )
   }
 
-  if (!all(week %in% 1:22)){
+  if (!all(week %in% 1:22)) {
     cli::cli_abort("{.arg week} must be between 1 and 22")
   }
 
@@ -30,12 +29,16 @@ nflverse_game_id <- function(season,
 
   if (!all(home %in% valid_names)) {
     invalid <- unique(home[!home %in% valid_names])
-    cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg home} abbreviation{?s}.")
+    cli::cli_abort(
+      "{.val {invalid}} {?is an/are} invalid {.arg home} abbreviation{?s}."
+    )
   }
 
   if (!all(away %in% valid_names)) {
     invalid <- unique(away[!away %in% valid_names])
-    cli::cli_abort("{.val {invalid}} {?is an/are} invalid {.arg away} abbreviation{?s}.")
+    cli::cli_abort(
+      "{.val {invalid}} {?is an/are} invalid {.arg away} abbreviation{?s}."
+    )
   }
 
   away <- clean_team_abbrs(away, current_location = FALSE)
@@ -43,8 +46,10 @@ nflverse_game_id <- function(season,
 
   arg_lengths <- lengths(list(season, week, away, home))
 
-  if (!all(arg_lengths %in% c(1, max(arg_lengths)))){
-    cli::cli_warn("Arguments should be of of length one or of length {max(arg_lengths)}. Recycling may produce unexpected results.")
+  if (!all(arg_lengths %in% c(1, max(arg_lengths)))) {
+    cli::cli_warn(
+      "Arguments should be of of length one or of length {max(arg_lengths)}. Recycling may produce unexpected results."
+    )
   }
 
   paste(

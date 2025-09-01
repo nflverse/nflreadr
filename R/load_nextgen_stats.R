@@ -33,21 +33,32 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
-load_nextgen_stats <- function(seasons = TRUE,
-                               stat_type = c("passing", "receiving", "rushing"),
-                               file_type = getOption("nflreadr.prefer", default = "rds")){
-
-  if(!isTRUE(seasons)) {
-    stopifnot(is.numeric(seasons),
-              seasons >= 2016,
-              seasons <= most_recent_season())
+load_nextgen_stats <- function(
+  seasons = TRUE,
+  stat_type = c("passing", "receiving", "rushing"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  if (!isTRUE(seasons)) {
+    stopifnot(
+      is.numeric(seasons),
+      seasons >= 2016,
+      seasons <= most_recent_season()
+    )
   }
 
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
-  stat_type <- rlang::arg_match0(stat_type, c("passing", "receiving", "rushing"))
+  stat_type <- rlang::arg_match0(
+    stat_type,
+    c("passing", "receiving", "rushing")
+  )
 
-  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/",
-                "nextgen_stats/ngs_", stat_type, ".", file_type)
+  url <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/",
+    "nextgen_stats/ngs_",
+    stat_type,
+    ".",
+    file_type
+  )
 
   out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
   out

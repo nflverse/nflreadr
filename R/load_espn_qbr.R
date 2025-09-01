@@ -18,17 +18,33 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/espnscrapeR-data>
 #'
 #' @export
-load_espn_qbr <- function(seasons = most_recent_season(),
-                          summary_type = c("season", "week"),
-                          file_type = getOption("nflreadr.prefer", default = "rds")){
-
-  summary_type <- rlang::arg_match0(summary_type, c("season","week"))
+load_espn_qbr <- function(
+  seasons = most_recent_season(),
+  summary_type = c("season", "week"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  summary_type <- rlang::arg_match0(summary_type, c("season", "week"))
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
 
-  if(!isTRUE(seasons)) stopifnot(is.numeric(seasons), seasons >= 2006, seasons <= most_recent_season())
+  if (!isTRUE(seasons)) {
+    stopifnot(
+      is.numeric(seasons),
+      seasons >= 2006,
+      seasons <= most_recent_season()
+    )
+  }
 
-  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/espn_data/qbr_",
-                 summary_type, "_level.", file_type)
-  out <- load_from_url(url, seasons = seasons, nflverse = TRUE, nflverse_type = "QBR (via ESPN/espnscrapeR)")
+  url <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/espn_data/qbr_",
+    summary_type,
+    "_level.",
+    file_type
+  )
+  out <- load_from_url(
+    url,
+    seasons = seasons,
+    nflverse = TRUE,
+    nflverse_type = "QBR (via ESPN/espnscrapeR)"
+  )
   return(out)
 }

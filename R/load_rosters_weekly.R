@@ -21,24 +21,28 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
-load_rosters_weekly <- function(seasons = most_recent_season(roster = TRUE),
-                                file_type = getOption("nflreadr.prefer", default = "rds")){
-
+load_rosters_weekly <- function(
+  seasons = most_recent_season(roster = TRUE),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
 
   current_year <- most_recent_season(roster = TRUE)
 
-  if(isTRUE(seasons)) seasons <- 2002:current_year
+  if (isTRUE(seasons)) {
+    seasons <- 2002:current_year
+  }
 
-  stopifnot(is.numeric(seasons),
-            seasons >= 2002,
-            seasons <= current_year)
+  stopifnot(is.numeric(seasons), seasons >= 2002, seasons <= current_year)
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_",
-                 seasons,".",file_type)
+  urls <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_",
+    seasons,
+    ".",
+    file_type
+  )
 
   out <- load_from_url(urls, seasons = seasons, nflverse = TRUE)
 
   return(out)
 }
-

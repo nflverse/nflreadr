@@ -22,11 +22,13 @@ test_that("mode works", {
   expect_identical(mode_character, "D")
 
   # test Dates
-  vector_dates <- as.Date(c("2023-09-28",
-                            "2023-09-29",
-                            "2023-09-29",
-                            "2023-09-28",
-                            "2023-09-28"))
+  vector_dates <- as.Date(c(
+    "2023-09-28",
+    "2023-09-29",
+    "2023-09-29",
+    "2023-09-28",
+    "2023-09-28"
+  ))
   mode_date <- stat_mode(vector_dates)
   expect_identical(mode_date, as.Date("2023-09-28"))
 })

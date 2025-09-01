@@ -28,13 +28,17 @@
 #' join_coalesce(x,y, by = c("id1"="id2"), type = "full")
 #'
 #' @export
-join_coalesce <- function(x, y, by = NULL,
-                          type = c("left", "inner", "full"),
-                          ...,
-                          by.x = NULL,by.y = NULL,
-                          sort = TRUE,
-                          incomparables = c(NA,NaN)) {
-
+join_coalesce <- function(
+  x,
+  y,
+  by = NULL,
+  type = c("left", "inner", "full"),
+  ...,
+  by.x = NULL,
+  by.y = NULL,
+  sort = TRUE,
+  incomparables = c(NA, NaN)
+) {
   type <- rlang::arg_match0(type, c("left", "inner", "full"))
 
   stopifnot(
@@ -47,17 +51,23 @@ join_coalesce <- function(x, y, by = NULL,
   x <- as.data.frame(x)
   y <- as.data.frame(y)
 
-  keys_x <- if (!is.null(by.x)) by.x else if(is.null(names(by))) by else ifelse(names(by) == "", by, names(by))
+  keys_x <- if (!is.null(by.x)) {
+    by.x
+  } else if (is.null(names(by))) {
+    by
+  } else {
+    ifelse(names(by) == "", by, names(by))
+  }
   keys_y <- if (!is.null(by.y)) by.y else by
 
   check_keys <- c(
     "Join `by` keys in x are not unique" = nrow(x) != nrow(unique(x[keys_x])),
     "Join `by` keys in y are not unique" = nrow(y) != nrow(unique(y[keys_y])),
     "Join `by` keys in x have NAs" = any(is.na(x[keys_x])),
-    "Join `by` keys in y have NAs"= any(is.na(y[keys_y]))
+    "Join `by` keys in y have NAs" = any(is.na(y[keys_y]))
   )
 
-  if(any(check_keys)) {
+  if (any(check_keys)) {
     cli::cli_warn(
       names(check_keys)[which(check_keys)]
     )
@@ -87,12 +97,14 @@ join_coalesce <- function(x, y, by = NULL,
     data.table::set(
       merged_df,
       j = col,
-      value = merged_df[[paste0(col, "..x")]] %c% merged_df[[paste0(col, "..y")]])
+      value = merged_df[[paste0(col, "..x")]] %c%
+        merged_df[[paste0(col, "..y")]]
+    )
     data.table::set(merged_df, j = paste0(col, "..x"), value = NULL)
     data.table::set(merged_df, j = paste0(col, "..y"), value = NULL)
   }
 
-  out <- merged_df[,c(keys_x,unique(joined_cols)), with = FALSE]
+  out <- merged_df[, c(keys_x, unique(joined_cols)), with = FALSE]
   data.table::setDF(out)
   return(out)
 }

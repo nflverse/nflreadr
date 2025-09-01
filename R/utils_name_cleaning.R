@@ -24,22 +24,33 @@
 #'
 #' # keep old location and replace non matches
 #' clean_team_abbrs(x, current_location = FALSE, keep_non_matches = FALSE)
-clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = TRUE) {
+clean_team_abbrs <- function(
+  abbr,
+  current_location = TRUE,
+  keep_non_matches = TRUE
+) {
   stopifnot(
     is.character(abbr),
     is.logical(current_location)
   )
 
-  m <- if (isTRUE(current_location)) nflreadr::team_abbr_mapping else nflreadr::team_abbr_mapping_norelocate
-
+  m <- if (isTRUE(current_location)) {
+    nflreadr::team_abbr_mapping
+  } else {
+    nflreadr::team_abbr_mapping_norelocate
+  }
 
   a <- unname(m[toupper(abbr)])
 
   if (any(is.na(a)) && getOption("nflreadr.verbose", default = interactive())) {
-    cli::cli_warn("Abbreviations not found in `nflreadr::team_abbr_mapping`: {paste(utils::head(abbr[is.na(a)], 10), collapse = ', ')}")
+    cli::cli_warn(
+      "Abbreviations not found in `nflreadr::team_abbr_mapping`: {paste(utils::head(abbr[is.na(a)], 10), collapse = ', ')}"
+    )
   }
 
-  if (isTRUE(keep_non_matches)) a <- a %c% abbr
+  if (isTRUE(keep_non_matches)) {
+    a <- a %c% abbr
+  }
 
   a
 }
@@ -71,17 +82,18 @@ clean_team_abbrs <- function(abbr, current_location = TRUE, keep_non_matches = T
 #'                   convert_lastfirst = TRUE)
 #'
 #' @export
-clean_player_names <- function(player_name,
-                               lowercase = FALSE,
-                               convert_lastfirst = TRUE,
-                               use_name_database = TRUE,
-                               convert_to_ascii = rlang::is_installed("stringi")){
-
+clean_player_names <- function(
+  player_name,
+  lowercase = FALSE,
+  convert_lastfirst = TRUE,
+  use_name_database = TRUE,
+  convert_to_ascii = rlang::is_installed("stringi")
+) {
   stopifnot(
     is.character(player_name),
-    is.logical(c(lowercase,convert_lastfirst,use_name_database)),
-    length(c(lowercase,convert_lastfirst,use_name_database))==3,
-    !any(is.na(c(lowercase,convert_lastfirst,use_name_database)))
+    is.logical(c(lowercase, convert_lastfirst, use_name_database)),
+    length(c(lowercase, convert_lastfirst, use_name_database)) == 3,
+    !any(is.na(c(lowercase, convert_lastfirst, use_name_database)))
   )
 
   n <- player_name
@@ -93,23 +105,31 @@ clean_player_names <- function(player_name,
   n <- gsub(pattern = "^\\s|\\s$", replacement = "", x = n)
 
   # convert Last, First
-  if(isTRUE(convert_lastfirst)) n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+  if (isTRUE(convert_lastfirst)) {
+    n <- gsub(pattern = "^(.+), (.+)$", replacement = "\\2 \\1", x = n)
+  }
 
   # suffix removal
-  n <- gsub(pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
-            replacement = "",
-            x = n,
-            ignore.case = TRUE)
+  n <- gsub(
+    pattern = " Jr\\.$| Sr\\.$| III$| II$| IV$| V$|'|\\.|,",
+    replacement = "",
+    x = n,
+    ignore.case = TRUE
+  )
 
   # transliterate to latin-ascii if stringi is available
-  if(isTRUE(convert_to_ascii)) {
+  if (isTRUE(convert_to_ascii)) {
     rlang::check_installed("stringi", "to convert text to latin-ascii")
     n <- stringi::stri_trans_general(n, "latin-ascii")
   }
 
-  if(isTRUE(use_name_database)) n <- unname(nflreadr::player_name_mapping[n] %c% n)
+  if (isTRUE(use_name_database)) {
+    n <- unname(nflreadr::player_name_mapping[n] %c% n)
+  }
 
-  if(isTRUE(lowercase)) n <- tolower(n)
+  if (isTRUE(lowercase)) {
+    n <- tolower(n)
+  }
 
   n
 }
@@ -139,49 +159,95 @@ clean_player_names <- function(player_name,
 #' clean_homeaway(s, invert = c("result","spread_line"))
 #' @return a dataframe with one row per team (twice as long as the input dataframe)
 #' @export
-clean_homeaway <- function(dataframe, invert = NULL){
+clean_homeaway <- function(dataframe, invert = NULL) {
   stopifnot(
     is.data.frame(dataframe),
-    is.null(invert)||is.character(invert)
+    is.null(invert) || is.character(invert)
   )
   dataframe$.row_order <- seq_len(nrow(dataframe))
   home <- dataframe
   away <- dataframe
 
-  names(home) <- gsub(x = names(home), pattern = "^home_", replacement = "team_")
-  names(home) <- gsub(x = names(home), pattern = "^away_", replacement = "opponent_")
+  names(home) <- gsub(
+    x = names(home),
+    pattern = "^home_",
+    replacement = "team_"
+  )
+  names(home) <- gsub(
+    x = names(home),
+    pattern = "^away_",
+    replacement = "opponent_"
+  )
   names(home) <- gsub(x = names(home), pattern = "_home$", replacement = "")
-  names(home) <- gsub(x = names(home), pattern = "_away$", replacement = "_opponent")
-  names(home) <- gsub(x = names(home), pattern = "team_team", replacement = "team")
-  names(home) <- gsub(x = names(home), pattern = "opponent_team", replacement = "opponent")
+  names(home) <- gsub(
+    x = names(home),
+    pattern = "_away$",
+    replacement = "_opponent"
+  )
+  names(home) <- gsub(
+    x = names(home),
+    pattern = "team_team",
+    replacement = "team"
+  )
+  names(home) <- gsub(
+    x = names(home),
+    pattern = "opponent_team",
+    replacement = "opponent"
+  )
 
   # The location variable depends on if there is location in input. If yes, preserve
   # "neutral" otherwise just set to home/away
-  home$location <- if ("location" %in% names(home)){
+  home$location <- if ("location" %in% names(home)) {
     data.table::fifelse(home$location == "Neutral", "neutral", "home", "home")
   } else {
     "home"
   }
 
-  names(away) <- gsub(x = names(away), pattern = "^away_", replacement = "team_")
-  names(away) <- gsub(x = names(away), pattern = "^home_", replacement = "opponent_")
+  names(away) <- gsub(
+    x = names(away),
+    pattern = "^away_",
+    replacement = "team_"
+  )
+  names(away) <- gsub(
+    x = names(away),
+    pattern = "^home_",
+    replacement = "opponent_"
+  )
   names(away) <- gsub(x = names(away), pattern = "_away$", replacement = "")
-  names(away) <- gsub(x = names(away), pattern = "_home$", replacement = "_opponent")
-  names(away) <- gsub(x = names(away), pattern = "team_team", replacement = "team")
-  names(away) <- gsub(x = names(away), pattern = "opponent_team", replacement = "opponent")
+  names(away) <- gsub(
+    x = names(away),
+    pattern = "_home$",
+    replacement = "_opponent"
+  )
+  names(away) <- gsub(
+    x = names(away),
+    pattern = "team_team",
+    replacement = "team"
+  )
+  names(away) <- gsub(
+    x = names(away),
+    pattern = "opponent_team",
+    replacement = "opponent"
+  )
 
   # The location variable depends on if there is location in input. If yes, preserve
   # "neutral" otherwise just set to home/away
-  away$location <- if ("location" %in% names(away)){
+  away$location <- if ("location" %in% names(away)) {
     data.table::fifelse(away$location == "Neutral", "neutral", "away", "away")
   } else {
     "away"
   }
 
-  if(!is.null(invert)){ data.table::setDF(away); away[,c(invert)] <- away[,c(invert)] * -1 }
+  if (!is.null(invert)) {
+    data.table::setDF(away)
+    away[, c(invert)] <- away[, c(invert)] * -1
+  }
 
   .row_order <- NULL
-  out <- data.table::rbindlist(list(home,away), use.names = TRUE)[order(.row_order),-c(".row_order")]
+  out <- data.table::rbindlist(list(home, away), use.names = TRUE)[
+    order(.row_order),
+    -c(".row_order")
+  ]
 
   # we want to preserve the input class(es)
   class(out) <- class(dataframe)
@@ -189,14 +255,17 @@ clean_homeaway <- function(dataframe, invert = NULL){
   # input attributes shall be presrved mostly so we gotta do some acrobatic
   # and combine input attributes with new attributes
   df_attrs <- attributes(dataframe)
-  df_attrs <- df_attrs[setdiff(names(df_attrs), c("row.names","names",".internal.selfref"))]
-  out_attrs <- attributes(out)[c("names","row.names",".internal.selfref")]
+  df_attrs <- df_attrs[setdiff(
+    names(df_attrs),
+    c("row.names", "names", ".internal.selfref")
+  )]
+  out_attrs <- attributes(out)[c("names", "row.names", ".internal.selfref")]
   attributes(out) <- c(out_attrs, df_attrs)
 
   # the input may or may not have the nflverse_type attribute
   # if it is available, we'll add "by team" to make clear it's a different
   # nflverse_type
-  if ("nflverse_type" %in% names(attributes(out))){
+  if ("nflverse_type" %in% names(attributes(out))) {
     attr(out, "nflverse_type") <- paste(attr(out, "nflverse_type"), "by team")
   }
   out

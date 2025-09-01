@@ -1,10 +1,11 @@
 test_that("from_url fails nicely", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
   expect_warning(
-    rds_from_url("https://github.com/nflverse/nfldata/blob/master/data/games.rds"),
+    rds_from_url(
+      "https://github.com/nflverse/nfldata/blob/master/data/games.rds"
+    ),
     regexp = "Failed to readRDS"
   )
 
@@ -15,32 +16,38 @@ test_that("from_url fails nicely", {
 
   # skip_if(!rlang::is_installed("qs"))
   expect_warning(
-    qs_from_url("https://github.com/nflverse/nfldata/raw/master/data/games.rds"),
+    qs_from_url(
+      "https://github.com/nflverse/nfldata/raw/master/data/games.rds"
+    ),
     regexp = "Failed to parse file"
   )
   expect_warning(
     qs_from_url("https://asfdjklasfsadffasd.com"),
     regexp = "Failed to retrieve data"
   )
-
 })
 
 test_that("progress updates in raw_from_url work", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
   # enable progress updates in batch mode for testing the progress updates
   old <- options(progressr.enable = TRUE)
 
-  urls <- rep("https://github.com/nflverse/nflverse-pbp/raw/master/teams_colors_logos.rds", 3)
+  urls <- rep(
+    "https://github.com/nflverse/nflverse-pbp/raw/master/teams_colors_logos.rds",
+    3
+  )
 
-  expect_condition({
-    load <- progressr::with_progress({
-      p <- progressr::progressor(along = urls)
-      lapply(urls, progressively(raw_from_url, p = p))
-    })
-  }, class = "progression")
+  expect_condition(
+    {
+      load <- progressr::with_progress({
+        p <- progressr::progressor(along = urls)
+        lapply(urls, progressively(raw_from_url, p = p))
+      })
+    },
+    class = "progression"
+  )
 
   expect_null({
     capture_condition({
@@ -56,8 +63,7 @@ test_that("progress updates in raw_from_url work", {
   options(old)
 })
 
-test_that("nflverse_download downloads files",{
-
+test_that("nflverse_download downloads files", {
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -68,7 +74,8 @@ test_that("nflverse_download downloads files",{
       nflverse_download(
         "asdf",
         folder_path = temp_dir,
-        .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())),
+        .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
+      ),
       "Could not find"
     ),
     "No matching releases"
@@ -76,36 +83,37 @@ test_that("nflverse_download downloads files",{
 
   expect_warning(
     nflverse_download(
-      combine, "test",
+      combine,
+      "test",
       folder_path = temp_dir,
       file_type = "qs",
-      .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())
+      .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
     ),
     regexp = "Could not find file"
   )
 
   nflverse_download(
-    combine, "contracts",
+    combine,
+    "contracts",
     folder_path = temp_dir,
     file_type = "parquet",
-    .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token())
+    .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
   )
 
   expect_true(
-    length(list.files(temp_dir,recursive = TRUE)) >= 2
+    length(list.files(temp_dir, recursive = TRUE)) >= 2
   )
-
 })
 
-test_that("nflverse_releases lists releases",{
-
+test_that("nflverse_releases lists releases", {
   skip_on_cran()
   skip_if_offline("github.com")
 
-  releases <- nflverse_releases(.token = Sys.getenv("NFLVERSE_GH_TOKEN", unset =  gh::gh_token()))
+  releases <- nflverse_releases(
+    .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
+  )
 
   expect_true(is.data.frame(releases))
   expect_true(nrow(releases) >= 15)
   expect_true(all(c("pbp", "player_stats") %in% releases$release_name))
-
 })

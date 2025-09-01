@@ -21,9 +21,13 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/rotc>
 #'
 #' @export
-load_contracts <- function(file_type = getOption("nflreadr.prefer", default = "rds")){
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet","csv"))
-  url <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/contracts/historical_contracts.{file_type}")
+load_contracts <- function(
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
+  url <- glue::glue(
+    "https://github.com/nflverse/nflverse-data/releases/download/contracts/historical_contracts.{file_type}"
+  )
   out <- load_from_url(url, nflverse = TRUE)
   return(out)
 }

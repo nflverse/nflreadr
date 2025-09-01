@@ -17,9 +17,11 @@
 #'
 #' @export
 load_ff_playerids <- function() {
-  out <- load_from_url("https://github.com/dynastyprocess/data/raw/master/files/db_playerids.rds",
-                       nflverse = TRUE,
-                       nflverse_type = "(ffverse) player IDs")
+  out <- load_from_url(
+    "https://github.com/dynastyprocess/data/raw/master/files/db_playerids.rds",
+    nflverse = TRUE,
+    nflverse_type = "(ffverse) player IDs"
+  )
   return(out)
 }
 
@@ -43,9 +45,8 @@ load_ff_playerids <- function() {
 #' @seealso Issues with this data should be filed here: <https://github.com/dynastyprocess/data>
 #'
 #' @export
-load_ff_rankings <- function(type = c("draft", "week", "all")){
-
-  type <- rlang::arg_match0(type, c("draft","week", "all"))
+load_ff_rankings <- function(type = c("draft", "week", "all")) {
+  type <- rlang::arg_match0(type, c("draft", "week", "all"))
 
   url <- switch(
     type,
@@ -54,7 +55,11 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
     all = "https://github.com/dynastyprocess/data/raw/master/files/db_fpecr.rds"
   )
 
-  out <- load_from_url(url, nflverse = TRUE, nflverse_type = "FP expert rankings")
+  out <- load_from_url(
+    url,
+    nflverse = TRUE,
+    nflverse_type = "FP expert rankings"
+  )
   return(out)
 }
 
@@ -82,22 +87,32 @@ load_ff_rankings <- function(type = c("draft", "week", "all")){
 #' @seealso Issues with this data should be filed here: <https://github.com/ffverse/ffopportunity>
 #'
 #' @export
-load_ff_opportunity <- function(seasons = most_recent_season(),
-                                stat_type = c("weekly","pbp_pass","pbp_rush"),
-                                model_version = c("latest","v1.0.0")
-                                ){
+load_ff_opportunity <- function(
+  seasons = most_recent_season(),
+  stat_type = c("weekly", "pbp_pass", "pbp_rush"),
+  model_version = c("latest", "v1.0.0")
+) {
+  if (isTRUE(seasons)) {
+    seasons <- 2006:most_recent_season()
+  }
 
-  if(isTRUE(seasons)) seasons <- 2006:most_recent_season()
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2006,
+    seasons <= most_recent_season()
+  )
 
-  stopifnot(is.numeric(seasons),
-            seasons >= 2006,
-            seasons <= most_recent_season())
+  stat_type <- rlang::arg_match0(stat_type, c("weekly", "pbp_pass", "pbp_rush"))
+  model_version <- rlang::arg_match0(model_version, c("latest", "v1.0.0"))
 
-  stat_type <- rlang::arg_match0(stat_type, c("weekly","pbp_pass","pbp_rush"))
-  model_version <- rlang::arg_match0(model_version, c("latest","v1.0.0"))
+  urls <- glue::glue(
+    "https://github.com/ffverse/ffopportunity/releases/download/{model_version}-data/ep_{stat_type}_{seasons}.rds"
+  )
 
-  urls <- glue::glue("https://github.com/ffverse/ffopportunity/releases/download/{model_version}-data/ep_{stat_type}_{seasons}.rds")
-
-  out <- load_from_url(urls, nflverse = TRUE, nflverse_type = glue::glue("ffopportunity expected points: {stat_type}"))
+  out <- load_from_url(
+    urls,
+    nflverse = TRUE,
+    nflverse_type = glue::glue("ffopportunity expected points: {stat_type}")
+  )
   return(out)
 }

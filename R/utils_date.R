@@ -21,10 +21,11 @@ most_recent_season <- function(roster = FALSE) {
   # Thursday following Labor Day is TNF season opener
   season_opener <- labor_day + 3
 
-  if ((isFALSE(roster) && today >= season_opener) ||
+  if (
+    (isFALSE(roster) && today >= season_opener) ||
       (isTRUE(roster) && current_month == 3 && current_day >= 15) ||
-      (isTRUE(roster) && current_month > 3 )) {
-
+      (isTRUE(roster) && current_month > 3)
+  ) {
     return(current_year)
   }
 
@@ -68,22 +69,28 @@ get_current_season <- most_recent_season
 #' @return current nfl regular season week as a numeric
 #' @export
 get_current_week <- function(use_date = FALSE, ...) {
-
-  if(!use_date){
+  if (!use_date) {
     season <- NULL
     week <- NULL
     result <- NULL
-    current_season <- data.table::as.data.table(load_schedules())[season == most_recent_season(...)]
+    current_season <- data.table::as.data.table(load_schedules())[
+      season == most_recent_season(...)
+    ]
 
-    if(all(!is.na(current_season$result))) return(max(current_season$week, na.rm = TRUE))
+    if (all(!is.na(current_season$result))) {
+      return(max(current_season$week, na.rm = TRUE))
+    }
 
     current_week <- current_season[is.na(result), week]
     return(min(current_week, na.rm = TRUE))
   }
 
-  if(use_date){
+  if (use_date) {
     # Find first Monday of September in current season
-    week1_sep <- as.POSIXlt(paste0(most_recent_season(...),"-09-0",1:7), tz = "GMT")
+    week1_sep <- as.POSIXlt(
+      paste0(most_recent_season(...), "-09-0", 1:7),
+      tz = "GMT"
+    )
     monday1_sep <- week1_sep[week1_sep$wday == 1]
 
     # NFL season starts 3 days later
@@ -94,8 +101,12 @@ get_current_week <- function(use_date = FALSE, ...) {
     current_week <- as.numeric(Sys.Date() - as.Date(first_game)) %/% 7 + 1
 
     # hardcoded week bounds because this whole date based thing has assumptions anyway
-    if(current_week < 1) current_week <- 1
-    if(current_week > 22) current_week <- 22
+    if (current_week < 1) {
+      current_week <- 1
+    }
+    if (current_week > 22) {
+      current_week <- 22
+    }
 
     return(current_week)
   }
@@ -111,7 +122,7 @@ get_current_week <- function(use_date = FALSE, ...) {
 #' @examples
 #' # 2023 Labor Day was on Sep 4th
 #' compute_labor_day(2023)
-compute_labor_day <- function(year){
+compute_labor_day <- function(year) {
   stopifnot(length(year) == 1)
   earliest <- as.Date(paste(year, "09", "01", sep = "-"))
   latest <- as.Date(paste(year, "09", "08", sep = "-"))

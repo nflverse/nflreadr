@@ -1,7 +1,7 @@
 #' Load Participation Data
 #'
 #' @description Loads participation data from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
-#' 
+#'
 #' Participation data prior to 2023 is from NFL NGS. Participation data from 2023 on is courtesy of FTN.
 #'
 #' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 2016.
@@ -20,39 +20,51 @@
 #' }
 #'
 #' @export
-load_participation <- function(seasons = most_recent_season(),
-                               include_pbp = FALSE,
-                               file_type = getOption("nflreadr.prefer", default = "rds")) {
-
+load_participation <- function(
+  seasons = most_recent_season(),
+  include_pbp = FALSE,
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
 
-  if(isTRUE(seasons)) seasons <- 2016:most_recent_season()
+  if (isTRUE(seasons)) {
+    seasons <- 2016:most_recent_season()
+  }
 
-  stopifnot(is.numeric(seasons),
-            seasons >= 2016,
-            seasons <= most_recent_season(),
-            is.logical(include_pbp),
-            length(include_pbp) == 1)
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2016,
+    seasons <= most_recent_season(),
+    is.logical(include_pbp),
+    length(include_pbp) == 1
+  )
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_",
-                 seasons, ".", file_type)
+  urls <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/pbp_participation/pbp_participation_",
+    seasons,
+    ".",
+    file_type
+  )
 
-  participation <- load_from_url(urls,nflverse = TRUE, seasons = seasons)
+  participation <- load_from_url(urls, nflverse = TRUE, seasons = seasons)
 
-  if(!include_pbp) return(participation)
+  if (!include_pbp) {
+    return(participation)
+  }
 
   pbp <- load_pbp(seasons = seasons, file_type = file_type)
 
   data.table::setDT(participation)
-  data.table::setkeyv(participation, c("nflverse_game_id","play_id"))
+  data.table::setkeyv(participation, c("nflverse_game_id", "play_id"))
   data.table::setDT(pbp)
-  data.table::setkeyv(pbp, c("game_id","play_id"))
+  data.table::setkeyv(pbp, c("game_id", "play_id"))
 
   pbp_participation <- data.table::merge.data.table(
-    participation[,-c("old_game_id")],
+    participation[, -c("old_game_id")],
     pbp,
-    by.x = c("nflverse_game_id","play_id"),
-    by.y = c("game_id","play_id"))
+    by.x = c("nflverse_game_id", "play_id"),
+    by.y = c("game_id", "play_id")
+  )
 
   pbp_participation <- make_nflverse_data(
     pbp_participation,

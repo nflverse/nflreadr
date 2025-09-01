@@ -1,7 +1,8 @@
 test_that("latest week methods are equivalent", {
-
-  skip_if(packageVersion('nflreadr') == '1.3.2',
-          "Skip date check for v1.3.2 because of 2022 Bengals/Bills game problems.")
+  skip_if(
+    packageVersion('nflreadr') == '1.3.2',
+    "Skip date check for v1.3.2 because of 2022 Bengals/Bills game problems."
+  )
 
   skip_on_cran()
   skip_if_offline("github.com")
@@ -13,5 +14,4 @@ test_that("latest week methods are equivalent", {
     get_current_week(use_date = TRUE),
     get_current_week(use_date = FALSE)
   )
-
 })

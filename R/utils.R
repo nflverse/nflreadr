@@ -10,7 +10,7 @@ is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 #' @importFrom data.table `:=`
 NULL
 
-`%c%` <- function(x,y){
+`%c%` <- function(x, y) {
   data.table::fifelse(!is.na(x), x, y)
 }
 
@@ -18,16 +18,16 @@ NULL
 #'
 #' @export
 #' @keywords internal
-rbindlist_with_attrs <- function(dflist){
+rbindlist_with_attrs <- function(dflist) {
   nflverse_timestamp <- attr(dflist[[length(dflist)]], "nflverse_timestamp")
   nflverse_type <- attr(dflist[[length(dflist)]], "nflverse_type")
   out <- data.table::rbindlist(dflist, use.names = TRUE, fill = TRUE)
   data.table::setattr(out, "nflverse_timestamp", nflverse_timestamp)
-  data.table::setattr(out, "nflverse_type",      nflverse_type)
+  data.table::setattr(out, "nflverse_type", nflverse_type)
   out
 }
 
-.ignore_unused_imports <- function(){
+.ignore_unused_imports <- function() {
   curl::curl_fetch_memory
   methods::setOldClass
 }

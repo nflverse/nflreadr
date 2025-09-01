@@ -21,23 +21,34 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pbp>
 #'
 #' @export
-load_player_stats <- function(seasons = most_recent_season(),
-                              stat_type = c("offense", "defense", "kicking"), 
-                              file_type = getOption("nflreadr.prefer", default = "rds")){
+load_player_stats <- function(
+  seasons = most_recent_season(),
+  stat_type = c("offense", "defense", "kicking"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  if (!isTRUE(seasons)) {
+    stopifnot(
+      is.numeric(seasons),
+      seasons >= 1999,
+      seasons <= most_recent_season()
+    )
+  }
 
-  if(!isTRUE(seasons)) {stopifnot(is.numeric(seasons),
-                                  seasons >=1999,
-                                  seasons <= most_recent_season())}
-
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv","qs", "parquet"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "qs", "parquet"))
   stat_type <- rlang::arg_match0(stat_type, c("offense", "defense", "kicking"))
 
-  base_name <- switch(stat_type,
-                      "offense" = "player_stats.",
-                      "defense" = "player_stats_def.",
-                      "kicking" = "player_stats_kicking.")
+  base_name <- switch(
+    stat_type,
+    "offense" = "player_stats.",
+    "defense" = "player_stats_def.",
+    "kicking" = "player_stats_kicking."
+  )
 
-  url <- paste0("https://github.com/nflverse/nflverse-data/releases/download/player_stats/",base_name,file_type)
+  url <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/player_stats/",
+    base_name,
+    file_type
+  )
 
   out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
   out

@@ -18,24 +18,31 @@
 #'  load_from_url(urls, nflverse = TRUE, nflverse_type = "rosters for 2020 & 2021")
 #' })
 #' }
-load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE){
-
+load_from_url <- function(url, ..., seasons = TRUE, nflverse = FALSE) {
   url <- as.character(url)
 
-  if(length(url) == 1) {
+  if (length(url) == 1) {
     out <- loader(url)
-    if(!isTRUE(seasons)) stopifnot(is.numeric(seasons))
-    if(!isTRUE(seasons) && "season" %in% names(out)) out <- out[out$season %in% seasons]
+    if (!isTRUE(seasons)) {
+      stopifnot(is.numeric(seasons))
+    }
+    if (!isTRUE(seasons) && "season" %in% names(out)) {
+      out <- out[out$season %in% seasons]
+    }
   }
 
-  if(length(url) > 1) {
+  if (length(url) > 1) {
     p <- NULL
-    if (is_installed("progressr")) p <- progressr::progressor(along = url)
+    if (is_installed("progressr")) {
+      p <- progressr::progressor(along = url)
+    }
     out <- lapply(url, progressively(loader, p))
     out <- rbindlist_with_attrs(out)
   }
 
-  if(nflverse) out <- make_nflverse_data(out,...)
+  if (nflverse) {
+    out <- make_nflverse_data(out, ...)
+  }
   return(out)
 }
 
@@ -88,7 +95,7 @@ rds_from_url <- function(url) {
 #'   csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/test/combines.csv")
 #' })
 #' }
-csv_from_url <- function(...){
+csv_from_url <- function(...) {
   cache_message()
   data.table::fread(...)
 }
@@ -114,17 +121,19 @@ csv_from_url <- function(...){
 #' 50)
 #' })
 #' }
-raw_from_url <- function(url){
+raw_from_url <- function(url) {
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
 
-  if(inherits(load, "try-error")) {
+  if (inherits(load, "try-error")) {
     cli::cli_warn("Failed to retrieve data from {.url {url}}")
     return(invisible(load))
   }
 
-  if (load$status_code!=200) {
-    cli::cli_warn("HTTP error {.emph {load$status_code}} while retrieving data from {.url {url}}\nReturning request payload.")
+  if (load$status_code != 200) {
+    cli::cli_warn(
+      "HTTP error {.emph {load$status_code}} while retrieving data from {.url {url}}\nReturning request payload."
+    )
     return(invisible(load))
   }
 
@@ -150,7 +159,7 @@ raw_from_url <- function(url){
 #'   )
 #' })
 #' }
-parquet_from_url <- function(url){
+parquet_from_url <- function(url) {
   rlang::check_installed("arrow")
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
@@ -163,7 +172,9 @@ parquet_from_url <- function(url){
   content <- try(arrow::read_parquet(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
-    cli::cli_warn("Failed to parse file with {.fun arrow::read_parquet()} from {.url {url}}")
+    cli::cli_warn(
+      "Failed to parse file with {.fun arrow::read_parquet()} from {.url {url}}"
+    )
     return(data.table::data.table())
   }
 
@@ -188,7 +199,7 @@ parquet_from_url <- function(url){
 #'   )
 #' })
 #' }
-qs_from_url <- function(url){
+qs_from_url <- function(url) {
   rlang::check_installed("qs")
   cache_message()
   load <- try(curl::curl_fetch_memory(url), silent = TRUE)
@@ -201,11 +212,14 @@ qs_from_url <- function(url){
   content <- try(qs::qdeserialize(load$content), silent = TRUE)
 
   if (inherits(content, "try-error")) {
-    cli::cli_warn("Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}")
+    cli::cli_warn(
+      "Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}"
+    )
 
     rlang::check_installed(
-      pkg = c("Rcpp (>= 1.0.8)","RcppParallel (>= 5.1.5)"),
-      reason = "- updating these packages frequently resolves qs-related issues.")
+      pkg = c("Rcpp (>= 1.0.8)", "RcppParallel (>= 5.1.5)"),
+      reason = "- updating these packages frequently resolves qs-related issues."
+    )
 
     return(data.table::data.table())
   }
@@ -214,9 +228,10 @@ qs_from_url <- function(url){
   return(content)
 }
 
-cache_message <- function(){
-  do_it <- getOption("nflreadr.verbose", default = interactive()) && getOption("nflreadr.cache_warning", default = interactive())
-  if (isTRUE(do_it)){
+cache_message <- function() {
+  do_it <- getOption("nflreadr.verbose", default = interactive()) &&
+    getOption("nflreadr.cache_warning", default = interactive())
+  if (isTRUE(do_it)) {
     rlang::inform(
       message = c(
         "Note: nflreadr caches (i.e., stores a saved version) data by default.\nIf you expect different output try one of the following:",
@@ -231,15 +246,16 @@ cache_message <- function(){
 }
 
 
-loader <- function(url){
-  switch(detect_filetype(url),
-         "rds" = rds_from_url(url),
-         "qs" = qs_from_url(url),
-         "parquet" = parquet_from_url(url),
-         "csv" = csv_from_url(url)
-         )
+loader <- function(url) {
+  switch(
+    detect_filetype(url),
+    "rds" = rds_from_url(url),
+    "qs" = qs_from_url(url),
+    "parquet" = parquet_from_url(url),
+    "csv" = csv_from_url(url)
+  )
 }
 
-detect_filetype <- function(url){
+detect_filetype <- function(url) {
   tools::file_ext(gsub(x = url, pattern = ".gz$", replacement = ""))
 }

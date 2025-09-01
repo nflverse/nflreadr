@@ -7,8 +7,7 @@
 #' @return A success message after clearing the cache.
 #' @examples
 #' clear_cache()
-clear_cache <- function(){
-
+clear_cache <- function() {
   functions <- list(
     raw_from_url,
     csv_from_url,

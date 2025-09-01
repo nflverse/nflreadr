@@ -22,20 +22,30 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pbp>
 #'
 #' @export
-load_pbp <- function(seasons = most_recent_season(), file_type = getOption("nflreadr.prefer", default = "rds")) {
-
+load_pbp <- function(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
   file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
 
-  if(isTRUE(seasons)) seasons <- 1999:most_recent_season()
+  if (isTRUE(seasons)) {
+    seasons <- 1999:most_recent_season()
+  }
 
-  stopifnot(is.numeric(seasons),
-            seasons >=1999,
-            seasons <= most_recent_season())
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 1999,
+    seasons <= most_recent_season()
+  )
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_",
-                 seasons, ".", file_type)
+  urls <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_",
+    seasons,
+    ".",
+    file_type
+  )
 
-  out <- load_from_url(urls,nflverse = TRUE, seasons = seasons)
+  out <- load_from_url(urls, nflverse = TRUE, seasons = seasons)
 
   return(out)
 }

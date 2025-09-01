@@ -31,14 +31,15 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/exporting_nflreadr.html> for vignette on exporting nflreadr in packages
 #'
 #' @export
-progressively <- function(f, p = NULL){
-  if(is.null(p)) p <- function(...) NULL
+progressively <- function(f, p = NULL) {
+  if (is.null(p)) {
+    p <- function(...) NULL
+  }
   p <- rlang::as_function(p)
   f <- rlang::as_function(f)
 
-  function(...){
+  function(...) {
     on.exit(p())
     f(...)
   }
-
 }

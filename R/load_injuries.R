@@ -21,17 +21,24 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-data>
 #'
 #' @export
-load_injuries <- function(seasons = most_recent_season(),
-                          file_type = getOption("nflreadr.prefer", default = "rds")){
-
-  if(isTRUE(seasons)) seasons <- 2009:nflreadr::most_recent_season()
+load_injuries <- function(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  if (isTRUE(seasons)) {
+    seasons <- 2009:nflreadr::most_recent_season()
+  }
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  stopifnot(is.numeric(seasons),
-            seasons >= 2009,
-            seasons <= most_recent_season())
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2009,
+    seasons <= most_recent_season()
+  )
 
-  urls <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_{seasons}.{file_type}")
+  urls <- glue::glue(
+    "https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_{seasons}.{file_type}"
+  )
 
   out <- load_from_url(urls, seasons = seasons, nflverse = TRUE)
 

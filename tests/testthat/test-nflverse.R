@@ -1,5 +1,4 @@
 test_that("load_pbp", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -15,12 +14,15 @@ test_that("load_pbp", {
   expect_gt(nrow(pbp_qs), 90000)
 })
 test_that("load_participation", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
   participation <- load_participation(2019)
-  pbp_participation <- load_participation(2020,include_pbp = TRUE, file_type = "parquet")
+  pbp_participation <- load_participation(
+    2020,
+    include_pbp = TRUE,
+    file_type = "parquet"
+  )
 
   expect_s3_class(participation, "nflverse_data")
   expect_s3_class(pbp_participation, "nflverse_data")
@@ -32,12 +34,11 @@ test_that("load_participation", {
 })
 
 test_that("load_player_stats", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
   ps <- load_player_stats()
-  ps_2020 <- load_player_stats(2020,stat_type = "offense")
+  ps_2020 <- load_player_stats(2020, stat_type = "offense")
   ps_csv <- load_player_stats(2020, file_type = "csv")
   ps_all <- load_player_stats(seasons = TRUE)
 
@@ -59,7 +60,6 @@ test_that("load_player_stats", {
 })
 
 test_that("load_schedules", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -69,7 +69,14 @@ test_that("load_schedules", {
 
   expect_gt(nrow(schedules), 6000)
 
-  valid_roof_values <- c("closed", "dome", "outdoors", "open", "retractable", NA_character_)
+  valid_roof_values <- c(
+    "closed",
+    "dome",
+    "outdoors",
+    "open",
+    "retractable",
+    NA_character_
+  )
   expect_true(all(schedules$roof %in% valid_roof_values))
 
   expect_error(load_schedules("2020"))
@@ -82,7 +89,6 @@ test_that("load_schedules", {
 })
 
 test_that("load_rosters", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -96,7 +102,6 @@ test_that("load_rosters", {
 })
 
 test_that("load_rosters_weekly", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -110,12 +115,15 @@ test_that("load_rosters_weekly", {
 })
 
 test_that("load_ngs", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
   ngs_passing <- load_nextgen_stats()
-  ngs_receiving <- load_nextgen_stats(seasons = 2019:2020, stat_type = "receiving", file_type = "parquet")
+  ngs_receiving <- load_nextgen_stats(
+    seasons = 2019:2020,
+    stat_type = "receiving",
+    file_type = "parquet"
+  )
   ngs_rushing <- load_nextgen_stats(seasons = 2020, stat_type = "rushing")
 
   expect_s3_class(ngs_passing, "nflverse_data")
@@ -127,7 +135,6 @@ test_that("load_ngs", {
 })
 
 test_that("load_teams", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -142,7 +149,6 @@ test_that("load_teams", {
 })
 
 test_that("load_depth_charts", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -155,7 +161,6 @@ test_that("load_depth_charts", {
 })
 
 test_that("load_injuries", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -171,7 +176,6 @@ test_that("load_injuries", {
 })
 
 test_that("load_espn_qbr", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -184,7 +188,6 @@ test_that("load_espn_qbr", {
 })
 
 test_that("load_trades", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -201,7 +204,6 @@ test_that("load_trades", {
 })
 
 test_that("load_draft_picks", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -218,7 +220,6 @@ test_that("load_draft_picks", {
 })
 
 test_that("load_combine", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -235,7 +236,6 @@ test_that("load_combine", {
 })
 
 test_that("load_pfr_passing", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -246,7 +246,6 @@ test_that("load_pfr_passing", {
 })
 
 test_that("load_pfr_advstats", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -254,7 +253,11 @@ test_that("load_pfr_advstats", {
 
   pass <- load_pfr_advstats(seasons = 2020, stat_type = "pass")
   rush <- load_pfr_advstats(seasons = TRUE, stat_type = "rush")
-  def <- load_pfr_advstats(seasons = TRUE, stat_type = "def", summary_level = "season")
+  def <- load_pfr_advstats(
+    seasons = TRUE,
+    stat_type = "def",
+    summary_level = "season"
+  )
 
   expect_s3_class(pass, "nflverse_data")
   expect_s3_class(rush, "nflverse_data")
@@ -264,7 +267,6 @@ test_that("load_pfr_advstats", {
 })
 
 test_that("load_snap_counts", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -277,7 +279,6 @@ test_that("load_snap_counts", {
 })
 
 test_that("load_contracts", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -288,7 +289,6 @@ test_that("load_contracts", {
 })
 
 test_that("load_players", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -299,7 +299,6 @@ test_that("load_players", {
 })
 
 test_that("load_officials", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -310,7 +309,6 @@ test_that("load_officials", {
 })
 
 test_that("load_ftn_charting", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -324,7 +322,6 @@ test_that("load_ftn_charting", {
 ## NEW LOAD FUNCTIONS GO ABOVE THIS LINE ##
 
 test_that("nflverse_data print method works", {
-
   skip_on_cran()
   skip_if_offline("github.com")
 
@@ -333,60 +330,74 @@ test_that("nflverse_data print method works", {
   expect_output(
     expect_message(
       print(contracts),
-      regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated")
+      regexp = "nflverse Historical Contract Data from OverTheCap.com|Data updated"
+    )
   )
-
 })
 
-test_that("Cache clearing works",{
-
+test_that("Cache clearing works", {
   skip_on_cran()
   skip_if_offline("github.com")
 
-  csv_from_url("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv")
+  csv_from_url(
+    "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"
+  )
 
-  expect(memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Function was not memoised!")
+  expect(
+    memoise::has_cache(csv_from_url)(
+      "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"
+    ),
+    "Function was not memoised!"
+  )
 
   expect_message(.clear_cache(), "nflreadr function cache cleared!")
 
-  expect(!memoise::has_cache(csv_from_url)("https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"), "Cache was not cleared!")
+  expect(
+    !memoise::has_cache(csv_from_url)(
+      "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv"
+    ),
+    "Cache was not cleared!"
+  )
 })
 
 test_that("nflverse_game_id works", {
-
   # test single value input
   expect_equal(nflverse_game_id(2022, 2, "LAC", "KC"), "2022_02_LAC_KC")
 
   # test vector input
   expect_equal(
-    nflverse_game_id(rep(2022, 2), c(2,13), c("LAC", "LAC"), c("KC", "LV")),
+    nflverse_game_id(rep(2022, 2), c(2, 13), c("LAC", "LAC"), c("KC", "LV")),
     c("2022_02_LAC_KC", "2022_13_LAC_LV")
   )
 
   # allow old names (SD) and clean team abbreviations (LAR -> LA)
   expect_equal(
-    nflverse_game_id(rep(2022, 2), c(2,13), c("SD", "LAC"), c("KC", "LAR")),
+    nflverse_game_id(rep(2022, 2), c(2, 13), c("SD", "LAC"), c("KC", "LAR")),
     c("2022_02_SD_KC", "2022_13_LAC_LA")
   )
 
   # error on season outside range
   expect_error(
-    nflverse_game_id(1998, 2, "LAC", "KC"), "must be between 1999"
+    nflverse_game_id(1998, 2, "LAC", "KC"),
+    "must be between 1999"
   )
 
   # error on week outside range
   expect_error(
-    nflverse_game_id(2022, 30, "LAC", "KC"), "must be between 1 and"
+    nflverse_game_id(2022, 30, "LAC", "KC"),
+    "must be between 1 and"
   )
 
   # error on away team
   expect_error(
-    nflverse_game_id(2022, 2, rep("LACC",2), "KC"), "invalid `away` abbreviation"
+    nflverse_game_id(2022, 2, rep("LACC", 2), "KC"),
+    "invalid `away` abbreviation"
   )
 
   # error on home team
   expect_error(
-    nflverse_game_id(2022, 2, "LAC", rep("KKC", 2)), "invalid `home` abbreviation"
+    nflverse_game_id(2022, 2, "LAC", rep("KKC", 2)),
+    "invalid `home` abbreviation"
   )
 
   # warn on non smart input
@@ -394,5 +405,4 @@ test_that("nflverse_game_id works", {
     nflverse_game_id(2022, 2, rep("LAC", 2), rep("KC", 3)),
     "Arguments should be of of length one or of length"
   )
-
 })

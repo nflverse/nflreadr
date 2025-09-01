@@ -19,11 +19,11 @@
 #' vector_character <- sample(LETTERS[1:5], 15, TRUE)
 #' vector_character
 #' stat_mode(vector_character)
-stat_mode <- function(x, ..., na.rm = FALSE){
-  if (isTRUE(na.rm)) x <- x[!is.na(x)]
+stat_mode <- function(x, ..., na.rm = FALSE) {
+  if (isTRUE(na.rm)) {
+    x <- x[!is.na(x)]
+  }
   ux <- unique(x)
   tbl <- tabulate(match(x, ux))
   ux[which.max(tbl)]
 }
-
-

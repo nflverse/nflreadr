@@ -22,20 +22,27 @@
 #' @seealso Issues with this data should be filed here: <https://github.com/nflverse/nflverse-pfr>
 #'
 #' @export
-load_snap_counts <- function(seasons = most_recent_season(),
-                             file_type = getOption("nflreadr.prefer", default = "rds")){
-
+load_snap_counts <- function(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
-  if(isTRUE(seasons)) seasons <- 2012:most_recent_season()
-  stopifnot(is.numeric(seasons),
-            seasons >= 2012,
-            seasons <= most_recent_season())
+  if (isTRUE(seasons)) {
+    seasons <- 2012:most_recent_season()
+  }
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2012,
+    seasons <= most_recent_season()
+  )
 
-  urls <- paste0("https://github.com/nflverse/nflverse-data/releases/",
-                 "download/snap_counts/snap_counts_",
-                 seasons,
-                 ".",
-                 file_type)
+  urls <- paste0(
+    "https://github.com/nflverse/nflverse-data/releases/",
+    "download/snap_counts/snap_counts_",
+    seasons,
+    ".",
+    file_type
+  )
 
   out <- load_from_url(urls, seasons = seasons, nflverse = TRUE)
   out

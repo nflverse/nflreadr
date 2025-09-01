@@ -29,23 +29,32 @@
 #' @family ftn_charting
 #'
 #' @export
-load_ftn_charting <- function(seasons = most_recent_season(),
-                              file_type = getOption("nflreadr.prefer", default = "rds")){
+load_ftn_charting <- function(
+  seasons = most_recent_season(),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  if (isTRUE(seasons)) {
+    seasons <- 2022:most_recent_season()
+  }
 
-  if(isTRUE(seasons)) seasons <- 2022:most_recent_season()
-
-  stopifnot(is.numeric(seasons),
-            seasons >= 2022,
-            seasons <= most_recent_season())
+  stopifnot(
+    is.numeric(seasons),
+    seasons >= 2022,
+    seasons <= most_recent_season()
+  )
 
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
 
-  urls <- glue::glue("https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_{seasons}.{file_type}")
+  urls <- glue::glue(
+    "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_{seasons}.{file_type}"
+  )
 
   out <- load_from_url(
     urls,
     nflverse = TRUE,
-    nflverse_type = glue::glue("FTN Charting Data - please attribute to 'ftndata.com via nflverse'")
+    nflverse_type = glue::glue(
+      "FTN Charting Data - please attribute to 'ftndata.com via nflverse'"
+    )
   )
   return(out)
 }

@@ -5,7 +5,7 @@ library(skimr)
 library(waldo)
 library(data.table)
 
-dict_check <- function(df,dict){
+dict_check <- function(df, dict) {
   actual_vars <- df |>
     skimr::skim() |>
     dplyr::pull(skim_variable) |>
@@ -14,7 +14,7 @@ dict_check <- function(df,dict){
     dplyr::pull(1) |>
     sort()
 
-  waldo::compare(actual_vars,dictionary_vars,max_diffs = Inf)
+  waldo::compare(actual_vars, dictionary_vars, max_diffs = Inf)
 }
 
 load_pbp() |>
@@ -38,11 +38,15 @@ load_ff_playerids() |>
 load_ff_rankings() |>
   dict_check(dictionary_ff_rankings)
 
-lapply(c("weekly","pbp_pass","pbp_rush"), \(.x) load_ff_opportunity(stat_type = .x)) |>
+lapply(c("weekly", "pbp_pass", "pbp_rush"), \(.x) {
+  load_ff_opportunity(stat_type = .x)
+}) |>
   data.table::rbindlist(use.names = TRUE, fill = T) |>
   dict_check(dictionary_ff_opportunity)
 
-lapply(c("passing","rushing","receiving"), \(.x) load_nextgen_stats(stat_type = .x)) |>
+lapply(c("passing", "rushing", "receiving"), \(.x) {
+  load_nextgen_stats(stat_type = .x)
+}) |>
   data.table::rbindlist(use.names = TRUE, fill = T) |>
   dict_check(dictionary_nextgen_stats)
 
