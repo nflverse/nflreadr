@@ -1,14 +1,13 @@
 field,data_type,description
-season,numeric,4 digit number indicating to which season(s) the specified timeframe belongs to.
-week,numeric,"Week in season that depth chart is for. For 17 week seasons, week 18 reflects the end-of-season depth charts, and week 19-on reflect postseason depth charts. For 18 week seasons, week 19 reflects end-of-season depth charts."
+dt,character,The timestamp (ISO8601-formatted text) indicating when the data record was loaded. Can be used to assign the data set to a specific point in time during the season.
 team,character,Team that depth chart belongs to
-season_type,character,REG or POST indicating if the depth chart belongs to regular or post season.
-position,character,Position of player 
-depth_chart_position,character,Position of player listed on depth chart
-formation,character,"Side of ball that player is on (offense, defense, special teams)"
-depth_team,numeric,Position on depth chart
-jersey_number,numeric,Jersey number of player 
-full_name,character,Full name of player
-first_name,character,First name of player
-last_name,character,Last name of player
-gsis_id,numeric,Game Stats and Info Service ID: the primary ID for play-by-play data.
+player_name,character,Full name of player
+espn_id,character,ESPN Player ID
+gsis_id,character,Game Stats and Info Service ID: the primary ID for play-by-play data
+pos_grp_id,character,Player position group identifier
+pos_grp,character,"Player position group: formation of offense, defense, or special teams"
+pos_id,character,Player position identifier
+pos_name,character,Player position name
+pos_abb,character,Player position abbreviation
+pos_slot,numeric,A number assigned to each position in a formation
+pos_rank,numeric,Player's rank on depth chart grouped by pos_slot

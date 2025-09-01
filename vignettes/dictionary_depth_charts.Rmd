@@ -7,6 +7,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+Please note that the data source has changed after the 2024 season. From 2025 onwards, the following variables and descriptions will apply.
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
