@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.12</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,9 +81,9 @@
     
 <table class="table">
 <colgroup>
-<col width="10%">
-<col width="4%">
-<col width="85%">
+<col width="7%">
+<col width="3%">
+<col width="88%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Field</th>
@@ -122,10 +122,8 @@ ball.</td>
 <tr class="even">
 <td align="left">offense_personnel</td>
 <td align="left">character</td>
-<td align="left">Number of running backs, tight ends, and wide receivers
-on the field for the play. If there are more than the standard 5
-offensive linemen and 1 quarterback, they will be listed here as
-well.</td>
+<td align="left">The positions of the offensive personnel lined up on
+the field for a play.</td>
 </tr>
 <tr class="odd">
 <td align="left">defenders_in_box</td>
@@ -136,8 +134,8 @@ snap.</td>
 <tr class="even">
 <td align="left">defense_personnel</td>
 <td align="left">character</td>
-<td align="left">Number of defensive linemen, linebackers, and defensive
-backs on the field for the play.</td>
+<td align="left">The positions of the defensive personnel lined up on
+the field for a play.</td>
 </tr>
 <tr class="odd">
 <td align="left">number_of_pass_rushers</td>
@@ -148,7 +146,7 @@ backs on the field for the play.</td>
 <td align="left">players_on_play</td>
 <td align="left">character</td>
 <td align="left">A list of every player on the field for the play, by
-gsis_it_id</td>
+gsis_id</td>
 </tr>
 <tr class="odd">
 <td align="left">offense_players</td>
@@ -177,8 +175,10 @@ play</td>
 <tr class="odd">
 <td align="left">ngs_air_yards</td>
 <td align="left">double</td>
-<td align="left">Distance (in yards) that the ball traveled in the air
-on a given passing play as tracked by NGS</td>
+<td align="left">Legacy column. For 2023 and prior years, reflects the
+distance (in yards) that the ball traveled in the air on a given passing
+play as tracked by NGS. Is NA for 2024 on–we advise instead using the
+air_yards column from nflreadr::load_pbp() moving forward.</td>
 </tr>
 <tr class="even">
 <td align="left">time_to_throw</td>
@@ -193,16 +193,62 @@ being snapped and the time of release of a pass attempt</td>
 pressured on a play</td>
 </tr>
 <tr class="even">
+<td align="left">route</td>
+<td align="left">character</td>
+<td align="left">A string indicating the route the primary receiver on a
+play took. Has the following possible values: “CORNER”, “DEEP OUT”,
+“GO”, “HITCH/CURL”, “IN/DIG”, “POST”, “QUICK OUT”, “SCREEN”, “SHALLOW
+CROSS/DRAG”, “SLANT”, “SWING”, “TEXAS/ANGLE”, “WHEEL”.</td>
+</tr>
+<tr class="odd">
 <td align="left">defense_man_zone_type</td>
 <td align="left">character</td>
 <td align="left">A string indicating whether the defense was in man or
 zone coverage on a play</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">defense_coverage_type</td>
 <td align="left">character</td>
 <td align="left">A string indicating what type of cover the defense was
-in on a play</td>
+in on a play. Has one of the following values: “COVER_0”, “COVER_1”,
+“COVER_2”, “2_MAN”, “COVER_3”, “COVER_4”, “COVER_6”, “COVER_9”, “COMBO”,
+“BLOWN”.</td>
+</tr>
+<tr class="odd">
+<td align="left">offense_names</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the names of offensive players
+in the order of their gsis_ids in offense_players.</td>
+</tr>
+<tr class="even">
+<td align="left">defense_names</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the names of defensive players
+in the order of their gsis_ids in defense_players.</td>
+</tr>
+<tr class="odd">
+<td align="left">offense_positions</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the positions of offensive
+players in the order of their gsis_ids in offense_players.</td>
+</tr>
+<tr class="even">
+<td align="left">defense_positions</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the positions of defensive
+players in the order of their gsis_ids in defense_players.</td>
+</tr>
+<tr class="odd">
+<td align="left">offense_numbers</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the numbers of offensive
+players in the order of their gsis_ids in offense_players.</td>
+</tr>
+<tr class="even">
+<td align="left">defense_numbers</td>
+<td align="left">character</td>
+<td align="left">A string listing all of the numbers of defensive
+players in the order of their gsis_ids in defense_players.</td>
 </tr>
 </tbody>
 </table></main>
