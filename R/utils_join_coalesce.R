@@ -44,17 +44,21 @@ join_coalesce <- function(x, y, by = NULL,
     (is.character(by) && length(by) >= 1) ||
       (is.character(by.x) && is.character(by.y) && length(by.x) >= 1)
   )
-  x <- as.data.frame(x)
-  y <- as.data.frame(y)
+
+  data.table::setDT(x)
+  data.table::setDT(y)
 
   keys_x <- if (!is.null(by.x)) by.x else if(is.null(names(by))) by else ifelse(names(by) == "", by, names(by))
   keys_y <- if (!is.null(by.y)) by.y else by
 
+  check_keys_x <- x[, keys_x, with = FALSE]
+  check_keys_y <- y[, keys_y, with = FALSE]
+
   check_keys <- c(
-    "Join `by` keys in x are not unique" = nrow(x) != nrow(unique(x[keys_x])),
-    "Join `by` keys in y are not unique" = nrow(y) != nrow(unique(y[keys_y])),
-    "Join `by` keys in x have NAs" = any(is.na(x[keys_x])),
-    "Join `by` keys in y have NAs"= any(is.na(y[keys_y]))
+    "Join `by` keys in x are not unique" = nrow(na.omit(check_keys_x)) != nrow(unique(na.omit(check_keys_x))),
+    "Join `by` keys in y are not unique" = nrow(na.omit(check_keys_y)) != nrow(unique(na.omit(check_keys_y))),
+    "Join `by` keys in x have NAs" = any(is.na(check_keys_x)),
+    "Join `by` keys in y have NAs"= any(is.na(check_keys_y))
   )
 
   if(any(check_keys)) {
@@ -66,9 +70,7 @@ join_coalesce <- function(x, y, by = NULL,
   joined_cols <- c(setdiff(names(x), keys_x), setdiff(names(y), keys_y))
   dupl_cols <- joined_cols[duplicated(joined_cols)]
 
-  # data.table's merge doesn't have an "incomparables" argument in the current prod version
-  # this causes NA to match to NA
-  merged_df <- merge.data.frame(
+  merged_df <- data.table::merge.data.table(
     x = x,
     y = y,
     by.x = keys_x,
@@ -80,8 +82,6 @@ join_coalesce <- function(x, y, by = NULL,
     ...,
     suffixes = c("..x", "..y")
   )
-
-  data.table::setDT(merged_df)
 
   for (col in dupl_cols) {
     data.table::set(
