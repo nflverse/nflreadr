@@ -5,12 +5,12 @@
 \title{Load Weekly Depth Charts}
 \usage{
 load_depth_charts(
-  seasons = most_recent_season(),
+  seasons = most_recent_season(roster = TRUE),
   file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{
-\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data. Defaults to latest season.}
+\item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data. Defaults to latest season with available rosters.}
 
 \item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}

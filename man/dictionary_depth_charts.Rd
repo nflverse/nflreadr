@@ -5,7 +5,7 @@
 \alias{dictionary_depth_charts}
 \title{Data Dictionary: Depth Charts}
 \format{
-An object of class \code{data.frame} with 13 rows and 3 columns.
+An object of class \code{data.frame} with 12 rows and 3 columns.
 }
 \usage{
 dictionary_depth_charts

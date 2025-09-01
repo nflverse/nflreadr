@@ -10,6 +10,7 @@ across all nflverse data. When printing to the console, nflreadr will convert ti
 - `clean_team_abbrs()` now converts full team names like `"Los Angeles Chargers"` or team nicknames like `"Bills"` to corresponding team abbreviations (`"LAC"` and `"BUF"` in this example). (#269)
 - `load_players()` now loads v2 nflverse players data. This is a breaking change as some variables have been removed or renamed. Please see the [data comparison](https://github.com/nflverse/nflverse-players?tab=readme-ov-file#whats-new-in-players-v2) for more details.
 - `get_current_week()` now passes arguments on to `most_recent_season()`. (#272)
+- `load_depth_charts()` now provides preseason depth charts, and defaults to `most_recent_season(roster = TRUE)`, rather than `most_recent_season(roster = FALSE)`. Please note that the [data structure](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) has changed because the data source had to be changed. (#275, #277)
 
 ---
 
