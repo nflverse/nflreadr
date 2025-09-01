@@ -42,34 +42,3 @@ release_bullets <- function() {
     NULL
   )
 }
-
-assert <- function(..., .envir = rlang::caller_env()) {
-  # Capture expressions as character strings
-  exprs <- rlang::enexprs(...) |> as.character()
-
-  # Evaluate the expressions, keeping all user-supplied ("outer") names
-  x <- vctrs::vec_c(..., .name_spec = "{outer}")
-
-  if (all(x)) {
-    return(invisible(TRUE))
-  }
-
-  # Use name of x vector as the name of the error
-  # Otherwise use the expression itself as the error message
-  if (is.null(names(x)[!x])) names(x)[!x] <- exprs[!x]
-  errs <- ifelse(
-    test = names(x)[!x] == "",
-    yes = exprs[!x],
-    no = names(x)[!x]
-  ) |>
-    # Evaluate any remaining glue strings in error message in case it's user-provided
-    sapply(\(e) glue::glue(e, .envir = .envir))
-
-  cli::cli_abort(
-    c(
-      "The following assertions failed:",
-      setNames(errs, rep("x", length(errs)))
-    ),
-    call = rlang::caller_env()
-  )
-}
