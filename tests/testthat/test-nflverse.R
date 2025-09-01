@@ -38,25 +38,49 @@ test_that("load_player_stats", {
   skip_if_offline("github.com")
 
   ps <- load_player_stats()
-  ps_2020 <- load_player_stats(2020, stat_type = "offense")
+  ps_2020 <- load_player_stats(2020)
   ps_csv <- load_player_stats(2020, file_type = "csv")
   ps_all <- load_player_stats(seasons = TRUE)
-
-  kick <- load_player_stats(2020, stat_type = "kicking")
-  defense <- load_player_stats(2022, stat_type = "defense")
+  ps_reg <- load_player_stats(2020, summary_level = "reg")
+  ps_regpost <- load_player_stats(2020, summary_level = "reg+post")
 
   expect_s3_class(ps, "nflverse_data")
   expect_s3_class(ps_2020, "nflverse_data")
   expect_s3_class(ps_csv, "nflverse_data")
   expect_s3_class(ps_all, "nflverse_data")
-  expect_s3_class(kick, "nflverse_data")
-  expect_s3_class(defense, "nflverse_data")
+  expect_s3_class(ps_reg, "nflverse_data")
+  expect_s3_class(ps_regpost, "nflverse_data")
 
-  expect_gt(nrow(ps_2020), 5000)
-  expect_gt(nrow(ps_csv), 5000)
-  expect_gt(nrow(ps_all), 110000)
-  expect_gt(nrow(kick), 500)
-  expect_gt(nrow(defense), 9800)
+  expect_gt(nrow(ps_2020), 17000)
+  expect_gt(nrow(ps_csv), 17000)
+  expect_gt(nrow(ps_all), 400000)
+  expect_gt(nrow(ps_reg), 1900)
+  expect_gt(nrow(ps_regpost), 1900)
+})
+
+test_that("load_team_stats", {
+  skip_on_cran()
+  skip_if_offline("github.com")
+
+  ts <- load_team_stats()
+  ts_2020 <- load_team_stats(2020)
+  ts_csv <- load_team_stats(2020, file_type = "csv")
+  ts_all <- load_team_stats(seasons = TRUE)
+  ts_reg <- load_team_stats(2020, summary_level = "reg")
+  ts_regpost <- load_team_stats(2020, summary_level = "reg+post")
+
+  expect_s3_class(ts, "nflverse_data")
+  expect_s3_class(ts_2020, "nflverse_data")
+  expect_s3_class(ts_csv, "nflverse_data")
+  expect_s3_class(ts_all, "nflverse_data")
+  expect_s3_class(ts_reg, "nflverse_data")
+  expect_s3_class(ts_regpost, "nflverse_data")
+
+  expect_gt(nrow(ts_2020), 500)
+  expect_gt(nrow(ts_csv), 500)
+  expect_gt(nrow(ts_all), 13000)
+  expect_equal(nrow(ts_reg), 32)
+  expect_equal(nrow(ts_regpost), 32)
 })
 
 test_that("load_schedules", {
