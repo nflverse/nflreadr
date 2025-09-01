@@ -54,6 +54,10 @@ load_player_stats <- function(
     )
   }
 
+  if (isTRUE(seasons)) {
+    seasons <- 1999:most_recent_season()
+  }
+
   summary_level <- switch(
     summary_level,
     "week" = "week_",
@@ -116,6 +120,10 @@ load_team_stats <- function(
       seasons >= 1999,
       seasons <= most_recent_season()
     )
+  }
+
+  if (isTRUE(seasons)) {
+    seasons <- 1999:most_recent_season()
   }
 
   summary_level <- switch(
