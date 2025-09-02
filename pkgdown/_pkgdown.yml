@@ -7,6 +7,7 @@ reference:
   contents:
   - "load_pbp"
   - "load_player_stats"
+  - "load_team_stats"
   - "load_participation"
   - "load_players"
   - "load_rosters"

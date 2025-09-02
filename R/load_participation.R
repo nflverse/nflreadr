@@ -2,12 +2,18 @@
 #'
 #' @description Loads participation data from the [nflverse-data repository](https://github.com/nflverse/nflverse-data)
 #'
-#' Participation data prior to 2023 is from NFL NGS. Participation data from 2023 on is courtesy of FTN.
+#' Participation data prior to 2023 is from NFL NGS. Participation data from
+#' 2023 onwards is courtesy of FTN and is provided after all post-season games are
+#' completed. This data is released under the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+#' Creative Commons license and attribution must be made to **FTN Data via nflverse** (from 2023 onwards)
+#' or **NFL NextGenStats via nflverse** (for 2022 and earlier)
 #'
-#' @param seasons A numeric vector of 4-digit years associated with given NFL seasons - defaults to latest season. If set to `TRUE`, returns all available data since 2016.
+#' @param seasons A numeric vector of 4-digit years associated with given NFL
+#' seasons - defaults to latest season. If set to `TRUE`, returns all available
+#' data since 2016.
 #' @param include_pbp a logical: download and join pbp to this data?
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
-#' `options(nflreadr.prefer)`
+#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be
+#' set globally with `options(nflreadr.prefer)`
 #'
 #' @return A dataframe of participation data, optionally merged with play by play
 #'

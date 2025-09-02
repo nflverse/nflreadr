@@ -17,3 +17,4 @@
 ^CRAN-SUBMISSION$
 ^dev$
 ^vignettes/articles$
+.git-blame-ignore-revs

@@ -4,15 +4,13 @@ dictionary_pbp <- read.csv("data-raw/dictionary_pbp.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_pbp, overwrite = TRUE)
 
-dictionary_player_stats <- read.csv("data-raw/dictionary_playerstats.csv") |>
+dictionary_player_stats <- jsonlite::fromJSON("data-raw/dictionary_player_stats.json") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
-dictionary_player_stats_def <- read.csv(
-  "data-raw/dictionary_playerstats_def.csv"
-) |>
+dictionary_team_stats <- jsonlite::fromJSON("data-raw/dictionary_team_stats.json") |>
   dplyr::mutate_all(stringr::str_squish)
-usethis::use_data(dictionary_player_stats_def, overwrite = TRUE)
+usethis::use_data(dictionary_team_stats, overwrite = TRUE)
 
 dictionary_ff_playerids <- read.csv("data-raw/dictionary_ff_playerids.csv") |>
   dplyr::mutate_all(stringr::str_squish)

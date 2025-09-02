@@ -14,13 +14,13 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html>
 "dictionary_player_stats"
 
-#' Data Dictionary: Player Stats Defense
+#' Data Dictionary: Team Stats
 #'
-#' A dataframe containing the data dictionary for [`load_player_stats()`]
+#' A dataframe containing the data dictionary for [`load_team_stats()`]
 #'
-#' @seealso `vignette("Data Dictionary - Player Stats Defense")`
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats_def.html>
-"dictionary_player_stats_def"
+#' @seealso `vignette("Data Dictionary - Team Stats")`
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_team_stats.html>
+"dictionary_team_stats"
 
 #' Data Dictionary: Fantasy Player IDs
 #'
