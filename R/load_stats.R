@@ -4,7 +4,7 @@
 #' season. If set to `TRUE`, returns all available data.
 #' @inheritParams rlang::args_dots_empty
 #' @param summary_level choice: one of week (default), "reg" for regular season,
-#' "post" for postseason, "reg+post" for combined regular + post season stats
+#' "post" for postseason, "reg+post" for combined regular season + postseason stats
 #' @param file_type choice: one of `c("rds", "qs", "csv", "parquet")`. Can also
 #' be set globally with `options(nflreadr.prefer)`
 #' @param stat_type `r lifecycle::badge("deprecated")` - now returns all stat
@@ -18,9 +18,11 @@
 #' })
 #' }
 #'
-#' @return A tibble of week-level player statistics that aims to match NFL official box scores.
+#' @return A tibble of player statistics that aims to match NFL official box
+#' scores and season summaries
 #'
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html> for a web version of the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html>
+#' for a web version of the data dictionary
 #' @seealso [`dictionary_player_stats`] for the data dictionary
 #'
 #' @export
@@ -96,10 +98,12 @@ load_player_stats <- function(
 #' })
 #' }
 #'
-#' @return A tibble of week-level player statistics that aims to match NFL official box scores.
+#' @return A tibble of team statistics that aims to match NFL official box scores
+#' and season summaries
 #'
-#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html> for a web version of the data dictionary
-#' @seealso [`dictionary_player_stats`] for the data dictionary
+#' @seealso <https://nflreadr.nflverse.com/articles/dictionary_team_stats.html>
+#' for a web version of the data dictionary
+#' @seealso [`dictionary_team_stats`] for the data dictionary
 #'
 #' @export
 load_team_stats <- function(

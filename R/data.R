@@ -14,7 +14,7 @@
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_player_stats.html>
 "dictionary_player_stats"
 
-#' Data Dictionary: Player Stats
+#' Data Dictionary: Team Stats
 #'
 #' A dataframe containing the data dictionary for [`load_team_stats()`]
 #'

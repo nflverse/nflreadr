@@ -19,7 +19,7 @@ season. If set to \code{TRUE}, returns all available data.}
 \item{...}{These dots are for future extensions and must be empty.}
 
 \item{summary_level}{choice: one of week (default), "reg" for regular season,
-"post" for postseason, "reg+post" for combined regular + post season stats}
+"post" for postseason, "reg+post" for combined regular season + postseason stats}
 
 \item{file_type}{choice: one of \code{c("rds", "qs", "csv", "parquet")}. Can also
 be set globally with \code{options(nflreadr.prefer)}}
@@ -28,7 +28,8 @@ be set globally with \code{options(nflreadr.prefer)}}
 types by default}
 }
 \value{
-A tibble of week-level player statistics that aims to match NFL official box scores.
+A tibble of player statistics that aims to match NFL official box
+scores and season summaries
 }
 \description{
 Load Player Level Stats
@@ -43,7 +44,8 @@ try({
 
 }
 \seealso{
-\url{https://nflreadr.nflverse.com/articles/dictionary_player_stats.html} for a web version of the data dictionary
+\url{https://nflreadr.nflverse.com/articles/dictionary_player_stats.html}
+for a web version of the data dictionary
 
 \code{\link{dictionary_player_stats}} for the data dictionary
 }

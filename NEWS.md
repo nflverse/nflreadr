@@ -16,7 +16,7 @@ This release covers changes released before the start of the 2025 NFL season.
 - Added several player name mappings (#249, #253, #255, #270)
 - Added a dictionary to describe what each shorthand roster status indicates (#232)
 - `clean_team_abbrs()` now converts `"PHO"` to `"ARI"`. (#260)
-- Improved description of next score probability variables in nflreadr::dictionary_pbp`. (#262)
+- Improved description of next score probability variables in `nflreadr::dictionary_pbp`. (#262)
 - `.sitrep` and all `*_sitrep` functions now redact nflfastR option paths. (#263)
 - `clean_team_abbrs()` now converts full team names like `"Los Angeles Chargers"` or team nicknames like `"Bills"` to corresponding team abbreviations (`"LAC"` and `"BUF"` in this example). (#269)
 - `get_current_week()` now passes arguments on to `most_recent_season()`. (#272)

@@ -315,7 +315,9 @@
     "description": "Penalty yardage on penalties attributed to this team"
   },
   {
-    "field": "timeouts"
+    "field": "timeouts",
+    "data_type": "numeric",
+    "description": "Number of timeouts used by this team"
   },
   {
     "field": "punt_returns",

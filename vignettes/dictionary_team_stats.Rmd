@@ -24,7 +24,3 @@ DT::datatable(
   rownames = FALSE
 )
 ```
-
-```{r eval = !use_dt}
-knitr::kable(nflreadr::dictionary_player_stats)
-```

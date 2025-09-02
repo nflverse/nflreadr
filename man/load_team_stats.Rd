@@ -24,7 +24,8 @@ season. If set to \code{TRUE}, returns all available data.}
 be set globally with \code{options(nflreadr.prefer)}}
 }
 \value{
-A tibble of week-level player statistics that aims to match NFL official box scores.
+A tibble of team statistics that aims to match NFL official box scores
+and season summaries
 }
 \description{
 Load Team Level Stats
@@ -39,7 +40,8 @@ try({
 
 }
 \seealso{
-\url{https://nflreadr.nflverse.com/articles/dictionary_player_stats.html} for a web version of the data dictionary
+\url{https://nflreadr.nflverse.com/articles/dictionary_team_stats.html}
+for a web version of the data dictionary
 
-\code{\link{dictionary_player_stats}} for the data dictionary
+\code{\link{dictionary_team_stats}} for the data dictionary
 }

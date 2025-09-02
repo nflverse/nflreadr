@@ -3,7 +3,7 @@
 \docType{data}
 \name{dictionary_team_stats}
 \alias{dictionary_team_stats}
-\title{Data Dictionary: Player Stats}
+\title{Data Dictionary: Team Stats}
 \format{
 An object of class \code{data.frame} with 102 rows and 3 columns.
 }
