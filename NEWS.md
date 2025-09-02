@@ -12,7 +12,7 @@ This release covers changes released before the start of the 2025 NFL season.
 - `load_depth_charts()` now provides depth charts by date (including the preseason), and defaults to `most_recent_season(roster = TRUE)`, rather than `most_recent_season(roster = FALSE)`. Please note that the [data structure](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) has changed because the data source had to be changed from NFL Data Exchange to ESPN. (#275, #277)
 - `load_participation()` is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to **FTN Data via nflverse**. (#278)
 
-## Minor Changes
+## Other Changes
 - nflreadr now exports the variable `nflreadr::nflverse_data_timezone` which defines the standard timezone across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
 - Added several player name mappings (#249, #253, #255, #270)
 - Added a dictionary to describe what each shorthand roster status indicates (#232)
@@ -21,6 +21,21 @@ This release covers changes released before the start of the 2025 NFL season.
 - `.sitrep` and all `*_sitrep` functions now redact nflfastR option paths. (#263)
 - `clean_team_abbrs()` now converts full team names like `"Los Angeles Chargers"` or team nicknames like `"Bills"` to corresponding team abbreviations (`"LAC"` and `"BUF"` in this example). (#269)
 - `get_current_week()` now passes arguments on to `most_recent_season()`. (#272)
+
+Thank you to
+[&#x0040;christianlohr9](https://github.com/christianlohr9),
+[&#x0040;Glumdar](https://github.com/Glumdar),
+[&#x0040;JanCalalo](https://github.com/JanCalalo),
+[&#x0040;john-b-edwards](https://github.com/john-b-edwards),
+[&#x0040;johnathan-o-h-napier](https://github.com/johnathan-o-h-napier),
+[&#x0040;LearnThinkCreate](https://github.com/LearnThinkCreate),
+[&#x0040;marvin3FF](https://github.com/marvin3FF),
+[&#x0040;mrcaseb](https://github.com/mrcaseb),
+[&#x0040;sdb-208](https://github.com/sdb-208),
+[&#x0040;tcash21](https://github.com/tcash21),
+[&#x0040;TheMathNinja](https://github.com/TheMathNinja),
+and [&#x0040;wyaruss](https://github.com/wyaruss)
+for their questions, feedback, and contributions towards this release.
 
 ---
 
