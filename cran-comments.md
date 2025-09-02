@@ -8,7 +8,7 @@ including changes to player stats, depth charts, and participation
 * windows      (on GitHub Actions), R 4.5.1
 * macOS        (on GitHub Actions), R 4.5.1
 * ubuntu 24.04 (on GitHub Actions), R 4.5.1
-* ubuntu 24.04 (on GitHub Actions), R 3.6.0
+* ubuntu 24.04 (on GitHub Actions), R 4.1.0
 * ubuntu 24.04 (on GitHub Actions), R devel
 
 ## R CMD check results
