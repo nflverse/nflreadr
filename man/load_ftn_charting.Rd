@@ -38,7 +38,7 @@ Creative Commons license and attribution must be made to \strong{FTN Data via nf
 
 }
 \seealso{
-\url{https://www.ftndata.com}
+\url{https://ftnfantasy.com/stats/sports-data}
 
 \code{vignette("Data Dictionary - FTN Charting")}
 
