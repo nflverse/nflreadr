@@ -33,9 +33,6 @@ load_player_stats <- function(
   file_type = getOption("nflreadr.prefer", default = "rds"),
   stat_type = lifecycle::deprecated()
 ) {
-  # ensure that all function args except seasons are named
-  rlang::check_dots_empty()
-
   # deprecate stat_type arg
   if (lifecycle::is_present(stat_type)) {
     lifecycle::deprecate_warn(
@@ -45,41 +42,15 @@ load_player_stats <- function(
     )
   }
 
-  summary_level <- rlang::arg_match(summary_level)
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "qs", "parquet"))
-
-  if (!isTRUE(seasons)) {
-    stopifnot(
-      is.numeric(seasons),
-      seasons >= 1999,
-      seasons <= most_recent_season()
-    )
-  }
-
-  if (isTRUE(seasons)) {
-    seasons <- 1999:most_recent_season()
-  }
-
-  summary_level <- switch(
-    summary_level,
-    "week" = "week_",
-    "reg" = "reg_",
-    "post" = "post_",
-    "reg+post" = "regpost_"
+  load_stats(
+    .stat_type = "player",
+    seasons = seasons,
+    ...,
+    summary_level = summary_level,
+    file_type = file_type
   )
-
-  url <- paste0(
-    "https://github.com/nflverse/nflverse-data/releases/download/stats_player/",
-    "stats_player_",
-    summary_level,
-    seasons,
-    ".",
-    file_type
-  )
-
-  out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
-  out
 }
+
 #' Load Team Level Stats
 #'
 #' @param seasons a numeric vector of seasons to return, defaults to most recent
@@ -112,9 +83,26 @@ load_team_stats <- function(
   summary_level = c("week", "reg", "post", "reg+post"),
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  # ensure that all function args except seasons are named
+  load_stats(
+    .stat_type = "team",
+    seasons = seasons,
+    ...,
+    summary_level = summary_level,
+    file_type = file_type
+  )
+}
+
+load_stats <- function(
+  .stat_type = c("player", "team"),
+  seasons,
+  ...,
+  summary_level = c("week", "reg", "post", "reg+post"),
+  file_type = getOption("nflreadr.prefer", default = "rds")
+) {
+  # ensure that all function args except seasons and .stat_type are named
   rlang::check_dots_empty()
 
+  .stat_type <- rlang::arg_match(.stat_type)
   summary_level <- rlang::arg_match(summary_level)
   file_type <- rlang::arg_match0(file_type, c("rds", "csv", "qs", "parquet"))
 
@@ -139,8 +127,12 @@ load_team_stats <- function(
   )
 
   url <- paste0(
-    "https://github.com/nflverse/nflverse-data/releases/download/stats_team/",
-    "stats_team_",
+    "https://github.com/nflverse/nflverse-data/releases/download/",
+    "stats_",
+    .stat_type,
+    "/stats_",
+    .stat_type,
+    "_",
     summary_level,
     seasons,
     ".",
@@ -148,5 +140,5 @@ load_team_stats <- function(
   )
 
   out <- load_from_url(url, seasons = seasons, nflverse = TRUE)
-  out
+  return(out)
 }
