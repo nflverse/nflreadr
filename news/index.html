@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.5.0" id="nflreadr-150">nflreadr 1.5.0<a class="anchor" aria-label="anchor" href="#nflreadr-150"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.5.0" id="nflreadr-150">nflreadr 1.5.0<a class="anchor" aria-label="anchor" href="#nflreadr-150"></a></h2><p class="text-muted">CRAN release: 2025-09-02</p>
 <p>This release covers changes released before the start of the 2025 NFL season.</p>
 <div class="section level3">
 <h3 id="breaking-changes-1-5-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-5-0"></a></h3>
@@ -64,6 +64,7 @@
 <code><a href="../reference/load_depth_charts.html">load_depth_charts()</a></code> now provides depth charts by date (including the preseason), and defaults to <code>most_recent_season(roster = TRUE)</code>, rather than <code>most_recent_season(roster = FALSE)</code>. Please note that the <a href="https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html">data structure</a> has changed because the data source had to be changed from NFL Data Exchange to ESPN. (<a href="https://github.com/nflverse/nflreadr/issues/275" class="external-link">#275</a>, <a href="https://github.com/nflverse/nflreadr/issues/277" class="external-link">#277</a>)</li>
 <li>
 <code><a href="../reference/load_participation.html">load_participation()</a></code> is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to <strong>FTN Data via nflverse</strong>. (<a href="https://github.com/nflverse/nflreadr/issues/278" class="external-link">#278</a>)</li>
+<li>Now requires a minimum R version of 4.1.0, to align with the tidyverse’s <a href="https://www.tidyverse.org/blog/2019/04/r-version-support/" class="external-link">version support</a> policies.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="other-changes-1-5-0">Other Changes<a class="anchor" aria-label="anchor" href="#other-changes-1-5-0"></a></h3>
@@ -114,7 +115,7 @@
 <ul><li>
 <code>load_player_stats(stat_type = "defense")</code> added to provide defensive player stats as computed by <code>nflfastR::calculate_player_stats_def()</code> (<a href="https://github.com/nflverse/nflreadr/issues/200" class="external-link">#200</a>) It also comes with a data dictionary, courtesy of <a href="https://github.com/mpcen" class="external-link">@mpcen</a> (<a href="https://github.com/nflverse/nflreadr/issues/192" class="external-link">#192</a>)</li>
 <li>
-<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds manual charting data for 2022-onwards, graciously provided by <a href="https://www.ftndata.com/" class="external-link">FTN Data</a>. This should automatically be updated when published by FTN, and the early indication is that it will be within 48 hours after a game has finished.</li>
+<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds manual charting data for 2022-onwards, graciously provided by <a href="https://ftnfantasy.com/stats/sports-data" class="external-link">FTN Data</a>. This should automatically be updated when published by FTN, and the early indication is that it will be within 48 hours after a game has finished.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="function-improvements-1-4-0">Function Improvements<a class="anchor" aria-label="anchor" href="#function-improvements-1-4-0"></a></h3>
