@@ -1,4 +1,4 @@
-# nflreadr 1.5.0-rc
+# nflreadr 1.5.0
 
 This release covers changes released before the start of the 2025 NFL season.
 
@@ -10,6 +10,7 @@ This release covers changes released before the start of the 2025 NFL season.
   - gains a new argument `summary_level` so that it can return player stats summarized by week, regular season, postseason, or regular + postseason combined
 - `load_team_stats()` added to access new team_stats files created by `nflfastR::calculate_stats()` (#279)
 - `load_depth_charts()` now provides depth charts by date (including the preseason), and defaults to `most_recent_season(roster = TRUE)`, rather than `most_recent_season(roster = FALSE)`. Please note that the [data structure](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) has changed because the data source had to be changed from NFL Data Exchange to ESPN. (#275, #277)
+- `load_participation()` is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to **FTN Data via nflverse**. (#278)
 
 ## Minor Changes
 - nflreadr now exports the variable `nflreadr::nflverse_data_timezone` which defines the standard timezone across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
