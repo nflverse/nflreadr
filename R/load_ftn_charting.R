@@ -23,7 +23,7 @@
 #'
 #' @return Play-level manual charting data from FTN Data
 #'
-#' @seealso <https://www.ftndata.com>
+#' @seealso <https://ftnfantasy.com/stats/sports-data>
 #' @seealso `vignette("Data Dictionary - FTN Charting")`
 #' @seealso <https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.html> for the web data dictionary
 #' @family ftn_charting

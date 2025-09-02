@@ -63,9 +63,9 @@ This release addresses bugs, improves some utilities, and adds a few new dataset
 as computed by `nflfastR::calculate_player_stats_def()` (#200) It also comes with
 a data dictionary, courtesy of @mpcen (#192)
 - `load_ftn_charting()` adds manual charting data for 2022-onwards, graciously
-provided by [FTN Data](https://www.ftndata.com/). This should automatically be updated when published
-by FTN, and the early indication is that it will be within 48 hours after a game
-has finished.
+provided by [FTN Data](https://ftnfantasy.com/stats/sports-data). This should
+automatically be updated when published by FTN, and the early indication is that
+it will be within 48 hours after a game has finished.
 
 ## Function Improvements
 
