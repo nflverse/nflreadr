@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.12</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1.13</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,27 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.5.0" id="nflreadr-150">nflreadr 1.5.0<a class="anchor" aria-label="anchor" href="#nflreadr-150"></a></h2>
+<p>This release covers changes released before the start of the 2025 NFL season.</p>
+<div class="section level3">
+<h3 id="breaking-changes-1-5-0">Breaking Changes<a class="anchor" aria-label="anchor" href="#breaking-changes-1-5-0"></a></h3>
+<ul><li>
+<code><a href="../reference/load_players.html">load_players()</a></code> now loads v2 nflverse players data. This is a breaking change as some variables have been removed or renamed. Please see the <a href="https://github.com/nflverse/nflverse-players?tab=readme-ov-file#whats-new-in-players-v2" class="external-link">data comparison</a> for more details.</li>
+<li>
+<code><a href="../reference/load_player_stats.html">load_player_stats()</a></code> now access new player_stats files created by <code>nflfastR::calculate_stats()</code> (<a href="https://github.com/nflverse/nflreadr/issues/279" class="external-link">#279</a>) and has a few function signature changes:
+<ul><li>
+<code>stat_type</code> argument is deprecated - now returns offense, defense, and kicking player statistics as one file.</li>
+<li>gains a new argument <code>summary_level</code> so that it can return player stats summarized by week, regular season, postseason, or regular + postseason combined</li>
+</ul></li>
+<li>
+<code><a href="../reference/load_team_stats.html">load_team_stats()</a></code> added to access new team_stats files created by <code>nflfastR::calculate_stats()</code> (<a href="https://github.com/nflverse/nflreadr/issues/279" class="external-link">#279</a>)</li>
+<li>
+<code><a href="../reference/load_depth_charts.html">load_depth_charts()</a></code> now provides depth charts by date (including the preseason), and defaults to <code>most_recent_season(roster = TRUE)</code>, rather than <code>most_recent_season(roster = FALSE)</code>. Please note that the <a href="https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html">data structure</a> has changed because the data source had to be changed from NFL Data Exchange to ESPN. (<a href="https://github.com/nflverse/nflreadr/issues/275" class="external-link">#275</a>, <a href="https://github.com/nflverse/nflreadr/issues/277" class="external-link">#277</a>)</li>
+<li>
+<code><a href="../reference/load_participation.html">load_participation()</a></code> is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to <strong>FTN Data via nflverse</strong>. (<a href="https://github.com/nflverse/nflreadr/issues/278" class="external-link">#278</a>)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-1-5-0">Other Changes<a class="anchor" aria-label="anchor" href="#other-changes-1-5-0"></a></h3>
 <ul><li>nflreadr now exports the variable <code><a href="../reference/nflverse_data_timezone.html">nflreadr::nflverse_data_timezone</a></code> which defines the standard timezone across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.</li>
 <li>Added several player name mappings (<a href="https://github.com/nflverse/nflreadr/issues/249" class="external-link">#249</a>, <a href="https://github.com/nflverse/nflreadr/issues/253" class="external-link">#253</a>, <a href="https://github.com/nflverse/nflreadr/issues/255" class="external-link">#255</a>, <a href="https://github.com/nflverse/nflreadr/issues/270" class="external-link">#270</a>)</li>
 <li>Added a dictionary to describe what each shorthand roster status indicates (<a href="https://github.com/nflverse/nflreadr/issues/232" class="external-link">#232</a>)</li>
@@ -58,12 +78,10 @@
 <li>
 <code><a href="../reference/clean_team_abbrs.html">clean_team_abbrs()</a></code> now converts full team names like <code>"Los Angeles Chargers"</code> or team nicknames like <code>"Bills"</code> to corresponding team abbreviations (<code>"LAC"</code> and <code>"BUF"</code> in this example). (<a href="https://github.com/nflverse/nflreadr/issues/269" class="external-link">#269</a>)</li>
 <li>
-<code><a href="../reference/load_players.html">load_players()</a></code> now loads v2 nflverse players data. This is a breaking change as some variables have been removed or renamed. Please see the <a href="https://github.com/nflverse/nflverse-players?tab=readme-ov-file#whats-new-in-players-v2" class="external-link">data comparison</a> for more details.</li>
-<li>
 <code><a href="../reference/get_current_week.html">get_current_week()</a></code> now passes arguments on to <code><a href="../reference/latest_season.html">most_recent_season()</a></code>. (<a href="https://github.com/nflverse/nflreadr/issues/272" class="external-link">#272</a>)</li>
-<li>
-<code><a href="../reference/load_depth_charts.html">load_depth_charts()</a></code> now provides preseason depth charts, and defaults to <code>most_recent_season(roster = TRUE)</code>, rather than <code>most_recent_season(roster = FALSE)</code>. Please note that the <a href="https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html">data structure</a> has changed because the data source had to be changed. (<a href="https://github.com/nflverse/nflreadr/issues/275" class="external-link">#275</a>, <a href="https://github.com/nflverse/nflreadr/issues/277" class="external-link">#277</a>)</li>
-</ul><hr></div>
+</ul><p>Thank you to <a href="https://github.com/christianlohr9" class="external-link">@christianlohr9</a>, <a href="https://github.com/Glumdar" class="external-link">@Glumdar</a>, <a href="https://github.com/JanCalalo" class="external-link">@JanCalalo</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>, <a href="https://github.com/johnathan-o-h-napier" class="external-link">@johnathan-o-h-napier</a>, <a href="https://github.com/LearnThinkCreate" class="external-link">@LearnThinkCreate</a>, <a href="https://github.com/marvin3FF" class="external-link">@marvin3FF</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/sdb-208" class="external-link">@sdb-208</a>, <a href="https://github.com/tcash21" class="external-link">@tcash21</a>, <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a>, and <a href="https://github.com/wyaruss" class="external-link">@wyaruss</a> for their questions, feedback, and contributions towards this release.</p>
+<hr></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.1" id="nflreadr-141">nflreadr 1.4.1<a class="anchor" aria-label="anchor" href="#nflreadr-141"></a></h2><p class="text-muted">CRAN release: 2024-07-29</p>
 <p>This release covers a number of bugfixes and function improvements:</p>
@@ -120,7 +138,7 @@
 <div class="section level3">
 <h3 id="dictionary-updates-1-4-0">Dictionary updates<a class="anchor" aria-label="anchor" href="#dictionary-updates-1-4-0"></a></h3>
 <ul><li>Clarified description of the <code>"special"</code> variable in the play-by-play data dictionary. (<a href="https://github.com/nflverse/nflreadr/issues/189" class="external-link">#189</a>)</li>
-</ul><p>Thank you to <a href="https://github.com/ak47twq" class="external-link">@ak47twq</a>, <a href="https://github.com/alecglen" class="external-link">@alecglen</a>, <a href="https://github.com/andycancapital" class="external-link">@andycancapital</a>, <a href="https://github.com/bullaspc" class="external-link">@bullaspc</a>, <a href="https://github.com/mcarman8" class="external-link">@mcarman8</a>, <a href="https://github.com/mpcen" class="external-link">@mpcen</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, <a href="https://github.com/tashapiro" class="external-link">@tashapiro</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their questions, feedback, and contributions to this release</p>
+</ul><p>Thank you to <a href="https://github.com/ak47twq" class="external-link">@ak47twq</a>, <a href="https://github.com/alecglen" class="external-link">@alecglen</a>, <a href="https://github.com/andycancapital" class="external-link">@andycancapital</a>, <a href="https://github.com/bullaspc" class="external-link">@bullaspc</a>, <a href="https://github.com/mcarman8" class="external-link">@mcarman8</a>, <a href="https://github.com/mpcen" class="external-link">@mpcen</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, <a href="https://github.com/tashapiro" class="external-link">@tashapiro</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their questions, feedback, and contributions to this release.</p>
 <p>–</p>
 </div>
 </div>
@@ -174,7 +192,7 @@
 <li>player name mapping update</li>
 <li>
 <code><a href="../reference/latest_season.html">get_current_season()</a></code> now exists, because we can’t agree on what to name things.</li>
-</ul><p>Thank you to <a href="https://github.com/atungate" class="external-link">@atungate</a>, <a href="https://github.com/grayhawk40" class="external-link">@grayhawk40</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>,<a href="https://github.com/jestarr" class="external-link">@jestarr</a>, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>,<a href="https://github.com/marvin3FF" class="external-link">@marvin3FF</a>,<a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, <a href="https://github.com/shirondru" class="external-link">@shirondru</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their contributions and feedback towards this release!</p>
+</ul><p>Thank you to <a href="https://github.com/atungate" class="external-link">@atungate</a>, <a href="https://github.com/grayhawk40" class="external-link">@grayhawk40</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>,@jestarr, <a href="https://github.com/john-b-edwards" class="external-link">@john-b-edwards</a>,@marvin3FF,@mrcaseb, <a href="https://github.com/SCasanova" class="external-link">@SCasanova</a>, <a href="https://github.com/shirondru" class="external-link">@shirondru</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their contributions and feedback towards this release!</p>
 <hr></div>
 </div>
     <div class="section level2">
@@ -183,7 +201,7 @@
 <div class="section level3">
 <h3 id="new-data-1-3-0">New Data!<a class="anchor" aria-label="anchor" href="#new-data-1-3-0"></a></h3>
 <ul><li>
-<code><a href="../reference/load_participation.html">load_participation()</a></code> returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward<br></li>
+<code><a href="../reference/load_participation.html">load_participation()</a></code> returns new play-level information about what players are on the field, how many players are in the box, and what formation the offense is using. Data from NGS starting 2016 and onward</li>
 <li>
 <code><a href="../reference/load_contracts.html">load_contracts()</a></code> downloads (historical) player contracts from <a href="https://overthecap.com/contract-history" class="external-link">OverTheCap.com</a>
 </li>

@@ -16,17 +16,17 @@ articles:
   dictionary_participation: dictionary_participation.html
   dictionary_pbp: dictionary_pbp.html
   dictionary_pfr_passing: dictionary_pfr_passing.html
-  dictionary_player_stats_def: dictionary_player_stats_def.html
   dictionary_player_stats: dictionary_player_stats.html
   dictionary_players: dictionary_players.html
   dictionary_roster_status: dictionary_roster_status.html
   dictionary_rosters: dictionary_rosters.html
   dictionary_schedules: dictionary_schedules.html
   dictionary_snap_counts: dictionary_snap_counts.html
+  dictionary_team_stats: dictionary_team_stats.html
   dictionary_trades: dictionary_trades.html
   exporting_nflreadr: exporting_nflreadr.html
   articles/nflverse_data_schedule: nflverse_data_schedule.html
-last_built: 2025-09-02T00:59Z
+last_built: 2025-09-02T12:32Z
 urls:
   reference: https://nflreadr.nflverse.com/reference
   article: https://nflreadr.nflverse.com/articles
