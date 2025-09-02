@@ -8,6 +8,10 @@ dictionary_player_stats <- jsonlite::fromJSON("data-raw/dictionary_player_stats.
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_player_stats, overwrite = TRUE)
 
+dictionary_team_stats <- jsonlite::fromJSON("data-raw/dictionary_team_stats.json") |>
+  dplyr::mutate_all(stringr::str_squish)
+usethis::use_data(dictionary_team_stats, overwrite = TRUE)
+
 dictionary_ff_playerids <- read.csv("data-raw/dictionary_ff_playerids.csv") |>
   dplyr::mutate_all(stringr::str_squish)
 usethis::use_data(dictionary_ff_playerids, overwrite = TRUE)
