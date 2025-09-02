@@ -22,20 +22,7 @@ This release covers changes released before the start of the 2025 NFL season.
 - `clean_team_abbrs()` now converts full team names like `"Los Angeles Chargers"` or team nicknames like `"Bills"` to corresponding team abbreviations (`"LAC"` and `"BUF"` in this example). (#269)
 - `get_current_week()` now passes arguments on to `most_recent_season()`. (#272)
 
-Thank you to
-[&#x0040;christianlohr9](https://github.com/christianlohr9),
-[&#x0040;Glumdar](https://github.com/Glumdar),
-[&#x0040;JanCalalo](https://github.com/JanCalalo),
-[&#x0040;john-b-edwards](https://github.com/john-b-edwards),
-[&#x0040;johnathan-o-h-napier](https://github.com/johnathan-o-h-napier),
-[&#x0040;LearnThinkCreate](https://github.com/LearnThinkCreate),
-[&#x0040;marvin3FF](https://github.com/marvin3FF),
-[&#x0040;mrcaseb](https://github.com/mrcaseb),
-[&#x0040;sdb-208](https://github.com/sdb-208),
-[&#x0040;tcash21](https://github.com/tcash21),
-[&#x0040;TheMathNinja](https://github.com/TheMathNinja),
-and [&#x0040;wyaruss](https://github.com/wyaruss)
-for their questions, feedback, and contributions towards this release.
+Thank you to &#x0040;christianlohr9, &#x0040;Glumdar, &#x0040;JanCalalo, &#x0040;john-b-edwards, &#x0040;johnathan-o-h-napier, &#x0040;LearnThinkCreate, &#x0040;marvin3FF, &#x0040;mrcaseb, &#x0040;sdb-208, &#x0040;tcash21, &#x0040;TheMathNinja, and &#x0040;wyaruss for their questions, feedback, and contributions towards this release.
 
 ---
 
@@ -62,17 +49,7 @@ thank you @mistakia @john-b-edwards)
 - `clean_player_names()` now can transliterate to latin-ascii if the stringi package
 is available, controlled by the `convert_to_ascii` argument.
 
-Thank you to:
-[&#x0040;arjunmenon10](https://github.com/arjunmenon10),
-[&#x0040;engineerchange](https://github.com/engineerchange),
-[&#x0040;isaactpetersen](https://github.com/isaactpetersen),
-[&#x0040;Jeffery-777](https://github.com/Jeffery-777),
-[&#x0040;john-b-edwards](https://github.com/john-b-edwards),
-[&#x0040;justlikekevin](https://github.com/justlikekevin),
-[&#x0040;mrcaseb](https://github.com/mrcaseb),
-[&#x0040;SCasanova](https://github.com/SCasanova), and
-[&#x0040;tanho63](https://github.com/tanho63)
-for their questions, feedback, and contributions to this release.
+Thank you to: &#x0040;arjunmenon10, &#x0040;engineerchange, &#x0040;isaactpetersen, &#x0040;Jeffery-777, &#x0040;john-b-edwards, &#x0040;justlikekevin, &#x0040;mrcaseb, &#x0040;SCasanova, and &#x0040;tanho63 for their questions, feedback, and contributions to this release.
 
 ---
 
@@ -107,8 +84,7 @@ a moving target 🙃
 ## Dictionary updates
 - Clarified description of the `"special"` variable in the play-by-play data dictionary. (#189)
 
-Thank you to   [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;alecglen](https://github.com/alecglen), [&#x0040;andycancapital](https://github.com/andycancapital), [&#x0040;bullaspc](https://github.com/bullaspc), [&#x0040;mcarman8](https://github.com/mcarman8), [&#x0040;mpcen](https://github.com/mpcen), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;tanho63](https://github.com/tanho63), [&#x0040;tashapiro](https://github.com/tashapiro), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja)
-for their questions, feedback, and contributions to this release
+Thank you to &#x0040;ak47twq, &#x0040;alecglen, &#x0040;andycancapital, &#x0040;bullaspc, &#x0040;mcarman8, &#x0040;mpcen, &#x0040;mrcaseb, &#x0040;tanho63, &#x0040;tashapiro, and &#x0040;TheMathNinja for their questions, feedback, and contributions to this release.
 
 --
 
@@ -127,7 +103,7 @@ Minor changes per changelist and patch CRAN-related example issue.
 - `load_ff_rankings()` URL bug corrected (thank you @kharigardner)
 - test and example for `clean_homeaway()` resolved for CRAN failure
 
-Thank you to [&#x0040;ak47twq](https://github.com/ak47twq), [&#x0040;bachlaw](https://github.com/bachlaw), [&#x0040;brunomioto](https://github.com/brunomioto), [&#x0040;guga31bb](https://github.com/guga31bb), [&#x0040;Josephhero](https://github.com/Josephhero), [&#x0040;kharigardner](https://github.com/kharigardner), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;MysteryPollster](https://github.com/MysteryPollster), [&#x0040;numbersinfigures](https://github.com/numbersinfigures), and [&#x0040;ohri](https://github.com/ohri) for their questions, feedback, and contributions towards this release.
+Thank you to &#x0040;ak47twq, &#x0040;bachlaw, &#x0040;brunomioto, &#x0040;guga31bb, &#x0040;Josephhero, &#x0040;kharigardner, &#x0040;mrcaseb, &#x0040;MysteryPollster, &#x0040;numbersinfigures, and &#x0040;ohri for their questions, feedback, and contributions towards this release.
 
 ---
 
@@ -151,7 +127,7 @@ Fixes CRAN bug and provides some function improvements, most notably improved lo
 - player name mapping update
 - `get_current_season()` now exists, because we can't agree on what to name things.
 
-Thank you to [&#x0040;atungate](https://github.com/atungate), &#x0040;grayhawk40, [&#x0040;guga31bb](https://github.com/guga31bb),[&#x0040;jestarr](https://github.com/jestarr), [&#x0040;john-b-edwards](https://github.com/john-b-edwards),[&#x0040;marvin3FF](https://github.com/marvin3FF),[&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), [&#x0040;shirondru](https://github.com/shirondru), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;TheMathNinja](https://github.com/TheMathNinja) for their contributions and feedback towards this release!
+Thank you to &#x0040;atungate, &#x0040;grayhawk40, &#x0040;guga31bb,&#x0040;jestarr, &#x0040;john-b-edwards,&#x0040;marvin3FF,&#x0040;mrcaseb, &#x0040;SCasanova, &#x0040;shirondru, &#x0040;tanho63, and &#x0040;TheMathNinja for their contributions and feedback towards this release!
 
 ---
 
@@ -197,7 +173,7 @@ This release introduces several new data functions, some new utilities, and an a
 - refactored all the loaders to use `load_from_url` as primary
 - fixed broken example in `load_ff_opportunity()` documentation. #117
 
-Thank you to [&#x0040;albtree](https://github.com/albtree), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;tanho63](https://github.com/tanho63), and [&#x0040;tpenney89](https://github.com/tpenney89) for their contributions and feedback on this release!
+Thank you to &#x0040;albtree, &#x0040;john-b-edwards, &#x0040;mrcaseb, &#x0040;pranavrajaram, &#x0040;tanho63, and &#x0040;tpenney89 for their contributions and feedback on this release!
 
 ---
 
@@ -227,7 +203,7 @@ This release adds functions and arguments to access new data, along with some ba
 - Sitrep functions have ffopportunity and nflverse packages.
 - Pkgdown site upgraded to Bootstrap 5.
 
-Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34](https://github.com/Grayhawk34), [&#x0040;john-b-edwards](https://github.com/john-b-edwards), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;pranavrajaram](https://github.com/pranavrajaram), [&#x0040;rogers1000](https://github.com/rogers1000), and [&#x0040;tanho63](https://github.com/tanho63) for their contributions and feedback on this release!
+Thank you to &#x0040;armstjc, &#x0040;Grayhawk34, &#x0040;john-b-edwards, &#x0040;mrcaseb, &#x0040;pranavrajaram, &#x0040;rogers1000, and &#x0040;tanho63 for their contributions and feedback on this release!
 
 ---
 
@@ -255,7 +231,7 @@ Thank you to [&#x0040;armstjc](https://github.com/armstjc), [&#x0040;Grayhawk34]
 - Added a message that reminds the user of the caching behavior. The message will be displayed once every 8 hours if the session is interactive.
 - Adjusted file location of snap count data
 
-Thank you to [&#x0040;ajreinhard](https://github.com/ajreinhard), [&#x0040;brunomioto](https://github.com/brunomioto), [&#x0040;jthomasmock](https://github.com/jthomasmock), [&#x0040;mrcaseb](https://github.com/mrcaseb), [&#x0040;SCasanova](https://github.com/SCasanova), and [&#x0040;tanho63](https://github.com/tanho63) for their feedback and contributions to this package!
+Thank you to &#x0040;ajreinhard, &#x0040;brunomioto, &#x0040;jthomasmock, &#x0040;mrcaseb, &#x0040;SCasanova, and &#x0040;tanho63 for their feedback and contributions to this package!
 
 ---
 
