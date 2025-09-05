@@ -44,7 +44,7 @@ starting with the 2018 season, primarily to augment existing nflverse data."><me
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Load Advanced Stats from PFR</h1>
-      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/v1.5.0/R/load_pfr_advstats.R" class="external-link"><code>R/load_pfr_advstats.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nflverse/nflreadr/blob/main/R/load_pfr_advstats.R" class="external-link"><code>R/load_pfr_advstats.R</code></a></small>
       <div class="d-none name"><code>load_pfr_advstats.Rd</code></div>
     </div>
 
@@ -101,28 +101,11 @@ starting with the 2018 season, primarily to augment existing nflverse data.</p>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents cran errors</span></span></span>
 <span class="r-in"><span>  <span class="fu">load_pfr_advstats</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse advanced pass weekly stats via PFR</span> ─────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2025-02-13 07:17:27 UTC</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 697 × 24</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024_01_BA… 202409050k…   <span style="text-decoration: underline;">2</span>024     1 REG       KC    BAL      Patrick Mahomes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024_01_BA… 202409050k…   <span style="text-decoration: underline;">2</span>024     1 REG       BAL   KC       Lamar Jackson  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024_01_GB… 202409060p…   <span style="text-decoration: underline;">2</span>024     1 REG       PHI   GB       Jalen Hurts    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024_01_GB… 202409060p…   <span style="text-decoration: underline;">2</span>024     1 REG       GB    PHI      Jordan Love    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024_01_GB… 202409060p…   <span style="text-decoration: underline;">2</span>024     1 REG       GB    PHI      Malik Willis   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024_01_PI… 202409080a…   <span style="text-decoration: underline;">2</span>024     1 REG       ATL   PIT      Kirk Cousins   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024_01_PI… 202409080a…   <span style="text-decoration: underline;">2</span>024     1 REG       PIT   ATL      Justin Fields  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024_01_AR… 202409080b…   <span style="text-decoration: underline;">2</span>024     1 REG       BUF   ARI      Josh Allen     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024_01_AR… 202409080b…   <span style="text-decoration: underline;">2</span>024     1 REG       ARI   BUF      Kyler Murray   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024_01_TE… 202409080c…   <span style="text-decoration: underline;">2</span>024     1 REG       CHI   TEN      Caleb Williams </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 687 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: pfr_player_id &lt;chr&gt;, passing_drops &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_drop_pct &lt;dbl&gt;, receiving_drop &lt;dbl&gt;, receiving_drop_pct &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   passing_bad_throws &lt;dbl&gt;, passing_bad_throw_pct &lt;dbl&gt;, times_sacked &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_blitzed &lt;dbl&gt;, times_hurried &lt;dbl&gt;, times_hit &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   times_pressured &lt;dbl&gt;, times_pressured_pct &lt;dbl&gt;, def_times_blitzed &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   def_times_hurried &lt;dbl&gt;, def_times_hitqb &lt;dbl&gt;</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>cannot open URL 'https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_pass_2025.rds': HTTP status was '404 Not Found'</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Failed to readRDS from</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-style: italic;">&lt;https://github.com/nflverse/nflverse-data/releases/download/pfr_advstats/advstats_week_pass_2025.rds&gt;</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse </span> ───────────────────────────────────────────────────────────────────</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 0 × 0</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
