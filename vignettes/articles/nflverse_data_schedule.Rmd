@@ -128,3 +128,13 @@ Player level [weekly stats](https://nflreadr.nflverse.com/reference/load_nextgen
 ## PFR Advanced Stats
 
 [PFR Advanced Stats](https://nflreadr.nflverse.com/reference/load_pfr_advstats.html) updates every day at 7AM UTC during the season. The actual availability of new data depends on the update schedule of PFR.
+
+## Depth Chart Data
+
+[Depth Charts](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) update every day at 7AM UTC throughout the year. 
+
+Please note that the data source has changed after the 2024 season. From 2025 onwards, depth charts are not assigned a week. Instead, each update provides a new ISO8601-formatted timestamp that users can assign to any point in time during the season. Each update is appended to the existing data with a new timestamp.
+
+## Injury Data
+
+Our data source died after the 2024 season. **At the moment, there is no 2025 data** and there is no ETA yet as to when we will be able to make injury data available again.
