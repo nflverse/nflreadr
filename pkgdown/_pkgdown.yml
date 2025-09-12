@@ -111,6 +111,8 @@ navbar:
           href: https://nflseedr.com
         - text: nfl4th
           href: https://www.nfl4th.com
+        - text: nflreadpy
+          href: https://nflreadpy.nflverse.com
         - text: "Open Source Football"
           href: https://www.opensourcefootball.com
         - text: "nflverse Data"
