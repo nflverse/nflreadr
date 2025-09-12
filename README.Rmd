@@ -34,7 +34,7 @@ nflreadr is a minimal package for downloading data from nflverse repositories. I
 
 Please note that nflverse data repositories have been reorganized and pushed towards the [nflverse-data](https://github.com/nflverse/nflverse-data) repo, and v1.2.0+ is the minimum version that supports this change. We encourage all users to upgrade to this version immediately.
 
-For Python access to nflverse data, please check out [nfl-data-py](https://pypi.org/project/nfl-data-py/) - maintained by Cooper Adams. 
+For Python access to nflverse data, please check out [nflreadpy](https://nflreadpy.nflverse.com).
 
 ## Installation
 
