@@ -31,8 +31,7 @@ v1.2.0+ is the minimum version that supports this change. We encourage
 all users to upgrade to this version immediately.
 
 For Python access to nflverse data, please check out
-[nfl-data-py](https://pypi.org/project/nfl-data-py/) - maintained by
-Cooper Adams.
+[nflreadpy](https://nflreadpy.nflverse.com). 
 
 ## Installation
 
