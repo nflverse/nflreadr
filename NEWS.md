@@ -1,3 +1,7 @@
+# nflreadr (development version)
+
+- `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`. 
+
 # nflreadr 1.5.0
 
 This release covers changes released before the start of the 2025 NFL season.
