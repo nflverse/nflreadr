@@ -4,11 +4,17 @@
 \alias{load_teams}
 \title{Load NFL Team Graphics, Colors, and Logos}
 \usage{
-load_teams(current = TRUE)
+load_teams(
+  current = TRUE,
+  file_type = getOption("nflreadr.prefer", default = "rds")
+)
 }
 \arguments{
 \item{current}{If \code{TRUE} (the default), returns a standardized list of current teams only,
 with abbreviations as per \link{team_abbr_mapping}.}
+
+\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\code{options(nflreadr.prefer)}}
 }
 \value{
 A tibble of team-level image URLs and hex color codes.
