@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,10 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_teams</span><span class="op">(</span>current <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">load_teams</span><span class="op">(</span></span>
+<span>  current <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  file_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"nflreadr.prefer"</span>, default <span class="op">=</span> <span class="st">"rds"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -63,6 +66,11 @@
 <dl><dt id="arg-current">current<a class="anchor" aria-label="anchor" href="#arg-current"></a></dt>
 <dd><p>If <code>TRUE</code> (the default), returns a standardized list of current teams only,
 with abbreviations as per <a href="team_abbr_mapping.html">team_abbr_mapping</a>.</p></dd>
+
+
+<dt id="arg-file-type">file_type<a class="anchor" aria-label="anchor" href="#arg-file-type"></a></dt>
+<dd><p>One of <code>c("rds", "qs", "csv", "parquet")</code>. Can also be set globally with
+<code>options(nflreadr.prefer)</code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -80,21 +88,21 @@ with abbreviations as per <a href="team_abbr_mapping.html">team_abbr_mapping</a>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="op">{</span> <span class="co"># prevents cran errors</span></span></span>
 <span class="r-in"><span>  <span class="fu">load_teams</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse team graphics</span> ──────────────────────────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2025-09-12 13:32:34 UTC</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-style: italic;">nflverse teams data</span> ─────────────────────────────────────────────────────────</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Data updated: <span style="color: #00BB00;">2025-10-01 08:03:15 UTC</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 32 × 16</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    team_abbr team_name      team_id team_nick team_conf team_division team_color</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ARI       Arizona Cardi… 3800    Cardinals NFC       NFC West      #97233F   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ATL       Atlanta Falco… 0200    Falcons   NFC       NFC South     #A71930   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BAL       Baltimore Rav… 0325    Ravens    AFC       AFC North     #241773   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> BUF       Buffalo Bills  0610    Bills     AFC       AFC East      #00338D   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> CAR       Carolina Pant… 0750    Panthers  NFC       NFC South     #0085CA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CHI       Chicago Bears  0810    Bears     NFC       NFC North     #0B162A   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CIN       Cincinnati Be… 0920    Bengals   AFC       AFC North     #FB4F14   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CLE       Cleveland Bro… 1050    Browns    AFC       AFC North     #FF3C00   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DAL       Dallas Cowboys 1200    Cowboys   NFC       NFC East      #002244   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DEN       Denver Broncos 1400    Broncos   AFC       AFC West      #002244   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ARI       Arizona Cardi…    <span style="text-decoration: underline;">3</span>800 Cardinals NFC       NFC West      #97233F   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ATL       Atlanta Falco…     200 Falcons   NFC       NFC South     #A71930   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BAL       Baltimore Rav…     325 Ravens    AFC       AFC North     #241773   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> BUF       Buffalo Bills      610 Bills     AFC       AFC East      #00338D   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> CAR       Carolina Pant…     750 Panthers  NFC       NFC South     #0085CA   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CHI       Chicago Bears      810 Bears     NFC       NFC North     #0B162A   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CIN       Cincinnati Be…     920 Bengals   AFC       AFC North     #FB4F14   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CLE       Cleveland Bro…    <span style="text-decoration: underline;">1</span>050 Browns    AFC       AFC North     #FF3C00   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> DAL       Dallas Cowboys    <span style="text-decoration: underline;">1</span>200 Cowboys   NFC       NFC East      #002244   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> DEN       Denver Broncos    <span style="text-decoration: underline;">1</span>400 Broncos   AFC       AFC West      #002244   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 22 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 9 more variables: team_color2 &lt;chr&gt;, team_color3 &lt;chr&gt;, team_color4 &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   team_logo_wikipedia &lt;chr&gt;, team_logo_espn &lt;chr&gt;, team_wordmark &lt;chr&gt;,</span></span>
