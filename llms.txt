@@ -1,0 +1,373 @@
+# nflreadr
+
+nflreadr is a minimal package for downloading data from nflverse
+repositories. It includes caching, optional progress updates, and data
+dictionaries.
+
+Please note that nflverse data repositories have been reorganized and
+pushed towards the
+[nflverse-data](https://github.com/nflverse/nflverse-data) repo, and
+v1.2.0+ is the minimum version that supports this change. We encourage
+all users to upgrade to this version immediately.
+
+For Python access to nflverse data, please check out
+[nflreadpy](https://nflreadpy.nflverse.com).
+
+## Installation
+
+Install the stable version from CRAN with:
+
+``` r
+install.packages("nflreadr")
+```
+
+Install the development version from GitHub with:
+
+``` r
+install.packages("nflreadr", repos = c("https://nflverse.r-universe.dev", getOption("repos")))
+
+# or use remotes/devtools
+# install.packages("remotes")
+remotes::install_github("nflverse/nflreadr")
+```
+
+## Usage
+
+The main functions of `nflreadr` are prefixed with `load_`.
+
+``` r
+library(nflreadr)
+
+load_pbp(2021)
+#> ── nflverse play by play data ──────────────────────────────────────────────────
+#> ℹ Data updated: 2022-09-27 04:35:02 PDT
+#> # A tibble: 50,712 × 372
+#>    play_id game_id     old_game_id home_team away_team season_type  week posteam
+#>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
+#>  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 <NA>   
+#>  2      40 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  3      55 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  4      76 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  5     100 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  6     122 2021_01_AR… 2021091207  TEN       ARI       REG             1 TEN    
+#>  7     152 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#>  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
+#> # ℹ 50,702 more rows
+#> # ℹ 364 more variables: posteam_type <chr>, defteam <chr>, side_of_field <chr>,
+#> #   yardline_100 <dbl>, game_date <chr>, quarter_seconds_remaining <dbl>,
+#> #   half_seconds_remaining <dbl>, game_seconds_remaining <dbl>,
+#> #   game_half <chr>, quarter_end <dbl>, …
+
+load_player_stats(2021)
+#> ── nflverse player stats: offense ──────────────────────────────────────────────
+#> ℹ Data updated: 2023-02-28 01:26:47 PST
+#> # A tibble: 5,698 × 52
+#>    player_id  player_name player_display_name position position_group
+#>    <chr>      <chr>       <chr>               <chr>    <chr>         
+#>  1 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  2 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  3 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  4 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  5 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  6 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  7 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  8 00-0019596 T.Brady     Tom Brady           QB       QB            
+#>  9 00-0019596 T.Brady     Tom Brady           QB       QB            
+#> 10 00-0019596 T.Brady     Tom Brady           QB       QB            
+#> # ℹ 5,688 more rows
+#> # ℹ 47 more variables: headshot_url <chr>, recent_team <chr>, season <int>,
+#> #   week <int>, season_type <chr>, completions <int>, attempts <int>,
+#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, …
+```
+
+## Data Sources
+
+Data accessed by this package is stored on GitHub and can typically be
+found in one of the following repositories:
+
+- [nflverse/nflverse-data](https://github.com/nflverse/nflverse-data)
+- [nflverse/nfldata](https://github.com/nflverse/nfldata)
+- [nflverse/espnscrapeR-data](https://github.com/nflverse/espnscrapeR-data)
+- [dynastyprocess/data](https://github.com/dynastyprocess/data)
+- [ffverse/ffopportunity](https://github.com/ffverse/ffopportunity)
+
+For a full list of functions, please see the [reference
+page](https://nflreadr.nflverse.com/reference/index.html).
+
+This data is maintained by the nflverse project team and is primarily
+automated via GitHub Actions. You can check the status and schedules
+page here: <https://github.com/nflverse/nflverse-data>
+
+## Configuration
+
+The following options help configure default `nflreadr` behaviours.
+
+``` r
+options(nflreadr.verbose) 
+# TRUE/FALSE to silence messages such as cache warnings
+options(nflreadr.cache) 
+# one of "memory", "filesystem", or "off"
+options(nflreadr.prefer) 
+# one of "qs", "rds", "parquet", or "csv"
+options(nflreadr.download_path)
+# defaults to current working directory - change to specify where `nflverse_download()` places data.
+```
+
+You can also configure `nflreadr` to display progress messages with the
+[`progressr` package](https://progressr.futureverse.org), e.g.
+
+``` r
+progressr::with_progress(load_rosters(seasons = 2010:2020))
+ |========            |  40%
+```
+
+## Getting help
+
+The best places to get help on this package are:
+
+- the [nflverse discord](https://discord.com/invite/5Er2FBnnQa) (for
+  both this package as well as anything R/NFL related)
+- opening [an
+  issue](https://github.com/nflverse/nflreadr/issues/new/choose)
+
+## Contributing
+
+Many hands make light work! Here are some ways you can contribute to
+this project:
+
+- You can [open an
+  issue](https://github.com/nflverse/nflreadr/issues/new/choose) if
+  you’d like to request specific data or report a bug/error.
+
+- If you’d like to contribute code, please check out [the contribution
+  guidelines](https://nflreadr.nflverse.com/CONTRIBUTING.html).
+
+## Terms of Use
+
+The R code for this package is released as open source under the [MIT
+License](https://nflreadr.nflverse.com/LICENSE.html). NFL data accessed
+by this package belong to their respective owners, and are governed by
+their terms of use.
+
+# Package index
+
+## Load nflverse data
+
+- [`load_pbp()`](https://nflreadr.nflverse.com/reference/load_pbp.md) :
+  Load Play By Play
+- [`load_player_stats()`](https://nflreadr.nflverse.com/reference/load_player_stats.md)
+  : Load Player Level Stats
+- [`load_team_stats()`](https://nflreadr.nflverse.com/reference/load_team_stats.md)
+  : Load Team Level Stats
+- [`load_participation()`](https://nflreadr.nflverse.com/reference/load_participation.md)
+  : Load Participation Data
+- [`load_players()`](https://nflreadr.nflverse.com/reference/load_players.md)
+  : Load Players
+- [`load_rosters()`](https://nflreadr.nflverse.com/reference/load_rosters.md)
+  : Load Rosters
+- [`load_rosters_weekly()`](https://nflreadr.nflverse.com/reference/load_rosters_weekly.md)
+  : Load Weekly Rosters
+- [`load_teams()`](https://nflreadr.nflverse.com/reference/load_teams.md)
+  : Load NFL Team Graphics, Colors, and Logos
+- [`load_schedules()`](https://nflreadr.nflverse.com/reference/load_schedules.md)
+  : Load Game/Schedule Data
+- [`load_officials()`](https://nflreadr.nflverse.com/reference/load_officials.md)
+  : Load Officials
+- [`load_trades()`](https://nflreadr.nflverse.com/reference/load_trades.md)
+  : Load Trades
+- [`load_draft_picks()`](https://nflreadr.nflverse.com/reference/load_draft_picks.md)
+  : Load Draft Picks from PFR
+- [`load_combine()`](https://nflreadr.nflverse.com/reference/load_combine.md)
+  : Load Combine Data from PFR
+- [`load_nextgen_stats()`](https://nflreadr.nflverse.com/reference/load_nextgen_stats.md)
+  : Load Player Level Weekly NFL Next Gen Stats
+- [`load_depth_charts()`](https://nflreadr.nflverse.com/reference/load_depth_charts.md)
+  : Load Weekly Depth Charts
+- [`load_injuries()`](https://nflreadr.nflverse.com/reference/load_injuries.md)
+  : Load Injury Reports
+- [`load_espn_qbr()`](https://nflreadr.nflverse.com/reference/load_espn_qbr.md)
+  : Load ESPN's QBR
+- [`load_pfr_advstats()`](https://nflreadr.nflverse.com/reference/load_pfr_advstats.md)
+  : Load Advanced Stats from PFR
+- [`load_snap_counts()`](https://nflreadr.nflverse.com/reference/load_snap_counts.md)
+  : Load Snap Counts from PFR
+- [`load_contracts()`](https://nflreadr.nflverse.com/reference/load_contracts.md)
+  : Load Historical Player Contracts from OverTheCap.com
+- [`load_ftn_charting()`](https://nflreadr.nflverse.com/reference/load_ftn_charting.md)
+  : Load FTN Charting Data
+- [`nflverse_download()`](https://nflreadr.nflverse.com/reference/nflverse_download.md)
+  : Bulk download utilities via piggyback
+- [`nflverse_releases()`](https://nflreadr.nflverse.com/reference/nflverse_releases.md)
+  : List all available nflverse releases
+- [`nflverse_data_timezone`](https://nflreadr.nflverse.com/reference/nflverse_data_timezone.md)
+  : nflverse Timezone
+
+## Load ffverse data
+
+- [`load_ff_playerids()`](https://nflreadr.nflverse.com/reference/load_ff_playerids.md)
+  : Load Fantasy Player IDs
+- [`load_ff_rankings()`](https://nflreadr.nflverse.com/reference/load_ff_rankings.md)
+  : Load Latest FantasyPros Rankings
+- [`load_ff_opportunity()`](https://nflreadr.nflverse.com/reference/load_ff_opportunity.md)
+  : Load Expected Fantasy Points
+
+## Data Dictionaries
+
+You can also access the web versions from the top of this page!
+
+- [`dictionary_combine`](https://nflreadr.nflverse.com/reference/dictionary_combine.md)
+  : Data Dictionary: Combine
+- [`dictionary_contracts`](https://nflreadr.nflverse.com/reference/dictionary_contracts.md)
+  : Data Dictionary: Contracts
+- [`dictionary_depth_charts`](https://nflreadr.nflverse.com/reference/dictionary_depth_charts.md)
+  : Data Dictionary: Depth Charts
+- [`dictionary_draft_picks`](https://nflreadr.nflverse.com/reference/dictionary_draft_picks.md)
+  : Data Dictionary: Draft Picks
+- [`dictionary_espn_qbr`](https://nflreadr.nflverse.com/reference/dictionary_espn_qbr.md)
+  : Data Dictionary: ESPN QBR
+- [`dictionary_ff_opportunity`](https://nflreadr.nflverse.com/reference/dictionary_ff_opportunity.md)
+  : Data Dictionary: Expected Fantasy Points
+- [`dictionary_ff_playerids`](https://nflreadr.nflverse.com/reference/dictionary_ff_playerids.md)
+  : Data Dictionary: Fantasy Player IDs
+- [`dictionary_ff_rankings`](https://nflreadr.nflverse.com/reference/dictionary_ff_rankings.md)
+  : Data Dictionary: Fantasy Football Rankings
+- [`dictionary_ftn_charting`](https://nflreadr.nflverse.com/reference/dictionary_ftn_charting.md)
+  : Data Dictionary: FTN Charting Data
+- [`dictionary_injuries`](https://nflreadr.nflverse.com/reference/dictionary_injuries.md)
+  : Data Dictionary: Injuries
+- [`dictionary_nextgen_stats`](https://nflreadr.nflverse.com/reference/dictionary_nextgen_stats.md)
+  : Data Dictionary: Next Gen Stats
+- [`dictionary_participation`](https://nflreadr.nflverse.com/reference/dictionary_participation.md)
+  : Data Dictionary: Participation
+- [`dictionary_pbp`](https://nflreadr.nflverse.com/reference/dictionary_pbp.md)
+  : Data Dictionary: Play by Play
+- [`dictionary_pfr_passing`](https://nflreadr.nflverse.com/reference/dictionary_pfr_passing.md)
+  : Data Dictionary: PFR Passing
+- [`dictionary_player_stats`](https://nflreadr.nflverse.com/reference/dictionary_player_stats.md)
+  : Data Dictionary: Player Stats
+- [`dictionary_players`](https://nflreadr.nflverse.com/reference/dictionary_players.md)
+  : Data Dictionary: Players
+- [`dictionary_roster_status`](https://nflreadr.nflverse.com/reference/dictionary_roster_status.md)
+  : dictionary_roster_status
+- [`dictionary_rosters`](https://nflreadr.nflverse.com/reference/dictionary_rosters.md)
+  : Data Dictionary: Rosters
+- [`dictionary_schedules`](https://nflreadr.nflverse.com/reference/dictionary_schedules.md)
+  : Data Dictionary: Schedules
+- [`dictionary_snap_counts`](https://nflreadr.nflverse.com/reference/dictionary_snap_counts.md)
+  : Data Dictionary: Snap Counts
+- [`dictionary_team_stats`](https://nflreadr.nflverse.com/reference/dictionary_team_stats.md)
+  : Data Dictionary: Team Stats
+- [`dictionary_trades`](https://nflreadr.nflverse.com/reference/dictionary_trades.md)
+  : Data Dictionary: Trades
+
+## Loading raw data
+
+- [`load_from_url()`](https://nflreadr.nflverse.com/reference/load_from_url.md)
+  : Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+- [`csv_from_url()`](https://nflreadr.nflverse.com/reference/csv_from_url.md)
+  : Load .csv / .csv.gz file from a remote connection
+- [`parquet_from_url()`](https://nflreadr.nflverse.com/reference/parquet_from_url.md)
+  : Load .parquet file from a remote connection
+- [`qs_from_url()`](https://nflreadr.nflverse.com/reference/qs_from_url.md)
+  : Load .qs file from a remote connection
+- [`rds_from_url()`](https://nflreadr.nflverse.com/reference/rds_from_url.md)
+  : Load .rds file from a remote connection
+- [`raw_from_url()`](https://nflreadr.nflverse.com/reference/raw_from_url.md)
+  : Load raw filedata from a remote connection
+- [`progressively()`](https://nflreadr.nflverse.com/reference/progressively.md)
+  : Progressively
+
+## Miscellaneous
+
+- [`clear_cache()`](https://nflreadr.nflverse.com/reference/clear_cache.md)
+  [`.clear_cache()`](https://nflreadr.nflverse.com/reference/clear_cache.md)
+  : Clear function cache
+- [`nflverse_sitrep()`](https://nflreadr.nflverse.com/reference/sitrep.md)
+  [`ffverse_sitrep()`](https://nflreadr.nflverse.com/reference/sitrep.md)
+  [`.sitrep()`](https://nflreadr.nflverse.com/reference/sitrep.md) : Get
+  a Situation Report on System, nflverse/ffverse Package Versions and
+  Dependencies
+- [`clean_player_names()`](https://nflreadr.nflverse.com/reference/clean_player_names.md)
+  : Create Player Merge Names
+- [`clean_team_abbrs()`](https://nflreadr.nflverse.com/reference/clean_team_abbrs.md)
+  : Standardize NFL Team Abbreviations
+- [`clean_homeaway()`](https://nflreadr.nflverse.com/reference/clean_homeaway.md)
+  : Clean Home/Away in dataframes into Team/Opponent dataframes
+- [`nflverse_game_id()`](https://nflreadr.nflverse.com/reference/nflverse_game_id.md)
+  : Compute nflverse Game Identifiers
+- [`player_name_mapping`](https://nflreadr.nflverse.com/reference/player_name_mapping.md)
+  : Alternate player name mappings
+- [`team_abbr_mapping`](https://nflreadr.nflverse.com/reference/team_abbr_mapping.md)
+  : Alternate team abbreviation mappings
+- [`team_abbr_mapping_norelocate`](https://nflreadr.nflverse.com/reference/team_abbr_mapping_norelocate.md)
+  : Alternate team abbreviation mappings, no relocation
+- [`most_recent_season()`](https://nflreadr.nflverse.com/reference/latest_season.md)
+  [`get_latest_season()`](https://nflreadr.nflverse.com/reference/latest_season.md)
+  [`get_current_season()`](https://nflreadr.nflverse.com/reference/latest_season.md)
+  : Get Latest Season
+- [`get_current_week()`](https://nflreadr.nflverse.com/reference/get_current_week.md)
+  : Get Current Week
+- [`join_coalesce()`](https://nflreadr.nflverse.com/reference/join_coalesce.md)
+  : Coalescing join
+- [`as.nflverse_data()`](https://nflreadr.nflverse.com/reference/nflverse_data-class.md)
+  : nflverse data class
+- [`stat_mode()`](https://nflreadr.nflverse.com/reference/stat_mode.md)
+  : Statistical Mode
+
+# Articles
+
+### Dictionaries
+
+- [Data Dictionary -
+  Combine](https://nflreadr.nflverse.com/articles/dictionary_combine.md):
+- [Data Dictionary -
+  Contracts](https://nflreadr.nflverse.com/articles/dictionary_contracts.md):
+- [Data Dictionary - Depth
+  Charts](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.md):
+- [Data Dictionary - Draft
+  Picks](https://nflreadr.nflverse.com/articles/dictionary_draft_picks.md):
+- [Data Dictionary - ESPN
+  QBR](https://nflreadr.nflverse.com/articles/dictionary_espn_qbr.md):
+- [Data Dictionary - FF
+  Opportunity](https://nflreadr.nflverse.com/articles/dictionary_ff_opportunity.md):
+- [Data Dictionary - FF Player
+  IDs](https://nflreadr.nflverse.com/articles/dictionary_ff_playerids.md):
+- [Data Dictionary - FF
+  Rankings](https://nflreadr.nflverse.com/articles/dictionary_ff_rankings.md):
+- [Data Dictionary - FTN
+  Charting](https://nflreadr.nflverse.com/articles/dictionary_ftn_charting.md):
+- [Data Dictionary -
+  Injuries](https://nflreadr.nflverse.com/articles/dictionary_injuries.md):
+- [Data Dictionary - Next Gen
+  Stats](https://nflreadr.nflverse.com/articles/dictionary_nextgen_stats.md):
+- [Data Dictionary -
+  Participation](https://nflreadr.nflverse.com/articles/dictionary_participation.md):
+- [Data Dictionary -
+  PBP](https://nflreadr.nflverse.com/articles/dictionary_pbp.md):
+- [Data Dictionary - PFR
+  Passing](https://nflreadr.nflverse.com/articles/dictionary_pfr_passing.md):
+- [Data Dictionary - Player
+  Stats](https://nflreadr.nflverse.com/articles/dictionary_player_stats.md):
+- [Data Dictionary -
+  Players](https://nflreadr.nflverse.com/articles/dictionary_players.md):
+- [Data Dictionary - Roster
+  Status](https://nflreadr.nflverse.com/articles/dictionary_roster_status.md):
+- [Data Dictionary -
+  Rosters](https://nflreadr.nflverse.com/articles/dictionary_rosters.md):
+- [Data Dictionary -
+  Schedules](https://nflreadr.nflverse.com/articles/dictionary_schedules.md):
+- [Data Dictionary - Snap
+  Counts](https://nflreadr.nflverse.com/articles/dictionary_snap_counts.md):
+- [Data Dictionary - Team
+  Stats](https://nflreadr.nflverse.com/articles/dictionary_team_stats.md):
+- [Data Dictionary -
+  Trades](https://nflreadr.nflverse.com/articles/dictionary_trades.md):
+
+### Other
+
+- [nflverse Data Update and Availability
+  Schedule](https://nflreadr.nflverse.com/articles/nflverse_data_schedule.md):
+- [Using nflreadr in
+  packages](https://nflreadr.nflverse.com/articles/exporting_nflreadr.md):

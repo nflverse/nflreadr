@@ -1,0 +1,23 @@
+# Data Dictionary - Roster Status
+
+| status | description                                                                                                                          |
+|:-------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| ACT    | On the active roster                                                                                                                 |
+| EXE    | On the comissioner’s exempt list                                                                                                     |
+| DEV    | On the practice squad                                                                                                                |
+| CUT    | Cut from the team’s roster                                                                                                           |
+| E14    | On the roster as an exempt international player. See <https://www.nfl.com/news/what-is-the-international-player-pathway> for details |
+| INA    | Under contract but not on the active roster, inactive                                                                                |
+| NWT    | Rarely used, tends to indicate a waived player                                                                                       |
+| PUP    | On the “Physically Unable to Perform” list                                                                                           |
+| RES    | On the reserve list                                                                                                                  |
+| RET    | On the retired from football list                                                                                                    |
+| RFA    | Rarely used, tends to indicate a cut player who is a restricted free agent.                                                          |
+| RSN    | Rarely used, tends to indicate a player is on the non-football injured reserve list                                                  |
+| RSR    | Rarely used, tends to indicate a player released from being on the injured reserve list                                              |
+| SUS    | Player is suspended from the NFL                                                                                                     |
+| TRC    | Player has been released from the practice squad                                                                                     |
+| TRD    | Player has been released from the practice squad                                                                                     |
+| TRL    | Rarely used and only for a brief period in the 1960s. Unable to determine what the status indicates.                                 |
+| TRT    | Player has been released from the practice squad                                                                                     |
+| UFA    | Player has been released and is an unrestricted free agent                                                                           |

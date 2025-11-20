@@ -1,0 +1,29 @@
+# Data Dictionary - FF Rankings
+
+| field                   | data_type | description                                                                                                                                                              |
+|:------------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| fp_page                 | character | The relative url that the data was scraped from (add the prefix <https://www.fantasypros.com/> to visit the page)                                                        |
+| page_type               | character | Two word identifier separated by a dash identifying the type of fantasy ranking (best = bestball; dynasty; redraft) and what position it applies to                      |
+| ecr_type                | character | A two letter identifier combining the ranking type (b = bestball; d = dynasty; r = redraft) and position type (o = overall; p = positional; sf = superflex; rk = rookie) |
+| player                  | character | Player name                                                                                                                                                              |
+| id                      | character | FantasyPros ID                                                                                                                                                           |
+| pos                     | character | Position as tracked by FP                                                                                                                                                |
+| team                    | character | NFL team the player plays for                                                                                                                                            |
+| sportsdata_id           | character | ID - also known as sportradar_id (they are equivalent!)                                                                                                                  |
+| player_filename         | character | base URL for this player on fantasypros.com                                                                                                                              |
+| yahoo_id                | character | Yahoo ID                                                                                                                                                                 |
+| cbs_id                  | character | CBS ID                                                                                                                                                                   |
+| player_image_url        | character | An image of the player                                                                                                                                                   |
+| player_square_image_url | character | An square image of the player                                                                                                                                            |
+| mergename               | character | Player name after being cleaned by dp_cleannames - generally strips punctuation and suffixes as well as performing common name substitutions.                            |
+| tm                      | character | Team ID as used on MyFantasyLeague.com                                                                                                                                   |
+| scrape_date             | Date      | Date this dataframe was last updated                                                                                                                                     |
+| ecr                     | numeric   | Average (mean) expert ranking for this player                                                                                                                            |
+| sd                      | numeric   | Standard deviation of expert rankings for this player                                                                                                                    |
+| best                    | numeric   | The highest ranking given for this player by any one expert                                                                                                              |
+| worst                   | numeric   | The lowest ranking given for this player by any one expert                                                                                                               |
+| player_owned_avg        | numeric   | The average percentage this player is rostered across ESPN and Yahoo                                                                                                     |
+| player_owned_espn       | numeric   | The percentage that this player is rostered in ESPN leagues                                                                                                              |
+| player_owned_yahoo      | numeric   | The percentage that this player is rostered in Yahoo leagues                                                                                                             |
+| rank_delta              | numeric   | Change in ranks over a recent period                                                                                                                                     |
+| bye                     | numeric   | NFL bye week                                                                                                                                                             |

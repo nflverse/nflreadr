@@ -1,0 +1,39 @@
+# Data Dictionary - FF Player IDs
+
+| field            | data_type | description                                                                                                                                                       |
+|:-----------------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| mfl_id           | character | MyFantasyLeague.com ID - this is the primary key for this table and is unique and complete. Usually an integer of 5 digits.                                       |
+| sportradar_id    | character | SportRadar ID - often also called sportsdata_id by other services. A UUID.                                                                                        |
+| fantasypros_id   | character | FantasyPros.com ID - usually an integer of 5 digits.                                                                                                              |
+| gsis_id          | character | NFL Game Stats and Information Services - usually starts with 00- and is followed by a series of integers.                                                        |
+| pff_id           | character | Pro Football Focus ID - usually an integer with between 3 and 6 digits.                                                                                           |
+| sleeper_id       | character | Sleeper ID - usually an integer with ~4 digits.                                                                                                                   |
+| nfl_id           | character | NFL.com ID - usual format fullname/integers                                                                                                                       |
+| espn_id          | character | ESPN ID - usual format is an integer with ~5 digits                                                                                                               |
+| yahoo_id         | character | Yahoo ID - usual format is an integer with ~5 digits                                                                                                              |
+| fleaflicker_id   | character | Fleaflicker ID - usual format is an integer with ~4 digits. Fleaflicker API also has sportradar and that’s generally preferred.                                   |
+| cbs_id           | character | CBS ID - usual format is an integer with ~ 7 digits.                                                                                                              |
+| rotowire_id      | character | Rotowire ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.                                                                  |
+| rotoworld_id     | character | Rotoworld ID - usual format is an integer with ~four digits. Not to be confused with rotowire_id.                                                                 |
+| ktc_id           | character | KeepTradeCut ID - usual format is an integer with ~four digits.                                                                                                   |
+| pfr_id           | character | Pro Football Reference ID - usual format is first four characters of last name, first two characters of first name, and an integer                                |
+| cfbref_id        | character | College Football Reference ID - usual format is firstname-lastname-integer                                                                                        |
+| stats_id         | character | Stats ID - usual format is five digit integer                                                                                                                     |
+| stats_global_id  | character | Stats Global ID - usual format is a six digit integer                                                                                                             |
+| fantasy_data_id  | character | FantasyData ID - usual format five digit integer                                                                                                                  |
+| name             | character | Name, as reported by MFL but reordered into FirstName LastName instead of Last, First                                                                             |
+| merge_name       | character | Name but formatted for name joins via ffscrapr::dp_cleannames() - coerced to lowercase, stripped of punctuation and suffixes, and common substitutions performed. |
+| position         | character | Position as reported by MFL                                                                                                                                       |
+| team             | character | Team as reported by MFL                                                                                                                                           |
+| birthdate        | date      | Birthdate                                                                                                                                                         |
+| age              | numeric   | Age as of last pipeline build, rounded to one decimal. Pipeline is built on a weekly basis.                                                                       |
+| draft_year       | numeric   | Year of draft. Zero if unknown/undrafted.                                                                                                                         |
+| draft_round      | numeric   | Round of draft.                                                                                                                                                   |
+| draft_pick       | numeric   | Draft pick within round, i.e. 32nd pick of second round.                                                                                                          |
+| draft_ovr        | character | Overall draft pick selection. This can be a little bit patchy, since MFL does not report this number.                                                             |
+| twitter_username | character | Official twitter handle, if known                                                                                                                                 |
+| height           | numeric   | height in inches                                                                                                                                                  |
+| weight           | numeric   | weight in pounds                                                                                                                                                  |
+| college          | character | College attended                                                                                                                                                  |
+| db_season        | numeric   | Year of database build. Previous years may also be available via dynastyprocess.                                                                                  |
+| swish_id         | character | Player ID for Swish Analytics                                                                                                                                     |

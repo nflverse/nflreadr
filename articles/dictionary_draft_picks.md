@@ -1,0 +1,40 @@
+# Data Dictionary - Draft Picks
+
+| field            | data_type | description                                                       |
+|:-----------------|:----------|:------------------------------------------------------------------|
+| season           | integer   | Draft Year                                                        |
+| round            | integer   | Draft round                                                       |
+| pick             | integer   | Draft overall pick                                                |
+| team             | character | Draft team                                                        |
+| gsis_id          | character | ID for joining with nflverse data                                 |
+| pfr_player_id    | character | ID from Pro Football Reference                                    |
+| cfb_player_id    | character | ID from College Football Reference                                |
+| pfr_player_name  | character | Player’s name as recorded by PFR                                  |
+| hof              | logical   | Whether player has been selected to the Pro Football Hall of Fame |
+| position         | character | Player position as recorded by PFR                                |
+| category         | character | Broader category of player positions                              |
+| side             | character | O for offense, D for defense, S for special teams                 |
+| college          | character | College attended in final year                                    |
+| age              | integer   | Player age as of draft                                            |
+| to               | integer   | Final season played in NFL                                        |
+| allpro           | numeric   | Number of AP First Team All-Pro selections as recorded by PFR     |
+| probowls         | numeric   | Number of Pro Bowls                                               |
+| seasons_started  | numeric   | Number of seasons recorded as primary starter for position        |
+| w_av             | numeric   | Weighted Approximate Value                                        |
+| car_av           | numeric   | Career Approximate Value                                          |
+| dr_av            | numeric   | Draft Approximate Value                                           |
+| games            | numeric   | Games played in career                                            |
+| pass_completions | numeric   | Career pass completions                                           |
+| pass_attempts    | numeric   | Career pass attempts                                              |
+| pass_yards       | numeric   | Career pass yards thrown                                          |
+| pass_tds         | numeric   | Career pass touchdowns thrown                                     |
+| pass_ints        | numeric   | Career pass interceptions thrown                                  |
+| rush_atts        | numeric   | Career rushing attempts                                           |
+| rush_yards       | numeric   | Career rushing yards                                              |
+| rush_tds         | numeric   | Career rushing touchdowns                                         |
+| receptions       | numeric   | Career receptions                                                 |
+| rec_yards        | numeric   | Career receiving yards                                            |
+| rec_tds          | numeric   | Career receiving touchdowns                                       |
+| def_solo_tackles | numeric   | Career solo tackles                                               |
+| def_ints         | numeric   | Career interceptions                                              |
+| def_sacks        | numeric   | Career sacks                                                      |
