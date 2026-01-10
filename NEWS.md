@@ -1,6 +1,7 @@
 # nflreadr (development version)
 
 - `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`. 
+- `nflverse_releases()` and `nflverse_download()` now correctly work with tag names to find releases. (#296)
 
 # nflreadr 1.5.0
 
