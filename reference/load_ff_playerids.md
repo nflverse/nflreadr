@@ -29,8 +29,8 @@ try({ # prevents cran errors
 load_ff_playerids()
 })
 #> ── nflverse (ffverse) player IDs ───────────────────────────────────────────────
-#> ℹ Data updated: 2025-11-20 13:47:31 UTC
-#> # A tibble: 12,158 × 35
+#> ℹ Data updated: 2026-01-10 14:34:27 UTC
+#> # A tibble: 12,186 × 35
 #>    mfl_id sportradar_id  fantasypros_id gsis_id pff_id sleeper_id nfl_id espn_id
 #>    <chr>  <chr>          <chr>          <chr>   <chr>  <chr>      <chr>  <chr>  
 #>  1 17030  3c76cab3-3df2… 24755          00-004… 133244 12522      58203  4688380
@@ -43,7 +43,7 @@ load_ff_playerids()
 #>  8 17037  299d4fe8-188c… 23150          00-004… 86272  12486      58299  4427238
 #>  9 17038  451c7689-4fc2… 23066          00-004… 145053 12494      58386  4433971
 #> 10 17039  94b8f9e1-3109… 23096          00-004… 83537  12545      58245  4360689
-#> # ℹ 12,148 more rows
+#> # ℹ 12,176 more rows
 #> # ℹ 27 more variables: yahoo_id <chr>, fleaflicker_id <chr>, cbs_id <chr>,
 #> #   pfr_id <chr>, cfbref_id <chr>, rotowire_id <chr>, rotoworld_id <chr>,
 #> #   ktc_id <chr>, stats_id <chr>, stats_global_id <chr>, fantasy_data_id <chr>,

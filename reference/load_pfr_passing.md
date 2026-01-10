@@ -40,8 +40,8 @@ Issues with this data should be filed here:
 #> Warning: `load_pfr_passing()` has been deprecated, please use
 #> `load_pfr_advstats(stat_type = 'pass', summary_level = 'season')`
 #> ── nflverse advanced passing season stats via PFR ──────────────────────────────
-#> ℹ Data updated: 2025-11-20 12:43:48 UTC
-#> # A tibble: 830 × 37
+#> ℹ Data updated: 2026-01-10 12:42:41 UTC
+#> # A tibble: 848 × 37
 #>    player        team  pass_attempts throwaways spikes drops drop_pct bad_throws
 #>    <chr>         <chr>         <dbl>      <dbl>  <dbl> <dbl>    <dbl>      <dbl>
 #>  1 Ben Roethlis… PIT             675          7      3    24      3.6        122
@@ -54,7 +54,7 @@ Issues with this data should be filed here:
 #>  8 Philip Rivers LAC             508         13      0    23      4.6         64
 #>  9 Eli Manning   NYG             576          9      1    24      4.2         94
 #> 10 Kirk Cousins  MIN             606         17      3    25      4.3         68
-#> # ℹ 820 more rows
+#> # ℹ 838 more rows
 #> # ℹ 29 more variables: bad_throw_pct <dbl>, season <int>, pfr_id <chr>,
 #> #   pocket_time <dbl>, times_blitzed <dbl>, times_hurried <dbl>,
 #> #   times_hit <dbl>, times_pressured <dbl>, pressure_pct <dbl>,

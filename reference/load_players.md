@@ -74,8 +74,8 @@ try({ # prevents cran errors
   load_players()
 })
 #> ── nflverse nflverse Players Data ──────────────────────────────────────────────
-#> ℹ Data updated: 2025-11-20 08:22:18 UTC
-#> # A tibble: 24,336 × 39
+#> ℹ Data updated: 2026-01-10 08:20:44 UTC
+#> # A tibble: 24,356 × 39
 #>    gsis_id    display_name     common_first_name first_name last_name short_name
 #>    <chr>      <chr>            <chr>             <chr>      <chr>     <chr>     
 #>  1 00-0028830 Isaako Aaitui    Isaako            Isaako     Aaitui    NA        
@@ -88,7 +88,7 @@ try({ # prevents cran errors
 #>  8 00-0032104 Ameer Abdullah   Ameer             Ameer      Abdullah  A.Abdullah
 #>  9 00-0023663 Hamza Abdullah   Hamza             Hamza      Abdullah  NA        
 #> 10 00-0025940 Husain Abdullah  Husain            Husain     Abdullah  NA        
-#> # ℹ 24,326 more rows
+#> # ℹ 24,346 more rows
 #> # ℹ 33 more variables: football_name <chr>, suffix <chr>, esb_id <chr>,
 #> #   nfl_id <chr>, pfr_id <chr>, pff_id <chr>, otc_id <chr>, espn_id <chr>,
 #> #   smart_id <chr>, birth_date <chr>, position_group <chr>, position <chr>,

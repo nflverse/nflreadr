@@ -5,6 +5,11 @@
 - [`load_teams()`](https://nflreadr.nflverse.com/reference/load_teams.md)
   now accepts the argument `file_type` and respects the option
   `"nflreadr.prefer"`.
+- [`nflverse_releases()`](https://nflreadr.nflverse.com/reference/nflverse_releases.md)
+  and
+  [`nflverse_download()`](https://nflreadr.nflverse.com/reference/nflverse_download.md)
+  now correctly work with tag names to find releases.
+  ([\#296](https://github.com/nflverse/nflreadr/issues/296))
 
 ## nflreadr 1.5.0
 

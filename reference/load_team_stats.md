@@ -55,8 +55,8 @@ try({
   load_team_stats()
 })
 #> ── nflverse team stats: week level ─────────────────────────────────────────────
-#> ℹ Data updated: 2025-11-20 09:26:18 UTC
-#> # A tibble: 328 × 102
+#> ℹ Data updated: 2026-01-10 09:32:55 UTC
+#> # A tibble: 544 × 102
 #>    season  week team  season_type opponent_team completions attempts
 #>     <int> <int> <chr> <chr>       <chr>               <int>    <int>
 #>  1   2025     1 ARI   REG         NO                     21       29
@@ -69,7 +69,7 @@ try({
 #>  8   2025     1 CLE   REG         CIN                    31       45
 #>  9   2025     1 DAL   REG         PHI                    21       34
 #> 10   2025     1 DEN   REG         TEN                    25       40
-#> # ℹ 318 more rows
+#> # ℹ 534 more rows
 #> # ℹ 95 more variables: passing_yards <int>, passing_tds <int>,
 #> #   passing_interceptions <int>, sacks_suffered <int>, sack_yards_lost <int>,
 #> #   sack_fumbles <int>, sack_fumbles_lost <int>, passing_air_yards <int>,

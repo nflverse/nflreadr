@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -159,7 +159,7 @@
 <dd><p>If TRUE a column containing numeric data with leading zeros will be read as character, otherwise leading zeros will be removed and converted to numeric.</p></dd>
 
     <dt><code>yaml</code></dt>
-<dd><p>If <code>TRUE</code>, <code>fread</code> will attempt to parse (using <code><a href="https://rdrr.io/pkg/yaml/man/yaml.load.html" class="external-link">yaml.load</a></code>) the top of the input as YAML, and further to glean parameters relevant to improving the performance of <code>fread</code> on the data itself. The entire YAML section is returned as parsed into a <code>list</code> in the <code>yaml_metadata</code> attribute. See <code>Details</code>.</p></dd>
+<dd><p>If <code>TRUE</code>, <code>fread</code> will attempt to parse (using <code><a href="https://yaml.r-lib.org/reference/yaml.load.html" class="external-link">yaml.load</a></code>) the top of the input as YAML, and further to glean parameters relevant to improving the performance of <code>fread</code> on the data itself. The entire YAML section is returned as parsed into a <code>list</code> in the <code>yaml_metadata</code> attribute. See <code>Details</code>.</p></dd>
 
     <dt><code>autostart</code></dt>
 <dd><p>Deprecated. Please use <code>skip</code> instead.</p></dd>

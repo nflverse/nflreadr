@@ -42,8 +42,8 @@ try({ # prevents cran errors
   load_officials()
 })
 #> ── nflverse officials ──────────────────────────────────────────────────────────
-#> ℹ Data updated: 2025-11-20 07:01:52 UTC
-#> # A tibble: 21,080 × 9
+#> ℹ Data updated: 2026-01-08 07:15:42 UTC
+#> # A tibble: 21,810 × 9
 #>    game_id    game_key official_name  position  jersey_number official_id season
 #>    <chr>      <chr>    <chr>          <chr>             <int> <chr>        <int>
 #>  1 2015091000 56503    Brad Freeman   Field Ju…            88 25            2015
@@ -56,7 +56,7 @@ try({ # prevents cran errors
 #>  8 2015091300 56505    Lee Dyer       Back Jud…            27 72            2015
 #>  9 2015091300 56505    Steve Zimmer   Field Ju…            33 116           2015
 #> 10 2015091300 56505    Mark Hittner   Head Lin…            28 118           2015
-#> # ℹ 21,070 more rows
+#> # ℹ 21,800 more rows
 #> # ℹ 2 more variables: season_type <chr>, week <int>
 # }
 ```

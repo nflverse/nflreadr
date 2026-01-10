@@ -52,5 +52,5 @@ Other Date utils:
   # using the date method works offline
   get_current_week(use_date = TRUE)
 }
-#> [1] 12
+#> [1] 19
 ```

@@ -271,11 +271,11 @@ csv_from_url(...)
   `yaml`
 
   :   If `TRUE`, `fread` will attempt to parse (using
-      [`yaml.load`](https://rdrr.io/pkg/yaml/man/yaml.load.html)) the
-      top of the input as YAML, and further to glean parameters relevant
-      to improving the performance of `fread` on the data itself. The
-      entire YAML section is returned as parsed into a `list` in the
-      `yaml_metadata` attribute. See `Details`.
+      [`yaml.load`](https://yaml.r-lib.org/reference/yaml.load.html))
+      the top of the input as YAML, and further to glean parameters
+      relevant to improving the performance of `fread` on the data
+      itself. The entire YAML section is returned as parsed into a
+      `list` in the `yaml_metadata` attribute. See `Details`.
 
   `autostart`
 

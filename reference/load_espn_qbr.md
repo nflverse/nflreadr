@@ -49,7 +49,7 @@ Issues with this data should be filed here:
 # \donttest{
     load_espn_qbr(2020)
 #> ── nflverse QBR (via ESPN/espnscrapeR) ─────────────────────────────────────────
-#> ℹ Data updated: 2025-11-20 09:13:43 UTC
+#> ℹ Data updated: 2026-01-10 09:12:59 UTC
 #> # A tibble: 84 × 23
 #>    season season_type game_week    team_abb player_id name_short  rank qbr_total
 #>     <int> <chr>       <chr>        <chr>    <chr>     <chr>      <dbl>     <dbl>

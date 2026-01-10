@@ -22,13 +22,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/nflverse/nflreadr/blob/main/DESCRIPTION)
 
-Ho T, Carl S (2025). *nflreadr: Download 'nflverse' Data*. R package
-version 1.5.0.9000, <https://nflreadr.nflverse.com>.
+Ho T, Carl S (2026). *nflreadr: Download 'nflverse' Data*. R package
+version 1.5.0.9001, <https://nflreadr.nflverse.com>.
 
     @Manual{,
       title = {nflreadr: Download 'nflverse' Data},
       author = {Tan Ho and Sebastian Carl},
-      year = {2025},
-      note = {R package version 1.5.0.9000},
+      year = {2026},
+      note = {R package version 1.5.0.9001},
       url = {https://nflreadr.nflverse.com},
     }
