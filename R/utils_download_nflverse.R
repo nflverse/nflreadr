@@ -55,16 +55,16 @@ nflverse_download <- function(
     .token = .token
   )
 
-  if (!isTRUE(releases) && any(!releases %in% all_releases$release_name)) {
-    missing <- releases[!releases %in% all_releases$release_name]
+  if (!isTRUE(releases) && any(!releases %in% all_releases$tag_name)) {
+    missing <- releases[!releases %in% all_releases$tag_name]
     cli::cli_warn(
       "Could not find {.val {missing}} in nflverse-data releases. Skipping."
     )
-    releases <- releases[releases %in% all_releases$release_name]
+    releases <- releases[releases %in% all_releases$tag_name]
   }
 
   if (isTRUE(releases)) {
-    releases <- all_releases$release_name
+    releases <- all_releases$tag_name
   }
 
   if (length(releases) == 0) {
