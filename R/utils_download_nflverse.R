@@ -176,6 +176,8 @@ nflverse_download <- function(
 nflverse_releases <- function(.token = "default") {
   rlang::check_installed("piggyback (>= 0.1.2)", "gh")
   if (.token == "default") {
+    # we don't set the default .token arg to gh::gh_token because
+    # gh is a suggested dependency and not necessarily installed
     .token <- gh::gh_token()
   }
   releases <- piggyback::pb_releases(
@@ -203,7 +205,7 @@ nflverse_releases <- function(.token = "default") {
   ][order(timestamp, decreasing = TRUE)]
 
   out <- data.table::data.table(
-    release_name = releases$release_name,
+    release_name = releases$tag_name,
     release_description = gsub("[\r\n]", "", releases$release_body)
   )[release_summary, on = c("release_name" = "tag")]
 
