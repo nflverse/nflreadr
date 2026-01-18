@@ -59,8 +59,8 @@ try({ # prevents cran errors
   load_pfr_advstats()
 })
 #> ── nflverse advanced pass weekly stats via PFR ─────────────────────────────────
-#> ℹ Data updated: 2026-01-07 12:49:43 UTC
-#> # A tibble: 654 × 24
+#> ℹ Data updated: 2026-01-15 12:49:13 UTC
+#> # A tibble: 669 × 24
 #>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name
 #>    <chr>       <chr>        <int> <int> <chr>     <chr> <chr>    <chr>          
 #>  1 2025_01_DA… 202509040p…   2025     1 REG       PHI   DAL      Jalen Hurts    
@@ -73,7 +73,7 @@ try({ # prevents cran errors
 #>  8 2025_01_CI… 202509070c…   2025     1 REG       CIN   CLE      Joe Burrow     
 #>  9 2025_01_MI… 202509070c…   2025     1 REG       IND   MIA      Daniel Jones   
 #> 10 2025_01_MI… 202509070c…   2025     1 REG       MIA   IND      Tua Tagovailoa 
-#> # ℹ 644 more rows
+#> # ℹ 659 more rows
 #> # ℹ 16 more variables: pfr_player_id <chr>, passing_drops <dbl>,
 #> #   passing_drop_pct <dbl>, receiving_drop <dbl>, receiving_drop_pct <dbl>,
 #> #   passing_bad_throws <dbl>, passing_bad_throw_pct <dbl>, times_sacked <dbl>,

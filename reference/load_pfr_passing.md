@@ -40,7 +40,7 @@ Issues with this data should be filed here:
 #> Warning: `load_pfr_passing()` has been deprecated, please use
 #> `load_pfr_advstats(stat_type = 'pass', summary_level = 'season')`
 #> ── nflverse advanced passing season stats via PFR ──────────────────────────────
-#> ℹ Data updated: 2026-01-10 12:42:41 UTC
+#> ℹ Data updated: 2026-01-18 01:57:02 UTC
 #> # A tibble: 848 × 37
 #>    player        team  pass_attempts throwaways spikes drops drop_pct bad_throws
 #>    <chr>         <chr>         <dbl>      <dbl>  <dbl> <dbl>    <dbl>      <dbl>
