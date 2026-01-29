@@ -115,7 +115,7 @@ CRAN release: 2024-07-29
 This release covers a number of bugfixes and function improvements:
 
 - `%c%` internal helper now uses
-  [`data.table::fifelse()`](https://rdatatable.gitlab.io/data.table/reference/fifelse.html)
+  [`data.table::fifelse()`](https://rdrr.io/pkg/data.table/man/fifelse.html)
   to avoid falsely converting dates to integers.
   ([\#214](https://github.com/nflverse/nflreadr/issues/214))
 - [`load_schedules()`](https://nflreadr.nflverse.com/reference/load_schedules.md)
@@ -208,7 +208,7 @@ datasets.
   [`.for_cran()`](https://nflreadr.nflverse.com/reference/dot-for_cran.md)
   to limit parallelization in CRAN examples and tests
 - `make_nflverse_data_class()` now uses
-  [`data.table::setattr()`](https://rdatatable.gitlab.io/data.table/reference/setattr.html)
+  [`data.table::setattr()`](https://rdrr.io/pkg/data.table/man/setattr.html)
   to preserve data.table pointer
 
 ### Dictionary updates

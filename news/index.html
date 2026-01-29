@@ -95,7 +95,7 @@
 <h2 class="pkg-version" data-toc-text="1.4.1" id="nflreadr-141">nflreadr 1.4.1<a class="anchor" aria-label="anchor" href="#nflreadr-141"></a></h2><p class="text-muted">CRAN release: 2024-07-29</p>
 <p>This release covers a number of bugfixes and function improvements:</p>
 <ul><li>
-<code>%c%</code> internal helper now uses <code><a href="https://rdatatable.gitlab.io/data.table/reference/fifelse.html" class="external-link">data.table::fifelse()</a></code> to avoid falsely converting dates to integers. (<a href="https://github.com/nflverse/nflreadr/issues/214" class="external-link">#214</a>)</li>
+<code>%c%</code> internal helper now uses <code><a href="https://rdrr.io/pkg/data.table/man/fifelse.html" class="external-link">data.table::fifelse()</a></code> to avoid falsely converting dates to integers. (<a href="https://github.com/nflverse/nflreadr/issues/214" class="external-link">#214</a>)</li>
 <li>
 <code><a href="../reference/load_schedules.html">load_schedules()</a></code> cleans the <code>roof</code> variable in order to avoid nflverse model issues. (<a href="https://github.com/nflverse/nflreadr/issues/218" class="external-link">#218</a>)</li>
 <li>
@@ -142,7 +142,7 @@
 <code><a href="../reference/nflverse_game_id.html">nflreadr::nflverse_game_id()</a></code> now accepts old team abbreviations and outputs useful errors.</li>
 <li>Added <code><a href="../reference/dot-for_cran.html">.for_cran()</a></code> to limit parallelization in CRAN examples and tests</li>
 <li>
-<code>make_nflverse_data_class()</code> now uses <code><a href="https://rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">data.table::setattr()</a></code> to preserve data.table pointer</li>
+<code>make_nflverse_data_class()</code> now uses <code><a href="https://rdrr.io/pkg/data.table/man/setattr.html" class="external-link">data.table::setattr()</a></code> to preserve data.table pointer</li>
 </ul></div>
 <div class="section level3">
 <h3 id="dictionary-updates-1-4-0">Dictionary updates<a class="anchor" aria-label="anchor" href="#dictionary-updates-1-4-0"></a></h3>

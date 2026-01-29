@@ -46,7 +46,7 @@ try({ # prevents cran errors
   load_draft_picks()
 })
 #> ── nflverse Draft Picks, via Pro Football Reference ────────────────────────────
-#> ℹ Data updated: 2026-01-14 05:16:18 UTC
+#> ℹ Data updated: 2026-01-28 05:20:37 UTC
 #> # A tibble: 12,670 × 36
 #>    season round  pick team  gsis_id pfr_player_id cfb_player_id  pfr_player_name
 #>     <int> <int> <int> <chr> <chr>   <chr>         <chr>          <chr>          

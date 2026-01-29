@@ -47,8 +47,8 @@ Issues with this data should be filed here:
   load_snap_counts()
   })
 #> ── nflverse snap counts ────────────────────────────────────────────────────────
-#> ℹ Data updated: 2026-01-13 12:57:11 UTC
-#> # A tibble: 25,955 × 16
+#> ℹ Data updated: 2026-01-26 12:58:59 UTC
+#> # A tibble: 26,518 × 16
 #>    game_id      pfr_game_id season game_type  week player pfr_player_id position
 #>    <chr>        <chr>        <int> <chr>     <int> <chr>  <chr>         <chr>   
 #>  1 2025_01_ARI… 202509070n…   2025 REG           1 Kelvi… BankKe01      T       
@@ -61,7 +61,7 @@ Issues with this data should be filed here:
 #>  8 2025_01_ARI… 202509070n…   2025 REG           1 Chris… OlavCh00      WR      
 #>  9 2025_01_ARI… 202509070n…   2025 REG           1 Alvin… KamaAl00      RB      
 #> 10 2025_01_ARI… 202509070n…   2025 REG           1 Brand… CookBr00      WR      
-#> # ℹ 25,945 more rows
+#> # ℹ 26,508 more rows
 #> # ℹ 8 more variables: team <chr>, opponent <chr>, offense_snaps <dbl>,
 #> #   offense_pct <dbl>, defense_snaps <dbl>, defense_pct <dbl>, st_snaps <dbl>,
 #> #   st_pct <dbl>

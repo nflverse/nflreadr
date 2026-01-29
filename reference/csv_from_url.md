@@ -14,7 +14,7 @@ csv_from_url(...)
 - ...:
 
   Arguments passed on to
-  [`data.table::fread`](https://rdatatable.gitlab.io/data.table/reference/fread.html)
+  [`data.table::fread`](https://rdrr.io/pkg/data.table/man/fread.html)
 
   `input`
 
@@ -220,16 +220,16 @@ csv_from_url(...)
   `key`
 
   :   Character vector of one or more column names which is passed to
-      [`setkey`](https://rdatatable.gitlab.io/data.table/reference/setkey.html).
-      Only valid when argument `data.table=TRUE`. Where applicable, this
+      [`setkey`](https://rdrr.io/pkg/data.table/man/setkey.html). Only
+      valid when argument `data.table=TRUE`. Where applicable, this
       should refer to column names given in `col.names`.
 
   `index`
 
   :   Character vector or list of character vectors of one or more
       column names which is passed to
-      [`setindexv`](https://rdatatable.gitlab.io/data.table/reference/setkey.html).
-      As with `key`, comma-separated notation like `index="x,y,z"` is
+      [`setindexv`](https://rdrr.io/pkg/data.table/man/setkey.html). As
+      with `key`, comma-separated notation like `index="x,y,z"` is
       accepted for convenience. Only valid when argument
       `data.table=TRUE`. Where applicable, this should refer to column
       names given in `col.names`.
@@ -312,7 +312,7 @@ csv_from_url(...)
 ## Value
 
 a dataframe as created by
-[`data.table::fread()`](https://rdatatable.gitlab.io/data.table/reference/fread.html)
+[`data.table::fread()`](https://rdrr.io/pkg/data.table/man/fread.html)
 
 ## Examples
 

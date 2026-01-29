@@ -74,7 +74,7 @@ try({ # prevents cran errors
   load_players()
 })
 #> ── nflverse nflverse Players Data ──────────────────────────────────────────────
-#> ℹ Data updated: 2026-01-17 08:20:46 UTC
+#> ℹ Data updated: 2026-01-29 08:32:46 UTC
 #> # A tibble: 24,356 × 39
 #>    gsis_id    display_name     common_first_name first_name last_name short_name
 #>    <chr>      <chr>            <chr>             <chr>      <chr>     <chr>     

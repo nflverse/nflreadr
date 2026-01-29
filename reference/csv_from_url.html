@@ -61,7 +61,7 @@
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">data.table::fread</a></code></p><dl><dt><code>input</code></dt>
+<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/data.table/man/fread.html" class="external-link">data.table::fread</a></code></p><dl><dt><code>input</code></dt>
 <dd><p>A single character string. The value is inspected and deferred to either <code>file=</code> (if no \n present), <code>text=</code> (if at least one \n is present) or <code>cmd=</code> (if no \n is present, at least one space is present, and it isn't a file name). Exactly one of <code>input=</code>, <code>file=</code>, <code>text=</code>, or <code>cmd=</code> should be used in the same call.</p></dd>
 
     <dt><code>file</code></dt>
@@ -135,10 +135,10 @@
 <dd><p><code>logical</code>, default is <code>FALSE</code>. If <code>TRUE</code> blank lines in the input are ignored.</p></dd>
 
     <dt><code>key</code></dt>
-<dd><p>Character vector of one or more column names which is passed to <code><a href="https://rdatatable.gitlab.io/data.table/reference/setkey.html" class="external-link">setkey</a></code>. Only valid when argument <code>data.table=TRUE</code>. Where applicable, this should refer to column names given in <code>col.names</code>.</p></dd>
+<dd><p>Character vector of one or more column names which is passed to <code><a href="https://rdrr.io/pkg/data.table/man/setkey.html" class="external-link">setkey</a></code>. Only valid when argument <code>data.table=TRUE</code>. Where applicable, this should refer to column names given in <code>col.names</code>.</p></dd>
 
     <dt><code>index</code></dt>
-<dd><p>Character vector or list of character vectors of one or more column names which is passed to <code><a href="https://rdatatable.gitlab.io/data.table/reference/setkey.html" class="external-link">setindexv</a></code>. As with <code>key</code>, comma-separated notation like <code>index="x,y,z"</code> is accepted for convenience. Only valid when argument <code>data.table=TRUE</code>. Where applicable, this should refer to column names given in <code>col.names</code>.</p></dd>
+<dd><p>Character vector or list of character vectors of one or more column names which is passed to <code><a href="https://rdrr.io/pkg/data.table/man/setkey.html" class="external-link">setindexv</a></code>. As with <code>key</code>, comma-separated notation like <code>index="x,y,z"</code> is accepted for convenience. Only valid when argument <code>data.table=TRUE</code>. Where applicable, this should refer to column names given in <code>col.names</code>.</p></dd>
 
     <dt><code>showProgress</code></dt>
 <dd><p><code>TRUE</code> displays progress on the console if the ETA is greater than 3 seconds. It is produced in fread's C code where the very nice (but R level) txtProgressBar and tkProgressBar are not easily available.</p></dd>
@@ -176,7 +176,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a dataframe as created by <code><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">data.table::fread()</a></code></p>
+    <p>a dataframe as created by <code><a href="https://rdrr.io/pkg/data.table/man/fread.html" class="external-link">data.table::fread()</a></code></p>
     </div>
 
     <div class="section level2">

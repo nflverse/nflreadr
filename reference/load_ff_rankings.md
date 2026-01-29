@@ -38,8 +38,8 @@ try({ # prevents cran errors
 load_ff_rankings()
 })
 #> ── nflverse FP expert rankings ─────────────────────────────────────────────────
-#> ℹ Data updated: 2026-01-18 10:34:45 UTC
-#> # A tibble: 4,962 × 25
+#> ℹ Data updated: 2026-01-29 18:00:28 UTC
+#> # A tibble: 3,771 × 25
 #>    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
 #>    <chr>     <chr>     <chr>    <chr>  <chr> <chr> <chr> <dbl> <dbl> <dbl> <dbl>
 #>  1 /nfl/ran… best-dst  bp       Denve… 8090  DST   DEN     1    0        1     1
@@ -52,7 +52,7 @@ load_ff_rankings()
 #>  8 /nfl/ran… best-dst  bp       Buffa… 8030  DST   BUF     8.2  1.6      6    10
 #>  9 /nfl/ran… best-dst  bp       Los A… 8250  DST   LAC     9.2  1.47     7    11
 #> 10 /nfl/ran… best-dst  bp       New Y… 8210  DST   NYJ     9.6  2.42     6    13
-#> # ℹ 4,952 more rows
+#> # ℹ 3,761 more rows
 #> # ℹ 14 more variables: sportsdata_id <chr>, player_filename <chr>,
 #> #   yahoo_id <chr>, cbs_id <chr>, player_owned_avg <dbl>,
 #> #   player_owned_espn <dbl>, player_owned_yahoo <dbl>, player_image_url <chr>,

@@ -61,8 +61,8 @@ FTN Data
   load_ftn_charting()
   })
 #> ── nflverse FTN Charting Data - please attribute to 'ftndata.com via nflverse' ─
-#> ℹ Data updated: 2026-01-16 18:30:03 UTC
-#> # A tibble: 46,080 × 29
+#> ℹ Data updated: 2026-01-28 01:40:01 UTC
+#> # A tibble: 47,128 × 29
 #>    ftn_game_id nflverse_game_id season  week ftn_play_id nflverse_play_id
 #>  *       <int> <chr>             <int> <int>       <int>            <int>
 #>  1        6734 2025_01_DAL_PHI    2025     1     1106026               40
@@ -75,7 +75,7 @@ FTN Data
 #>  8        6734 2025_01_DAL_PHI    2025     1     1106033              247
 #>  9        6734 2025_01_DAL_PHI    2025     1     1106034              270
 #> 10        6734 2025_01_DAL_PHI    2025     1     1106035              285
-#> # ℹ 46,070 more rows
+#> # ℹ 47,118 more rows
 #> # ℹ 23 more variables: starting_hash <chr>, qb_location <chr>,
 #> #   n_offense_backfield <int>, n_defense_box <int>, is_no_huddle <lgl>,
 #> #   is_motion <lgl>, is_play_action <lgl>, is_screen_pass <lgl>, is_rpo <lgl>,
