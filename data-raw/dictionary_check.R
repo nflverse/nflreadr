@@ -59,7 +59,7 @@ load_combine() |>
 load_draft_picks() |>
   dict_check(dictionary_draft_picks)
 
-load_injuries() |>
+load_injuries(2024) |>
   dict_check(dictionary_injuries)
 
 load_depth_charts() |>
