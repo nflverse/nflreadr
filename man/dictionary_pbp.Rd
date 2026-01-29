@@ -5,7 +5,7 @@
 \alias{dictionary_pbp}
 \title{Data Dictionary: Play by Play}
 \format{
-An object of class \code{data.frame} with 372 rows and 3 columns.
+An object of class \code{data.frame} with 372 rows and 4 columns.
 }
 \usage{
 dictionary_pbp
