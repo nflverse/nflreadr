@@ -31,20 +31,20 @@ try( # avoids cran failures, can skip in normal usage
 nflverse_releases()
 )
 #> ── nflverse release listing ────────────────────────────────────────────────────
-#> ℹ Data updated: 2026-01-29 18:01:11 UTC
+#> ℹ Data updated: 2026-02-16 16:48:14 UTC
 #> # A tibble: 25 × 8
 #>    release_name   release_description timestamp   rds parquet   csv csv_gz   zip
 #>    <chr>          <chr>               <chr>     <int>   <int> <int>  <int> <int>
-#>  1 pfr_advstats   "PFR Adv Stats dat… 2026-01-…    68      36    36     12     0
-#>  2 misc           "Various bits of d… 2026-01-…     7       1     6      0     0
-#>  3 stats_team     "Team stats in dif… 2026-01-…   108     108   108    108     0
-#>  4 stats_player   "Player stats in d… 2026-01-…   108     108   108    108     0
-#>  5 pbp            "Play by play data… 2026-01-…    27      27    27     27    23
-#>  6 espn_data      "ESPN Stats"        2026-01-…     2       2     2      2     0
-#>  7 players        "Player informatio… 2026-01-…     1       1     1      1     0
-#>  8 contracts      "OverTheCap contra… 2026-01-…     2       1     0      1     0
-#>  9 nextgen_stats  "NFL Next Gen Stat… 2026-01-…    30       3     0     30     0
-#> 10 players_compo… "Component files f… 2026-01-…     2       2     2      2     0
+#>  1 espn_data      "ESPN Stats"        2026-02-…     2       2     2      2     0
+#>  2 players        "Player informatio… 2026-02-…     1       1     1      1     0
+#>  3 contracts      "OverTheCap contra… 2026-02-…     2       1     0      1     0
+#>  4 players_compo… "Component files f… 2026-02-…     2       2     2      2     0
+#>  5 depth_charts   "Depth chart data,… 2026-02-…    25      25    25      2     0
+#>  6 rosters        "Roster data, acce… 2026-02-…   106     106   106      3     0
+#>  7 weekly_rosters "Week-level roster… 2026-02-…    24      24    24      2     0
+#>  8 nextgen_stats  "NFL Next Gen Stat… 2026-02-…    30       3     0     30     0
+#>  9 pfr_advstats   "PFR Adv Stats dat… 2026-02-…    68      36    36     12     0
+#> 10 misc           "Various bits of d… 2026-02-…     7       1     6      0     0
 #> # ℹ 15 more rows
 # }
 ```

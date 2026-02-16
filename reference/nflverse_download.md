@@ -58,8 +58,8 @@ try({
 
   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 })
-#> ℹ Now downloading 2 files to /tmp/RtmpncfJE1.
-#> ✔ Downloaded 2 files to /tmp/RtmpncfJE1.
+#> ℹ Now downloading 2 files to /tmp/Rtmp9dLAHR.
+#> ✔ Downloaded 2 files to /tmp/Rtmp9dLAHR.
 #> character(0)
 # }
 ```
