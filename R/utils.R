@@ -78,7 +78,7 @@ rhub_check_platforms <- function() {
     "ubuntu-release",
     "valgrind"
   )
-  exclude <- c("rchk", "nosuggests", "valgrind")
+  exclude <- c("rchk", "nosuggests", "valgrind", "macos")
   plts[!plts %in% exclude]
 }
 
