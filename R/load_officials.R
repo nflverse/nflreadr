@@ -3,7 +3,7 @@
 #' @description Loads data on which officials are assigned to oversee a specific game. Data available from 2015 onwards.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -23,7 +23,7 @@ load_officials <- function(
   seasons = TRUE,
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
   url <- glue::glue(
     "https://github.com/nflverse/nflverse-data/releases/download/officials/officials.{file_type}"
   )

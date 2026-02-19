@@ -12,7 +12,7 @@
 #' seasons - defaults to latest season. If set to `TRUE`, returns all available
 #' data since 2016.
 #' @param include_pbp a logical: download and join pbp to this data?
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be
 #' set globally with `options(nflreadr.prefer)`
 #'
 #' @return A dataframe of participation data, optionally merged with play by play
@@ -31,7 +31,7 @@ load_participation <- function(
   include_pbp = FALSE,
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
 
   if (isTRUE(seasons)) {
     seasons <- 2016:most_recent_season()

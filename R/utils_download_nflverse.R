@@ -8,7 +8,7 @@
 #' [`nflverse_releases()`]
 #' @param folder_path a folder in which subfolders will be created for each release -
 #' defaults to path specified in `options(nflreadr.download_path)` or "." (the current working directory)
-#' @param file_type one of `c("rds","parquet", "csv", "qs")` -
+#' @param file_type one of `c("rds","parquet", "csv")` -
 #' defaults to file type specified in `options(nflreadr.prefer)` or "rds"
 #' @param use_hive whether to create hive-style partition folders for each season, e.g. `"~/pbp/.season=2021/pbp.csv"`
 #' @param .token a GitHub API token, `"default"` uses `gh::gh_token()`
@@ -40,7 +40,7 @@ nflverse_download <- function(
   }
 
   releases <- as.character(rlang::ensyms(...))
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
 
   stopifnot(
     length(folder_path) == 1,

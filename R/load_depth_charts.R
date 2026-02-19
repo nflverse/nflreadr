@@ -3,7 +3,7 @@
 #' @description Loads depth charts for each NFL team for each week back to 2001.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data. Defaults to latest season with available rosters.
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples

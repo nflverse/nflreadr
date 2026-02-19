@@ -1,4 +1,4 @@
-#' Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+#' Load any rds/csv/csv.gz/parquet file from a remote URL
 #'
 #' @param url a vector of URLs to load into memory. If more than one URL provided, will row-bind them.
 #' @param seasons a numeric vector of years that will be used to filter the dataframe's `season` column. If `TRUE` (default), does not filter.
@@ -184,11 +184,17 @@ parquet_from_url <- function(url) {
 
 #' Load .qs file from a remote connection
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' The underlying package qs has been removed from CRAN on 2026-01-17 so
+#' nflreadr stopped the qs support
+#'
 #' @param url a character url
 #'
 #' @export
-#'
-#' @return a dataframe as parsed by [`qs::qdeserialize()`]
+#' @keywords internal
+#' @return a dataframe
 #'
 #' @examples
 #' \dontshow{.for_cran()}
@@ -200,32 +206,10 @@ parquet_from_url <- function(url) {
 #' })
 #' }
 qs_from_url <- function(url) {
-  rlang::check_installed("qs")
-  cache_message()
-  load <- try(curl::curl_fetch_memory(url), silent = TRUE)
-
-  if (inherits(load, "try-error")) {
-    cli::cli_warn("Failed to retrieve data from {.url {url}}")
-    return(data.table::data.table())
-  }
-
-  content <- try(qs::qdeserialize(load$content), silent = TRUE)
-
-  if (inherits(content, "try-error")) {
-    cli::cli_warn(
-      "Failed to parse file with {.fun qs::qdeserialize()} from {.url {url}}"
-    )
-
-    rlang::check_installed(
-      pkg = c("Rcpp (>= 1.0.8)", "RcppParallel (>= 5.1.5)"),
-      reason = "- updating these packages frequently resolves qs-related issues."
-    )
-
-    return(data.table::data.table())
-  }
-
-  data.table::setDT(content)
-  return(content)
+  lifecycle::deprecate_stop(
+    "1.6.0", "qs_from_url()",
+    details = "Please use on of the other `*_from_url()` functions."
+  )
 }
 
 cache_message <- function() {
@@ -250,7 +234,6 @@ loader <- function(url) {
   switch(
     detect_filetype(url),
     "rds" = rds_from_url(url),
-    "qs" = qs_from_url(url),
     "parquet" = parquet_from_url(url),
     "csv" = csv_from_url(url)
   )

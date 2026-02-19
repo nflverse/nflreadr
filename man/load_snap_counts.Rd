@@ -12,7 +12,7 @@ load_snap_counts(
 \arguments{
 \item{seasons}{a numeric vector specifying what seasons to return, if \code{TRUE} returns all available data}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

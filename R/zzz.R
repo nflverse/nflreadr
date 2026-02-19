@@ -36,15 +36,6 @@
       envir = rlang::ns_env("nflreadr")
     )
     assign(
-      x = "qs_from_url",
-      value = memoise::memoise(
-        qs_from_url,
-        ~ memoise::timeout(86400),
-        cache = cache
-      ),
-      envir = rlang::ns_env("nflreadr")
-    )
-    assign(
       x = "raw_from_url",
       value = memoise::memoise(
         raw_from_url,
@@ -74,18 +65,10 @@
   # validate suggested package installation
   if (
     !is.null(getOption("nflreadr.prefer")) &&
-      getOption("nflreadr.prefer") %in% c("qs", "parquet")
+      getOption("nflreadr.prefer") %in% c("parquet")
   ) {
     switch(
       getOption("nflreadr.prefer"),
-      "qs" = {
-        rlang::check_installed(
-          pkg = c("qs", "Rcpp (>= 1.0.7)", "RcppParallel (>= 5.1.4)"),
-          reason = "these packages are required to use options(nflreadr.prefer = 'qs')"
-        )
-
-        options("nflreadr.qs_ok" = TRUE)
-      },
       "parquet" = {
         rlang::check_installed(
           pkg = "arrow (>= 6.0.0)",
@@ -103,11 +86,11 @@
 
   prefer_type <- getOption("nflreadr.prefer", default = "rds")
 
-  if (!prefer_type %in% c("rds", "parquet", "qs", "csv")) {
+  if (!prefer_type %in% c("rds", "parquet", "csv")) {
     packageStartupMessage(
-      "Note: nflreadr.prefer is set to ",
+      "Note: Option nflreadr.prefer is set to ",
       prefer_type,
-      'and should be one of c("qs", "parquet", "rds", "csv"). \n,',
+      ' and should be one of "parquet", "rds", or "csv". \n',
       'Defaulting back to "rds"'
     )
 

@@ -17,7 +17,7 @@ data since 2016.}
 
 \item{include_pbp}{a logical: download and join pbp to this data?}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be
 set globally with \code{options(nflreadr.prefer)}}
 }
 \value{

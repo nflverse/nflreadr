@@ -14,7 +14,7 @@ load_rosters(
 this year's data if it is March or later. If set to \code{TRUE}, will return all available data.
 Data available back to 1920.}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

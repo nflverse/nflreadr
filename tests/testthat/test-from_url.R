@@ -14,16 +14,11 @@ test_that("from_url fails nicely", {
     regexp = "HTTP error"
   )
 
-  # skip_if(!rlang::is_installed("qs"))
-  expect_warning(
+  expect_error(
     qs_from_url(
       "https://github.com/nflverse/nfldata/raw/master/data/games.rds"
     ),
-    regexp = "Failed to parse file"
-  )
-  expect_warning(
-    qs_from_url("https://asfdjklasfsadffasd.com"),
-    regexp = "Failed to retrieve data"
+    regexp = "deprecated in nflreadr 1.6.0"
   )
 })
 
@@ -86,7 +81,7 @@ test_that("nflverse_download downloads files", {
       combine,
       "test",
       folder_path = temp_dir,
-      file_type = "qs",
+      file_type = "parquet",
       .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
     ),
     regexp = "Could not find file"

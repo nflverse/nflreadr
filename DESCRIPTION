@@ -1,6 +1,6 @@
 Package: nflreadr
 Title: Download 'nflverse' Data
-Version: 1.5.0.9001
+Version: 1.5.0.9002
 Authors@R: c(
     person("Tan", "Ho", , "tan@tanho.ca", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8388-5155")),
@@ -40,14 +40,11 @@ Suggests:
     knitr (>= 1.0.0),
     piggyback (>= 0.1.2),
     progressr (>= 0.8.0),
-    qs (>= 0.24.0),
     rmarkdown (>= 2.6.0),
     stringi,
     testthat (>= 3.0.0)
 VignetteBuilder:
     knitr
-Remotes:
-    qsbase/qs
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

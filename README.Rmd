@@ -89,7 +89,7 @@ options(nflreadr.verbose)
 options(nflreadr.cache) 
 # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
-# one of "qs", "rds", "parquet", or "csv"
+# one of "rds", "parquet", or "csv"
 options(nflreadr.download_path)
 # defaults to current working directory - change to specify where `nflverse_download()` places data.
 ```

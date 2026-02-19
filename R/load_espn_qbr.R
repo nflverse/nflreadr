@@ -2,7 +2,7 @@
 #'
 #' @param seasons a numeric vector of seasons to return, data available since 2006. Defaults to latest season available. TRUE will select all seasons.
 #' @param summary_type One of `"season"` or `"week"`, defaults to `"season"`
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -24,7 +24,7 @@ load_espn_qbr <- function(
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
   summary_type <- rlang::arg_match0(summary_type, c("season", "week"))
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "csv", "parquet"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
 
   if (!isTRUE(seasons)) {
     stopifnot(

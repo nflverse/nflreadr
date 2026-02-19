@@ -4,14 +4,11 @@ test_that("load_pbp", {
 
   pbp <- load_pbp()
   pbp_years <- load_pbp(2019:2020)
-  pbp_qs <- load_pbp(2019:2020, file_type = "qs")
 
   expect_s3_class(pbp, "nflverse_data")
-  expect_s3_class(pbp_qs, "nflverse_data")
   expect_s3_class(pbp_years, "nflverse_data")
 
   expect_gt(nrow(pbp_years), 90000)
-  expect_gt(nrow(pbp_qs), 90000)
 })
 test_that("load_participation", {
   skip_on_cran()
