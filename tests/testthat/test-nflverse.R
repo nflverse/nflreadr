@@ -187,8 +187,7 @@ test_that("load_injuries", {
 
   injuries <- load_injuries()
   injuries_years <- load_injuries(seasons = 2019:2020)
-  # no injury data 2025+
-  injuries_all <- load_injuries(seasons = 2009:2024)
+  injuries_all <- load_injuries(seasons = TRUE)
 
   # error on invalid seasons
   expect_error(load_injuries(2008))
