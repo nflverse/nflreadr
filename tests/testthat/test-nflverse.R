@@ -190,6 +190,12 @@ test_that("load_injuries", {
   # no injury data 2025+
   injuries_all <- load_injuries(seasons = 2009:2024)
 
+  # error on invalid seasons
+  expect_error(load_injuries(2008))
+  expect_error(load_injuries(2025))
+  # error on character input
+  expect_error(load_injuries("2010"))
+
   expect_s3_class(injuries, "nflverse_data")
   expect_s3_class(injuries_years, "nflverse_data")
   expect_s3_class(injuries_all, "nflverse_data")
