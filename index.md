@@ -40,8 +40,8 @@ library(nflreadr)
 
 load_pbp(2021)
 #> ── nflverse play by play data ──────────────────────────────────────────────────
-#> ℹ Data updated: 2022-09-27 04:35:02 PDT
-#> # A tibble: 50,712 × 372
+#> ℹ Data updated: 2026-01-08 14:12:35 CET
+#> # A tibble: 49,922 × 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
 #>  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 <NA>   
@@ -54,32 +54,32 @@ load_pbp(2021)
 #>  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
 #>  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
 #> 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    
-#> # ℹ 50,702 more rows
+#> # ℹ 49,912 more rows
 #> # ℹ 364 more variables: posteam_type <chr>, defteam <chr>, side_of_field <chr>,
 #> #   yardline_100 <dbl>, game_date <chr>, quarter_seconds_remaining <dbl>,
 #> #   half_seconds_remaining <dbl>, game_seconds_remaining <dbl>,
 #> #   game_half <chr>, quarter_end <dbl>, …
 
 load_player_stats(2021)
-#> ── nflverse player stats: offense ──────────────────────────────────────────────
-#> ℹ Data updated: 2023-02-28 01:26:47 PST
-#> # A tibble: 5,698 × 52
-#>    player_id  player_name player_display_name position position_group
-#>    <chr>      <chr>       <chr>               <chr>    <chr>         
-#>  1 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  2 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  3 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  4 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  5 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  6 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  7 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  8 00-0019596 T.Brady     Tom Brady           QB       QB            
-#>  9 00-0019596 T.Brady     Tom Brady           QB       QB            
-#> 10 00-0019596 T.Brady     Tom Brady           QB       QB            
-#> # ℹ 5,688 more rows
-#> # ℹ 47 more variables: headshot_url <chr>, recent_team <chr>, season <int>,
-#> #   week <int>, season_type <chr>, completions <int>, attempts <int>,
-#> #   passing_yards <dbl>, passing_tds <int>, interceptions <dbl>, …
+#> ── nflverse player stats: week level ───────────────────────────────────────────
+#> ℹ Data updated: 2026-01-08 14:15:10 CET
+#> # A tibble: 18,969 × 114
+#>    player_id  player_name      player_display_name position position_group
+#>    <chr>      <chr>            <chr>               <chr>    <chr>         
+#>  1 00-0019596 T.Brady          Tom Brady           QB       QB            
+#>  2 00-0022824 A.Lee            Andy Lee            P        SPEC          
+#>  3 00-0022924 B.Roethlisberger Ben Roethlisberger  QB       QB            
+#>  4 00-0023252 R.Gould          Robbie Gould        K        SPEC          
+#>  5 00-0023459 Aa.Rodgers       Aaron Rodgers       QB       QB            
+#>  6 00-0023682 R.Fitzpatrick    Ryan Fitzpatrick    QB       QB            
+#>  7 00-0023853 M.Prater         Matt Prater         K        SPEC          
+#>  8 00-0024243 M.Lewis          Marcedes Lewis      TE       TE            
+#>  9 00-0024417 S.Koch           Sam Koch            P        SPEC          
+#> 10 00-0025565 N.Folk           Nick Folk           K        SPEC          
+#> # ℹ 18,959 more rows
+#> # ℹ 109 more variables: headshot_url <chr>, season <int>, week <int>,
+#> #   season_type <chr>, team <chr>, opponent_team <chr>, completions <int>,
+#> #   attempts <int>, passing_yards <int>, passing_tds <int>, …
 ```
 
 ## Data Sources
@@ -110,7 +110,7 @@ options(nflreadr.verbose)
 options(nflreadr.cache) 
 # one of "memory", "filesystem", or "off"
 options(nflreadr.prefer) 
-# one of "qs", "rds", "parquet", or "csv"
+# one of "rds", "parquet", or "csv"
 options(nflreadr.download_path)
 # defaults to current working directory - change to specify where `nflverse_download()` places data.
 ```

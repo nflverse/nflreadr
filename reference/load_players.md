@@ -13,8 +13,8 @@ load_players(file_type = getOption("nflreadr.prefer", default = "rds"))
 
 - file_type:
 
-  One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally
-  with `options(nflreadr.prefer)`
+  One of `c("rds", "csv", "parquet")`. Can also be set globally with
+  `options(nflreadr.prefer)`
 
 ## Value
 
@@ -74,7 +74,7 @@ try({ # prevents cran errors
   load_players()
 })
 #> ── nflverse nflverse Players Data ──────────────────────────────────────────────
-#> ℹ Data updated: 2026-02-16 08:40:12 UTC
+#> ℹ Data updated: 2026-02-19 08:37:44 UTC
 #> # A tibble: 24,356 × 39
 #>    gsis_id    display_name     common_first_name first_name last_name short_name
 #>    <chr>      <chr>            <chr>             <chr>      <chr>     <chr>     

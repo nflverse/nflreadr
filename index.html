@@ -35,7 +35,7 @@
 
     <a class="navbar-brand me-2" href="index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,8 +110,8 @@
 <span></span>
 <span><span class="fu"><a href="reference/load_pbp.html">load_pbp</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── nflverse play by play data ──────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; ℹ Data updated: 2022-09-27 04:35:02 PDT</span></span>
-<span><span class="co">#&gt; # A tibble: 50,712 × 372</span></span>
+<span><span class="co">#&gt; ℹ Data updated: 2026-01-08 14:12:35 CET</span></span>
+<span><span class="co">#&gt; # A tibble: 49,922 × 372</span></span>
 <span><span class="co">#&gt;    play_id game_id     old_game_id home_team away_team season_type  week posteam</span></span>
 <span><span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;  </span></span>
 <span><span class="co">#&gt;  1       1 2021_01_AR… 2021091207  TEN       ARI       REG             1 &lt;NA&gt;   </span></span>
@@ -124,32 +124,32 @@
 <span><span class="co">#&gt;  8     181 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
 <span><span class="co">#&gt;  9     218 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
 <span><span class="co">#&gt; 10     253 2021_01_AR… 2021091207  TEN       ARI       REG             1 ARI    </span></span>
-<span><span class="co">#&gt; # ℹ 50,702 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 49,912 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 364 more variables: posteam_type &lt;chr&gt;, defteam &lt;chr&gt;, side_of_field &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   yardline_100 &lt;dbl&gt;, game_date &lt;chr&gt;, quarter_seconds_remaining &lt;dbl&gt;,</span></span>
 <span><span class="co">#&gt; #   half_seconds_remaining &lt;dbl&gt;, game_seconds_remaining &lt;dbl&gt;,</span></span>
 <span><span class="co">#&gt; #   game_half &lt;chr&gt;, quarter_end &lt;dbl&gt;, …</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/load_player_stats.html">load_player_stats</a></span><span class="op">(</span><span class="fl">2021</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── nflverse player stats: offense ──────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; ℹ Data updated: 2023-02-28 01:26:47 PST</span></span>
-<span><span class="co">#&gt; # A tibble: 5,698 × 52</span></span>
-<span><span class="co">#&gt;    player_id  player_name player_display_name position position_group</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;               &lt;chr&gt;    &lt;chr&gt;         </span></span>
-<span><span class="co">#&gt;  1 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  2 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  3 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  4 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  5 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  6 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  7 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  8 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt;  9 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt; 10 00-0019596 T.Brady     Tom Brady           QB       QB            </span></span>
-<span><span class="co">#&gt; # ℹ 5,688 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 47 more variables: headshot_url &lt;chr&gt;, recent_team &lt;chr&gt;, season &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   week &lt;int&gt;, season_type &lt;chr&gt;, completions &lt;int&gt;, attempts &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   passing_yards &lt;dbl&gt;, passing_tds &lt;int&gt;, interceptions &lt;dbl&gt;, …</span></span></code></pre></div>
+<span><span class="co">#&gt; ── nflverse player stats: week level ───────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; ℹ Data updated: 2026-01-08 14:15:10 CET</span></span>
+<span><span class="co">#&gt; # A tibble: 18,969 × 114</span></span>
+<span><span class="co">#&gt;    player_id  player_name      player_display_name position position_group</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;               &lt;chr&gt;    &lt;chr&gt;         </span></span>
+<span><span class="co">#&gt;  1 00-0019596 T.Brady          Tom Brady           QB       QB            </span></span>
+<span><span class="co">#&gt;  2 00-0022824 A.Lee            Andy Lee            P        SPEC          </span></span>
+<span><span class="co">#&gt;  3 00-0022924 B.Roethlisberger Ben Roethlisberger  QB       QB            </span></span>
+<span><span class="co">#&gt;  4 00-0023252 R.Gould          Robbie Gould        K        SPEC          </span></span>
+<span><span class="co">#&gt;  5 00-0023459 Aa.Rodgers       Aaron Rodgers       QB       QB            </span></span>
+<span><span class="co">#&gt;  6 00-0023682 R.Fitzpatrick    Ryan Fitzpatrick    QB       QB            </span></span>
+<span><span class="co">#&gt;  7 00-0023853 M.Prater         Matt Prater         K        SPEC          </span></span>
+<span><span class="co">#&gt;  8 00-0024243 M.Lewis          Marcedes Lewis      TE       TE            </span></span>
+<span><span class="co">#&gt;  9 00-0024417 S.Koch           Sam Koch            P        SPEC          </span></span>
+<span><span class="co">#&gt; 10 00-0025565 N.Folk           Nick Folk           K        SPEC          </span></span>
+<span><span class="co">#&gt; # ℹ 18,959 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 109 more variables: headshot_url &lt;chr&gt;, season &lt;int&gt;, week &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   season_type &lt;chr&gt;, team &lt;chr&gt;, opponent_team &lt;chr&gt;, completions &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   attempts &lt;int&gt;, passing_yards &lt;int&gt;, passing_tds &lt;int&gt;, …</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="data-sources">Data Sources<a class="anchor" aria-label="anchor" href="#data-sources"></a>
@@ -175,7 +175,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.cache</span><span class="op">)</span> </span>
 <span><span class="co"># one of "memory", "filesystem", or "off"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.prefer</span><span class="op">)</span> </span>
-<span><span class="co"># one of "qs", "rds", "parquet", or "csv"</span></span>
+<span><span class="co"># one of "rds", "parquet", or "csv"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">nflreadr.download_path</span><span class="op">)</span></span>
 <span><span class="co"># defaults to current working directory - change to specify where `nflverse_download()` places data.</span></span></code></pre></div>
 <p>You can also configure <code>nflreadr</code> to display progress messages with the <a href="https://progressr.futureverse.org" class="external-link"><code>progressr</code> package</a>, e.g.</p>

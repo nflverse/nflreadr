@@ -10,6 +10,14 @@
   [`nflverse_download()`](https://nflreadr.nflverse.com/reference/nflverse_download.md)
   now correctly work with tag names to find releases.
   ([\#296](https://github.com/nflverse/nflreadr/issues/296))
+- Stopped support of `file_type` “qs” and the deprecated the related
+  function
+  [`qs_from_url()`](https://nflreadr.nflverse.com/reference/qs_from_url.md)
+  because the underlying package qs has been removed from CRAN on
+  2026-01-17. Since the dependency is archived
+  [`qs_from_url()`](https://nflreadr.nflverse.com/reference/qs_from_url.md)
+  will error. Please stop using it and make sure to change
+  `option(nflreadr.prefer)` to one of “parquet”, “rds”, or “csv”.
 
 ## nflreadr 1.5.0
 

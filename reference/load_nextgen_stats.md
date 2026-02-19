@@ -28,8 +28,8 @@ load_nextgen_stats(
 
 - file_type:
 
-  One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally
-  with `options(nflreadr.prefer)`
+  One of `c("rds", "csv", "parquet")`. Can also be set globally with
+  `options(nflreadr.prefer)`
 
 ## Value
 
@@ -64,7 +64,7 @@ try({ # prevents cran errors
   load_nextgen_stats(stat_type = "rushing")
 })
 #> ── nflverse Next Gen Stats weekly rushing data ─────────────────────────────────
-#> ℹ Data updated: 2026-02-16 07:49:10 UTC
+#> ℹ Data updated: 2026-02-19 07:47:26 UTC
 #> # A tibble: 6,059 × 22
 #>    season season_type  week player_display_name player_position team_abbr
 #>     <int> <chr>       <int> <chr>               <chr>           <chr>    

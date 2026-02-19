@@ -12,8 +12,8 @@ load_contracts(file_type = getOption("nflreadr.prefer", default = "rds"))
 
 - file_type:
 
-  One of `"rds"`, `"qs"`, `"csv"`, or `"parquet"`. Can also be set
-  globally with options(nflreadr.prefer)
+  One of `"rds"`, `"csv"`, or `"parquet"`. Can also be set globally with
+  options(nflreadr.prefer)
 
 ## Value
 
@@ -40,8 +40,8 @@ try({ # prevents cran errors
   load_contracts()
 })
 #> ── nflverse Historical Contract Data from OverTheCap.com ───────────────────────
-#> ℹ Data updated: 2026-02-16 07:58:50 UTC
-#> # A tibble: 50,193 × 25
+#> ℹ Data updated: 2026-02-19 07:54:11 UTC
+#> # A tibble: 50,216 × 25
 #>    player      position team  is_active year_signed years value   apy guaranteed
 #>    <chr>       <chr>    <chr> <lgl>           <int> <int> <dbl> <dbl>      <dbl>
 #>  1 Joe Burrow  QB       Beng… TRUE             2023     5  275   55        147. 
@@ -54,7 +54,7 @@ try({ # prevents cran errors
 #>  8 Patrick Ma… QB       Chie… TRUE             2020    10  450   45         63.1
 #>  9 Jalen Hurts QB       Eagl… TRUE             2023     5  255   51        110  
 #> 10 Kyler Murr… QB       Card… TRUE             2022     5  230.  46.1      103. 
-#> # ℹ 50,183 more rows
+#> # ℹ 50,206 more rows
 #> # ℹ 16 more variables: apy_cap_pct <dbl>, inflated_value <dbl>,
 #> #   inflated_apy <dbl>, inflated_guaranteed <dbl>, player_page <chr>,
 #> #   otc_id <int>, gsis_id <chr>, date_of_birth <chr>, height <chr>,

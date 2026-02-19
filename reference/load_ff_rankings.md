@@ -38,7 +38,7 @@ try({ # prevents cran errors
 load_ff_rankings()
 })
 #> ── nflverse FP expert rankings ─────────────────────────────────────────────────
-#> ℹ Data updated: 2026-02-16 16:47:28 UTC
+#> ℹ Data updated: 2026-02-19 14:11:40 UTC
 #> # A tibble: 4,140 × 25
 #>    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
 #>    <chr>     <chr>     <chr>    <chr>  <chr> <chr> <chr> <dbl> <dbl> <dbl> <dbl>

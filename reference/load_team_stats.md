@@ -31,8 +31,8 @@ load_team_stats(
 
 - file_type:
 
-  choice: one of `c("rds", "qs", "csv", "parquet")`. Can also be set
-  globally with `options(nflreadr.prefer)`
+  choice: one of `c("rds", "csv", "parquet")`. Can also be set globally
+  with `options(nflreadr.prefer)`
 
 ## Value
 

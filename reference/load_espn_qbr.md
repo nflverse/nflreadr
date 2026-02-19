@@ -25,8 +25,8 @@ load_espn_qbr(
 
 - file_type:
 
-  One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally
-  with `options(nflreadr.prefer)`
+  One of `c("rds", "csv", "parquet")`. Can also be set globally with
+  `options(nflreadr.prefer)`
 
 ## Value
 
@@ -49,7 +49,7 @@ Issues with this data should be filed here:
 # \donttest{
     load_espn_qbr(2020)
 #> ── nflverse QBR (via ESPN/espnscrapeR) ─────────────────────────────────────────
-#> ℹ Data updated: 2026-02-16 09:42:46 UTC
+#> ℹ Data updated: 2026-02-19 09:35:54 UTC
 #> # A tibble: 84 × 23
 #>    season season_type game_week    team_abb player_id name_short  rank qbr_total
 #>     <int> <chr>       <chr>        <chr>    <chr>     <chr>      <dbl>     <dbl>

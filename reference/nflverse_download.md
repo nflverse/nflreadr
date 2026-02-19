@@ -33,8 +33,8 @@ nflverse_download(
 
 - file_type:
 
-  one of `c("rds","parquet", "csv", "qs")` - defaults to file type
-  specified in `options(nflreadr.prefer)` or "rds"
+  one of `c("rds","parquet", "csv")` - defaults to file type specified
+  in `options(nflreadr.prefer)` or "rds"
 
 - use_hive:
 
@@ -58,8 +58,8 @@ try({
 
   list.files(tempdir(),pattern = ".parquet$") # check that files were downloaded!
 })
-#> ℹ Now downloading 2 files to /tmp/Rtmp9dLAHR.
-#> ✔ Downloaded 2 files to /tmp/Rtmp9dLAHR.
+#> ℹ Now downloading 2 files to /tmp/Rtmp9HyYVS.
+#> ✔ Downloaded 2 files to /tmp/Rtmp9HyYVS.
 #> character(0)
 # }
 ```

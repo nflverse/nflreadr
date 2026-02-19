@@ -33,8 +33,8 @@ load_pfr_advstats(
 
 - file_type:
 
-  One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally
-  with `options(nflreadr.prefer)`
+  One of `c("rds", "csv", "parquet")`. Can also be set globally with
+  `options(nflreadr.prefer)`
 
 ## Value
 

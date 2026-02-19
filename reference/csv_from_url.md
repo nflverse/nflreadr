@@ -217,6 +217,13 @@ csv_from_url(...)
   :   `logical`, default is `FALSE`. If `TRUE` blank lines in the input
       are ignored.
 
+  `comment.char`
+
+  :   Character vector of length one containing a single character of an
+      empty string. Any text after the comment character in a line is
+      ignored, including skipping comment-only lines. Use `""` to turn
+      off the interpretation of comments altogether.
+
   `key`
 
   :   Character vector of one or more column names which is passed to
@@ -277,10 +284,6 @@ csv_from_url(...)
       itself. The entire YAML section is returned as parsed into a
       `list` in the `yaml_metadata` attribute. See `Details`.
 
-  `autostart`
-
-  :   Deprecated. Please use `skip` instead.
-
   `tmpdir`
 
   :   Directory to use as the `tmpdir` argument for any `tempfile`
@@ -303,7 +306,7 @@ csv_from_url(...)
       UTC including the final Z and therefore `fwrite`'s output will be
       read by `fread` consistently and quickly without needing to use
       `tz=` or `colClasses=`. If the `TZ` environment variable is set to
-      `"UTC"` (or `""` on non-Windows where unset vs \`""\` is
+      `"UTC"` (or `""` on non-Windows where unset vs `""` is
       significant) then the R session's timezone is already UTC and
       `tz=""` will result in unmarked datetimes being read as UTC
       POSIXct. For more information, please see the news items from

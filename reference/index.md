@@ -112,13 +112,11 @@ You can also access the web versions from the top of this page!
 ## Loading raw data
 
 - [`load_from_url()`](https://nflreadr.nflverse.com/reference/load_from_url.md)
-  : Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+  : Load any rds/csv/csv.gz/parquet file from a remote URL
 - [`csv_from_url()`](https://nflreadr.nflverse.com/reference/csv_from_url.md)
   : Load .csv / .csv.gz file from a remote connection
 - [`parquet_from_url()`](https://nflreadr.nflverse.com/reference/parquet_from_url.md)
   : Load .parquet file from a remote connection
-- [`qs_from_url()`](https://nflreadr.nflverse.com/reference/qs_from_url.md)
-  : Load .qs file from a remote connection
 - [`rds_from_url()`](https://nflreadr.nflverse.com/reference/rds_from_url.md)
   : Load .rds file from a remote connection
 - [`raw_from_url()`](https://nflreadr.nflverse.com/reference/raw_from_url.md)
