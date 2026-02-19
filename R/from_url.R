@@ -208,7 +208,7 @@ parquet_from_url <- function(url) {
 qs_from_url <- function(url) {
   lifecycle::deprecate_stop(
     "1.6.0", "qs_from_url()",
-    details = "Please use on of the other `*_from_url()` functions."
+    details = "Please use one of the other `*_from_url()` functions."
   )
 }
 
