@@ -2,7 +2,8 @@
 
 - `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`. 
 - `nflverse_releases()` and `nflverse_download()` now correctly work with tag names to find releases. (#296)
-- Stopped support of `file_type` "qs" and the deprecated the related function `qs_from_url()` because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived `qs_from_url()` will error. Please stop using it and make sure to change `option(nflreadr.prefer)` to one of "parquet", "rds", or "csv".
+- Stopped support of `file_type` "qs" and the deprecated the related function `qs_from_url()` because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived `qs_from_url()` will error. Please stop using it and make sure to change `option(nflreadr.prefer)` to one of "parquet", "rds", or "csv". (#303)
+- `load_injuries()` now errors on 2025+ seasons because our data source died after the 2024 season. Data from 2009 to 2024 will still remain available, though. (#304)
 
 # nflreadr 1.5.0
 

@@ -2,15 +2,16 @@
 % Please edit documentation in R/load_injuries.R
 \name{load_injuries}
 \alias{load_injuries}
-\title{Load Injury Reports}
+\title{Load Injury Reports (2009-2024)}
 \usage{
 load_injuries(
-  seasons = most_recent_season(),
+  seasons = 2024L,
   file_type = getOption("nflreadr.prefer", default = "rds")
 )
 }
 \arguments{
-\item{seasons}{a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.}
+\item{seasons}{a numeric vector of seasons to return, data available since 2009.
+Defaults to latest season available (2024).}
 
 \item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
@@ -20,12 +21,13 @@ a tibble of season-level injury report data.
 }
 \description{
 Data collected from an API for weekly injury report data.
+Data source died after the 2024 season.
 }
 \examples{
 \dontshow{.for_cran()}
 \donttest{
 try({# prevents cran errors
-    load_injuries(2020)
+  load_injuries(2020)
 })
 }
 
