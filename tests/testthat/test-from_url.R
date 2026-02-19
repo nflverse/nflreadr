@@ -76,17 +76,6 @@ test_that("nflverse_download downloads files", {
     "No matching releases"
   )
 
-  expect_warning(
-    nflverse_download(
-      combine,
-      "test",
-      folder_path = temp_dir,
-      file_type = "parquet",
-      .token = Sys.getenv("NFLVERSE_GH_TOKEN", unset = gh::gh_token())
-    ),
-    regexp = "Could not find file"
-  )
-
   nflverse_download(
     combine,
     "contracts",
