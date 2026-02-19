@@ -187,7 +187,8 @@ test_that("load_injuries", {
 
   injuries <- load_injuries()
   injuries_years <- load_injuries(seasons = 2019:2020)
-  injuries_all <- load_injuries(seasons = TRUE)
+  # no injury data 2025+
+  injuries_all <- load_injuries(seasons = 2009:2024)
 
   expect_s3_class(injuries, "nflverse_data")
   expect_s3_class(injuries_years, "nflverse_data")
