@@ -2,7 +2,7 @@
 #'
 #' @description Loads player contracts from OverTheCap.com
 #'
-#' @param file_type One of `"rds"`, `"qs"`, `"csv"`, or `"parquet"`.
+#' @param file_type One of `"rds"`, `"csv"`, or `"parquet"`.
 #'   Can also be set globally with options(nflreadr.prefer)
 #'
 #' @examples
@@ -24,7 +24,7 @@
 load_contracts <- function(
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "parquet", "csv"))
   url <- glue::glue(
     "https://github.com/nflverse/nflverse-data/releases/download/contracts/historical_contracts.{file_type}"
   )

@@ -39,7 +39,7 @@ load_pfr_passing <- function(seasons = TRUE) {
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of "pass", "rush", "rec", "def"
 #' @param summary_level one of "week" (default) or "season" - some data is only available at the season level
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #'
@@ -75,7 +75,7 @@ load_pfr_advstats <- function(
 
   stat_type <- rlang::arg_match0(stat_type, c("pass", "rush", "rec", "def"))
   summary_level <- rlang::arg_match0(summary_level, c("week", "season"))
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
 
   switch(
     summary_level,

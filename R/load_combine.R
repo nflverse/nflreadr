@@ -3,7 +3,7 @@
 #' @description Loads combine data since 2000 courtesy of PFR.
 #'
 #' @param seasons a numeric vector of seasons to return, default `TRUE` returns all available data
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #' @examples
 #' \dontshow{.for_cran()}
@@ -24,7 +24,7 @@ load_combine <- function(
   seasons = TRUE,
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
   url <- glue::glue(
     "https://github.com/nflverse/nflverse-data/releases/download/combine/combine.{file_type}"
   )

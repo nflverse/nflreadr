@@ -2,7 +2,7 @@
 % Please edit documentation in R/from_url.R
 \name{load_from_url}
 \alias{load_from_url}
-\title{Load any rds/csv/csv.gz/parquet/qs file from a remote URL}
+\title{Load any rds/csv/csv.gz/parquet file from a remote URL}
 \usage{
 load_from_url(url, ..., seasons = TRUE, nflverse = FALSE)
 }
@@ -19,7 +19,7 @@ load_from_url(url, ..., seasons = TRUE, nflverse = FALSE)
 a dataframe, possibly of type \code{nflverse_data}
 }
 \description{
-Load any rds/csv/csv.gz/parquet/qs file from a remote URL
+Load any rds/csv/csv.gz/parquet file from a remote URL
 }
 \examples{
 \dontshow{.for_cran()}

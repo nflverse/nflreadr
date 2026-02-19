@@ -3,7 +3,7 @@
 #' Data collected from an API for weekly injury report data.
 #'
 #' @param seasons a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -29,7 +29,7 @@ load_injuries <- function(
     seasons <- 2009:nflreadr::most_recent_season()
   }
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
   stopifnot(
     is.numeric(seasons),
     seasons >= 2009,

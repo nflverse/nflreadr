@@ -7,7 +7,7 @@
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
 #' @param stat_type one of `"passing"`, `"receiving"`, or `"rushing"`
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #'
@@ -46,7 +46,7 @@ load_nextgen_stats <- function(
     )
   }
 
-  file_type <- rlang::arg_match0(file_type, c("rds", "qs", "parquet", "csv"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "parquet", "csv"))
   stat_type <- rlang::arg_match0(
     stat_type,
     c("passing", "receiving", "rushing")

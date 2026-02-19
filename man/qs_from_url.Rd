@@ -10,10 +10,13 @@ qs_from_url(url)
 \item{url}{a character url}
 }
 \value{
-a dataframe as parsed by \code{\link[qs:qdeserialize]{qs::qdeserialize()}}
+a dataframe
 }
 \description{
-Load .qs file from a remote connection
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+The underlying package qs has been removed from CRAN on 2026-01-17 so
+nflreadr stopped the qs support
 }
 \examples{
 \dontshow{.for_cran()}
@@ -25,3 +28,4 @@ try({
 })
 }
 }
+\keyword{internal}

@@ -20,7 +20,7 @@ nflverse_download(
 \item{folder_path}{a folder in which subfolders will be created for each release -
 defaults to path specified in \code{options(nflreadr.download_path)} or "." (the current working directory)}
 
-\item{file_type}{one of \code{c("rds","parquet", "csv", "qs")} -
+\item{file_type}{one of \code{c("rds","parquet", "csv")} -
 defaults to file type specified in \code{options(nflreadr.prefer)} or "rds"}
 
 \item{use_hive}{whether to create hive-style partition folders for each season, e.g. \code{"~/pbp/.season=2021/pbp.csv"}}

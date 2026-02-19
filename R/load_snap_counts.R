@@ -4,7 +4,7 @@
 #' starting with the 2012 season.
 #'
 #' @param seasons a numeric vector specifying what seasons to return, if `TRUE` returns all available data
-#' @param file_type One of `c("rds", "qs", "csv", "parquet")`. Can also be set globally with
+#' @param file_type One of `c("rds", "csv", "parquet")`. Can also be set globally with
 #' `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -26,7 +26,7 @@ load_snap_counts <- function(
   seasons = most_recent_season(),
   file_type = getOption("nflreadr.prefer", default = "rds")
 ) {
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet", "qs"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
   if (isTRUE(seasons)) {
     seasons <- 2012:most_recent_season()
   }

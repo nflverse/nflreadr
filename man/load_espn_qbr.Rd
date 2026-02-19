@@ -15,7 +15,7 @@ load_espn_qbr(
 
 \item{summary_type}{One of \code{"season"} or \code{"week"}, defaults to \code{"season"}}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

@@ -7,7 +7,7 @@
 load_contracts(file_type = getOption("nflreadr.prefer", default = "rds"))
 }
 \arguments{
-\item{file_type}{One of \code{"rds"}, \code{"qs"}, \code{"csv"}, or \code{"parquet"}.
+\item{file_type}{One of \code{"rds"}, \code{"csv"}, or \code{"parquet"}.
 Can also be set globally with options(nflreadr.prefer)}
 }
 \value{

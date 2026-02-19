@@ -20,7 +20,7 @@ season. If set to \code{TRUE}, returns all available data.}
 \item{summary_level}{choice: one of week (default), "reg" for regular season,
 "post" for postseason, "reg+post" for combined regular + post season stats}
 
-\item{file_type}{choice: one of \code{c("rds", "qs", "csv", "parquet")}. Can also
+\item{file_type}{choice: one of \code{c("rds", "csv", "parquet")}. Can also
 be set globally with \code{options(nflreadr.prefer)}}
 }
 \value{

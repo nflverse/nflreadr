@@ -18,7 +18,7 @@ load_pfr_advstats(
 
 \item{summary_level}{one of "week" (default) or "season" - some data is only available at the season level}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

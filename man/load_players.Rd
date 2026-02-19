@@ -7,7 +7,7 @@
 load_players(file_type = getOption("nflreadr.prefer", default = "rds"))
 }
 \arguments{
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

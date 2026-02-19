@@ -12,6 +12,8 @@ clear_cache <- function() {
     raw_from_url,
     csv_from_url,
     rds_from_url,
+    # this is hard deprecated but there could still be some stuff in cache
+    # we'll drop it here
     qs_from_url
   )
 

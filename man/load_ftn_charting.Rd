@@ -16,7 +16,7 @@ load_ftn_charting(
 \item{seasons}{a numeric vector of seasons to return, defaults to most recent season.
 If set to \code{TRUE}, returns all available data. Data available from 2022 onwards.}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{

@@ -5,7 +5,7 @@
 #' @inheritParams rlang::args_dots_empty
 #' @param summary_level choice: one of week (default), "reg" for regular season,
 #' "post" for postseason, "reg+post" for combined regular season + postseason stats
-#' @param file_type choice: one of `c("rds", "qs", "csv", "parquet")`. Can also
+#' @param file_type choice: one of `c("rds", "csv", "parquet")`. Can also
 #' be set globally with `options(nflreadr.prefer)`
 #' @param stat_type `r lifecycle::badge("deprecated")` - now returns all stat
 #' types by default
@@ -58,7 +58,7 @@ load_player_stats <- function(
 #' @inheritParams rlang::args_dots_empty
 #' @param summary_level choice: one of week (default), "reg" for regular season,
 #' "post" for postseason, "reg+post" for combined regular + post season stats
-#' @param file_type choice: one of `c("rds", "qs", "csv", "parquet")`. Can also
+#' @param file_type choice: one of `c("rds", "csv", "parquet")`. Can also
 #' be set globally with `options(nflreadr.prefer)`
 #'
 #' @examples
@@ -104,7 +104,7 @@ load_stats <- function(
 
   .stat_type <- rlang::arg_match(.stat_type)
   summary_level <- rlang::arg_match(summary_level)
-  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "qs", "parquet"))
+  file_type <- rlang::arg_match0(file_type, c("rds", "csv", "parquet"))
 
   if (!isTRUE(seasons)) {
     stopifnot(

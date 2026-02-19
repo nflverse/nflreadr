@@ -12,7 +12,7 @@ load_injuries(
 \arguments{
 \item{seasons}{a numeric vector of seasons to return, data available since 2009. Defaults to latest season available.}
 
-\item{file_type}{One of \code{c("rds", "qs", "csv", "parquet")}. Can also be set globally with
+\item{file_type}{One of \code{c("rds", "csv", "parquet")}. Can also be set globally with
 \code{options(nflreadr.prefer)}}
 }
 \value{
