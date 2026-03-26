@@ -15,14 +15,21 @@ get_current_season(roster = FALSE)
 \arguments{
 \item{roster}{Either \code{TRUE} or \code{FALSE}.
 If \code{TRUE}, will return current year after March 15th, otherwise previous year.
-If \code{FALSE}, will return current year on or after Thursday following Labor Day,
-i.e. Thursday after the first Monday in September. Otherwise previous year.}
+If \code{FALSE}, will return current year on or after Wednesday following Labor Day,
+i.e. Wednesday after the first Monday in September. Otherwise previous year.}
 }
 \value{
 most recent season (a four digit numeric)
 }
 \description{
-A helper function to choose the most recent season available for a given dataset
+A helper function to choose the most recent season available for a given dataset.
+}
+\details{
+This used to return new season on Thursday following Labor Day but NFL
+announced in March 2026 that the 2026 season will kick off on
+Wednesday because the TNF game will be played in Australia. We expect this
+to happen in future seasons as well and decided to flip the switch on
+Wednesday going forward.
 }
 \seealso{
 Other Date utils: 
