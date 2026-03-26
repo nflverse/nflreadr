@@ -43,7 +43,7 @@ try({ # prevents cran errors
  load_from_url(urls, nflverse = TRUE, nflverse_type = "rosters for 2020 & 2021")
 })
 #> ── nflverse rosters for 2020 & 2021 ────────────────────────────────────────────
-#> ℹ Data updated: 2026-02-19 14:11:41 UTC
+#> ℹ Data updated: 2026-03-26 14:27:07 UTC
 #> # A tibble: 6,029 × 36
 #>    season team  position depth_chart_position jersey_number status full_name    
 #>     <int> <chr> <chr>    <chr>                        <int> <chr>  <chr>        

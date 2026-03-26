@@ -18,6 +18,16 @@
   [`qs_from_url()`](https://nflreadr.nflverse.com/reference/qs_from_url.md)
   will error. Please stop using it and make sure to change
   `option(nflreadr.prefer)` to one of “parquet”, “rds”, or “csv”.
+  ([\#303](https://github.com/nflverse/nflreadr/issues/303))
+- [`most_recent_season()`](https://nflreadr.nflverse.com/reference/latest_season.md)
+  (and its aliases
+  [`get_latest_season()`](https://nflreadr.nflverse.com/reference/latest_season.md)
+  and
+  [`get_current_season()`](https://nflreadr.nflverse.com/reference/latest_season.md))
+  now flip the switch to the new season on Wednesday following Labor Day
+  (used to be Thursday) as NFL announced that the 2026 season will kick
+  off on Wednesday because the TNF game will be played in Australia.
+  ([\#307](https://github.com/nflverse/nflreadr/issues/307))
 
 ## nflreadr 1.5.0
 

@@ -40,12 +40,12 @@ try({ # prevents cran errors
   load_contracts()
 })
 #> ── nflverse Historical Contract Data from OverTheCap.com ───────────────────────
-#> ℹ Data updated: 2026-02-19 07:54:11 UTC
-#> # A tibble: 50,216 × 25
+#> ℹ Data updated: 2026-03-26 08:09:47 UTC
+#> # A tibble: 50,821 × 25
 #>    player      position team  is_active year_signed years value   apy guaranteed
 #>    <chr>       <chr>    <chr> <lgl>           <int> <int> <dbl> <dbl>      <dbl>
 #>  1 Joe Burrow  QB       Beng… TRUE             2023     5  275   55        147. 
-#>  2 Aaron Rodg… QB       GB/N… FALSE            2022     5  151.  50.3      101. 
+#>  2 Aaron Rodg… QB       NYJ/… FALSE            2022     3  151.  50.3      101. 
 #>  3 Josh Allen  QB       Bills FALSE            2021     6  258   43        100  
 #>  4 Russell Wi… QB       Bron… FALSE            2022     5  245   49        124  
 #>  5 Dak Presco… QB       Cowb… TRUE             2024     4  240   60        129  
@@ -53,8 +53,8 @@ try({ # prevents cran errors
 #>  7 Lamar Jack… QB       Rave… TRUE             2023     5  260   52        135  
 #>  8 Patrick Ma… QB       Chie… TRUE             2020    10  450   45         63.1
 #>  9 Jalen Hurts QB       Eagl… TRUE             2023     5  255   51        110  
-#> 10 Kyler Murr… QB       Card… TRUE             2022     5  230.  46.1      103. 
-#> # ℹ 50,206 more rows
+#> 10 Kyler Murr… QB       Card… FALSE            2022     5  230.  46.1      103. 
+#> # ℹ 50,811 more rows
 #> # ℹ 16 more variables: apy_cap_pct <dbl>, inflated_value <dbl>,
 #> #   inflated_apy <dbl>, inflated_guaranteed <dbl>, player_page <chr>,
 #> #   otc_id <int>, gsis_id <chr>, date_of_birth <chr>, height <chr>,

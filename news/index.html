@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,9 @@
 <code><a href="../reference/load_teams.html">load_teams()</a></code> now accepts the argument <code>file_type</code> and respects the option <code>"nflreadr.prefer"</code>.</li>
 <li>
 <code><a href="../reference/nflverse_releases.html">nflverse_releases()</a></code> and <code><a href="../reference/nflverse_download.html">nflverse_download()</a></code> now correctly work with tag names to find releases. (<a href="https://github.com/nflverse/nflreadr/issues/296" class="external-link">#296</a>)</li>
-<li>Stopped support of <code>file_type</code> “qs” and the deprecated the related function <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> will error. Please stop using it and make sure to change <code>option(nflreadr.prefer)</code> to one of “parquet”, “rds”, or “csv”.</li>
+<li>Stopped support of <code>file_type</code> “qs” and the deprecated the related function <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> will error. Please stop using it and make sure to change <code>option(nflreadr.prefer)</code> to one of “parquet”, “rds”, or “csv”. (<a href="https://github.com/nflverse/nflreadr/issues/303" class="external-link">#303</a>)</li>
+<li>
+<code><a href="../reference/latest_season.html">most_recent_season()</a></code> (and its aliases <code><a href="../reference/latest_season.html">get_latest_season()</a></code> and <code><a href="../reference/latest_season.html">get_current_season()</a></code>) now flip the switch to the new season on Wednesday following Labor Day (used to be Thursday) as NFL announced that the 2026 season will kick off on Wednesday because the TNF game will be played in Australia. (<a href="https://github.com/nflverse/nflreadr/issues/307" class="external-link">#307</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.0" id="nflreadr-150">nflreadr 1.5.0<a class="anchor" aria-label="anchor" href="#nflreadr-150"></a></h2><p class="text-muted">CRAN release: 2025-09-02</p>

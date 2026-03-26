@@ -46,8 +46,8 @@ try({ # prevents cran errors
   load_combine()
 })
 #> ── nflverse combine measurements ───────────────────────────────────────────────
-#> ℹ Data updated: 2025-03-12 17:18:16 UTC
-#> # A tibble: 8,649 × 18
+#> ℹ Data updated: 2026-03-12 17:51:54 UTC
+#> # A tibble: 8,968 × 18
 #>    season draft_year draft_team  draft_round draft_ovr pfr_id cfb_id player_name
 #>     <int>      <dbl> <chr>             <dbl>     <dbl> <chr>  <chr>  <chr>      
 #>  1   2000       2000 New York J…           1        13 AbraJ… NA     John Abrah…
@@ -60,7 +60,7 @@ try({ # prevents cran errors
 #>  8   2000         NA NA                   NA        NA AtkiC… NA     Corey Atki…
 #>  9   2000         NA NA                   NA        NA NA     NA     Kyle Atteb…
 #> 10   2000       2000 Chicago Be…           4       125 AustR… NA     Reggie Aus…
-#> # ℹ 8,639 more rows
+#> # ℹ 8,958 more rows
 #> # ℹ 10 more variables: pos <chr>, school <chr>, ht <chr>, wt <dbl>,
 #> #   forty <dbl>, bench <dbl>, vertical <dbl>, broad_jump <dbl>, cone <dbl>,
 #> #   shuttle <dbl>

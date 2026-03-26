@@ -33,13 +33,13 @@ The statistical mode with the same type as the input vector x.
 ``` r
 vector_numeric <- sample(1:5, 15, TRUE)
 vector_numeric
-#>  [1] 1 2 1 4 1 4 1 2 2 4 2 4 5 3 4
+#>  [1] 5 4 5 4 1 5 5 5 2 3 3 5 5 4 5
 stat_mode(vector_numeric)
-#> [1] 4
+#> [1] 5
 
 vector_character <- sample(LETTERS[1:5], 15, TRUE)
 vector_character
-#>  [1] "A" "E" "A" "E" "A" "A" "E" "B" "E" "C" "A" "D" "B" "A" "C"
+#>  [1] "B" "D" "B" "C" "A" "C" "E" "A" "B" "E" "B" "A" "D" "A" "B"
 stat_mode(vector_character)
-#> [1] "A"
+#> [1] "B"
 ```

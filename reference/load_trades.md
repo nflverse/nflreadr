@@ -36,7 +36,7 @@ Issues with this data should be filed here:
 # \donttest{
  load_trades(2020)
 #> ── nflverse trades (via PFR / Lee Sharpe) ──────────────────────────────────────
-#> ℹ Data updated: 2026-02-19 14:12:03 UTC
+#> ℹ Data updated: 2026-03-26 14:27:26 UTC
 #> # A tibble: 211 × 11
 #>    trade_id season trade_date gave  received pick_season pick_round pick_number
 #>       <dbl>  <dbl> <date>     <chr> <chr>          <dbl>      <dbl>       <dbl>

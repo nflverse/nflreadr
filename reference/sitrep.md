@@ -67,14 +67,14 @@ ffverse_sitrep()
 .sitrep("cachem")
 })
 #> ── System Info ─────────────────────────────────────────────────────────────────
-#> • R version 4.5.2 (2025-10-31) • Running under: Ubuntu 24.04.3 LTS
+#> • R version 4.5.3 (2026-03-11) • Running under: Ubuntu 24.04.3 LTS
 #> ── Package Status ──────────────────────────────────────────────────────────────
 #>   package installed  cran  dev behind
 #> 1  cachem     1.1.0 1.1.0 <NA>       
 #> ── Package Options ─────────────────────────────────────────────────────────────
 #> • No options set for above packages
 #> ── Package Dependencies ────────────────────────────────────────────────────────
-#> • fastmap (1.2.0)  • rlang (1.1.7)  • utils (4.5.2)  
+#> • fastmap (1.2.0)  • rlang (1.1.7)  • utils (4.5.3)  
 #> ────────────────────────────────────────────────────────────────────────────────
 # }
 ```
