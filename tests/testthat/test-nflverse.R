@@ -126,7 +126,9 @@ test_that("load_rosters_weekly", {
   skip_on_cran()
   skip_if_offline("github.com")
 
-  rosters <- load_rosters_weekly()
+  rosters <- load_rosters_weekly(
+    seasons = nflreadr::most_recent_season(roster = FALSE)
+  )
   rosters_years <- load_rosters_weekly(seasons = 2019:2020)
 
   expect_s3_class(rosters, "nflverse_data")
