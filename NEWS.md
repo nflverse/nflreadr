@@ -1,6 +1,8 @@
-# nflreadr (development version)
+# nflreadr 1.5.1
 
-- `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`. 
+Small bug fixes and hard deprecation of `{qs}` support to comply with CRAN issues.
+
+- `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`.
 - `nflverse_releases()` and `nflverse_download()` now correctly work with tag names to find releases. (#296)
 - Stopped support of `file_type` "qs" and the deprecated the related function `qs_from_url()` because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived `qs_from_url()` will error. Please stop using it and make sure to change `option(nflreadr.prefer)` to one of "parquet", "rds", or "csv". (#303)
 - `most_recent_season()` (and its aliases `get_latest_season()` and `get_current_season()`) now flip the switch to the new season on Wednesday following Labor Day (used to be Thursday) as NFL announced that the 2026 season will kick off on Wednesday because the TNF game will be played in Australia. (#307)
