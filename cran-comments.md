@@ -1,13 +1,12 @@
 ## SUBMISSION
 
-This release covers changes released before the start of the 2025 NFL seasons,
-including changes to player stats, depth charts, and participation
+This release covers changes released since the start of the 2025 NFL season.
 
 ## Test environments
-* local ubuntu R installation,      R 4.5.1
-* windows      (on GitHub Actions), R 4.5.1
-* macOS        (on GitHub Actions), R 4.5.1
-* ubuntu 24.04 (on GitHub Actions), R 4.5.1
+* local ubuntu R installation,      R 4.5.2
+* windows      (on GitHub Actions), R 4.5.2
+* macOS        (on GitHub Actions), R 4.5.2
+* ubuntu 24.04 (on GitHub Actions), R 4.5.2
 * ubuntu 24.04 (on GitHub Actions), R 4.1.0
 * ubuntu 24.04 (on GitHub Actions), R devel
 

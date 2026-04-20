@@ -1,9 +1,15 @@
-# nflreadr (development version)
+# nflreadr 1.5.1
 
-- `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`. 
+Small bug fixes and hard deprecation of `{qs}` support to comply with CRAN issues.
+
+- `load_teams()` now accepts the argument `file_type` and respects the option `"nflreadr.prefer"`.
 - `nflverse_releases()` and `nflverse_download()` now correctly work with tag names to find releases. (#296)
 - Stopped support of `file_type` "qs" and the deprecated the related function `qs_from_url()` because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived `qs_from_url()` will error. Please stop using it and make sure to change `option(nflreadr.prefer)` to one of "parquet", "rds", or "csv". (#303)
 - `most_recent_season()` (and its aliases `get_latest_season()` and `get_current_season()`) now flip the switch to the new season on Wednesday following Labor Day (used to be Thursday) as NFL announced that the 2026 season will kick off on Wednesday because the TNF game will be played in Australia. (#307)
+
+Thank you to &#x0040;AbhuTyagi, &#x0040;gacolitti, &#x0040;guga31bb, &#x0040;Ic4ru5Wing, &#x0040;isaactpetersen, &#x0040;joeflan, &#x0040;JoeMarino2021, &#x0040;joshuafayallen, &#x0040;mrcaseb, &#x0040;nromano2, &#x0040;patrickconners2334-glitch, &#x0040;tanho63, and &#x0040;TheMathNinja for their questions, feedback, and contributions towards this release.
+
+---
 
 # nflreadr 1.5.0
 
@@ -18,7 +24,7 @@ This release covers changes released before the start of the 2025 NFL season.
 - `load_team_stats()` added to access new team_stats files created by `nflfastR::calculate_stats()` (#279)
 - `load_depth_charts()` now provides depth charts by date (including the preseason), and defaults to `most_recent_season(roster = TRUE)`, rather than `most_recent_season(roster = FALSE)`. Please note that the [data structure](https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html) has changed because the data source had to be changed from NFL Data Exchange to ESPN. (#275, #277)
 - `load_participation()` is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to **FTN Data via nflverse**. (#278)
-- Now requires a minimum R version of 4.1.0, to align with the tidyverse's [version support](https://www.tidyverse.org/blog/2019/04/r-version-support/) policies.
+- Now requires a minimum R version of 4.1.0, to align with the tidyverse's [version support](https://tidyverse.org/blog/2019/04/r-version-support/) policies.
 
 ## Other Changes
 - nflreadr now exports the variable `nflreadr::nflverse_data_timezone` which defines the standard timezone across all nflverse data. When printing to the console, nflreadr will convert timestamps to the user local timezone.
@@ -71,7 +77,7 @@ This release addresses bugs, improves some utilities, and adds a few new dataset
 as computed by `nflfastR::calculate_player_stats_def()` (#200) It also comes with
 a data dictionary, courtesy of @mpcen (#192)
 - `load_ftn_charting()` adds manual charting data for 2022-onwards, graciously
-provided by [FTN Data](https://ftnfantasy.com/stats/sports-data). This should
+provided by [FTN Data](https://ftnfantasy.com). This should
 automatically be updated when published by FTN, and the early indication is that
 it will be within 48 hours after a game has finished.
 
