@@ -41,20 +41,20 @@ try({ # prevents cran errors
   load_teams()
 })
 #> ── nflverse teams data ─────────────────────────────────────────────────────────
-#> ℹ Data updated: 2025-10-01 08:03:15 UTC
+#> ℹ Data updated: 2026-03-27 15:49:44 UTC
 #> # A tibble: 32 × 16
 #>    team_abbr team_name      team_id team_nick team_conf team_division team_color
-#>    <chr>     <chr>            <int> <chr>     <chr>     <chr>         <chr>     
-#>  1 ARI       Arizona Cardi…    3800 Cardinals NFC       NFC West      #97233F   
-#>  2 ATL       Atlanta Falco…     200 Falcons   NFC       NFC South     #A71930   
-#>  3 BAL       Baltimore Rav…     325 Ravens    AFC       AFC North     #241773   
-#>  4 BUF       Buffalo Bills      610 Bills     AFC       AFC East      #00338D   
-#>  5 CAR       Carolina Pant…     750 Panthers  NFC       NFC South     #0085CA   
-#>  6 CHI       Chicago Bears      810 Bears     NFC       NFC North     #0B162A   
-#>  7 CIN       Cincinnati Be…     920 Bengals   AFC       AFC North     #FB4F14   
-#>  8 CLE       Cleveland Bro…    1050 Browns    AFC       AFC North     #FF3C00   
-#>  9 DAL       Dallas Cowboys    1200 Cowboys   NFC       NFC East      #002244   
-#> 10 DEN       Denver Broncos    1400 Broncos   AFC       AFC West      #002244   
+#>    <chr>     <chr>          <chr>   <chr>     <chr>     <chr>         <chr>     
+#>  1 ARI       Arizona Cardi… 3800    Cardinals NFC       NFC West      #97233F   
+#>  2 ATL       Atlanta Falco… 0200    Falcons   NFC       NFC South     #A71930   
+#>  3 BAL       Baltimore Rav… 0325    Ravens    AFC       AFC North     #241773   
+#>  4 BUF       Buffalo Bills  0610    Bills     AFC       AFC East      #00338D   
+#>  5 CAR       Carolina Pant… 0750    Panthers  NFC       NFC South     #0085CA   
+#>  6 CHI       Chicago Bears  0810    Bears     NFC       NFC North     #0B162A   
+#>  7 CIN       Cincinnati Be… 0920    Bengals   AFC       AFC North     #FB4F14   
+#>  8 CLE       Cleveland Bro… 1050    Browns    AFC       AFC North     #FF3C00   
+#>  9 DAL       Dallas Cowboys 1200    Cowboys   NFC       NFC East      #002244   
+#> 10 DEN       Denver Broncos 1400    Broncos   AFC       AFC West      #002244   
 #> # ℹ 22 more rows
 #> # ℹ 9 more variables: team_color2 <chr>, team_color3 <chr>, team_color4 <chr>,
 #> #   team_logo_wikipedia <chr>, team_logo_espn <chr>, team_wordmark <chr>,

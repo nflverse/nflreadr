@@ -1,6 +1,11 @@
 # Changelog
 
-## nflreadr (development version)
+## nflreadr 1.5.1
+
+CRAN release: 2026-04-13
+
+Small bug fixes and hard deprecation of `{qs}` support to comply with
+CRAN issues.
 
 - [`load_teams()`](https://nflreadr.nflverse.com/reference/load_teams.md)
   now accepts the argument `file_type` and respects the option
@@ -28,6 +33,23 @@
   (used to be Thursday) as NFL announced that the 2026 season will kick
   off on Wednesday because the TNF game will be played in Australia.
   ([\#307](https://github.com/nflverse/nflreadr/issues/307))
+
+Thank you to [@AbhuTyagi](https://github.com/AbhuTyagi),
+[@gacolitti](https://github.com/gacolitti),
+[@guga31bb](https://github.com/guga31bb),
+[@Ic4ru5Wing](https://github.com/Ic4ru5Wing),
+[@isaactpetersen](https://github.com/isaactpetersen),
+[@joeflan](https://github.com/joeflan),
+[@JoeMarino2021](https://github.com/JoeMarino2021),
+[@joshuafayallen](https://github.com/joshuafayallen),
+[@mrcaseb](https://github.com/mrcaseb),
+[@nromano2](https://github.com/nromano2),
+[@patrickconners2334-glitch](https://github.com/patrickconners2334-glitch),
+[@tanho63](https://github.com/tanho63), and
+[@TheMathNinja](https://github.com/TheMathNinja) for their questions,
+feedback, and contributions towards this release.
+
+------------------------------------------------------------------------
 
 ## nflreadr 1.5.0
 
@@ -75,7 +97,7 @@ season.
   ([\#278](https://github.com/nflverse/nflreadr/issues/278))
 - Now requires a minimum R version of 4.1.0, to align with the
   tidyverse’s [version
-  support](https://www.tidyverse.org/blog/2019/04/r-version-support/)
+  support](https://tidyverse.org/blog/2019/04/r-version-support/)
   policies.
 
 ### Other Changes
@@ -199,10 +221,9 @@ datasets.
   ([\#192](https://github.com/nflverse/nflreadr/issues/192))
 - [`load_ftn_charting()`](https://nflreadr.nflverse.com/reference/load_ftn_charting.md)
   adds manual charting data for 2022-onwards, graciously provided by
-  [FTN Data](https://ftnfantasy.com/stats/sports-data). This should
-  automatically be updated when published by FTN, and the early
-  indication is that it will be within 48 hours after a game has
-  finished.
+  [FTN Data](https://ftnfantasy.com). This should automatically be
+  updated when published by FTN, and the early indication is that it
+  will be within 48 hours after a game has finished.
 
 ### Function Improvements
 

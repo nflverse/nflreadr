@@ -38,7 +38,7 @@ version of the data dictionary
 [`dictionary_pbp`](https://nflreadr.nflverse.com/reference/dictionary_pbp.md)
 for the data dictionary bundled as a package dataframe
 
-<https://www.nflfastr.com/reference/build_nflfastR_pbp.html> for the
+<https://nflfastr.com/reference/build_nflfastR_pbp.html> for the
 nflfastR function `nflfastR::build_nflfastR_pbp()`
 
 Issues with this data should be filed here:

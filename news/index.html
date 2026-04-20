@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">nflreadr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,8 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="nflreadr-development-version">nflreadr (development version)<a class="anchor" aria-label="anchor" href="#nflreadr-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.5.1" id="nflreadr-151">nflreadr 1.5.1<a class="anchor" aria-label="anchor" href="#nflreadr-151"></a></h2><p class="text-muted">CRAN release: 2026-04-13</p>
+<p>Small bug fixes and hard deprecation of <code>{qs}</code> support to comply with CRAN issues.</p>
 <ul><li>
 <code><a href="../reference/load_teams.html">load_teams()</a></code> now accepts the argument <code>file_type</code> and respects the option <code>"nflreadr.prefer"</code>.</li>
 <li>
@@ -55,7 +56,8 @@
 <li>Stopped support of <code>file_type</code> “qs” and the deprecated the related function <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> because the underlying package qs has been removed from CRAN on 2026-01-17. Since the dependency is archived <code><a href="../reference/qs_from_url.html">qs_from_url()</a></code> will error. Please stop using it and make sure to change <code>option(nflreadr.prefer)</code> to one of “parquet”, “rds”, or “csv”. (<a href="https://github.com/nflverse/nflreadr/issues/303" class="external-link">#303</a>)</li>
 <li>
 <code><a href="../reference/latest_season.html">most_recent_season()</a></code> (and its aliases <code><a href="../reference/latest_season.html">get_latest_season()</a></code> and <code><a href="../reference/latest_season.html">get_current_season()</a></code>) now flip the switch to the new season on Wednesday following Labor Day (used to be Thursday) as NFL announced that the 2026 season will kick off on Wednesday because the TNF game will be played in Australia. (<a href="https://github.com/nflverse/nflreadr/issues/307" class="external-link">#307</a>)</li>
-</ul></div>
+</ul><p>Thank you to <a href="https://github.com/AbhuTyagi" class="external-link">@AbhuTyagi</a>, <a href="https://github.com/gacolitti" class="external-link">@gacolitti</a>, <a href="https://github.com/guga31bb" class="external-link">@guga31bb</a>, <a href="https://github.com/Ic4ru5Wing" class="external-link">@Ic4ru5Wing</a>, <a href="https://github.com/isaactpetersen" class="external-link">@isaactpetersen</a>, <a href="https://github.com/joeflan" class="external-link">@joeflan</a>, <a href="https://github.com/JoeMarino2021" class="external-link">@JoeMarino2021</a>, <a href="https://github.com/joshuafayallen" class="external-link">@joshuafayallen</a>, <a href="https://github.com/mrcaseb" class="external-link">@mrcaseb</a>, <a href="https://github.com/nromano2" class="external-link">@nromano2</a>, <a href="https://github.com/patrickconners2334-glitch" class="external-link">@patrickconners2334-glitch</a>, <a href="https://github.com/tanho63" class="external-link">@tanho63</a>, and <a href="https://github.com/TheMathNinja" class="external-link">@TheMathNinja</a> for their questions, feedback, and contributions towards this release.</p>
+<hr></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.5.0" id="nflreadr-150">nflreadr 1.5.0<a class="anchor" aria-label="anchor" href="#nflreadr-150"></a></h2><p class="text-muted">CRAN release: 2025-09-02</p>
 <p>This release covers changes released before the start of the 2025 NFL season.</p>
@@ -75,7 +77,7 @@
 <code><a href="../reference/load_depth_charts.html">load_depth_charts()</a></code> now provides depth charts by date (including the preseason), and defaults to <code>most_recent_season(roster = TRUE)</code>, rather than <code>most_recent_season(roster = FALSE)</code>. Please note that the <a href="https://nflreadr.nflverse.com/articles/dictionary_depth_charts.html">data structure</a> has changed because the data source had to be changed from NFL Data Exchange to ESPN. (<a href="https://github.com/nflverse/nflreadr/issues/275" class="external-link">#275</a>, <a href="https://github.com/nflverse/nflreadr/issues/277" class="external-link">#277</a>)</li>
 <li>
 <code><a href="../reference/load_participation.html">load_participation()</a></code> is back, somewhat! FTNData.com has graciously offered to provide participation data after each season has ended, so we now have participation data from 2024 and 2023. Please note that this data is licensed under CC-BY-SA 4.0 and should be credited (for 2023 onwards) to <strong>FTN Data via nflverse</strong>. (<a href="https://github.com/nflverse/nflreadr/issues/278" class="external-link">#278</a>)</li>
-<li>Now requires a minimum R version of 4.1.0, to align with the tidyverse’s <a href="https://www.tidyverse.org/blog/2019/04/r-version-support/" class="external-link">version support</a> policies.</li>
+<li>Now requires a minimum R version of 4.1.0, to align with the tidyverse’s <a href="https://tidyverse.org/blog/2019/04/r-version-support/" class="external-link">version support</a> policies.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="other-changes-1-5-0">Other Changes<a class="anchor" aria-label="anchor" href="#other-changes-1-5-0"></a></h3>
@@ -126,7 +128,7 @@
 <ul><li>
 <code>load_player_stats(stat_type = "defense")</code> added to provide defensive player stats as computed by <code>nflfastR::calculate_player_stats_def()</code> (<a href="https://github.com/nflverse/nflreadr/issues/200" class="external-link">#200</a>) It also comes with a data dictionary, courtesy of <a href="https://github.com/mpcen" class="external-link">@mpcen</a> (<a href="https://github.com/nflverse/nflreadr/issues/192" class="external-link">#192</a>)</li>
 <li>
-<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds manual charting data for 2022-onwards, graciously provided by <a href="https://ftnfantasy.com/stats/sports-data" class="external-link">FTN Data</a>. This should automatically be updated when published by FTN, and the early indication is that it will be within 48 hours after a game has finished.</li>
+<code><a href="../reference/load_ftn_charting.html">load_ftn_charting()</a></code> adds manual charting data for 2022-onwards, graciously provided by <a href="https://ftnfantasy.com" class="external-link">FTN Data</a>. This should automatically be updated when published by FTN, and the early indication is that it will be within 48 hours after a game has finished.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="function-improvements-1-4-0">Function Improvements<a class="anchor" aria-label="anchor" href="#function-improvements-1-4-0"></a></h3>
