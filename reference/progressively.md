@@ -52,13 +52,13 @@ progressr::with_progress(read_rosters())
 
 })
 #> ℹ Loading...
-#> ✔ Loading... [7ms]
-#> 
-#> ℹ Loading...
 #> ✔ Loading... [6ms]
 #> 
 #> ℹ Loading...
-#> ✔ Loading... [6ms]
+#> ✔ Loading... [5ms]
+#> 
+#> ℹ Loading...
+#> ✔ Loading... [5ms]
 #> 
 #> Error in read_rosters() : argument "urls" is missing, with no default
 # }

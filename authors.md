@@ -20,7 +20,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/nflverse/nflreadr/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/nflverse/nflreadr/blob/v1.5.1/DESCRIPTION)
 
 Ho T, Carl S (2026). *nflreadr: Download 'nflverse' Data*. R package
 version 1.5.1, <https://nflreadr.nflverse.com>.
