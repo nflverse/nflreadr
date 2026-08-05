@@ -29,7 +29,7 @@ try({ # prevents cran errors
 load_ff_playerids()
 })
 #> ── nflverse (ffverse) player IDs ───────────────────────────────────────────────
-#> ℹ Data updated: 2026-08-05 15:23:24 UTC
+#> ℹ Data updated: 2026-08-05 18:34:28 UTC
 #> # A tibble: 12,470 × 35
 #>    mfl_id sportradar_id  fantasypros_id gsis_id pff_id sleeper_id nfl_id espn_id
 #>    <chr>  <chr>          <chr>          <chr>   <chr>  <chr>      <chr>  <chr>  
