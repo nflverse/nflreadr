@@ -58,6 +58,8 @@ teams <- nflreadr::csv_from_url(
       "NFL",
       "ARI",
       "PHO",
+      "ARI",
+      "AZ",
       "SF",
       "Niners",
       "LAC",
