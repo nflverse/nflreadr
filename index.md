@@ -18,12 +18,14 @@ For Python access to nflverse data, please check out
 Install the stable version from CRAN with:
 
 ``` r
+
 install.packages("nflreadr")
 ```
 
 Install the development version from GitHub with:
 
 ``` r
+
 install.packages("nflreadr", repos = c("https://nflverse.r-universe.dev", getOption("repos")))
 
 # or use remotes/devtools
@@ -36,6 +38,7 @@ remotes::install_github("nflverse/nflreadr")
 The main functions of `nflreadr` are prefixed with `load_`.
 
 ``` r
+
 library(nflreadr)
 
 load_pbp(2021)
@@ -105,6 +108,7 @@ page here: <https://github.com/nflverse/nflverse-data>
 The following options help configure default `nflreadr` behaviours.
 
 ``` r
+
 options(nflreadr.verbose) 
 # TRUE/FALSE to silence messages such as cache warnings
 options(nflreadr.cache) 

@@ -38,21 +38,21 @@ try({ # prevents cran errors
 load_ff_rankings()
 })
 #> ── nflverse FP expert rankings ─────────────────────────────────────────────────
-#> ℹ Data updated: 2026-04-20 17:32:30 UTC
-#> # A tibble: 4,522 × 25
+#> ℹ Data updated: 2026-08-05 15:23:25 UTC
+#> # A tibble: 5,281 × 25
 #>    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
 #>    <chr>     <chr>     <chr>    <chr>  <chr> <chr> <chr> <dbl> <dbl> <dbl> <dbl>
-#>  1 /nfl/ran… best-dst  bp       Denve… 8090  DST   DEN     1    0        1     1
-#>  2 /nfl/ran… best-dst  bp       Phila… 8230  DST   PHI     2.4  0.49     2     3
-#>  3 /nfl/ran… best-dst  bp       Pitts… 8240  DST   PIT     2.8  0.4      2     3
-#>  4 /nfl/ran… best-dst  bp       Balti… 8020  DST   BAL     4.6  0.49     4     5
-#>  5 /nfl/ran… best-dst  bp       Minne… 8170  DST   MIN     5.4  1.2      4     7
-#>  6 /nfl/ran… best-dst  bp       Kansa… 8150  DST   KC      7    1.41     5     9
-#>  7 /nfl/ran… best-dst  bp       Detro… 8100  DST   DET     8    0.89     7     9
-#>  8 /nfl/ran… best-dst  bp       Buffa… 8030  DST   BUF     8.2  1.6      6    10
-#>  9 /nfl/ran… best-dst  bp       Los A… 8250  DST   LAC     9.2  1.47     7    11
-#> 10 /nfl/ran… best-dst  bp       New Y… 8210  DST   NYJ     9.6  2.42     6    13
-#> # ℹ 4,512 more rows
+#>  1 /nfl/ran… best-dst  bp       Houst… 8120  DST   HOU       1     0     1     1
+#>  2 /nfl/ran… best-dst  bp       Denve… 8090  DST   DEN       2     0     2     2
+#>  3 /nfl/ran… best-dst  bp       Seatt… 8260  DST   SEA       3     0     3     3
+#>  4 /nfl/ran… best-dst  bp       Los A… 8280  DST   LAR       4     0     4     4
+#>  5 /nfl/ran… best-dst  bp       Phila… 8230  DST   PHI       5     0     5     5
+#>  6 /nfl/ran… best-dst  bp       Minne… 8170  DST   MIN       6     0     6     6
+#>  7 /nfl/ran… best-dst  bp       New E… 8180  DST   NE        7     0     7     7
+#>  8 /nfl/ran… best-dst  bp       Jacks… 8140  DST   JAC       8     0     8     8
+#>  9 /nfl/ran… best-dst  bp       Los A… 8250  DST   LAC       9     0     9     9
+#> 10 /nfl/ran… best-dst  bp       Green… 8110  DST   GB       10     0    10    10
+#> # ℹ 5,271 more rows
 #> # ℹ 14 more variables: sportsdata_id <chr>, player_filename <chr>,
 #> #   yahoo_id <chr>, cbs_id <chr>, player_owned_avg <dbl>,
 #> #   player_owned_espn <dbl>, player_owned_yahoo <dbl>, player_image_url <chr>,

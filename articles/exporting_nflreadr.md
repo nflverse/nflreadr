@@ -6,6 +6,7 @@ You can re-export `nflreadr` functions in your package by using the
 following roxygen template:
 
 ``` r
+
 #' @inherit nflreadr::load_nextgen_stats
 #' @export
 # Need to add own examples if the function name is different
@@ -24,6 +25,7 @@ the
 source code:
 
 ``` r
+
 load_rosters <- function(seasons = 1999:2020){
 
   # Create a progressor function inside your function that knows how many "steps" there will be
@@ -54,6 +56,7 @@ In order to receive progress updates, the user must wrap the function
 as shown here:
 
 ``` r
+
 progressr::with_progress(load_rosters(2010:2020))
 ```
 

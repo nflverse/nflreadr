@@ -46,8 +46,8 @@ try({ # prevents cran errors
   load_draft_picks()
 })
 #> ── nflverse Draft Picks, via Pro Football Reference ────────────────────────────
-#> ℹ Data updated: 2026-02-25 06:35:51 UTC
-#> # A tibble: 12,670 × 36
+#> ℹ Data updated: 2026-05-05 07:26:28 UTC
+#> # A tibble: 12,927 × 36
 #>    season round  pick team  gsis_id  pfr_player_id cfb_player_id pfr_player_name
 #>     <int> <int> <int> <chr> <chr>    <chr>         <chr>         <chr>          
 #>  1   1980     1     1 DET   SIM6591… SimsBi00      billy-sims-1  Billy Sims     
@@ -60,7 +60,7 @@ try({ # prevents cran errors
 #>  8   1980     1     8 NYG   HAY6525… HaynMa00      mark-haynes-1 Mark Haynes    
 #>  9   1980     1     9 MIN   MAR5821… MartDo21      NA            Doug Martin    
 #> 10   1980     1    10 SEA   00-0006… GreeJa01      jacob-green-2 Jacob Green    
-#> # ℹ 12,660 more rows
+#> # ℹ 12,917 more rows
 #> # ℹ 28 more variables: hof <lgl>, position <chr>, category <chr>, side <chr>,
 #> #   college <chr>, age <int>, to <int>, allpro <int>, probowls <int>,
 #> #   seasons_started <int>, w_av <int>, car_av <lgl>, dr_av <int>, games <int>,

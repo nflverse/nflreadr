@@ -1,5 +1,10 @@
 # Changelog
 
+## nflreadr (development version)
+
+- `clean_team_abbrs` now converts `"AZ"` to `"ARI"`.
+  ([\#312](https://github.com/nflverse/nflreadr/issues/312))
+
 ## nflreadr 1.5.1
 
 CRAN release: 2026-04-13
