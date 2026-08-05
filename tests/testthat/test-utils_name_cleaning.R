@@ -15,7 +15,8 @@ test_that("cleaning team abbreviations", {
     "49ers",
     "San Diego Chargers",
     "Oakland Raiders",
-    "St Louis Rams"
+    "St Louis Rams",
+    "AZ"
   )
   expect_warning(new_abbr <- clean_team_abbrs(x), regexp = expected_warning)
   expect_warning(
@@ -41,7 +42,8 @@ test_that("cleaning team abbreviations", {
       "SF",
       "LAC",
       "LV",
-      "LA"
+      "LA",
+      "ARI"
     )
   )
   expect_equal(
