@@ -1,3 +1,7 @@
+# nflreadr (development version)
+
+- `clean_team_abbrs` now converts `"AZ"` to `"ARI"`. (#312)
+
 # nflreadr 1.5.1
 
 Small bug fixes and hard deprecation of `{qs}` support to comply with CRAN issues.
