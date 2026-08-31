@@ -1,6 +1,7 @@
 # nflreadr (development version)
 
 - `clean_team_abbrs` now converts `"AZ"` to `"ARI"`. (#312)
+- Added the missing `n_defense_box` column and expanded the `read_thrown` value definitions in the `load_ftn_charting()` data dictionary. (#216)
 
 # nflreadr 1.5.1
 

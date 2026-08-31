@@ -70,3 +70,6 @@ load_trades() |>
 
 load_contracts() |>
   dict_check(dictionary_contracts)
+
+load_ftn_charting() |>
+  dict_check(dictionary_ftn_charting)
