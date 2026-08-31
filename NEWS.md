@@ -1,6 +1,7 @@
 # nflreadr (development version)
 
 - `clean_team_abbrs` now converts `"AZ"` to `"ARI"`. (#312)
+- Refreshed the `load_contracts()` data dictionary to cover the current columns, including the nested `season_history` and `contract_history` data frames.
 
 # nflreadr 1.5.1
 

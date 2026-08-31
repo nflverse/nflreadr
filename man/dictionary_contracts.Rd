@@ -5,7 +5,7 @@
 \alias{dictionary_contracts}
 \title{Data Dictionary: Contracts}
 \format{
-An object of class \code{data.frame} with 15 rows and 3 columns.
+An object of class \code{data.frame} with 50 rows and 3 columns.
 }
 \usage{
 dictionary_contracts
