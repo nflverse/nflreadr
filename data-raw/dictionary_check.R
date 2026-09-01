@@ -12,6 +12,9 @@ dict_check <- function(df, dict) {
     sort()
   dictionary_vars <- dict |>
     dplyr::pull(1) |>
+    # drop rows documenting fields nested inside a list/data.frame column,
+    # e.g. "season_history$year", which have no top-level equivalent to compare
+    (\(x) x[!grepl("\\$", x)])() |>
     sort()
 
   waldo::compare(actual_vars, dictionary_vars, max_diffs = Inf)
