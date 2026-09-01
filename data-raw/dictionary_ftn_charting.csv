@@ -8,22 +8,23 @@ nflverse_play_id,numeric,play_id,6,"Play ID used by nflverse, corresponds to GSI
 starting_hash,character,hash,7,"hash the ball was place(L = left, M = middle, R = right)"
 qb_location,character,qb_pos,8,"pre-snap position of quarterback(U = under center, S = shotgun, P = pistol)"
 n_offense_backfield,numeric,back,9,number of players in the backfield at the snap
-is_no_huddle,logical,nh,10,no huddle
-is_motion,logical,mot,11,motion occurred on the play before or at the time of the snap
-is_play_action,logical,pap,12,play-action pass
-is_screen_pass,logical,scre,13,screen pass
-is_rpo,logical,rpo,14,play is considered run-pass option
-is_trick_play,logical,trick,15,trick play
-is_qb_out_of_pocket,logical,oop,16,quarterback moved out of pocket
-is_interception_worthy,logical,intw,17,interception worthy pass
-is_throw_away,logical,qbta,18,quarterback thrown away
-read_thrown,character,read,19,read the ball was thrown
-is_catchable_ball,logical,cball,20,catchable ball(defined by throws that are generally on target that are not defended away)
-is_contested_ball,logical,cnb,21,contested ball(defined by whether or not the receiver is facing physical contact at the time of the catch)
-is_created_reception,logical,crr,22,created reception(defined by a reception that only occurs due to an exceptional play by the receiver)
-is_drop,logical,drp,23,receiver drop
-is_qb_sneak,logical,sneak,24,quarterback sneak
-n_blitzers,numeric,blz,25,number of blitzers
-n_pass_rushers,numeric,pru,26,number of pass rushers
-is_qb_fault_sack,logical,qbsk,27,sack that is the fault of the quarterback
-date_pulled,POSIXct,date_pulled,28,Date the data was retrieved from the FTN Data API by nflverse jobs
+n_defense_box,numeric,box,10,number of defenders in the box at the snap
+is_no_huddle,logical,nh,11,no huddle
+is_motion,logical,mot,12,motion occurred on the play before or at the time of the snap
+is_play_action,logical,pap,13,play-action pass
+is_screen_pass,logical,scre,14,screen pass
+is_rpo,logical,rpo,15,play is considered run-pass option
+is_trick_play,logical,trick,16,trick play
+is_qb_out_of_pocket,logical,oop,17,quarterback moved out of pocket
+is_interception_worthy,logical,intw,18,interception worthy pass
+is_throw_away,logical,qbta,19,quarterback thrown away
+read_thrown,character,read,20,"which read in the quarterback's progression the throw was made to, using FTN's charting key: ""0"" = first (primary) read, ""1"" = second read, ""2"" = third read or later, ""CHK"" = checkdown, ""DES"" = designed read (throws with no progression, e.g. screens and many RPOs), ""SD"" = scramble drill (throw made after the play broke down). The ""0"" code is only used from 2023 onwards; in 2022 primary reads are not coded and appear as NA"
+is_catchable_ball,logical,cball,21,catchable ball(defined by throws that are generally on target that are not defended away)
+is_contested_ball,logical,cnb,22,contested ball(defined by whether or not the receiver is facing physical contact at the time of the catch)
+is_created_reception,logical,crr,23,created reception(defined by a reception that only occurs due to an exceptional play by the receiver)
+is_drop,logical,drp,24,receiver drop
+is_qb_sneak,logical,sneak,25,quarterback sneak
+n_blitzers,numeric,blz,26,number of blitzers
+n_pass_rushers,numeric,pru,27,number of pass rushers
+is_qb_fault_sack,logical,qbsk,28,sack that is the fault of the quarterback
+date_pulled,POSIXct,date_pulled,29,Date the data was retrieved from the FTN Data API by nflverse jobs
