@@ -4,6 +4,10 @@
 
 - `clean_team_abbrs` now converts `"AZ"` to `"ARI"`.
   ([\#312](https://github.com/nflverse/nflreadr/issues/312))
+- Refreshed the
+  [`load_contracts()`](https://nflreadr.nflverse.com/reference/load_contracts.md)
+  data dictionary to cover the current columns, including the nested
+  `season_history` and `contract_history` data frames.
 - Added the missing `n_defense_box` column and expanded the
   `read_thrown` value definitions in the
   [`load_ftn_charting()`](https://nflreadr.nflverse.com/reference/load_ftn_charting.md)

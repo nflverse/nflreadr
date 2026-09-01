@@ -31,7 +31,7 @@ try( # avoids cran failures, can skip in normal usage
 nflverse_releases()
 )
 #> ── nflverse release listing ────────────────────────────────────────────────────
-#> ℹ Data updated: 2026-09-01 05:15:24 UTC
+#> ℹ Data updated: 2026-09-01 05:27:04 UTC
 #> # A tibble: 25 × 8
 #>    release_name   release_description timestamp   rds parquet   csv csv_gz   zip
 #>    <chr>          <chr>               <chr>     <int>   <int> <int>  <int> <int>

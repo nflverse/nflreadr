@@ -82,9 +82,9 @@
     
 <table class="table">
 <colgroup>
-<col width="17%">
-<col width="8%">
-<col width="73%">
+<col width="12%">
+<col width="3%">
+<col width="83%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">field</th>
@@ -105,12 +105,15 @@
 <tr class="odd">
 <td align="left">team</td>
 <td align="left">character</td>
-<td align="left">Player’s team</td>
+<td align="left">Player’s team, as abbreviated by OverTheCap. May list
+multiple teams separated by “/” when the contract spanned more than one
+team</td>
 </tr>
 <tr class="even">
 <td align="left">is_active</td>
 <td align="left">logical</td>
-<td align="left">Active contract</td>
+<td align="left">Whether this is the player’s currently active
+contract</td>
 </tr>
 <tr class="odd">
 <td align="left">year_signed</td>
@@ -120,22 +123,23 @@
 <tr class="even">
 <td align="left">years</td>
 <td align="left">numeric</td>
-<td align="left">Contract length</td>
+<td align="left">Contract length in years</td>
 </tr>
 <tr class="odd">
 <td align="left">value</td>
 <td align="left">numeric</td>
-<td align="left">Total contract value</td>
+<td align="left">Total contract value in millions of dollars</td>
 </tr>
 <tr class="even">
 <td align="left">apy</td>
 <td align="left">numeric</td>
-<td align="left">Average money per contract year</td>
+<td align="left">Average money per contract year in millions of
+dollars</td>
 </tr>
 <tr class="odd">
 <td align="left">guaranteed</td>
 <td align="left">numeric</td>
-<td align="left">Total guaranteed money</td>
+<td align="left">Total guaranteed money in millions of dollars</td>
 </tr>
 <tr class="even">
 <td align="left">apy_cap_pct</td>
@@ -147,19 +151,19 @@ team’s salary cap at signing</td>
 <td align="left">inflated_value</td>
 <td align="left">numeric</td>
 <td align="left">Total contract value inflated to account for the rise
-of the salary cap</td>
+of the salary cap in millions of dollars</td>
 </tr>
 <tr class="even">
 <td align="left">inflated_apy</td>
 <td align="left">numeric</td>
 <td align="left">Average money per contract year inflated to account for
-the rise of the salary cap</td>
+the rise of the salary cap in millions of dollars</td>
 </tr>
 <tr class="odd">
 <td align="left">inflated_guaranteed</td>
 <td align="left">numeric</td>
 <td align="left">Total guaranteed money inflated to account for the rise
-of the salary cap</td>
+of the salary cap in millions of dollars</td>
 </tr>
 <tr class="even">
 <td align="left">player_page</td>
@@ -170,6 +174,159 @@ of the salary cap</td>
 <td align="left">otc_id</td>
 <td align="left">numeric</td>
 <td align="left">Player’s OverTheCap ID</td>
+</tr>
+<tr class="even">
+<td align="left">gsis_id</td>
+<td align="left">character</td>
+<td align="left">Player’s NFL GSIS ID, used to join to other nflverse
+data</td>
+</tr>
+<tr class="odd">
+<td align="left">height</td>
+<td align="left">character</td>
+<td align="left">Player height, formatted as feet’inches”</td>
+</tr>
+<tr class="even">
+<td align="left">weight</td>
+<td align="left">character</td>
+<td align="left">Player weight in pounds</td>
+</tr>
+<tr class="odd">
+<td align="left">college</td>
+<td align="left">character</td>
+<td align="left">Player’s college</td>
+</tr>
+<tr class="even">
+<td align="left">draft_year</td>
+<td align="left">numeric</td>
+<td align="left">Year the player was drafted</td>
+</tr>
+<tr class="odd">
+<td align="left">draft_round</td>
+<td align="left">numeric</td>
+<td align="left">Round in which the player was drafted</td>
+</tr>
+<tr class="even">
+<td align="left">draft_overall</td>
+<td align="left">numeric</td>
+<td align="left">Overall pick number at which the player was
+drafted</td>
+</tr>
+<tr class="odd">
+<td align="left">draft_team</td>
+<td align="left">character</td>
+<td align="left">Team that drafted the player</td>
+</tr>
+<tr class="even">
+<td align="left">date_of_birth</td>
+<td align="left">character</td>
+<td align="left">Player’s date of birth, formatted as “Month DD,
+YYYY”</td>
+</tr>
+<tr class="odd">
+<td align="left">season_history</td>
+<td align="left">data.frame</td>
+<td align="left">Nested data frame with one row per league year covered
+by the contract, breaking cap and cash figures down by year. Its columns
+are documented below with the season_history$ prefix. A final row
+labelled “Total” carries contract-level totals</td>
+</tr>
+<tr class="even">
+<td align="left">season_history<span class="math inline">$year                  |character  |League year for
+the row. The final row is labelled "Total" and holds contract totals
+rather than a single
+year                                                                                                                                   |
+|season_history$</span>team</td>
+<td align="left">character</td>
+<td align="left">Team for that league year (“Total” on the totals
+row)</td>
+</tr>
+<tr class="odd">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>s</mi><msub><mi>e</mi><mi>s</mi></msub><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>B</mi><mi>a</mi><mi>s</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>s</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">base_salary           |numeric    |Base salary for the league year, in millions of dollars                                                                                                                                                                                          |
+|season_history</annotation></semantics></math>prorated_bonus</td>
+<td align="left">numeric</td>
+<td align="left">Prorated signing bonus charged to the salary cap that
+league year, in millions of dollars</td>
+</tr>
+<tr class="even">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><msub><mi>n</mi><mi>b</mi></msub><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>P</mi><mi>r</mi><mi>o</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>o</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>b</mi><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>d</mi><mi>t</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>s</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mi>c</mi><mi>a</mi><mi>p</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>s</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">option_bonus          |numeric    |Prorated option bonus charged to the salary cap that league year, in millions of dollars                                                                                                                                                         |
+|season_history</annotation></semantics></math>roster_bonus</td>
+<td align="left">numeric</td>
+<td align="left">Roster bonus for the league year, in millions of
+dollars</td>
+</tr>
+<tr class="odd">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mi>u</mi><mi>a</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>s</mi></msub><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>P</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><msup><mi>r</mi><mo>′</mo></msup><mi>s</mi><mi>s</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>s</mi><mi>g</mi><mi>u</mi><mi>a</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>s</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">guaranteed_salary     |numeric    |Portion of the league year's salary that is guaranteed, in millions of dollars                                                                                                                                                                   |
+|season_history</annotation></semantics></math>cap_number</td>
+<td align="left">numeric</td>
+<td align="left">Total salary cap charge for the league year, in
+millions of dollars</td>
+</tr>
+<tr class="even">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>a</mi><msub><mi>p</mi><mi>p</mi></msub><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>a</mi><msub><mi>p</mi><mi>n</mi></msub><mi>u</mi><mi>m</mi><mi>b</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>s</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><msup><mi>r</mi><mo>′</mo></msup><mi>s</mi><mi>s</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>y</mi><mi>c</mi><mi>a</mi><mi>p</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>s</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">cap_percent           |numeric    |cap_number as a share of that league year's salary cap                                                                                                                                                                                           |
+|season_history</annotation></semantics></math>cash_paid</td>
+<td align="left">numeric</td>
+<td align="left">Cash paid to the player in the league year, in millions
+of dollars</td>
+</tr>
+<tr class="odd">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>o</mi><mi>r</mi><mi>k</mi><mi>o</mi><mi>u</mi><msub><mi>t</mi><mi>b</mi></msub><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>W</mi><mi>o</mi><mi>r</mi><mi>k</mi><mi>o</mi><mi>u</mi><mi>t</mi><mi>b</mi><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mi>A</mi><mi>w</mi><mi>h</mi><mi>e</mi><mi>n</mi><mi>n</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>s</mi><mi>e</mi><mi>a</mi><mi>s</mi><mi>o</mi><msub><mi>n</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">workout_bonus         |numeric    |Workout bonus for the league year, in millions of dollars (NA when not applicable)                                                                                                                                                               |
+|season_history</annotation></semantics></math>per_game_roster_bonus</td>
+<td align="left">numeric</td>
+<td align="left">Per-game roster bonus for the league year, in millions
+of dollars (NA when not applicable)</td>
+</tr>
+<tr class="even">
+<td align="left">season_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><msub><mi>r</mi><mi>b</mi></msub><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>A</mi><mi>n</mi><mi>y</mi><mi>o</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>r</mi><mi>b</mi><mi>o</mi><mi>n</mi><mi>u</mi><mi>s</mi><mi>f</mi><mi>o</mi><mi>r</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>l</mi><mi>e</mi><mi>a</mi><mi>g</mi><mi>u</mi><mi>e</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>N</mi><mi>A</mi><mi>w</mi><mi>h</mi><mi>e</mi><mi>n</mi><mi>n</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>p</mi><mi>p</mi><mi>l</mi><mi>i</mi><mi>c</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi><mo stretchy="false" form="prefix">|</mo><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mi>.</mi><mi>f</mi><mi>r</mi><mi>a</mi><mi>m</mi><mi>e</mi><mo stretchy="false" form="prefix">|</mo><mi>N</mi><mi>e</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mi>f</mi><mi>r</mi><mi>a</mi><mi>m</mi><mi>e</mi><mi>w</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>r</mi><mi>o</mi><mi>w</mi><mi>p</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>n</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>p</mi><mi>l</mi><mi>a</mi><mi>y</mi><mi>e</mi><msup><mi>r</mi><mo>′</mo></msup><mi>s</mi><mi>O</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>T</mi><mi>h</mi><mi>e</mi><mi>C</mi><mi>a</mi><mi>p</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>d</mi><mi>r</mi><mi>a</mi><mi>f</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>d</mi><mi>e</mi><mi>a</mi><mi>l</mi><mi>s</mi><mo>,</mo><mi>e</mi><mi>x</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mo>,</mo><mi>f</mi><mi>r</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>h</mi><mi>i</mi><mi>s</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>g</mi><mi>s</mi><mo>,</mo><mi>e</mi><mi>t</mi><mi>c</mi><mi>.</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi><mi>I</mi><mi>t</mi><mi>s</mi><mi>c</mi><mi>o</mi><mi>l</mi><mi>u</mi><mi>m</mi><mi>n</mi><mi>s</mi><mi>a</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>o</mi><mi>c</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>d</mi><mi>b</mi><mi>e</mi><mi>l</mi><mi>o</mi><mi>w</mi><mi>w</mi><mi>i</mi><mi>t</mi><mi>h</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">other_bonus           |numeric    |Any other bonus for the league year, in millions of dollars (NA when not applicable)                                                                                                                                                             |
+|contract_history                     |data.frame |Nested data frame with one row per contract in the player's OverTheCap contract history (drafted deals, extensions, franchise tags, etc.). Its columns are documented below with the contract_history</annotation></semantics></math>
+prefix</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">contract_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>e</mi><mi>a</mi><mi>m</mi><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>h</mi><mi>a</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>e</mi><mi>r</mi><mo stretchy="false" form="prefix">|</mo><mi>T</mi><mi>e</mi><mi>a</mi><mi>m</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">team                |character  |Team on that contract                                                                                                                                                                                                                            |
+|contract_history</annotation></semantics></math>contract_type</td>
+<td align="left">character</td>
+<td align="left">How the contract was acquired, e.g. “Drafted”,
+“Extension”, “UFA”, “RFA”, “ERFA”, “Franchise”, “Transition”, “UDFA”,
+“SFA”, “Practice”, “Other”</td>
+</tr>
+<tr class="even">
+<td align="left">contract_history<span class="math inline">$status              |character  |Status of that
+contract, e.g. "Active", "Expired", "Extended", "Terminated", "Traded",
+"Retired", "Renegotiated", "Claimed", "Elevated", "Reserve", "Inactive",
+"June 1 Terminated",
+"Deceased"                                                  |
+|contract_history$</span>year_signed</td>
+<td align="left">numeric</td>
+<td align="left">Year that contract was signed</td>
+</tr>
+<tr class="odd">
+<td align="left">contract_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>L</mi><mi>e</mi><mi>n</mi><mi>g</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>n</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">yrs                 |numeric    |Length of that contract in years                                                                                                                                                                                                                 |
+|contract_history</annotation></semantics></math>total</td>
+<td align="left">numeric</td>
+<td align="left">Total value of that contract, in millions of
+dollars</td>
+</tr>
+<tr class="even">
+<td align="left">contract_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>p</mi><mi>y</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>A</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>m</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>y</mi><mi>p</mi><mi>e</mi><mi>r</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">apy                 |numeric    |Average money per year of that contract, in millions of dollars                                                                                                                                                                                  |
+|contract_history</annotation></semantics></math>guarantees</td>
+<td align="left">numeric</td>
+<td align="left">Total guaranteed money on that contract, in millions of
+dollars</td>
+</tr>
+<tr class="odd">
+<td align="left">contract_history<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>m</mi><mi>o</mi><mi>u</mi><mi>n</mi><msub><mi>t</mi><mi>e</mi></msub><mi>a</mi><mi>r</mi><mi>n</mi><mi>e</mi><mi>d</mi><mo stretchy="false" form="prefix">|</mo><mi>n</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>c</mi><mo stretchy="false" form="prefix">|</mo><mi>M</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>y</mi><mi>t</mi><mi>h</mi><mi>e</mi><mi>p</mi><mi>l</mi><mi>a</mi><mi>y</mi><mi>e</mi><mi>r</mi><mi>h</mi><mi>a</mi><mi>s</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mi>l</mi><mi>y</mi><mi>e</mi><mi>a</mi><mi>r</mi><mi>n</mi><mi>e</mi><mi>d</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>h</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><mi>t</mi><mi>t</mi><mi>o</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>e</mi><mo>,</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>s</mi><mi>o</mi><mi>f</mi><mi>d</mi><mi>o</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi>r</mi><mi>s</mi><mo stretchy="false" form="prefix">|</mo><mo stretchy="false" form="prefix">|</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>c</mi><msub><mi>t</mi><mi>h</mi></msub><mi>i</mi><mi>s</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">amount_earned       |numeric    |Money the player has actually earned on that contract to date, in millions of dollars                                                                                                                                                            |
+|contract_history</annotation></semantics></math>percent_earned</td>
+<td align="left">numeric</td>
+<td align="left">Share of the contract’s total value that has been
+earned to date</td>
+</tr>
+<tr class="even">
+<td align="left">contract_history$effective_apy</td>
+<td align="left">numeric</td>
+<td align="left">Average money per year of that contract once actual
+earnings are accounted for, in millions of dollars</td>
 </tr>
 </tbody>
 </table></main>

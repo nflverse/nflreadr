@@ -4,16 +4,49 @@
 |:---|:---|:---|
 | player | character | Player name |
 | position | character | Player’s position |
-| team | character | Player’s team |
-| is_active | logical | Active contract |
+| team | character | Player’s team, as abbreviated by OverTheCap. May list multiple teams separated by “/” when the contract spanned more than one team |
+| is_active | logical | Whether this is the player’s currently active contract |
 | year_signed | numeric | Year the contract was signed |
-| years | numeric | Contract length |
-| value | numeric | Total contract value |
-| apy | numeric | Average money per contract year |
-| guaranteed | numeric | Total guaranteed money |
+| years | numeric | Contract length in years |
+| value | numeric | Total contract value in millions of dollars |
+| apy | numeric | Average money per contract year in millions of dollars |
+| guaranteed | numeric | Total guaranteed money in millions of dollars |
 | apy_cap_pct | numeric | Average money per contract year as percentage of the team’s salary cap at signing |
-| inflated_value | numeric | Total contract value inflated to account for the rise of the salary cap |
-| inflated_apy | numeric | Average money per contract year inflated to account for the rise of the salary cap |
-| inflated_guaranteed | numeric | Total guaranteed money inflated to account for the rise of the salary cap |
+| inflated_value | numeric | Total contract value inflated to account for the rise of the salary cap in millions of dollars |
+| inflated_apy | numeric | Average money per contract year inflated to account for the rise of the salary cap in millions of dollars |
+| inflated_guaranteed | numeric | Total guaranteed money inflated to account for the rise of the salary cap in millions of dollars |
 | player_page | character | Player’s OverTheCap url |
 | otc_id | numeric | Player’s OverTheCap ID |
+| gsis_id | character | Player’s NFL GSIS ID, used to join to other nflverse data |
+| height | character | Player height, formatted as feet’inches” |
+| weight | character | Player weight in pounds |
+| college | character | Player’s college |
+| draft_year | numeric | Year the player was drafted |
+| draft_round | numeric | Round in which the player was drafted |
+| draft_overall | numeric | Overall pick number at which the player was drafted |
+| draft_team | character | Team that drafted the player |
+| date_of_birth | character | Player’s date of birth, formatted as “Month DD, YYYY” |
+| season_history | data.frame | Nested data frame with one row per league year covered by the contract, breaking cap and cash figures down by year. Its columns are documented below with the season_history\$ prefix. A final row labelled “Total” carries contract-level totals |
+| season_history\$year \|character \|League year for the row. The final row is labelled "Total" and holds contract totals rather than a single year \| \|season_history\$team | character | Team for that league year (“Total” on the totals row) |
+| season_history$`base_salary           |numeric    |Base salary for the league year, in millions of dollars                                                                                                                                                                                          |
+|season_history`$prorated_bonus | numeric | Prorated signing bonus charged to the salary cap that league year, in millions of dollars |
+| season_history$`option_bonus          |numeric    |Prorated option bonus charged to the salary cap that league year, in millions of dollars                                                                                                                                                         |
+|season_history`$roster_bonus | numeric | Roster bonus for the league year, in millions of dollars |
+| season_history$`guaranteed_salary     |numeric    |Portion of the league year's salary that is guaranteed, in millions of dollars                                                                                                                                                                   |
+|season_history`$cap_number | numeric | Total salary cap charge for the league year, in millions of dollars |
+| season_history$`cap_percent           |numeric    |cap_number as a share of that league year's salary cap                                                                                                                                                                                           |
+|season_history`$cash_paid | numeric | Cash paid to the player in the league year, in millions of dollars |
+| season_history$`workout_bonus         |numeric    |Workout bonus for the league year, in millions of dollars (NA when not applicable)                                                                                                                                                               |
+|season_history`$per_game_roster_bonus | numeric | Per-game roster bonus for the league year, in millions of dollars (NA when not applicable) |
+| season_history$`other_bonus           |numeric    |Any other bonus for the league year, in millions of dollars (NA when not applicable)                                                                                                                                                             |
+|contract_history                     |data.frame |Nested data frame with one row per contract in the player's OverTheCap contract history (drafted deals, extensions, franchise tags, etc.). Its columns are documented below with the contract_history`$ prefix |  |  |
+| contract_history$`team                |character  |Team on that contract                                                                                                                                                                                                                            |
+|contract_history`$contract_type | character | How the contract was acquired, e.g. “Drafted”, “Extension”, “UFA”, “RFA”, “ERFA”, “Franchise”, “Transition”, “UDFA”, “SFA”, “Practice”, “Other” |
+| contract_history\$status \|character \|Status of that contract, e.g. "Active", "Expired", "Extended", "Terminated", "Traded", "Retired", "Renegotiated", "Claimed", "Elevated", "Reserve", "Inactive", "June 1 Terminated", "Deceased" \| \|contract_history\$year_signed | numeric | Year that contract was signed |
+| contract_history$`yrs                 |numeric    |Length of that contract in years                                                                                                                                                                                                                 |
+|contract_history`$total | numeric | Total value of that contract, in millions of dollars |
+| contract_history$`apy                 |numeric    |Average money per year of that contract, in millions of dollars                                                                                                                                                                                  |
+|contract_history`$guarantees | numeric | Total guaranteed money on that contract, in millions of dollars |
+| contract_history$`amount_earned       |numeric    |Money the player has actually earned on that contract to date, in millions of dollars                                                                                                                                                            |
+|contract_history`$percent_earned | numeric | Share of the contract’s total value that has been earned to date |
+| contract_history\$effective_apy | numeric | Average money per year of that contract once actual earnings are accounted for, in millions of dollars |

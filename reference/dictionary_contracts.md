@@ -11,7 +11,7 @@ dictionary_contracts
 
 ## Format
 
-An object of class `data.frame` with 15 rows and 3 columns.
+An object of class `data.frame` with 50 rows and 3 columns.
 
 ## See also
 
