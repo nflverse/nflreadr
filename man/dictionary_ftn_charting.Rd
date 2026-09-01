@@ -5,7 +5,7 @@
 \alias{dictionary_ftn_charting}
 \title{Data Dictionary: FTN Charting Data}
 \format{
-An object of class \code{data.frame} with 28 rows and 5 columns.
+An object of class \code{data.frame} with 29 rows and 5 columns.
 }
 \usage{
 dictionary_ftn_charting
