@@ -61,7 +61,7 @@ FTN Data
   load_ftn_charting()
   })
 #> ── nflverse FTN Charting Data - please attribute to 'ftndata.com via nflverse' ─
-#> ℹ Data updated: 2026-02-10 13:07:57 UTC
+#> ℹ Data updated: 2026-09-01 03:30:12 UTC
 #> # A tibble: 47,316 × 29
 #>    ftn_game_id nflverse_game_id season  week ftn_play_id nflverse_play_id
 #>  *       <int> <chr>             <int> <int>       <int>            <int>

@@ -52,7 +52,7 @@ try({ # prevents cran errors
   load_pbp(2019:2020)
 })
 #> ── nflverse play by play data ──────────────────────────────────────────────────
-#> ℹ Data updated: 2025-04-30 08:01:16 UTC
+#> ℹ Data updated: 2026-08-26 07:33:00 UTC
 #> # A tibble: 94,965 × 372
 #>    play_id game_id     old_game_id home_team away_team season_type  week posteam
 #>      <dbl> <chr>       <chr>       <chr>     <chr>     <chr>       <int> <chr>  
@@ -71,7 +71,7 @@ try({ # prevents cran errors
 #> #   yardline_100 <dbl>, game_date <chr>, quarter_seconds_remaining <dbl>,
 #> #   half_seconds_remaining <dbl>, game_seconds_remaining <dbl>,
 #> #   game_half <chr>, quarter_end <dbl>, drive <dbl>, sp <dbl>, qtr <dbl>,
-#> #   down <dbl>, goal_to_go <int>, time <chr>, yrdln <chr>, ydstogo <dbl>,
+#> #   down <dbl>, goal_to_go <dbl>, time <chr>, yrdln <chr>, ydstogo <dbl>,
 #> #   ydsnet <dbl>, desc <chr>, play_type <chr>, yards_gained <dbl>, …
 # }
 ```

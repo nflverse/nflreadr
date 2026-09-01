@@ -74,21 +74,21 @@ try({ # prevents cran errors
   load_players()
 })
 #> ── nflverse nflverse Players Data ──────────────────────────────────────────────
-#> ℹ Data updated: 2026-08-05 10:43:55 UTC
-#> # A tibble: 25,037 × 39
+#> ℹ Data updated: 2026-08-31 15:45:42 UTC
+#> # A tibble: 25,064 × 39
 #>    gsis_id    display_name     common_first_name first_name last_name short_name
 #>    <chr>      <chr>            <chr>             <chr>      <chr>     <chr>     
 #>  1 00-0028830 Isaako Aaitui    Isaako            Isaako     Aaitui    NA        
 #>  2 00-0038389 Israel Abanikan… Israel            Israel     Abanikan… I.Abanika…
 #>  3 00-0024644 Jon Abbate       Jon               Jon        Abbate    NA        
 #>  4 ABB498348  Vince Abbott     Vince             Vincent    Abbott    NA        
-#>  5 00-0031021 Jared Abbrederis Jared             Jared      Abbreder… J.Abbrede…
-#>  6 00-0032860 Mehdi Abdesmad   Mehdi             Mehdi      Abdesmad  M.Abdesmad
+#>  5 00-0031021 Jared Abbrederis Jared             Jared      Abbreder… NA        
+#>  6 00-0032860 Mehdi Abdesmad   Mehdi             Mehdi      Abdesmad  NA        
 #>  7 00-0028564 Isa Abdul-Quddus Isa               Isa        Abdul-Qu… NA        
 #>  8 00-0032104 Ameer Abdullah   Ameer             Ameer      Abdullah  A.Abdullah
 #>  9 00-0023663 Hamza Abdullah   Hamza             Hamza      Abdullah  NA        
 #> 10 00-0025940 Husain Abdullah  Husain            Husain     Abdullah  NA        
-#> # ℹ 25,027 more rows
+#> # ℹ 25,054 more rows
 #> # ℹ 33 more variables: football_name <chr>, suffix <chr>, esb_id <chr>,
 #> #   nfl_id <chr>, pfr_id <chr>, pff_id <chr>, otc_id <chr>, espn_id <chr>,
 #> #   smart_id <chr>, birth_date <chr>, position_group <chr>, position <chr>,

@@ -11,7 +11,7 @@ dictionary_ftn_charting
 
 ## Format
 
-An object of class `data.frame` with 28 rows and 5 columns.
+An object of class `data.frame` with 29 rows and 5 columns.
 
 ## See also
 

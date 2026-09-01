@@ -38,7 +38,7 @@ try({ # prevents cran errors
  load_schedules(2020)
 })
 #> ── nflverse games and schedules ────────────────────────────────────────────────
-#> ℹ Data updated: 2026-08-05 18:34:51 UTC
+#> ℹ Data updated: 2026-09-01 05:15:05 UTC
 #> # A tibble: 269 × 46
 #>    game_id  season game_type  week gameday weekday gametime away_team away_score
 #>    <chr>     <int> <chr>     <int> <chr>   <chr>   <chr>    <chr>          <int>

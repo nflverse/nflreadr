@@ -60,8 +60,8 @@ try({
   load_player_stats()
 })
 #> ── nflverse player stats: week level ───────────────────────────────────────────
-#> ℹ Data updated: 2026-07-10 06:51:50 UTC
-#> # A tibble: 19,421 × 145
+#> ℹ Data updated: 2026-08-13 16:51:20 UTC
+#> # A tibble: 19,422 × 150
 #>    player_id  player_name player_display_name position position_group
 #>    <chr>      <chr>       <chr>               <chr>    <chr>         
 #>  1 00-0023459 A.Rodgers   Aaron Rodgers       QB       QB            
@@ -74,8 +74,8 @@ try({
 #>  8 00-0027114 T.Morstead  Thomas Morstead     P        SPEC          
 #>  9 00-0027857 T.Williams  Trent Williams      OT       OL            
 #> 10 00-0027940 V.Miller    Von Miller          OLB      LB            
-#> # ℹ 19,411 more rows
-#> # ℹ 140 more variables: headshot_url <chr>, season <int>, week <int>,
+#> # ℹ 19,412 more rows
+#> # ℹ 145 more variables: headshot_url <chr>, season <int>, week <int>,
 #> #   season_type <chr>, game_id <chr>, team <chr>, opponent_team <chr>,
 #> #   completions <int>, attempts <int>, passing_yards <int>, passing_tds <int>,
 #> #   passing_interceptions <int>, sacks_suffered <int>, sack_yards_lost <int>,
