@@ -33,7 +33,7 @@ load_injuries <- function(
   stopifnot(
     is.numeric(seasons),
     seasons >= 2009,
-    seasons <= most_recent_season()
+    seasons <= most_recent_season(roster = TRUE)
   )
 
   urls <- glue::glue(
