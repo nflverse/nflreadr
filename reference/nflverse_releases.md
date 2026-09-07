@@ -31,20 +31,20 @@ try( # avoids cran failures, can skip in normal usage
 nflverse_releases()
 )
 #> ── nflverse release listing ────────────────────────────────────────────────────
-#> ℹ Data updated: 2026-09-01 05:27:04 UTC
+#> ℹ Data updated: 2026-09-07 17:12:03 UTC
 #> # A tibble: 25 × 8
 #>    release_name   release_description timestamp   rds parquet   csv csv_gz   zip
 #>    <chr>          <chr>               <chr>     <int>   <int> <int>  <int> <int>
 #>  1 schedules      "NFL game/schedule… 2026-09-…     1       1     1      1     0
-#>  2 pfr_advstats   "PFR Adv Stats dat… 2026-08-…    68      36    36     12     0
-#>  3 ftn_charting   "Charting data pro… 2026-08-…     4       4     4      0     0
-#>  4 players        "Player informatio… 2026-08-…     1       1     1      1     0
-#>  5 contracts      "OverTheCap contra… 2026-08-…     2       1     0      1     0
-#>  6 players_compo… "Component files f… 2026-08-…     2       2     2      2     0
-#>  7 depth_charts   "Depth chart data,… 2026-08-…    26      26    26      3     0
-#>  8 rosters        "Roster data, acce… 2026-08-…   107     107   107      4     0
-#>  9 weekly_rosters "Week-level roster… 2026-08-…    25      25    25      3     0
-#> 10 stats_team     "Team stats in dif… 2026-08-…   108     108   108    108     0
+#>  2 espn_data      "ESPN Stats"        2026-09-…     2       2     2      2     0
+#>  3 players        "Player informatio… 2026-09-…     1       1     1      1     0
+#>  4 contracts      "OverTheCap contra… 2026-09-…     2       1     0      1     0
+#>  5 players_compo… "Component files f… 2026-09-…     2       2     2      2     0
+#>  6 depth_charts   "Depth chart data,… 2026-09-…    26      26    26      3     0
+#>  7 rosters        "Roster data, acce… 2026-09-…   107     107   107      4     0
+#>  8 weekly_rosters "Week-level roster… 2026-09-…    25      25    25      3     0
+#>  9 nextgen_stats  "NFL Next Gen Stat… 2026-09-…    30       3     0     30     0
+#> 10 injuries       "Injuries data, ac… 2026-09-…    18      18    18      4     0
 #> # ℹ 15 more rows
 # }
 ```

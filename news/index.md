@@ -13,6 +13,10 @@
   [`load_ftn_charting()`](https://nflreadr.nflverse.com/reference/load_ftn_charting.md)
   data dictionary.
   ([\#216](https://github.com/nflverse/nflreadr/issues/216))
+- [`load_injuries()`](https://nflreadr.nflverse.com/reference/load_injuries.md)
+  no longer rejects an upcoming season during the practice week before
+  the season opener.
+  ([\#320](https://github.com/nflverse/nflreadr/issues/320))
 
 ## nflreadr 1.5.1
 
