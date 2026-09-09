@@ -2,6 +2,7 @@
 
 - `clean_team_abbrs` now converts `"AZ"` to `"ARI"`. (#312)
 - Refreshed the `load_contracts()` data dictionary to cover the current columns, including the nested `season_history` and `contract_history` data frames.
+- `load_contracts()` now fills missing draft fields from `load_players()` when the contracts data has a matching OTC player ID. (#316)
 - Added the missing `n_defense_box` column and expanded the `read_thrown` value definitions in the `load_ftn_charting()` data dictionary. (#216)
 - `load_injuries()` no longer rejects an upcoming season during the practice week before the season opener. (#320)
 
