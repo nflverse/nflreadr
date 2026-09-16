@@ -11,6 +11,10 @@ knitr::opts_chunk$set(
 
 `nflreadr` provides a wide range of NFL related data. This is powered by an extensive, automated data infrastructure. This article provides information on update and availability schedules, as this is a pressing question for many nflverse users, especially right before the start of a season. 
 
+## Important 2026 Note
+
+We are currently observing that scheduled GitHub Action workflows are experiencing significant delays (i.e., they are running much later than scheduled) or are even failing to run at all. It is therefore possible that data will be updated or added much later than this article indicates. We are working on solutions, but for now we are entirely dependent on the reliability of GitHub Actions.
+
 ## Automation Status
 
 The following table reports on the status and last update times of nflverse data pipelines.
@@ -137,4 +141,4 @@ Please note that the data source has changed after the 2024 season. From 2025 on
 
 ## Injury Data
 
-Our data source died after the 2024 season. **At the moment, there is no 2025 data** and there is no ETA yet as to when we will be able to make injury data available again.
+[Injury Data](https://nflreadr.nflverse.com/articles/dictionary_injuries.html) updates every day at 7AM UTC throughout the season. 
