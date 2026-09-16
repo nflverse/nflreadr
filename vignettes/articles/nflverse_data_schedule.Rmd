@@ -43,7 +43,7 @@ data_releases <- l |>
   dplyr::bind_rows(
     list(
       Data = "pbp_raw",
-      `Last Updated` = "[![raw pbp data](https://img.shields.io/github/last-commit/nflverse/nflfastR-raw?label=Raw%20PBP%20Updated&style=flat-square)]()"
+      `Last Updated` = "[![raw pbp data](https://img.shields.io/github/last-commit/nflverse/nflverse-pbp-internal?label=Raw%20PBP%20Updated&style=flat-square)]()"
     )
   )
 
