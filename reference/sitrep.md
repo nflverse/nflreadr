@@ -67,7 +67,7 @@ ffverse_sitrep()
 .sitrep("cachem")
 })
 #> ── System Info ─────────────────────────────────────────────────────────────────
-#> • R version 4.6.1 (2026-06-24) • Running under: Ubuntu 24.04.4 LTS
+#> • R version 4.6.1 (2026-06-24) • Running under: Ubuntu 24.04.5 LTS
 #> ── Package Status ──────────────────────────────────────────────────────────────
 #>   package installed  cran  dev behind
 #> 1  cachem     1.1.0 1.1.0 <NA>       

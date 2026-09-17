@@ -61,21 +61,21 @@ FTN Data
   load_ftn_charting()
   })
 #> ── nflverse FTN Charting Data - please attribute to 'ftndata.com via nflverse' ─
-#> ℹ Data updated: 2026-09-01 03:30:12 UTC
-#> # A tibble: 47,316 × 29
+#> ℹ Data updated: 2026-09-16 20:51:53 UTC
+#> # A tibble: 2,675 × 29
 #>    ftn_game_id nflverse_game_id season  week ftn_play_id nflverse_play_id
 #>  *       <int> <chr>             <int> <int>       <int>            <int>
-#>  1        6734 2025_01_DAL_PHI    2025     1     1106026               40
-#>  2        6734 2025_01_DAL_PHI    2025     1     1106027               71
-#>  3        6734 2025_01_DAL_PHI    2025     1     1106028              112
-#>  4        6734 2025_01_DAL_PHI    2025     1     1106029              141
-#>  5        6734 2025_01_DAL_PHI    2025     1     1106030              166
-#>  6        6734 2025_01_DAL_PHI    2025     1     1106031              188
-#>  7        6734 2025_01_DAL_PHI    2025     1     1106032              213
-#>  8        6734 2025_01_DAL_PHI    2025     1     1106033              247
-#>  9        6734 2025_01_DAL_PHI    2025     1     1106034              270
-#> 10        6734 2025_01_DAL_PHI    2025     1     1106035              285
-#> # ℹ 47,306 more rows
+#>  1        7019 2026_01_NE_SEA     2026     1     1153342               41
+#>  2        7019 2026_01_NE_SEA     2026     1     1153343               64
+#>  3        7019 2026_01_NE_SEA     2026     1     1153344               86
+#>  4        7019 2026_01_NE_SEA     2026     1     1153345              111
+#>  5        7019 2026_01_NE_SEA     2026     1     1153346              135
+#>  6        7019 2026_01_NE_SEA     2026     1     1153347              157
+#>  7        7019 2026_01_NE_SEA     2026     1     1153348              180
+#>  8        7019 2026_01_NE_SEA     2026     1     1153349              200
+#>  9        7019 2026_01_NE_SEA     2026     1     1153350              227
+#> 10        7019 2026_01_NE_SEA     2026     1     1153351              249
+#> # ℹ 2,665 more rows
 #> # ℹ 23 more variables: starting_hash <chr>, qb_location <chr>,
 #> #   n_offense_backfield <int>, n_defense_box <int>, is_no_huddle <lgl>,
 #> #   is_motion <lgl>, is_play_action <lgl>, is_screen_pass <lgl>, is_rpo <lgl>,

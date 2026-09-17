@@ -38,21 +38,21 @@ try({ # prevents cran errors
 load_ff_rankings()
 })
 #> ── nflverse FP expert rankings ─────────────────────────────────────────────────
-#> ℹ Data updated: 2026-09-07 17:11:24 UTC
-#> # A tibble: 5,850 × 25
+#> ℹ Data updated: 2026-09-17 12:46:42 UTC
+#> # A tibble: 4,925 × 25
 #>    fp_page   page_type ecr_type player id    pos   team    ecr    sd  best worst
 #>    <chr>     <chr>     <chr>    <chr>  <chr> <chr> <chr> <dbl> <dbl> <dbl> <dbl>
-#>  1 /nfl/ran… best-dst  bp       Houst… 8120  DST   HOU    1     0        1     1
-#>  2 /nfl/ran… best-dst  bp       Denve… 8090  DST   DEN    2     0        2     2
-#>  3 /nfl/ran… best-dst  bp       Seatt… 8260  DST   SEA    3     0        3     3
-#>  4 /nfl/ran… best-dst  bp       Los A… 8280  DST   LAR    4     0        4     4
-#>  5 /nfl/ran… best-dst  bp       Phila… 8230  DST   PHI    5.38  0.99     5     8
-#>  6 /nfl/ran… best-dst  bp       Minne… 8170  DST   MIN    6     0        6     6
-#>  7 /nfl/ran… best-dst  bp       New E… 8180  DST   NE     7.38  0.7      7     9
-#>  8 /nfl/ran… best-dst  bp       Jacks… 8140  DST   JAC    8.38  0.99     8    11
-#>  9 /nfl/ran… best-dst  bp       Los A… 8250  DST   LAC    9.13  0.33     9    10
-#> 10 /nfl/ran… best-dst  bp       Green… 8110  DST   GB    10.5   1.32    10    14
-#> # ℹ 5,840 more rows
+#>  1 /nfl/ran… dynasty-… dp       Kyle … 23494 DB    BAL     2     1       1     3
+#>  2 /nfl/ran… dynasty-… dp       Nick … 27053 DB    SEA     2     0       2     2
+#>  3 /nfl/ran… dynasty-… dp       Derwi… 17310 DB    LAC     4.5   0.5     4     5
+#>  4 /nfl/ran… dynasty-… dp       Nick … 24198 DB    WAS     5.5   4.5     1    10
+#>  5 /nfl/ran… dynasty-… dp       Kam C… 19459 DB    LAR     7     4       3    11
+#>  6 /nfl/ran… dynasty-… dp       Tykee… 23751 DB    TB      9.5   1.5     8    11
+#>  7 /nfl/ran… dynasty-… dp       Jessi… 17544 DB    ATL    10.5   3.5     7    14
+#>  8 /nfl/ran… dynasty-… dp       Budda… 16733 DB    ARI    11     6       5    17
+#>  9 /nfl/ran… dynasty-… dp       Antoi… 19266 DB    TB     11.5   5.5     6    17
+#> 10 /nfl/ran… dynasty-… dp       Talan… 22817 DB    DEN    13     0      13    13
+#> # ℹ 4,915 more rows
 #> # ℹ 14 more variables: sportsdata_id <chr>, player_filename <chr>,
 #> #   yahoo_id <chr>, cbs_id <chr>, player_owned_avg <dbl>,
 #> #   player_owned_espn <dbl>, player_owned_yahoo <dbl>, player_image_url <chr>,

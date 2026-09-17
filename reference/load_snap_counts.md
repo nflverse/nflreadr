@@ -47,21 +47,21 @@ Issues with this data should be filed here:
   load_snap_counts()
   })
 #> ── nflverse snap counts ────────────────────────────────────────────────────────
-#> ℹ Data updated: 2026-02-09 13:39:47 UTC
-#> # A tibble: 26,612 × 16
+#> ℹ Data updated: 2026-09-15 11:25:13 UTC
+#> # A tibble: 1,492 × 16
 #>    game_id      pfr_game_id season game_type  week player pfr_player_id position
 #>    <chr>        <chr>        <int> <chr>     <int> <chr>  <chr>         <chr>   
-#>  1 2025_01_ARI… 202509070n…   2025 REG           1 Kelvi… BankKe01      T       
-#>  2 2025_01_ARI… 202509070n…   2025 REG           1 Cesar… RuizCe00      C       
-#>  3 2025_01_ARI… 202509070n…   2025 REG           1 Dillo… RaduDi00      OL      
-#>  4 2025_01_ARI… 202509070n…   2025 REG           1 Erik … McCoEr01      C       
-#>  5 2025_01_ARI… 202509070n…   2025 REG           1 Spenc… RattSp00      QB      
-#>  6 2025_01_ARI… 202509070n…   2025 REG           1 Juwan… JohnJu02      TE      
-#>  7 2025_01_ARI… 202509070n…   2025 REG           1 Rashi… ShahRa00      WR      
-#>  8 2025_01_ARI… 202509070n…   2025 REG           1 Chris… OlavCh00      WR      
-#>  9 2025_01_ARI… 202509070n…   2025 REG           1 Alvin… KamaAl00      RB      
-#> 10 2025_01_ARI… 202509070n…   2025 REG           1 Brand… CookBr00      WR      
-#> # ℹ 26,602 more rows
+#>  1 2026_01_ARI… 202609130s…   2026 REG           1 Cole … StraCo01      G       
+#>  2 2026_01_ARI… 202609130s…   2026 REG           1 Joe A… AltxJo01      T       
+#>  3 2026_01_ARI… 202609130s…   2026 REG           1 Rasha… SlatRa00      T       
+#>  4 2026_01_ARI… 202609130s…   2026 REG           1 Jake … SlauJa02      OL      
+#>  5 2026_01_ARI… 202609130s…   2026 REG           1 Justi… HerbJu00      QB      
+#>  6 2026_01_ARI… 202609130s…   2026 REG           1 Quent… JohnQu02      WR      
+#>  7 2026_01_ARI… 202609130s…   2026 REG           1 Tre H… HarrTr03      WR      
+#>  8 2026_01_ARI… 202609130s…   2026 REG           1 Kayod… AwosKa00      G       
+#>  9 2026_01_ARI… 202609130s…   2026 REG           1 Omari… HampOm00      RB      
+#> 10 2026_01_ARI… 202609130s…   2026 REG           1 Charl… KolaCh00      TE      
+#> # ℹ 1,482 more rows
 #> # ℹ 8 more variables: team <chr>, opponent <chr>, offense_snaps <dbl>,
 #> #   offense_pct <dbl>, defense_snaps <dbl>, defense_pct <dbl>, st_snaps <dbl>,
 #> #   st_pct <dbl>

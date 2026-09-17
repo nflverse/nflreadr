@@ -59,21 +59,21 @@ try({ # prevents cran errors
   load_pfr_advstats()
 })
 #> ── nflverse advanced pass weekly stats via PFR ─────────────────────────────────
-#> ℹ Data updated: 2026-02-11 13:24:07 UTC
-#> # A tibble: 684 × 24
+#> ℹ Data updated: 2026-09-17 11:02:11 UTC
+#> # A tibble: 37 × 24
 #>    game_id     pfr_game_id season  week game_type team  opponent pfr_player_name
 #>    <chr>       <chr>        <int> <int> <chr>     <chr> <chr>    <chr>          
-#>  1 2025_01_DA… 202509040p…   2025     1 REG       PHI   DAL      Jalen Hurts    
-#>  2 2025_01_DA… 202509040p…   2025     1 REG       DAL   PHI      Dak Prescott   
-#>  3 2025_01_KC… 202509050s…   2025     1 REG       LAC   KC       Justin Herbert 
-#>  4 2025_01_KC… 202509050s…   2025     1 REG       KC    LAC      Patrick Mahomes
-#>  5 2025_01_TB… 202509070a…   2025     1 REG       ATL   TB       Michael Penix  
-#>  6 2025_01_TB… 202509070a…   2025     1 REG       TB    ATL      Baker Mayfield 
-#>  7 2025_01_CI… 202509070c…   2025     1 REG       CLE   CIN      Joe Flacco     
-#>  8 2025_01_CI… 202509070c…   2025     1 REG       CIN   CLE      Joe Burrow     
-#>  9 2025_01_MI… 202509070c…   2025     1 REG       IND   MIA      Daniel Jones   
-#> 10 2025_01_MI… 202509070c…   2025     1 REG       MIA   IND      Tua Tagovailoa 
-#> # ℹ 674 more rows
+#>  1 2026_01_NE… 202609090s…   2026     1 REG       SEA   NE       Drew Lock      
+#>  2 2026_01_NE… 202609090s…   2026     1 REG       SEA   NE       Sam Darnold    
+#>  3 2026_01_NE… 202609090s…   2026     1 REG       NE    SEA      Drake Maye     
+#>  4 2026_01_SF… 202609100r…   2026     1 REG       LA    SF       Matthew Staffo…
+#>  5 2026_01_SF… 202609100r…   2026     1 REG       LA    SF       Stetson Bennett
+#>  6 2026_01_SF… 202609100r…   2026     1 REG       SF    LA       Brock Purdy    
+#>  7 2026_01_CH… 202609130c…   2026     1 REG       CAR   CHI      Bryce Young    
+#>  8 2026_01_CH… 202609130c…   2026     1 REG       CAR   CHI      Kenny Pickett  
+#>  9 2026_01_CH… 202609130c…   2026     1 REG       CHI   CAR      Caleb Williams 
+#> 10 2026_01_TB… 202609130c…   2026     1 REG       CIN   TB       Joe Burrow     
+#> # ℹ 27 more rows
 #> # ℹ 16 more variables: pfr_player_id <chr>, passing_drops <dbl>,
 #> #   passing_drop_pct <dbl>, receiving_drop <dbl>, receiving_drop_pct <dbl>,
 #> #   passing_bad_throws <dbl>, passing_bad_throw_pct <dbl>, times_sacked <dbl>,

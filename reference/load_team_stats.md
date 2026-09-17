@@ -55,21 +55,21 @@ try({
   load_team_stats()
 })
 #> ── nflverse team stats: week level ─────────────────────────────────────────────
-#> ℹ Data updated: 2026-08-13 16:51:22 UTC
-#> # A tibble: 570 × 138
+#> ℹ Data updated: 2026-09-17 09:04:18 UTC
+#> # A tibble: 32 × 138
 #>    season  week team  season_type game_id     opponent_team completions attempts
 #>     <int> <int> <chr> <chr>       <chr>       <chr>               <int>    <int>
-#>  1   2025     1 ARI   REG         2025_01_AR… NO                     21       29
-#>  2   2025     1 ATL   REG         2025_01_TB… TB                     27       42
-#>  3   2025     1 BAL   REG         2025_01_BA… BUF                    14       19
-#>  4   2025     1 BUF   REG         2025_01_BA… BAL                    33       46
-#>  5   2025     1 CAR   REG         2025_01_CA… JAX                    18       35
-#>  6   2025     1 CHI   REG         2025_01_MI… MIN                    21       35
-#>  7   2025     1 CIN   REG         2025_01_CI… CLE                    14       23
-#>  8   2025     1 CLE   REG         2025_01_CI… CIN                    31       45
-#>  9   2025     1 DAL   REG         2025_01_DA… PHI                    21       34
-#> 10   2025     1 DEN   REG         2025_01_TE… TEN                    25       40
-#> # ℹ 560 more rows
+#>  1   2026     1 ARI   REG         2026_01_AR… LAC                    27       37
+#>  2   2026     1 ATL   REG         2026_01_AT… PIT                    12       22
+#>  3   2026     1 BAL   REG         2026_01_BA… IND                    17       25
+#>  4   2026     1 BUF   REG         2026_01_BU… HOU                    20       29
+#>  5   2026     1 CAR   REG         2026_01_CH… CHI                    23       38
+#>  6   2026     1 CHI   REG         2026_01_CH… CAR                    21       29
+#>  7   2026     1 CIN   REG         2026_01_TB… TB                     25       35
+#>  8   2026     1 CLE   REG         2026_01_CL… JAX                    16       22
+#>  9   2026     1 DAL   REG         2026_01_DA… NYG                    22       34
+#> 10   2026     1 DEN   REG         2026_01_DE… KC                     17       28
+#> # ℹ 22 more rows
 #> # ℹ 130 more variables: passing_yards <int>, passing_tds <int>,
 #> #   passing_interceptions <int>, sacks_suffered <int>, sack_yards_lost <int>,
 #> #   sack_fumbles <int>, sack_fumbles_lost <int>, passing_air_yards <int>,

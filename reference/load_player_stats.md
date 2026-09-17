@@ -60,21 +60,21 @@ try({
   load_player_stats()
 })
 #> ── nflverse player stats: week level ───────────────────────────────────────────
-#> ℹ Data updated: 2026-08-13 16:51:20 UTC
-#> # A tibble: 19,422 × 150
+#> ℹ Data updated: 2026-09-17 09:04:15 UTC
+#> # A tibble: 1,118 × 150
 #>    player_id  player_name player_display_name position position_group
 #>    <chr>      <chr>       <chr>               <chr>    <chr>         
 #>  1 00-0023459 A.Rodgers   Aaron Rodgers       QB       QB            
-#>  2 00-0023853 M.Prater    Matt Prater         K        SPEC          
-#>  3 00-0025565 N.Folk      Nick Folk           K        SPEC          
-#>  4 00-0026158 J.Flacco    Joe Flacco          QB       QB            
-#>  5 00-0026190 C.Campbell  Calais Campbell     DE       DL            
-#>  6 00-0026498 M.Stafford  Matthew Stafford    QB       QB            
-#>  7 00-0026858 G.Gano      Graham Gano         K        SPEC          
-#>  8 00-0027114 T.Morstead  Thomas Morstead     P        SPEC          
-#>  9 00-0027857 T.Williams  Trent Williams      OT       OL            
-#> 10 00-0027940 V.Miller    Von Miller          OLB      LB            
-#> # ℹ 19,412 more rows
+#>  2 00-0025565 N.Folk      Nick Folk           K        SPEC          
+#>  3 00-0026190 C.Campbell  Calais Campbell     DE       DL            
+#>  4 00-0026498 M.Stafford  Matthew Stafford    QB       QB            
+#>  5 00-0027969 C.Heyward   Cameron Heyward     DE       DL            
+#>  6 00-0029604 K.Cousins   Kirk Cousins        QB       QB            
+#>  7 00-0029606 H.Smith     Harrison Smith      FS       DB            
+#>  8 00-0029607 D.Davis     Demario Davis       OLB      LB            
+#>  9 00-0029692 B.Anger     Bryan Anger         P        SPEC          
+#> 10 00-0029714 A.DePaola   Andrew DePaola      LS       SPEC          
+#> # ℹ 1,108 more rows
 #> # ℹ 145 more variables: headshot_url <chr>, season <int>, week <int>,
 #> #   season_type <chr>, game_id <chr>, team <chr>, opponent_team <chr>,
 #> #   completions <int>, attempts <int>, passing_yards <int>, passing_tds <int>,

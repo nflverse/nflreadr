@@ -64,8 +64,8 @@ try({ # prevents cran errors
   load_nextgen_stats(stat_type = "rushing")
 })
 #> ── nflverse Next Gen Stats weekly rushing data ─────────────────────────────────
-#> ℹ Data updated: 2026-09-07 13:09:33 UTC
-#> # A tibble: 6,059 × 22
+#> ℹ Data updated: 2026-09-17 12:20:03 UTC
+#> # A tibble: 6,127 × 22
 #>    season season_type  week player_display_name player_position team_abbr
 #>     <int> <chr>       <int> <chr>               <chr>           <chr>    
 #>  1   2016 REG             0 David Johnson       RB              ARI      
@@ -78,7 +78,7 @@ try({ # prevents cran errors
 #>  8   2016 REG             0 Tim Hightower       RB              NO       
 #>  9   2016 REG             0 Matt Asiata         RB              MIN      
 #> 10   2016 REG             0 Jay Ajayi           RB              MIA      
-#> # ℹ 6,049 more rows
+#> # ℹ 6,117 more rows
 #> # ℹ 16 more variables: efficiency <dbl>,
 #> #   percent_attempts_gte_eight_defenders <dbl>, avg_time_to_los <dbl>,
 #> #   rush_attempts <int>, rush_yards <int>, avg_rush_yards <dbl>,

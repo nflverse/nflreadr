@@ -13,7 +13,7 @@ nflverse data pipelines.
 
 | Data | Status | Last Updated |
 |:---|:---|:---|
-| pbp_raw | [![pbp_raw](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp-internal/release_raw_pbp.yaml?label=raw_pbp_status&style=flat-square)](https://nflreadr.nflverse.com/articles/) | [![raw pbp data](https://img.shields.io/github/last-commit/nflverse/nflfastR-raw?label=Raw%20PBP%20Updated&style=flat-square)](https://nflreadr.nflverse.com/articles/) |
+| pbp_raw | [![pbp_raw](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp-internal/release_raw_pbp.yaml?label=raw_pbp_status&style=flat-square)](https://nflreadr.nflverse.com/articles/) | [![raw pbp data](https://img.shields.io/github/last-commit/nflverse/nflverse-pbp-internal?label=Raw%20PBP%20Updated&style=flat-square)](https://nflreadr.nflverse.com/articles/) |
 | pbp | [![pbp and ps](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=pbp_status&style=flat-square)](https://nflreadr.nflverse.com/articles/) | [![pbp](https://img.shields.io/badge/dynamic/json?color=blue&label=load_pbp&query=last_updated&style=flat-square&url=https://github.com/nflverse/nflverse-data/releases/download/pbp/timestamp.json)](https://github.com/nflverse/nflverse-data/releases/tag/pbp) |
 | stats_player | [![pbp and stats](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=player_stats_status&style=flat-square)](https://nflreadr.nflverse.com/articles/) | [![stats_player](https://img.shields.io/badge/dynamic/json?color=blue&label=load_player_stats&query=last_updated&style=flat-square&url=https://github.com/nflverse/nflverse-data/releases/download/stats_player/timestamp.json)](https://github.com/nflverse/nflverse-data/releases/tag/stats_player) |
 | stats_team | [![pbp and stats](https://img.shields.io/github/actions/workflow/status/nflverse/nflverse-pbp/update_data.yaml?label=team_stats_status&style=flat-square)](https://nflreadr.nflverse.com/articles/) | [![stats_team](https://img.shields.io/badge/dynamic/json?color=blue&label=load_team_stats&query=last_updated&style=flat-square&url=https://github.com/nflverse/nflverse-data/releases/download/stats_team/timestamp.json)](https://github.com/nflverse/nflverse-data/releases/tag/stats_team) |
@@ -123,8 +123,8 @@ availability of new data depends on the update schedule of PFR.
 
 [PFR Advanced
 Stats](https://nflreadr.nflverse.com/reference/load_pfr_advstats.html)
-updates every day at 7AM UTC during the season. The actual availability
-of new data depends on the update schedule of PFR.
+updates every day at 0, 6, 12, 18 UTC during the season. The actual
+availability of new data depends on the update schedule of PFR.
 
 ## Depth Chart Data
 
@@ -140,6 +140,6 @@ data with a new timestamp.
 
 ## Injury Data
 
-Our data source died after the 2024 season. **At the moment, there is no
-2025 data** and there is no ETA yet as to when we will be able to make
-injury data available again.
+[Injury
+Data](https://nflreadr.nflverse.com/articles/dictionary_injuries.html)
+updates every day at 7AM UTC throughout the season.
